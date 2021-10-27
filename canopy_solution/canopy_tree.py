@@ -1,14 +1,15 @@
 from manim import *
 import networkx as nx
 from random import random
+from math import sqrt
 
-def tree_ball_nodes_edges(r):
+def treeball_nodes_edges(r):
     if r == 1:
         nodes = ['', 'a', 'b', 'c']
         edges = [('', 'a'), ('', 'b'), ('', 'c')]
         return nodes, edges
     else:
-        nodes, edges = rtb_ne(d,r-1)
+        nodes, edges = treeball_nodes_edges(r-1)
         maxlength = max([len(v) for v in nodes])
         outernodes = [v for v in nodes if len(v) == maxlength] 
 
@@ -17,19 +18,47 @@ def tree_ball_nodes_edges(r):
 
         return nodes + newnodes, edges + newedges
 
+def treeball_nodes_edges_next_layer(previous_layer):
+    newnodes = [v + x for v in previous_layer for x in 'abc' if v[-1] != x]
+    newedges = [(v, v+x) for v in previous_layer for x in 'abc' if v[-1] != x]
+    return newnodes, newedges
+
 def treeball(r):
-    nodes, edges = rtb_ne(r)
+    nodes, edges = treeball_nodes_edges(r)
     nxgraph = nx.Graph()
     nxgraph.add_nodes_from(nodes)
     nxgraph.add_edges_from(edges)
     return Graph.from_networkx(nxgraph)
 
 
-# gives the positions for vertices in a nice representation of the canopy tree
+BRANCHING_DIRECTION = {
+        'a' : LEFT,
+        'b' : (1/2) * RIGHT + (sqrt(3)/2) * UP,
+        'c' : (1/2) * RIGHT + (sqrt(3)/2) * DOWN
+        }
+
+def treeball_vertex_position(v, scaling=1, shrink_parameter=2/3, shrink_function=None):
+    if shrink_function == None:
+        shrink_function = lambda i : shrink_parameter ** i 
+
+    pos = ORIGIN
+    
+    for i in range(len(v)):
+        pos = pos + (-1)**i * shrink_function(i) * BRANCHING_DIRECTION[v[i]]
+
+    return pos * scaling
+
+# nice embedding of a treeball
+def show_treeball(r, scaling=1, shrink_parameter=2/3, shrink_function=None):
+    allvertices, _ = treeball_nodes_edges(r)
+
+    return { v : treeball_vertex_position(v, scaling=scaling, shrink_parameter=shrink_parameter, shrink_function=shrink_function) for v in allvertices }
+
+# gives the positions for vertices in a nice picture of the canopy tree
 # centered around a point at height 'height' from a leaf ('height=0' <-> leaf)
 # assumes representation by a 3-regular tree ball of depth r
 # make sure r >> 0 for this to work
-def showcanopy(
+def show_canopy(
         r,
         height=0,
         horizontal_scaling=1,
@@ -58,7 +87,7 @@ def showcanopy(
 
         layer = newlayer
 
-    allvertices, _ = treeball_nodes_edges
+    allvertices, _ = treeball_nodes_edges(r)
     offscreen_positions = { v : (offscreen_distance + random()) * RIGHT for v in allvertices if v not in positions.keys() }
     positions.update(offscreen_positions)
 
