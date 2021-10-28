@@ -30,19 +30,30 @@ class HighlightSubgraph(Animation):
             edges, # list of lists of edges, in order of highlighting
             node_highlight_color=[sol.RED, sol.ORANGE],
             edge_highlight_color=[sol.YELLOW],
+            slow=False,
             **kwargs):
 
         super().__init__(g, **kwargs)
 
         self.length = max(len(nodes), len(edges))
+        self.slow = slow
 
         self.nodes = nodes + ([[]] * (self.length - len(nodes)))
         self.edges = edges + ([[]] * (self.length - len(nodes)))
         self.node_highlight_color = node_highlight_color + ([node_highlight_color[-1]] * (self.length - len(node_highlight_color)))
         self.edge_highlight_color = edge_highlight_color + ([edge_highlight_color[-1]] * (self.length - len(edge_highlight_color)))
 
+    def interpolate_mobject_fast(self, alpha: float) -> None:
+        for index in range(self.length):
+            for w in self.nodes[index]:
+                new_color = interpolate_color(self.mobject.vertices[w].get_color(), self.node_highlight_color[index], alpha)
+                self.mobject.vertices[w].set_color(new_color)
+
+            for e in self.edges[index]:
+                new_color = interpolate_color(self.mobject.edges[e].get_color(), self.edge_highlight_color[index], alpha)
+                self.mobject.edges[e].set_color(new_color)
         
-    def interpolate_mobject(self, alpha: float) -> None:
+    def interpolate_mobject_slow(self, alpha: float) -> None:
         index = floor(alpha * self.length)
         theta = alpha * self.length - index
 
@@ -61,6 +72,12 @@ class HighlightSubgraph(Animation):
             for e in self.edges[prev]:
                 self.mobject.edges[e].set_color(self.edge_highlight_color[prev])
 
+    def interpolate_mobject(self, alpha: float) -> None:
+        if self.slow:
+            self.interpolate_mobject_slow(alpha)
+        else:
+            self.interpolate_mobject_fast(alpha)
+
 
 # highlights a ball around a vertex, and un-highlights everything else
 def HighlightBall(
@@ -70,9 +87,11 @@ def HighlightBall(
         root_highlight_color=sol.RED,
         node_highlight_color=sol.YELLOW,
         edge_highlight_color=sol.YELLOW,
-        node_base_color=sol.CYAN,
-        edge_base_color=sol.BASE02,
+        node_base_color=sol.BASE02,
+        edge_base_color=sol.BASE01,
         run_time=1,
+        fade_proportion=1/6,
+        slow=False,
         **kwargs):
 
     ballnodes, balledges = ball(g,v,r)
@@ -83,8 +102,8 @@ def HighlightBall(
     othernodes = [[ w for w in g.vertices ]] #if w not in flattenedballnodes ]]
     otheredges = [[ e for e in g.edges ]] #if e not in flattenedballedges ]]
 
-    ball_run_time = run_time * (3/4)
-    other_run_time = run_time * (1/4)
+    ball_run_time = run_time * (1 - fade_proportion)
+    other_run_time = run_time * fade_proportion
 
     ball_anim = HighlightSubgraph(g,
                                   ballnodes,
@@ -92,6 +111,7 @@ def HighlightBall(
                                   node_highlight_color=[root_highlight_color, node_highlight_color],
                                   edge_highlight_color=[edge_highlight_color],
                                   run_time = ball_run_time,
+                                  slow=slow,
                                   **kwargs)
 
     other_anim = HighlightSubgraph(g,
@@ -100,6 +120,7 @@ def HighlightBall(
                                    node_highlight_color=[node_base_color],
                                    edge_highlight_color=[edge_base_color],
                                    run_time = other_run_time,
+                                   slow=slow,
                                    **kwargs)
 
     return Succession(other_anim, ball_anim)
