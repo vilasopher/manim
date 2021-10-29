@@ -1,0 +1,44 @@
+What is the limit of the sequence of complete finite binary trees?
+
+In our last video, we presented a notion of graph convergence, where every sequence of finite graphs has a graph limit.
+These limits are all random rooted graphs, i.e. random variables taking values in the space of rooted graphs.
+
+A first guess might be that the limit is the random rooted graph whose value is, with probability 1, the infinite binary tree, rooted at the top.
+After all, this is what happens with the finite path graphs and grid graphs, as we saw before: the limit of the sequence of finite path graphs is an infinite path graph, rooted in the middle, and the limit of the finite grid graphs is an infinite grid graph, rooted in the middle. [show screengrab from previous video]
+
+This is because the balls in the grid graph mostly look like the ball around the origin in the infinite grid.
+More precisely, for any radius R, as the size N of the finite grids go to infinity, the probability that the R-ball around a uniformly random vertex in the grid is isomorphic to to the R-ball in the infinite grid goes to 1.
+This works because the number of vertices that are within distance R from the boundary of the grid scales like N, whereas the number of vertices in the interior of the grid scales like N^2.
+So for large enough N, there are far more vertices on the interior than near the boundary.
+
+However, the binary tree does not exhibit this 'small-boundary' behavior.
+In fact, as the size of the binary trees goes to infinity, the proportion of vertices at the bottom of the tree goes to 1/2.
+[highlight leaves]
+So, rather than looking at the binary tree from the top, let's see what it looks like from the bottom, from the perspective of a leaf of the tree.
+[transition to canopy drawing, highlight only one leaf]
+
+From a leaf's perspective, this is what the binary tree looks like.
+If we grow the binary tree from here, the natural infinite graph is a one-way infinite path, where the nth node along the path has a binary tree of depth n attached to it (where a binary tree of depth 0 is empty).
+Since this is what a large binary tree looks like from the perspective of the leaf, the graph limit of the binary trees (which is a random rooted graph) should take this value with probability 1/2, which is the probability that a randomly selected vertex is a leaf, in the limit.
+
+Now, the set of nodes in a binary tree which are one level above a node constitute about 1/4th of the binary tree, in the limit.
+[transition back to regular btree, highlight those vertices]
+Let's see what a large binary tree looks like from the perspective of one of these vertices.
+[transition back to canopy, highlight only one vertex]
+It looks the same as the picture from a leaf, but rooted one node further along the path.
+Similarly, if we examine a large binary tree from the perspective of a node which is two levels above a leaf, we will find the same picture, just shifted by one more node.
+
+This leads us to conjecture that the random rooted graph which is the limit of the finite binary trees will take *this* value with probability 1/2, *this* value with probability 1/4, *this* value with probability 1/8, et. cetera [animation zoom or something]
+Since these probabilities add up to 1, this is a complete description of a random rooted graph.
+
+Now, this is just a conjecture.
+To actually prove that this is the limit, we must refer back to the definition of convergence for random rooted graphs.
+In particular, we must show that, for any R, the distribution of R-balls in the finite binary trees converges to the distribution of R-balls in the proposed graph limit.
+We'll leave this as an exercise for you, but here are some plots of the numbers of different R-balls in the finite binary trees.
+
+So, assuming you've done that exercise, we've found another example of a graph limit.
+Unlike all the limits we saw in the last video, this one can take infinitely many different values, each with positive probability.
+Of course, if we ignore the root, we will always get the same graph.
+But the rooting really does matter here, and so we consider each of these infinitely many outcomes distinct.
+
+Stay tuned for more videos!
