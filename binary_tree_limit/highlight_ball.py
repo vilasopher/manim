@@ -28,7 +28,7 @@ class HighlightSubgraph(Animation):
             g: Graph,
             nodes, # list of lists of nodes, in order of highlighting
             edges, # list of lists of edges, in order of highlighting
-            node_highlight_color=[sol.RED, sol.ORANGE],
+            node_highlight_color=[sol.RED],
             edge_highlight_color=[sol.YELLOW],
             slow=False,
             **kwargs):
@@ -129,8 +129,8 @@ def HighlightBall(
 # unhighlight everything
 def UnHighlight(
         g: Graph,
-        node_base_color=sol.CYAN,
-        edge_base_color=sol.BASE02,
+        node_base_color=sol.BASE02,
+        edge_base_color=sol.BASE01,
         **kwargs):
 
     return HighlightSubgraph(g,

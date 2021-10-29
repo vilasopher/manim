@@ -30,3 +30,13 @@ class GraphProblem2(Scene):
 
         self.play(g[2].animate.move_to(RIGHT))
         self.wait()
+
+
+class GraphProblem3(Scene):
+    def construct(self):
+        g = Graph([1],[],edge_config={ 'stroke_color' : RED })
+
+        self.add(g)
+        self.play(g.animate.add_vertices(2, positions={2 : RIGHT}))
+        self.play(g.animate.add_edges((1,2)))
+        self.wait()

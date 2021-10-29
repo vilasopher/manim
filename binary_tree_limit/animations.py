@@ -4,8 +4,14 @@ import random
 import highlight_ball as hb
 import solarized as sol
 import binary_tree as bt
+import grid as gr
 
-class BoxScene(Scene):
+config.background_color = sol.BASE3
+VCONF = { 'fill_color' : sol.BASE02 }
+ECONF = { 'stroke_color' : sol.BASE01 }
+
+
+class BoxScene1(Scene):
     def construct(self):
         self.camera.background_color = sol.BASE3
 
@@ -57,4 +63,26 @@ class TreeScene(Scene):
             self.wait(0.25)
 
         self.play(g.animate.change_layout(bt.canopy_tree_layout(5)))
+        self.wait()
+
+
+class GridScene(Scene):
+    def construct(self):
+        nodes, edges = gr.grid_nodes_edges(1)
+        g = Graph(nodes, edges, vertex_config=VCONF, edge_config=ECONF, layout=gr.grid_layout(1))
+
+        self.add(g)
+
+        for i in range(2,10):
+            nodes, edges = gr.grid_layer_nodes_edges(i)
+            self.play(g.animate.add_vertices(*nodes, positions=gr.grid_layout(i)),
+                      g.animate.add_edges(*edges), run_time = 0.25)
+        
+        self.wait()
+
+        nodes, edges = gr.grid_boundary(9, 2)
+        self.play(hb.HighlightSubgraph(g, [nodes], [edges]))
+        self.wait()
+
+        self.play(hb.UnHighlight(g))
         self.wait()
