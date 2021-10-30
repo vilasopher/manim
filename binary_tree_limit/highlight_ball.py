@@ -28,7 +28,7 @@ class HighlightSubgraph(Animation):
             g: Graph,
             nodes, # list of lists of nodes, in order of highlighting
             edges, # list of lists of edges, in order of highlighting
-            node_highlight_color=[sol.RED],
+            node_highlight_color=[sol.ORANGE],
             edge_highlight_color=[sol.YELLOW],
             slow=False,
             **kwargs):
@@ -84,11 +84,11 @@ def HighlightBall(
         g: Graph,
         v, # the vertex to serve as the root
         r, # the radius of the ball to highlight
-        root_highlight_color=sol.RED,
-        node_highlight_color=sol.YELLOW,
-        edge_highlight_color=sol.YELLOW,
-        node_base_color=sol.BASE02,
-        edge_base_color=sol.BASE01,
+        root_highlight_color=sol.ROOT,
+        node_highlight_color=sol.HIGHLIGHT_NODE,
+        edge_highlight_color=sol.HIGHLIGHT_EDGE,
+        node_base_color=sol.NODE,
+        edge_base_color=sol.EDGE,
         run_time=1,
         fade_proportion=1/6,
         slow=False,
@@ -96,8 +96,8 @@ def HighlightBall(
 
     ballnodes, balledges = ball(g,v,r)
 
-    flattenedballnodes = [ w for ws in ballnodes for w in ws ]
-    flattenedballedges = [ e for es in balledges for e in es ] 
+    # flattenedballnodes = [ w for ws in ballnodes for w in ws ]
+    # flattenedballedges = [ e for es in balledges for e in es ] 
 
     othernodes = [[ w for w in g.vertices ]] #if w not in flattenedballnodes ]]
     otheredges = [[ e for e in g.edges ]] #if e not in flattenedballedges ]]
@@ -129,8 +129,8 @@ def HighlightBall(
 # unhighlight everything
 def UnHighlight(
         g: Graph,
-        node_base_color=sol.BASE02,
-        edge_base_color=sol.BASE01,
+        node_base_color=sol.NODE,
+        edge_base_color=sol.EDGE,
         **kwargs):
 
     return HighlightSubgraph(g,

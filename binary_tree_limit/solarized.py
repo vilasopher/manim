@@ -1,4 +1,4 @@
-from manim import rgb_to_color
+from manim import rgb_to_color, config
 
 def _r2c(a,b,c):
     return rgb_to_color([a/255, b/255, c/255])
@@ -19,3 +19,15 @@ VIOLET  = _r2c(108,113,196)
 BLUE    = _r2c(38,139,210)
 CYAN    = _r2c(42,161,152)
 GREEN   = _r2c(133,153,0)
+
+NODE = BASE02
+EDGE = BASE01
+
+ROOT = RED
+HIGHLIGHT_NODE = BLUE
+HIGHLIGHT_EDGE = BLUE
+
+VERTEX_CONFIG = { 'fill_color' : NODE }
+EDGE_CONFIG = { 'stroke_color' : EDGE }
+
+config.background_color = BASE3

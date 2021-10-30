@@ -1,9 +1,9 @@
-What is the limit of the sequence of complete finite binary trees?
-
 In our last video, we presented a notion of graph convergence, where every sequence of finite graphs has a graph limit.
 These limits are all random rooted graphs, i.e. random variables taking values in the space of rooted graphs.
 
+Now, what is the limit of the sequence of complete finite binary trees?
 A first guess might be that the limit is the random rooted graph whose value is, with probability 1, the infinite binary tree, rooted at the top.
+
 After all, this is what happens with the finite path graphs and grid graphs, as we saw before: the limit of the sequence of finite path graphs is an infinite path graph, rooted in the middle, and the limit of the finite grid graphs is an infinite grid graph, rooted in the middle. [show screengrab from previous video]
 
 This is because the balls in the grid graph mostly look like the ball around the origin in the infinite grid.
