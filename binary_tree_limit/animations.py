@@ -92,17 +92,18 @@ class Trees(Scene):
         # of vertices in the boundary of the tree goes to 1/2.
         nodes, _ = bt.binary_tree_layer(6)
 
-        # TODO: FIGURE OUT THIS FRACTION COLOR
-        # fraction = MathTex(r"{ \color{BASE02} \frac{ {\color{ORANGE} 2^n} }{ 2^{n+1}-1 } }",
-        #                    tex_template=TEMPLATE)
+        fraction = MathTex(r"2^n", r"\over", r"2^{n+1}-1", color=sol.BASE02)
+        fraction.set_color_by_tex(r"2^n", sol.ORANGE)
 
         self.play(hb.HighlightSubgraph(g,[nodes],[[]]))
+        self.play(Create(fraction))
         self.wait()
 
         # So, rather than looking at the binary tree from the top, let's see what it
         # looks like from the bottom, from the perspective of a leaf of the tree.
 
-        self.play(hb.HighlightBall(g, 2 ** 6 - 1, 0))
+        self.play(hb.HighlightBall(g, 2 ** 6 - 1, 0),
+                  Uncreate(fraction))
         self.play(g.animate.change_layout(bt.canopy_tree_layout(6)))
         self.wait()
 
@@ -127,14 +128,20 @@ class Trees(Scene):
 
         nodes, _ = bt.binary_tree_layer(5)
 
+        fraction = MathTex(r"2^{n-1}", r"\over", r"2^{n+1}-1", color=sol.BASE02)
+        fraction.set_color_by_tex(r"2^{n-1}", sol.ORANGE)
+
         self.play(g.animate.change_layout(bt.binary_tree_layout(6, shift=2.7*UP)))
         self.play(hb.UnHighlight(g), run_time = 0.25)
         self.play(hb.HighlightSubgraph(g, [nodes], [[]]))
+        self.play(Create(fraction))
         self.wait()
 
         # Let's see what a large binary tree looks like from the perspective of one of these vertices.
 
-        self.play(hb.HighlightBall(g, 2 ** 5 - 1, 0), run_time = 0.25)
+        self.play(hb.HighlightBall(g, 2 ** 5 - 1, 0),
+                  Uncreate(fraction),
+                  run_time = 0.25)
         self.play(g.animate.change_layout(bt.canopy_tree_layout(6, height=1)))
 
         # It looks the same as the picture from a leaf, but rooted one node further along the path.
@@ -169,6 +176,8 @@ class Trees(Scene):
         self.wait()
 
         # Since these probabilities add up to 1, this is a complete description of a random rooted graph.
+
+        return
 
         h = Graph.from_networkx(nxgraph,
                                 vertex_config=sol.VERTEX_CONFIG,
