@@ -20,6 +20,6 @@ def grid_boundary(radius, thickness):
 def grid_position(v, scale=0.5):
     return scale * (v[0] * RIGHT + v[1] * UP)
 
-def grid_layout(radius, **kwargs):
+def grid_layout(radius, shift=ORIGIN, **kwargs):
     nodes, _ = grid_nodes_edges(radius)
-    return { v : grid_position(v,**kwargs) for v in nodes }
+    return { v : shift + grid_position(v,**kwargs) for v in nodes }
