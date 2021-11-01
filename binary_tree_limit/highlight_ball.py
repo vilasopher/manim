@@ -90,40 +90,44 @@ def HighlightBall(
         node_base_color=sol.NODE,
         edge_base_color=sol.EDGE,
         run_time=1,
-        fade_proportion=1/6,
+        fade_run_time=0.01,
         slow=False,
+        fadeout=True,
         **kwargs):
 
     ballnodes, balledges = ball(g,v,r)
-
-    # flattenedballnodes = [ w for ws in ballnodes for w in ws ]
-    # flattenedballedges = [ e for es in balledges for e in es ] 
-
-    othernodes = [[ w for w in g.vertices ]] #if w not in flattenedballnodes ]]
-    otheredges = [[ e for e in g.edges ]] #if e not in flattenedballedges ]]
-
-    ball_run_time = run_time * (1 - fade_proportion)
-    other_run_time = run_time * fade_proportion
 
     ball_anim = HighlightSubgraph(g,
                                   ballnodes,
                                   balledges,
                                   node_highlight_color=[root_highlight_color, node_highlight_color],
                                   edge_highlight_color=[edge_highlight_color],
-                                  run_time = ball_run_time,
+                                  run_time = run_time,
                                   slow=slow,
                                   **kwargs)
 
-    other_anim = HighlightSubgraph(g,
-                                   othernodes,
-                                   otheredges,
-                                   node_highlight_color=[node_base_color],
-                                   edge_highlight_color=[edge_base_color],
-                                   run_time = other_run_time,
-                                   slow=slow,
-                                   **kwargs)
+    if fadeout:
+        flatnodes = [ w for ws in ballnodes for w in ws ]
+        flatedges = [ e for es in balledges for e in es ] 
 
-    return Succession(other_anim, ball_anim)
+        fadenodes = [[w] for w in flatnodes ]
+        fadeedges = [[e] for e in flatedges ]
+
+        fadenodecolors = [ g[w].get_color() for w in flatnodes ]
+        fadeedgecolors = [ g.edges[e].get_color() for e in flatedges ]
+
+        fade_anim = HighlightSubgraph(g,
+                                       fadenodes,
+                                       fadeedges,
+                                       node_highlight_color=fadenodecolors,
+                                       edge_highlight_color=fadeedgecolors,
+                                       run_time = fade_run_time,
+                                       slow=False,
+                                       **kwargs)
+
+        return Succession(ball_anim, fade_anim)
+    else:
+        return ball_anim
 
 
 # unhighlight everything

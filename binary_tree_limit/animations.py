@@ -6,6 +6,7 @@ import binary_tree as bt
 import grid as gr
 import networkx as nx
 
+seed(0)
 
 # In our last video, we presented a notion of graph convergence,
 # where every sequence of finite graphs has a graph limit.
@@ -85,12 +86,9 @@ class Grids(Scene):
 
         infballv, infballe = hb.ball(infgrid, (0,0), 2)
 
-        inf_vertex_config = { (0,0) : { 'fill_color' : sol.ROOT, 'stroke_color' : sol.NODE, 'stroke_width' : 2 } }
+        inf_vertex_config = { (0,0) : { 'fill_color' : sol.ROOT } }
         for i in range(1, len(infballv)):
-            inf_vertex_config.update({ n : { 'fill_color' : sol.HIGHLIGHT_NODE ,
-                                           'stroke_color' : sol.NODE,
-                                           'stroke_width' : 2
-                                           } for n in infballv[i] })
+            inf_vertex_config.update({ n : { 'fill_color' : sol.HIGHLIGHT_NODE } for n in infballv[i] })
         inf_vertex_config.update({ v : { 'fill_color' : sol.NODE } for v in infgrid.vertices if v not in inf_vertex_config.keys() })
 
         inf_edge_config = { }
@@ -107,18 +105,46 @@ class Grids(Scene):
         self.add(grid, infgrid)
         self.add(occlusion, frame)
 
-        #self.wait()
-
         # More precisely, for any radius R, as the size N of the finite grids go to
         # infinity, the probability that the R-ball around a uniformly random vertex 
         # in the grid is isomorphic to to the R-ball in the infinite grid goes to 1.
+
+        vertexlist = list(grid.vertices)
+        boundaryvertices, boundaryedges = gr.grid_boundary(12, 2)
+
+        for _ in range(20):
+            v = random.choice(vertexlist)
+            color = sol.HIGHLIGHT_NODE
+
+            if v in boundaryvertices:
+                color = sol.RED
+
+            self.play(hb.HighlightBall(grid, v, 2, node_highlight_color=color, edge_highlight_color=color))
 
         # This works because the number of vertices that are within distance R from 
         # the boundary of the grid scales like N, whereas the number of vertices
         # in the interior of the grid scales like N^2.
 
+        self.play(hb.HighlightSubgraph(grid, [boundaryvertices], [boundaryedges], node_highlight_color=[sol.YELLOW]))
+
+        fraction = MathTex(r"\sim 4 R \cdot n", r"\over", r"n^2", color=sol.BASE02)
+        fraction.set_color_by_tex(r"\sim 4 R \cdot n", sol.YELLOW)
+
+        fraction.move_to(4 * RIGHT + 2.5 * DOWN)
+
+        self.play(Create(fraction))
+
         # So for large enough N, there are far more vertices on the 
         # interior than near the boundary.
+
+        for _ in range(20):
+            v = random.choice(vertexlist)
+            color = sol.HIGHLIGHT_NODE
+
+            if v in boundaryvertices:
+                color = sol.RED
+
+            self.play(hb.HighlightBall(grid, v, 2, node_highlight_color=color, edge_highlight_color=color))
 
 
 class Trees(Scene):
