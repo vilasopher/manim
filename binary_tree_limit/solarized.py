@@ -20,8 +20,11 @@ BLUE    = _r2c(38,139,210)
 CYAN    = _r2c(42,161,152)
 GREEN   = _r2c(133,153,0)
 
-NODE = BASE0
-EDGE = BASE1
+NODE = BASE02
+EDGE = BASE01
+
+LIGHT_NODE = BASE0
+LIGHT_EDGE = BASE1
 
 ROOT = RED
 HIGHLIGHT_NODE = BASE03
@@ -29,5 +32,8 @@ HIGHLIGHT_EDGE = BASE02
 
 VERTEX_CONFIG = { 'fill_color' : NODE }
 EDGE_CONFIG = { 'stroke_color' : EDGE }
+
+LIGHT_VERTEX_CONFIG = { 'fill_color' : LIGHT_NODE }
+LIGHT_EDGE_CONFIG = { 'stroke_color' : LIGHT_EDGE }
 
 config.background_color = BASE3

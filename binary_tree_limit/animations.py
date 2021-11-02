@@ -76,25 +76,22 @@ class Grids(Scene):
 
         grid = Graph(*gr.grid_nodes_edges(12),
                      layout=gr.grid_layout(12, shift=3*LEFT, scale=0.3),
-                     vertex_config=sol.VERTEX_CONFIG,
-                     edge_config=sol.EDGE_CONFIG)
+                     vertex_config=sol.LIGHT_VERTEX_CONFIG,
+                     edge_config=sol.LIGHT_EDGE_CONFIG)
 
-        infgrid = Graph(*gr.grid_nodes_edges(4),
-                        layout=gr.grid_layout(4, shift=4*RIGHT + 1*UP),
-                        vertex_config=sol.VERTEX_CONFIG,
-                        edge_config=sol.EDGE_CONFIG)
+        infgrid = Graph(*gr.grid_nodes_edges(4))
 
         infballv, infballe = hb.ball(infgrid, (0,0), 2)
 
         inf_vertex_config = { (0,0) : { 'fill_color' : sol.ROOT } }
         for i in range(1, len(infballv)):
             inf_vertex_config.update({ n : { 'fill_color' : sol.HIGHLIGHT_NODE } for n in infballv[i] })
-        inf_vertex_config.update({ v : { 'fill_color' : sol.NODE } for v in infgrid.vertices if v not in inf_vertex_config.keys() })
+        inf_vertex_config.update({ v : { 'fill_color' : sol.LIGHT_NODE } for v in infgrid.vertices if v not in inf_vertex_config.keys() })
 
         inf_edge_config = { }
         for i in range(len(infballe)):
             inf_edge_config.update({ e : { 'stroke_color' : sol.HIGHLIGHT_EDGE, 'stroke_width' : 6 } for e in infballe[i] })
-        inf_edge_config.update({ e : { 'stroke_color' : sol.EDGE, 'stroke_width' : 4 } for e in infgrid.edges if e not in inf_edge_config.keys() })
+        inf_edge_config.update({ e : { 'stroke_color' : sol.LIGHT_EDGE, 'stroke_width' : 4 } for e in infgrid.edges if e not in inf_edge_config.keys() })
 
         infgrid = Graph(*gr.grid_nodes_edges(4),
                         layout=gr.grid_layout(4, shift=4*RIGHT + 1*UP),

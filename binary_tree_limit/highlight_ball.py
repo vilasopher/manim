@@ -87,8 +87,6 @@ def HighlightBall(
         root_highlight_color=sol.ROOT,
         node_highlight_color=sol.HIGHLIGHT_NODE,
         edge_highlight_color=sol.HIGHLIGHT_EDGE,
-        node_base_color=sol.NODE,
-        edge_base_color=sol.EDGE,
         run_time=1,
         fade_run_time=0.01,
         slow=False,
