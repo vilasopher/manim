@@ -6,7 +6,7 @@ import binary_tree as bt
 import grid as gr
 import networkx as nx
 
-seed(0)
+random.seed(0)
 
 # In our last video, we presented a notion of graph convergence,
 # where every sequence of finite graphs has a graph limit.
@@ -265,10 +265,19 @@ class Trees(Scene):
 
 class Plots(Scene):
     def construct(self):
-        pass
 
         # We'll leave this as an exercise for you, but here are some plots of the numbers of
         # different R-balls in the finite binary trees.
+
+        finitebar = BarChart(
+                [0.1, 0.2, 0.3, 0.4],
+                max_value = 1,
+                bar_colors = [sol.BASE03],
+                color = sol.BASE03,
+                stroke_color = sol.BASE03
+                )
+
+        self.add(finitebar)
 
 
 # So, assuming you've done that exercise, we've found another example of a graph limit.
