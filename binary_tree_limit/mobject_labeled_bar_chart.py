@@ -19,7 +19,7 @@ class MobjectLabeledBarChart(VGroup):
         bar_colors=[BLUE, YELLOW],
         bar_fill_opacity: float = 0.8,
         bar_stroke_width: float = 3,
-        bar_names: List[str] = [],
+        bar_names: List[Mobject] = [],
         bar_label_scale_val: float = 0.75,
         **kwargs
     ):  # What's the return type?
@@ -79,6 +79,7 @@ class MobjectLabeledBarChart(VGroup):
                 width=buff,
                 stroke_width=self.bar_stroke_width,
                 fill_opacity=self.bar_fill_opacity,
+                z_index=-1
             )
             bar.move_to((2 * i + 1) * buff * RIGHT, DOWN + LEFT)
             bars.add(bar)
@@ -86,7 +87,7 @@ class MobjectLabeledBarChart(VGroup):
 
         bar_labels = VGroup()
         for bar, name in zip(bars, self.bar_names):
-            label = MathTex(str(name))
+            label = name
             label.scale(self.bar_label_scale_val)
             label.next_to(bar, DOWN, SMALL_BUFF)
             bar_labels.add(label)

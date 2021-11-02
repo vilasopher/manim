@@ -5,6 +5,7 @@ import solarized as sol
 import binary_tree as bt
 import grid as gr
 import networkx as nx
+import mobject_labeled_bar_chart as mb
 
 random.seed(0)
 
@@ -263,21 +264,144 @@ class Trees(Scene):
 # finite binary trees converges to the distribution of R-balls in the proposed graph limit.
 # [SHOW SOME LATEX I GUESS]
 
-class Plots(Scene):
+class Plots1(Scene):
     def construct(self):
 
         # We'll leave this as an exercise for you, but here are some plots of the numbers of
         # different R-balls in the finite binary trees.
 
-        finitebar = BarChart(
-                [0.1, 0.2, 0.3, 0.4],
-                max_value = 1,
-                bar_colors = [sol.BASE03],
-                color = sol.BASE03,
-                stroke_color = sol.BASE03
-                )
+        vconf = { 0 : { 'fill_color' : sol.ROOT , 'radius' : 0.3 } }
+        vconf.update({ v : { 'fill_color' : sol.NODE , 'radius' : 0.3 } for v in range(1,10)})
+        econf = { 'stroke_color' : sol.BASE02 } 
 
-        self.add(finitebar)
+        kwargs = { 'vertex_config' : vconf, 'edge_config' : econf } 
+
+        rballs_1_canopy = [
+                Graph([0,1], [(0,1)], **kwargs, layout='tree', root_vertex=1),
+                Graph([0,1,2], [(0,1),(0,2)], **kwargs, layout='tree', root_vertex=0),
+                Graph([0,1,2,3], [(0,1),(0,2),(0,3)], **kwargs, layout='kamada_kawai', layout_scale=1.3)
+                ]
+
+        ballbar_canopy = mb.MobjectLabeledBarChart(
+                [0.5, 0.0, 0.5],
+                max_value = 1,
+                bar_names = rballs_1_canopy,
+                bar_label_scale_val = 0.3,
+                bar_colors = [sol.BLUE],
+                color = sol.BASE03,
+                stroke_color = sol.BASE03,
+                height=3,
+                width=4
+                )
+        ballbar_canopy.move_to(3.5*RIGHT + 0.75*DOWN)
+
+        text_canopy = Tex(r'Canopy Tree', color=sol.BASE02)
+        text_canopy.move_to(3.7*RIGHT + 2*UP)
+
+        rballs_1_finite = [
+                Graph([0,1], [(0,1)], **kwargs, layout='tree', root_vertex=1),
+                Graph([0,1,2], [(0,1),(0,2)], **kwargs, layout='tree', root_vertex=0),
+                Graph([0,1,2,3], [(0,1),(0,2),(0,3)], **kwargs, layout='kamada_kawai', layout_scale=1.3)
+                ]
+
+        ballbar_finite_values = [ [ 2 ** i / (2 ** (i+1) - 1), 1 / (2 ** (i+1) - 1), (2 ** i - 2) / (2 ** (i+1) - 1) + 0.00001 ] for i in range(10) ]
+
+        ballbar_finite = mb.MobjectLabeledBarChart(
+                ballbar_finite_values[1],
+                max_value = 1,
+                bar_names = rballs_1_finite,
+                bar_label_scale_val = 0.3,
+                bar_colors = [sol.BLUE],
+                color = sol.BASE03,
+                stroke_color = sol.BASE03,
+                height=3,
+                width=4
+                )
+        ballbar_finite.move_to(3.5*LEFT + 0.75*DOWN)
+
+        text_finite = [ Tex(r'Height-' r'$' + str(i) + '$' r' Binary Tree', color=sol.BASE02) for i in range(10) ]
+        for tf in text_finite:
+            tf.move_to(3*LEFT + 2*UP)
+
+        self.play(Create(ballbar_finite), Create(ballbar_canopy), Create(text_canopy), Create(text_finite[1]))
+
+        for i in range(2,10):
+            self.play(Transform(text_finite[1],text_finite[i]),
+                      ballbar_finite.animate.change_bar_values(ballbar_finite_values[i]))
+
+        self.wait()
+
+
+class Plots2(Scene):
+    def construct(self):
+
+        # And here they are for the 2-balls
+
+        vconf = { 0 : { 'fill_color' : sol.ROOT , 'radius' : 0.3 } }
+        vconf.update({ v : { 'fill_color' : sol.NODE , 'radius' : 0.3 } for v in range(1,10)})
+        econf = { 'stroke_color' : sol.BASE02 } 
+
+        kwargs = { 'vertex_config' : vconf, 'edge_config' : econf } 
+
+        rballs_2_canopy = [
+                Graph([0,1,2,3], [(0,1),(1,2),(1,3)], **kwargs, layout='kamada_kawai', layout_scale=1.3),
+                Graph([0,1,2,3,4,5,6], [(0,1),(0,2),(1,3),(1,4),(2,5),(2,6)], **kwargs, layout='tree', root_vertex=0),
+                Graph([0,1,2,3,4,5], [(0,1),(0,2),(0,3),(3,4),(3,5)], **kwargs, layout='kamada_kawai', layout_scale=1.3),
+                Graph([0,1,2,3,4,5,6,7,8,9], [(0,1),(0,2),(0,3),(1,4),(1,5),(2,6),(2,7),(3,8),(3,9)], **kwargs, layout='kamada_kawai', layout_scale=1.3)
+                ]
+
+        ballbar_canopy = mb.MobjectLabeledBarChart(
+                [0.5, 0.0, 0.25, 0.25],
+                max_value = 1,
+                bar_names = rballs_2_canopy,
+                bar_label_scale_val = 0.3,
+                bar_colors = [sol.BLUE],
+                color = sol.BASE03,
+                stroke_color = sol.BASE03,
+                height=3,
+                width=5
+                )
+        ballbar_canopy.move_to(3.5*RIGHT + 0.75*DOWN)
+
+        text_canopy = Tex(r'Canopy Tree', color=sol.BASE02)
+        text_canopy.move_to(3.7*RIGHT + 2*UP)
+
+        rballs_2_finite = [
+                Graph([0,1,2,3], [(0,1),(1,2),(1,3)], **kwargs, layout='kamada_kawai', layout_scale=1.3),
+                Graph([0,1,2,3,4,5,6], [(0,1),(0,2),(1,3),(1,4),(2,5),(2,6)], **kwargs, layout='tree', root_vertex=0),
+                Graph([0,1,2,3,4,5], [(0,1),(0,2),(0,3),(3,4),(3,5)], **kwargs, layout='kamada_kawai', layout_scale=1.3),
+                Graph([0,1,2,3,4,5,6,7,8,9], [(0,1),(0,2),(0,3),(1,4),(1,5),(2,6),(2,7),(3,8),(3,9)], **kwargs, layout='kamada_kawai', layout_scale=1.3)
+                ]
+
+        ballbar_finite_values = [ [ 2 ** i / (2 ** (i+1) - 1),
+                                    1 / (2 ** (i+1) - 1),
+                                    (2 ** (i-1)) / (2 ** (i+1) - 1) + 0.00001,
+                                    (2 ** (i-1) - 2) / (2 ** (i+1) - 1) + 0.00001 ] for i in range(10) ]
+
+        ballbar_finite = mb.MobjectLabeledBarChart(
+                ballbar_finite_values[2],
+                max_value = 1,
+                bar_names = rballs_2_finite,
+                bar_label_scale_val = 0.3,
+                bar_colors = [sol.BLUE],
+                color = sol.BASE03,
+                stroke_color = sol.BASE03,
+                height=3,
+                width=4
+                )
+        ballbar_finite.move_to(3.5*LEFT + 0.75*DOWN)
+
+        text_finite = [ Tex(r'Height-' r'$' + str(i) + '$' r' Binary Tree', color=sol.BASE02) for i in range(10) ]
+        for tf in text_finite:
+            tf.move_to(3*LEFT + 2*UP)
+
+        self.play(Create(ballbar_finite), Create(ballbar_canopy), Create(text_canopy), Create(text_finite[2]))
+
+        for i in range(3,10):
+            self.play(Transform(text_finite[2],text_finite[i]),
+                      ballbar_finite.animate.change_bar_values(ballbar_finite_values[i]))
+
+        self.wait()
 
 
 # So, assuming you've done that exercise, we've found another example of a graph limit.

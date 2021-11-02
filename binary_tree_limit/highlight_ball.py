@@ -39,7 +39,7 @@ class HighlightSubgraph(Animation):
         self.slow = slow
 
         self.nodes = nodes + ([[]] * (self.length - len(nodes)))
-        self.edges = edges + ([[]] * (self.length - len(nodes)))
+        self.edges = edges + ([[]] * (self.length - len(edges)))
         self.node_highlight_color = node_highlight_color + ([node_highlight_color[-1]] * (self.length - len(node_highlight_color)))
         self.edge_highlight_color = edge_highlight_color + ([edge_highlight_color[-1]] * (self.length - len(edge_highlight_color)))
 
@@ -112,7 +112,7 @@ def HighlightBall(
         fadeedges = [[e] for e in flatedges ]
 
         fadenodecolors = [ g[w].get_color() for w in flatnodes ]
-        fadeedgecolors = [ g.edges[e].get_color() for e in flatedges ]
+        fadeedgecolors = [ g.edges[e].get_color() for e in flatedges ] + [ sol.EDGE ]
 
         fade_anim = HighlightSubgraph(g,
                                        fadenodes,
