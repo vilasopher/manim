@@ -27,12 +27,16 @@ def binary_tree_layer(depth):
     return nodes, edges
 
 
-def canopy_tree_position(vertex, depth, horizontal_scale=2, vertical_scale=1, horizontal_shrink=1/2, vertical_shrink=2.1/3):
+def slinky(total_depth, my_depth):
+    return - (total_depth - my_depth) ** 1.1
+
+
+def canopy_tree_position(vertex, depth, horizontal_scale=2, vertical_scale=1, horizontal_shrink=1/2, vertical_shrink=2.2/3):
     if vertex in [ 2 ** i - 1 for i in range(depth+1) ]:
-        return log(vertex + 1, 2) * horizontal_scale * LEFT
+        return slinky(depth, log(vertex + 1, 2)) * horizontal_scale * LEFT
 
     if vertex in [ 2 ** i for i in range(1,depth+1) ]:
-        return (log(vertex, 2) - 1) * horizontal_scale * LEFT + vertical_scale * DOWN
+        return slinky(depth, (log(vertex, 2) - 1))* horizontal_scale * LEFT + vertical_scale * DOWN
 
     parent = (vertex - 1) // 2
     parent_pos = canopy_tree_position(parent, depth, horizontal_scale, vertical_scale, horizontal_shrink, vertical_shrink)
@@ -46,7 +50,7 @@ def canopy_tree_position(vertex, depth, horizontal_scale=2, vertical_scale=1, ho
 
 
 def canopy_tree_layout(depth, height=0, vertical_shift=ORIGIN, horizontal_scale=2, **kwargs):
-    shift = vertical_shift + (depth-height) * horizontal_scale * RIGHT
+    shift = vertical_shift + slinky(depth, depth-height) * horizontal_scale * RIGHT
     return { v : shift + canopy_tree_position(v, depth, horizontal_scale, **kwargs) for v in range(2 ** (depth+1) - 1) }
 
 

@@ -171,8 +171,9 @@ class Trees(Scene):
         # So, rather than looking at the binary tree from the top, let's see what it
         # looks like from the bottom, from the perspective of a leaf of the tree.
 
-        self.play(hb.HighlightBall(g, 2 ** 6 - 1, 0),
+        self.play(hb.UnHighlight(g),
                   Uncreate(fraction))
+        self.play(hb.HighlightBall(g, 2 ** 6 - 1, 0, fadeout=False))
         self.play(g.animate.change_layout(bt.canopy_tree_layout(6)))
         self.wait()
 
@@ -208,8 +209,9 @@ class Trees(Scene):
 
         # Let's see what a large binary tree looks like from the perspective of one of these vertices.
 
-        self.play(hb.HighlightBall(g, 2 ** 5 - 1, 0),
-                  Uncreate(fraction),
+        self.play(hb.UnHighlight(g),
+                  Uncreate(fraction), run_time=0.25)
+        self.play(hb.HighlightBall(g, 2 ** 5 - 1, 0, fadeout=False),
                   run_time = 0.25)
         self.play(g.animate.change_layout(bt.canopy_tree_layout(6, height=1)))
 
@@ -220,7 +222,8 @@ class Trees(Scene):
         # Similarly, if we examine a large binary tree from the perspective of a node which is 
         # two levels above a leaf, we will find the same picture, just shifted by one more node.
 
-        self.play(hb.HighlightBall(g, 2 ** 4 - 1, 0), run_time = 0.25)
+        self.play(hb.UnHighlight(g), run_time=0.01)
+        self.play(hb.HighlightBall(g, 2 ** 4 - 1, 0, fadeout=False), run_time = 0.25)
         self.play(g.animate.change_layout(bt.canopy_tree_layout(6, height=2)))
         self.wait()
 
@@ -228,19 +231,22 @@ class Trees(Scene):
         # This leads us to conjecture that the random rooted graph which is the limit of the
         # finite binary trees will take *this* value with probability 1/2, 
 
-        self.play(hb.HighlightBall(g, 2 ** 6 - 1, 0), run_time = 0.25)
+        self.play(hb.UnHighlight(g), run_time=0.01)
+        self.play(hb.HighlightBall(g, 2 ** 6 - 1, 0, fadeout=False), run_time = 0.25)
         self.play(g.animate.change_layout(bt.canopy_tree_layout(6, height=0)))
         self.wait()
 
         # *this* value with probability 1/4, 
 
-        self.play(hb.HighlightBall(g, 2 ** 5 - 1, 0), run_time = 0.25)
+        self.play(hb.UnHighlight(g), run_time=0.01)
+        self.play(hb.HighlightBall(g, 2 ** 5 - 1, 0, fadeout=False), run_time = 0.25)
         self.play(g.animate.change_layout(bt.canopy_tree_layout(6, height=1)))
         self.wait()
 
         # *this* value with probability 1/8, et. cetera
 
-        self.play(hb.HighlightBall(g, 2 ** 4 - 1, 0), run_time = 0.25)
+        self.play(hb.UnHighlight(g), run_time=0.01)
+        self.play(hb.HighlightBall(g, 2 ** 4 - 1, 0, fadeout=False), run_time = 0.25)
         self.play(g.animate.change_layout(bt.canopy_tree_layout(6, height=2)))
         self.wait()
 
