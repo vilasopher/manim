@@ -165,14 +165,14 @@ class Trees(Scene):
         fraction.set_color_by_tex(r"2^n", sol.ORANGE)
 
         self.play(hb.HighlightSubgraph(g,[nodes],[[]]))
-        self.play(Create(fraction))
+        self.play(FadeIn(fraction, scale=1.5))
         self.wait()
 
         # So, rather than looking at the binary tree from the top, let's see what it
         # looks like from the bottom, from the perspective of a leaf of the tree.
 
         self.play(hb.UnHighlight(g),
-                  Uncreate(fraction))
+                  FadeOut(fraction))
         self.play(hb.HighlightBall(g, 2 ** 6 - 1, 0, fadeout=False))
         self.play(g.animate.change_layout(bt.canopy_tree_layout(6)))
         self.wait()
@@ -204,13 +204,13 @@ class Trees(Scene):
         self.play(g.animate.change_layout(bt.binary_tree_layout(6, shift=2.7*UP)))
         self.play(hb.UnHighlight(g), run_time = 0.25)
         self.play(hb.HighlightSubgraph(g, [nodes], [[]]))
-        self.play(Create(fraction))
+        self.play(FadeIn(fraction, scale=1.5))
         self.wait()
 
         # Let's see what a large binary tree looks like from the perspective of one of these vertices.
 
         self.play(hb.UnHighlight(g),
-                  Uncreate(fraction), run_time=0.25)
+                  FadeOut(fraction), run_time=0.25)
         self.play(hb.HighlightBall(g, 2 ** 5 - 1, 0, fadeout=False),
                   run_time = 0.25)
         self.play(g.animate.change_layout(bt.canopy_tree_layout(6, height=1)))
@@ -252,14 +252,32 @@ class Trees(Scene):
 
         # Since these probabilities add up to 1, this is a complete description of a random rooted graph.
 
-        return
+        self.play(hb.UnHighlight(g), run_time=0.01)
 
-        h = Graph.from_networkx(nxgraph,
-                                vertex_config=sol.VERTEX_CONFIG,
-                                edge_config=sol.EDGE_CONFIG,
-                                layout=bt.canopy_tree_layout(6, height=0),
-                                labels=True)
-        # TODO: figure out how to add the right kinds of labels.
+        label_size = 20
+
+        h = Graph([0, 1, 3, 7, 15, 31, 63], [],
+                  vertex_config={ 'fill_color' : sol.ROOT },
+                  layout=bt.canopy_tree_layout(6, height=2),
+                  labels={ 0  : MathTex(r'\frac{1}{128}', font_size=label_size),
+                           1  : MathTex(r'\frac{1}{64}', font_size=label_size),
+                           3  : MathTex(r'\frac{1}{32}', font_size=label_size),
+                           7  : MathTex(r'\frac{1}{16}', font_size=label_size),
+                           15 : MathTex(r'\frac{1}{8}', font_size=label_size),
+                           31 : MathTex(r'\frac{1}{4}', font_size=label_size),
+                           63 : MathTex(r'\frac{1}{2}', font_size=label_size)})
+
+        self.play(FadeIn(h), run_time=0.5)
+        
+        self.wait()
+
+        treetext = Tex(r'Canopy Tree', font_size = 70, color=sol.BASE02)
+        treetext.move_to(1.5*UP)
+
+        self.play(Create(treetext))
+
+        self.wait()
+
 
 
 # Now, this is just a conjecture.
@@ -269,6 +287,13 @@ class Trees(Scene):
 # In particular, we must show that, for any R, the distribution of R-balls in the
 # finite binary trees converges to the distribution of R-balls in the proposed graph limit.
 # [SHOW SOME LATEX I GUESS]
+
+# TODO: explain what the plots mean
+class PlotsExplanation(Scene):
+    def construct(self):
+        pass
+
+
 
 class Plots1(Scene):
     def construct(self):
