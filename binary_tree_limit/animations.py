@@ -10,9 +10,9 @@ import mobject_labeled_bar_chart as mb
 random.seed(0)
 
 # In our last video, we presented a notion of graph convergence,
-# where every sequence of finite graphs has a graph limit.
-# These limits are all random rooted graphs, i.e. random variables
-# taking values in the space of rooted graphs.
+# where sparse sequences of graphs can converge to a graph limit.
+# These limits are all random rooted graphs, which are the same thing as 
+# probability distributions on the space of rooted graphs.
 # [SHOW CLIPS FROM PREVIOUS VIDEO]
 
 
@@ -47,10 +47,10 @@ class Opening(Scene):
         self.wait()
 
 
-#  After all, this is what happens with the finite path graphs and grid graphs,
+#  After all, this is what happens with the path graphs and grid graphs,
 # as we saw before: the limit of the sequence of finite path graphs is an
-# infinite path graph, rooted in the middle, and the limit of the finite grid graphs
-# is an infinite grid graph, rooted in the middle. 
+# infinite path graph rooted in the middle (with probability 1), and the limit 
+# of the finite grid graphs is an infinite grid graph, again rooted in the middle (with probability 1). 
 # [SHOW SCREENGRABS FROM PREVIOUS VIDEO]
 
 

@@ -7,7 +7,10 @@ A first guess might be that the limit is the random rooted graph whose value is,
 After all, this is what happens with the finite path graphs and grid graphs, as we saw before: the limit of the sequence of finite path graphs is an infinite path graph, rooted in the middle, and the limit of the finite grid graphs is an infinite grid graph, rooted in the middle. [show screengrab from previous video]
 
 This is because the balls in the grid graph mostly look like the ball around the origin in the infinite grid.
-More precisely, for any radius R, as the size N of the finite grids go to infinity, the probability that the R-ball around a uniformly random vertex in the grid is isomorphic to to the R-ball in the infinite grid goes to 1.
+Here we show the 2-ball in the infinite grid on the right, and you can see that the 2-balls around a random vertex in the large finite grid on the left mostly look the same.
+
+In fact, for any radius R, as the side length N of the finite grid go to infinity, the probability that the R-ball around a uniformly random vertex in the grid is isomorphic to to the R-ball in the infinite grid goes to 1.
+
 This works because the number of vertices that are within distance R from the boundary of the grid scales like N, whereas the number of vertices in the interior of the grid scales like N^2.
 So for large enough N, there are far more vertices on the interior than near the boundary.
 
@@ -18,27 +21,44 @@ So, rather than looking at the binary tree from the top, let's see what it looks
 [transition to canopy drawing, highlight only one leaf]
 
 From a leaf's perspective, this is what the binary tree looks like.
-If we grow the binary tree from here, the natural infinite graph is a one-way infinite path, where the nth node along the path has a binary tree of depth n attached to it (where a binary tree of depth 0 is empty).
-Since this is what a large binary tree looks like from the perspective of the leaf, the graph limit of the binary trees (which is a random rooted graph) should take this value with probability 1/2, which is the probability that a randomly selected vertex is a leaf, in the limit.
+As the tree gets bigger, from this perspective the natural limit is a one-way infinite path, where the nth node along the path has a binary tree of depth n attached to it (note that the binary tree of depth 0 is empty).
+Since this is what a large binary tree looks like from the perspective of any leaf, the graph limit of the binary trees (which is a random rooted graph) should take this value with probability 1/2, which is the limiting probability that a randomly selected vertex is a leaf.
 
-Now, the set of nodes in a binary tree which are one level above a node constitute about 1/4th of the binary tree, in the limit.
+Now, the set of nodes in a binary tree which are one level above a leaf constitute about 1/4th of the binary tree, in the limit.
+
 [transition back to regular btree, highlight those vertices]
+
 Let's see what a large binary tree looks like from the perspective of one of these vertices.
+
 [transition back to canopy, highlight only one vertex]
-It looks the same as the picture from a leaf, but rooted one node further along the path.
+
+It looks the same as the perspective from a leaf, but rooted one node further along the path.
 Similarly, if we examine a large binary tree from the perspective of a node which is two levels above a leaf, we will find the same picture, just shifted by one more node.
 
 This leads us to conjecture that the random rooted graph which is the limit of the finite binary trees will take *this* value with probability 1/2, *this* value with probability 1/4, *this* value with probability 1/8, et. cetera [animation zoom or something]
 Since these probabilities add up to 1, this is a complete description of a random rooted graph.
 
-Now, this is just a conjecture.
+This random rooted graph is called the Canopy tree.
+The term Canopy comes from plant biology, where it refers to the outer layer of leaves of a tree.
+
+So far, we have only conjectured that the canopy tree is the limit of the finite binary trees.
 To actually prove that this is the limit, we must refer back to the definition of convergence for random rooted graphs.
 In particular, we must show that, for any R, the distribution of R-balls in the finite binary trees converges to the distribution of R-balls in the proposed graph limit.
-We'll leave this as an exercise for you, but here are some plots of the numbers of different R-balls in the finite binary trees.
 
-So, assuming you've done that exercise, we've found another example of a graph limit.
+Here is the distribution of the 1-balls in a binary tree of height three.
+There are four vertices which have this 1-ball, two vertices which have this 1-ball, and only one vertex with this 1-ball.
+
+And, here is the distribution of the 1-balls in the canopy tree.
+As you can see, when the height of the finite binary tree increases, the distribution of its 1-balls converges to the corresponding distribution for the canopy tree.
+
+We can make a similar chart for the 2-balls, and we find by inspection that the distribution converges to the right limit in this case as well.
+
+We'll leave it as an exercies for you to prove rigorously that the distribution of R-balls in the finite binary tree converges to the distribution of R-balls in the canopy tree, for every R.
+
+Assuming you've done that exercise, we've found another example of a graph limit.
 Unlike all the limits we saw in the last video, this one can take infinitely many different values, each with positive probability.
-Of course, if we ignore the root, we will always get the same graph.
+Of course, if we ignore the root, we will always get the same underlying graph.
 But the rooting really does matter here, and so we consider each of these infinitely many outcomes distinct.
 
-Stay tuned for more videos!
+This is definitely not as far as we can go: there are plenty more examples of graph limits, including ones which can take uncountably many different values!
+Stay tuned for more examples and applications of graph limit theory.
