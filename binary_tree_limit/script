@@ -1,64 +1,59 @@
-In our last video, we presented a notion of graph convergence, where every sequence of finite graphs has a graph limit.
-These limits are all random rooted graphs, i.e. random variables taking values in the space of rooted graphs.
+In our last video, we presented a notion of graph convergence, where sparse sequences of graphs can converge to a graph limit.
+These limits are all random rooted graphs, which are the same thing as probability distributions on the space of rooted graphs.
 
 Now, what is the limit of the sequence of complete finite binary trees?
 A first guess might be that the limit is the random rooted graph whose value is, with probability 1, the infinite binary tree, rooted at the top.
 
-After all, this is what happens with the finite path graphs and grid graphs, as we saw before: the limit of the sequence of finite path graphs is an infinite path graph, rooted in the middle, and the limit of the finite grid graphs is an infinite grid graph, rooted in the middle. [show screengrab from previous video]
+After all, this is what happens with the path graphs and the grid graphs, as we saw before: the limit of the sequence of finite path graphs is an infinite path graph, rooted in the middle, with probability 1. And the limit of the finite grid graphs is an infinite grid graph, again rooted in the middle, with probability 1.
 
 This is because the balls in the grid graph mostly look like the ball around the origin in the infinite grid.
-Here we show the 2-ball in the infinite grid on the right, and you can see that the 2-balls around a random vertex in the large finite grid on the left mostly look the same.
+On the right, we see the 2-ball around the origin in an infinite grid, and on the left, we see a large finite grid.
+You can see that the 2-balls around a random vertex in the large finite grid mostly look the same as the 2-ball around the origin in the infinite grid.
 
 In fact, for any radius R, as the side length N of the finite grid go to infinity, the probability that the R-ball around a uniformly random vertex in the grid is isomorphic to to the R-ball in the infinite grid goes to 1.
 
 This works because the number of vertices that are within distance R from the boundary of the grid scales like N, whereas the number of vertices in the interior of the grid scales like N^2.
-So for large enough N, there are far more vertices on the interior than near the boundary.
+So for large enough N, there are far more vertices in the interior than near the boundary.
 
 However, the binary tree does not exhibit this 'small-boundary' behavior.
-In fact, as the size of the binary trees goes to infinity, the proportion of vertices at the bottom of the tree goes to 1/2.
-[highlight leaves]
+In fact, as the size of the binary trees goes to infinity, the proportion of vertices in the boundary of the tree goes to 1/2.
 So, rather than looking at the binary tree from the top, let's see what it looks like from the bottom, from the perspective of a leaf of the tree.
-[transition to canopy drawing, highlight only one leaf]
 
 From a leaf's perspective, this is what the binary tree looks like.
-As the tree gets bigger, from this perspective the natural limit is a one-way infinite path, where the nth node along the path has a binary tree of depth n attached to it (note that the binary tree of depth 0 is empty).
+As the tree gets bigger, from this perspective the natural limit is a one-way infinite path, where the nth node along the path has a binary tree of height n attached to it (note that the binary tree of height 0 is empty).
 Since this is what a large binary tree looks like from the perspective of any leaf, the graph limit of the binary trees (which is a random rooted graph) should take this value with probability 1/2, which is the limiting probability that a randomly selected vertex is a leaf.
 
 Now, the set of nodes in a binary tree which are one level above a leaf constitute about 1/4th of the binary tree, in the limit.
-
-[transition back to regular btree, highlight those vertices]
-
 Let's see what a large binary tree looks like from the perspective of one of these vertices.
-
-[transition back to canopy, highlight only one vertex]
 
 It looks the same as the perspective from a leaf, but rooted one node further along the path.
 Similarly, if we examine a large binary tree from the perspective of a node which is two levels above a leaf, we will find the same picture, just shifted by one more node.
 
-This leads us to conjecture that the random rooted graph which is the limit of the finite binary trees will take *this* value with probability 1/2, *this* value with probability 1/4, *this* value with probability 1/8, et. cetera [animation zoom or something]
-Since these probabilities add up to 1, this is a complete description of a random rooted graph.
-
-This random rooted graph is called the Canopy tree.
+This leads us to conjecture that the random rooted graph which is the limit of the finite binary trees will take *this* value with probability 1/2, *this* value with probability 1/4, *this* value with probability 1/8, et. cetera.
+Since these probabilities add up to 1, this is a complete description of a random rooted graph, called the Canopy tree.
 The term Canopy comes from plant biology, where it refers to the outer layer of leaves of a tree.
 
 So far, we have only conjectured that the canopy tree is the limit of the finite binary trees.
 To actually prove that this is the limit, we must refer back to the definition of convergence for random rooted graphs.
-In particular, we must show that, for any R, the distribution of R-balls in the finite binary trees converges to the distribution of R-balls in the proposed graph limit.
+In particular, we must show that, for any radius R, the distributions of R-balls in the finite binary trees converge to the distribution of R-balls in the proposed graph limit.
 
-Here is the distribution of the 1-balls in a binary tree of height three.
+Let's determine the distribution of the 1-balls in a binary tree of height 3.
 There are four vertices which have this 1-ball, two vertices which have this 1-ball, and only one vertex with this 1-ball.
+Dividing by 7, the total number of vertices, we obtain a probability distribution on 1-balls.
 
-And, here is the distribution of the 1-balls in the canopy tree.
+Now let's determine the distribution of the 1-balls in the canopy tree.
+With probability 1/2, we'll see *this* 1-ball.
+And, we'll see *this* 1-ball with probability 1/4 + 1/8 + 1/16, et. cetera... that's another 1/2.
 As you can see, when the height of the finite binary tree increases, the distribution of its 1-balls converges to the corresponding distribution for the canopy tree.
 
 We can make a similar chart for the 2-balls, and we find by inspection that the distribution converges to the right limit in this case as well.
-
-We'll leave it as an exercies for you to prove rigorously that the distribution of R-balls in the finite binary tree converges to the distribution of R-balls in the canopy tree, for every R.
+We'll leave it as an exercies for you to prove rigorously that the distribution of the R-balls in the finite binary tree converges to the distribution of the R-balls in the canopy tree, for every R.
 
 Assuming you've done that exercise, we've found another example of a graph limit.
 Unlike all the limits we saw in the last video, this one can take infinitely many different values, each with positive probability.
 Of course, if we ignore the root, we will always get the same underlying graph.
 But the rooting really does matter here, and so we consider each of these infinitely many outcomes distinct.
 
-This is definitely not as far as we can go: there are plenty more examples of graph limits, including ones which can take uncountably many different values!
+This is definitely not as far as we can go: there are many more examples of graph limits, including ones which can take uncountably many different values!
+But that is a story for another video.
 Stay tuned for more examples and applications of graph limit theory.

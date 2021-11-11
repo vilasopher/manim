@@ -7,7 +7,7 @@ import grid as gr
 import networkx as nx
 import mobject_labeled_bar_chart as mb
 
-random.seed(0)
+random.seed(1)
 
 # In our last video, we presented a notion of graph convergence,
 # where sparse sequences of graphs can converge to a graph limit.
@@ -102,8 +102,12 @@ class Grids(Scene):
                         edge_config=inf_edge_config)
 
 
-        self.add(grid, infgrid)
+        self.add(infgrid)
         self.add(occlusion, frame)
+
+        self.wait(5)
+        
+        self.play(Create(grid))
 
         # More precisely, for any radius R, as the size N of the finite grids go to
         # infinity, the probability that the R-ball around a uniformly random vertex 
@@ -112,7 +116,7 @@ class Grids(Scene):
         vertexlist = list(grid.vertices)
         boundaryvertices, boundaryedges = gr.grid_boundary(12, 2)
 
-        for _ in range(20):
+        for _ in range(22):
             v = random.choice(vertexlist)
             color = sol.HIGHLIGHT_NODE
 
