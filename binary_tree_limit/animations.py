@@ -116,7 +116,7 @@ class Grids(Scene):
         vertexlist = list(grid.vertices)
         boundaryvertices, boundaryedges = gr.grid_boundary(12, 2)
 
-        for _ in range(22):
+        for _ in range(25):
             v = random.choice(vertexlist)
             color = sol.HIGHLIGHT_NODE
 
@@ -141,7 +141,7 @@ class Grids(Scene):
         # So for large enough N, there are far more vertices on the 
         # interior than near the boundary.
 
-        for _ in range(20):
+        for _ in range(15):
             v = random.choice(vertexlist)
             color = sol.HIGHLIGHT_NODE
 
