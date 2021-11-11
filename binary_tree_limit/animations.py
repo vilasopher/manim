@@ -32,7 +32,7 @@ class Opening(Scene):
             self.play(g.animate.add_vertices(*nodes, positions=bt.binary_tree_layout(depth)),
                       g.animate.add_edges(*edges))
 
-        self.wait()
+        self.wait(5)
 
         # A first guess might be that the limit is the random rooted graph whose value is,
         # with probability 1, the infinite binary tree, rooted at the top.
@@ -40,11 +40,13 @@ class Opening(Scene):
         for depth in range(5,7):
             nodes, edges = bt.binary_tree_layer(depth)
             self.play(g.animate.add_vertices(*nodes, positions=bt.binary_tree_layout(depth)),
-                      g.animate.add_edges(*edges))
+                      g.animate.add_edges(*edges), run_time=0.5)
 
-        self.play(hb.HighlightBall(g,0,0))
+        self.wait(0.8)
 
-        self.wait()
+        self.play(hb.HighlightBall(g,0,0, fadeout=False))
+
+        self.wait(3)
 
 
 #  After all, this is what happens with the path graphs and grid graphs,
