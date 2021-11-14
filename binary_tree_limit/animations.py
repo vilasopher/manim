@@ -160,8 +160,11 @@ class Trees(Scene):
                                 layout=bt.binary_tree_layout(6, shift=2.7*UP))
 
         # However, the binary tree does not exhibit this 'small-boundary' behavior.
-        self.play(Create(g))
+        self.play(Create(g), run_time=2)
         self.wait()
+        self.play(hb.HighlightSubgraph(g,[nodes],[[]]))
+
+        self.wait(6)
 
         # In fact, as the size of the binary trees goes to infinity, the proportion
         # of vertices in the boundary of the tree goes to 1/2.
@@ -170,9 +173,8 @@ class Trees(Scene):
         fraction = MathTex(r"2^n", r"\over", r"2^{n+1}-1", color=sol.BASE02)
         fraction.set_color_by_tex(r"2^n", sol.ORANGE)
 
-        self.play(hb.HighlightSubgraph(g,[nodes],[[]]))
-        self.play(FadeIn(fraction, scale=1.5))
-        self.wait()
+        self.play(FadeIn(fraction, scale=1.5), run_time=2)
+        self.wait(10)
 
         # So, rather than looking at the binary tree from the top, let's see what it
         # looks like from the bottom, from the perspective of a leaf of the tree.
@@ -180,6 +182,10 @@ class Trees(Scene):
         self.play(hb.UnHighlight(g),
                   FadeOut(fraction))
         self.play(hb.HighlightBall(g, 2 ** 6 - 1, 0, fadeout=False))
+
+        self.wait(3)
+
+
         self.play(g.animate.change_layout(bt.canopy_tree_layout(6)))
         self.wait()
 

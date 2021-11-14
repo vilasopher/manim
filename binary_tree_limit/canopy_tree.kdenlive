@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<mlt LC_NUMERIC="C" producer="main_bin" version="7.0.0" root="/home/vilas/Videos/Spectral Collective/Canopy Tree">
+<mlt LC_NUMERIC="C" producer="main_bin" version="7.0.0" root="/home/vilas/Documents/manim/binary_tree_limit">
  <profile frame_rate_num="60" sample_aspect_num="1" display_aspect_den="9" colorspace="709" progressive="1" description="HD 1080p 60 fps" display_aspect_num="16" frame_rate_den="1" width="1920" height="1080" sample_aspect_den="1"/>
  <producer id="producer0" in="00:00:00.000" out="00:00:20.467">
   <property name="length">1229</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/1 - Pre-Opening.wav</property>
+  <property name="resource">newvoice/1 - Pre-Opening.wav</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -28,7 +28,7 @@
  <producer id="producer1" in="00:00:00.000" out="00:00:19.633">
   <property name="length">1179</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/10 - More Canopy at Different Roots.wav</property>
+  <property name="resource">newvoice/10 - More Canopy at Different Roots.wav</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -52,7 +52,7 @@
  <producer id="producer2" in="00:00:00.000" out="00:00:35.817">
   <property name="length">2150</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/11 - Canopy Name.wav</property>
+  <property name="resource">newvoice/11 - Canopy Name.wav</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -76,7 +76,7 @@
  <producer id="producer3" in="00:00:00.000" out="00:00:25.267">
   <property name="length">1517</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/12 - Definition of Convergence.wav</property>
+  <property name="resource">newvoice/12 - Definition of Convergence.wav</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -100,7 +100,7 @@
  <producer id="producer4" in="00:00:00.000" out="00:00:23.083">
   <property name="length">1386</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/13 - 1-Balls in 3-Tree.wav</property>
+  <property name="resource">newvoice/13 - 1-Balls in 3-Tree.wav</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -124,7 +124,7 @@
  <producer id="producer5" in="00:00:00.000" out="00:00:29.133">
   <property name="length">1749</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/14 - 1-Balls in Canopy Tree.wav</property>
+  <property name="resource">newvoice/14 - 1-Balls in Canopy Tree.wav</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -148,7 +148,7 @@
  <producer id="producer6" in="00:00:00.000" out="00:00:20.250">
   <property name="length">1216</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/15 - 2-Balls and Exercise.wav</property>
+  <property name="resource">newvoice/15 - 2-Balls and Exercise.wav</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -172,7 +172,7 @@
  <producer id="producer7" in="00:00:00.000" out="00:00:23.500">
   <property name="length">1411</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/16 - Infinitely Many values.wav</property>
+  <property name="resource">newvoice/16 - Infinitely Many values.wav</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -196,7 +196,7 @@
  <producer id="producer8" in="00:00:00.000" out="00:00:17.333">
   <property name="length">1041</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/17 - Outro.wav</property>
+  <property name="resource">newvoice/17 - Outro.wav</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -220,7 +220,7 @@
  <producer id="producer9" in="00:00:00.000" out="00:00:17.650">
   <property name="length">1060</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/2 - Opening.wav</property>
+  <property name="resource">newvoice/2 - Opening.wav</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -244,7 +244,7 @@
  <producer id="producer10" in="00:00:00.000" out="00:00:20.667">
   <property name="length">1241</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/3 - Amenable.wav</property>
+  <property name="resource">newvoice/3 - Amenable.wav</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -268,7 +268,7 @@
  <producer id="producer11" in="00:00:00.000" out="00:00:24.650">
   <property name="length">1480</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/4 - 2-Balls in Grid.wav</property>
+  <property name="resource">newvoice/4 - 2-Balls in Grid.wav</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -292,7 +292,7 @@
  <producer id="producer12" in="00:00:00.000" out="00:00:17.950">
   <property name="length">1078</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/5 - R-Balls in Grid.wav</property>
+  <property name="resource">newvoice/5 - R-Balls in Grid.wav</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -316,7 +316,7 @@
  <producer id="producer13" in="00:00:00.000" out="00:00:21.617">
   <property name="length">1298</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/6 - Boundary of Grid.wav</property>
+  <property name="resource">newvoice/6 - Boundary of Grid.wav</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -340,7 +340,7 @@
  <producer id="producer14" in="00:00:00.000" out="00:00:24.333">
   <property name="length">1461</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/7 - Leafs are Half.wav</property>
+  <property name="resource">newvoice/7 - Leafs are Half.wav</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -364,7 +364,7 @@
  <producer id="producer15" in="00:00:00.000" out="00:00:35.933">
   <property name="length">2157</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/8 - Canopy Introduction.wav</property>
+  <property name="resource">newvoice/8 - Canopy Introduction.wav</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -388,7 +388,7 @@
  <producer id="producer16" in="00:00:00.000" out="00:00:15.767">
   <property name="length">947</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/9 - Fourth.wav</property>
+  <property name="resource">newvoice/9 - Fourth.wav</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -412,7 +412,11 @@
  <producer id="producer17" in="00:00:00.000" out="00:00:15.850">
   <property name="length">952</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/media/videos/animations/480p15/Opening.mp4</property>
+  <property name="resource">media/videos/animations/480p15/Opening.mp4</property>
+  <property name="audio_index">-1</property>
+  <property name="video_index">0</property>
+  <property name="mute_on_pause">0</property>
+  <property name="mlt_service">avformat-novalidate</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">video</property>
   <property name="meta.media.0.stream.frame_rate">14.9988</property>
@@ -438,10 +442,6 @@
   <property name="meta.media.sample_aspect_num">1</property>
   <property name="meta.media.sample_aspect_den">1</property>
   <property name="aspect_ratio">1</property>
-  <property name="audio_index">-1</property>
-  <property name="video_index">0</property>
-  <property name="mute_on_pause">0</property>
-  <property name="mlt_service">avformat-novalidate</property>
   <property name="kdenlive:clipname"/>
   <property name="kdenlive:folderid">-1</property>
   <property name="meta.media.frame_rate_num">304640</property>
@@ -452,7 +452,7 @@
   <property name="meta.media.width">854</property>
   <property name="meta.media.height">480</property>
   <property name="meta.media.color_range">mpeg</property>
-  <property name="kdenlive:id">21</property>
+  <property name="kdenlive:id">20</property>
   <property name="kdenlive:file_size">145423</property>
   <property name="kdenlive:file_hash">e2c40d35c3fbda141f7bd13fba1de30a</property>
   <property name="meta.media.top_field_first">0</property>
@@ -461,7 +461,11 @@
  <producer id="producer18" in="00:00:00.000" out="00:00:52.800">
   <property name="length">3169</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/media/videos/animations/480p15/Grids.mp4</property>
+  <property name="resource">media/videos/animations/480p15/Grids.mp4</property>
+  <property name="audio_index">-1</property>
+  <property name="video_index">0</property>
+  <property name="mute_on_pause">0</property>
+  <property name="mlt_service">avformat-novalidate</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">video</property>
   <property name="meta.media.0.stream.frame_rate">14.9961</property>
@@ -487,10 +491,6 @@
   <property name="meta.media.sample_aspect_num">1</property>
   <property name="meta.media.sample_aspect_den">1</property>
   <property name="aspect_ratio">1</property>
-  <property name="audio_index">-1</property>
-  <property name="video_index">0</property>
-  <property name="mute_on_pause">0</property>
-  <property name="mlt_service">avformat-novalidate</property>
   <property name="kdenlive:clipname"/>
   <property name="kdenlive:folderid">-1</property>
   <property name="meta.media.frame_rate_num">2027520</property>
@@ -501,7 +501,7 @@
   <property name="meta.media.width">854</property>
   <property name="meta.media.height">480</property>
   <property name="meta.media.color_range">mpeg</property>
-  <property name="kdenlive:id">22</property>
+  <property name="kdenlive:id">21</property>
   <property name="kdenlive:file_size">2648722</property>
   <property name="kdenlive:file_hash">9ca0a6e481a31a8115edc92d9ac93bba</property>
   <property name="meta.media.top_field_first">0</property>
@@ -510,7 +510,11 @@
  <producer id="producer19" in="00:00:00.000" out="00:00:33.717">
   <property name="length">2024</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/media/videos/animations/480p15/Trees.mp4</property>
+  <property name="resource">media/videos/animations/480p15/Trees.mp4</property>
+  <property name="audio_index">-1</property>
+  <property name="video_index">0</property>
+  <property name="mute_on_pause">0</property>
+  <property name="mlt_service">avformat-novalidate</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">video</property>
   <property name="meta.media.0.stream.frame_rate">14.9979</property>
@@ -536,10 +540,6 @@
   <property name="meta.media.sample_aspect_num">1</property>
   <property name="meta.media.sample_aspect_den">1</property>
   <property name="aspect_ratio">1</property>
-  <property name="audio_index">-1</property>
-  <property name="video_index">0</property>
-  <property name="mute_on_pause">0</property>
-  <property name="mlt_service">avformat-novalidate</property>
   <property name="kdenlive:clipname"/>
   <property name="kdenlive:folderid">-1</property>
   <property name="meta.media.frame_rate_num">971520</property>
@@ -550,7 +550,7 @@
   <property name="meta.media.width">854</property>
   <property name="meta.media.height">480</property>
   <property name="meta.media.color_range">mpeg</property>
-  <property name="kdenlive:id">23</property>
+  <property name="kdenlive:id">22</property>
   <property name="kdenlive:file_size">729669</property>
   <property name="kdenlive:file_hash">83b4499bf9470baa733bb04f59f9161d</property>
   <property name="meta.media.top_field_first">0</property>
@@ -558,7 +558,7 @@
  </producer>
  <playlist id="main_bin">
   <property name="kdenlive:folder.-1.2">newvoice</property>
-  <property name="kdenlive:docproperties.activeTrack">2</property>
+  <property name="kdenlive:docproperties.activeTrack">0</property>
   <property name="kdenlive:docproperties.audioChannels">2</property>
   <property name="kdenlive:docproperties.audioTarget">-1</property>
   <property name="kdenlive:docproperties.disablepreview">0</property>
@@ -573,7 +573,7 @@
 ]
 </property>
   <property name="kdenlive:docproperties.kdenliveversion">21.08.2</property>
-  <property name="kdenlive:docproperties.position">8536</property>
+  <property name="kdenlive:docproperties.position">12841</property>
   <property name="kdenlive:docproperties.previewextension"/>
   <property name="kdenlive:docproperties.previewparameters"/>
   <property name="kdenlive:docproperties.profile">atsc_1080p_60</property>
@@ -583,16 +583,169 @@
   <property name="kdenlive:docproperties.proxyminsize">1000</property>
   <property name="kdenlive:docproperties.proxyparams"/>
   <property name="kdenlive:docproperties.proxyresize">640</property>
-  <property name="kdenlive:docproperties.scrollPos">4983</property>
+  <property name="kdenlive:docproperties.scrollPos">0</property>
   <property name="kdenlive:docproperties.seekOffset">30000</property>
   <property name="kdenlive:docproperties.version">1.04</property>
   <property name="kdenlive:docproperties.verticalzoom">1</property>
-  <property name="kdenlive:docproperties.videoTarget">2</property>
+  <property name="kdenlive:docproperties.videoTarget">-1</property>
   <property name="kdenlive:docproperties.zonein">0</property>
   <property name="kdenlive:docproperties.zoneout">75</property>
-  <property name="kdenlive:docproperties.zoom">8</property>
+  <property name="kdenlive:docproperties.zoom">15</property>
   <property name="kdenlive:expandedFolders"/>
   <property name="kdenlive:documentnotes"/>
+  <property name="kdenlive:docproperties.guides">[
+    {
+        "comment": "start trees",
+        "pos": 6194,
+        "type": 0
+    },
+    {
+        "comment": "finish fadein fraction",
+        "pos": 6860,
+        "type": 0
+    },
+    {
+        "comment": "highlight leaf",
+        "pos": 7213,
+        "type": 0
+    },
+    {
+        "comment": "fade out highlighting",
+        "pos": 7106,
+        "type": 0
+    },
+    {
+        "comment": "fade out fraction",
+        "pos": 6961,
+        "type": 0
+    },
+    {
+        "comment": "highlight leaves",
+        "pos": 6489,
+        "type": 0
+    },
+    {
+        "comment": "transition to canopy",
+        "pos": 7408,
+        "type": 0
+    },
+    {
+        "comment": "start moving along the tree slowly",
+        "pos": 7613,
+        "type": 0
+    },
+    {
+        "comment": "finish moving along the tree slowly, and move back to the start",
+        "pos": 8426,
+        "type": 0
+    },
+    {
+        "comment": "fade in 'probability=1/2'",
+        "pos": 8975,
+        "type": 0
+    },
+    {
+        "comment": "fade in = lim 2^n/2^{n+1}-1",
+        "pos": 9070,
+        "type": 0
+    },
+    {
+        "comment": "transition back to binary tree",
+        "pos": 9347,
+        "type": 0
+    },
+    {
+        "comment": "highlight layer 2",
+        "pos": 9399,
+        "type": 0
+    },
+    {
+        "comment": "fade in fraction",
+        "pos": 9564,
+        "type": 0
+    },
+    {
+        "comment": "un-highlight",
+        "pos": 9800,
+        "type": 0
+    },
+    {
+        "comment": "highlight one node",
+        "pos": 9908,
+        "type": 0
+    },
+    {
+        "comment": "switch back to canopy",
+        "pos": 10068,
+        "type": 0
+    },
+    {
+        "comment": "unhighlight",
+        "pos": 10441,
+        "type": 0
+    },
+    {
+        "comment": "highlight that node",
+        "pos": 10679,
+        "type": 0
+    },
+    {
+        "comment": "slide the focus over to that node",
+        "pos": 10757,
+        "type": 0
+    },
+    {
+        "comment": "unhighlight",
+        "pos": 11017,
+        "type": 0
+    },
+    {
+        "comment": "this value",
+        "pos": 11337,
+        "type": 0
+    },
+    {
+        "comment": "probability 1/2",
+        "pos": 11392,
+        "type": 0
+    },
+    {
+        "comment": "this value",
+        "pos": 11527,
+        "type": 0
+    },
+    {
+        "comment": "probability",
+        "pos": 11586,
+        "type": 0
+    },
+    {
+        "comment": "this value",
+        "pos": 11732,
+        "type": 0
+    },
+    {
+        "comment": "probability 1/8",
+        "pos": 11787,
+        "type": 0
+    },
+    {
+        "comment": "don't move camera, move highlighted root and change number",
+        "pos": 11886,
+        "type": 0
+    },
+    {
+        "comment": "big red balls with numbers",
+        "pos": 12017,
+        "type": 0
+    },
+    {
+        "comment": "fade in canopy tree",
+        "pos": 12306,
+        "type": 0
+    }
+]
+</property>
   <property name="xml_retain">1</property>
   <entry producer="producer0" in="00:00:00.000" out="00:00:20.467"/>
   <entry producer="producer1" in="00:00:00.000" out="00:00:19.633"/>
@@ -662,7 +815,11 @@
  <producer id="producer20" in="00:00:00.000" out="00:00:20.467">
   <property name="length">1229</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/1 - Pre-Opening.wav</property>
+  <property name="resource">newvoice/1 - Pre-Opening.wav</property>
+  <property name="audio_index">0</property>
+  <property name="video_index">-1</property>
+  <property name="mute_on_pause">0</property>
+  <property name="mlt_service">avformat-novalidate</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -672,10 +829,6 @@
   <property name="meta.media.0.codec.long_name">PCM signed 16-bit little-endian</property>
   <property name="meta.media.0.codec.bit_rate">1411200</property>
   <property name="seekable">1</property>
-  <property name="audio_index">0</property>
-  <property name="video_index">-1</property>
-  <property name="mute_on_pause">0</property>
-  <property name="mlt_service">avformat-novalidate</property>
   <property name="kdenlive:clipname"/>
   <property name="kdenlive:folderid">2</property>
   <property name="kdenlive:id">3</property>
@@ -689,7 +842,11 @@
  <producer id="producer21" in="00:00:00.000" out="00:00:17.650">
   <property name="length">1060</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/2 - Opening.wav</property>
+  <property name="resource">newvoice/2 - Opening.wav</property>
+  <property name="audio_index">0</property>
+  <property name="video_index">-1</property>
+  <property name="mute_on_pause">0</property>
+  <property name="mlt_service">avformat-novalidate</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -699,10 +856,6 @@
   <property name="meta.media.0.codec.long_name">PCM signed 16-bit little-endian</property>
   <property name="meta.media.0.codec.bit_rate">1411200</property>
   <property name="seekable">1</property>
-  <property name="audio_index">0</property>
-  <property name="video_index">-1</property>
-  <property name="mute_on_pause">0</property>
-  <property name="mlt_service">avformat-novalidate</property>
   <property name="kdenlive:clipname"/>
   <property name="kdenlive:folderid">2</property>
   <property name="kdenlive:id">12</property>
@@ -716,7 +869,11 @@
  <producer id="producer22" in="00:00:00.000" out="00:00:20.667">
   <property name="length">1241</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/3 - Amenable.wav</property>
+  <property name="resource">newvoice/3 - Amenable.wav</property>
+  <property name="audio_index">0</property>
+  <property name="video_index">-1</property>
+  <property name="mute_on_pause">0</property>
+  <property name="mlt_service">avformat-novalidate</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -726,10 +883,6 @@
   <property name="meta.media.0.codec.long_name">PCM signed 16-bit little-endian</property>
   <property name="meta.media.0.codec.bit_rate">1411200</property>
   <property name="seekable">1</property>
-  <property name="audio_index">0</property>
-  <property name="video_index">-1</property>
-  <property name="mute_on_pause">0</property>
-  <property name="mlt_service">avformat-novalidate</property>
   <property name="kdenlive:clipname"/>
   <property name="kdenlive:folderid">2</property>
   <property name="kdenlive:id">13</property>
@@ -743,7 +896,11 @@
  <producer id="producer23" in="00:00:00.000" out="00:00:24.650">
   <property name="length">1480</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/4 - 2-Balls in Grid.wav</property>
+  <property name="resource">newvoice/4 - 2-Balls in Grid.wav</property>
+  <property name="audio_index">0</property>
+  <property name="video_index">-1</property>
+  <property name="mute_on_pause">0</property>
+  <property name="mlt_service">avformat-novalidate</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -753,10 +910,6 @@
   <property name="meta.media.0.codec.long_name">PCM signed 16-bit little-endian</property>
   <property name="meta.media.0.codec.bit_rate">1411200</property>
   <property name="seekable">1</property>
-  <property name="audio_index">0</property>
-  <property name="video_index">-1</property>
-  <property name="mute_on_pause">0</property>
-  <property name="mlt_service">avformat-novalidate</property>
   <property name="kdenlive:clipname"/>
   <property name="kdenlive:folderid">2</property>
   <property name="kdenlive:id">14</property>
@@ -770,7 +923,11 @@
  <producer id="producer24" in="00:00:00.000" out="00:00:17.950">
   <property name="length">1078</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/5 - R-Balls in Grid.wav</property>
+  <property name="resource">newvoice/5 - R-Balls in Grid.wav</property>
+  <property name="audio_index">0</property>
+  <property name="video_index">-1</property>
+  <property name="mute_on_pause">0</property>
+  <property name="mlt_service">avformat-novalidate</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -780,10 +937,6 @@
   <property name="meta.media.0.codec.long_name">PCM signed 16-bit little-endian</property>
   <property name="meta.media.0.codec.bit_rate">1411200</property>
   <property name="seekable">1</property>
-  <property name="audio_index">0</property>
-  <property name="video_index">-1</property>
-  <property name="mute_on_pause">0</property>
-  <property name="mlt_service">avformat-novalidate</property>
   <property name="kdenlive:clipname"/>
   <property name="kdenlive:folderid">2</property>
   <property name="kdenlive:id">15</property>
@@ -797,7 +950,11 @@
  <producer id="producer25" in="00:00:00.000" out="00:00:21.617">
   <property name="length">1298</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/6 - Boundary of Grid.wav</property>
+  <property name="resource">newvoice/6 - Boundary of Grid.wav</property>
+  <property name="audio_index">0</property>
+  <property name="video_index">-1</property>
+  <property name="mute_on_pause">0</property>
+  <property name="mlt_service">avformat-novalidate</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -807,10 +964,6 @@
   <property name="meta.media.0.codec.long_name">PCM signed 16-bit little-endian</property>
   <property name="meta.media.0.codec.bit_rate">1411200</property>
   <property name="seekable">1</property>
-  <property name="audio_index">0</property>
-  <property name="video_index">-1</property>
-  <property name="mute_on_pause">0</property>
-  <property name="mlt_service">avformat-novalidate</property>
   <property name="kdenlive:clipname"/>
   <property name="kdenlive:folderid">2</property>
   <property name="kdenlive:id">16</property>
@@ -824,7 +977,11 @@
  <producer id="producer26" in="00:00:00.000" out="00:00:35.933">
   <property name="length">2157</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/8 - Canopy Introduction.wav</property>
+  <property name="resource">newvoice/8 - Canopy Introduction.wav</property>
+  <property name="audio_index">0</property>
+  <property name="video_index">-1</property>
+  <property name="mute_on_pause">0</property>
+  <property name="mlt_service">avformat-novalidate</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -834,10 +991,6 @@
   <property name="meta.media.0.codec.long_name">PCM signed 16-bit little-endian</property>
   <property name="meta.media.0.codec.bit_rate">1411200</property>
   <property name="seekable">1</property>
-  <property name="audio_index">0</property>
-  <property name="video_index">-1</property>
-  <property name="mute_on_pause">0</property>
-  <property name="mlt_service">avformat-novalidate</property>
   <property name="kdenlive:clipname"/>
   <property name="kdenlive:folderid">2</property>
   <property name="kdenlive:id">18</property>
@@ -851,7 +1004,11 @@
  <producer id="producer27" in="00:00:00.000" out="00:00:15.767">
   <property name="length">947</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/9 - Fourth.wav</property>
+  <property name="resource">newvoice/9 - Fourth.wav</property>
+  <property name="audio_index">0</property>
+  <property name="video_index">-1</property>
+  <property name="mute_on_pause">0</property>
+  <property name="mlt_service">avformat-novalidate</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -861,10 +1018,6 @@
   <property name="meta.media.0.codec.long_name">PCM signed 16-bit little-endian</property>
   <property name="meta.media.0.codec.bit_rate">1411200</property>
   <property name="seekable">1</property>
-  <property name="audio_index">0</property>
-  <property name="video_index">-1</property>
-  <property name="mute_on_pause">0</property>
-  <property name="mlt_service">avformat-novalidate</property>
   <property name="kdenlive:clipname"/>
   <property name="kdenlive:folderid">2</property>
   <property name="kdenlive:id">19</property>
@@ -878,7 +1031,11 @@
  <producer id="producer28" in="00:00:00.000" out="00:00:19.633">
   <property name="length">1179</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/10 - More Canopy at Different Roots.wav</property>
+  <property name="resource">newvoice/10 - More Canopy at Different Roots.wav</property>
+  <property name="audio_index">0</property>
+  <property name="video_index">-1</property>
+  <property name="mute_on_pause">0</property>
+  <property name="mlt_service">avformat-novalidate</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -888,10 +1045,6 @@
   <property name="meta.media.0.codec.long_name">PCM signed 16-bit little-endian</property>
   <property name="meta.media.0.codec.bit_rate">1411200</property>
   <property name="seekable">1</property>
-  <property name="audio_index">0</property>
-  <property name="video_index">-1</property>
-  <property name="mute_on_pause">0</property>
-  <property name="mlt_service">avformat-novalidate</property>
   <property name="kdenlive:clipname"/>
   <property name="kdenlive:folderid">2</property>
   <property name="kdenlive:id">4</property>
@@ -905,7 +1058,11 @@
  <producer id="producer29" in="00:00:00.000" out="00:00:35.817">
   <property name="length">2150</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/11 - Canopy Name.wav</property>
+  <property name="resource">newvoice/11 - Canopy Name.wav</property>
+  <property name="audio_index">0</property>
+  <property name="video_index">-1</property>
+  <property name="mute_on_pause">0</property>
+  <property name="mlt_service">avformat-novalidate</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -915,10 +1072,6 @@
   <property name="meta.media.0.codec.long_name">PCM signed 16-bit little-endian</property>
   <property name="meta.media.0.codec.bit_rate">1411200</property>
   <property name="seekable">1</property>
-  <property name="audio_index">0</property>
-  <property name="video_index">-1</property>
-  <property name="mute_on_pause">0</property>
-  <property name="mlt_service">avformat-novalidate</property>
   <property name="kdenlive:clipname"/>
   <property name="kdenlive:folderid">2</property>
   <property name="kdenlive:id">5</property>
@@ -932,7 +1085,11 @@
  <producer id="producer30" in="00:00:00.000" out="00:00:25.267">
   <property name="length">1517</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/12 - Definition of Convergence.wav</property>
+  <property name="resource">newvoice/12 - Definition of Convergence.wav</property>
+  <property name="audio_index">0</property>
+  <property name="video_index">-1</property>
+  <property name="mute_on_pause">0</property>
+  <property name="mlt_service">avformat-novalidate</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -942,10 +1099,6 @@
   <property name="meta.media.0.codec.long_name">PCM signed 16-bit little-endian</property>
   <property name="meta.media.0.codec.bit_rate">1411200</property>
   <property name="seekable">1</property>
-  <property name="audio_index">0</property>
-  <property name="video_index">-1</property>
-  <property name="mute_on_pause">0</property>
-  <property name="mlt_service">avformat-novalidate</property>
   <property name="kdenlive:clipname"/>
   <property name="kdenlive:folderid">2</property>
   <property name="kdenlive:id">6</property>
@@ -959,7 +1112,11 @@
  <producer id="producer31" in="00:00:00.000" out="00:00:23.083">
   <property name="length">1386</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/13 - 1-Balls in 3-Tree.wav</property>
+  <property name="resource">newvoice/13 - 1-Balls in 3-Tree.wav</property>
+  <property name="audio_index">0</property>
+  <property name="video_index">-1</property>
+  <property name="mute_on_pause">0</property>
+  <property name="mlt_service">avformat-novalidate</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -969,10 +1126,6 @@
   <property name="meta.media.0.codec.long_name">PCM signed 16-bit little-endian</property>
   <property name="meta.media.0.codec.bit_rate">1411200</property>
   <property name="seekable">1</property>
-  <property name="audio_index">0</property>
-  <property name="video_index">-1</property>
-  <property name="mute_on_pause">0</property>
-  <property name="mlt_service">avformat-novalidate</property>
   <property name="kdenlive:clipname"/>
   <property name="kdenlive:folderid">2</property>
   <property name="kdenlive:id">7</property>
@@ -986,7 +1139,11 @@
  <producer id="producer32" in="00:00:00.000" out="00:00:29.133">
   <property name="length">1749</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/14 - 1-Balls in Canopy Tree.wav</property>
+  <property name="resource">newvoice/14 - 1-Balls in Canopy Tree.wav</property>
+  <property name="audio_index">0</property>
+  <property name="video_index">-1</property>
+  <property name="mute_on_pause">0</property>
+  <property name="mlt_service">avformat-novalidate</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -996,10 +1153,6 @@
   <property name="meta.media.0.codec.long_name">PCM signed 16-bit little-endian</property>
   <property name="meta.media.0.codec.bit_rate">1411200</property>
   <property name="seekable">1</property>
-  <property name="audio_index">0</property>
-  <property name="video_index">-1</property>
-  <property name="mute_on_pause">0</property>
-  <property name="mlt_service">avformat-novalidate</property>
   <property name="kdenlive:clipname"/>
   <property name="kdenlive:folderid">2</property>
   <property name="kdenlive:id">8</property>
@@ -1013,7 +1166,11 @@
  <producer id="producer33" in="00:00:00.000" out="00:00:20.250">
   <property name="length">1216</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/15 - 2-Balls and Exercise.wav</property>
+  <property name="resource">newvoice/15 - 2-Balls and Exercise.wav</property>
+  <property name="audio_index">0</property>
+  <property name="video_index">-1</property>
+  <property name="mute_on_pause">0</property>
+  <property name="mlt_service">avformat-novalidate</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -1023,10 +1180,6 @@
   <property name="meta.media.0.codec.long_name">PCM signed 16-bit little-endian</property>
   <property name="meta.media.0.codec.bit_rate">1411200</property>
   <property name="seekable">1</property>
-  <property name="audio_index">0</property>
-  <property name="video_index">-1</property>
-  <property name="mute_on_pause">0</property>
-  <property name="mlt_service">avformat-novalidate</property>
   <property name="kdenlive:clipname"/>
   <property name="kdenlive:folderid">2</property>
   <property name="kdenlive:id">9</property>
@@ -1040,7 +1193,11 @@
  <producer id="producer34" in="00:00:00.000" out="00:00:23.500">
   <property name="length">1411</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/16 - Infinitely Many values.wav</property>
+  <property name="resource">newvoice/16 - Infinitely Many values.wav</property>
+  <property name="audio_index">0</property>
+  <property name="video_index">-1</property>
+  <property name="mute_on_pause">0</property>
+  <property name="mlt_service">avformat-novalidate</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -1050,10 +1207,6 @@
   <property name="meta.media.0.codec.long_name">PCM signed 16-bit little-endian</property>
   <property name="meta.media.0.codec.bit_rate">1411200</property>
   <property name="seekable">1</property>
-  <property name="audio_index">0</property>
-  <property name="video_index">-1</property>
-  <property name="mute_on_pause">0</property>
-  <property name="mlt_service">avformat-novalidate</property>
   <property name="kdenlive:clipname"/>
   <property name="kdenlive:folderid">2</property>
   <property name="kdenlive:id">10</property>
@@ -1067,7 +1220,11 @@
  <producer id="producer35" in="00:00:00.000" out="00:00:17.333">
   <property name="length">1041</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/newvoice/17 - Outro.wav</property>
+  <property name="resource">newvoice/17 - Outro.wav</property>
+  <property name="audio_index">0</property>
+  <property name="video_index">-1</property>
+  <property name="mute_on_pause">0</property>
+  <property name="mlt_service">avformat-novalidate</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">audio</property>
   <property name="meta.media.0.codec.sample_fmt">s16</property>
@@ -1077,10 +1234,6 @@
   <property name="meta.media.0.codec.long_name">PCM signed 16-bit little-endian</property>
   <property name="meta.media.0.codec.bit_rate">1411200</property>
   <property name="seekable">1</property>
-  <property name="audio_index">0</property>
-  <property name="video_index">-1</property>
-  <property name="mute_on_pause">0</property>
-  <property name="mlt_service">avformat-novalidate</property>
   <property name="kdenlive:clipname"/>
   <property name="kdenlive:folderid">2</property>
   <property name="kdenlive:id">11</property>
@@ -1196,7 +1349,7 @@
  <producer id="producer36" in="00:00:00.000" out="00:00:15.850">
   <property name="length">952</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/media/videos/animations/480p15/Opening.mp4</property>
+  <property name="resource">media/videos/animations/480p15/Opening.mp4</property>
   <property name="audio_index">-1</property>
   <property name="video_index">0</property>
   <property name="mute_on_pause">0</property>
@@ -1205,7 +1358,7 @@
   <property name="aspect_ratio">1</property>
   <property name="kdenlive:clipname"/>
   <property name="kdenlive:folderid">-1</property>
-  <property name="kdenlive:id">21</property>
+  <property name="kdenlive:id">20</property>
   <property name="kdenlive:file_size">145423</property>
   <property name="kdenlive:file_hash">e2c40d35c3fbda141f7bd13fba1de30a</property>
   <property name="xml">was here</property>
@@ -1248,7 +1401,7 @@
  <producer id="producer37" in="00:00:00.000" out="00:00:52.800">
   <property name="length">3169</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/media/videos/animations/480p15/Grids.mp4</property>
+  <property name="resource">media/videos/animations/480p15/Grids.mp4</property>
   <property name="audio_index">-1</property>
   <property name="video_index">0</property>
   <property name="mute_on_pause">0</property>
@@ -1257,7 +1410,7 @@
   <property name="aspect_ratio">1</property>
   <property name="kdenlive:clipname"/>
   <property name="kdenlive:folderid">-1</property>
-  <property name="kdenlive:id">22</property>
+  <property name="kdenlive:id">21</property>
   <property name="kdenlive:file_size">2648722</property>
   <property name="kdenlive:file_hash">9ca0a6e481a31a8115edc92d9ac93bba</property>
   <property name="xml">was here</property>
@@ -1300,7 +1453,7 @@
  <producer id="producer38" in="00:00:00.000" out="00:00:33.717">
   <property name="length">2024</property>
   <property name="eof">pause</property>
-  <property name="resource">/home/vilas/Documents/manim/binary_tree_limit/media/videos/animations/480p15/Trees.mp4</property>
+  <property name="resource">media/videos/animations/480p15/Trees.mp4</property>
   <property name="audio_index">-1</property>
   <property name="video_index">0</property>
   <property name="mute_on_pause">0</property>
@@ -1309,7 +1462,7 @@
   <property name="aspect_ratio">1</property>
   <property name="kdenlive:clipname"/>
   <property name="kdenlive:folderid">-1</property>
-  <property name="kdenlive:id">23</property>
+  <property name="kdenlive:id">22</property>
   <property name="kdenlive:file_size">729669</property>
   <property name="kdenlive:file_hash">83b4499bf9470baa733bb04f59f9161d</property>
   <property name="xml">was here</property>
@@ -1352,19 +1505,19 @@
  <playlist id="playlist4">
   <blank length="00:00:16.050"/>
   <entry producer="producer36" in="00:00:00.000" out="00:00:15.283">
-   <property name="kdenlive:id">21</property>
+   <property name="kdenlive:id">20</property>
   </entry>
   <blank length="00:00:21.817"/>
   <entry producer="producer37" in="00:00:00.000" out="00:00:48.550">
-   <property name="kdenlive:id">22</property>
+   <property name="kdenlive:id">21</property>
   </entry>
-  <blank length="00:00:04.800"/>
+  <blank length="00:00:01.500"/>
   <entry producer="producer38" in="00:00:00.000" out="00:00:33.717">
-   <property name="kdenlive:id">23</property>
+   <property name="kdenlive:id">22</property>
   </entry>
  </playlist>
  <playlist id="playlist5"/>
- <tractor id="tractor2" in="00:00:00.000" out="00:02:20.250">
+ <tractor id="tractor2" in="00:00:00.000" out="00:02:16.950">
   <property name="kdenlive:trackheight">67</property>
   <property name="kdenlive:timeline_active">1</property>
   <property name="kdenlive:collapsed">0</property>
