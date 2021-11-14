@@ -479,7 +479,7 @@
   <property name="meta.media.0.codec.colorspace">601</property>
   <property name="meta.media.0.codec.name">h264</property>
   <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
-  <property name="meta.media.0.codec.bit_rate">393039</property>
+  <property name="meta.media.0.codec.bit_rate">399608</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
   <property name="meta.attr.major_brand.markup">isom</property>
@@ -493,8 +493,8 @@
   <property name="aspect_ratio">1</property>
   <property name="kdenlive:clipname"/>
   <property name="kdenlive:folderid">-1</property>
-  <property name="meta.media.frame_rate_num">97280</property>
-  <property name="meta.media.frame_rate_den">6487</property>
+  <property name="meta.media.frame_rate_num">2027520</property>
+  <property name="meta.media.frame_rate_den">135203</property>
   <property name="meta.media.colorspace">601</property>
   <property name="meta.media.color_trc">2</property>
   <property name="meta.media.has_b_frames">2</property>
@@ -502,10 +502,10 @@
   <property name="meta.media.height">480</property>
   <property name="meta.media.color_range">mpeg</property>
   <property name="kdenlive:id">21</property>
-  <property name="kdenlive:file_size">2500107</property>
+  <property name="kdenlive:file_size">2648722</property>
+  <property name="kdenlive:file_hash">9ca0a6e481a31a8115edc92d9ac93bba</property>
   <property name="meta.media.top_field_first">0</property>
   <property name="meta.media.progressive">1</property>
-  <property name="kdenlive:file_hash">7b4763e22160b75c77b11796b9848d83</property>
  </producer>
  <producer id="producer19" in="00:00:00.000" out="00:00:33.717">
   <property name="length">2024</property>
@@ -558,7 +558,7 @@
  </producer>
  <playlist id="main_bin">
   <property name="kdenlive:folder.-1.2">newvoice</property>
-  <property name="kdenlive:docproperties.activeTrack">2</property>
+  <property name="kdenlive:docproperties.activeTrack">0</property>
   <property name="kdenlive:docproperties.audioChannels">2</property>
   <property name="kdenlive:docproperties.audioTarget">-1</property>
   <property name="kdenlive:docproperties.disablepreview">0</property>
@@ -572,6 +572,27 @@
   <property name="kdenlive:docproperties.groups">[
 ]
 </property>
+  <property name="kdenlive:docproperties.kdenliveversion">21.08.2</property>
+  <property name="kdenlive:docproperties.position">12841</property>
+  <property name="kdenlive:docproperties.previewextension"/>
+  <property name="kdenlive:docproperties.previewparameters"/>
+  <property name="kdenlive:docproperties.profile">atsc_1080p_60</property>
+  <property name="kdenlive:docproperties.proxyextension"/>
+  <property name="kdenlive:docproperties.proxyimageminsize">2000</property>
+  <property name="kdenlive:docproperties.proxyimagesize">800</property>
+  <property name="kdenlive:docproperties.proxyminsize">1000</property>
+  <property name="kdenlive:docproperties.proxyparams"/>
+  <property name="kdenlive:docproperties.proxyresize">640</property>
+  <property name="kdenlive:docproperties.scrollPos">0</property>
+  <property name="kdenlive:docproperties.seekOffset">30000</property>
+  <property name="kdenlive:docproperties.version">1.04</property>
+  <property name="kdenlive:docproperties.verticalzoom">1</property>
+  <property name="kdenlive:docproperties.videoTarget">-1</property>
+  <property name="kdenlive:docproperties.zonein">0</property>
+  <property name="kdenlive:docproperties.zoneout">75</property>
+  <property name="kdenlive:docproperties.zoom">15</property>
+  <property name="kdenlive:expandedFolders"/>
+  <property name="kdenlive:documentnotes"/>
   <property name="kdenlive:docproperties.guides">[
     {
         "comment": "start trees",
@@ -722,315 +743,9 @@
         "comment": "fade in canopy tree",
         "pos": 12306,
         "type": 0
-    },
-    {
-        "comment": "with probability 1",
-        "pos": 1548,
-        "type": 1
-    },
-    {
-        "comment": "add two layers quickly",
-        "pos": 1622,
-        "type": 1
-    },
-    {
-        "comment": "root at the top",
-        "pos": 1721,
-        "type": 1
-    },
-    {
-        "comment": "opening start",
-        "pos": 963,
-        "type": 1
-    },
-    {
-        "comment": "fade in path graph screengraph from last video",
-        "pos": 2135,
-        "type": 2
-    },
-    {
-        "comment": "fade in grid graph screengrab",
-        "pos": 2540,
-        "type": 2
-    },
-    {
-        "comment": "= balls in infinite grid",
-        "pos": 3110,
-        "type": 4
-    },
-    {
-        "comment": "balls in finite grid",
-        "pos": 2975,
-        "type": 4
-    },
-    {
-        "comment": "fade in infinite grid",
-        "pos": 3294,
-        "type": 4
-    },
-    {
-        "comment": "create finite grid",
-        "pos": 3521,
-        "type": 4
-    },
-    {
-        "comment": "start randomly sampling 2-balls",
-        "pos": 3729,
-        "type": 4
-    },
-    {
-        "comment": "make a probability latex statement fade in",
-        "pos": 4567,
-        "type": 4
-    },
-    {
-        "comment": "isomorphic to the ball in the top right",
-        "pos": 4815,
-        "type": 4
-    },
-    {
-        "comment": "highlight vertices near boundary",
-        "pos": 5141,
-        "type": 4
-    },
-    {
-        "comment": "fade in top part of fraction if possible",
-        "pos": 5337,
-        "type": 4
-    },
-    {
-        "comment": "fade in rest of fraction if possible",
-        "pos": 5594,
-        "type": 4
-    },
-    {
-        "comment": "remove probability statement",
-        "pos": 5061,
-        "type": 4
-    },
-    {
-        "comment": "fade out canopy",
-        "pos": 12854,
-        "type": 5
-    },
-    {
-        "comment": "fade in definition from last video",
-        "pos": 13122,
-        "type": 5
-    },
-    {
-        "comment": "for any radius R",
-        "pos": 13597,
-        "type": 5
-    },
-    {
-        "comment": "distribution of B_R(Binary Tree of Height n with uniformly random root)",
-        "pos": 13669,
-        "type": 5
-    },
-    {
-        "comment": "distribution of B_R(Canopy tree)",
-        "pos": 13863,
-        "type": 5
-    },
-    {
-        "comment": "fade out",
-        "pos": 14072,
-        "type": 5
-    },
-    {
-        "comment": "Construct a binary tree of height 3",
-        "pos": 14229,
-        "type": 7
-    },
-    {
-        "comment": "Construct bar chart",
-        "pos": 14086,
-        "type": 7
-    },
-    {
-        "comment": "increase bar to 4, and highlight those balls one at a time",
-        "pos": 14387,
-        "type": 7
-    },
-    {
-        "comment": "increase bar to 2, highlight those balls",
-        "pos": 14545,
-        "type": 7
-    },
-    {
-        "comment": "increase bar to 1, highlight that ball",
-        "pos": 14670,
-        "type": 7
-    },
-    {
-        "comment": "divide by 7",
-        "pos": 15013,
-        "type": 7
-    },
-    {
-        "comment": "Fade out",
-        "pos": 15227,
-        "type": 7
-    },
-    {
-        "comment": "Fade in bar chart",
-        "pos": 15242,
-        "type": 3
-    },
-    {
-        "comment": "fade in canopy tree",
-        "pos": 15370,
-        "type": 3
-    },
-    {
-        "comment": "increase bar to 1/2",
-        "pos": 15475,
-        "type": 3
-    },
-    {
-        "comment": "highlight the ball",
-        "pos": 15552,
-        "type": 3
-    },
-    {
-        "comment": "add 'this' 1-ball to the bar chart",
-        "pos": 15704,
-        "type": 3
-    },
-    {
-        "comment": "highlight 1/8, add 1/8 to bar",
-        "pos": 15860,
-        "type": 3
-    },
-    {
-        "comment": "highlight 1/4 ball, add 1/4 to bar",
-        "pos": 15802,
-        "type": 3
-    },
-    {
-        "comment": "highlight the 1/16 ball, add 1/16 to bar",
-        "pos": 15915,
-        "type": 3
-    },
-    {
-        "comment": "move the ball offscreen and slowly add the rest of the bar",
-        "pos": 15969,
-        "type": 3
-    },
-    {
-        "comment": "finish filling in bar",
-        "pos": 16033,
-        "type": 3
-    },
-    {
-        "comment": "add the empty third column and shift the canopy bar char to the right",
-        "pos": 16125,
-        "type": 3
-    },
-    {
-        "comment": "fade in height-3 bar chart",
-        "pos": 16178,
-        "type": 3
-    },
-    {
-        "comment": "increase height slowly",
-        "pos": 16225,
-        "type": 3
-    },
-    {
-        "comment": "fade out both distributions; the finite one should be at 9",
-        "pos": 16697,
-        "type": 3
-    },
-    {
-        "comment": "fade in 2-ball chart on both sides",
-        "pos": 16716,
-        "type": 3
-    },
-    {
-        "comment": "start animating the finite one to converge to the infinite one",
-        "pos": 16829,
-        "type": 3
-    },
-    {
-        "comment": "fade in 'exercise'",
-        "pos": 17166,
-        "type": 3
-    },
-    {
-        "comment": "fade out exercise",
-        "pos": 17681,
-        "type": 3
-    },
-    {
-        "comment": "fade in canopy tree",
-        "pos": 17791,
-        "type": 6
-    },
-    {
-        "comment": "make the nodes big and highlighted one-by-one",
-        "pos": 18078,
-        "type": 6
-    },
-    {
-        "comment": "unroot everything",
-        "pos": 18377,
-        "type": 6
-    },
-    {
-        "comment": "fade back in the roots",
-        "pos": 18627,
-        "type": 6
-    },
-    {
-        "comment": "fade out",
-        "pos": 18861,
-        "type": 6
-    },
-    {
-        "comment": "fade in g_n (say fixed finite graph (for each n))",
-        "pos": 229,
-        "type": 8
-    },
-    {
-        "comment": "fade in bold g",
-        "pos": 347,
-        "type": 8
-    },
-    {
-        "comment": "fade in \"random rooted graph\"",
-        "pos": 529,
-        "type": 8
-    },
-    {
-        "comment": "fade in \"probability distribution on G_D^dot\"",
-        "pos": 694,
-        "type": 8
     }
 ]
 </property>
-  <property name="kdenlive:docproperties.kdenliveversion">21.08.2</property>
-  <property name="kdenlive:docproperties.position">1740</property>
-  <property name="kdenlive:docproperties.previewextension"/>
-  <property name="kdenlive:docproperties.previewparameters"/>
-  <property name="kdenlive:docproperties.profile">atsc_1080p_60</property>
-  <property name="kdenlive:docproperties.proxyextension"/>
-  <property name="kdenlive:docproperties.proxyimageminsize">2000</property>
-  <property name="kdenlive:docproperties.proxyimagesize">800</property>
-  <property name="kdenlive:docproperties.proxyminsize">1000</property>
-  <property name="kdenlive:docproperties.proxyparams"/>
-  <property name="kdenlive:docproperties.proxyresize">640</property>
-  <property name="kdenlive:docproperties.scrollPos">0</property>
-  <property name="kdenlive:docproperties.seekOffset">30000</property>
-  <property name="kdenlive:docproperties.version">1.04</property>
-  <property name="kdenlive:docproperties.verticalzoom">1</property>
-  <property name="kdenlive:docproperties.videoTarget">-1</property>
-  <property name="kdenlive:docproperties.zonein">0</property>
-  <property name="kdenlive:docproperties.zoneout">75</property>
-  <property name="kdenlive:docproperties.zoom">15</property>
-  <property name="kdenlive:expandedFolders"/>
-  <property name="kdenlive:documentnotes"/>
   <property name="xml_retain">1</property>
   <entry producer="producer0" in="00:00:00.000" out="00:00:20.467"/>
   <entry producer="producer1" in="00:00:00.000" out="00:00:19.633"/>
@@ -1534,8 +1249,8 @@
   <entry producer="producer20" in="00:00:04.267" out="00:00:19.200">
    <property name="kdenlive:id">3</property>
   </entry>
-  <blank length="00:00:01.250"/>
-  <entry producer="producer21" in="00:00:02.683" out="00:00:16.300">
+  <blank length="00:00:01.100"/>
+  <entry producer="producer21" in="00:00:02.533" out="00:00:16.300">
    <property name="kdenlive:id">12</property>
   </entry>
   <blank length="00:00:00.617"/>
@@ -1712,7 +1427,7 @@
   <property name="meta.media.0.codec.colorspace">601</property>
   <property name="meta.media.0.codec.name">h264</property>
   <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
-  <property name="meta.media.0.codec.bit_rate">393039</property>
+  <property name="meta.media.0.codec.bit_rate">399608</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
   <property name="meta.attr.major_brand.markup">isom</property>
@@ -1722,8 +1437,8 @@
   <property name="meta.attr.comment.markup">Rendered with Manim Community v0.12.0</property>
   <property name="meta.media.sample_aspect_num">1</property>
   <property name="meta.media.sample_aspect_den">1</property>
-  <property name="meta.media.frame_rate_num">97280</property>
-  <property name="meta.media.frame_rate_den">6487</property>
+  <property name="meta.media.frame_rate_num">2027520</property>
+  <property name="meta.media.frame_rate_den">135203</property>
   <property name="meta.media.colorspace">601</property>
   <property name="meta.media.color_trc">2</property>
   <property name="meta.media.has_b_frames">2</property>
