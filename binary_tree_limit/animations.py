@@ -201,11 +201,11 @@ class Trees(Scene):
         self.play(Create(g), run_time=2)
         self.wait(2.916666666667)
 
-        nodes, _ = bt.binary_tree_layer(6)
+        nodes, _ = bt.binary_tree_layer(4)
 
         self.play(hb.HighlightSubgraph(g,[nodes],[[]]))
 
-        self.wait(2.433333333333)
+        self.wait(4.433333333333)
 
         # In fact, as the size of the binary trees goes to infinity, the proportion
         # of vertices in the boundary of the tree goes to 1/2.
