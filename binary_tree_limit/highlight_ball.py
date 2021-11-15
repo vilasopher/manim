@@ -28,7 +28,7 @@ class HighlightSubgraph(Animation):
             g: Graph,
             nodes, # list of lists of nodes, in order of highlighting
             edges, # list of lists of edges, in order of highlighting
-            node_highlight_color=[sol.ORANGE],
+            node_highlight_color=[sol.YELLOW],
             edge_highlight_color=[sol.YELLOW],
             slow=False,
             **kwargs):
@@ -87,11 +87,14 @@ def HighlightBall(
         root_highlight_color=sol.ROOT,
         node_highlight_color=sol.HIGHLIGHT_NODE,
         edge_highlight_color=sol.HIGHLIGHT_EDGE,
-        run_time=1,
+        run_time=0.99,
         fade_run_time=0.01,
         slow=False,
         fadeout=True,
         **kwargs):
+
+    if fadeout == False:
+        run_time = 1
 
     ballnodes, balledges = ball(g,v,r)
 

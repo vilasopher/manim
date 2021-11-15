@@ -7,7 +7,7 @@ import grid as gr
 import networkx as nx
 import mobject_labeled_bar_chart as mb
 
-random.seed(1)
+random.seed(3)
 
 # In our last video, we presented a notion of graph convergence,
 # where sparse sequences of graphs can converge to a graph limit.
@@ -25,28 +25,37 @@ class Opening(Scene):
 
         # Now, what is the limit of the sequence of complete finite binary trees?
 
+        # 1 sec
         self.play(Create(g))
 
+        # 4 sec
         for depth in range(1,5):
             nodes, edges = bt.binary_tree_layer(depth)
             self.play(g.animate.add_vertices(*nodes, positions=bt.binary_tree_layout(depth)),
                       g.animate.add_edges(*edges))
 
-        self.wait(5)
+        # 4.75 sec
+        self.wait(4.75)
 
         # A first guess might be that the limit is the random rooted graph whose value is,
         # with probability 1, the infinite binary tree, rooted at the top.
 
+        text = Tex(r'(with probability $1$)', color=sol.NODE, font_size=100)
+        text.move_to(2.75*UP)
+
+        self.play(FadeIn(text, shift=DOWN), run_time=1.2333)
+
+
         for depth in range(5,7):
             nodes, edges = bt.binary_tree_layer(depth)
             self.play(g.animate.add_vertices(*nodes, positions=bt.binary_tree_layout(depth)),
-                      g.animate.add_edges(*edges), run_time=0.5)
+                      g.animate.add_edges(*edges), run_time=0.25)
 
-        self.wait(0.8)
+        self.wait(1.15)
 
-        self.play(hb.HighlightBall(g,0,0, fadeout=False))
+        self.play(hb.HighlightBall(g,0,0, fadeout=False), run_time=0.5)
 
-        self.wait(3)
+        self.wait(10)
 
 
 #  After all, this is what happens with the path graphs and grid graphs,
@@ -54,6 +63,25 @@ class Opening(Scene):
 # infinite path graph rooted in the middle (with probability 1), and the limit 
 # of the finite grid graphs is an infinite grid graph, again rooted in the middle (with probability 1). 
 # [SHOW SCREENGRABS FROM PREVIOUS VIDEO]
+
+class GridBalls(Scene):
+    def construct(self):
+        text1 = MathTex(r'B_R(n \times n \text{ grid with uniform random root})', color=sol.NODE, font_size=60)
+        text2 = MathTex(r'B_R(\text{infinite grid, rooted at the origin w.p. } 1)', color=sol.NODE, font_size=60)
+        text3 = MathTex(r'\approx', color=sol.NODE, font_size=100)
+
+        text1.move_to(1.5*UP)
+        text2.move_to(1.5*DOWN)
+
+        self.play(FadeIn(text1))
+
+        self.wait(0.41666667)
+
+        self.play(FadeIn(text3), run_time=0.83333333)
+
+        self.play(FadeIn(text2))
+
+        self.wait(5)
 
 
 class Grids(Scene):
@@ -109,6 +137,8 @@ class Grids(Scene):
         
         self.play(Create(grid))
 
+        self.wait(2)
+
         # More precisely, for any radius R, as the size N of the finite grids go to
         # infinity, the probability that the R-ball around a uniformly random vertex 
         # in the grid is isomorphic to to the R-ball in the infinite grid goes to 1.
@@ -125,18 +155,26 @@ class Grids(Scene):
 
             self.play(hb.HighlightBall(grid, v, 2, node_highlight_color=color, edge_highlight_color=color))
 
+
         # This works because the number of vertices that are within distance R from 
         # the boundary of the grid scales like N, whereas the number of vertices
         # in the interior of the grid scales like N^2.
 
         self.play(hb.HighlightSubgraph(grid, [boundaryvertices], [boundaryedges], node_highlight_color=[sol.YELLOW]))
 
-        fraction = MathTex(r"\sim 4 R \cdot n", r"\over", r"n^2", color=sol.BASE02)
-        fraction.set_color_by_tex(r"\sim 4 R \cdot n", sol.YELLOW)
+        self.wait(1.25)
+
+        fraction = MathTex(r"4 R n - 4 R^2", r"\over", r"n^2", color=config.background_color)
+        fraction.set_color_by_tex(r"4 R n - 4 R^2", sol.YELLOW)
 
         fraction.move_to(4 * RIGHT + 2.5 * DOWN)
 
-        self.play(Create(fraction))
+        self.play(FadeIn(fraction))
+
+        self.wait(3.2833333333)
+
+        self.play(fraction.animate.set_color_by_tex(r"\over", sol.NODE), run_time=0.5)
+        self.play(fraction.animate.set_color_by_tex(r"n^2", sol.NODE), run_time=0.5)
 
         # So for large enough N, there are far more vertices on the 
         # interior than near the boundary.
@@ -161,41 +199,49 @@ class Trees(Scene):
 
         # However, the binary tree does not exhibit this 'small-boundary' behavior.
         self.play(Create(g), run_time=2)
-        self.wait()
+        self.wait(2.916666666667)
+
         self.play(hb.HighlightSubgraph(g,[nodes],[[]]))
 
-        self.wait(6)
+        self.wait(2.433333333333)
 
         # In fact, as the size of the binary trees goes to infinity, the proportion
         # of vertices in the boundary of the tree goes to 1/2.
         nodes, _ = bt.binary_tree_layer(6)
 
         fraction = MathTex(r"2^n", r"\over", r"2^{n+1}-1", color=sol.BASE02)
-        fraction.set_color_by_tex(r"2^n", sol.ORANGE)
+        fraction.set_color_by_tex(r"2^n", sol.YELLOW)
 
         self.play(FadeIn(fraction, scale=1.5), run_time=2)
-        self.wait(10)
+        self.wait(2.433333333333)
 
         # So, rather than looking at the binary tree from the top, let's see what it
         # looks like from the bottom, from the perspective of a leaf of the tree.
 
-        self.play(hb.UnHighlight(g),
-                  FadeOut(fraction))
+        self.play(Fadeout(fraction))
+
+        self.wait(1.416666666667)
+
+        self.play(hb.UnHighlight(g))
+
+        self.wait()
+
         self.play(hb.HighlightBall(g, 2 ** 6 - 1, 0, fadeout=False))
 
-        self.wait(3)
+        self.wait(2)
 
 
         self.play(g.animate.change_layout(bt.canopy_tree_layout(6)))
-        self.wait()
+
+        self.wait(2.45)
 
         # From a leaf's perspective, this is what the binary tree looks like.
         # If we grow the binary tree from here, the natural infinite graph is a 
         # one-way infinite path, where the nth node along the path has a binary tree
         # of depth n attached to it (where a binary tree of depth 0 is empty).
 
-        self.play(g.animate.change_layout(bt.canopy_tree_layout(6, height=2)), run_time=2)
-        self.wait()
+        # TODO something here
+        self.play(g.animate.change_layout(bt.canopy_tree_layout(6, height=2)), run_time=13.55)
 
         # Since this is what a large binary tree looks like from the perspective of the leaf,
         # and since the proportion of leaves in such a graph is about 1/2,
@@ -203,7 +249,35 @@ class Trees(Scene):
         # graph --- should take *this* value with probability 1/2.
 
         self.play(g.animate.change_layout(bt.canopy_tree_layout(6, height=0)))
-        self.wait()
+        self.wait(8.15)
+
+        probtext1 = MathTex(r'\text{probability } =',
+                            r'\frac{1}{2}$',
+                            r'= \lim_{n \to \infty}',
+                            r'2^n',
+                            r'\over',
+                            r'2^{n+1}-1', color=sol.NODE, size=60)
+        probtext1.move_to(2*UP)
+
+        probtext1.set_color_by_tex(r'\frac{1}{2}', sol.ROOT)
+        probtext1.set_color_by_tex(r'= \lim_{n \to \infty}', config.background_color)
+        probtext1.set_color_by_tex(r'2^n', config.background_color)
+        probtext1.set_color_by_tex(r'\over', config.background_color)
+        probtext1.set_color_by_tex(r'2^{n+1}-1', config.background_color)
+
+        self.play(FadeIn(probtext1, shift=DOWN));
+
+        self.wait(0.58333333333)
+
+        self.play(
+            probtext1.animate.set_color_by_tex(r'= \lim_{n \to \infty}', sol.NODE),
+            probtext1.animate.set_color_by_tex(r'2^n', sol.YELLOW),
+            probtext1.animate.set_color_by_tex(r'\over', sol.NODE),
+            probtext1.animate.set_color_by_tex(r'2^{n+1}-1', sol.NODE))
+
+        self.wait(3.58333333333)
+
+        self.play(FadeOut(probtext1), run_time=0.15)
 
         # Now, the set of nodes in a binary tree which are one level above a leaf
         # constitute about 1/4th of a large binary tree.
@@ -211,56 +285,106 @@ class Trees(Scene):
         nodes, _ = bt.binary_tree_layer(5)
 
         fraction = MathTex(r"2^{n-1}", r"\over", r"2^{n+1}-1", color=sol.BASE02)
-        fraction.set_color_by_tex(r"2^{n-1}", sol.ORANGE)
+        fraction.set_color_by_tex(r"2^{n-1}", sol.YELLOW)
 
-        self.play(g.animate.change_layout(bt.binary_tree_layout(6, shift=2.7*UP)))
-        self.play(hb.UnHighlight(g), run_time = 0.25)
+        self.play(g.animate.change_layout(bt.binary_tree_layout(6, shift=2.7*UP)), run_time=0.4)
+        self.play(hb.UnHighlight(g), run_time = 0.1)
+
+        self.wait(0.2666666666666667)
+
         self.play(hb.HighlightSubgraph(g, [nodes], [[]]))
+
+        self.wait(2)
+
         self.play(FadeIn(fraction, scale=1.5))
-        self.wait()
+        self.wait(2.6666666666666667)
 
         # Let's see what a large binary tree looks like from the perspective of one of these vertices.
 
         self.play(hb.UnHighlight(g),
-                  FadeOut(fraction), run_time=0.25)
-        self.play(hb.HighlightBall(g, 2 ** 5 - 1, 0, fadeout=False),
-                  run_time = 0.25)
+                  FadeOut(fraction))
+
+        self.wait(0.8)
+
+
+        self.play(hb.HighlightBall(g, 2 ** 5 - 1, 0, fadeout=False))
+
+        self.wait(1.6666666666666667)
+
         self.play(g.animate.change_layout(bt.canopy_tree_layout(6, height=1)))
 
         # It looks the same as the picture from a leaf, but rooted one node further along the path.
 
-        self.wait()
+        self.wait(5.2)
 
         # Similarly, if we examine a large binary tree from the perspective of a node which is 
         # two levels above a leaf, we will find the same picture, just shifted by one more node.
 
-        self.play(hb.UnHighlight(g), run_time=0.01)
-        self.play(hb.HighlightBall(g, 2 ** 4 - 1, 0, fadeout=False), run_time = 0.25)
+        self.play(hb.UnHighlight(g))
+
+        self.wait(3)
+
+        self.play(hb.HighlightBall(g, 2 ** 4 - 1, 0, fadeout=False))
+
+        self.wait(2)
+
         self.play(g.animate.change_layout(bt.canopy_tree_layout(6, height=2)))
-        self.wait()
+
+        self.wait(2)
 
 
         # This leads us to conjecture that the random rooted graph which is the limit of the
         # finite binary trees will take *this* value with probability 1/2, 
 
-        self.play(hb.UnHighlight(g), run_time=0.01)
+        probtext2 = MathTex(r'\text{probability } =', r'\frac{1}{2}', color=sol.NODE, font_size=80)
+        probtext2.set_color_by_tex(r'\frac{1}{2}', sol.ROOT)
+        probtext2.move_to(2*UP)
+
+        self.play(hb.UnHighlight(g))
+
+        self.wait(4)
+
         self.play(hb.HighlightBall(g, 2 ** 6 - 1, 0, fadeout=False), run_time = 0.25)
-        self.play(g.animate.change_layout(bt.canopy_tree_layout(6, height=0)))
-        self.wait()
+
+        self.play(g.animate.change_layout(bt.canopy_tree_layout(6, height=0)), run_time=0.75)
+
+        self.play(FadeIn(probtext2, shift=DOWN))
+
+        self.wait(1)
 
         # *this* value with probability 1/4, 
 
+        probtext3 = MathTex(r'\text{probability } =', r'\frac{1}{4}', color=sol.NODE, font_size=80)
+        probtext3.set_color_by_tex(r'\frac{1}{4}', sol.ROOT)
+        probtext3.move_to(2*UP)
+
         self.play(hb.UnHighlight(g), run_time=0.01)
-        self.play(hb.HighlightBall(g, 2 ** 5 - 1, 0, fadeout=False), run_time = 0.25)
-        self.play(g.animate.change_layout(bt.canopy_tree_layout(6, height=1)))
-        self.wait()
+        self.play(hb.HighlightBall(g, 2 ** 5 - 1, 0, fadeout=False), run_time = 0.24)
+        self.play(g.animate.change_layout(bt.canopy_tree_layout(6, height=1)), run_time=0.75)
+
+        self.play(Transform(probtext2, probtext3))
+
+        self.wait(1.5)
 
         # *this* value with probability 1/8, et. cetera
 
+        probtext4 = MathTex(r'\text{probability } =', r'\frac{1}{8}', color=sol.NODE, font_size=80)
+        probtext4.set_color_by_tex(r'\frac{1}{8}', sol.ROOT)
+        probtext4.move_to(2*UP)
+
         self.play(hb.UnHighlight(g), run_time=0.01)
-        self.play(hb.HighlightBall(g, 2 ** 4 - 1, 0, fadeout=False), run_time = 0.25)
-        self.play(g.animate.change_layout(bt.canopy_tree_layout(6, height=2)))
-        self.wait()
+        self.play(hb.HighlightBall(g, 2 ** 4 - 1, 0, fadeout=False), run_time = 0.24)
+        self.play(g.animate.change_layout(bt.canopy_tree_layout(6, height=2)), run_time = 0.75)
+
+        self.play(Transform(probtext2, probtext4))
+
+        self.wait(0.5)
+
+        ##########
+
+        probtext5 = MathTex(r'\text{probability } =', r'\frac{1}{16}', color=sol.NODE, font_size=80)
+        probtext5.set_color_by_tex(r'\frac{1}{16}', sol.ROOT)
+        probtext5.move_to(2*UP)
 
         # Since these probabilities add up to 1, this is a complete description of a random rooted graph.
 
