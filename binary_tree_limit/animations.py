@@ -7,7 +7,7 @@ import grid as gr
 import networkx as nx
 import mobject_labeled_bar_chart as mb
 
-random.seed(3)
+random.seed(4)
 
 # In our last video, we presented a notion of graph convergence,
 # where sparse sequences of graphs can converge to a graph limit.
