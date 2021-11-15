@@ -201,6 +201,8 @@ class Trees(Scene):
         self.play(Create(g), run_time=2)
         self.wait(2.916666666667)
 
+        nodes, _ = bt.binary_tree_layer(6)
+
         self.play(hb.HighlightSubgraph(g,[nodes],[[]]))
 
         self.wait(2.433333333333)
@@ -218,7 +220,7 @@ class Trees(Scene):
         # So, rather than looking at the binary tree from the top, let's see what it
         # looks like from the bottom, from the perspective of a leaf of the tree.
 
-        self.play(Fadeout(fraction))
+        self.play(FadeOut(fraction))
 
         self.wait(1.416666666667)
 
@@ -252,11 +254,11 @@ class Trees(Scene):
         self.wait(8.15)
 
         probtext1 = MathTex(r'\text{probability } =',
-                            r'\frac{1}{2}$',
+                            r'\frac{1}{2}',
                             r'= \lim_{n \to \infty}',
                             r'2^n',
                             r'\over',
-                            r'2^{n+1}-1', color=sol.NODE, size=60)
+                            r'2^{n+1}-1', color=sol.NODE, font_size=60)
         probtext1.move_to(2*UP)
 
         probtext1.set_color_by_tex(r'\frac{1}{2}', sol.ROOT)
@@ -386,6 +388,26 @@ class Trees(Scene):
         probtext5.set_color_by_tex(r'\frac{1}{16}', sol.ROOT)
         probtext5.move_to(2*UP)
 
+        self.play(hb.UnHighlight(g), run_time=0.01)
+        self.play(hb.HighlightBall(g, 2 ** 3 - 1, 0, fadeout=False), run_time = 0.24)
+        self.play(Transform(probtext2, probtext5), run_time=0.25)
+
+        probtext6 = MathTex(r'\text{probability } =', r'\frac{1}{32}', color=sol.NODE, font_size=80)
+        probtext6.set_color_by_tex(r'\frac{1}{32}', sol.ROOT)
+        probtext6.move_to(2*UP)
+
+        self.play(hb.UnHighlight(g), run_time=0.01)
+        self.play(hb.HighlightBall(g, 2 ** 2 - 1, 0, fadeout=False), run_time = 0.24)
+        self.play(Transform(probtext2, probtext6), run_time=0.25)
+
+        probtext7 = MathTex(r'\text{probability } =', r'\frac{1}{64}', color=sol.NODE, font_size=80)
+        probtext7.set_color_by_tex(r'\frac{1}{64}', sol.ROOT)
+        probtext7.move_to(2*UP)
+
+        self.play(hb.UnHighlight(g), run_time=0.01)
+        self.play(hb.HighlightBall(g, 2 ** 1 - 1, 0, fadeout=False), run_time = 0.24)
+        self.play(Transform(probtext2, probtext7), run_time=0.25)
+
         # Since these probabilities add up to 1, this is a complete description of a random rooted graph.
 
         self.play(hb.UnHighlight(g), run_time=0.01)
@@ -403,16 +425,16 @@ class Trees(Scene):
                            31 : MathTex(r'\frac{1}{4}', font_size=label_size),
                            63 : MathTex(r'\frac{1}{2}', font_size=label_size)})
 
-        self.play(FadeIn(h), run_time=0.5)
+        self.play(FadeIn(h), run_time=0.99)
         
-        self.wait()
+        self.wait(3.5)
 
         treetext = Tex(r'Canopy Tree', font_size = 70, color=sol.BASE02)
         treetext.move_to(1.5*UP)
 
-        self.play(Create(treetext))
+        self.play(Create(treetext), run_time=2)
 
-        self.wait()
+        self.wait(10)
 
 
 

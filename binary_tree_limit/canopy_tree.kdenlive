@@ -678,11 +678,6 @@
         "type": 0
     },
     {
-        "comment": "fade in canopy tree",
-        "pos": 12306,
-        "type": 0
-    },
-    {
         "comment": "with probability 1",
         "pos": 1548,
         "type": 1
@@ -1071,11 +1066,16 @@
         "comment": "big red balls with numbers",
         "pos": 12030,
         "type": 0
+    },
+    {
+        "comment": "fade in canopy tree",
+        "pos": 12300,
+        "type": 0
     }
 ]
 </property>
   <property name="kdenlive:docproperties.kdenliveversion">21.08.2</property>
-  <property name="kdenlive:docproperties.position">5697</property>
+  <property name="kdenlive:docproperties.position">12300</property>
   <property name="kdenlive:docproperties.previewextension"/>
   <property name="kdenlive:docproperties.previewparameters"/>
   <property name="kdenlive:docproperties.profile">atsc_1080p_60</property>
@@ -1085,14 +1085,14 @@
   <property name="kdenlive:docproperties.proxyminsize">1000</property>
   <property name="kdenlive:docproperties.proxyparams"/>
   <property name="kdenlive:docproperties.proxyresize">640</property>
-  <property name="kdenlive:docproperties.scrollPos">4504</property>
+  <property name="kdenlive:docproperties.scrollPos">17804</property>
   <property name="kdenlive:docproperties.seekOffset">30000</property>
   <property name="kdenlive:docproperties.version">1.04</property>
   <property name="kdenlive:docproperties.verticalzoom">1</property>
   <property name="kdenlive:docproperties.videoTarget">2</property>
   <property name="kdenlive:docproperties.zonein">0</property>
   <property name="kdenlive:docproperties.zoneout">75</property>
-  <property name="kdenlive:docproperties.zoom">7</property>
+  <property name="kdenlive:docproperties.zoom">6</property>
   <property name="kdenlive:expandedFolders"/>
   <property name="kdenlive:documentnotes"/>
   <property name="xml_retain">1</property>
