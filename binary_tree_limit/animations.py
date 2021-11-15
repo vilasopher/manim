@@ -66,8 +66,8 @@ class Opening(Scene):
 
 class GridBalls(Scene):
     def construct(self):
-        text1 = MathTex(r'B_R(n \times n \text{ grid with uniform random root})', color=sol.NODE, font_size=60)
-        text2 = MathTex(r'B_R(\text{infinite grid, rooted at the origin w.p. } 1)', color=sol.NODE, font_size=60)
+        text1 = MathTex(r'B_r[n \times n \text{ grid with uniform random root}]', color=sol.NODE, font_size=60)
+        text2 = MathTex(r'B_r[\text{infinite grid, rooted at the origin w.p. } 1]', color=sol.NODE, font_size=60)
         text3 = MathTex(r'\approx', color=sol.NODE, font_size=100)
 
         text1.move_to(1.5*UP)
@@ -164,8 +164,8 @@ class Grids(Scene):
 
         self.wait(1.25)
 
-        fraction = MathTex(r"4 R n - 4 R^2", r"\over", r"n^2", color=config.background_color)
-        fraction.set_color_by_tex(r"4 R n - 4 R^2", sol.YELLOW)
+        fraction = MathTex(r"4 r n - 4 r^2", r"\over", r"n^2", color=config.background_color)
+        fraction.set_color_by_tex(r"4 r n - 4 r^2", sol.YELLOW)
 
         fraction.move_to(4 * RIGHT + 2.5 * DOWN)
 
@@ -242,8 +242,7 @@ class Trees(Scene):
         # one-way infinite path, where the nth node along the path has a binary tree
         # of depth n attached to it (where a binary tree of depth 0 is empty).
 
-        # TODO something here
-        self.play(g.animate.change_layout(bt.canopy_tree_layout(6, height=2)), run_time=13.55)
+        self.play(g.animate.change_layout(bt.canopy_tree_layout(6, height=4.9)), run_time=13.55)
 
         # Since this is what a large binary tree looks like from the perspective of the leaf,
         # and since the proportion of leaves in such a graph is about 1/2,
@@ -441,11 +440,26 @@ class Trees(Scene):
 # finite binary trees converges to the distribution of R-balls in the proposed graph limit.
 # [SHOW SOME LATEX I GUESS]
 
+class Definition(Scene):
+    def construct(self):
+        tex1 = Tex(r'for any radius $r$', color=sol.NODE)
+        tex2 = MathTex(r'B_r \Big[ \substack{ \text{binary tree of height } n \\ \text{with uniform random root}} \Big]', color=sol.NODE)
+        tex3 = MathTex(r'B_r [ \text{Canopy Tree} ]', color=sol.NODE)
+
+        tex4 = Tex(r'in distribution', color=sol.NODE)
+
+        tex1.move_to(2*UP)
+        tex2.move_to(3 * LEFT)
+        tex3.move_to(3 * RIGHT)
+
+        tex4.move_to(2 * DOWN)
+
+        self.add(tex1,tex2,tex3,tex4)
+
 # TODO: explain what the plots mean
 class PlotsExplanation(Scene):
     def construct(self):
         pass
-
 
 
 class Plots1(Scene):
