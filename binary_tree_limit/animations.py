@@ -442,19 +442,26 @@ class Trees(Scene):
 
 class Definition(Scene):
     def construct(self):
-        tex1 = Tex(r'for any radius $r$', color=sol.NODE)
-        tex2 = MathTex(r'B_r \Big[ \substack{ \text{binary tree of height } n \\ \text{with uniform random root}} \Big]', color=sol.NODE)
-        tex3 = MathTex(r'B_r [ \text{Canopy Tree} ]', color=sol.NODE)
+        tex1 = Tex(r'for any radius $r$,', color=sol.NODE, font_size=80)
+        tex2 = MathTex(r'B_r \Big[ \substack{ \text{binary tree of height } n \\ \text{with uniform random root}} \Big]', color=sol.NODE, font_size=60)
+        tex3 = MathTex(r'B_r [ \text{Canopy Tree} ]', color=sol.NODE, font_size=60)
+        tex4 = Tex(r'in distribution', color=sol.NODE, font_size=80)
+        tex5 = MathTex(r'\longrightarrow', color=sol.NODE, font_size=60)
 
-        tex4 = Tex(r'in distribution', color=sol.NODE)
+        tex1.move_to(1.5 * UP)
+        tex2.move_to(3.25 * LEFT)
+        tex3.move_to(4.25 * RIGHT)
+        tex4.move_to(1.5 * DOWN)
+        tex5.move_to(1.1 * RIGHT)
 
-        tex1.move_to(2*UP)
-        tex2.move_to(3 * LEFT)
-        tex3.move_to(3 * RIGHT)
+        self.play(FadeIn(tex1, shift=DOWN))
+        self.wait(0.5)
+        self.play(FadeIn(tex2, shift=RIGHT))
+        self.wait(2)
+        self.play(FadeIn(tex3, shift=LEFT), FadeIn(tex5))
+        self.play(FadeIn(tex4, shift=UP))
 
-        tex4.move_to(2 * DOWN)
-
-        self.add(tex1,tex2,tex3,tex4)
+        self.wait(5)
 
 # TODO: explain what the plots mean
 class PlotsExplanation(Scene):
