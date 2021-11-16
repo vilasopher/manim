@@ -15,6 +15,10 @@ random.seed(4)
 # probability distributions on the space of rooted graphs.
 # [SHOW CLIPS FROM PREVIOUS VIDEO]
 
+class ColorClip(Scene):
+    def construct(self):
+        return
+
 
 class Opening(Scene):
     def construct(self):
