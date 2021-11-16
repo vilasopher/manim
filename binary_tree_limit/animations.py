@@ -414,13 +414,13 @@ class Trees(Scene):
         h = Graph([0, 1, 3, 7, 15, 31, 63], [],
                   vertex_config={ 'fill_color' : sol.ROOT },
                   layout=bt.canopy_tree_layout(6, height=2),
-                  labels={ 0  : MathTex(r'\pmb{\frac{1}{128}}', tex_template=mytemplate, font_size=label_size),
-                           1  : MathTex(r'\pmb{\frac{1}{64}}', tex_template=mytemplate, font_size=label_size),
-                           3  : MathTex(r'\pmb{\frac{1}{32}}', tex_template=mytemplate, font_size=label_size),
-                           7  : MathTex(r'\pmb{\frac{1}{16}}', tex_template=mytemplate, font_size=label_size),
-                           15 : MathTex(r'\pmb{\frac{1}{8}}', tex_template=mytemplate, font_size=label_size),
-                           31 : MathTex(r'\pmb{\frac{1}{4}}', tex_template=mytemplate, font_size=label_size),
-                           63 : MathTex(r'\pmb{\frac{1}{2}}', tex_template=mytemplate, font_size=label_size)})
+                  labels={ 0  : MathTex(r'\pmb{\frac{1}{128}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
+                           1  : MathTex(r'\pmb{\frac{1}{64}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
+                           3  : MathTex(r'\pmb{\frac{1}{32}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
+                           7  : MathTex(r'\pmb{\frac{1}{16}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
+                           15 : MathTex(r'\pmb{\frac{1}{8}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
+                           31 : MathTex(r'\pmb{\frac{1}{4}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
+                           63 : MathTex(r'\pmb{\frac{1}{2}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE)})
 
         self.play(FadeIn(h), run_time=1)
         
@@ -632,13 +632,13 @@ class Plots1BallCanopy(Scene):
         mytemplate.add_to_preamble(r"\usepackage{amsbsy}")
 
         h = Graph([0, 1, 3, 7, 15], [],
-                  vertex_config={ 'fill_color' : sol.YELLOW },
+                  vertex_config={ 'fill_color' : sol.LIGHT_NODE },
                   layout=bt.canopy_tree_layout(4, 0.1, stretch_parameter=1),
-                  labels={ 0  : MathTex(r'\pmb{\frac{1}{32}}', tex_template=mytemplate, font_size=label_size),
-                           1  : MathTex(r'\pmb{\frac{1}{16}}', tex_template=mytemplate, font_size=label_size),
-                           3  : MathTex(r'\pmb{\frac{1}{8}}', tex_template=mytemplate, font_size=label_size),
-                           7  : MathTex(r'\pmb{\frac{1}{4}}', tex_template=mytemplate, font_size=label_size),
-                           15 : MathTex(r'\pmb{\frac{1}{2}}', tex_template=mytemplate, font_size=label_size)})
+                  labels={ 0  : MathTex(r'\pmb{\frac{1}{32}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
+                           1  : MathTex(r'\pmb{\frac{1}{16}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
+                           3  : MathTex(r'\pmb{\frac{1}{8}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
+                           7  : MathTex(r'\pmb{\frac{1}{4}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
+                           15 : MathTex(r'\pmb{\frac{1}{2}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE)})
 
         #####################################################
 
@@ -654,9 +654,9 @@ class Plots1BallCanopy(Scene):
         self.wait()
 
         self.play(bar.animate.change_bar_values([0.5, 0.0000001, 0.0000001]),
-                  hb.HighlightBall(g, 15, 1, run_time=3.25, fade_run_time=0.5),
-                  hb.HighlightBall(h, 15, 0, run_time=3.25, fade_run_time=0.5),
-                  hb.HighlightBall(h, 7, 0, run_time=3.25, fade_run_time=0.5, root_highlight_color=sol.NODE)
+                  hb.HighlightBall(g, 15, 1, run_time=3, fade_run_time=0.5),
+                  hb.HighlightBall(h, 15, 0, run_time=3, fade_run_time=0.5),
+                  hb.HighlightBall(h, 7, 0, run_time=3, fade_run_time=0.5, root_highlight_color=sol.NODE)
                  )
 
         self.play(hb.HighlightBall(g, 7, 1, run_time=1, fadeout=False),
@@ -670,7 +670,7 @@ class Plots1BallCanopy(Scene):
         self.play(bar.animate.change_bar_values([0.5, 0.25, 0.0000001]), run_time=0.75)
 
         self.play(hb.UnHighlight(g, node_base_color=sol.LIGHT_NODE, edge_base_color=sol.LIGHT_EDGE, run_time=0.08333333),
-                  hb.UnHighlight(h, node_base_color=sol.YELLOW, run_time=0.08333333)
+                  hb.UnHighlight(h, node_base_color=sol.LIGHT_NODE, run_time=0.08333333)
                  )
 
         self.play(bar.animate.change_bar_values([0.5, 0.25 + 0.125, 0.0000001]),
@@ -699,10 +699,9 @@ class Plots1BallCanopy(Scene):
         self.wait(1.58333333333333)
 
 
-        self.play(Uncreate(g),
-                  Uncreate(h), run_time=0.5)
-
-        self.play(bar.animate.move_to(3.5 * RIGHT + 0.75 * DOWN),
+        self.play(FadeOut(g, shift=7*RIGHT),
+                  FadeOut(h, shift=7*RIGHT),
+                  bar.animate.move_to(3.5 * RIGHT + 0.75 * DOWN),
                   text.animate.move_to(3.7 * RIGHT + 2 * UP))
 
         self.wait(5)
@@ -722,12 +721,12 @@ class Plots1Convergence(Scene):
 
         rballs_1_canopy = [
                 Graph([0,1], [(0,1)], **kwargs, layout='tree', root_vertex=1),
-                Graph([0,1,2], [(0,1),(0,2)], **kwargs, layout='tree', root_vertex=0),
-                Graph([0,1,2,3], [(0,1),(0,2),(0,3)], **kwargs, layout='kamada_kawai', layout_scale=1.3)
+                Graph([0,1,2,3], [(0,1),(0,2),(0,3)], **kwargs, layout='kamada_kawai', layout_scale=1.1),
+                Graph([0,1,2], [(0,1),(0,2)], **kwargs, layout='tree', root_vertex=0)
                 ]
 
         ballbar_canopy = mb.MobjectLabeledBarChart(
-                [0.5, 0.0, 0.5],
+                [0.5, 0.5, 0.0],
                 max_value = 1,
                 bar_names = rballs_1_canopy,
                 bar_label_scale_val = 0.3,
@@ -744,14 +743,14 @@ class Plots1Convergence(Scene):
 
         rballs_1_finite = [
                 Graph([0,1], [(0,1)], **kwargs, layout='tree', root_vertex=1),
-                Graph([0,1,2], [(0,1),(0,2)], **kwargs, layout='tree', root_vertex=0),
-                Graph([0,1,2,3], [(0,1),(0,2),(0,3)], **kwargs, layout='kamada_kawai', layout_scale=1.3)
+                Graph([0,1,2,3], [(0,1),(0,2),(0,3)], **kwargs, layout='kamada_kawai', layout_scale=1.1),
+                Graph([0,1,2], [(0,1),(0,2)], **kwargs, layout='tree', root_vertex=0)
                 ]
 
-        ballbar_finite_values = [ [ 2 ** i / (2 ** (i+1) - 1), 1 / (2 ** (i+1) - 1), (2 ** i - 2) / (2 ** (i+1) - 1) + 0.00001 ] for i in range(10) ]
+        ballbar_finite_values = [ [ 2 ** i / (2 ** (i+1) - 1), (2 ** i - 2) / (2 ** (i+1) - 1) + 0.00001, 1 / (2 ** (i+1) - 1) ] for i in range(10) ]
 
         ballbar_finite = mb.MobjectLabeledBarChart(
-                ballbar_finite_values[1],
+                ballbar_finite_values[2],
                 max_value = 1,
                 bar_names = rballs_1_finite,
                 bar_label_scale_val = 0.3,
@@ -763,15 +762,20 @@ class Plots1Convergence(Scene):
                 )
         ballbar_finite.move_to(3.5*LEFT + 0.75*DOWN)
 
-        text_finite = [ Tex(r'Height-' r'$' + str(i) + '$' r' Binary Tree', color=sol.BASE02) for i in range(10) ]
+        text_finite = [ Tex(r'Height-' r'$' + str(i+1) + '$' r' Binary Tree', color=sol.BASE02) for i in range(9) ]
         for tf in text_finite:
             tf.move_to(3*LEFT + 2*UP)
 
-        self.play(Create(ballbar_finite), Create(ballbar_canopy), Create(text_canopy), Create(text_finite[1]))
+        #########################################
 
-        for i in range(2,10):
-            self.play(Transform(text_finite[1],text_finite[i]),
-                      ballbar_finite.animate.change_bar_values(ballbar_finite_values[i]))
+        self.add(ballbar_canopy, text_canopy)
+
+        self.play(FadeIn(ballbar_finite), FadeIn(text_finite[2]))
+
+        for i in range(3,9):
+            self.play(Transform(text_finite[2],text_finite[i]),
+                      ballbar_finite.animate.change_bar_values(ballbar_finite_values[i]),
+                      run_time=8/6)
 
         self.wait()
 
@@ -789,13 +793,13 @@ class Plots2(Scene):
 
         rballs_2_canopy = [
                 Graph([0,1,2,3], [(0,1),(1,2),(1,3)], **kwargs, layout='kamada_kawai', layout_scale=1.3),
-                Graph([0,1,2,3,4,5,6], [(0,1),(0,2),(1,3),(1,4),(2,5),(2,6)], **kwargs, layout='tree', root_vertex=0),
-                Graph([0,1,2,3,4,5], [(0,1),(0,2),(0,3),(3,4),(3,5)], **kwargs, layout='kamada_kawai', layout_scale=1.3),
-                Graph([0,1,2,3,4,5,6,7,8,9], [(0,1),(0,2),(0,3),(1,4),(1,5),(2,6),(2,7),(3,8),(3,9)], **kwargs, layout='kamada_kawai', layout_scale=1.3)
+                Graph([0,1,2,3,4,5], [(0,1),(0,2),(0,3),(3,4),(3,5)], **kwargs, layout='kamada_kawai', layout_scale=1.2),
+                Graph([0,1,2,3,4,5,6,7,8,9], [(0,1),(0,2),(0,3),(1,4),(1,5),(2,6),(2,7),(3,8),(3,9)], **kwargs, layout='kamada_kawai', layout_scale=1.3),
+                Graph([0,1,2,3,4,5,6], [(0,1),(0,2),(1,3),(1,4),(2,5),(2,6)], **kwargs, layout='tree', root_vertex=0)
                 ]
 
         ballbar_canopy = mb.MobjectLabeledBarChart(
-                [0.5, 0.0, 0.25, 0.25],
+                [0.5, 0.25, 0.25, 0.0],
                 max_value = 1,
                 bar_names = rballs_2_canopy,
                 bar_label_scale_val = 0.3,
@@ -812,15 +816,15 @@ class Plots2(Scene):
 
         rballs_2_finite = [
                 Graph([0,1,2,3], [(0,1),(1,2),(1,3)], **kwargs, layout='kamada_kawai', layout_scale=1.3),
-                Graph([0,1,2,3,4,5,6], [(0,1),(0,2),(1,3),(1,4),(2,5),(2,6)], **kwargs, layout='tree', root_vertex=0),
-                Graph([0,1,2,3,4,5], [(0,1),(0,2),(0,3),(3,4),(3,5)], **kwargs, layout='kamada_kawai', layout_scale=1.3),
-                Graph([0,1,2,3,4,5,6,7,8,9], [(0,1),(0,2),(0,3),(1,4),(1,5),(2,6),(2,7),(3,8),(3,9)], **kwargs, layout='kamada_kawai', layout_scale=1.3)
+                Graph([0,1,2,3,4,5], [(0,1),(0,2),(0,3),(3,4),(3,5)], **kwargs, layout='kamada_kawai', layout_scale=1.2),
+                Graph([0,1,2,3,4,5,6,7,8,9], [(0,1),(0,2),(0,3),(1,4),(1,5),(2,6),(2,7),(3,8),(3,9)], **kwargs, layout='kamada_kawai', layout_scale=1.3),
+                Graph([0,1,2,3,4,5,6], [(0,1),(0,2),(1,3),(1,4),(2,5),(2,6)], **kwargs, layout='tree', root_vertex=0)
                 ]
 
         ballbar_finite_values = [ [ 2 ** i / (2 ** (i+1) - 1),
-                                    1 / (2 ** (i+1) - 1),
                                     (2 ** (i-1)) / (2 ** (i+1) - 1) + 0.00001,
-                                    (2 ** (i-1) - 2) / (2 ** (i+1) - 1) + 0.00001 ] for i in range(10) ]
+                                    (2 ** (i-1) - 2) / (2 ** (i+1) - 1) + 0.00001,
+                                    1 / (2 ** (i+1) - 1) ] for i in range(10) ]
 
         ballbar_finite = mb.MobjectLabeledBarChart(
                 ballbar_finite_values[2],
@@ -839,10 +843,14 @@ class Plots2(Scene):
         for tf in text_finite:
             tf.move_to(3*LEFT + 2*UP)
 
+        ######################################
+
         self.play(Create(ballbar_finite), Create(ballbar_canopy), Create(text_canopy), Create(text_finite[2]))
 
-        for i in range(3,10):
-            self.play(Transform(text_finite[2],text_finite[i]),
+        self.wait(0.75)
+
+        for i in range(3,9):
+            self.play(Transform(text_finite[2],text_finite[i+1]),
                       ballbar_finite.animate.change_bar_values(ballbar_finite_values[i]))
 
         self.wait()
