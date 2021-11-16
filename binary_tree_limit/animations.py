@@ -433,7 +433,7 @@ class Trees(Scene):
         treetext = Tex(r'Canopy Tree', font_size = 100, color=sol.BASE02)
         treetext.move_to(1.5*UP)
 
-        self.play(Create(treetext), run_time=2)
+        self.play(Write(treetext), run_time=2)
 
         self.wait(10)
 
@@ -849,7 +849,7 @@ class Plots2(Scene):
 
         ######################################
 
-        self.play(Create(ballbar_finite), Create(ballbar_canopy), Create(text_canopy), Create(text_finite[2]))
+        self.play(Create(ballbar_finite), Create(ballbar_canopy), Write(text_canopy), Write(text_finite[2]))
 
         self.wait(0.75)
 
