@@ -62,6 +62,11 @@ class HighlightSubgraph(Animation):
                 new_color = interpolate_color(self.mobject.vertices[w].get_color(), self.node_highlight_color[index], theta)
                 self.mobject.vertices[w].set_color(new_color)
 
+                # TODO: figure out this bug with the labels
+                if w in self.mobject._labels.keys():
+                    self.mobject._labels[w].set_color(WHITE)
+                    say(bad)
+
             for e in self.edges[index]:
                 new_color = interpolate_color(self.mobject.edges[e].get_color(), self.edge_highlight_color[index], theta)
                 self.mobject.edges[e].set_color(new_color)
@@ -69,6 +74,11 @@ class HighlightSubgraph(Animation):
         for prev in range(index):
             for w in self.nodes[prev]:
                 self.mobject.vertices[w].set_color(self.node_highlight_color[prev])
+
+                if w in self.mobject._labels.keys():
+                    self.mobject._labels[w].set_color(WHITE)
+                    say(bad)
+
             for e in self.edges[prev]:
                 self.mobject.edges[e].set_color(self.edge_highlight_color[prev])
 

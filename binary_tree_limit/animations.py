@@ -408,16 +408,19 @@ class Trees(Scene):
 
         label_size = 20
 
+        mytemplate = TexTemplate()
+        mytemplate.add_to_preamble(r"\usepackage{amsbsy}")
+
         h = Graph([0, 1, 3, 7, 15, 31, 63], [],
                   vertex_config={ 'fill_color' : sol.ROOT },
                   layout=bt.canopy_tree_layout(6, height=2),
-                  labels={ 0  : MathTex(r'\frac{1}{128}', font_size=label_size),
-                           1  : MathTex(r'\frac{1}{64}', font_size=label_size),
-                           3  : MathTex(r'\frac{1}{32}', font_size=label_size),
-                           7  : MathTex(r'\frac{1}{16}', font_size=label_size),
-                           15 : MathTex(r'\frac{1}{8}', font_size=label_size),
-                           31 : MathTex(r'\frac{1}{4}', font_size=label_size),
-                           63 : MathTex(r'\frac{1}{2}', font_size=label_size)})
+                  labels={ 0  : MathTex(r'\pmb{\frac{1}{128}}', tex_template=mytemplate, font_size=label_size),
+                           1  : MathTex(r'\pmb{\frac{1}{64}}', tex_template=mytemplate, font_size=label_size),
+                           3  : MathTex(r'\pmb{\frac{1}{32}}', tex_template=mytemplate, font_size=label_size),
+                           7  : MathTex(r'\pmb{\frac{1}{16}}', tex_template=mytemplate, font_size=label_size),
+                           15 : MathTex(r'\pmb{\frac{1}{8}}', tex_template=mytemplate, font_size=label_size),
+                           31 : MathTex(r'\pmb{\frac{1}{4}}', tex_template=mytemplate, font_size=label_size),
+                           63 : MathTex(r'\pmb{\frac{1}{2}}', tex_template=mytemplate, font_size=label_size)})
 
         self.play(FadeIn(h), run_time=1)
         
@@ -463,13 +466,233 @@ class Definition(Scene):
 
         self.wait(5)
 
-# TODO: explain what the plots mean
-class PlotsExplanation(Scene):
+# plots explanation
+class Plots1Ball3Binary(Scene):
     def construct(self):
-        pass
+        vconf = { 0 : { 'fill_color' : sol.ROOT , 'radius' : 0.3 } }
+        vconf.update({ v : { 'fill_color' : sol.NODE , 'radius' : 0.3 } for v in range(1,10)})
+        econf = { 'stroke_color' : sol.EDGE } 
+
+        kwargs = { 'vertex_config' : vconf, 'edge_config' : econf } 
+
+        rballs_1_initial = [
+                Graph([0,1], [(0,1)], **kwargs, layout='tree', root_vertex=1),
+                Graph([0,1,2,3], [(0,1),(0,2),(0,3)], **kwargs, layout='kamada_kawai', layout_scale=1.1),
+                Graph([0,1,2], [(0,1),(0,2)], **kwargs, layout='tree', root_vertex=0)
+                ]
+
+        rballs_1_final = [
+                Graph([0,1], [(0,1)], **kwargs, layout='tree', root_vertex=1),
+                Graph([0,1,2,3], [(0,1),(0,2),(0,3)], **kwargs, layout='kamada_kawai', layout_scale=1.1),
+                Graph([0,1,2], [(0,1),(0,2)], **kwargs, layout='tree', root_vertex=0)
+                ]
+
+        bar_3_initial = mb.MobjectLabeledBarChart(
+                [0.0000001, 0.0000001, 0.0000001],
+                max_value = 7,
+                bar_names = rballs_1_initial,
+                bar_label_scale_val = 0.3,
+                bar_colors = [sol.BLUE],
+                color = sol.BASE03,
+                stroke_color = sol.BASE03,
+                height = 3,
+                width = 4
+                )
+        bar_3_initial.move_to(3.5 * LEFT + 0.75 * DOWN)
+
+        bar_3_final = mb.MobjectLabeledBarChart(
+                [4/7, 2/7, 1/7],
+                max_value = 1,
+                bar_names = rballs_1_final,
+                bar_label_scale_val = 0.3,
+                bar_colors = [sol.BLUE],
+                color = sol.BASE03,
+                stroke_color = sol.BASE03,
+                height = 3,
+                width = 4
+                )
+        bar_3_final.move_to(3.5 * LEFT + 0.75 * DOWN)
+
+        #####################################################
+
+        nxgraph = nx.balanced_tree(2,2)
+        g = Graph.from_networkx(nxgraph,
+                                vertex_config=sol.LIGHT_VERTEX_CONFIG,
+                                edge_config=sol.LIGHT_EDGE_CONFIG,
+                                layout=bt.binary_tree_layout(2, shift= 1.5 * UP + 3 * RIGHT, horizontal_scale=3))
 
 
-class Plots1(Scene):
+        #####################################################
+        
+        text = Tex(r'Height-3 Binary Tree', color=sol.BASE02)
+        text.move_to(3.1*LEFT + 2*UP)
+
+        #####################################################
+
+
+        self.play(Create(bar_3_initial))
+
+        self.wait(1.38333333333333)
+
+        self.play(Create(g),
+                  FadeIn(text, shift=DOWN)
+                  )
+
+        self.wait(1.63333333333333)
+
+        self.play(bar_3_initial.animate.change_bar_values([1, 0.0000001, 0.0000001]),
+                  hb.HighlightBall(g, 3, 1, run_time=0.5, fade_run_time=0.1583333),
+                  run_time=2.633333333333/4
+                 )
+
+        self.play(bar_3_initial.animate.change_bar_values([2, 0.0000001, 0.0000001]),
+                  hb.HighlightBall(g, 4, 1, run_time=0.5, fade_run_time=0.1583333),
+                  run_time=2.633333333333/4
+                 )
+
+        self.play(bar_3_initial.animate.change_bar_values([3, 0.0000001, 0.0000001]),
+                  hb.HighlightBall(g, 5, 1, run_time=0.5, fade_run_time=0.1583333),
+                  run_time=2.633333333333/4
+                 )
+
+        self.play(bar_3_initial.animate.change_bar_values([4, 0.0000001, 0.0000001]),
+                  hb.HighlightBall(g, 6, 1, run_time=0.5, fade_run_time=0.1583333),
+                  run_time=2.633333333333/4
+                 )
+
+        self.play(bar_3_initial.animate.change_bar_values([4, 1, 0.0000001]),
+                  hb.HighlightBall(g, 1, 1, run_time=1, fade_run_time=0.041666667),
+                  run_time=2.0833333333333/2
+                 )
+
+        self.play(bar_3_initial.animate.change_bar_values([4, 2, 0.0000001]),
+                  hb.HighlightBall(g, 2, 1, run_time=1, fade_run_time=0.041666667),
+                  run_time=2.0833333333333/2
+                 )
+
+        self.play(bar_3_initial.animate.change_bar_values([4, 2, 1]),
+                  hb.HighlightBall(g, 0, 1, run_time=1.75, fade_run_time=0.25),
+                  run_time=2
+                 )
+        
+        self.wait(2.25)
+
+        self.play(Transform(bar_3_initial, bar_3_final))
+
+        self.wait(5)
+
+
+class Plots1BallCanopy(Scene):
+    def construct(self):
+
+        vconf = { 0 : { 'fill_color' : sol.ROOT , 'radius' : 0.3 } }
+        vconf.update({ v : { 'fill_color' : sol.NODE , 'radius' : 0.3 } for v in range(1,10)})
+        econf = { 'stroke_color' : sol.EDGE } 
+
+        kwargs = { 'vertex_config' : vconf, 'edge_config' : econf } 
+
+        rballs = [
+                Graph([0,1], [(0,1)], **kwargs, layout='tree', root_vertex=1),
+                Graph([0,1,2,3], [(0,1),(0,2),(0,3)], **kwargs, layout='kamada_kawai', layout_scale=1.1),
+                Graph([0,1,2], [(0,1),(0,2)], **kwargs, layout='tree', root_vertex=0)
+                ]
+
+        bar = mb.MobjectLabeledBarChart(
+                [0.0000001, 0.0000001, 0.0000001],
+                max_value = 1,
+                bar_names = rballs,
+                bar_label_scale_val = 0.3,
+                bar_colors = [sol.BLUE],
+                color = sol.BASE03,
+                stroke_color = sol.BASE03,
+                height = 3,
+                width = 4
+                )
+        bar.move_to(3.5 * LEFT + 0.75 * DOWN)
+
+        #####################################################
+
+        nxgraph = nx.balanced_tree(2,4)
+        g = Graph.from_networkx(nxgraph,
+                                vertex_config=sol.LIGHT_VERTEX_CONFIG,
+                                edge_config=sol.LIGHT_EDGE_CONFIG,
+                                layout=bt.canopy_tree_layout(4, 0.1, stretch_parameter=1))
+
+
+        #####################################################
+        
+        text = Tex(r'Canopy Tree', color=sol.BASE02)
+        text.move_to(3.1*LEFT + 2*UP)
+
+        #####################################################
+
+        label_size = 20
+
+        mytemplate = TexTemplate()
+        mytemplate.add_to_preamble(r"\usepackage{amsbsy}")
+
+        h = Graph([0, 1, 3, 7, 15], [],
+                  vertex_config={ 'fill_color' : sol.YELLOW },
+                  layout=bt.canopy_tree_layout(4, 0.1, stretch_parameter=1),
+                  labels={ 0  : MathTex(r'\pmb{\frac{1}{32}}', tex_template=mytemplate, font_size=label_size),
+                           1  : MathTex(r'\pmb{\frac{1}{16}}', tex_template=mytemplate, font_size=label_size),
+                           3  : MathTex(r'\pmb{\frac{1}{8}}', tex_template=mytemplate, font_size=label_size),
+                           7  : MathTex(r'\pmb{\frac{1}{4}}', tex_template=mytemplate, font_size=label_size),
+                           15 : MathTex(r'\pmb{\frac{1}{2}}', tex_template=mytemplate, font_size=label_size)})
+
+        #####################################################
+
+        self.play(Create(bar))
+
+        self.wait()
+
+        self.play(Create(g),
+                  Create(h),
+                  FadeIn(text, shift=DOWN)
+                  )
+
+        self.wait()
+
+        self.play(bar.animate.change_bar_values([0.5, 0.0000001, 0.0000001]),
+                  hb.HighlightBall(g, 15, 1, run_time=0.5, fade_run_time=0.1583333),
+                  hb.HighlightBall(h, 15, 1, run_time=0.5, fade_run_time=0.1583333),
+                  run_time=1
+                 )
+
+        self.wait()
+
+        self.play(hb.HighlightBall(g, 7, 1, run_time=1, fadeout=False),
+                  hb.HighlightBall(h, 7, 1, run_time=1, fadeout=False)
+                  )
+
+        self.play(bar.animate.change_bar_values([0.5, 0.25, 0.0000001]))
+
+        self.play(hb.UnHighlight(g, node_base_color=sol.LIGHT_NODE, edge_base_color=sol.LIGHT_EDGE),
+                  hb.UnHighlight(h, node_base_color=sol.YELLOW)
+                 )
+
+        self.play(bar.animate.change_bar_values([0.5, 0.25 + 0.125, 0.0000001]),
+                  hb.HighlightBall(g, 3, 1, run_time=0.75, fade_run_time=0.25),
+                  hb.HighlightBall(h, 3, 1, run_time=0.75, fade_run_time=0.25),
+                  run_time=1
+                 )
+
+        self.play(bar.animate.change_bar_values([0.5, 0.25 + 0.125 + 0.0625, 0.0000001]),
+                  hb.HighlightBall(g, 1, 1, run_time=0.75, fade_run_time=0.25),
+                  hb.HighlightBall(h, 1, 1, run_time=0.75, fade_run_time=0.25),
+                  run_time=1
+                 )
+
+        self.play(bar.animate.change_bar_values([0.5, 0.5, 0.0000001]),
+                  hb.HighlightBall(g, 0, 1, run_time=0.75, fade_run_time=0.25),
+                  hb.HighlightBall(h, 0, 1, run_time=0.75, fade_run_time=0.25),
+                  run_time=1
+                 )
+
+
+
+
+class Plots1Convergence(Scene):
     def construct(self):
 
         # We'll leave this as an exercise for you, but here are some plots of the numbers of
