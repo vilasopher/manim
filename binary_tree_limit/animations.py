@@ -654,42 +654,58 @@ class Plots1BallCanopy(Scene):
         self.wait()
 
         self.play(bar.animate.change_bar_values([0.5, 0.0000001, 0.0000001]),
-                  hb.HighlightBall(g, 15, 1, run_time=0.5, fade_run_time=0.1583333),
-                  hb.HighlightBall(h, 15, 1, run_time=0.5, fade_run_time=0.1583333),
-                  run_time=1
+                  hb.HighlightBall(g, 15, 1, run_time=3.25, fade_run_time=0.5),
+                  hb.HighlightBall(h, 15, 0, run_time=3.25, fade_run_time=0.5),
+                  hb.HighlightBall(h, 7, 0, run_time=3.25, fade_run_time=0.5, root_highlight_color=sol.NODE)
                  )
 
-        self.wait()
-
         self.play(hb.HighlightBall(g, 7, 1, run_time=1, fadeout=False),
-                  hb.HighlightBall(h, 7, 1, run_time=1, fadeout=False)
+                  hb.HighlightBall(h, 7, 0, run_time=1, fadeout=False),
+                  hb.HighlightBall(h, 3, 0, run_time=1, fadeout=False, root_highlight_color=sol.NODE),
+                  hb.HighlightBall(h, 15, 0, run_time=1, fadeout=False, root_highlight_color=sol.NODE)
                   )
 
-        self.play(bar.animate.change_bar_values([0.5, 0.25, 0.0000001]))
+        self.wait(0.75)
 
-        self.play(hb.UnHighlight(g, node_base_color=sol.LIGHT_NODE, edge_base_color=sol.LIGHT_EDGE),
-                  hb.UnHighlight(h, node_base_color=sol.YELLOW)
+        self.play(bar.animate.change_bar_values([0.5, 0.25, 0.0000001]), run_time=0.75)
+
+        self.play(hb.UnHighlight(g, node_base_color=sol.LIGHT_NODE, edge_base_color=sol.LIGHT_EDGE, run_time=0.08333333),
+                  hb.UnHighlight(h, node_base_color=sol.YELLOW, run_time=0.08333333)
                  )
 
         self.play(bar.animate.change_bar_values([0.5, 0.25 + 0.125, 0.0000001]),
-                  hb.HighlightBall(g, 3, 1, run_time=0.75, fade_run_time=0.25),
-                  hb.HighlightBall(h, 3, 1, run_time=0.75, fade_run_time=0.25),
-                  run_time=1
+                  hb.HighlightBall(g, 3, 1, run_time=0.75, fade_run_time=0.16666667),
+                  hb.HighlightBall(h, 3, 0, run_time=0.75, fade_run_time=0.16666667),
+                  hb.HighlightBall(h, 7, 0, run_time=0.75, fade_run_time=0.16666667, root_highlight_color=sol.NODE),
+                  hb.HighlightBall(h, 1, 0, run_time=0.75, fade_run_time=0.16666667, root_highlight_color=sol.NODE),
+                  run_time=0.916666667
                  )
 
         self.play(bar.animate.change_bar_values([0.5, 0.25 + 0.125 + 0.0625, 0.0000001]),
-                  hb.HighlightBall(g, 1, 1, run_time=0.75, fade_run_time=0.25),
-                  hb.HighlightBall(h, 1, 1, run_time=0.75, fade_run_time=0.25),
-                  run_time=1
+                  hb.HighlightBall(g, 1, 1, run_time=0.75, fade_run_time=0.16666667),
+                  hb.HighlightBall(h, 1, 0, run_time=0.75, fade_run_time=0.16666667),
+                  hb.HighlightBall(h, 3, 0, run_time=0.75, fade_run_time=0.16666667, root_highlight_color=sol.NODE),
+                  hb.HighlightBall(h, 0, 0, run_time=0.75, fade_run_time=0.16666667, root_highlight_color=sol.NODE),
+                  run_time=0.916666667
                  )
 
         self.play(bar.animate.change_bar_values([0.5, 0.5, 0.0000001]),
                   hb.HighlightBall(g, 0, 1, run_time=0.75, fade_run_time=0.25),
-                  hb.HighlightBall(h, 0, 1, run_time=0.75, fade_run_time=0.25),
+                  hb.HighlightBall(h, 0, 0, run_time=0.75, fade_run_time=0.25),
+                  hb.HighlightBall(h, 1, 0, run_time=0.75, fade_run_time=0.25, root_highlight_color=sol.NODE),
                   run_time=1
                  )
 
+        self.wait(1.58333333333333)
 
+
+        self.play(Uncreate(g),
+                  Uncreate(h), run_time=0.5)
+
+        self.play(bar.animate.move_to(3.5 * RIGHT + 0.75 * DOWN),
+                  text.animate.move_to(3.7 * RIGHT + 2 * UP))
+
+        self.wait(5)
 
 
 class Plots1Convergence(Scene):
