@@ -30,16 +30,38 @@ class PreOpening(Scene):
         arrow.move_to(0.5 * UP)
         limit.move_to(2 * RIGHT + 0.7 * UP)
 
-        text1 = Tex(r'sparse sequence of graphs', font_size=80, color=sol.NODE)
+        text1 = Tex(r'sparse sequence of finite graphs', font_size=80, color=sol.NODE)
         text2 = Tex(r'random rooted graph', font_size=80, color=sol.NODE)
-        text3 = Tex(r'probability distribution on $\mathcal{G}_D^\bullet$', font_size=80, color=sol.NODE)
+        text3 = Tex(r'(probability distribution on $\mathcal{G}_D^\bullet$)', font_size=70, color=sol.NODE)
 
         text1.move_to(2.5 * UP)
         text2.move_to(1.25 * DOWN)
         text3.move_to(2.5 * DOWN)
 
+        arc1 = CurvedArrow(2 * UP + 4 * LEFT, 0.5 * UP + 3 * LEFT, color=sol.NODE)
+        arc2 = CurvedArrow(1 * DOWN + 4 * RIGHT, 0.5 * UP + 3 * RIGHT, color=sol.NODE)
 
-        self.add(finite, arrow, limit, text1, text2, text3)
+        self.wait(2.75)
+
+        self.play(Write(finite), run_time=1)
+
+        self.play(Write(text1), Create(arc1), run_time=1)
+
+        self.wait()
+
+        self.play(FadeIn(arrow), run_time=0.75)
+
+        self.play(Write(limit), run_time=1)
+
+        self.wait(1.25)
+
+        self.play(Write(text2), Create(arc2), run_time=1)
+
+        self.wait(1.75)
+
+        self.play(FadeIn(text3, shift=UP))
+
+        self.wait(5)
 
 
 class Opening(Scene):
@@ -231,7 +253,7 @@ class Trees(Scene):
 
         self.play(hb.HighlightSubgraph(g,[nodes],[[]]))
 
-        self.wait(4.433333333333)
+        self.wait(2.433333333333)
 
         # In fact, as the size of the binary trees goes to infinity, the proportion
         # of vertices in the boundary of the tree goes to 1/2.
@@ -240,8 +262,8 @@ class Trees(Scene):
         fraction = MathTex(r"2^n", r"\over", r"2^{n+1}-1", color=sol.BASE02)
         fraction.set_color_by_tex(r"2^n", sol.YELLOW)
 
-        self.play(FadeIn(fraction, scale=1.5), run_time=2)
-        self.wait(2.433333333333)
+        self.play(FadeIn(fraction, scale=1.5), run_time=3)
+        self.wait(3.433333333333)
 
         # So, rather than looking at the binary tree from the top, let's see what it
         # looks like from the bottom, from the perspective of a leaf of the tree.
@@ -275,7 +297,7 @@ class Trees(Scene):
         # graph --- should take *this* value with probability 1/2.
 
         self.play(g.animate.change_layout(bt.canopy_tree_layout(6, height=0)), run_time=5)
-        self.wait(3.15)
+        self.wait(4.15)
 
         probtext1 = MathTex(r'\text{probability} =',
                             r'\frac{1}{2}',
@@ -304,24 +326,22 @@ class Trees(Scene):
 
         self.wait(3.58333333333)
 
-        self.play(FadeOut(probtext1), run_time=0.15)
+        self.play(FadeOut(probtext1),
+                  g.animate.change_layout(bt.binary_tree_layout(6, shift=2.7*UP)),
+                  hb.UnHighlight(g),
+                  run_time = 0.65 + 0.2666666666666666666667)
 
         # Now, the set of nodes in a binary tree which are one level above a leaf
         # constitute about 1/4th of a large binary tree.
 
         nodes, _ = bt.binary_tree_layer(5)
 
-        fraction = MathTex(r"2^{n-1}", r"\over", r"2^{n+1}-1", color=sol.BASE02)
-        fraction.set_color_by_tex(r"2^{n-1}", sol.YELLOW)
-
-        self.play(g.animate.change_layout(bt.binary_tree_layout(6, shift=2.7*UP)), run_time=0.4)
-        self.play(hb.UnHighlight(g), run_time = 0.1)
-
-        self.wait(0.2666666666666667)
-
         self.play(hb.HighlightSubgraph(g, [nodes], [[]]))
 
         self.wait(2)
+
+        fraction = MathTex(r"2^{n-1}", r"\over", r"2^{n+1}-1", color=sol.BASE02)
+        fraction.set_color_by_tex(r"2^{n-1}", sol.YELLOW)
 
         self.play(FadeIn(fraction, scale=1.5))
         self.wait(2.6666666666666667)
@@ -490,6 +510,24 @@ class Definition(Scene):
         self.play(FadeIn(tex4, shift=UP))
 
         self.wait(5)
+
+class DefinitionStill(Scene):
+    def construct(self):
+        tex1 = Tex(r'for any radius $r$,', color=sol.NODE, font_size=80)
+        tex2 = MathTex(r'B_r \Big[ \substack{ \text{binary tree of height } n \\ \text{with uniform random root}} \Big]', color=sol.NODE, font_size=60)
+        tex3 = MathTex(r'B_r [ \text{Canopy Tree} ]', color=sol.NODE, font_size=60)
+        tex4 = Tex(r'in distribution', color=sol.NODE, font_size=80)
+        tex5 = MathTex(r'\longrightarrow', color=sol.NODE, font_size=60)
+
+        tex1.move_to(1.5 * UP)
+        tex2.move_to(3.25 * LEFT)
+        tex3.move_to(4.25 * RIGHT)
+        tex4.move_to(1.5 * DOWN)
+        tex5.move_to(1.1 * RIGHT)
+
+        self.add(tex1,tex2,tex3,tex4,tex5)
+
+
 
 # plots explanation
 class Plots1Ball3Binary(Scene):
@@ -860,7 +898,7 @@ class Plots2(Scene):
                 color = sol.BASE03,
                 stroke_color = sol.BASE03,
                 height=3,
-                width=4
+                width=5
                 )
         ballbar_finite.move_to(3.5*LEFT + 0.75*DOWN)
 
@@ -870,7 +908,7 @@ class Plots2(Scene):
 
         ######################################
 
-        self.play(Create(ballbar_finite), Create(ballbar_canopy), Write(text_canopy), Write(text_finite[2]))
+        self.play(Create(ballbar_finite), Create(ballbar_canopy), Write(text_canopy), Write(text_finite[2]), run_time=1)
 
         self.wait(0.75)
 
