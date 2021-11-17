@@ -20,6 +20,28 @@ class ColorClip(Scene):
         return
 
 
+class PreOpening(Scene):
+    def construct(self):
+        finite = MathTex(r'g_n', font_size=100, color=sol.NODE)
+        arrow = MathTex(r'\longrightarrow', font_size=120, color=sol.NODE)
+        limit = MathTex(r'\mathbf{g}^\bullet', font_size=120, color=sol.NODE)
+
+        finite.move_to(2 * LEFT + 0.5 * UP)
+        arrow.move_to(0.5 * UP)
+        limit.move_to(2 * RIGHT + 0.7 * UP)
+
+        text1 = Tex(r'sparse sequence of graphs', font_size=80, color=sol.NODE)
+        text2 = Tex(r'random rooted graph', font_size=80, color=sol.NODE)
+        text3 = Tex(r'probability distribution on $\mathcal{G}_D^\bullet$', font_size=80, color=sol.NODE)
+
+        text1.move_to(2.5 * UP)
+        text2.move_to(1.25 * DOWN)
+        text3.move_to(2.5 * DOWN)
+
+
+        self.add(finite, arrow, limit, text1, text2, text3)
+
+
 class Opening(Scene):
     def construct(self):
         g = Graph([0], [],
@@ -203,9 +225,9 @@ class Trees(Scene):
 
         # However, the binary tree does not exhibit this 'small-boundary' behavior.
         self.play(Create(g), run_time=2)
-        self.wait(2.916666666667)
+        self.wait(0.916666666667)
 
-        nodes, _ = bt.binary_tree_layer(4)
+        nodes, _ = bt.binary_tree_layer(6)
 
         self.play(hb.HighlightSubgraph(g,[nodes],[[]]))
 
@@ -224,11 +246,10 @@ class Trees(Scene):
         # So, rather than looking at the binary tree from the top, let's see what it
         # looks like from the bottom, from the perspective of a leaf of the tree.
 
-        self.play(FadeOut(fraction))
+        self.wait(2.416666666667)
 
-        self.wait(1.416666666667)
-
-        self.play(hb.UnHighlight(g))
+        self.play(hb.UnHighlight(g),
+                  FadeOut(fraction))
 
         self.wait()
 
@@ -253,8 +274,8 @@ class Trees(Scene):
         # we might expect that the graph limit of the binary trees --- which is a random rooted
         # graph --- should take *this* value with probability 1/2.
 
-        self.play(g.animate.change_layout(bt.canopy_tree_layout(6, height=0)))
-        self.wait(8.15)
+        self.play(g.animate.change_layout(bt.canopy_tree_layout(6, height=0)), run_time=5)
+        self.wait(3.15)
 
         probtext1 = MathTex(r'\text{probability} =',
                             r'\frac{1}{2}',
@@ -416,7 +437,7 @@ class Trees(Scene):
         mytemplate.add_to_preamble(r"\usepackage{amsbsy}")
 
         h = Graph([0, 1, 3, 7, 15, 31, 63], [],
-                  vertex_config={ 'fill_color' : sol.ROOT },
+                  vertex_config={ 'fill_color' : sol.RED },
                   layout=bt.canopy_tree_layout(6, height=2),
                   labels={ 0  : MathTex(r'\pmb{\frac{1}{128}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
                            1  : MathTex(r'\pmb{\frac{1}{64}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
@@ -865,5 +886,39 @@ class Plots2(Scene):
 # different values, each with positive probability.
 # Of course, if we ignore the root, we will always get the same graph.
 # But the rooting really does matter here, and so we consider each of these infinitely many outcomes distinct.
+
+class EndScroll(Scene):
+    def construct(self):
+        nxgraph = nx.balanced_tree(2,8)
+        g = Graph.from_networkx(nxgraph,
+                                vertex_config=sol.VERTEX_CONFIG,
+                                edge_config=sol.EDGE_CONFIG,
+                                layout=bt.canopy_tree_layout(8))
+
+        label_size = 20
+
+        mytemplate = TexTemplate()
+        mytemplate.add_to_preamble(r"\usepackage{amsbsy}")
+
+        h = Graph([0, 1, 3, 7, 15, 31, 63, 127, 255], [],
+                  vertex_config={ 'fill_color' : sol.RED },
+                  layout=bt.canopy_tree_layout(8),
+                  labels={ 0   : MathTex(r'\pmb{\frac{1}{512}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
+                           1   : MathTex(r'\pmb{\frac{1}{256}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
+                           3   : MathTex(r'\pmb{\frac{1}{128}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
+                           7   : MathTex(r'\pmb{\frac{1}{64}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
+                           15  : MathTex(r'\pmb{\frac{1}{32}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
+                           31  : MathTex(r'\pmb{\frac{1}{16}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
+                           63  : MathTex(r'\pmb{\frac{1}{8}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
+                           127 : MathTex(r'\pmb{\frac{1}{4}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
+                           255 : MathTex(r'\pmb{\frac{1}{2}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE)})
+
+        ##############################
+
+        self.add(g,h)
+        self.play(g.animate.change_layout(bt.canopy_tree_layout(8, height=8, stretch_parameter=2, vertical_shrink=2.5/3)),
+                  h.animate.change_layout(bt.canopy_tree_layout(8, height=8, stretch_parameter=2, vertical_shrink=2.5/3)),
+                  run_time=60)
+
 
 # Stay tuned for more videos!
