@@ -132,6 +132,29 @@ class GridBalls(Scene):
         self.wait(5)
 
 
+class GridProbabilityOverlay(Scene):
+    def construct(self):
+        nodes, edges = gr.grid_nodes_edges(2)
+        ballnodes, balledges = hb.ball(Graph(nodes, edges), (0,0), 2)
+
+        econf = { e : { 'stroke_color' : sol.BASE03 } for e in edges }
+        vconf = { v : { 'fill_color' : sol.BASE03 } for v in nodes }
+
+        econf.update({ e : { 'stroke_color' : sol.HIGHLIGHT_EDGE } for es in balledges for e in es })
+        vconf.update({ v : { 'stroke_color' : sol.HIGHLIGHT_NODE } for vs in ballnodes for v in vs })
+        vconf.update({ (0,0) : { 'fill_color' : sol.ROOT } })
+
+        grid = Graph(*gr.grid_nodes_edges(2),
+                     layout=gr.grid_layout(2),
+                     vertex_config=vconf,
+                     edge_config=econf)
+
+        self.add(grid)
+
+                     
+
+
+        
 class Grids(Scene):
     def construct(self):
 
@@ -533,8 +556,8 @@ class DefinitionStill(Scene):
 class Plots1Ball3Binary(Scene):
     def construct(self):
         vconf = { 0 : { 'fill_color' : sol.ROOT , 'radius' : 0.3 } }
-        vconf.update({ v : { 'fill_color' : sol.NODE , 'radius' : 0.3 } for v in range(1,10)})
-        econf = { 'stroke_color' : sol.EDGE } 
+        vconf.update({ v : { 'fill_color' : sol.HIGHLIGHT_NODE , 'radius' : 0.3 } for v in range(1,10)})
+        econf = { 'stroke_color' : sol.HIGHLIGHT_EDGE } 
 
         kwargs = { 'vertex_config' : vconf, 'edge_config' : econf } 
 
@@ -649,8 +672,8 @@ class Plots1BallCanopy(Scene):
     def construct(self):
 
         vconf = { 0 : { 'fill_color' : sol.ROOT , 'radius' : 0.3 } }
-        vconf.update({ v : { 'fill_color' : sol.NODE , 'radius' : 0.3 } for v in range(1,10)})
-        econf = { 'stroke_color' : sol.EDGE } 
+        vconf.update({ v : { 'fill_color' : sol.HIGHLIGHT_NODE , 'radius' : 0.3 } for v in range(1,10)})
+        econf = { 'stroke_color' : sol.HIGHLIGHT_EDGE } 
 
         kwargs = { 'vertex_config' : vconf, 'edge_config' : econf } 
 
@@ -777,8 +800,8 @@ class Plots1Convergence(Scene):
         # different R-balls in the finite binary trees.
 
         vconf = { 0 : { 'fill_color' : sol.ROOT , 'radius' : 0.3 } }
-        vconf.update({ v : { 'fill_color' : sol.NODE , 'radius' : 0.3 } for v in range(1,10)})
-        econf = { 'stroke_color' : sol.BASE02 } 
+        vconf.update({ v : { 'fill_color' : sol.HIGHLIGHT_NODE , 'radius' : 0.3 } for v in range(1,10)})
+        econf = { 'stroke_color' : sol.HIGHLIGHT_EDGE } 
 
         kwargs = { 'vertex_config' : vconf, 'edge_config' : econf } 
 
@@ -849,8 +872,8 @@ class Plots2(Scene):
         # And here they are for the 2-balls
 
         vconf = { 0 : { 'fill_color' : sol.ROOT , 'radius' : 0.3 } }
-        vconf.update({ v : { 'fill_color' : sol.NODE , 'radius' : 0.3 } for v in range(1,10)})
-        econf = { 'stroke_color' : sol.BASE02 } 
+        vconf.update({ v : { 'fill_color' : sol.HIGHLIGHT_NODE , 'radius' : 0.3 } for v in range(1,10)})
+        econf = { 'stroke_color' : sol.HIGHLIGHT_EDGE } 
 
         kwargs = { 'vertex_config' : vconf, 'edge_config' : econf } 
 
