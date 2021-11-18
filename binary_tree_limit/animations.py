@@ -514,7 +514,7 @@ class Trees(Scene):
 
         self.play(Write(treetext), run_time=2)
 
-        self.wait(10)
+        self.wait(15)
 
 
 
