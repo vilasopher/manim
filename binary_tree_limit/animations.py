@@ -137,19 +137,34 @@ class GridProbabilityOverlay(Scene):
         nodes, edges = gr.grid_nodes_edges(2)
         ballnodes, balledges = hb.ball(Graph(nodes, edges), (0,0), 2)
 
-        econf = { e : { 'stroke_color' : sol.BASE03 } for e in edges }
-        vconf = { v : { 'fill_color' : sol.BASE03 } for v in nodes }
+        econf = { e : { 'stroke_color' : sol.BASE3 } for e in edges }
+        vconf = { v : { 'fill_color' : sol.BASE3 } for v in nodes }
 
         econf.update({ e : { 'stroke_color' : sol.HIGHLIGHT_EDGE } for es in balledges for e in es })
-        vconf.update({ v : { 'stroke_color' : sol.HIGHLIGHT_NODE } for vs in ballnodes for v in vs })
+        vconf.update({ v : { 'fill_color' : sol.HIGHLIGHT_NODE } for vs in ballnodes for v in vs })
         vconf.update({ (0,0) : { 'fill_color' : sol.ROOT } })
 
-        grid = Graph(*gr.grid_nodes_edges(2),
-                     layout=gr.grid_layout(2),
+        grid = Graph(nodes, edges,
+                     layout=gr.grid_layout(2, scale=0.25),
                      vertex_config=vconf,
                      edge_config=econf)
 
-        self.add(grid)
+        grid.move_to(4.65 * RIGHT + 2 * DOWN)
+
+        ###########################################
+
+        text1 = MathTex(r'\mathbb{P}\bigg[B_2\big[\substack{n \times n \\ \text{grid}} \big] = \quad \qquad \bigg] \to 1', color=sol.NODE, font_size=45)
+        text1.move_to(3.8 * RIGHT + 2 * DOWN)
+
+        ###########################################
+
+        text2 = Tex(r'as $n \to \infty$', color=sol.NODE, font_size=45)
+        text2.move_to(3.8 * RIGHT + 3.1 * DOWN)
+
+        ###########################################
+
+
+        self.add(grid, text1, text2)
 
                      
 
