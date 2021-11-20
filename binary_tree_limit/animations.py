@@ -284,8 +284,7 @@ class Trees(Scene):
                                 layout=bt.binary_tree_layout(6, shift=2.7*UP))
 
         # However, the binary tree does not exhibit this 'small-boundary' behavior.
-        self.play(Create(g), run_time=2)
-        self.wait(0.916666666667)
+        self.play(Create(g), run_time=2.91666666666666666667)
 
         nodes, _ = bt.binary_tree_layer(6)
 
@@ -300,8 +299,8 @@ class Trees(Scene):
         fraction = MathTex(r"2^n", r"\over", r"2^{n+1}-1", color=sol.BASE02)
         fraction.set_color_by_tex(r"2^n", sol.YELLOW)
 
-        self.play(FadeIn(fraction, scale=1.5), run_time=3)
-        self.wait(3.433333333333)
+        self.play(FadeIn(fraction, scale=1.5), run_time=2)
+        self.wait(4.433333333333)
 
         # So, rather than looking at the binary tree from the top, let's see what it
         # looks like from the bottom, from the perspective of a leaf of the tree.
@@ -588,19 +587,6 @@ class Plots1Ball3Binary(Scene):
                 Graph([0,1,2], [(0,1),(0,2)], **kwargs, layout='tree', root_vertex=0)
                 ]
 
-        bar_3_initial = mb.MobjectLabeledBarChart(
-                [0.0000001, 0.0000001, 0.0000001],
-                max_value = 7,
-                bar_names = rballs_1_initial,
-                bar_label_scale_val = 0.3,
-                bar_colors = [sol.BLUE],
-                color = sol.BASE03,
-                stroke_color = sol.BASE03,
-                height = 3,
-                width = 4
-                )
-        bar_3_initial.move_to(3.5 * LEFT + 0.75 * DOWN)
-
         bar_3_final = mb.MobjectLabeledBarChart(
                 [4/7, 2/7, 1/7],
                 max_value = 1,
@@ -613,6 +599,20 @@ class Plots1Ball3Binary(Scene):
                 width = 4
                 )
         bar_3_final.move_to(3.5 * LEFT + 0.75 * DOWN)
+
+        bar_3_initial = mb.MobjectLabeledBarChart(
+                [0.0000001, 0.0000001, 0.0000001],
+                n_ticks = 7,
+                max_value = 7,
+                bar_names = rballs_1_initial,
+                bar_label_scale_val = 0.3,
+                bar_colors = [sol.BLUE],
+                color = sol.BASE03,
+                stroke_color = sol.BASE03,
+                height = 3,
+                width = 4
+                )
+        bar_3_initial.align_to(bar_3_final, RIGHT + DOWN)
 
         #####################################################
 
