@@ -6,6 +6,7 @@ import binary_tree as bt
 import grid as gr
 import networkx as nx
 import mobject_labeled_bar_chart as mb
+from math import floor
 
 random.seed(4)
 
@@ -18,6 +19,45 @@ random.seed(4)
 class ColorClip(Scene):
     def construct(self):
         return
+
+
+class Thumbnail(Scene):
+    def construct(self):
+        nxgraph = nx.balanced_tree(2,6)
+        g = Graph.from_networkx(nxgraph,
+                                vertex_config=sol.VERTEX_CONFIG,
+                                edge_config=sol.EDGE_CONFIG,
+                                layout=bt.canopy_tree_layout(6, stretch_parameter=1.12, height=2.84, vertical_shift = DOWN))
+
+        g.remove_vertices(63 + 32, 63 + 33, floor((63 + 32)/2))
+
+        #####################################################
+
+        label_size = 40
+
+        mytemplate = TexTemplate()
+        mytemplate.add_to_preamble(r"\usepackage{amsbsy}")
+
+        h = Graph([0, 1, 3, 7, 15, 31, 63], [],
+                  vertex_config={ 'fill_color' : sol.RED },
+                  layout=bt.canopy_tree_layout(6, height=2.84, stretch_parameter=1.12, vertical_shift = DOWN),
+                  labels={ 0  : MathTex(r'\pmb{\frac{1}{128}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
+                           1  : MathTex(r'\pmb{\frac{1}{64}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
+                           3  : MathTex(r'\pmb{\frac{1}{32}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
+                           7  : MathTex(r'\pmb{\frac{1}{16}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
+                           15 : MathTex(r'\pmb{\frac{1}{8}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
+                           31 : MathTex(r'\pmb{\frac{1}{4}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
+                           63 : MathTex(r'\pmb{\frac{1}{2}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE)})
+
+        #####################################################
+
+        text = Tex(r'Canopy Tree', color=sol.NODE, font_size=200)
+        text.move_to(1.5 * UP)
+
+        #####################################################
+
+        self.add(g, h, text)
+
 
 
 class PreOpening(Scene):
