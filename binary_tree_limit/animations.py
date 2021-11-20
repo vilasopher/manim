@@ -25,22 +25,23 @@ class Thumbnail(Scene):
     def construct(self):
         nxgraph = nx.balanced_tree(2,6)
         g = Graph.from_networkx(nxgraph,
-                                vertex_config=sol.VERTEX_CONFIG,
-                                edge_config=sol.EDGE_CONFIG,
-                                layout=bt.canopy_tree_layout(6, stretch_parameter=1.12, height=2.84, vertical_shift = DOWN))
+                                vertex_config={ 'fill_color' : sol.NODE, 'radius' : 0.2 }, 
+                                edge_config={ 'stroke_color' : sol.EDGE, 'stroke_width' : 10 },
+                                layout=bt.canopy_tree_layout(6, stretch_parameter=1, height=1.5, scale = np.array([3.5, 1.3, 0]), vertical_shift = DOWN))
 
-        g.remove_vertices(63 + 32, 63 + 33, floor((63 + 32)/2))
+        #g.remove_vertices(63 + 32, 63 + 33, floor((63 + 32)/2))
+        g.remove_vertices(63 + 8)
 
         #####################################################
 
-        label_size = 40
+        label_size = 60
 
         mytemplate = TexTemplate()
         mytemplate.add_to_preamble(r"\usepackage{amsbsy}")
 
         h = Graph([0, 1, 3, 7, 15, 31, 63], [],
                   vertex_config={ 'fill_color' : sol.RED },
-                  layout=bt.canopy_tree_layout(6, height=2.84, stretch_parameter=1.12, vertical_shift = DOWN),
+                  layout=bt.canopy_tree_layout(6, height=1.5, stretch_parameter=1, scale=np.array([3.5, 2, 0]), vertical_shift = DOWN),
                   labels={ 0  : MathTex(r'\pmb{\frac{1}{128}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
                            1  : MathTex(r'\pmb{\frac{1}{64}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
                            3  : MathTex(r'\pmb{\frac{1}{32}}', tex_template=mytemplate, font_size=label_size, color=sol.NODE),
