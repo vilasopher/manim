@@ -43,8 +43,8 @@ class Slide1_QuadraticPlacement(Slide):
         template = TexTemplate()
         template.add_to_preamble(r'\usepackage{amsmath}')
 
-        q_equation = MathTex(r'Q_d(\mathbf{r}_1, \dotsc, \mathbf{r}_n) = \sum_{i<j} \| \mathbf{r}_i - \mathbf{r}_j \|^2', tex_template=template)
-        q_equation.move_to(3.5 * RIGHT + 2.5 * UP)
+        q_equation = MathTex(r'Q_d(\mathbf{r}_1, \dotsc, \mathbf{r}_n) = \sum_{i<j} w_{ij} \| \mathbf{r}_i - \mathbf{r}_j \|^2', tex_template=template)
+        q_equation.move_to(3.3 * RIGHT + 2.5 * UP)
 
         q_label = MathTex(r'Q_d =')
         q_label.move_to(1.2 * RIGHT + 1.2 * UP)
@@ -142,7 +142,7 @@ class Slide1_QuadraticPlacement(Slide):
         self.pause()
 
         self.play(g.animate.change_layout('spectral', layout_scale=3).move_to(5 * LEFT),
-                  run_time=10)
+                  run_time=10, rate_func=rate_functions.rush_into)
         self.wait()
         self.pause()
         
@@ -160,4 +160,17 @@ class Slide1_QuadraticPlacement(Slide):
 
 class Slide2_kMeans(Slide):
     def construct(self):
-        pass
+        g = Graph(nodes, edges, 
+                  layout='spectral', 
+                  edge_config = { 'stroke_color' : GRAY },
+                  layout_scale=3)
+        g.move_to(3.5 * LEFT)
+
+        template = TexTemplate()
+        template.add_to_preamble(r'\usepackage{amsmath}')
+        variance_equation = MathTex(r'S_k^2(\mathbf{r}_1, \dotsc, \mathbf{r}_n) = \min_{(V_1,\dotsc,V_k) \in \mathcal{P}_k} \sum_{i=1}^k \sum_{j \in V_i} d_j \| \mathbf{r}_j - \mathbf{c}_i \|^2',
+                                    tex_template=template)
+        variance_equation.move_to(RIGHT + 2.5 * UP)
+
+        self.add(g)
+        self.add(variance_equation)
