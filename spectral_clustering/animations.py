@@ -2,10 +2,11 @@ from manim import *
 from manim_presentation import Slide
 from random import seed, choice, randint, random, sample
 from numpy.linalg import norm, det
-from numpy import array, average, transpose
+from numpy import array, average, transpose, pad
 from numpy.ma import outer
 from itertools import combinations
 from math import sqrt, inf
+import networkx as nx
 
 seed(0)
 
@@ -74,6 +75,14 @@ def kmeans_step(g, clusters):
 
     return newclusters
 
+randomlayout = { v : 4 * LEFT + (random() * 6 - 3) * UP + (random() * 6 - 3) * RIGHT
+                                                                            for v in nodes }
+GRAPH = nx.Graph()
+GRAPH.add_nodes_from(nodes)
+GRAPH.add_edges_from(edges)
+nxspectrallayout = nx.spectral_layout(GRAPH)
+spectrallayout = { v : 3 * pad(nxspectrallayout[v],(0,1)) + 4 * LEFT for v in nodes }
+
 class Slide1_QuadraticPlacement(Slide):
     def noticewait(self):
         self.add(notifier)
@@ -83,10 +92,8 @@ class Slide1_QuadraticPlacement(Slide):
 
     def construct(self):
         g = Graph(nodes, edges, 
-                  layout='random', 
-                  edge_config = { 'stroke_color' : GRAY },
-                  layout_scale=3)
-        g.move_to(3.5 * LEFT)
+                  layout=randomlayout,
+                  edge_config = { 'stroke_color' : GRAY })
 
         template = TexTemplate()
         template.add_to_preamble(r'\usepackage{amsmath}')
@@ -186,8 +193,8 @@ class Slide1_QuadraticPlacement(Slide):
         self.play(FadeIn(q_label, shift=UP), FadeIn(q_value, shift=UP))
         self.noticewait()
 
-        self.play(g.animate.change_layout('spectral', layout_scale=3).move_to(5 * LEFT),
-                  run_time=10, rate_func=rate_functions.rush_into)
+        self.play(g.animate.change_layout(spectrallayout),
+                  run_time=10, rate_func=rate_functions.smooth)
         self.noticewait()
         
         self.play(FadeIn(eigenvalues, shift=LEFT))
@@ -212,16 +219,14 @@ class Slide2_kMeans(Slide):
 
     def construct(self):
         g = Graph(nodes, edges, 
-                  layout='spectral', 
-                  edge_config = { 'stroke_color' : GRAY },
-                  layout_scale=3)
-        g.move_to(3.5 * LEFT)
+                  layout=spectrallayout, 
+                  edge_config = { 'stroke_color' : GRAY })
 
         template = TexTemplate()
         template.add_to_preamble(r'\usepackage{amsmath}')
         variance_equation = MathTex(r'S_k^2(\mathbf{r}_1, \dotsc, \mathbf{r}_n) = \min_{(V_1,\dotsc,V_k) \in \mathcal{P}_k} \sum_{i=1}^k \sum_{j \in V_i} d_j \| \mathbf{r}_j - \mathbf{c}_i \|^2',
                                     tex_template=template)
-        variance_equation.move_to(RIGHT + 2.5 * UP)
+        variance_equation.move_to(1.7 * RIGHT + 2.5 * UP)
 
         variance_label = MathTex(r'S_k^2 \geq ')
         variance_label.move_to(2 * RIGHT + 0.5 * UP)
@@ -233,7 +238,7 @@ class Slide2_kMeans(Slide):
         variance_value.move_to(3.2 * RIGHT + 0.5 * UP)
 
         nphard = Tex(r'Computing $S_k^2$ is NP-hard in general!')
-        nphard.move_to(2 * RIGHT + 1 * DOWN)
+        nphard.move_to(2.5 * RIGHT + 1 * DOWN)
 
         bound = MathTex(r'S_{2^d}^2 \leq \frac{\lambda_1 + \dotsb + \lambda_d}{\lambda_{d+1}}')
         bound.move_to(2 * RIGHT + 2.5 * DOWN)
@@ -248,10 +253,8 @@ class Slide2_kMeans(Slide):
         self.noticewait()
 
         h = Graph(nodes, edges, 
-                  layout='spectral', 
-                  edge_config = { 'stroke_color' : DARKER_GRAY },
-                  layout_scale=3)
-        h.move_to(3.5 * LEFT)
+                  layout=spectrallayout, 
+                  edge_config = { 'stroke_color' : DARKER_GRAY })
 
         self.play(Transform(g,h))
         self.noticewait()
@@ -259,10 +262,8 @@ class Slide2_kMeans(Slide):
         h = Graph(nodes, edges, 
                   vertex_config = { v : { 'fill_color' : colors[k] }
                                     for k in range(3) for v in clusters[k] },
-                  layout='spectral', 
-                  edge_config = { 'stroke_color' : DARKER_GRAY },
-                  layout_scale=3)
-        h.move_to(3.5 * LEFT)
+                  layout=spectrallayout, 
+                  edge_config = { 'stroke_color' : DARKER_GRAY })
 
         self.play(Transform(g,h))
         self.noticewait()
@@ -276,10 +277,8 @@ class Slide2_kMeans(Slide):
             h = Graph(nodes, edges, 
                       vertex_config = { v : { 'fill_color' : colors[k] }
                                         for k in range(3) for v in clusters[k] },
-                      layout='spectral', 
-                      edge_config = { 'stroke_color' : DARKER_GRAY },
-                      layout_scale=3)
-            h.move_to(3.5 * LEFT)
+                      layout=spectrallayout, 
+                      edge_config = { 'stroke_color' : DARKER_GRAY })
 
             dec = DecimalNumber(kmeans_objective(g,clusters))
             dec.move_to(3.2 * RIGHT + 0.5 * UP)
@@ -289,10 +288,8 @@ class Slide2_kMeans(Slide):
             self.noticewait()
 
         h = Graph(nodes, edges, 
-                  layout='spectral', 
-                  edge_config = { 'stroke_color' : DARKER_GRAY },
-                  layout_scale=3)
-        h.move_to(3.5 * LEFT)
+                  layout=spectrallayout, 
+                  edge_config = { 'stroke_color' : DARKER_GRAY })
 
         self.play(Transform(g,h), FadeOut(variance_label), FadeOut(variance_value))
         self.noticewait()
@@ -304,10 +301,8 @@ class Slide2_kMeans(Slide):
         h = Graph(nodes, edges, 
                   vertex_config = { v : { 'fill_color' : colors[k] }
                                     for k in range(3) for v in clusters[k] },
-                  layout='spectral', 
-                  edge_config = { 'stroke_color' : DARKER_GRAY },
-                  layout_scale=3)
-        h.move_to(3.5 * LEFT)
+                  layout=spectrallayout,
+                  edge_config = { 'stroke_color' : DARKER_GRAY })
 
         self.play(Transform(g,h))
         self.noticewait()
@@ -321,10 +316,8 @@ class Slide2_kMeans(Slide):
             h = Graph(nodes, edges, 
                       vertex_config = { v : { 'fill_color' : colors[k] }
                                         for k in range(3) for v in clusters[k] },
-                      layout='spectral', 
-                      edge_config = { 'stroke_color' : DARKER_GRAY },
-                      layout_scale=3)
-            h.move_to(3.5 * LEFT)
+                      layout=spectrallayout, 
+                      edge_config = { 'stroke_color' : DARKER_GRAY })
 
             dec = DecimalNumber(kmeans_objective(g,clusters))
             dec.move_to(3.2 * RIGHT + 0.5 * UP)
