@@ -9,8 +9,8 @@ from math import sqrt, inf
 
 seed(0)
 
-notifier = Dot(color=GRAY)
-notifier.move_to(4 * RIGHT + 3 * DOWN)
+notifier = Dot(color=DARK_GRAY, radius=0.05)
+notifier.move_to(7 * RIGHT + 3.9 * DOWN)
 
 num_clusters = 3
 add_prob = 0.04
@@ -199,6 +199,7 @@ class Slide1_QuadraticPlacement(Slide):
         self.play(FadeOut(occlusionright))
         self.noticewait()
 
+        self.wait()
 
 
 
@@ -236,6 +237,7 @@ class Slide2_kMeans(Slide):
 
 
         self.add(g)
+        self.wait()
         self.noticewait()
 
         self.play(Write(variance_equation))
