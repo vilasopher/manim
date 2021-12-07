@@ -232,9 +232,13 @@ class Slide2_kMeans(Slide):
         variance_value = DecimalNumber(kmeans_objective(g, clusters))
         variance_value.move_to(3.2 * RIGHT + 0.5 * UP)
 
+        nphard = Tex(r'Computing $S_k^2$ is NP-hard in general!')
+        nphard.move_to(2 * RIGHT + 1 * DOWN)
+
+        bound = MathTex(r'S_{2^d}^2 \leq \frac{\lambda_1 + \dotsb + \lambda_d}{\lambda_{d+1}}')
+        bound.move_to(2 * RIGHT + 2.5 * DOWN)
 
         #######################################################
-
 
         self.add(g)
         self.wait()
@@ -245,7 +249,7 @@ class Slide2_kMeans(Slide):
 
         h = Graph(nodes, edges, 
                   layout='spectral', 
-                  edge_config = { 'stroke_color' : BLACK },
+                  edge_config = { 'stroke_color' : DARKER_GRAY },
                   layout_scale=3)
         h.move_to(3.5 * LEFT)
 
@@ -256,7 +260,7 @@ class Slide2_kMeans(Slide):
                   vertex_config = { v : { 'fill_color' : colors[k] }
                                     for k in range(3) for v in clusters[k] },
                   layout='spectral', 
-                  edge_config = { 'stroke_color' : BLACK },
+                  edge_config = { 'stroke_color' : DARKER_GRAY },
                   layout_scale=3)
         h.move_to(3.5 * LEFT)
 
@@ -267,17 +271,71 @@ class Slide2_kMeans(Slide):
         self.play(Write(variance_value))
         self.noticewait()
 
-        for _ in range(5):
+        for _ in range(4):
             clusters = kmeans_step(g, clusters)
             h = Graph(nodes, edges, 
                       vertex_config = { v : { 'fill_color' : colors[k] }
                                         for k in range(3) for v in clusters[k] },
                       layout='spectral', 
-                      edge_config = { 'stroke_color' : BLACK },
+                      edge_config = { 'stroke_color' : DARKER_GRAY },
                       layout_scale=3)
             h.move_to(3.5 * LEFT)
+
+            dec = DecimalNumber(kmeans_objective(g,clusters))
+            dec.move_to(3.2 * RIGHT + 0.5 * UP)
         
             self.play(Transform(g,h))
-            variance_value.set_value(kmeans_objective(g,clusters))
+            self.play(Transform(variance_value, dec))
             self.noticewait()
+
+        h = Graph(nodes, edges, 
+                  layout='spectral', 
+                  edge_config = { 'stroke_color' : DARKER_GRAY },
+                  layout_scale=3)
+        h.move_to(3.5 * LEFT)
+
+        self.play(Transform(g,h), FadeOut(variance_label), FadeOut(variance_value))
+        self.noticewait()
+
+        random()
+        shuf = sample(nodes, len(nodes))
+        clusters = { k : [ shuf[i] for i in range(len(shuf)) if i % 3 == k ] for k in range(3) }       
+
+        h = Graph(nodes, edges, 
+                  vertex_config = { v : { 'fill_color' : colors[k] }
+                                    for k in range(3) for v in clusters[k] },
+                  layout='spectral', 
+                  edge_config = { 'stroke_color' : DARKER_GRAY },
+                  layout_scale=3)
+        h.move_to(3.5 * LEFT)
+
+        self.play(Transform(g,h))
+        self.noticewait()
+
+        self.play(FadeIn(variance_label, shift=RIGHT))
+        self.play(Write(variance_value))
+        self.noticewait()
+
+        for _ in range(2):
+            clusters = kmeans_step(g, clusters)
+            h = Graph(nodes, edges, 
+                      vertex_config = { v : { 'fill_color' : colors[k] }
+                                        for k in range(3) for v in clusters[k] },
+                      layout='spectral', 
+                      edge_config = { 'stroke_color' : DARKER_GRAY },
+                      layout_scale=3)
+            h.move_to(3.5 * LEFT)
+
+            dec = DecimalNumber(kmeans_objective(g,clusters))
+            dec.move_to(3.2 * RIGHT + 0.5 * UP)
         
+            self.play(Transform(g,h))
+            self.play(Transform(variance_value, dec))
+            self.noticewait()
+
+        self.play(Write(nphard))
+        self.noticewait()
+        
+        self.play(Write(bound))
+        self.noticewait()
+        self.wait()
