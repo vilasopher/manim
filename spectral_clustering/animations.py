@@ -1,13 +1,16 @@
 from manim import *
 from manim_presentation import Slide
-from random import seed, choice, randint, random
+from random import seed, choice, randint, random, sample
 from numpy.linalg import norm, det
 from numpy import array, average, transpose
 from numpy.ma import outer
 from itertools import combinations
-from math import sqrt
+from math import sqrt, inf
 
 seed(0)
+
+notifier = Dot(color=GRAY)
+notifier.move_to(4 * RIGHT + 3 * DOWN)
 
 num_clusters = 3
 add_prob = 0.04
@@ -25,14 +28,59 @@ edges_to_remove = [ e for e in original_edges if random() < remove_prob ]
 edges = [ e for e in original_edges + edges_to_add if e not in edges_to_remove ]
 
 def vecs(g):
-    return { v : np.array(g[v].get_center()[:-1]) for v in nodes }
+    return { v : array(g[v].get_center()[:-1]) for v in nodes }
 
 def Q(g):
     vp = vecs(g)
     distsq = [ norm(vp[x] - vp[y]) ** 2 for x in nodes for y in nodes if (x,y) in edges ]
     return 0.69 * sum(distsq) / 304 
 
+def kmeans_objective(g, clusters):
+    vp = vecs(g)
+    ds = g._graph.degree
+
+    volumes = { k : sum([ ds[v] for v in clusters[k] ]) for k in clusters.keys() }
+    centers = { k : sum([ ds[v] * vp[v] for v in clusters[k] ]) / volumes[k]
+                                                        for k in clusters.keys() }
+
+    objectives = { k : sum([ ds[v] * norm(vp[v] - centers[k]) ** 2 for v in clusters[k]])
+                                                        for k in clusters.keys() }
+    objective = sum([ objectives[k] for k in clusters.keys() ])
+
+    return objective / 100
+    
+
+def kmeans_step(g, clusters):
+    vp = vecs(g)
+    ds = g._graph.degree
+
+    volumes = { k : sum([ ds[v] for v in clusters[k] ]) for k in clusters.keys() }
+    centers = { k : sum([ ds[v] * vp[v] for v in clusters[k] ]) / volumes[k]
+                                                        for k in clusters.keys() }
+
+    newclusters =  { k : [] for k in clusters.keys() }
+
+    for v in nodes:
+        argminsofar = None
+        minsofar    = inf
+
+        for k in clusters.keys():
+            dist = norm(vp[v] - centers[k])
+            if dist < minsofar:
+                argminsofar = k
+                minsofar = dist
+
+        newclusters[argminsofar].append(v)
+
+    return newclusters
+
 class Slide1_QuadraticPlacement(Slide):
+    def noticewait(self):
+        self.add(notifier)
+        self.wait()
+        self.pause()
+        self.remove(notifier)
+
     def construct(self):
         g = Graph(nodes, edges, 
                   layout='random', 
@@ -130,35 +178,37 @@ class Slide1_QuadraticPlacement(Slide):
 
 
         self.play(Create(g))
-        self.wait()
-        self.pause()
+        self.noticewait()
         
         self.play(Write(q_equation))
-        self.wait()
-        self.pause()
+        self.noticewait()
 
         self.play(FadeIn(q_label, shift=UP), FadeIn(q_value, shift=UP))
-        self.wait()
-        self.pause()
+        self.noticewait()
 
         self.play(g.animate.change_layout('spectral', layout_scale=3).move_to(5 * LEFT),
                   run_time=10, rate_func=rate_functions.rush_into)
-        self.wait()
-        self.pause()
+        self.noticewait()
         
         self.play(FadeIn(eigenvalues, shift=LEFT))
-        self.wait()
-        self.pause()
+        self.noticewait()
 
         self.play(FadeOut(occlusionleft))
-        self.wait()
-        self.pause()
+        self.noticewait()
 
         self.play(FadeOut(occlusionright))
-        self.wait()
-        self.pause()
+        self.noticewait()
+
+
+
 
 class Slide2_kMeans(Slide):
+    def noticewait(self):
+        self.add(notifier)
+        self.wait()
+        self.pause()
+        self.remove(notifier)
+
     def construct(self):
         g = Graph(nodes, edges, 
                   layout='spectral', 
@@ -172,5 +222,60 @@ class Slide2_kMeans(Slide):
                                     tex_template=template)
         variance_equation.move_to(RIGHT + 2.5 * UP)
 
+        variance_label = MathTex(r'S_k^2 \geq ')
+        variance_label.move_to(2 * RIGHT + 0.5 * UP)
+
+        clusters = { k : [ nodes[i] for i in range(len(nodes)) if i % 3 == k ] for k in range(3) }
+        colors = [ RED, GREEN, BLUE ]
+
+        variance_value = DecimalNumber(kmeans_objective(g, clusters))
+        variance_value.move_to(3.2 * RIGHT + 0.5 * UP)
+
+
+        #######################################################
+
+
         self.add(g)
-        self.add(variance_equation)
+        self.noticewait()
+
+        self.play(Write(variance_equation))
+        self.noticewait()
+
+        h = Graph(nodes, edges, 
+                  layout='spectral', 
+                  edge_config = { 'stroke_color' : BLACK },
+                  layout_scale=3)
+        h.move_to(3.5 * LEFT)
+
+        self.play(Transform(g,h))
+        self.noticewait()
+
+        h = Graph(nodes, edges, 
+                  vertex_config = { v : { 'fill_color' : colors[k] }
+                                    for k in range(3) for v in clusters[k] },
+                  layout='spectral', 
+                  edge_config = { 'stroke_color' : BLACK },
+                  layout_scale=3)
+        h.move_to(3.5 * LEFT)
+
+        self.play(Transform(g,h))
+        self.noticewait()
+
+        self.play(FadeIn(variance_label, shift=RIGHT))
+        self.play(Write(variance_value))
+        self.noticewait()
+
+        for _ in range(5):
+            clusters = kmeans_step(g, clusters)
+            h = Graph(nodes, edges, 
+                      vertex_config = { v : { 'fill_color' : colors[k] }
+                                        for k in range(3) for v in clusters[k] },
+                      layout='spectral', 
+                      edge_config = { 'stroke_color' : BLACK },
+                      layout_scale=3)
+            h.move_to(3.5 * LEFT)
+        
+            self.play(Transform(g,h))
+            variance_value.set_value(kmeans_objective(g,clusters))
+            self.noticewait()
+        
