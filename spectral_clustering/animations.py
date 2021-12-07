@@ -184,7 +184,7 @@ class Slide1_QuadraticPlacement(Slide):
         self.add(occlusionleft, occlusionright)
 
 
-        self.play(Create(g))
+        self.play(Create(g), run_time=3)
         self.noticewait()
         
         self.play(Write(q_equation))
@@ -294,9 +294,11 @@ class Slide2_kMeans(Slide):
         self.play(Transform(g,h), FadeOut(variance_label), FadeOut(variance_value))
         self.noticewait()
 
-        random()
-        shuf = sample(nodes, len(nodes))
+        shuf = [nodes[0]] + [nodes[2]] + [nodes[1]] + nodes[3:]
         clusters = { k : [ shuf[i] for i in range(len(shuf)) if i % 3 == k ] for k in range(3) }       
+
+        variance_value = DecimalNumber(kmeans_objective(g, clusters))
+        variance_value.move_to(3.2 * RIGHT + 0.5 * UP)
 
         h = Graph(nodes, edges, 
                   vertex_config = { v : { 'fill_color' : colors[k] }
