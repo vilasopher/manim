@@ -114,7 +114,7 @@ class Slide1_QuadraticPlacement(Slide):
         eigenvalues.move_to(4.6 * RIGHT + 1.2 * UP)
 
         matrixbars1 = Matrix([[0,0],[0,0],[0,0],[0,0]])
-        matrixbars1.move_to(1.75 * RIGHT + 1.5 * DOWN)
+        matrixbars1.move_to(0.8 * RIGHT + 1.5 * DOWN)
 
         matrixbars2 = Matrix([[0,0],[0,0],[0,0],[0,0]])
         matrixbars2.move_to(5.25 * RIGHT + 1.5 * DOWN)
@@ -122,10 +122,10 @@ class Slide1_QuadraticPlacement(Slide):
         occlusion1 = Rectangle(width=1.8,height=3)
         occlusion1.set_fill(BLACK, opacity=1)
         occlusion1.set_stroke(BLACK)
-        occlusion1.move_to(1.75 * RIGHT + 1.5 * DOWN)
+        occlusion1.move_to(0.8 * RIGHT + 1.5 * DOWN)
 
-        equals = MathTex(r'=')
-        equals.move_to(3.5 * RIGHT + 1.5 * DOWN)
+        equals = MathTex(r'= \mathbf{D}^{-1/2}')
+        equals.move_to(3 * RIGHT + 1.5 * DOWN)
 
         occlusion2 = Rectangle(width=1.8,height=3)
         occlusion2.set_fill(BLACK, opacity=1)
@@ -135,12 +135,12 @@ class Slide1_QuadraticPlacement(Slide):
         uvecs = MathTex(r'\mathbf{u}_1 \dotsb \mathbf{u}_d')
         uvecs.move_to(5.25 * RIGHT + 1.5 * DOWN)
 
-        r1 = MathTex(r'\mathbf{r}_1')
+        r1 = MathTex(r'\mathbf{r}_1^*')
         vdots = MathTex(r'\vdots', font_size=60)
-        rn = MathTex(r'\mathbf{r}_n')
-        r1.move_to(1.75 * RIGHT + 0.3 * DOWN)
-        vdots.move_to(1.75 * RIGHT + 1.5 * DOWN)
-        rn.move_to(1.75 * RIGHT + 2.7 * DOWN)
+        rn = MathTex(r'\mathbf{r}_n^*')
+        r1.move_to(0.8 * RIGHT + 0.3 * DOWN)
+        vdots.move_to(0.8 * RIGHT + 1.5 * DOWN)
+        rn.move_to(0.8 * RIGHT + 2.7 * DOWN)
 
         horizline1 = Line()
         horizline1.move_to(r1)
@@ -155,29 +155,31 @@ class Slide1_QuadraticPlacement(Slide):
         rocclusion = Rectangle(width=0.5, height=3)
         rocclusion.set_fill(BLACK, opacity=1)
         rocclusion.set_stroke(BLACK)
-        rocclusion.move_to(1.75 * RIGHT + 1.5 * DOWN)
+        rocclusion.move_to(0.8 * RIGHT + 1.5 * DOWN)
 
         uocclusion = Rectangle(width=1.8, height=0.5)
         uocclusion.set_fill(BLACK, opacity=1)
         uocclusion.set_stroke(BLACK)
         uocclusion.move_to(5.25 * RIGHT + 1.5 * DOWN)
 
-        occlusionleft = Rectangle(width=3, height=3.5)
+        occlusionleft = Rectangle(width=2.7, height=3.5)
         occlusionleft.set_fill(BLACK, opacity=1)
         occlusionleft.set_stroke(BLACK)
-        occlusionleft.move_to(1.75 * RIGHT + 1.5 * DOWN)
+        occlusionleft.move_to(0.7 * RIGHT + 1.5 * DOWN)
 
-        occlusionright = Rectangle(width=4, height=3.5)
+        occlusionright = Rectangle(width=5, height=3.5)
         occlusionright.set_fill(BLACK, opacity=1)
         occlusionright.set_stroke(BLACK)
-        occlusionright.move_to(5.255 * RIGHT + 1.5 * DOWN)
+        occlusionright.move_to(4.6 * RIGHT + 1.5 * DOWN)
 
         ###################################################
 
         # self.add(g, q_equation, q_label, q_value,
-        #         eigenvalues, matrixbars1, matrixbars2, occlusion1, occlusion2, equals,
-        #         horizline1, horizlinen, rocclusion, r1, vdots, rn,
-        #         vertline1, vertlined, uocclusion, uvecs)
+        #          eigenvalues, matrixbars1, matrixbars2, occlusion1, occlusion2, equals,
+        #          horizline1, horizlinen, rocclusion, r1, vdots, rn,
+        #          vertline1, vertlined, uocclusion, uvecs)
+
+        # return
 
         self.add(matrixbars1, occlusion1, horizline1, horizlinen, rocclusion, r1, vdots, rn,
                  equals, matrixbars2, occlusion2, vertline1, vertlined, uocclusion, uvecs)
@@ -228,7 +230,7 @@ class Slide2_kMeans(Slide):
                                     tex_template=template)
         variance_equation.move_to(1.7 * RIGHT + 2.5 * UP)
 
-        variance_label = MathTex(r'S_k^2 \geq ')
+        variance_label = MathTex(r'S_k^2 \leq ')
         variance_label.move_to(2 * RIGHT + 0.5 * UP)
 
         clusters = { k : [ nodes[i] for i in range(len(nodes)) if i % 3 == k ] for k in range(3) }
