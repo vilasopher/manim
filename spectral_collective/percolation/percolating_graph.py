@@ -4,17 +4,18 @@ import networkx as nx
 
 class PercolatingGraph(Graph):
     def __init__(self, nodes, edges, **kwargs) -> None:
-        super().__init__(self, nodes, edges, **kwargs)
+        super().__init__(nodes, edges, **kwargs)
 
-    def percolate(self, parameter=0.5):
-        edges_to_remove = [ e for e in self.edges if random() > parameter ]
-        self.remove_edges(edges_to_remove)
+    def percolate(self, p=0.5):
+        edges_to_remove = [ e for (e, _) in self.edges.items() if random() > p ]
+        return self.remove_edges(*edges_to_remove)
 
+    # TODO: the remove edges thing isn't even working in animation
     @override_animate(percolate)
-    def _percolate_animation(self, parameter=0.5, *args, anim_args=None, **kwargs):
-        edges_to_remove = [ e for e in self.edges if random() > parameter ]
-        return self.animate.remove_edges(edges_to_remove)
+    def _percolate_animation(self, p=0.5, *args, anim_args=None, **kwargs):
+        edges_to_remove = [ e for (e, _) in self.edges.items() if random() > p ]
+        return self.animate.remove_edges(*edges_to_remove, *args, anim_args, **kwargs)
 
     @staticmethod
     def from_networkx(nxgraph: nx.classes.graph.Graph, **kwargs) -> "PercolatingGraph":
-        return PercolatingGraph(list(nxgraph.nodes), list(nxgraph.edges))
+        return PercolatingGraph(list(nxgraph.nodes), list(nxgraph.edges), **kwargs)

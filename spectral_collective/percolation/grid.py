@@ -1,4 +1,4 @@
-from manim import *
+from manim import RIGHT, UP, ORIGIN
 
 def grid_nodes_edges(radius):
     nodes = [ (a,b) for a in range(-radius,radius+1) for b in range(-radius,radius+1) ]
