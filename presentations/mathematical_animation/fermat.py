@@ -1,6 +1,6 @@
 from manim import *
 
-def colorfunction(t, freq = 0.1, **kwargs):
+def colorfunction(t, freq = 0.2, **kwargs):
     return interpolate_color(
             PURE_BLUE,
             PURE_RED, 
@@ -31,14 +31,14 @@ def gamma(a_inv, t):
 
     if a >= 0:
         return [
-            - 5 * np.sqrt(a**2 + 1) * np.cos(t),
-            5 * (np.sqrt(a**2 + 1) * np.sin(t) - a) - 2,
+            - 7 * np.sqrt(a**2 + 1) * np.cos(t),
+            7 * (np.sqrt(a**2 + 1) * np.sin(t) - a) - 3,
             0 
         ]
     else:
         return [
-            - 5 * np.sqrt(a**2 + 1) * np.cos(t),
-            - 5 * (np.sqrt(a**2 + 1) * np.sin(t) + a) - 2,
+            - 7 * np.sqrt(a**2 + 1) * np.cos(t),
+            - 7 * (np.sqrt(a**2 + 1) * np.sin(t) + a) - 3,
             0 
         ]
 
@@ -54,8 +54,8 @@ def gamma_range(a_inv, step = 0.005):
 class Fermat(Scene):
     def construct(self):
 
-        p = Dot([-5, -2, 0], z_index = 1)
-        q = Dot([5, -2, 0], z_index = 1)
+        p = Dot([-7, -3, 0], z_index = 1)
+        q = Dot([7, -3, 0], z_index = 1)
 
         static_arc_nonstationary = ParametricFunction(
             lambda t : gamma(5, t),
@@ -66,15 +66,21 @@ class Fermat(Scene):
         )
 
         static_arc_stationary = ParametricFunction(
-            lambda t : [t, -2, 0],
-            t_range = [-5, 5, 0.1],
+            lambda t : [t, -3, 0],
+            t_range = [-7, 7, 0.1],
             stroke_width = 5,
             stroke_color = GRAY,
             z_index = -1
         )
+
+        mins = [-0.15, 3.5]
+        maxs = [0.15, 8]
         
-        bs = [ ValueTracker(-0.1), ValueTracker(4) ]
-        
+        b = [
+            ValueTracker(mins[0]),
+            ValueTracker(mins[1])
+        ]
+
         moving_arcs = [
             colored_plot(
                 lambda t : gamma(b[i].get_value(), t),
@@ -82,10 +88,10 @@ class Fermat(Scene):
             )
             for i in range(2)
         ]
-
+        
         for i in range(2):
             moving_arcs[i].add_updater(
-                lambda s : s.become(
+                lambda s, i=i : s.become(
                     colored_plot(
                         lambda t : gamma(b[i].get_value(), t),
                         t_range = gamma_range(b[i].get_value())
@@ -98,16 +104,19 @@ class Fermat(Scene):
             q,
             static_arc_nonstationary,
             static_arc_stationary,
-            moving_arcs[0],
-            moving_arcs[1]
+            *moving_arcs,
         )
 
-        for _ in range(1):
+        for _ in range(5):
             self.play(
-                b[0].animate.set_value(0.1),
-                b[1].animate.set_value(6)
+                *[
+                    b[i].animate.set_value(maxs[i])
+                    for i in range(2)
+                ]
             )
             self.play(
-                b[0].animate.set_value(-0.1),
-                b[1].animate.set_value(4)
+                *[
+                    b[i].animate.set_value(mins[i])
+                    for i in range(2)
+                ]
             )
