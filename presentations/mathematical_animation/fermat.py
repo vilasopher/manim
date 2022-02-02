@@ -7,7 +7,7 @@ def colorfunction(t, freq = 0.1, **kwargs):
             (1 + np.cos(freq * PI * t)) / 2
     )
 
-def colored_plot(f, **kwargs):
+def colored_plot(f, stroke_width = 10, z_index = 0, **kwargs):
     curve = ParametricFunction(f, **kwargs)
     pieces = CurvesAsSubmobjects(curve)
 
@@ -20,17 +20,24 @@ def colored_plot(f, **kwargs):
     return pieces
 
 def gamma(a, t):
-    return [
-        - 5 * np.sqrt(a**2 + 1) * np.cos(t),
-        5 * (np.sqrt(a**2 + 1) * np.sin(t) - a) - 2,
-        0 
-    ]
+    if a >= 0:
+        return [
+            - 5 * np.sqrt(a**2 + 1) * np.cos(t),
+            5 * (np.sqrt(a**2 + 1) * np.sin(t) - a) - 2,
+            0 
+        ]
+    else:
+        return [
+            - 5 * np.sqrt(a**2 + 1) * np.cos(t),
+            - 5 * (np.sqrt(a**2 + 1) * np.sin(t) - a) - 2,
+            0 
+        ]
 
 def gamma_range(a, step = 0.005):
     return [ 
         np.arccos(1 / np.sqrt(a**2 + 1)),
         PI - np.arccos(1 / np.sqrt(a**2 + 1)),
-        step
+        step / np.sqrt(a**2 + 1)
     ]
 
 class Fermat(Scene):
@@ -53,23 +60,31 @@ class Fermat(Scene):
         
         moving_arc = colored_plot(
             lambda t : gamma(a.get_value(), t),
-            t_range = gamma_range(a.get_value()),
-            stroke_width = 10,
-            z_index = 0
+            t_range = gamma_range(a.get_value())
         )
 
         moving_arc.add_updater(
             lambda s : s.become(
                 colored_plot(
                     lambda t : gamma(a.get_value(), t),
-                    t_range = gamma_range(a.get_value()),
-                    stroke_width = 10,
-                    z_index = 0
+                    t_range = gamma_range(a.get_value())
                 )
             )
         )
 
         self.add(moving_arc)
+
+        self.play(
+            a.animate.set_value(100),
+            rate_func = rate_functions.rush_into
+        )
+        a.set_value(-100)
+        self.play(
+            a.animate.set_value(-0.1),
+            rate_func = rate_functions.rush_from
+        )
+
+        return
         
         for _ in range(1):
             self.play(a.animate.set_value(0.3))
