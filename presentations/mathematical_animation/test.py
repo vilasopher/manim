@@ -1,5 +1,4 @@
 from manim import *
-from light_arc import LightArc
 
 class Test1(Scene):
     def construct(self):
@@ -21,3 +20,23 @@ class Test2(Scene):
 
         self.play(ShowSubmobjectsOneByOne(arcs))
 
+class Test3(Scene):
+    def construct(self):
+        tex1 = MathTex(
+            r"{ \sin \theta_a \over {{v_a}} }=",
+            r"{ {{\sin \theta_w}} \over v_w }"
+        )
+        tex2 = MathTex(
+            r"{ \sin \theta_a \over {{\sin \theta_w}} }=",
+            r"{ {{v_a}} \over v_w }"
+        )
+        self.play(FadeIn(tex1))
+        self.wait(0.5)
+        self.play(TransformMatchingTex(tex1,tex2))
+        self.wait(0.5)
+
+class Test4(Scene):
+        def construct(self):
+            tex = MathTex(r"{a}=",
+                    r"{b}")
+            self.play(Write(tex))

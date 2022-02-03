@@ -68,7 +68,7 @@ class Snell(Scene):
         fermat = Tex(
             "\\textbf{Fermat's Principle}: \
                     light travels along the path \
-                    which takes the least time",
+                    which takes the least time.",
             color=BLACK,
             font_size=38
         )
@@ -285,14 +285,14 @@ class Snell(Scene):
             normal,
             other_angle=True,
             quadrant=(-1,-1),
-            color=GRAY,
+            color=LIGHT_GRAY,
             radius=1,
             z_index=-1
         )
         theta_w = Angle(
             normal,
             ray2,
-            color=GRAY,
+            color=LIGHT_GRAY,
             radius=2,
             z_index=-1
         )
@@ -315,7 +315,7 @@ class Snell(Scene):
             color=BLACK
         )
         slaw_1.move_to(4.5 * RIGHT + 2 * DOWN)
-        self.play(Write(slaw_1))
+        self.play(FadeIn(slaw_1, scale=1.5))
         self.noticewait()
 
         slaw_2 = MathTex(
@@ -326,6 +326,47 @@ class Snell(Scene):
         slaw_2.move_to(4.5 * RIGHT + 2 * DOWN)
         self.play(TransformMatchingTex(slaw_1, slaw_2))
         self.noticewait()
+
+        brace_x.clear_updaters()
+
+        new_normal = Line(
+            [x.get_value(), 3, 0],
+            [x.get_value(), -4, 0],
+            stroke_width = 3,
+            color = GRAY,
+            z_index = -0.5
+        )
+
+        self.play(
+            FadeOut(brace_x),
+            FadeOut(brace_d),
+            FadeOut(brace_ha),
+            FadeOut(brace_hw),
+            FadeOut(label_x),
+            FadeOut(label_d),
+            FadeOut(label_ha),
+            FadeOut(label_hw),
+            FadeOut(line_x),
+            FadeOut(line_dx),
+            FadeOut(line_hypa),
+            FadeOut(line_hypw),
+            Transform(normal, new_normal)
+        )
+        self.noticewait()
+
+        snell = Tex(r"\textbf{Snell's Law}", color=BLACK)
+        snell.move_to(4.5 * RIGHT + 3.25 * DOWN)
+
+        snell_box = Rectangle(
+            width = 3.125,
+            height = 2.375,
+            color = BLACK,
+            stroke_width = 2
+        ).move_to(4.5 * RIGHT + 2.5 * DOWN)
+
+        self.play(Write(snell))
+        self.play(Create(snell_box))
+        self.noticewait()
         
-        
-        #self.play(ApplyWave(fermat))
+        self.play(ApplyWave(fermat))
+        self.noticewait()
