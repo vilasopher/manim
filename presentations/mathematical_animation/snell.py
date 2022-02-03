@@ -1,7 +1,7 @@
 from manim import *
 
 class Snell(Scene):
-    notifier = Dot(color=DARK_GRAY, radius=0.05)
+    notifier = Dot(color=LIGHTER_GRAY, radius=0.05)
     notifier.move_to(7 * RIGHT + 3.9 * DOWN)
 
     def noticewait(self):
@@ -12,23 +12,27 @@ class Snell(Scene):
     def construct(self):
         self.camera.background_color = WHITE
 
-        # set up initial scene
-        p = Dot([-1.5, 3, 0], color=BLACK, z_index=1)
-        q = Dot([1.5, -3, 0], color=BLACK, z_index=1)
-        interface = Line([-2,0,0], [2,0,0], color=BLUE)
+        p = Dot([-1.5 - 4.5, 3, 0], color=BLACK, z_index=1)
+        q = Dot([1.5 - 4.5, -3, 0], color=BLACK, z_index=1)
+        interface = Line(
+            [-2.51 - 4.5 - 0.5,0,0],
+            [2.01 - 4.5,0,0],
+            stroke_width=3,
+            color=BLUE
+        )
 
-        water = Rectangle(BLUE_B, height=4, width=4, z_index = -1)
+        water = Rectangle(BLUE_B, height=4, width=4.5 + 0.5, z_index = -1)
         water.set_fill(BLUE_B, opacity=1)
-        water.align_to(interface, UP)
+        water.align_to(interface, UP).shift((0.25 + 4.75)*LEFT)
 
-        self.play(Create(water), Create(interface))
+        self.play(FadeIn(water), Create(interface))
         self.play(Create(p), Create(q))
         self.noticewait()
 
-        x = ValueTracker(0)
+        x = ValueTracker(1 - 4.5)
 
-        ray1 = Line(p.get_center(), contact.get_center(), color=YELLOW)
-        ray2 = Line(contact.get_center(), q.get_center(), color=YELLOW)
+        ray1 = Line(p.get_center(), [x.get_value(),0,0], color=YELLOW)
+        ray2 = Line([x.get_value(),0,0], q.get_center(), color=YELLOW)
 
         ray1.add_updater(
             lambda s : s.put_start_and_end_on(
@@ -55,10 +59,10 @@ class Snell(Scene):
         )
         self.noticewait()
 
-        self.play(x.animate.set_value(1))
-        self.play(x.animate.set_value(-1.9))
-        self.play(x.animate.set_value(1.5))
-        self.play(x.animate.set_value(0))
+        self.play(x.animate.set_value(1 - 4.5))
+        self.play(x.animate.set_value(-1.9 - 4.5))
+        self.play(x.animate.set_value(1.5 - 4.5))
+        self.play(x.animate.set_value(1 - 4.5))
         self.noticewait()
 
         fermat = Tex(
@@ -73,4 +77,255 @@ class Snell(Scene):
         self.play(Write(fermat))
         self.noticewait()
 
-        self.play(ApplyWave(fermat))
+        brace_x = BraceBetweenPoints(
+            [-1.5 - 4.5,0,0],
+            [x.get_value(),0,0],
+            color=BLACK
+        )
+        label_x = MathTex("x", color=BLACK)
+        brace_x.put_at_tip(label_x)
+
+        self.play(
+            FadeIn(brace_x, shift=UP),
+            FadeIn(label_x, shift=UP)
+        )
+
+        brace_x.add_updater(
+            lambda s : s.become(
+                BraceBetweenPoints(
+                    [-1.5 - 4.5,0,0],
+                    [x.get_value(),0,0],
+                    color=BLACK
+                )
+            ).put_at_tip(label_x)
+        )
+
+        self.noticewait()
+
+        x_axis_label = MathTex("x", color=GRAY)
+        y_axis_label = MathTex("t", color=GRAY)
+        x_conf = { "color" : GRAY }
+        y_conf = { "color" : GRAY }
+        ax = Axes(
+            x_range = [-0.25, 1.75, 0.25],
+            y_range = [12.365, 13.865, 0.125],
+            x_axis_config = x_conf,
+            y_axis_config = y_conf,
+            tips = False,
+            x_length = 4,
+            y_length = 6
+        )
+        ax.move_to(0.5*DOWN)
+        x_axis_label.move_to(1.75 * RIGHT + 3.75 * DOWN)
+        y_axis_label.move_to(1.75 * LEFT + 2.35 * UP)
+
+        self.play(
+            Create(ax),
+            Write(x_axis_label),
+            Write(y_axis_label)
+        )
+        self.noticewait()
+
+        graph = ax.plot(
+            lambda x : np.sqrt(9 + (x+0.25)**2) + 3 * np.sqrt(9 + (1.75-x)**2),
+            x_range=[-0.25, 1.75],
+            color=BLACK
+        )
+
+        self.play(x.animate.set_value(-2 - 4.5))
+        self.play(
+            x.animate.set_value(2 - 4.5),
+            Create(graph),
+            run_time=5,
+            rate_func=rate_functions.linear
+        )
+        self.play(x.animate.set_value(1 - 4.5))
+        self.noticewait()
+
+        brace_ha = BraceBetweenPoints([-1.5 - 4.5,3,0], [-1.5 - 4.5,0,0], color=BLACK)
+        brace_hw = BraceBetweenPoints([-1.5 - 4.5,0,0], [-1.5 - 4.5,-3,0], color=BLACK)
+        brace_d = BraceBetweenPoints([-1.5 - 4.5,-3,0], [1.5 - 4.5,-3,0], color=BLACK)
+        label_ha = MathTex("h_a", color=BLACK, font_size=36)
+        label_hw = MathTex("h_w", color=BLACK, font_size=36)
+        label_d = MathTex("d", color=BLACK, font_size=36)
+        brace_ha.put_at_tip(label_ha)
+        brace_hw.put_at_tip(label_hw)
+        brace_d.put_at_tip(label_d)
+        label_ha.shift(0.15 * RIGHT)
+        label_hw.shift(0.15 * RIGHT)
+        label_d.shift(0.15 * UP)
+
+        self.play(
+            FadeIn(brace_ha, shift=RIGHT),
+            FadeIn(label_ha, shift=RIGHT),
+            FadeIn(brace_hw, shift=RIGHT),
+            FadeIn(label_hw, shift=RIGHT),
+            FadeIn(brace_d, shift=UP),
+            FadeIn(label_d, shift=UP)
+        )
+        self.noticewait()
+
+        label_va = MathTex("v_a", color=BLACK, font_size=40)
+        label_vw = MathTex("v_w", color=BLACK, font_size=40)
+        label_va.move_to((2.25+4.5) * LEFT + 0.25 * UP)
+        label_vw.move_to((2.25+4.5) * LEFT + 0.25 * DOWN)
+        
+        self.play(
+            Write(label_va),
+            Write(label_vw)
+        )
+        self.noticewait()
+
+        formula_t = MathTex(
+            r't='
+            r'{'
+            r'\sqrt{x^2 + h_a^2}'
+            r'\over '
+            r'v_a'
+            r'}'
+            r'+'
+            r'{'
+            r'\sqrt{(d-x)^2 + h_w^2}'
+            r'\over '
+            r'v_w'
+            r'}',
+            color=BLACK,
+            font_size=40
+        )
+        formula_t.move_to(3 * RIGHT + 2.5 * UP)
+
+        self.play(Write(formula_t))
+        self.noticewait()
+
+        formula_dt = MathTex(
+            r'\frac{dt}{dx} ='
+            r'{'
+            r'x'
+            r'\over '
+            r'v_a'
+            r'\sqrt{x^2 + h_a^2}'
+            r'}'
+            r'-'
+            r'{'
+            r'd-x'
+            r'\over '
+            r'v_w'
+            r'\sqrt{(d-x)^2 + h_w^2}'
+            r'}',
+            color=BLACK,
+            font_size=40
+        )
+        formula_dt.move_to(3.25 * RIGHT + 1 * UP)
+
+        self.play(Write(formula_dt))
+        self.noticewait()
+
+        formula_crit = MathTex(
+            r'{'
+            r'{{x\hskip0pt}}'
+            r'\over '
+            r'v_a'
+            r'{{\sqrt{x^2+h_a^2}}}'
+            r'}'
+            r'='
+            r'{'
+            r'{{d\hskip0pt-x}}'
+            r'\over '
+            r'v_w'
+            r'{{\sqrt{(d-x)^2+h_w^2}}}'
+            r'}',
+            color=BLACK,
+            font_size=40
+        )
+        formula_crit.move_to(3.75 * RIGHT + 0.5 * DOWN)
+        
+        self.play(Write(formula_crit))
+        self.noticewait()
+
+        line_x = Line(p.get_center(), [x.get_value()+0.01, 3, 0], color=PURE_RED)
+        line_dx = Line(q.get_center(), [x.get_value()-0.01, -3, 0], color=PURE_BLUE)
+        line_hypa = Line(p.get_center(), [x.get_value(), 0, 0], color=ORANGE)
+        line_hypw = Line(q.get_center(), [x.get_value(), 0, 0], color=PURE_GREEN)
+
+        self.play(
+            formula_crit.animate.set_color_by_tex(r'x\hskip0pt', PURE_RED),
+            Create(line_x)
+        )
+        self.noticewait()
+
+        self.play(
+            formula_crit.animate.set_color_by_tex(r'd\hskip0pt-x', PURE_BLUE),
+            Create(line_dx)
+        )
+        self.noticewait()
+
+        self.play(
+            formula_crit.animate.set_color_by_tex(r'h_a', ORANGE),
+            Create(line_hypa)
+        )
+        self.noticewait()
+
+        self.play(
+            formula_crit.animate.set_color_by_tex(r'h_w', PURE_GREEN),
+            Create(line_hypw)
+        )
+        self.noticewait()
+
+        normal = Line(
+            [x.get_value(), 3.01, 0],
+            [x.get_value(), -3.01, 0],
+            color=DARK_GRAY,
+            z_index=-0.5
+        )
+        self.play(Create(normal))
+        self.noticewait()
+
+        theta_a = Angle(
+            ray1,
+            normal,
+            other_angle=True,
+            quadrant=(-1,-1),
+            color=GRAY,
+            radius=1,
+            z_index=-1
+        )
+        theta_w = Angle(
+            normal,
+            ray2,
+            color=GRAY,
+            radius=2,
+            z_index=-1
+        )
+        label_theta_a = MathTex(r'\theta_a', color=BLACK, font_size=30)
+        label_theta_w = MathTex(r'\theta_w', color=BLACK, font_size=30)
+        label_theta_a.next_to(theta_a, UP).shift(0.2 * LEFT + 0.1 * DOWN)
+        label_theta_w.next_to(theta_w, DOWN).shift(0.05 * RIGHT + 0.1 * DOWN)
+
+        self.play(
+            Create(theta_a),
+            Create(theta_w),
+            Write(label_theta_a),
+            Write(label_theta_w)
+        )
+        self.noticewait()
+
+        slaw_1 = MathTex(
+            r"{ \sin \theta_a \over {{v_a}} } = ",
+            r"{ {{\sin \theta_w}} \over v_w }",
+            color=BLACK
+        )
+        slaw_1.move_to(4.5 * RIGHT + 2 * DOWN)
+        self.play(Write(slaw_1))
+        self.noticewait()
+
+        slaw_2 = MathTex(
+            r"{ \sin \theta_a \over {{\sin \theta_w}} } = ",
+            r"{ {{v_a}} \over v_w }",
+            color=BLACK
+        )
+        slaw_2.move_to(4.5 * RIGHT + 2 * DOWN)
+        self.play(TransformMatchingTex(slaw_1, slaw_2))
+        self.noticewait()
+        
+        
+        #self.play(ApplyWave(fermat))
