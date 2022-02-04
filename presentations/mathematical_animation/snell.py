@@ -17,7 +17,7 @@ class Snell(Scene):
         interface = Line(
             [-2.51 - 4.5 - 0.5,0,0],
             [2.01 - 4.5,0,0],
-            stroke_width=3,
+            stroke_width=2,
             color=BLUE
         )
 
@@ -217,7 +217,7 @@ class Snell(Scene):
         )
         formula_dt.move_to(3.25 * RIGHT + 1 * UP)
 
-        self.play(Write(formula_dt))
+        self.play(FadeIn(formula_dt, shift=DOWN))
         self.noticewait()
 
         formula_crit = MathTex(
@@ -239,7 +239,7 @@ class Snell(Scene):
         )
         formula_crit.move_to(3.75 * RIGHT + 0.5 * DOWN)
         
-        self.play(Write(formula_crit))
+        self.play(FadeIn(formula_crit, shift=DOWN))
         self.noticewait()
 
         line_x = Line(p.get_center(), [x.get_value()+0.01, 3, 0], color=PURE_RED)
