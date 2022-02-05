@@ -31,9 +31,13 @@ class Snell(Scene):
 
         x = ValueTracker(1 - 4.5)
 
+        contact = Dot([x.get_value(),0,0], color=YELLOW, radius=0.01)
         ray1 = Line(p.get_center(), [x.get_value(),0,0], color=YELLOW)
         ray2 = Line([x.get_value(),0,0], q.get_center(), color=YELLOW)
 
+        contact.add_updater(
+            lambda s : s.move_to([x.get_value(),0,0])
+        )
         ray1.add_updater(
             lambda s : s.put_start_and_end_on(
                 p.get_center(),
@@ -52,6 +56,7 @@ class Snell(Scene):
             run_time=0.5,
             rate_func=rate_functions.rush_into
         )
+        self.add(contact)
         self.play(
             Create(ray2),
             run_time=0.5,

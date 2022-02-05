@@ -53,15 +53,26 @@ def gamma_range(a_inv, step = 0.005):
 
 class Fermat(Scene):
     def construct(self):
+        self.camera.background_color = WHITE
 
-        p = Dot([-7, -3, 0], z_index = 1)
-        q = Dot([7, -3, 0], z_index = 1)
+        text = Tex(
+            "\\textbf{Fermat's Principle}: \
+                    light travels along the path \
+                    which takes the least time.",
+            color=BLACK,
+            font_size=38
+        )
+        text.move_to(3.5*UP)
+        self.add(text)
+
+        p = Dot([-7, -3, 0], z_index = 1, color=BLACK)
+        q = Dot([7, -3, 0], z_index = 1, color=BLACK)
 
         static_arc_nonstationary = ParametricFunction(
             lambda t : gamma(5, t),
             t_range = gamma_range(5),
             stroke_width = 5,
-            stroke_color = GRAY,
+            stroke_color = YELLOW,
             z_index = -1
         )
 
@@ -69,7 +80,7 @@ class Fermat(Scene):
             lambda t : [t, -3, 0],
             t_range = [-7, 7, 0.1],
             stroke_width = 5,
-            stroke_color = GRAY,
+            stroke_color = YELLOW,
             z_index = -1
         )
 
