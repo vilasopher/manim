@@ -12,6 +12,9 @@ class Snell(Scene):
     def construct(self):
         self.camera.background_color = WHITE
 
+        self.wait()
+        self.noticewait()
+
         p = Dot([-1.5 - 4.5, 3, 0], color=BLACK, z_index=1)
         q = Dot([1.5 - 4.5, -3, 0], color=BLACK, z_index=1)
         interface = Line(
