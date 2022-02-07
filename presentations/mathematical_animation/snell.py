@@ -375,3 +375,4 @@ class Snell(Scene):
         
         self.play(ApplyWave(fermat))
         self.noticewait()
+        self.wait()

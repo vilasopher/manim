@@ -40,3 +40,29 @@ class Test4(Scene):
             tex = MathTex(r"{a}=",
                     r"{b}")
             self.play(Write(tex))
+
+
+class Test5(Scene):
+    def construct(self):
+        image = ImageMobject(np.uint8([
+            [
+                [100, 0, 100], [100, 200, 0], [0, 100, 0]
+            ],
+            [
+                [0, 0, 0], [200, 0, 0], [500, 0, 0]
+            ]
+        ]))
+
+        image.height = 7
+
+        self.add(image)
+
+class Test6(Scene):
+    def construct(self):
+        image = ImageMobject(np.uint8([
+            [0,2,4,8,16,32,64,128,255]
+        ]))
+
+        image.width=14
+        image.set_resampling_algorithm(RESAMPLING_ALGORITHMS["box"])
+        self.add(image)

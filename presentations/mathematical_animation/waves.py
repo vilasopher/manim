@@ -1,103 +1,137 @@
-"""
-        text2 = Tex(
-            r'\textbf{Wave Theory of Light:} '
-            r'light propagates as a wave.'
-        )
-
-        text3 = Tex(
-            r'\textbf{Consequence 1:} '
-            r'light travels along \emph{all} paths.'
-        )
-
-        text4 = Tex(
-            r'\textbf{Consequence 2:} '
-            r'these paths interfere with each other.'
-        )
-"""
-
 from manim import *
 
-def wave_function(t, u0, v0, u, v):
-    r = np.sqrt((u-u0)**2 + (v-v0)**2)
+def wave_function(t, f, u0, v0, u, v):
+    r = f * np.sqrt((u-u0)**2 + (v-v0)**2)
 
     if r < t:
         return np.sin(r - t)
     else:
         return 0
 
-class Waves(ThreeDScene):
+def heat_map(f):
+    img = ImageMobject(np.uint8([[
+        f(u, v) * 127 + 128  for u in range(1920)
+        ] for v in range(1080)]))
+    img.height = 8
+    img.set_resampling_algorithm(RESAMPLING_ALGORITHMS["box"])
+    return img
+
+class Waves(Scene):
+
+    notifier = Dot(color=LIGHTER_GRAY, radius=0.05)
+    notifier.move_to(7 * RIGHT + 3.9 * DOWN)
+
+    def noticewait(self):
+        self.add(self.notifier)
+        self.wait()
+        self.remove(self.notifier)
+
     def construct(self):
-        ax = ThreeDAxes(
-            x_range = [-40, 40],
-            y_range = [-40, 40],
-            z_range = [-1, 1],
-            x_length = 20,
-            y_length = 20,
-            z_length = 1
-        )
+        hm = ImageMobject(np.uint8([[128 for u in range(1920)] for v in range(1080)]))
 
-        source1 = Dot3D([0,0,0.25], color=YELLOW)
+        self.add(hm)
+        self.wait()
+        self.noticewait()
 
-        occlusion = Surface(
-            lambda u, v : ax.c2p(u, v, 0.25),
-            u_range = [-20, 20],
-            v_range = [-20, 20],
-            checkerboard_colors = [BLACK, BLACK]
-        )
+        source1 = Dot([- 600 / 1080 * 8 , - 100 / 1080 * 8, 0], color=YELLOW, z_index=1)
 
-        surf = Surface(
-            lambda u, v : ax.c2p(u, v, wave_function(0, 0, 0, u, v)),
-            u_range = [-20, 20],
-            v_range = [-20, 20],
-            checkerboard_colors = [YELLOW, YELLOW]
-        )
+        self.play(FadeIn(source1, scale=2))
+        self.noticewait()
 
         t = ValueTracker(0)
 
-        surf.add_updater(
+        hm.add_updater(
             lambda s : s.become(
-                Surface(
-                    lambda u, v : ax.c2p(
+                heat_map(
+                    lambda u, v : (1/3) * wave_function(
+                        t.get_value(),
+                        0.1,
+                        1920 / 2 - 600,
+                        1080 / 2 + 100,
                         u,
-                        v,
-                        wave_function(t.get_value(), 0, 0, u, v)),
-                    u_range = [-40, 40],
-                    v_range = [-40, 40],
-                    checkerboard_colors = [YELLOW, YELLOW]
+                        v
+                    )
                 )
             )
         )
 
-        self.set_camera_orientation(theta = 0 * DEGREES, phi = 30 * DEGREES)
-        self.begin_ambient_camera_rotation()
+        self.play(t.animate.set_value(50), run_time=10, rate_func=rate_functions.linear)
+        self.noticewait()
 
-        self.add(occlusion, source, surf)
+        source2 = Dot(
+            [- 200 / 1080 * 8, - 400 / 1080 * 8, 0],
+            color=YELLOW,
+            z_index=1
+        )
 
-        self.wait(5)
-        self.play(t.animate.set_value(100), run_time = 10, rate_func=linear)
-        self.wait(3)
+        self.play(FadeIn(source2, scale=2))
+        self.noticewait()
 
-        source2 = Dot3D([4/2, 2.33666/2, 0.25], color=YELLOW)
-
-        surf.clear_updaters()
-        surf.add_updater(
+        hm.clear_updaters()
+        hm.add_updater(
             lambda s : s.become(
-                Surface(
-                    lambda u, v : ax.c2p(
+                heat_map(
+                    lambda u, v : (1/3) * wave_function(
+                        t.get_value(),
+                        0.1,
+                        1920 / 2 - 600,
+                        1080 / 2 + 100,
                         u,
-                        v,
-                        wave_function(t.get_value(), 0, 0, u, v) +
-                        wave_function(t.get_value() - 100, 4, 2.33666, u, v)
-                    ),
-                    u_range = [-40, 40],
-                    v_range = [-40, 40],
-                    checkerboard_colors = [YELLOW, YELLOW]
+                        v
+                    ) + (1/3) * wave_function(
+                        t.get_value() - 50,
+                        0.1,
+                        1920 / 2 - 200,
+                        1080 / 2 + 400,
+                        u,
+                        v
+                    )
                 )
             )
         )
 
-        self.play(Create(source2))
-        self.wait(3)
-        self.play(t.animate.set_value(200), run_time = 10, rate_func=linear)
-        self.wait(5)
+        self.play(t.animate.set_value(130), run_time=16, rate_func=rate_functions.linear)
+        self.noticewait()
 
+        source3 = Dot(
+            [ 600 / 1080 * 8, 400 /1080 * 8, 0],
+            color=YELLOW,
+            z_index=1
+        )
+
+        self.play(FadeIn(source3, scale=2))
+        self.noticewait()
+
+        hm.clear_updaters()
+        hm.add_updater(
+            lambda s : s.become(
+                heat_map(
+                    lambda u, v : (1/3) * wave_function(
+                        t.get_value(),
+                        0.1,
+                        1920 / 2 - 600,
+                        1080 / 2 + 100,
+                        u,
+                        v
+                    ) + (1/3) * wave_function(
+                        t.get_value() - 50,
+                        0.1,
+                        1920 / 2 - 200,
+                        1080 / 2 + 400,
+                        u,
+                        v
+                    ) + (1/3) * wave_function(
+                        t.get_value() - 130,
+                        0.1,
+                        1920 / 2 + 600,
+                        1080 / 2 - 400,
+                        u,
+                        v
+                    )
+                )
+            )
+        )
+
+        self.play(t.animate.set_value(250), run_time=24, rate_func=rate_functions.linear)
+        self.noticewait()
+        self.wait()
