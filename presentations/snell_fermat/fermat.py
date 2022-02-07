@@ -120,27 +120,6 @@ class Fermat(Scene):
             )
             for i in range(2)
         ]
-        
-        for i in range(2):
-            moving_arcs_colored[i].add_updater(
-                lambda s, i=i : s.become(
-                    colored_plot(
-                        lambda t : gamma(b[i].get_value(), t),
-                        t_range = gamma_range(b[i].get_value())
-                    )
-                )
-            )
-
-        for i in range(2):
-            moving_arcs_yellow[i].add_updater(
-                lambda s, i=i : s.become(
-                    ParametricFunction(
-                        lambda t : gamma(b[i].get_value(), t),
-                        t_range = gamma_range(b[i].get_value()),
-                        color = YELLOW_E
-                    )
-                )
-            )
 
         self.play(
             Create(p),
@@ -153,17 +132,39 @@ class Fermat(Scene):
 
         self.play(FadeIn(moving_arcs_yellow[1]))
         self.noticewait()
+        
+        moving_arcs_yellow[1].add_updater(
+            lambda s : s.become(
+                ParametricFunction(
+                    lambda t : gamma(b[1].get_value(), t),
+                    t_range = gamma_range(b[1].get_value()),
+                    color = YELLOW_E
+                )
+            )
+        )
 
         self.play(b[1].animate.set_value(maxs[1]), run_time = 5)
         self.noticewait()
 
         self.play(b[1].animate.set_value(mins[1]))
         self.play(b[1].animate.set_value(maxs[1]), run_time = 5)
+        self.play(b[1].animate.set_value(mins[1]))
         self.noticewait()
 
-        self.play(b[1].animate.set_value(mins[1]))
-        self.play(ReplacementTransform(moving_arcs_yellow[1], moving_arcs_colored[1]))
+        self.play(
+            FadeOut(moving_arcs_yellow[1]),
+            FadeIn(moving_arcs_colored[1])
+        )
         self.noticewait()
+
+        moving_arcs_colored[1].add_updater(
+            lambda s : s.become(
+                colored_plot(
+                    lambda t : gamma(b[1].get_value(), t),
+                    t_range = gamma_range(b[1].get_value())
+                )
+            )
+        )
         
         self.play(b[1].animate.set_value(maxs[1]), run_time = 5)
         self.noticewait()
@@ -179,13 +180,35 @@ class Fermat(Scene):
 
         self.play(FadeIn(moving_arcs_yellow[0]))
         self.noticewait()
+        
+        moving_arcs_yellow[0].add_updater(
+            lambda s : s.become(
+                ParametricFunction(
+                    lambda t : gamma(b[0].get_value(), t),
+                    t_range = gamma_range(b[0].get_value()),
+                    color = YELLOW_E
+                )
+            )
+        )
 
         self.play(b[0].animate.set_value(maxs[0]), run_time = 3)
         self.play(b[0].animate.set_value(mins[0]), run_time = 3)
         self.noticewait()
 
-        self.play(ReplacementTransform(moving_arcs_yellow[0], moving_arcs_colored[0]))
+        self.play(
+            FadeOut(moving_arcs_yellow[0]),
+            FadeIn(moving_arcs_colored[0])
+        )
         self.noticewait()
+
+        moving_arcs_colored[0].add_updater(
+            lambda s : s.become(
+                colored_plot(
+                    lambda t : gamma(b[0].get_value(), t),
+                    t_range = gamma_range(b[0].get_value())
+                )
+            )
+        )
 
         for _ in range(5):
             self.play(b[0].animate.set_value(maxs[0]))
@@ -208,3 +231,4 @@ class Fermat(Scene):
             )
 
         self.noticewait()
+        self.wait()

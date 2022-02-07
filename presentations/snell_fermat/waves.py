@@ -121,7 +121,10 @@ class Waves(Scene):
             z_index=1
         )
 
-        self.play(FadeIn(source3, scale=2))
+        self.play(
+            FadeIn(source3a, scale=2),
+            FadeIn(source3b, scale=2)
+        )
         self.noticewait()
 
         hm.clear_updaters()
