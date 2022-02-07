@@ -43,7 +43,7 @@ class Waves(Scene):
         hm.add_updater(
             lambda s : s.become(
                 heat_map(
-                    lambda u, v : (1/3) * wave_function(
+                    lambda u, v : 0.2 * wave_function(
                         t.get_value(),
                         0.1,
                         1920 / 2 - 600,
@@ -58,31 +58,47 @@ class Waves(Scene):
         self.play(t.animate.set_value(50), run_time=10, rate_func=rate_functions.linear)
         self.noticewait()
 
-        source2 = Dot(
+        source2a = Dot(
             [- 200 / 1080 * 8, - 400 / 1080 * 8, 0],
             color=YELLOW,
             z_index=1
         )
 
-        self.play(FadeIn(source2, scale=2))
+        source2b = Dot(
+            [- 200 / 1080 * 8, 200 / 1080 * 8, 0],
+            color=YELLOW,
+            z_index=1
+        )
+
+        self.play(
+            FadeIn(source2a, scale=2),
+            FadeIn(source2b, scale=2)
+        )
         self.noticewait()
 
         hm.clear_updaters()
         hm.add_updater(
             lambda s : s.become(
                 heat_map(
-                    lambda u, v : (1/3) * wave_function(
+                    lambda u, v : 0.2 * wave_function(
                         t.get_value(),
                         0.1,
                         1920 / 2 - 600,
                         1080 / 2 + 100,
                         u,
                         v
-                    ) + (1/3) * wave_function(
+                    ) + 0.2 * wave_function(
                         t.get_value() - 50,
                         0.1,
                         1920 / 2 - 200,
                         1080 / 2 + 400,
+                        u,
+                        v
+                    ) + 0.2 * wave_function(
+                        t.get_value() - 50,
+                        0.1,
+                        1920 / 2 - 200,
+                        1080 / 2 - 200,
                         u,
                         v
                     )
@@ -93,8 +109,14 @@ class Waves(Scene):
         self.play(t.animate.set_value(130), run_time=16, rate_func=rate_functions.linear)
         self.noticewait()
 
-        source3 = Dot(
+        source3a = Dot(
             [ 600 / 1080 * 8, 400 /1080 * 8, 0],
+            color=YELLOW,
+            z_index=1
+        )
+
+        source3b = Dot(
+            [ 700 / 1080 * 8, -100 /1080 * 8, 0],
             color=YELLOW,
             z_index=1
         )
@@ -106,25 +128,39 @@ class Waves(Scene):
         hm.add_updater(
             lambda s : s.become(
                 heat_map(
-                    lambda u, v : (1/3) * wave_function(
+                    lambda u, v : 0.2 * wave_function(
                         t.get_value(),
                         0.1,
                         1920 / 2 - 600,
                         1080 / 2 + 100,
                         u,
                         v
-                    ) + (1/3) * wave_function(
+                    ) + 0.2 * wave_function(
                         t.get_value() - 50,
                         0.1,
                         1920 / 2 - 200,
                         1080 / 2 + 400,
                         u,
                         v
-                    ) + (1/3) * wave_function(
+                    ) + 0.2 * wave_function(
+                        t.get_value() - 50,
+                        0.1,
+                        1920 / 2 - 200,
+                        1080 / 2 - 200,
+                        u,
+                        v
+                    ) + 0.2 * wave_function(
                         t.get_value() - 130,
                         0.1,
                         1920 / 2 + 600,
                         1080 / 2 - 400,
+                        u,
+                        v
+                    ) + 0.2 * wave_function(
+                        t.get_value() - 130,
+                        0.1,
+                        1920 / 2 + 700,
+                        1080 / 2 + 100,
                         u,
                         v
                     )
@@ -132,6 +168,6 @@ class Waves(Scene):
             )
         )
 
-        self.play(t.animate.set_value(250), run_time=24, rate_func=rate_functions.linear)
+        self.play(t.animate.set_value(400), run_time=54, rate_func=rate_functions.linear)
         self.noticewait()
         self.wait()

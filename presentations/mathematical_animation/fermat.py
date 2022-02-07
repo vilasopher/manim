@@ -52,6 +52,15 @@ def gamma_range(a_inv, step = 0.005):
     ]
 
 class Fermat(Scene):
+
+    notifier = Dot(color=LIGHTER_GRAY, radius=0.05)
+    notifier.move_to(7 * RIGHT + 3.9 * DOWN)
+
+    def noticewait(self):
+        self.add(self.notifier)
+        self.wait()
+        self.remove(self.notifier)
+
     def construct(self):
         self.camera.background_color = WHITE
 
@@ -63,7 +72,10 @@ class Fermat(Scene):
             font_size=38
         )
         text.move_to(3.5*UP)
+
         self.add(text)
+        self.wait()
+        self.noticewait()
 
         p = Dot([-7, -3, 0], z_index = 1, color=BLACK)
         q = Dot([7, -3, 0], z_index = 1, color=BLACK)
@@ -92,16 +104,25 @@ class Fermat(Scene):
             ValueTracker(mins[1])
         ]
 
-        moving_arcs = [
+        moving_arcs_colored = [
             colored_plot(
                 lambda t : gamma(b[i].get_value(), t),
                 t_range = gamma_range(b[i].get_value())
             )
             for i in range(2)
         ]
+
+        moving_arcs_yellow = [
+            ParametricFunction(
+                lambda t : gamma(b[i].get_value(), t),
+                t_range = gamma_range(b[i].get_value()),
+                color = YELLOW_E
+            )
+            for i in range(2)
+        ]
         
         for i in range(2):
-            moving_arcs[i].add_updater(
+            moving_arcs_colored[i].add_updater(
                 lambda s, i=i : s.become(
                     colored_plot(
                         lambda t : gamma(b[i].get_value(), t),
@@ -110,15 +131,69 @@ class Fermat(Scene):
                 )
             )
 
-        self.add(
-            p,
-            q,
-            static_arc_nonstationary,
-            static_arc_stationary,
-            *moving_arcs,
+        for i in range(2):
+            moving_arcs_yellow[i].add_updater(
+                lambda s, i=i : s.become(
+                    ParametricFunction(
+                        lambda t : gamma(b[i].get_value(), t),
+                        t_range = gamma_range(b[i].get_value()),
+                        color = YELLOW_E
+                    )
+                )
+            )
+
+        self.play(
+            Create(p),
+            Create(q)
         )
+        self.noticewait()
+
+        self.play(Create(static_arc_nonstationary))
+        self.noticewait()
+
+        self.play(FadeIn(moving_arcs_yellow[1]))
+        self.noticewait()
+
+        self.play(b[1].animate.set_value(maxs[1]), run_time = 5)
+        self.noticewait()
+
+        self.play(b[1].animate.set_value(mins[1]))
+        self.play(b[1].animate.set_value(maxs[1]), run_time = 5)
+        self.noticewait()
+
+        self.play(b[1].animate.set_value(mins[1]))
+        self.play(ReplacementTransform(moving_arcs_yellow[1], moving_arcs_colored[1]))
+        self.noticewait()
+        
+        self.play(b[1].animate.set_value(maxs[1]), run_time = 5)
+        self.noticewait()
+        
+        for _ in range(5):
+            self.play(b[1].animate.set_value(mins[1]))
+            self.play(b[1].animate.set_value(maxs[1]))
+        self.play(b[1].animate.set_value(mins[1]))
+        self.noticewait()
+
+        self.play(Create(static_arc_stationary))
+        self.noticewait()
+
+        self.play(FadeIn(moving_arcs_yellow[0]))
+        self.noticewait()
+
+        self.play(b[0].animate.set_value(maxs[0]), run_time = 3)
+        self.play(b[0].animate.set_value(mins[0]), run_time = 3)
+        self.noticewait()
+
+        self.play(ReplacementTransform(moving_arcs_yellow[0], moving_arcs_colored[0]))
+        self.noticewait()
 
         for _ in range(5):
+            self.play(b[0].animate.set_value(maxs[0]))
+            self.play(b[0].animate.set_value(mins[0]))
+
+        self.noticewait()
+
+        for _ in range(10):
             self.play(
                 *[
                     b[i].animate.set_value(maxs[i])
@@ -131,3 +206,5 @@ class Fermat(Scene):
                     for i in range(2)
                 ]
             )
+
+        self.noticewait()
