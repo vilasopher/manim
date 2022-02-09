@@ -54,7 +54,3 @@ class A6(Scene):
         self.wait()
         self.play(c.animate.set_fill(RED, opacity=1))
         self.wait()
-
-class A7(Scene):
-    def construct(self):
-        
