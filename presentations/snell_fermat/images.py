@@ -12,11 +12,13 @@ class Images(Scene):
 
     def construct(self):
         self.camera.background_color = WHITE
+
+        self.wait()
         
         img1 = ImageMobject("media_to_save/1_ruler.jpg")
         img1.height = 8
 
-        self.add(img1)
+        self.play(FadeIn(img1))
         self.noticewait()
 
         img2 = ImageMobject("media_to_save/2_bear.jpg")
