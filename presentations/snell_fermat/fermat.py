@@ -65,8 +65,8 @@ class Fermat(Scene):
         self.camera.background_color = WHITE
 
         text = Tex(
-            "\\textbf{Fermat's Principle}: \
-                    light travels along the path \
+            "{{\\textbf{Fermat's Principle}: \
+                    light travels along}} the path \
                     which takes the least time.",
             color=BLACK,
             font_size=38
@@ -214,6 +214,31 @@ class Fermat(Scene):
             self.play(b[0].animate.set_value(maxs[0]))
             self.play(b[0].animate.set_value(mins[0]))
 
+        self.noticewait()
+
+        tex_stationary = Tex("stationary", color=BLACK)
+        tex_nonstationary = Tex("nonstationary", color=BLACK)
+        tex_stationary.move_to(2 * DOWN)
+        tex_nonstationary.move_to(1.5 * UP)
+
+        self.play(FadeIn(tex_stationary, scale=1.5))
+        self.noticewait()
+
+        self.play(FadeIn(tex_nonstationary, scale=1.5))
+        self.noticewait()
+
+        text_true = Tex(
+            "{{\\textbf{Fermat's Principle}: \
+                    light travels along}} stationary paths.",
+            color=BLACK,
+            font_size=38
+        )
+        text_true.align_to(text, DL)
+
+        self.play(
+            FadeOut(text),
+            FadeIn(text_true)
+        )
         self.noticewait()
 
         for _ in range(10):
