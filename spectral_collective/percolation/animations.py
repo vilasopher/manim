@@ -1,29 +1,44 @@
 from manim import *
 import grid as gr
-from percolating_graph import PercolatingGraph
+from percolating_graph import HPGraph
 import networkx as nx
 from random import random
+import solarized as sol
 
 class Percolate(Scene):
     def construct(self):
-        nodes, edges = gr.grid_nodes_edges(5)
+        nodes, edges = gr.grid_nodes_edges(10, 5)
 
         nxgraph = nx.Graph()
         nxgraph.add_nodes_from(nodes)
         nxgraph.add_edges_from(edges)
 
-        pg = PercolatingGraph.from_networkx(nxgraph, layout=gr.grid_layout(5))
+        g = HPGraph.from_networkx(
+            nxgraph,
+            layout=gr.grid_layout(10, 5),
+            vertex_config = sol.LIGHT_VERTEX_CONFIG,
+            edge_config = sol.LIGHT_EDGE_CONFIG
+        )
 
-        self.play(Create(pg))
+        self.add(g)
+        self.wait()
 
-        edges_to_remove = [ e for e, _ in pg.edges.items() if random() > 0.9]
+        self.play(
+            g.animate.highlight_subgraph(
+                [(0,0),(0,1),(1,0),(1,1)],
+                node_colors = { (0,0) : sol.RED }
+            )
+        )
+        self.wait()
 
-        self.play(pg.animate.remove_edges(*edges_to_remove), run_time=3)
+        self.play(g.animate.percolate(0.5))
+        self.wait()
 
 
 class Test(Scene):
     def construct(self):
-        g = Graph([1,2], [(1,2)])
+        g = Graph([1,2,3], [(1,2),(2,3),(3,1)])
         self.play(Create(g))
-        self.play(g.animate.remove_edges((1,2)))
+        self.wait()
+        self.play(g.animate.remove_edges((1,2),(3,2), anim_args = { "animation" : FadeOut} ))
         self.wait()
