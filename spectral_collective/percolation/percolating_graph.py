@@ -52,6 +52,23 @@ class HighlightableGraph(Graph):
         )
 
         return AnimationGroup(nodegroup, edgegroup, group=self)
+        
+    def ball(self, root, radius):
+        return set().union(
+            *(nx.descendants_at_distance(self._graph, root, d)
+            for d in range(radius+1))
+        )
+
+    def highlight_ball(self, root, radius):
+        self.highlight_subgraph(self.ball(root, radius), node_colors = { root : sol.ROOT })
+
+    @override_animate(highlight_ball)
+    def _highlight_ball_animation(self, root, radius, **kwargs):
+        return self._highlight_subgraph_animation(
+            self.ball(root, radius),
+            node_colors = { root : sol.ROOT },
+            **kwargs
+        )
 
 
 class PercolatingGraph(Graph):
@@ -67,7 +84,7 @@ class PercolatingGraph(Graph):
 
     @override_animate(percolate)
     def _percolate_animation(self, p=0.5, animation=FadeOut, **kwargs):
-        mobjects = [self.edges[e] for e in self.random_edge_set(p)]
+        mobjects = [self.edges.pop(e) for e in self.random_edge_set(p)]
         return AnimationGroup(
             *(animation(mobj, **kwargs) for mobj in mobjects), group=self
         )

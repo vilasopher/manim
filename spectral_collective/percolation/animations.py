@@ -23,17 +23,11 @@ class Percolate(Scene):
         self.add(g)
         self.wait()
 
-        self.play(
-            g.animate.highlight_subgraph(
-                [(0,0),(0,1),(1,0),(1,1)],
-                node_colors = { (0,0) : sol.RED }
-            )
-        )
-        self.wait()
-
         self.play(g.animate.percolate(0.5))
         self.wait()
 
+        self.play(g.animate.highlight_ball((0,0), 4))
+        self.wait()
 
 class Test(Scene):
     def construct(self):
