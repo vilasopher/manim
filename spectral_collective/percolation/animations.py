@@ -7,7 +7,7 @@ import solarized as sol
 
 class Percolate(Scene):
     def construct(self):
-        nodes, edges = gr.grid_nodes_edges(10, 5)
+        nodes, edges = gr.grid_nodes_edges(15, 8)
 
         nxgraph = nx.Graph()
         nxgraph.add_nodes_from(nodes)
@@ -15,7 +15,7 @@ class Percolate(Scene):
 
         g = HPGraph.from_networkx(
             nxgraph,
-            layout=gr.grid_layout(10, 5),
+            layout=gr.grid_layout(15, 8),
             vertex_config = sol.LIGHT_VERTEX_CONFIG,
             edge_config = sol.LIGHT_EDGE_CONFIG
         )
@@ -23,16 +23,8 @@ class Percolate(Scene):
         self.add(g)
         self.wait()
 
-        self.play(g.animate.percolate())
+        self.play(g.animate.percolate(0.6))
         self.wait()
 
-        self.play(g.animate.highlight_ball((0,0), 4))
-        self.wait()
-
-class Test(Scene):
-    def construct(self):
-        g = Graph([1,2,3], [(1,2),(2,3),(3,1)])
-        self.play(Create(g))
-        self.wait()
-        self.play(g.animate.remove_edges((1,2),(3,2), anim_args = { "animation" : FadeOut} ))
+        self.play(g.animate.dramatically_highlight_ball((0,0), 3))
         self.wait()
