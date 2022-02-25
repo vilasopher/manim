@@ -131,18 +131,23 @@ class PercolatingGraph(Graph):
         return [ e for e in self.edges if random() > p ]
 
     def percolate(self, p=0.5):
-        return self.remove_edges(*self.random_edge_set())
+        return self.remove_edges(*self.random_edge_set(p))
 
     @override_animate(percolate)
     def _percolate_animation(self, p=0.5, animation=FadeOut, **kwargs):
-        edges_to_remove = self.random_edge_set(p)
+        mobjects = self.percolate(p)
+        return AnimationGroup(*(animation(mobj, **kwargs) for mobj in mobjects))
 
-        mobjects = [self.edges.pop(e) for e in edges_to_remove]
-        self._graph.remove_edges_from(edges_to_remove)
+    def generate_coupling(self):
+        return { e : random() for e in self.edges }
 
-        return AnimationGroup(
-            *(animation(mobj, **kwargs) for mobj in mobjects), group=self
-        )
+    def coupled_percolate(self, coupling, p=0.5):
+        return self.remove_edges(*(e for e in self.edges if coupling[e] > p))
+
+    @override_animate(coupled_percolate)
+    def _coupled_percolate_animation(self, coupling, p=0.5, animation=FadeOut, **kwargs):
+        mobjects = self.coupled_percolate(coupling, p)
+        return AnimationGroup(*(animation(mobj, **kwargs) for mobj in mobjects))
 
 class HPGraph(HighlightableGraph, PercolatingGraph):
     @staticmethod
