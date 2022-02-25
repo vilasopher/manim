@@ -41,17 +41,15 @@ class HighlightableGraph(Graph):
 
         nodegroup = AnimationGroup(
             *(self[n].animate.set_color(node_colors.get(n, sol.HIGHLIGHT_NODE))
-                for n in nodes),
-            group=self
+                for n in nodes)
         )
 
         edgegroup = AnimationGroup(
             *(self.edges[e].animate.set_color(edge_colors.get(e, sol.HIGHLIGHT_EDGE))
-                for e in edges),
-            group=self
+                for e in edges)
         )
 
-        return AnimationGroup(nodegroup, edgegroup, group=self)
+        return AnimationGroup(nodegroup, edgegroup)
         
     def ball(self, root, radius):
         return set().union(
@@ -70,7 +68,6 @@ class HighlightableGraph(Graph):
             **kwargs
         )
 
-
 class PercolatingGraph(Graph):
     @staticmethod
     def from_networkx(nxgraph: nx.classes.graph.Graph, **kwargs) -> "PercolatingGraph":
@@ -84,7 +81,11 @@ class PercolatingGraph(Graph):
 
     @override_animate(percolate)
     def _percolate_animation(self, p=0.5, animation=FadeOut, **kwargs):
-        mobjects = [self.edges.pop(e) for e in self.random_edge_set(p)]
+        edges_to_remove = self.random_edge_set(p)
+
+        mobjects = [self.edges.pop(e) for e in edges_to_remove]
+        self._graph.remove_edges_from(edges_to_remove)
+
         return AnimationGroup(
             *(animation(mobj, **kwargs) for mobj in mobjects), group=self
         )

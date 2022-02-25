@@ -1,6 +1,6 @@
 from manim import *
 import grid as gr
-from percolating_graph import HPGraph
+from more_graphs import HPGraph
 import networkx as nx
 from random import random
 import solarized as sol
@@ -23,7 +23,7 @@ class Percolate(Scene):
         self.add(g)
         self.wait()
 
-        self.play(g.animate.percolate(0.5))
+        self.play(g.animate.percolate())
         self.wait()
 
         self.play(g.animate.highlight_ball((0,0), 4))
