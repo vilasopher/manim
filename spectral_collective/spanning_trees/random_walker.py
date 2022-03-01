@@ -28,12 +28,12 @@ class RandomWalker(VGroup):
             self.graph.vertices[self.position].get_center()
         )
 
-    #@override_animate(step)
-    #def _step_animation(self, **kwargs):
-    #    self.position = self.next_position()
-    #    return self.walker.animate.move_to(
-    #        self.graph.vertices[self.position].get_center(),
-    #        anim_args
-    #    )
+    @override_animate(step)
+    def _step_animation(self, anim_args):
+        self.update_position()
+        return self.walker.animate.move_to(
+            self.graph.vertices[self.position].get_center(),
+            anim_args
+        ).build()
 
 
