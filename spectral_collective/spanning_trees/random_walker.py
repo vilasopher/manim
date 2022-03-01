@@ -29,11 +29,10 @@ class RandomWalker(VGroup):
         )
 
     @override_animate(step)
-    def _step_animation(self, anim_args):
+    def _step_animation(self, **anim_args):
         self.update_position()
-        return self.walker.animate.move_to(
+        return self.walker.animate(**anim_args).move_to(
             self.graph.vertices[self.position].get_center(),
-            anim_args
         ).build()
 
 
