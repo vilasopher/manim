@@ -63,7 +63,7 @@ class Coupling(Scene):
 
             self.add(g)
             self.wait(1/30)
-            self.clear()
+            self.clear(
 
 class Test(Scene):
     def construct(self):
@@ -77,7 +77,7 @@ class Test(Scene):
         self.play(FadeIn(g))
         self.wait()
 
-        self.play(g.animate.percolate(1/4))
+        self.play(g.animate.percolate(0.1))
         self.wait()
 
         self.play(FadeOut(g))

@@ -133,10 +133,10 @@ class PercolatingGraph(Graph):
     def percolate(self, p=0.5):
         return self.remove_edges(*self.random_edge_set(p))
 
-    @override_animate(percolate)
-    def _percolate_animation(self, p=0.5, animation=FadeOut, **kwargs):
-        mobjects = self.percolate(p)
-        return AnimationGroup(*(animation(mobj, **kwargs) for mobj in mobjects))
+    #@override_animate(percolate)
+    #def _percolate_animation(self, p=0.5, animation=FadeOut, **kwargs):
+    #    mobjects = self.percolate(p)
+    #    return AnimationGroup(*(animation(mobj, **kwargs) for mobj in mobjects))
 
     def generate_coupling(self):
         return { e : random() for e in self.edges }
