@@ -32,7 +32,8 @@ class ClusterGraphTest(Scene):
         self.play(g.animate.initialize_colors())
         self.wait()
 
-        self.play(g.animate.add_edges(((0,0), (0,1))))
+        g.add_edges(((0,0), (0,1)))
+        #self.play(g.animate.add_edges(((0,0), (0,1))))
         self.wait()
 
         self.play(g.animate.update_colors())

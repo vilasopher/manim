@@ -165,12 +165,22 @@ class ClusterGraph(Graph):
 
     def initialize_colors(self, color_picker=completely_random):
         for v in self.vertices:
-            self.vertices[v].color = rgb_to_color(color_picker())
+            self.vertices[v].set_color(rgb_to_color(color_picker()))
 
         for e in self.edges:
             self.clusters.union(e[0], e[1])
 
         self.update_colors()
+
+    @override_animate(initialize_colors)
+    def _initialize_colors_animation(self, color_picker=completely_random, **kwargs):
+        for v in self.vertices:
+            self.vertices[v].set_color(rgb_to_color(color_picker()))
+
+        for e in self.edges:
+            self.clusters.union(e[0], e[1])
+
+        return self._update_colors_animation()
 
     def update_colors(self):
         for v in self.vertices:
@@ -188,15 +198,15 @@ class ClusterGraph(Graph):
             w = self.clusters.find(v)
 
             anims.append(
-                self.vertices[v].animate(**kwargs).set_color(
-                    self.vertices[w].get_color()
+                self.vertices[v].animate.set_color(
+                    self.vertices[w].color
                 ).build()
             )
 
         for e in self.edges:
             anims.append(
-                self.edges[e].animate(**kwargs).set_color(
-                    self.vertices[e[0]].get_color()
+                self.edges[e].animate.set_color(
+                    self.vertices[e[0]].color
                 ).build()
             )
         
@@ -221,7 +231,7 @@ class ClusterGraph(Graph):
                 AnimationGroup(
                     *(animation(mobj, **kwargs) for mobj in mobjects)
                 ),
-                self.animate._update_colors_animation(**kwargs)
+                self._update_colors_animation()
             )
 
 class HPCGraph(HPGraph, ClusterGraph):
