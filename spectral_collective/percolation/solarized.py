@@ -80,5 +80,6 @@ EDGE_CONFIG = { 'stroke_color' : EDGE }
 
 LIGHT_VERTEX_CONFIG = { 'fill_color' : LIGHT_NODE }
 LIGHT_EDGE_CONFIG = { 'stroke_color' : LIGHT_EDGE }
+VERY_LIGHT_EDGE_CONFIG = { 'stroke_color' : BASE2 }
 
 config.background_color = BASE3
