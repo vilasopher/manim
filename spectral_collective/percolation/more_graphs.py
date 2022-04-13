@@ -151,66 +151,40 @@ class PercolatingGraph(Graph):
         mobjects = self.coupled_percolate(coupling, p)
         return AnimationGroup(*(animation(mobj, **kwargs) for mobj in mobjects))
 
-class HPGraph(HighlightableGraph, PercolatingGraph):
-    pass
-
 def completely_random(*args):
     return [randint(0,255)/255 for _ in range(3)]
 
 class ClusterGraph(Graph):
-    def __init__(self, *args, **kwargs):
+    @classmethod
+    def from_networkx(cls, nxgraph: nx.classes.graph.Graph, **kwargs):
+        return cls(list(nxgraph.nodes), list(nxgraph.edges), **kwargs)
+
+    def __init__(self, *args, color_picker=completely_random, **kwargs):
         super().__init__(*args, **kwargs)
 
         self.clusters = UnionFind(self.vertices)
+        self.vertex_colors = { v : rgb_to_color(color_picker()) for v in self.vertices }
+        self.edge_colors = None
 
-    def initialize_colors(self, color_picker=completely_random):
-        for v in self.vertices:
-            self.vertices[v].set_color(rgb_to_color(color_picker()))
-
+    def initialize_color_dicts(self):
         for e in self.edges:
             self.clusters.union(e[0], e[1])
 
-        self.update_colors()
-
-    @override_animate(initialize_colors)
-    def _initialize_colors_animation(self, color_picker=completely_random, **kwargs):
-        for v in self.vertices:
-            self.vertices[v].set_color(rgb_to_color(color_picker()))
-
-        for e in self.edges:
-            self.clusters.union(e[0], e[1])
-
-        return self._update_colors_animation()
+        self._update_color_dicts()
 
     def update_colors(self):
         for v in self.vertices:
-            w = self.clusters.find(v)
-            self.vertices[v].set_color(self.vertices[w].get_color())
+            self.vertices[v].set_color(self.vertex_colors[v])
 
         for e in self.edges:
-            self.edges[e].set_color(self.vertices[e[0]].get_color())
+            self.edges[e].set_color(self.edge_colors[e])
 
-    @override_animate(update_colors)
-    def _update_colors_animation(self, **kwargs):
-        anims = []
-
+    def _update_color_dicts(self):
         for v in self.vertices:
             w = self.clusters.find(v)
+            self.vertex_colors[v] = self.vertex_colors[w]
 
-            anims.append(
-                self.vertices[v].animate.set_color(
-                    self.vertices[w].color
-                ).build()
-            )
-
-        for e in self.edges:
-            anims.append(
-                self.edges[e].animate.set_color(
-                    self.vertices[e[0]].color
-                ).build()
-            )
-        
-        return AnimationGroup(*anims)
+        self.edge_colors = { e : self.vertex_colors[e[0]] for e in self.edges }
 
     def add_edges(self, *edges):
         super().add_edges(*edges)
@@ -218,6 +192,7 @@ class ClusterGraph(Graph):
         for e in edges:
             self.clusters.union(e[0], e[1])
 
+        self._update_color_dicts()
         self.update_colors()
 
     @override_animate(add_edges)
@@ -227,12 +202,17 @@ class ClusterGraph(Graph):
 
         mobjects = super().add_edges(*edges)
 
+        self._update_color_dicts()
+
         return AnimationGroup(
                 AnimationGroup(
                     *(animation(mobj, **kwargs) for mobj in mobjects)
                 ),
-                self._update_colors_animation()
+                self.animate.update_colors().build()
             )
+
+class HPGraph(HighlightableGraph, PercolatingGraph):
+    pass
 
 class HPCGraph(HPGraph, ClusterGraph):
     pass

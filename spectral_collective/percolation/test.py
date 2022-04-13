@@ -24,20 +24,17 @@ class ClusterGraphTest(Scene):
             edge_config = sol.LIGHT_EDGE_CONFIG
         )
 
+        g.percolate(0.4)
         self.add(g)
-        self.wait()
-        self.play(g.animate.percolate(0.4))
-        self.wait()
+        self.wait(0.5)
 
-        self.play(g.animate.initialize_colors())
-        self.wait()
-
-        g.add_edges(((0,0), (0,1)))
-        #self.play(g.animate.add_edges(((0,0), (0,1))))
-        self.wait()
+        g.initialize_color_dicts()
 
         self.play(g.animate.update_colors())
-        self.wait()
+        self.wait(0.5)
+
+        self.play(g.animate.add_edges(((0,0), (0,-1))))
+        self.wait(0.5)
 
 
 
