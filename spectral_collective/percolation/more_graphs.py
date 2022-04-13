@@ -168,7 +168,7 @@ class ClusterGraph(Graph):
 
     def initialize_color_dicts(self):
         for e in self.edges:
-            self.clusters.union(e[0], e[1])
+            self.clusters.union(*e)
 
         self._update_color_dicts()
 
@@ -190,7 +190,7 @@ class ClusterGraph(Graph):
         super().add_edges(*edges)
 
         for e in edges:
-            self.clusters.union(e[0], e[1])
+            self.clusters.union(*e)
 
         self._update_color_dicts()
         self.update_colors()
@@ -198,7 +198,7 @@ class ClusterGraph(Graph):
     @override_animate(add_edges)
     def _add_edges_animation(self, *edges, animation=Create, **kwargs):
         for e in edges:
-            self.clusters.union(e[0], e[1])
+            self.clusters.union(*e)
 
         mobjects = super().add_edges(*edges)
 
@@ -211,8 +211,45 @@ class ClusterGraph(Graph):
                 self.animate.update_colors().build()
             )
 
+class CoupledClusterGraph(ClusterGraph):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.coupling = sorted([ (random(), e) for e in self.edges ])
+        self.remove_edges(*self.edges)
+        self.initialize_color_dicts()
+        self.update_colors()
+
+    def set_p(self, p):
+        edges_to_add = []
+
+        while len(self.coupling) > 0 and self.coupling[0][0] < p:
+            r, e = self.coupling.pop(0)
+            edges_to_add.append(e)
+
+        self.add_edges(*edges_to_add)
+
+    @override_animate(set_p)
+    def _set_p_animation(self, p, *edges, animation=Create, **kwargs):
+        edges_to_add = []
+
+        while len(self.coupling) > 0 and self.coupling[0][0] < p:
+            r, e = self.coupling.pop(0)
+
+            s0 = self.clusters.size(e[0])
+            s1 = self.clusters.size(e[1])
+
+            if s0 < s1 or (s0 == s1 and random() < 0.5):
+                edges_to_add.append((e[1], e[0]))
+            else:
+                edges_to_add.append(e)
+
+        return self._add_edges_animation(*edges_to_add, animation=animation, **kwargs)
+
 class HPGraph(HighlightableGraph, PercolatingGraph):
     pass
 
 class HPCGraph(HPGraph, ClusterGraph):
+    pass
+
+class HPCCGraph(HPGraph, CoupledClusterGraph):
     pass

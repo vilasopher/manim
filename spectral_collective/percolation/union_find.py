@@ -1,5 +1,5 @@
 class UnionFind():
-    def __init__(self, elements):
+    def __init__(self, elements=[]):
         self.data = { x : { "parent" : x, "size" : 1 } 
                       for x in elements }
 
@@ -13,6 +13,10 @@ class UnionFind():
                 return y
             else:
                 return self.find(y)
+
+    def size(self, x):
+        y = self.find(x)
+        return self.data[y]["size"]
 
     def union(self, x, y):
         x = self.find(x)
