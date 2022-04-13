@@ -1,22 +1,47 @@
 from manim import *
 from cluster_image import ClusterImage
+from more_graphs import ClusterGraph, HPCGraph
+import grid as gr
+import networkx as nx
 import random
+import solarized as sol
 
 random.seed(0)
 
-class Test(Scene):
+class ClusterGraphTest(Scene):
     def construct(self):
-        a = ImageMobject(np.uint8([[[0,255,0],[255,0,0]],
-                                   [[255,100,0],[200,0,100]]]))
-        a.set_resampling_algorithm(RESAMPLING_ALGORITHMS["box"])
-        a.height = 8
-        self.add(a)
 
+        nodes, edges = gr.grid_nodes_edges(3, 3)
+        nxgraph = nx.Graph()
+        nxgraph.add_nodes_from(nodes)
+        nxgraph.add_edges_from(edges)
+
+
+        g = HPCGraph.from_networkx(
+            nxgraph,
+            layout=gr.grid_layout(3, 3),
+            vertex_config = sol.LIGHT_VERTEX_CONFIG,
+            edge_config = sol.LIGHT_EDGE_CONFIG
+        )
+
+        self.add(g)
         self.wait()
-        a.pixel_array[(0,0,0)] = 100
+        self.play(g.animate.percolate(0.4))
         self.wait()
 
-class ClusterTest(Scene):
+        self.play(g.animate.initialize_colors())
+        self.wait()
+
+        self.play(g.animate.add_edges(((0,0), (0,1))))
+        self.wait()
+
+        self.play(g.animate.update_colors())
+        self.wait()
+
+
+
+
+class ClusterImageTest(Scene):
     def construct(self):
         p = ValueTracker(0)
 

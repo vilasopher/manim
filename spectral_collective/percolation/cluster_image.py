@@ -29,11 +29,7 @@ def completely_random(*args):
     return [random.randint(0,255) for _ in range(3)]
 
 class ClusterImage(ImageMobject):
-    def __init__(self, shape, p=0, color_picker=None):
-
-        if color_picker is None:
-            color_picker = completely_random
-
+    def __init__(self, shape, p=0, color_picker=completely_random):
         super().__init__(random_pixels(shape, color_picker))
         self.set_resampling_algorithm(RESAMPLING_ALGORITHMS["box"])
         self.height = 8

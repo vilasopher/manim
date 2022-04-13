@@ -63,7 +63,7 @@ class Coupling(Scene):
 
             self.add(g)
             self.wait(1/30)
-            self.clear(
+            #self.clear(
 
 class Test(Scene):
     def construct(self):
