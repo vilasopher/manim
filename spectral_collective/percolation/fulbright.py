@@ -9,6 +9,40 @@ import solarized as sol
 
 random.seed(0)
 
+# just show the grid
+class PipeSystem(Scene):
+    def construct(self):
+        pass
+
+# percolate with a specific parameter, say 0.5, resampled
+# multiple times. Explain how each edge does this independently
+class DeletingPipes(Scene):
+    def construct(self):
+        pass
+
+# show different colored liquids "flowing" into the different
+# connected components of a single instance of percolation
+class PercolationFlow(Scene):
+    def construct(self):
+        pass
+
+# now show the colored graphs more, but resample a few times
+class PercolationFlowResamples(Scene):
+    def construct(self):
+        pass
+
+# introduce the parameter, and sample a few graphs at a few
+# different values of p
+class Parameter(Scene):
+    def construct(self):
+        pass
+
+# begin explaining the coupling
+class CouplingExplanation(Scene):
+    def construct(self):
+        pass
+
+# demonstrate the coupling on a small example
 class CouplingDemonstration(Scene):
     def construct(self):
 
@@ -64,6 +98,13 @@ class CouplingDemonstration(Scene):
             run_time=10
         )
 
+# show a coupled cluster thing but on a large Manim Graph object
+# also, remove the visible numbers on the edges
+class MidResCoupling(Scene):
+    def construct(self):
+        pass
+
+# remove the edges altogether, this is now a pixel picture
 class HighResCoupling(Scene):
     def construct(self):
         p = ValueTracker(0)
@@ -88,6 +129,7 @@ class HighResCoupling(Scene):
             run_time = 10
         )
 
+# this is only the critical region
 class HighResCouplingCritical(Scene):
     def construct(self):
         p = ValueTracker(0.45)
