@@ -45,9 +45,9 @@ class ClusterImage(ImageMobject):
                                  for e in self.edges ])
 
         self.clusters = UnionFind(self.vertices)
-        self.update_clusters(p)
+        self.set_p(p)
 
-    def update_clusters(self, p):
+    def set_p(self, p):
         while len(self.coupling) > 0 and self.coupling[0][0] < p:
             r, e = self.coupling.pop(0)
             self.clusters.union(e[0], e[1])

@@ -1,12 +1,15 @@
 from manim import *
 from more_graphs import HPCCGraph
 from value_slider import ValueSlider
+from cluster_image import ClusterImage
 import grid as gr
 import networkx as nx
 import random
 import solarized as sol
 
-class CouplingExplanation(Scene):
+random.seed(0)
+
+class CouplingDemonstration(Scene):
     def construct(self):
 
         nodes, edges = gr.grid_nodes_edges(8, 5)
@@ -59,4 +62,52 @@ class CouplingExplanation(Scene):
             p.animate.set_value(1),
             rate_func=rate_functions.linear,
             run_time=10
+        )
+
+class HighResCoupling(Scene):
+    def construct(self):
+        p = ValueTracker(0)
+
+        c = ClusterImage((540,960), p=p.get_value())
+        self.add(c)
+
+        slider = ValueSlider(z_index = 2)
+        self.add(slider)
+
+        slider.add_updater(
+            lambda s : s.set_p(p.get_value())
+        )
+
+        c.add_updater(
+            lambda s : s.set_p(p.get_value())
+        )
+
+        self.play(
+            p.animate.set_value(1),
+            rate_func = rate_functions.linear,
+            run_time = 10
+        )
+
+class HighResCouplingCritical(Scene):
+    def construct(self):
+        p = ValueTracker(0.45)
+
+        c = ClusterImage((540,960), p=p.get_value())
+        self.add(c)
+
+        slider = ValueSlider(z_index = 2)
+        self.add(slider)
+
+        slider.add_updater(
+            lambda s : s.set_p(p.get_value())
+        )
+
+        c.add_updater(
+            lambda s : s.set_p(p.get_value())
+        )
+
+        self.play(
+            p.animate.set_value(0.55),
+            rate_func = rate_functions.linear,
+            run_time = 10
         )

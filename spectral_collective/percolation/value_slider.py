@@ -7,8 +7,8 @@ class ValueSlider(VGroup):
 
         self.p = p
 
-        self.bg = Rectangle(width=1.7, height=8.5, color=sol.BASE1)
-        self.bg.set_fill(sol.BASE3, opacity=1)
+        self.bg = Rectangle(width=1.7, height=8.5, color=sol.BASE2)
+        self.bg.set_fill(sol.BASE3, opacity=0.75)
         self.bg.move_to((6.35) * RIGHT)
 
         self.line = Line(
