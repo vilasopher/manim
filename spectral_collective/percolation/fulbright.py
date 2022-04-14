@@ -1,5 +1,6 @@
 from manim import *
 from more_graphs import HPCCGraph
+from value_slider import ValueSlider
 import grid as gr
 import networkx as nx
 import random
@@ -41,7 +42,21 @@ class CouplingExplanation(Scene):
             nums[e].next_to(bg.edges[e], ORIGIN)
             self.add(nums[e])
 
-        n = 20
-        for i in range(n):
-            self.play(g.animate.set_p((i+1)/n), run_time=0.25)
-            self.wait(0.25)
+        p = ValueTracker(0)
+
+        slider = ValueSlider(z_index = 2)
+        self.add(slider)
+
+        slider.add_updater(
+            lambda s : s.set_p(p.get_value())
+        )
+
+        g.add_updater(
+            lambda s : s.set_p(p.get_value())
+        )
+
+        self.play(
+            p.animate.set_value(1),
+            rate_func=rate_functions.linear,
+            run_time=10
+        )
