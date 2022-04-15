@@ -142,7 +142,7 @@ class PercolationFlowSingle(Scene):
         self.wait()
 
         self.play(g.percolation_flow_animation((0,0), water_color), run_time = 5)
-        self.wait()
+        self.wait(3)
 
         self.play(
             g.animate.highlight_subgraph(
@@ -485,9 +485,13 @@ class MidResCoupling(Scene):
             nxgraph,
             layout=gr.grid_layout(24, 14, scale=0.3)
         )
+        
+        self.add(g)
 
         slider = ValueSlider(0, z_index = 2)
         self.add(slider)
+
+        p = ValueTracker(0)
 
         slider.add_updater(
             lambda s : s.set_p(p.get_value())
@@ -535,7 +539,7 @@ class HighResCouplingCritical(Scene):
     def construct(self):
         random.seed(0)
 
-        p = ValueTracker(0.45)
+        p = ValueTracker(0.4)
 
         c = ClusterImage((540,960), p=p.get_value())
         self.add(c)
