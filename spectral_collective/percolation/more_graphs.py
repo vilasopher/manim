@@ -246,7 +246,32 @@ class CoupledClusterGraph(ClusterGraph):
         return self._add_edges_animation(*edges_to_add, animation=animation, **kwargs)
 
 class HPGraph(HighlightableGraph, PercolatingGraph):
-    pass
+    def correct_orientation(self, edge):
+        if edge in self.edges:
+            return edge
+        else:
+            return (edge[1], edge[0])
+
+    def percolation_flow_animation(self, source, color, **kwargs):
+        bfs = nx.edge_bfs(self._graph, source)
+
+        return LaggedStart(
+            self._highlight_subgraph_animation(
+                [source],
+                node_default_color = color,
+                **kwargs
+            ),
+            *(
+                self._highlight_subgraph_animation(
+                    e, 
+                    [self.correct_orientation(e)],
+                    node_default_color = color,
+                    edge_default_color = color,
+                    **kwargs
+                )
+                for e in bfs
+            )
+        )
 
 class HPCGraph(HPGraph, ClusterGraph):
     pass

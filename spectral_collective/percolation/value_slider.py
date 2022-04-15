@@ -2,13 +2,13 @@ from manim import *
 import solarized as sol
 
 class ValueSlider(VGroup):
-    def __init__(self, p=0.5, **kwargs):
+    def __init__(self, p=0.5, opacity=0.75, bar_color=sol.BASE2, **kwargs):
         super().__init__(**kwargs)
 
         self.p = p
 
-        self.bg = Rectangle(width=1.7, height=8.5, color=sol.BASE2)
-        self.bg.set_fill(sol.BASE3, opacity=0.75)
+        self.bg = Rectangle(width=1.7, height=8.5, color=bar_color)
+        self.bg.set_fill(sol.BASE3, opacity=opacity)
         self.bg.move_to((6.35) * RIGHT)
 
         self.line = Line(
