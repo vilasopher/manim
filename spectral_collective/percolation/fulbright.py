@@ -391,8 +391,6 @@ class CouplingUnionFind(Scene):
             nums[e].next_to(bg.edges[e], ORIGIN)
             self.add(nums[e])
 
-        self.wait()
-
         prev_r = 0
         for r, e in list(coupling):
             self.play(
@@ -410,8 +408,6 @@ class CouplingUnionFind(Scene):
                 run_time = 20 * (1 - prev_r),
                 rate_func = rate_functions.linear
             )
-
-        self.wait()
 
 # demonstrate the coupling on a small example
 class CouplingDemonstration(Scene):
