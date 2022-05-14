@@ -116,3 +116,28 @@ class EX(Scene):
         self.add(*pxn)
         self.add(*verteqs)
 
+class Kolmogorov(Scene):
+    def construct(self):
+        temp = TexTemplate()
+        temp.add_to_preamble(r'\usepackage[margin=0in]{geometry}')
+
+        lem1 = Tex(
+            r'\textbf{Lemma:} '
+            r'$\mathbb{P}_p[\text{there is an infinite cluster}] = 0'
+            r'\Leftrightarrow'
+            r'\mathbb{P}_p[\text{the cluster of } o \text{ is infinite}]=0$',
+            color=sol.BASE03,
+            tex_template=temp,
+            font_size=36
+        ).move_to(3.5 * UP)
+        lem2 = Tex(
+            r'and '
+            r'$\mathbb{P}_p[\text{there is an infinite cluster}] = 1'
+            r'\Leftrightarrow'
+            r'\mathbb{P}_p[\text{the cluster of } o \text{ is infinite}]>0$.',
+            color=sol.BASE03,
+            tex_template=temp,
+            font_size=36
+        ).move_to(3 * UP + 0.52 * RIGHT)
+        self.add(lem1, lem2)
+
