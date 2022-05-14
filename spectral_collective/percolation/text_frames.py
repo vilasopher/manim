@@ -139,5 +139,60 @@ class Kolmogorov(Scene):
             tex_template=temp,
             font_size=36
         ).move_to(3 * UP + 0.52 * RIGHT)
+
+        bg = Rectangle(width = 15, height = 3, color=sol.BASE2, fill_opacity=1)
+        bg.move_to(4.1 * UP)
+        self.add(bg)
         self.add(lem1, lem2)
+
+        temp2 = TexTemplate()
+        temp2.add_to_preamble(r'\usepackage[margin=1.5in]{geometry}')
+        temp2.add_to_preamble(r'\usepackage[document]{ragged2e}')
+        temp2.add_to_preamble(r'\usepackage[english]{babel}')
+        temp2.add_to_preamble(r'\usepackage{amsmath}')
+        proof = Tex(
+            r'\raggedright'
+            r'\setlength{\abovedisplayskip}{5pt}'
+            r'\setlength{\belowdisplayskip}{5pt}'
+            r'\textbf{\emph{Proof:}} First, notice that the event '
+            r'$\{ \text{there is an infinite cluster} \}$'
+            r' is a \emph{tail event}, i.e. it does not depend'
+            r' on the state of any finite set of edges in the grid.'
+            r" Therefore, by \emph{Kolmogorov's Zero-One Law},",
+            r' for any parameter value $p$ we have ',
+            r'$\mathbb{P}_p[\text{there is an infinite cluster}]=0\text{ or }1.$'
+            r'\\ \hfill \\ \vspace{-0.1cm}'
+
+            r'Now, suppose that '
+            r'$\mathbb{P}_p[\text{the cluster of }o\text{ is infinite}]>0$. '
+            r'Then, since'
+            r'\begin{align*}'
+            r'\{\text{the cluster of } o \text{ is infinite}\}'
+            r'&\subseteq'
+            r'\{\text{there is an infinite cluster}\}, \text{we have} \\'
+            r'0 < \mathbb{P}_p[\text{the cluster of } o \text{ is infinte}]'
+            r'&\leq \mathbb{P}_p[\text{there is an infinite cluster}].'
+            r'\end{align*}'
+            r'So we must have '
+            r'$\mathbb{P}_p[\text{there is an infinite cluster}] = 1$ '
+            r'by the Zero-One law.'
+            r'\\ \hfill \\ \vspace{-0.1cm}'
+
+            r'On the other hand, suppose that '
+            r'$\mathbb{P}_p[\text{the cluster of }o\text{ is infinite}]=0$. '
+            r'Then, since the percolation does not depend on the choice of origin, '
+            r'for any node $v$ of the grid '
+            r'we have $\mathbb{P}_p[\text{the cluster of }v\text{ is infinite}]=0$. '
+            r'If there is an infinite cluster somewhere in the grid, then there is '
+            r'some node $v$ whose cluster is infinite. '
+            r'Thus, by countable additivity of probability '
+            r'(the grid is countable), we obtain '
+            r'$\mathbb{P}_p[\text{there is an infinite cluster}]=0$.'
+            r'\hfill $\blacksquare$'
+            ,color=sol.BASE03,
+            tex_template = temp2,
+            font_size = 33
+        )
+        proof.shift(0.7 * DOWN)
+        self.add(proof)
 
