@@ -3,16 +3,27 @@ import solarized as sol
 
 class EX(Scene):
     def construct(self):
-        lem = Tex(
+        hyp = Tex(
             r'\textbf{Lemma:} Let $X$ be a random variable \\'
-            r'taking values in $\{0,1,2,3,4,...\}$. Then'
-            r'\['
-            r'\mathbb{E}[X] = \sum_{n=1}^\infty \mathbb{P}[X \geq n]'
-            r'\]',
+            r'taking values in $\{0,1,2,3,4,...\}$. Then',
             color=sol.BASE03,
-            font_size=40
-        ).move_to(2.25 * UP + 3.25 * RIGHT)
-        self.add(lem)
+            font_size=50
+        ).move_to(3.2 * UP + 2.5 * RIGHT)
+        conc = MathTex(
+            r'\mathbb{E}[X] = \sum_{n=1}^\infty \mathbb{P}[X \geq n]',
+            color=sol.BASE03,
+            font_size=50
+        ).move_to(1.6 * UP + 4.2 * RIGHT)
+
+        # TODO: THIS BG STILL KIND OF LOOKS BAD!
+        bg = Circle(
+            radius = 15,
+            color=sol.BASE2,
+            fill_opacity=1
+        ).move_to(15.75 * UP + 5.5 * RIGHT)
+        self.add(bg)
+
+        self.add(hyp,conc)
 
         npn = [
             MathTex(
@@ -36,6 +47,14 @@ class EX(Scene):
 
         temp = TexTemplate()
         temp.add_to_preamble(r'\usepackage{mathtools}')
+
+        hint = Tex(r'(where $p_m \coloneqq \mathbb{P}[X=m]$)',
+                color=sol.BASE01,
+                tex_template=temp,
+                font_size=30)
+        hint.move_to(3.6 * UP + 5.3 * LEFT)
+        self.add(hint)
+
         ex = MathTex(r'\mathbb{E}[X]', color=sol.BASE03, font_size=35)
         ex.move_to(6 * LEFT + 2.8 * UP)
         eq = MathTex(r'\coloneqq',
