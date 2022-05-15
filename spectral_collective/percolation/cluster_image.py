@@ -28,6 +28,42 @@ def random_color_choice(*args, colorlist=sol.all_colors_rgb):
 def completely_random(*args):
     return [random.randint(0,255) for _ in range(3)]
 
+class StaticPercolationImage(ImageMobject):
+    def __init__(self, shape, p=0.5, color_picker=completely_random):
+        super().__init__(random_pixels(shape, color_picker))
+        self.set_resampling_algorithm(RESAMPLING_ALGORITHMS["box"])
+        self.height = 8
+
+        self.vertices = [ (i,j) for i in range(shape[0])
+                                for j in range(shape[1]) ]
+        self.edges = [ ((i, j), (i - e1, j - e2))
+                        for i, j in self.vertices
+                        for e1, e2 in [(0,1), (1,0)]
+                        if i - e1 >= 0 and j - e2 >= 0 ]
+
+        self.clusters = UnionFind(self.vertices)
+
+        for e in self.edges:
+            if random.random() < p:
+                self.clusters.union(e[0], e[1])
+
+        for v in self.vertices:
+            w = self.clusters.find(v)
+            self.pixel_array[v] = self.pixel_array[w]
+
+    def highlight_biggest_cluster(self, highlight_color, bg_color=None):
+        h = color_to_int_rgba(highlight_color)
+        b = None
+        if not bg_color is None:
+            b = color_to_int_rgba(bg_color)
+
+        for v in self.vertices:
+            if self.clusters.find(v) == self.clusters.biggest:
+                self.pixel_array[v] = h
+            else:
+                if not b is None:
+                    self.pixel_array[v] = b
+
 class ClusterImage(ImageMobject):
     def __init__(self, shape, p=0, color_picker=completely_random):
         super().__init__(random_pixels(shape, color_picker))
