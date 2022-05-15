@@ -3,9 +3,20 @@ class UnionFind():
         self.data = { x : { "parent" : x, "size" : 1 } 
                       for x in elements }
 
+        self.biggest = None
+        self.biggestsize = 0
+        if len(elements) > 0:
+            self.biggest = elements[0]
+            self.biggestsize = 1
+
     def find(self, x):
         if not x in self.data:
             self.data[x] = { "parent" : x, "size" : 1 }
+
+            if self.biggest == None:
+                self.biggest = x
+                self.biggestsize = 1
+
             return x
         else:
             y = self.data[x]["parent"]
@@ -33,3 +44,7 @@ class UnionFind():
 
         self.data[y]["parent"] = x
         self.data[x]["size"] = sx + sy
+
+        if sx + sy > self.biggestsize:
+            self.biggest = x
+            self.biggestsize = sx + sy

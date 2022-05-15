@@ -55,3 +55,16 @@ class ClusterImage(ImageMobject):
         for v in self.vertices:
             w = self.clusters.find(v)
             self.pixel_array[v] = self.pixel_array[w]
+
+    def highlight_biggest_cluster(self, highlight_color, bg_color=None):
+        h = color_to_int_rgba(highlight_color)
+        b = None
+        if not bg_color is None:
+            b = color_to_int_rgba(bg_color)
+
+        for v in self.vertices:
+            if self.clusters.find(v) == self.clusters.biggest:
+                self.pixel_array[v] = h
+            else:
+                if not b is None:
+                    self.pixel_array[v] = b
