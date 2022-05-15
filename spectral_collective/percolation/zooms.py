@@ -6,13 +6,13 @@ import random
 import solarized as sol
 
 class CriticalZoomOut(Scene):
-    def konstrakta(self, onecluster = False, time = 5, shape = (2160, 3840)):
-        c = StaticPercolationImage(shape, p=0.5)
+    def konstrakta(self, onecluster = False, time = 30, zoom = 10):
+        c = StaticPercolationImage((540 * zoom, 960 * zoom), p=0.5)
         
         if onecluster:
             c.highlight_biggest_cluster(sol.BASE03, bg_color=sol.BASE3)
 
-        h = ValueTracker(24)
+        h = ValueTracker(8 * zoom)
 
         c.add_updater(
             lambda s : s.set(height=h.get_value())
