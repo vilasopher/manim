@@ -3,6 +3,7 @@ from union_find import UnionFind
 import numpy as np
 import random
 import solarized as sol
+import networkx as nx
 
 def random_pixels(shape, color_picker):
     return np.uint8(        
@@ -26,43 +27,61 @@ def random_color_choice(*args, colorlist=sol.all_colors_rgb):
     return random.choice(colorlist)
 
 def completely_random(*args):
-    return [random.randint(0,255) for _ in range(3)]
+    return np.uint8([*(random.randint(0,255) for _ in range(3)), 1])
 
 class StaticPercolationImage(ImageMobject):
-    def __init__(self, shape, p=0.5, color_picker=completely_random):
-        super().__init__(random_pixels(shape, color_picker))
+    def __init__(
+        self,
+        shape,
+        p=0.5,
+        color_picker=completely_random,
+        onecluster=False,
+        oneclustercolor=sol.NODE,
+        bgcolor=config.background_color
+        ):
+
+        G = nx.Graph()
+        G.add_nodes_from(
+            [ i + shape[0] * j for i in range(shape[0])
+                               for j in range(shape[1]) ]
+        )
+
+        for n in G.nodes:
+            i = n % shape[0]
+            j = n // shape[0]
+            for e1, e2 in [(0,1), (1,0)]:
+                if i - e1 >= 0 and j - e2 >= 0 and random.random() < p:
+                    G.add_edge((i,j), (i-e1, j-e2))
+                    print(i,j)
+
+        print('done')
+
+        clusters = nx.connected_components(G)
+
+        bgc = np.uint8(color_to_int_rgba(bgcolor))
+
+        pixels = np.full((*shape, 4), bgc, dtype=np.uint8)
+        
+        if onecluster:
+            bigcluster = max(clusters, key=len)
+            occ = np.uint8(color_to_int_rgba(oneclustercolor))
+
+            for v in bigcluster:
+                i = n % shape[0]
+                j = n // shape[0]
+                pixels[(i,j)] = occ
+        else:
+            for cluster in clusters:
+                rc = color_picker()
+
+                for v in cluster:
+                    i = n % shape[0]
+                    j = n // shape[0]
+                    pixels[(i,j)] = rc
+
+        super().__init__(pixels)
         self.set_resampling_algorithm(RESAMPLING_ALGORITHMS["box"])
         self.height = 8
-
-        self.vertices = [ (i,j) for i in range(shape[0])
-                                for j in range(shape[1]) ]
-        self.edges = [ ((i, j), (i - e1, j - e2))
-                        for i, j in self.vertices
-                        for e1, e2 in [(0,1), (1,0)]
-                        if i - e1 >= 0 and j - e2 >= 0 ]
-
-        self.clusters = UnionFind(self.vertices)
-
-        for e in self.edges:
-            if random.random() < p:
-                self.clusters.union(e[0], e[1])
-
-        for v in self.vertices:
-            w = self.clusters.find(v)
-            self.pixel_array[v] = self.pixel_array[w]
-
-    def highlight_biggest_cluster(self, highlight_color, bg_color=None):
-        h = color_to_int_rgba(highlight_color)
-        b = None
-        if not bg_color is None:
-            b = color_to_int_rgba(bg_color)
-
-        for v in self.vertices:
-            if self.clusters.find(v) == self.clusters.biggest:
-                self.pixel_array[v] = h
-            else:
-                if not b is None:
-                    self.pixel_array[v] = b
 
 class ClusterImage(ImageMobject):
     def __init__(self, shape, p=0, color_picker=completely_random):
