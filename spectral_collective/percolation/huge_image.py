@@ -28,7 +28,6 @@ for n in range(numverts):
         color = randint(0, 2**24)
 
         print(n)
-        print(color)
 
         to_visit = [n]
         while len(to_visit) > 0:
@@ -55,3 +54,5 @@ pixels = np.uint8(
 
 img = Image.fromarray(pixels, mode='RGB')
 img.save("huge/test.png")
+
+print('rendered!')
