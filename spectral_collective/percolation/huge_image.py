@@ -11,7 +11,7 @@ background = np.uint8([253,246,227])
 
 numverts = shape[0] * shape[1]
 
-for s in range(1,10):
+for s in range(10):
     p = 0.5
     seed(s)
 
