@@ -1,12 +1,12 @@
 from manim import *
 import solarized as sol
 from random import random
-import networkx as nx
 
 class GlitchSingleMobject(Animation):
-    def __init__(self, mobject, out=False, **kwargs):
+    def __init__(self, mobject, intensity=0.1, out=False, **kwargs):
         self.out = out
         self.mobject = mobject
+        self.intensity = intensity
         super().__init__(self.mobject, **kwargs)
 
     def begin(self):
@@ -14,7 +14,7 @@ class GlitchSingleMobject(Animation):
 
         self.colored_mobjects = [
             self.mobject.copy().set(color=c, z_index=-3)
-            for c in [RED, GREEN, BLUE]
+            for c in [sol.RED, sol.GREEN, sol.BLUE]
         ]
 
         self.mobject.add(*self.colored_mobjects)
@@ -34,8 +34,8 @@ class GlitchSingleMobject(Animation):
             mobj.rotate(- mobj.last_rotation)
             mobj.shift(- mobj.last_shift)
 
-            new_rotation = 0.1 * (random() - 0.5)
-            new_shift = 0.1 * ((random() - 0.5) * UP + (random() - 0.5) * RIGHT)
+            new_rotation = self.intensity * (random() - 0.5)
+            new_shift = self.intensity * ((random() - 0.5) * UP + (random() - 0.5) * RIGHT)
 
             mobj.shift(new_shift)
             mobj.rotate(new_rotation)
@@ -48,30 +48,20 @@ class GlitchSingleMobject(Animation):
             scene.remove(self.mobject)
         super().clean_up_from_scene(scene)
 
-def Glitch(mobject, out=False, **kwargs):
+def Glitch(mobject, intensity=0.1, out=False, **kwargs):
     return AnimationGroup(*(
-        GlitchSingleMobject(mobj, out=out, **kwargs)
+        GlitchSingleMobject(mobj, intensity=intensity, out=out, **kwargs)
         for mobj in mobject
     ))
 
-def GlitchEdges(graph, out=False, **kwargs):
-    return AnimationGroup(*(
-        GlitchSingleMobject(graph.edges[e], out=out, **kwargs)
-        for e in graph.edges
-    ))
+def GlitchEdges(graph, intensity=0.1, out=False, **kwargs):
+    return AnimationGroup(
+        AnimationGroup(*(
+            GlitchSingleMobject(graph.edges[e], intensity=intensity, out=out, **kwargs)
+            for e in graph.edges
+        )), AnimationGroup(*(
+            GlitchSingleMobject(graph.vertices[v], intensity=0, out=out, **kwargs)
+            for v in graph.vertices
+        ))
+    )
 
-class Test(Scene):
-    def construct(self):
-        g = Graph.from_networkx(
-            nx.paley_graph(5),
-            vertex_config=sol.VERTEX_CONFIG,
-            edge_config=sol.EDGE_CONFIG
-        )
-
-        self.add(g)
-        self.wait()
-        self.play(GlitchEdges(g))
-        self.wait()
-        self.play(GlitchEdges(g, out=True))
-        self.wait()
-        
