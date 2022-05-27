@@ -3,7 +3,7 @@ import solarized as sol
 from random import random
 
 class GlitchSingleMobject(Animation):
-    def __init__(self, mobject, intensity=0.05, fade=True, out=False, **kwargs):
+    def __init__(self, mobject, intensity=0.03, fade=True, out=False, **kwargs):
         self.mobject = mobject
         self.intensity = intensity
         self.fade = fade
