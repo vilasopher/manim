@@ -78,6 +78,9 @@ UNHIGHLIGHT_EDGE = BASE2
 VERTEX_CONFIG = { 'fill_color' : NODE }
 EDGE_CONFIG = { 'stroke_color' : EDGE }
 
+DUAL_VERTEX_CONFIG = { 'fill_color' : BLUE }
+DUAL_EDGE_CONFIG = { 'stroke_color' : CYAN }
+
 LIGHT_VERTEX_CONFIG = { 'fill_color' : LIGHT_NODE }
 LIGHT_EDGE_CONFIG = { 'stroke_color' : LIGHT_EDGE }
 VERY_LIGHT_EDGE_CONFIG = { 'stroke_color' : BASE2 }

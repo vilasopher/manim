@@ -3,10 +3,11 @@ import solarized as sol
 from random import random
 
 class GlitchSingleMobject(Animation):
-    def __init__(self, mobject, intensity=0.1, out=False, **kwargs):
-        self.out = out
+    def __init__(self, mobject, intensity=0.05, fade=True, out=False, **kwargs):
         self.mobject = mobject
         self.intensity = intensity
+        self.fade = fade
+        self.out = out
         super().__init__(self.mobject, **kwargs)
 
     def begin(self):
@@ -22,6 +23,9 @@ class GlitchSingleMobject(Animation):
         for mobj in self.mobject:
             mobj.set(last_rotation = 0)
             mobj.set(last_shift = np.array([0,0,0]))
+            
+            if self.fade:
+                mobj.set_opacity(0.5)
 
         super().begin()
 
@@ -60,8 +64,7 @@ def GlitchEdges(graph, intensity=0.1, out=False, **kwargs):
             GlitchSingleMobject(graph.edges[e], intensity=intensity, out=out, **kwargs)
             for e in graph.edges
         )), AnimationGroup(*(
-            GlitchSingleMobject(graph.vertices[v], intensity=0, out=out, **kwargs)
+            GlitchSingleMobject(graph.vertices[v], intensity=0, fade=False, out=out, **kwargs)
             for v in graph.vertices
         ))
     )
-

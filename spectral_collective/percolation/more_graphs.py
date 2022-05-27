@@ -162,7 +162,7 @@ class ClusterGraph(Graph):
     def __init__(self, *args, color_picker=completely_random, **kwargs):
         super().__init__(*args, **kwargs)
 
-        self.clusters = UnionFind(self.vertices)
+        self.clusters = UnionFind(list(self.vertices))
         self.vertex_colors = { v : rgb_to_color(color_picker()) for v in self.vertices }
         self.edge_colors = None
 

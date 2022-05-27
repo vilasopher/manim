@@ -1,6 +1,7 @@
 from manim import *
 from cluster_image import ClusterImage
 from more_graphs import ClusterGraph, HPCGraph, HPCCGraph, PercolatingGraph
+from value_slider import ValueSlider
 import grid as gr
 import networkx as nx
 import random
@@ -90,29 +91,72 @@ class GlitchyPercolationTest(Scene):
     def construct(self):
         random.seed(0)
 
-        nodes, edges = gr.grid_nodes_edges(8, 5)
+        nodes, edges = gr.grid_nodes_edges(24, 14)
         nxgraph = nx.Graph()
         nxgraph.add_nodes_from(nodes)
         nxgraph.add_edges_from(edges)
 
         h = Graph.from_networkx(
             nxgraph,
-            layout=gr.grid_layout(8, 5, scale=0.95),
+            layout=gr.grid_layout(24, 14, scale=0.3),
             vertex_config = sol.VERTEX_CONFIG,
             edge_config = sol.EDGE_CONFIG
         )
 
-        for _ in range(2):
-            g = PercolatingGraph.from_networkx(
-                nxgraph,
-                layout=gr.grid_layout(8, 5, scale=0.95),
-                vertex_config = sol.VERTEX_CONFIG,
-                edge_config = sol.EDGE_CONFIG
-            )
+        g = HPCCGraph.from_networkx(
+            nxgraph,
+            layout=gr.grid_layout(24, 14, scale=0.3),
+            vertex_config = sol.VERTEX_CONFIG,
+            edge_config = sol.EDGE_CONFIG
+        )
+        g.set_p(0.5)
 
-            self.play(GlitchEdges(h, intensity=0.05, out=True), run_time=0.15)
-            g.percolate(0.5)
-            self.play(GlitchEdges(g, intensity=0.05), run_time=0.1)
-            self.wait(2)
-            self.play(GlitchEdges(g, intensity=0.05, out=True), run_time=0.1)
-            self.play(GlitchEdges(h, intensity=0.05, out=True), run_time=0.15)
+        self.add(g)
+        self.wait(3)
+        self.play(Glitch(g, intensity=0.03, out=True), run_time=0.05)
+        self.play(Glitch(h, intensity=0.03, out=True), run_time=0.25)
+
+        g = HPCCGraph.from_networkx(
+            nxgraph,
+            layout=gr.grid_layout(24, 14, scale=0.3),
+            vertex_config = sol.VERTEX_CONFIG,
+            edge_config = sol.EDGE_CONFIG
+        )
+        g.set_p(0.5)
+
+        self.play(Glitch(g, intensity=0.03), run_time=0.05)
+        self.wait(3)
+
+class HighResCoupling(Scene):
+    def construct(self):
+        random.seed(0)
+
+        p = ValueTracker(0)
+
+        c = ClusterImage((540,960), p=p.get_value())
+        self.add(c)
+
+        slider = ValueSlider(z_index = 2)
+        self.add(slider)
+
+        slider.add_updater(
+            lambda s : s.set_p(p.get_value())
+        )
+
+        c.add_updater(
+            lambda s : s.set_p(p.get_value())
+        )
+
+        self.play(
+            p.animate.set_value(1),
+            rate_func = rate_functions.linear,
+            run_time = 10
+        )
+
+class OpacityTest(Scene):
+    def construct(self):
+        c = Line([-1,-1,0],[1,1,0])
+        self.add(c)
+        self.wait()
+        c.set_opacity(0.5)
+        self.wait()

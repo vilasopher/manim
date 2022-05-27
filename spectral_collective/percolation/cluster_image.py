@@ -27,7 +27,7 @@ def random_color_choice(*args, colorlist=sol.all_colors_rgb):
     return random.choice(colorlist)
 
 def completely_random(*args):
-    return np.uint8([*(random.randint(0,255) for _ in range(3)), 1])
+    return np.uint8([*(random.randint(0,255) for _ in range(3)), 255])
 
 class StaticPercolationImage(ImageMobject):
     def __init__(
