@@ -1,6 +1,6 @@
 from manim import *
 from cluster_image import ClusterImage
-from more_graphs import ClusterGraph, HPCGraph, HPCCGraph, PercolatingGraph
+from more_graphs import ClusterGraph, HPCGraph, HPCCGraph, PercolatingGraph, HPGraph
 from value_slider import ValueSlider
 import grid as gr
 import networkx as nx
@@ -8,7 +8,7 @@ import random
 import solarized as sol
 from glitch import Glitch, GlitchEdges
 
-random.seed(0)
+#random.seed(0)
 
 class CoupledClusterGraphTest(Scene):
     def construct(self):
@@ -159,4 +159,26 @@ class OpacityTest(Scene):
         self.add(c)
         self.wait()
         c.set_opacity(0.5)
+        self.wait()
+
+class PathTest(Scene):
+    def construct(self):
+        nodes, edges = gr.grid_nodes_edges(24, 14)
+        nxgraph = nx.Graph()
+        nxgraph.add_nodes_from(nodes)
+        nxgraph.add_edges_from(edges)
+
+        h = HPGraph.from_networkx(
+            nxgraph,
+            layout=gr.grid_layout(24, 14, scale=0.3),
+            vertex_config = sol.VERTEX_CONFIG,
+            edge_config = sol.EDGE_CONFIG
+        )
+
+        h.percolate(0.501)
+        self.add(h)
+        self.wait()
+        self.play(h.animate.dramatically_highlight_ball((0,0)))
+        self.wait()
+        self.play(h.animate.highlight_longest_path_from((0,0)))
         self.wait()

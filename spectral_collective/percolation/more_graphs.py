@@ -4,6 +4,7 @@ from random import random, randint
 import networkx as nx
 import solarized as sol
 from union_find import UnionFind
+import grid as gr
 
 class HighlightableGraph(Graph):
     @classmethod
@@ -20,13 +21,18 @@ class HighlightableGraph(Graph):
         node_colors = {},
         node_default_color = sol.HIGHLIGHT_NODE,
         edge_colors = {},
-        edge_default_color = sol.HIGHLIGHT_EDGE
+        edge_default_color = sol.HIGHLIGHT_EDGE,
+        nodes_to_scale = [],
+        scale_factor = 2
     ):
         if edges == None:
             edges = self.edges_spanned_by(nodes)
 
         for n in nodes:
             self[n].set_color(node_colors.get(n, node_default_color))
+
+        for n in nodes_to_scale:
+            self[n].scale(scale_factor)
 
         for e in edges:
             self.edges[e].set_color(edge_colors.get(e, edge_default_color))
@@ -40,6 +46,8 @@ class HighlightableGraph(Graph):
         node_default_color = sol.HIGHLIGHT_NODE,
         edge_colors = {},
         edge_default_color = sol.HIGHLIGHT_EDGE,
+        nodes_to_scale = [],
+        scale_factor = 2,
         **kwargs
     ):
         if edges == None:
@@ -47,15 +55,22 @@ class HighlightableGraph(Graph):
 
         nodegroup = AnimationGroup(
             *(self[n].animate.set_color(node_colors.get(n, node_default_color))
-                for n in nodes)
+                for n in nodes if n not in nodes_to_scale)
         )
+
+        scalegroup = AnimationGroup(*(
+            self[n].animate.set_color(
+                node_colors.get(n, node_default_color)
+            ).scale(scale_factor)
+            for n in nodes_to_scale
+        ))
 
         edgegroup = AnimationGroup(
             *(self.edges[e].animate.set_color(edge_colors.get(e, edge_default_color))
                 for e in edges)
         )
 
-        return AnimationGroup(nodegroup, edgegroup)
+        return AnimationGroup(nodegroup, scalegroup, edgegroup)
 
     def complement_nodes_edges(self, nodes, edges):
         complement_nodes = [ n for n in self.vertices if not n in nodes ]
@@ -97,13 +112,17 @@ class HighlightableGraph(Graph):
 
     def highlight_ball(self, root, radius=None):
         self.highlight_subgraph(self.ball(root, radius), node_colors = { root : sol.ROOT })
+        self[root].scale(2)
 
     @override_animate(highlight_ball)
     def _highlight_ball_animation(self, root, radius=None, **kwargs):
-        return self._highlight_subgraph_animation(
-            self.ball(root, radius),
-            node_colors = { root : sol.ROOT },
-            **kwargs
+        return AnimationGroup(
+            self._highlight_subgraph_animation(
+                self.ball(root, radius),
+                node_colors = { root : sol.ROOT },
+                nodes_to_scale = [root],
+                **kwargs
+            )
         )
 
     def unhighlight_complement_ball(self, root, radius=None):
@@ -122,6 +141,55 @@ class HighlightableGraph(Graph):
         return AnimationGroup(
             self._highlight_ball_animation(root, radius, **kwargs),
             self._unhighlight_complement_ball_animation(root, radius, **kwargs)
+        )
+
+    def longest_path_from(self, root):
+        bfs = nx.bfs_tree(self._graph, source=root)
+        return nx.dag_longest_path(bfs)
+
+    def highlight_path(self, path, color=sol.YELLOW, **kwargs):
+        self.highlight_subgraph(
+            path,
+            node_default_color = color,
+            edge_default_color = color,
+            **kwargs
+        )
+
+    @override_animate(highlight_path)
+    def _highlight_path_animation(self, path, color=sol.ORANGE, **kwargs):
+        return LaggedStart(*(
+            self._highlight_subgraph_animation(
+                path[i:i+2],
+                node_default_color=color,
+                edge_default_color=color,
+                **kwargs
+            ) for i in range(len(path) - 2)), **kwargs
+        )
+
+    def highlight_longest_path_from(self, root, color=sol.YELLOW, length=None):
+        path = self.longest_path_from(root)
+        if length != None:
+            path = path[0:length]
+        self.highlight_path(path, color=color, node_colors={ root : sol.ROOT })
+
+    @override_animate(highlight_longest_path_from)
+    def _highlight_longest_path_from_animation(
+        self,
+        root,
+        color=sol.ORANGE,
+        length=None,
+        **kwargs
+    ):
+
+        path = self.longest_path_from(root)
+        if length != None:
+            path = path[0:length]
+
+        return self._highlight_path_animation(
+            path,
+            color=color, 
+            node_colors={ root : sol.ROOT },
+            **kwargs
         )
 
 class PercolatingGraph(Graph):
@@ -278,3 +346,31 @@ class HPCGraph(HPGraph, ClusterGraph):
 
 class HPCCGraph(HPGraph, CoupledClusterGraph):
     pass
+
+# good shape/scale combinations:
+# (24,14) 0.3
+# (8,5)   0.95
+# (3,2)   2.5
+class Gridable(Graph):
+    @classmethod
+    def from_grid(cls, shape, scale, **kwargs):
+        nodes, edges = gr.grid_nodes_edges(*shape)
+
+        if 'vertex_config' not in kwargs:
+            kwargs['vertex_config'] = sol.VERTEX_CONFIG
+
+        if 'edge_config' not in kwargs:
+            kwargs['edge_config'] = sol.EDGE_CONFIG
+
+        return cls(
+            nodes,
+            edges,
+            layout=gr.grid_layout(*shape, scale=scale),
+            **kwargs
+        ).set(gridshape=shape, gridscale=scale)
+
+    def path_offscreen_from(self, root):
+        if not (hasattr(self, 'gridshape') and hasattr(self, 'gridscale')):
+            raise Exception("trying to get path offscreen in a non-grid graph")
+
+        #TODO: IMPLEMENT THIS ONE
