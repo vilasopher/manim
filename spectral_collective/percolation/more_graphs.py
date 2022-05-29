@@ -1,6 +1,6 @@
 from manim import *
 #Graph, Create, override_animate, FadeIn, FadeOut, AnimationGroup, rgb_to_color
-from random import random, randint
+from random import random, randint, shuffle
 import networkx as nx
 import solarized as sol
 from union_find import UnionFind
@@ -147,7 +147,7 @@ class HighlightableGraph(Graph):
         bfs = nx.bfs_tree(self._graph, source=root)
         return nx.dag_longest_path(bfs)
 
-    def highlight_path(self, path, color=sol.YELLOW, **kwargs):
+    def highlight_path(self, path, color=sol.ORANGE, **kwargs):
         self.highlight_subgraph(
             path,
             node_default_color = color,
@@ -166,10 +166,10 @@ class HighlightableGraph(Graph):
             ) for i in range(len(path) - 2)), **kwargs
         )
 
-    def highlight_longest_path_from(self, root, color=sol.YELLOW, length=None):
+    def highlight_longest_path_from(self, root, color=sol.ORANGE, length=None):
         path = self.longest_path_from(root)
         if length != None:
-            path = path[0:length]
+            path = path[0:length+2]
         self.highlight_path(path, color=color, node_colors={ root : sol.ROOT })
 
     @override_animate(highlight_longest_path_from)
@@ -183,7 +183,7 @@ class HighlightableGraph(Graph):
 
         path = self.longest_path_from(root)
         if length != None:
-            path = path[0:length]
+            path = path[0:length+2]
 
         return self._highlight_path_animation(
             path,
@@ -313,7 +313,92 @@ class CoupledClusterGraph(ClusterGraph):
 
         return self._add_edges_animation(*edges_to_add, animation=animation, **kwargs)
 
-class HPGraph(HighlightableGraph, PercolatingGraph):
+# good shape/scale combinations:
+# (24,14) 0.3
+# (8,5)   0.95
+# (3,2)   2.5
+class GridableGraph(HighlightableGraph):
+    @classmethod
+    def from_grid(cls, shape, scale, **kwargs):
+        nodes, edges = gr.grid_nodes_edges(*shape)
+        nxgraph = nx.Graph()
+        nxgraph.add_nodes_from(nodes)
+        nxgraph.add_edges_from(edges)
+
+        if 'vertex_config' not in kwargs:
+            kwargs['vertex_config'] = sol.VERTEX_CONFIG
+
+        if 'edge_config' not in kwargs:
+            kwargs['edge_config'] = sol.EDGE_CONFIG
+
+        return cls.from_networkx(
+            nxgraph,
+            layout=gr.grid_layout(*shape, scale=scale),
+            **kwargs
+        ).set(gridshape=shape, gridscale=scale)
+
+    def path_to_boundary_from(self, root):
+        if not (hasattr(self, 'gridshape') and hasattr(self, 'gridscale')):
+            raise Exception("trying to get path offscreen in a non-grid graph")
+
+        paths = nx.shortest_path(self._graph, source=root)
+
+        boundary_nodes = [
+            (a,b) for (a,b) in self.vertices
+            if abs(a) == self.gridshape[0] or abs(b) == self.gridshape[1]
+        ]
+
+        shuffle(boundary_nodes)
+
+        for b in boundary_nodes:
+            if b in paths:
+                return paths[b]
+
+        return []
+
+    def highlight_path_to_boundary_from(self, root, **kwargs):
+        p = self.path_to_boundary_from(root)
+        self.highlight_path(p, node_colors = { root : sol.ROOT }, **kwargs)
+
+    @override_animate(highlight_path_to_boundary_from)
+    def _highlight_path_to_boundary_from_animation(self, root, **kwargs):
+        p = self.path_to_boundary_from(root)
+        return self._highlight_path_animation(
+            p,
+            node_colors = { root : sol.ROOT },
+            **kwargs
+        )
+
+    def path_of_length_from(self, root, length):
+        p = self.path_to_boundary_from(root)
+
+        if len(p) < length+2:
+            return p
+        
+        if len(p) > 0:
+            return p[0:length+2]
+
+        p = self.longest_path_from(root)
+
+        if len(p) >= length+2:
+            return p[0:length+2]
+
+        return []
+
+    def highlight_path_of_length_from(self, root, length, **kwargs):
+        p = self.path_of_length_from(root, length)
+        self.highlight_path(p, node_colors = { root : sol.ROOT }, **kwargs)
+
+    @override_animate(highlight_path_of_length_from)
+    def _highlight_path_of_length_from_animation(self, root, length, **kwargs):
+        p = self.path_of_length_from(root, length)
+        return self._highlight_path_animation(
+            p,
+            node_colors = { root : sol.ROOT },
+            **kwargs
+        )
+
+class HPGraph(GridableGraph, PercolatingGraph):
     def correct_orientation(self, edge):
         if edge in self.edges:
             return edge
@@ -346,31 +431,3 @@ class HPCGraph(HPGraph, ClusterGraph):
 
 class HPCCGraph(HPGraph, CoupledClusterGraph):
     pass
-
-# good shape/scale combinations:
-# (24,14) 0.3
-# (8,5)   0.95
-# (3,2)   2.5
-class Gridable(Graph):
-    @classmethod
-    def from_grid(cls, shape, scale, **kwargs):
-        nodes, edges = gr.grid_nodes_edges(*shape)
-
-        if 'vertex_config' not in kwargs:
-            kwargs['vertex_config'] = sol.VERTEX_CONFIG
-
-        if 'edge_config' not in kwargs:
-            kwargs['edge_config'] = sol.EDGE_CONFIG
-
-        return cls(
-            nodes,
-            edges,
-            layout=gr.grid_layout(*shape, scale=scale),
-            **kwargs
-        ).set(gridshape=shape, gridscale=scale)
-
-    def path_offscreen_from(self, root):
-        if not (hasattr(self, 'gridshape') and hasattr(self, 'gridscale')):
-            raise Exception("trying to get path offscreen in a non-grid graph")
-
-        #TODO: IMPLEMENT THIS ONE

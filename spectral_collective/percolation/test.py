@@ -182,3 +182,15 @@ class PathTest(Scene):
         self.wait()
         self.play(h.animate.highlight_longest_path_from((0,0)))
         self.wait()
+
+class GridPathTest(Scene):
+    def construct(self):
+
+        h = HPGraph.from_grid((24,14),0.3)
+
+        h.percolate(0.501)
+        h.dramatically_highlight_ball((0,0))
+        self.add(h)
+        self.wait()
+        self.play(h.animate.highlight_path_of_length_from((0,0), 10))
+        self.wait()
