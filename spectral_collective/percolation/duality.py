@@ -22,6 +22,8 @@ def convert_edge(u,v):
 
 class Duality(VGroup):
     def __init__(self, shape=(8,5), scale=0.95):
+        self.scale = scale
+
         primal_nodes, primal_edges = gr.grid_nodes_edges(*shape)
         nxprimal = nx.Graph()
         nxprimal.add_nodes_from(primal_nodes)
@@ -29,7 +31,7 @@ class Duality(VGroup):
 
         self.primal = HPGraph.from_networkx(
             nxprimal,
-            layout=gr.grid_layout(*shape, scale=scale),
+            layout=gr.grid_layout(*shape, scale=self.scale),
             vertex_config = sol.VERTEX_CONFIG,
             edge_config = sol.EDGE_CONFIG
         )
@@ -41,12 +43,18 @@ class Duality(VGroup):
 
         self.dual = HPGraph.from_networkx(
             nxdual,
-            layout=gr.dual_layout(*shape, scale=scale),
+            layout=gr.dual_layout(*shape, scale=self.scale),
             vertex_config = sol.DUAL_VERTEX_CONFIG,
             edge_config = sol.DUAL_EDGE_CONFIG
         )
 
-        super().__init__(self.primal, self.dual)
+        super().__init__(self.dual, self.primal)
+
+    def hide_dual(self):
+        self.dual.shift(self.scale * 0.5 * (LEFT + DOWN))
+
+    def reveal_dual(self):
+        self.dual.shift(self.scale * 0.5 * (RIGHT + UP))
 
     def percolate(self, p=0.5):
         primal_closed_edges = self.primal.random_edge_set(p)
@@ -73,7 +81,46 @@ class Duality(VGroup):
             AnimationGroup(*(animation(m, **kwargs) for m in dualmobjects))
         )
 
+class HideRevealTest(Scene):
+    def construct(self):
+        d = Duality()
+
+        self.add(d)
+        self.wait()
+        self.play(d.animate.hide_dual())
+        self.wait()
+        self.play(d.animate.reveal_dual())
+        self.wait()
+
 class DualityTest(Scene):
+    def construct(self):
+        d = Duality()
+        d.hide_dual()
+
+        self.add(d)
+
+        self.wait()
+        self.play(d.animate.reveal_dual())
+        self.wait()
+
+        self.play(
+            GlitchEdges(d.primal, out=True),
+            GlitchEdges(d.dual, out=True),
+            run_time=0.25
+        )
+
+        d = Duality()
+        d.percolate()
+
+        self.play(
+            GlitchEdges(d.primal),
+            GlitchEdges(d.dual),
+            run_time=0.05
+        )
+
+        self.wait()
+
+class ReRandomizeTest(Scene):
     def construct(self):
         d = Duality()
 
