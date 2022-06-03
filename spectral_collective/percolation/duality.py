@@ -29,22 +29,24 @@ def z2add(u, v):
 def longest_winding_path(dual, start):
     current_dir = 0
     path = [start]
+    excluded_nodes = []
     exitflag = False
 
     while not exitflag:
         turn_counter = 0
-        while not edgeQ(
-                dual,
-                path[-1],
-                z2add(path[-1], DIRECTIONS[current_dir])
-            ) and turn_counter < 3:
+
+        next_node = z2add(path[-1], DIRECTIONS[current_dir])
+
+        while (turn_counter < 3 and 
+          (next_node in excluded_nodes or not edgeQ(dual, path[-1], next_node))):
             current_dir = (current_dir - 1) % 4
+            next_node = z2add(path[-1], DIRECTIONS[current_dir])
             turn_counter += 1 
 
         if turn_counter < 3:
-            path.append(z2add(path[-1], DIRECTIONS[current_dir]))
+            path.append(next_node)
         else:
-            path.pop()
+            excluded_nodes.append(path.pop())
             current_dir = (current_dir + 1) % 4
 
         current_dir = (current_dir + 1) % 4
