@@ -23,7 +23,8 @@ class HighlightableGraph(Graph):
         edge_colors = {},
         edge_default_color = sol.HIGHLIGHT_EDGE,
         nodes_to_scale = [],
-        scale_factor = 2
+        scale_factor = 2,
+        **kwargs
     ):
         if edges == None:
             edges = self.edges_spanned_by(nodes)
@@ -110,31 +111,32 @@ class HighlightableGraph(Graph):
         bfs = nx.bfs_edges(self._graph, source=root, depth_limit=radius)
         return [root] + [v for u, v in bfs]
 
-    def highlight_ball(self, root, radius=None):
+    def highlight_ball(self, root, radius=None, root_scale_factor=2):
         self.highlight_subgraph(self.ball(root, radius), node_colors = { root : sol.ROOT })
-        self[root].scale(2)
+        self[root].scale(root_scale_factor)
 
     @override_animate(highlight_ball)
-    def _highlight_ball_animation(self, root, radius=None, **kwargs):
+    def _highlight_ball_animation(self, root, radius=None, root_scale_factor=2, **kwargs):
         return AnimationGroup(
             self._highlight_subgraph_animation(
                 self.ball(root, radius),
                 node_colors = { root : sol.ROOT },
                 nodes_to_scale = [root],
+                scale_factor = root_scale_factor,
                 **kwargs
             )
         )
 
-    def unhighlight_complement_ball(self, root, radius=None):
-        self.unhighlight_complement(self.ball(root, radius))
+    def unhighlight_complement_ball(self, root, radius=None, **kwargs):
+        self.unhighlight_complement(self.ball(root, radius), **kwargs)
 
     @override_animate(unhighlight_complement_ball)
     def _unhighlight_complement_ball_animation(self, root, radius=None, **kwargs):
         return self._unhighlight_complement_animation(self.ball(root, radius), **kwargs)
 
-    def dramatically_highlight_ball(self, root, radius=None):
-        self.highlight_ball(root, radius)
-        self.unhighlight_complement_ball(root, radius)
+    def dramatically_highlight_ball(self, root, radius=None, **kwargs):
+        self.highlight_ball(root, radius, **kwargs)
+        self.unhighlight_complement_ball(root, radius, **kwargs)
 
     @override_animate(dramatically_highlight_ball)
     def _dramatically_highlight_ball_animation(self, root, radius=None, **kwargs):

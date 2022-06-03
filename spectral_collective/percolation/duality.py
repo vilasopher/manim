@@ -6,8 +6,6 @@ import solarized as sol
 from random import seed
 from glitch import GlitchEdges
 
-seed(0)
-
 def convert_edge(u,v):
     if u[0] == v[0]:
         return (
@@ -20,21 +18,61 @@ def convert_edge(u,v):
             (u[0] + v[0], 2 * u[1] + 1)
         )
 
+DIRECTIONS = [(0,2), (-2,0), (0,-2), (2,0)]
+
+def edgeQ(graph, u, v):
+    return (u,v) in graph.edges or (v,u) in graph.edges
+
+def z2add(u, v):
+    return (u[0] + v[0], u[1] + v[1])
+
+def longest_winding_path(dual, start):
+    current_dir = 0
+    path = [start]
+    exitflag = False
+
+    while not exitflag:
+        turn_counter = 0
+        while not edgeQ(
+                dual,
+                path[-1],
+                z2add(path[-1], DIRECTIONS[current_dir])
+            ) and turn_counter < 3:
+            current_dir = (current_dir - 1) % 4
+            turn_counter += 1 
+
+        if turn_counter < 3:
+            path.append(z2add(path[-1], DIRECTIONS[current_dir]))
+        else:
+            path.pop()
+            current_dir = (current_dir + 1) % 4
+
+        current_dir = (current_dir + 1) % 4
+
+        if len(path) == 0:
+            exitflag = True
+
+        if len(path) > 1 and path[-1] == start:
+            exitflag = True
+
+        print(len(path))
+
+    return path
+
+def circuit_around_origin(dual):
+    for i in range(len(dual)):
+        if (2 * i + 1, -1) not in dual.vertices:
+            return []
+        elif edgeQ(dual, (2 * i + 1, -1), (2 * i + 1, 1)):
+            path = longest_winding_path(dual, (2 * i + 1, -1))
+            if len(path) > 0:
+                return path
+
 class Duality(VGroup):
     def __init__(self, shape=(8,5), scale=0.95):
         self.scale = scale
 
-        primal_nodes, primal_edges = gr.grid_nodes_edges(*shape)
-        nxprimal = nx.Graph()
-        nxprimal.add_nodes_from(primal_nodes)
-        nxprimal.add_edges_from(primal_edges)
-
-        self.primal = HPGraph.from_networkx(
-            nxprimal,
-            layout=gr.grid_layout(*shape, scale=self.scale),
-            vertex_config = sol.VERTEX_CONFIG,
-            edge_config = sol.EDGE_CONFIG
-        )
+        self.primal = HPGraph.from_grid(shape, scale=self.scale)
 
         dual_nodes, dual_edges = gr.dual_nodes_edges(*shape)
         nxdual = nx.Graph()
@@ -55,6 +93,13 @@ class Duality(VGroup):
 
     def reveal_dual(self):
         self.dual.shift(self.scale * 0.5 * (RIGHT + UP))
+
+    def highlight_circuit_around_origin(self):
+        path = self.primal.path_to_boundary_from((0,0))
+
+        if len(path) == 0:
+            circuit = circuit_around_origin(self.dual)
+            self.dual.highlight_path(circuit)
 
     def percolate(self, p=0.5):
         primal_closed_edges = self.primal.random_edge_set(p)
@@ -80,6 +125,14 @@ class Duality(VGroup):
             AnimationGroup(*(animation(m, **kwargs) for m in primalmobjects)),
             AnimationGroup(*(animation(m, **kwargs) for m in dualmobjects))
         )
+
+class CircuitTest(Scene):
+    def construct(self):
+        d = Duality((24,14), 0.3)
+        d.percolate(0.45)
+        d.primal.dramatically_highlight_ball((0,0), root_scale_factor = 1.5)
+        d.highlight_circuit_around_origin()
+        self.add(d)
 
 class HideRevealTest(Scene):
     def construct(self):
