@@ -19,6 +19,19 @@ def convert_edge(u,v):
         )
 
 DIRECTIONS = [(0,2), (-2,0), (0,-2), (2,0)]
+MY_UP = (0,2)
+MY_LEFT = (-2,0)
+MY_DOWN = (0,-2)
+MY_RIGHT = (2,0)
+
+def turn_left(u,v):
+    return (-v, u)
+
+def turn_right(u,v):
+    return (v, -u)
+
+def turn_back(u,v):
+    return (-u,-v)
 
 def edgeQ(graph, u, v):
     return (u,v) in graph.edges or (v,u) in graph.edges
@@ -27,39 +40,50 @@ def z2add(u, v):
     return (u[0] + v[0], u[1] + v[1])
 
 def longest_winding_path(dual, start):
-    current_dir = 0
     path = [start]
+    directions = []
+    current_dir = MY_RIGHT
+
     excluded_nodes = []
-    exitflag = False
 
-    while not exitflag:
-        turn_counter = 0
+    print('called, start=',start)
 
-        next_node = z2add(path[-1], DIRECTIONS[current_dir])
+    while len(path) > 0:
+        current_dir = turn_left(*current_dir)
+        next_node = z2add(path[-1], current_dir)
+        
+        success = False
 
-        while (turn_counter < 3 and 
-          (next_node in excluded_nodes or not edgeQ(dual, path[-1], next_node))):
-            current_dir = (current_dir - 1) % 4
-            next_node = z2add(path[-1], DIRECTIONS[current_dir])
-            turn_counter += 1 
+        for _ in range(3):
+            if next_node in excluded_nodes or not edgeQ(dual, path[-1], next_node):
+                current_dir = turn_right(*current_dir)
+                next_node = z2add(path[-1], current_dir)
+            elif next_node in path:
+                i = path.index(next_node)
+                path = path[:i+1]
+                directions = directions[:i]
+                excluded_nodes.append(next_node)
+                break
+            else:
+                path.append(next_node)
+                directions.append(current_dir)
+                success = True
+                break
 
-        if turn_counter < 3:
-            path.append(next_node)
-        else:
+        if not success:
             excluded_nodes.append(path.pop())
-            current_dir = (current_dir + 1) % 4
 
-        current_dir = (current_dir + 1) % 4
+            if len(path) > 0:
+                current_dir = directions.pop()
+            else:
+                return []
 
-        if len(path) == 0:
-            exitflag = True
-
-        if len(path) > 1 and path[-1] == start:
-            exitflag = True
+        if success and path[-1] == start:
+            return path
 
         print(len(path))
 
-    return path
+    return []
 
 def circuit_around_origin(dual):
     for i in range(len(dual)):
