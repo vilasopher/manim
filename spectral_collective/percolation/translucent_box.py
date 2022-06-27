@@ -1,0 +1,13 @@
+from manim import *
+import solarized as sol
+
+class TranslucentBox(Rectangle):
+    def __init__(self, *enclosed_mobjects, margin = 0.1, opacity = 0.95):
+        g = Group(*enclosed_mobjects)
+
+        width = g.get_right()[0] - g.get_left()[0] + 2 * margin
+        height = g.get_top()[1] - g.get_bottom()[1] + 2 * margin
+
+        super().__init__(width=width, height=height, color=sol.BASE2)
+        self.set_fill(sol.BASE3, opacity=opacity)
+        self.move_to(g.get_center())

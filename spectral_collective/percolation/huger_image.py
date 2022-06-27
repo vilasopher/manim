@@ -4,19 +4,26 @@ from PIL import Image
 from collections import deque
 from scipy import stats
 
-shape = (18000, 32000)
+shape = (20160, 35840)
+
+numverts = shape[0] * shape[1]
 
 foreground = np.uint8([7,54,66])
 background = np.uint8([253,246,227])
 
-numverts = shape[0] * shape[1]
+def int_to_rgb(col):
+    return np.uint8([
+        col // 2**16,
+        (col % 2**16) // 2**8,
+        col % 2**8
+    ])
 
-for s in range(1,10):
+for s in range(8,20):
     p = 0.5
     seed(s)
 
-    data = np.full((numverts, 5), -1, dtype=np.intc)
-    pixels = np.zeros((*shape,3), dtype=np.uint8)
+    bfs = np.full(numverts, -1, dtype=np.intc)
+    adj = np.full((numverts, 4), -1, dtype=np.intc)
 
     edgedirs = [(0,1), (1,0)]
 
@@ -30,14 +37,14 @@ for s in range(1,10):
             e1, e2 = edgedirs[d]
             if i - e1 >= 0 and j - e2 >= 0 and random() < p:
                 m = (i - e1) + (j - e2) * shape[0]
-                data[n,d] = m
-                data[m,d+2] = n
+                adj[n,d] = m
+                adj[m,d+2] = n
 
     mode = -1
     modecount = 0
 
     for n in range(numverts):
-        if data[n,4] == -1:
+        if bfs[n] == -1:
             color = randint(0, 2**24)
             count = 0
 
@@ -45,31 +52,29 @@ for s in range(1,10):
 
             while len(to_visit) > 0:
                 cur = to_visit.pop()
-                data[cur,4] = color
+                bfs[cur] = color
                 count += 1
 
                 print(s, p, 'exploring cluster of ' + str(n), count)
 
                 for d in range(4):
-                    if data[cur,d] != -1 and data[data[cur,d],4] == -1:
-                        to_visit.append(data[cur,d])
+                    if adj[cur,d] != -1 and bfs[adj[cur,d]] == -1:
+                        to_visit.append(adj[cur,d])
 
             if count > modecount:
                 modecount = count
                 mode = color
 
-    def int_to_rgb(col):
-        return np.uint8([
-            col // 2**16,
-            (col % 2**16) // 2**8,
-            col % 2**8
-        ])
+    # clear adjacency list
+    adj = 0
 
     print(s, p, 'rendering allclusters...')
 
+    pixels = np.zeros((*shape,3), dtype=np.uint8)
+
     for i in range(shape[0]):
         for j in range(shape[1]):
-            pixels[i,j] = int_to_rgb(data[i + j * shape[0], 4])
+            pixels[i,j] = int_to_rgb(bfs[i + j * shape[0]])
 
     img = Image.fromarray(pixels, mode='RGB')
     img.save('huge/allclusters_shape=' + str(shape)
@@ -83,7 +88,7 @@ for s in range(1,10):
 
     for i in range(shape[0]):
         for j in range(shape[1]):
-            if data[i + j * shape[0], 4] == mode:
+            if bfs[i + j * shape[0]] == mode:
                 pixels[i,j] = foreground
             else:
                 pixels[i,j] = background
@@ -95,3 +100,6 @@ for s in range(1,10):
     img.close()
 
     print(s, p, 'rendered biggestcluster!')
+
+    # clear pixels
+    pixels = 0
