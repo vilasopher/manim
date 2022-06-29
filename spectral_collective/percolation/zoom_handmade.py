@@ -7,7 +7,7 @@ HUGE_FILENAME = f'allclusters_shape=(20160, 35840)_seed=5_parameter=0.5.png'
 RESOLUTION = (1440, 2560)
 FRAME_RATE = 60
 RUN_TIME = 10
-TOP_LEFT = (435 * 14, 2108 * 14)
+STARTING_CENTER = (1140 * 14, 400 * 14)
 
 Image.MAX_IMAGE_PIXELS = 2 ** 32
 
@@ -15,7 +15,7 @@ img = Image.open(f'huge/{HUGE_FILENAME}')
 PIXELS = np.asarray(img)
 img.close()
 
-MINIMUM_SCALE = 1 / 20
+MINIMUM_SCALE = 1 / 14
 MAXIMUM_SCALE = np.shape(PIXELS)[0] // RESOLUTION[0]
 
 def crop(topleft, scale, frame_debug=None):
@@ -68,15 +68,15 @@ def lerp(p, q, t):
     return (p[0] + t * (q[0] - p[0]), p[1] + t * (q[1] - p[1]))
 
 def weird_interpolation(t):
-    return (1+np.cos((1+(2*t-1)**9)*np.pi))/2
+    return (1-np.cos((t**5)*np.pi))/2
 
 def smoothing_function(t):
     smoothpart = weird_interpolation(t) * (1-np.cos(t*np.pi))/2 
-    sqrtpart = (1 - weird_interpolation(t)) * (np.sqrt(15*t+1)-1)/3
-    return smoothpart + sqrtpart
+    squarepart = (1 - weird_interpolation(t)) * t**2
+    return smoothpart + squarepart
 
 NUM_FRAMES = int(RUN_TIME * FRAME_RATE)
-DIR_NAME = f'zooms/{HUGE_FILENAME}_topleft={TOP_LEFT}_runtime={RUN_TIME}'
+DIR_NAME = f'zooms/{HUGE_FILENAME}_center={STARTING_CENTER}_runtime={RUN_TIME}'
 
 def thread_func(f):
     print(f'Starting frame {f}...')
@@ -85,10 +85,15 @@ def thread_func(f):
 
     scale = MINIMUM_SCALE + smoothing_function(alpha) * (MAXIMUM_SCALE - MINIMUM_SCALE)
 
-    naive_tl = lerp(TOP_LEFT, (0,0), 1 - smoothing_function(1 - alpha))
+    center = lerp(
+        STARTING_CENTER,
+        (np.shape(PIXELS)[0]/2, np.shape(PIXELS)[1]/2),
+        smoothing_function(alpha)
+    )
+
     topleft = (
-        naive_tl[0] - scale * RESOLUTION[0] / 2,
-        naive_tl[1] - scale * RESOLUTION[1] / 2
+        center[0] - scale * RESOLUTION[0] / 2,
+        center[1] - scale * RESOLUTION[1] / 2
     )
 
     bottomright = (
