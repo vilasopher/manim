@@ -18,96 +18,54 @@ def convert_edge(u,v):
             (u[0] + v[0], 2 * u[1] + 1)
         )
 
-DIRECTIONS = [(0,2), (-2,0), (0,-2), (2,0)]
-MY_UP = (0,2)
-MY_LEFT = (-2,0)
-MY_DOWN = (0,-2)
-MY_RIGHT = (2,0)
-
-def turn_left(u,v):
-    return (-v, u)
-
-def turn_right(u,v):
-    return (v, -u)
-
-def turn_back(u,v):
-    return (-u,-v)
-
-def edgeQ(graph, u, v):
-    return (u,v) in graph.edges or (v,u) in graph.edges
-
 def z2add(u, v):
     return (u[0] + v[0], u[1] + v[1])
 
-def longest_winding_path(dual, start):
-    path = [start]
-    directions = []
-    current_dir = MY_RIGHT
+def boundary(primal_graph):
+    c = nx.node_connected_component(primal_graph, (0,0))
 
-    excluded_nodes = []
+    q = [(0,0)]
+    seen = []
 
-    print('called, start=',start)
+    boundary = []
 
-    while len(path) > 0:
-        current_dir = turn_left(*current_dir)
-        next_node = z2add(path[-1], current_dir)
-        
-        success = False
+    while q:
+        v = q.pop()
+        seen.append(v)
+        for diff in [(0,1),(0,-1),(1,0),(-1,0)]:
+            u = z2add(v,diff)
+            if u in c and u not in seen:
+                q.append(u)
+            elif u not in c:
+                boundary.append(convert_edge(u,v))
 
-        for _ in range(3):
-            if next_node in excluded_nodes or not edgeQ(dual, path[-1], next_node):
-                current_dir = turn_right(*current_dir)
-                next_node = z2add(path[-1], current_dir)
-            elif next_node in path:
-                i = path.index(next_node)
-                path = path[:i+1]
-                directions = directions[:i]
-                excluded_nodes.append(next_node)
-                break
-            else:
-                path.append(next_node)
-                directions.append(current_dir)
-                success = True
-                break
+    return boundary
 
-        if not success:
-            excluded_nodes.append(path.pop())
+def circuit_around_origin(primal_graph, dual_graph, shape):
+    b = boundary(primal_graph)
+    s = dual_graph.edge_subgraph(b).copy()
 
-            if len(path) > 0:
-                current_dir = directions.pop()
-            else:
-                return []
-
-        if success and path[-1] == start:
-            return path
-
-        print(len(path))
-
-    return []
-
-def circuit_around_origin(dual):
-    for i in range(len(dual)):
-        if (2 * i + 1, -1) not in dual.vertices:
-            return []
-        elif edgeQ(dual, (2 * i + 1, -1), (2 * i + 1, 1)):
-            path = longest_winding_path(dual, (2 * i + 1, -1))
-            if len(path) > 0:
-                return path
+    for i in range(shape[0]):
+        j = shape[0] - i 
+        if convert_edge((j-1,0), (j,0)) in b or convert_edge((j,0), (j-1,0)) in b:
+            s.remove_edge((2*j-1,-1), (2*j-1,1))
+            return [(2*j-1,-1)] + nx.shortest_path(s, source=(2*j-1,1), target=(2*j-1,-1))
 
 class Duality(VGroup):
     def __init__(self, shape=(8,5), scale=0.95):
+        self.shape = shape
         self.scale = scale
 
-        self.primal = HPGraph.from_grid(shape, scale=self.scale)
+        self.primal = HPGraph.from_grid(self.shape, scale=self.scale)
 
-        dual_nodes, dual_edges = gr.dual_nodes_edges(*shape)
+        dual_nodes, dual_edges = gr.dual_nodes_edges(*self.shape)
         nxdual = nx.Graph()
         nxdual.add_nodes_from(dual_nodes)
         nxdual.add_edges_from(dual_edges)
 
         self.dual = HPGraph.from_networkx(
             nxdual,
-            layout=gr.dual_layout(*shape, scale=self.scale),
+            layout=gr.dual_layout(*self.shape, scale=self.scale),
             vertex_config = sol.DUAL_VERTEX_CONFIG,
             edge_config = sol.DUAL_EDGE_CONFIG
         )
@@ -124,7 +82,11 @@ class Duality(VGroup):
         path = self.primal.path_to_boundary_from((0,0))
 
         if len(path) == 0:
-            circuit = circuit_around_origin(self.dual)
+            circuit = circuit_around_origin(
+                self.primal._graph, 
+                self.dual._graph,
+                self.shape
+            )
             self.dual.highlight_path(circuit)
 
     def percolate(self, p=0.5):

@@ -13,7 +13,18 @@ class HighlightableGraph(Graph):
 
     def edges_spanned_by(self, nodes):
         return [e for e in self.edges if e[0] in nodes and e[1] in nodes ]
-    
+
+    def safe_edge(self, e):
+        if e in self.edges:
+            return e
+        elif (e[1], e[0]) in self.edges:
+            return (e[1], e[0])
+        else:
+            raise Exception('no such edge')
+
+    def path_edges(self, p):
+        return [self.safe_edge((p[i],p[i+1])) for i in range(len(p)-1)]
+
     def highlight_subgraph(
         self,
         nodes,
@@ -152,6 +163,7 @@ class HighlightableGraph(Graph):
     def highlight_path(self, path, color=sol.ORANGE, **kwargs):
         self.highlight_subgraph(
             path,
+            edges = self.path_edges(path),
             node_default_color = color,
             edge_default_color = color,
             **kwargs
