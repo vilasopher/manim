@@ -19,6 +19,12 @@ class TransparencyTest(Scene):
         self.play(slider.animate.add_crit())
         self.wait()
 
+class Thumbnail(Scene):
+    def construct(self):
+        text = Tex(r'\textbf{percolation}', color=sol.BASE02, font_size=220)
+
+        self.add(text)
+
 class TheoremScene(Scene):
     def construct(self):
         temp = TexTemplate()

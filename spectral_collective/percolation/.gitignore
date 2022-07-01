@@ -1,4 +1,5 @@
 /huge/*
 /media/*
 /zooms/*
+/thumbnails/*
 /__pycache__/*
