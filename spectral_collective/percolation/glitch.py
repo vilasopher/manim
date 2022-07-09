@@ -34,6 +34,17 @@ class GlitchSingleMobject(Animation):
         self.mobject.restore()
 
     def interpolate(self, alpha):
+        if alpha <= 0:
+            return
+
+        if alpha >= 1:
+            self.mobject.restore()
+
+            if self.out:
+                self.mobject.set_opacity(0)
+
+            return
+
         for mobj in self.mobject:
             mobj.rotate(- mobj.last_rotation)
             mobj.shift(- mobj.last_shift)
@@ -66,5 +77,25 @@ def GlitchEdges(graph, intensity=0.05, out=False, **kwargs):
         )), AnimationGroup(*(
             GlitchSingleMobject(graph.vertices[v], intensity=0, fade=False, out=out, **kwargs)
             for v in graph.vertices
+        ))
+    )
+
+def GlitchPercolate(graph, intensity=0.05, p=0.5, **kwargs):
+    return AnimationGroup(
+        AnimationGroup(*(
+            GlitchSingleMobject(
+                graph.edges[e],
+                intensity=intensity,
+                out = False if random() < p else True,
+            **kwargs
+            ) for e in graph.edges
+        )), AnimationGroup(*(
+            GlitchSingleMobject(
+                graph.vertices[v],
+                intensity=0,
+                fade=False,
+                out=False,
+                **kwargs
+            ) for v in graph.vertices
         ))
     )
