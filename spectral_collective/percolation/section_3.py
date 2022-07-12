@@ -2,7 +2,7 @@ from manim import *
 import grid as gr
 import solarized as sol
 import networkx as nx
-from more_graphs import HPGraph
+from more_graphs import HPCCGraph
 from glitch import Glitch, GlitchEdges, GlitchPercolate
 import random
 
@@ -15,7 +15,7 @@ class PipeSystemAbstract(Scene):
         nxgraph.add_nodes_from(nodes)
         nxgraph.add_edges_from(edges)
 
-        return HPGraph.from_networkx(
+        return HPCCGraph.from_networkx(
             nxgraph,
             layout=gr.grid_layout(width, height, scale=scale),
             vertex_config = sol.VERTEX_CONFIG,
@@ -152,3 +152,20 @@ class PumpInMultiple(PipeSystemAbstract):
         self.wait()
 
         self.play(GlitchEdges(g, intensity=0.05), run_time=0.25)
+
+class Colored1(PipeSystemAbstract):
+    def construct(self):
+        g = self.pipe_system(24,14,0.3)
+        g.set_p(0.5)
+        self.play(GlitchEdges(g, intensity=0.05), run_time=0.25)
+        self.wait(2.5)
+        self.play(GlitchEdges(g, intensity=0.05), run_time=0.25)
+
+class Colored2(Colored1):
+    pass
+
+class Colored3(Colored1):
+    pass
+
+class Colored4(Colored1):
+    pass
