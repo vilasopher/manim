@@ -11,8 +11,8 @@ def almost_linear(alpha):
     return interp(alpha) * alpha + (1 - interp(alpha)) * (1 - np.cos(np.pi * alpha)) / 2
 
 class SpoilerBackgroundAbstract(Scene):
-    def abstract_construct(self, start, end):
-        random.seed(2) # good ones: 1 = green, 2 = blue
+    def abstract_construct(self, start, end, run_time=10):
+        random.seed(1) # good ones: 1 = green, 2 = blue
 
         p = ValueTracker(start if start < end else end)
 
@@ -36,15 +36,19 @@ class SpoilerBackgroundAbstract(Scene):
             run_time = 10
         )
 
-class SpoilerBackground1(SpoilerBackgroundAbstract):
+class SpoilerBackground0(SpoilerBackgroundAbstract):
     def construct(self):
-        self.abstract_construct(0, 1)
+        self.abstract_construct(0, 1, run_time=20)
+
+class SpoilerBackground1BACKWARDS(SpoilerBackgroundAbstract):
+    def construct(self):
+        self.abstract_construct(1, 0)
 
 class SpoilerBackground2(SpoilerBackgroundAbstract):
     def construct(self):
         self.abstract_construct(0, 3/4)
 
-class SpoilerBackground3(SpoilerBackgroundAbstract):
+class SpoilerBackground3BACKWARDS(SpoilerBackgroundAbstract):
     def construct(self):
         self.abstract_construct(3/4, 1/4)
 
@@ -52,7 +56,7 @@ class SpoilerBackground4(SpoilerBackgroundAbstract):
     def construct(self):
         self.abstract_construct(1/4, 5/8)
 
-class SpoilerBackground5(SpoilerBackgroundAbstract):
+class SpoilerBackground5BACKWARDS(SpoilerBackgroundAbstract):
     def construct(self):
         self.abstract_construct(5/8, 3/8)
 
@@ -60,6 +64,22 @@ class SpoilerBackground6(SpoilerBackgroundAbstract):
     def construct(self):
         self.abstract_construct(3/8, 9/16)
 
-class SpoilerBackground7(SpoilerBackgroundAbstract):
+class SpoilerBackground7BACKWARDS(SpoilerBackgroundAbstract):
     def construct(self):
         self.abstract_construct(9/16, 7/16)
+
+class SpoilerBackground8(SpoilerBackgroundAbstract):
+    def construct(self):
+        self.abstract_construct(7/16, 17/32)
+
+class SpoilerBackground9BACKWARDS(SpoilerBackgroundAbstract):
+    def construct(self):
+        self.abstract_construct(17/32, 15/32)
+
+class SpoilerBackground10(SpoilerBackgroundAbstract):
+    def construct(self):
+        self.abstract_construct(15/32, 33/64)
+
+class SpoilerBackground11BACKWARDS(SpoilerBackgroundAbstract):
+    def construct(self):
+        self.abstract_construct(33/64, 31/64)

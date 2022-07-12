@@ -2,7 +2,7 @@ from manim import *
 import solarized as sol
 
 class TranslucentBox(Rectangle):
-    def __init__(self, *enclosed_mobjects, margin = 0.2, opacity = 0.9):
+    def __init__(self, *enclosed_mobjects, margin = 0.2, opacity = 0.925):
         g = Group(*enclosed_mobjects)
 
         width = g.get_right()[0] - g.get_left()[0] + 2 * margin

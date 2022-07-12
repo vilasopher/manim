@@ -6,8 +6,8 @@ import multiprocessing as mp
 HUGE_FILENAME = f'allclusters_shape=(20160, 35840)_seed=5_parameter=0.5.png'
 RESOLUTION = (1440, 2560)
 FRAME_RATE = 60
-RUN_TIME = 10
-STARTING_CENTER = (1140 * 14, 400 * 14)
+RUN_TIME = 28
+STARTING_CENTER = (434 * 14, 2107 * 14) #(1140 * 14, 400 * 14)  
 
 Image.MAX_IMAGE_PIXELS = 2 ** 32
 
@@ -79,7 +79,7 @@ NUM_FRAMES = int(RUN_TIME * FRAME_RATE)
 DIR_NAME = f'zooms/{HUGE_FILENAME}_center={STARTING_CENTER}_runtime={RUN_TIME}'
 
 def thread_func(f):
-    print(f'Starting frame {f}...')
+    print(f'Starting frame {f+1}...')
 
     alpha = f / NUM_FRAMES
 
@@ -116,10 +116,10 @@ def thread_func(f):
     framepixels = crop(topleft, scale)
 
     img = Image.fromarray(framepixels, mode='RGB')
-    img.save(f'{DIR_NAME}/{f}.png')
+    img.save(f'{DIR_NAME}/{f+1}.png')
     img.close()
     
-    print(f'Finished frame {f}...')
+    print(f'Finished frame {f+1}...')
 
 def main():
     try:
@@ -130,7 +130,7 @@ def main():
     cc = mp.cpu_count()
 
     for b in range(NUM_FRAMES // cc):
-        print(f'BATCH {b}:')
+        print(f'BATCH {b+1}:')
 
         processes = []
 

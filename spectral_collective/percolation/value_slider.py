@@ -10,7 +10,7 @@ class CriticalValueSlider(VGroup):
         self.p = p
 
         self.bg = Rectangle(width=1.4, height=8.5, color=sol.BASE2)
-        self.bg.set_fill(sol.BASE3, opacity=0.95)
+        self.bg.set_fill(sol.BASE3, opacity=0.925)
         self.bg.move_to((self.center + 0.2) * RIGHT)
 
         self.line = Line(
@@ -28,7 +28,7 @@ class CriticalValueSlider(VGroup):
         self.vartick = Line(
             [self.center - 0.1, -3.25 + 6.5 * self.p, 0],
             [self.center + 0.1, -3.25 + 6.5 * self.p, 0],
-            color = sol.RED,
+            color = sol.BASE03,
             z_index = 2
         )
 
@@ -72,7 +72,7 @@ class CriticalValueSlider(VGroup):
         return FadeIn(Group(self.crittick, self.crit), **kwargs)
 
 class ValueSlider(VGroup):
-    def __init__(self, p=0.5, opacity=0.75, bar_color=sol.BASE2, **kwargs):
+    def __init__(self, p=0.5, opacity=0.925, bar_color=sol.BASE2, **kwargs):
         super().__init__(**kwargs)
 
         self.p = p
@@ -90,13 +90,13 @@ class ValueSlider(VGroup):
         self.var = MathTex("p", color=sol.RED)
         self.var.move_to([5.7, -3.25 + 6.5 * self.p, 0])
 
-        self.dec = DecimalNumber(self.p, color=sol.RED)
+        self.dec = DecimalNumber(self.p, color=sol.BASE03)
         self.dec.next_to(self.var, RIGHT * 1.5)
 
         self.tick = Line(
             [5.9, -3.25 + 6.5 * self.p, 0],
             [6.1, -3.25 + 6.5 * self.p, 0],
-            color=sol.RED
+            color=sol.BASE03
         )
 
         self.n0 = MathTex("0", color=sol.BASE03)
