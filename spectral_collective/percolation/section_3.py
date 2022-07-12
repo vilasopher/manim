@@ -6,6 +6,8 @@ from more_graphs import HPGraph
 from glitch import Glitch, GlitchEdges, GlitchPercolate
 import random
 
+WATER_COLOR = rgb_to_color([0,0.5,1])
+
 class PipeSystemAbstract(Scene):
     def pipe_system(self, width, height, scale):
         nodes, edges = gr.grid_nodes_edges(width, height)
@@ -54,12 +56,10 @@ class PumpInInitial(PipeSystemAbstract):
         g .percolate()
         self.add(g)
 
-        water_color = rgb_to_color([0,0.5,1])
-        
-        self.play(g.animate.highlight_subgraph([(0,0)], [], node_default_color=water_color))
+        self.play(g.animate.highlight_subgraph([(0,0)], [], node_default_color=WATER_COLOR))
         self.wait()
 
-        self.play(g.percolation_flow_animation((0,0), water_color), run_time = 5)
+        self.play(g.percolation_flow_animation((0,0), WATER_COLOR), run_time = 5)
         self.wait(3)
 
         self.play(GlitchEdges(g, intensity=0.05), run_time=0.25)
@@ -73,8 +73,7 @@ class PumpIn1(PipeSystemAbstract):
         self.play(GlitchEdges(g, intensity=0.05), run_time=0.25)
         self.wait(0.5)
 
-        water_color = rgb_to_color([0,0.5,1])
-        self.play(g.percolation_flow_animation((0,0), water_color), run_time = 3)
+        self.play(g.percolation_flow_animation((0,0), WATER_COLOR), run_time = 3)
         self.wait(0.5)
 
         self.play(GlitchEdges(g, intensity=0.05), run_time=0.25)
@@ -87,3 +86,69 @@ class PumpIn3(PumpIn1):
 
 class PumpIn4(PumpIn1):
     pass
+
+def random_color():
+    c = rgb_to_color([random.randint(0,255)/255 for _ in range(3)])
+
+    while c == sol.NODE:
+        c = rgb_to_color([random.randint(0,255)/255 for _ in range(3)])
+
+    return c
+
+class PumpInMultiple(PipeSystemAbstract):
+    def construct(self):
+        random.seed(3)
+        g = self.pipe_system(24, 14, 0.3)
+        g.percolate()
+
+        g.highlight_subgraph(
+            g.ball((0,0)),
+            node_default_color=WATER_COLOR,
+            edge_default_color=WATER_COLOR
+        )
+
+        self.add(g)
+        self.wait()
+
+        self.play(
+            g.percolation_flow_animation((8,-4), rgb_to_color([0.1,0.9,0.1])),
+            run_time = 2
+        )
+
+        self.play(
+            g.percolation_flow_animation((7,2), rgb_to_color([1,0,0.1])),
+            run_time = 2
+        )
+
+        self.play(
+            g.percolation_flow_animation((-21,-11), rgb_to_color([0.9,0,0.5])),
+            run_time = 1.5
+        )
+
+        self.play(
+            g.percolation_flow_animation((18,-10), rgb_to_color([0.8,0.4,0])),
+            run_time = 1.5
+        )
+
+        self.play(
+            g.percolation_flow_animation((-2,-3), rgb_to_color([0.5,0.5,0.1])),
+            run_time = 1.5
+        )
+
+        vs = list(g.vertices)
+        random.shuffle(vs)
+
+        clustercount = 0
+
+        for v in vs:
+            if g.vertices[v].color == sol.NODE:
+                col = random_color()
+                self.play(
+                    g.percolation_flow_animation(v, col),
+                    run_time = 100 / (clustercount+10) ** 2
+                )
+                clustercount += 1
+
+        self.wait()
+
+        self.play(GlitchEdges(g, intensity=0.05), run_time=0.25)
