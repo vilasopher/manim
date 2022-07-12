@@ -15,7 +15,7 @@ class PipeSystemAbstract(Scene):
         nxgraph.add_nodes_from(nodes)
         nxgraph.add_edges_from(edges)
 
-        return HPCCGraph.from_networkx(
+        return HPGraph.from_networkx(
             nxgraph,
             layout=gr.grid_layout(width, height, scale=scale),
             vertex_config = sol.VERTEX_CONFIG,
@@ -153,7 +153,21 @@ class PumpInMultiple(PipeSystemAbstract):
 
         self.play(GlitchEdges(g, intensity=0.05), run_time=0.25)
 
-class Colored1(PipeSystemAbstract):
+class ColoredAbstract(Scene):
+    def pipe_system(self, width, height, scale):
+        nodes, edges = gr.grid_nodes_edges(width, height)
+        nxgraph = nx.Graph()
+        nxgraph.add_nodes_from(nodes)
+        nxgraph.add_edges_from(edges)
+
+        return HPCCGraph.from_networkx(
+            nxgraph,
+            layout=gr.grid_layout(width, height, scale=scale),
+            vertex_config = sol.VERTEX_CONFIG,
+            edge_config = sol.EDGE_CONFIG
+        )
+
+class Colored1(ColoredAbstract):
     def construct(self):
         g = self.pipe_system(24,14,0.3)
         g.set_p(0.5)
@@ -168,4 +182,19 @@ class Colored3(Colored1):
     pass
 
 class Colored4(Colored1):
+    pass
+
+class Colored5(Colored1):
+    pass
+
+class Colored6(Colored1):
+    pass
+
+class Colored7(Colored1):
+    pass
+
+class Colored8(Colored1):
+    pass
+
+class Colored9(Colored1):
     pass
