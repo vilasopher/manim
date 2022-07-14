@@ -2,7 +2,7 @@ from manim import *
 import grid as gr
 import solarized as sol
 import networkx as nx
-from more_graphs import HPCCGraph
+from more_graphs import HPCCGraph, HPGraph
 from glitch import Glitch, GlitchEdges, GlitchPercolate
 import random
 
@@ -51,7 +51,7 @@ class GlitchInPipeSystemFinal(PipeSystemAbstract):
 
 class PumpInInitial(PipeSystemAbstract):
     def construct(self):
-        random.seed(3)
+        random.seed(5)
         g = self.pipe_system(24, 14, 0.3)
         g .percolate()
         self.add(g)
@@ -95,21 +95,19 @@ def random_color():
 
     return c
 
-class PumpInMultiple(PipeSystemAbstract):
+class PumpInMultiple(PipeSystemAbstract): #LENGTH: 35.25
     def construct(self):
         random.seed(3)
         g = self.pipe_system(24, 14, 0.3)
         g.percolate()
 
-        g.highlight_subgraph(
-            g.ball((0,0)),
-            node_default_color=WATER_COLOR,
-            edge_default_color=WATER_COLOR
-        )
+        self.play(GlitchEdges(g, intensity=0.05), run_time=0.25)
+        self.wait(0.5)
 
-        self.add(g)
-        self.wait()
+        self.play(g.percolation_flow_animation((0,0), WATER_COLOR), run_time = 3)
+        self.wait(2.5)
 
+        # 6.75
         self.play(
             g.percolation_flow_animation((8,-4), rgb_to_color([0.1,0.9,0.1])),
             run_time = 2
@@ -149,7 +147,9 @@ class PumpInMultiple(PipeSystemAbstract):
                 )
                 clustercount += 1
 
-        self.wait()
+        return
+
+        self.wait(10)
 
         self.play(GlitchEdges(g, intensity=0.05), run_time=0.25)
 
