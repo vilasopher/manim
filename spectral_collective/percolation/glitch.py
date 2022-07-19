@@ -3,11 +3,13 @@ import solarized as sol
 from random import random
 
 class GlitchSingleMobject(Animation):
-    def __init__(self, mobject, intensity=0.01, fade=True, out=False, **kwargs):
+    def __init__(self, mobject, intensity=0.01, fade=True, inn=False, out=False, **kwargs):
         self.mobject = mobject
         self.intensity = intensity
         self.fade = fade
+        self.inn = inn
         self.out = out
+        self.innflag = False
         super().__init__(self.mobject, **kwargs)
 
     def begin(self):
@@ -35,7 +37,13 @@ class GlitchSingleMobject(Animation):
 
     def interpolate(self, alpha):
         if alpha <= 0:
+            if self.inn:
+                self.mobject.set_opacity(0)
+                self.innflag = True
             return
+
+        if alpha > 0 and self.innflag:
+            self.mobject.set_opacity(0.5 if self.fade else 1)
 
         if alpha >= 1:
             self.mobject.restore()
@@ -99,3 +107,24 @@ def GlitchPercolate(graph, intensity=0.05, p=0.5, **kwargs):
             ) for v in graph.vertices
         ))
     )
+
+class GlitchNumber(GlitchSingleMobject):
+    def __init__(
+        self,
+        decnum,
+        intensity=0.01, 
+        lo=0, 
+        hi=1, 
+        fade=True, 
+        inn=False,
+        out=False, 
+        **kwargs
+    ):
+        super().__init__(decnum, intensity, fade, inn, out, **kwargs)
+        self.lo = lo
+        self.hi = hi
+
+    def interpolate(self, alpha):
+        super().interpolate(alpha)
+        for mobj in self.mobject:
+            mobj.set_value(random() * (self.hi - self.lo) + self.lo)

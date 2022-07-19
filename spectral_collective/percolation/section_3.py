@@ -147,9 +147,7 @@ class PumpInMultiple(PipeSystemAbstract): #LENGTH: 35.25
                 )
                 clustercount += 1
 
-        return
-
-        self.wait(10)
+        self.wait(8 + 42/60)
 
         self.play(GlitchEdges(g, intensity=0.05), run_time=0.25)
 

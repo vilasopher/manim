@@ -445,3 +445,12 @@ class HPCGraph(HPGraph, ClusterGraph):
 
 class HPCCGraph(HPGraph, CoupledClusterGraph):
     pass
+
+class HPGrid(HPGraph, GridableGraph):
+    pass
+
+class HPCGrid(HPCGraph, GridableGraph):
+    pass
+
+class HPCCGrid(HPCCGraph, GridableGraph):
+    pass
