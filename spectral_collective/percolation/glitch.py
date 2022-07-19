@@ -112,7 +112,7 @@ class GlitchNumber(GlitchSingleMobject):
     def __init__(
         self,
         decnum,
-        intensity=0.01, 
+        intensity=0.05, 
         lo=0, 
         hi=1, 
         fade=True, 
@@ -126,5 +126,27 @@ class GlitchNumber(GlitchSingleMobject):
 
     def interpolate(self, alpha):
         super().interpolate(alpha)
-        for mobj in self.mobject:
-            mobj.set_value(random() * (self.hi - self.lo) + self.lo)
+        if 0 < alpha and alpha < 1:
+            for mobj in self.mobject:
+                mobj.set_value(random() * (self.hi - self.lo) + self.lo)
+
+                # TODO: This is buggy, something about set_value resets the mobject
+                # and messes things up.
+
+class GlitchNumberTest(Scene):
+    def construct(self):
+        l = DecimalNumber(0.25, color=sol.BASE03).shift(2 * LEFT)
+        m = DecimalNumber(0.5, color=sol.BASE03)
+        n = DecimalNumber(0.75, color=sol.BASE03).shift(2 * RIGHT)
+
+        self.wait()
+
+        self.play(
+            LaggedStart(
+                GlitchNumber(l, run_time=1),
+                GlitchNumber(m, run_time=1),
+                GlitchNumber(n, run_time=1)
+            ), run_time=5
+        )
+
+        self.wait()
