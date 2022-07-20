@@ -49,7 +49,7 @@ class CouplingNumbering(Scene):
                     Glitch(nums[e], inn=True, intensity=0.05, run_time=0.25)
                     for r, e in coupling
                 )
-            ), lag_ratio=1
+            ), lag_ratio=1 #TODO
         )
 
         self.wait(6)
