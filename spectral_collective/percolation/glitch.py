@@ -3,7 +3,7 @@ import solarized as sol
 from random import random
 
 class GlitchSingleMobject(Animation):
-    def __init__(self, mobject, intensity=0.01, fade=True, inn=False, out=False, **kwargs):
+    def __init__(self, mobject, intensity=0.05, fade=True, inn=False, out=False, **kwargs):
         self.mobject = mobject
         self.intensity = intensity
         self.fade = fade
@@ -35,12 +35,12 @@ class GlitchSingleMobject(Animation):
         super().finish()
         self.mobject.restore()
 
-    def interpolate(self, alpha):
+    def boundary(self, alpha):
         if alpha <= 0:
             if self.inn:
                 self.mobject.set_opacity(0)
                 self.innflag = True
-            return
+            return True
 
         if alpha > 0 and self.innflag:
             self.mobject.set_opacity(0.5 if self.fade else 1)
@@ -51,6 +51,11 @@ class GlitchSingleMobject(Animation):
             if self.out:
                 self.mobject.set_opacity(0)
 
+            return True
+
+    def interpolate(self, alpha):
+
+        if self.boundary(alpha):
             return
 
         for mobj in self.mobject:
@@ -71,7 +76,7 @@ class GlitchSingleMobject(Animation):
             scene.remove(self.mobject)
         super().clean_up_from_scene(scene)
 
-def Glitch(mobject, intensity=0.1, out=False, **kwargs):
+def Glitch(mobject, intensity=0.05, out=False, **kwargs):
     return AnimationGroup(*(
         GlitchSingleMobject(mobj, intensity=intensity, out=out, **kwargs)
         for mobj in mobject
@@ -108,45 +113,28 @@ def GlitchPercolate(graph, intensity=0.05, p=0.5, **kwargs):
         ))
     )
 
-class GlitchNumber(GlitchSingleMobject):
+class RandomizeNumber(Animation):
     def __init__(
         self,
         decnum,
-        intensity=0.05, 
         lo=0, 
         hi=1, 
-        fade=True, 
-        inn=False,
-        out=False, 
+        fade=True,
         **kwargs
     ):
-        super().__init__(decnum, intensity, fade, inn, out, **kwargs)
+        super().__init__(decnum, **kwargs)
         self.lo = lo
         self.hi = hi
 
+        self.colored_mobjects = [
+            self.mobject.copy().set(color=c, z_index=-3).set_opacity(0.5 if fade else 1)
+            for c in [sol.BASE03, sol.RED, sol.GREEN, sol.BLUE]
+        ]
+
+        self.mobject.set_opacity(0)
+
+        self.mobject.add(*self.colored_mobjects)
+
     def interpolate(self, alpha):
-        super().interpolate(alpha)
-        if 0 < alpha and alpha < 1:
-            for mobj in self.mobject:
-                mobj.set_value(random() * (self.hi - self.lo) + self.lo)
-
-                # TODO: This is buggy, something about set_value resets the mobject
-                # and messes things up.
-
-class GlitchNumberTest(Scene):
-    def construct(self):
-        l = DecimalNumber(0.25, color=sol.BASE03).shift(2 * LEFT)
-        m = DecimalNumber(0.5, color=sol.BASE03)
-        n = DecimalNumber(0.75, color=sol.BASE03).shift(2 * RIGHT)
-
-        self.wait()
-
-        self.play(
-            LaggedStart(
-                GlitchNumber(l, run_time=1),
-                GlitchNumber(m, run_time=1),
-                GlitchNumber(n, run_time=1)
-            ), run_time=5
-        )
-
-        self.wait()
+        for mobj in self.mobject:
+            mobj.set_value(random() * (self.hi - self.lo) + self.lo)
