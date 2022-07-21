@@ -9,8 +9,8 @@ class CriticalValueSlider(VGroup):
 
         self.p = p
 
-        self.bg = Rectangle(width=1.4, height=8.5, color=sol.BASE2)
-        self.bg.set_fill(sol.BASE3, opacity=0.925)
+        self.bg = Rectangle(width=1.4, height=8.5, color=sol.BASE0)
+        self.bg.set_fill(sol.BASE3, opacity=1) #0.925
         self.bg.move_to((self.center + 0.2) * RIGHT)
 
         self.line = Line(
@@ -72,7 +72,7 @@ class CriticalValueSlider(VGroup):
         return FadeIn(Group(self.crittick, self.crit), **kwargs)
 
 class ValueSlider(VGroup):
-    def __init__(self, p=0.5, opacity=0.925, bar_color=sol.BASE2, **kwargs):
+    def __init__(self, p=0.5, opacity=1, bar_color=sol.BASE0, **kwargs): #0.925
         super().__init__(**kwargs)
 
         self.p = p

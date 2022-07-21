@@ -6,10 +6,6 @@ from glitch import Glitch, RandomizeNumber, GlitchEdges
 from more_graphs import HPCCGrid, HPGrid
 from value_slider import ValueSlider
 
-#TODO: for some reason, the color changes somewhere.
-#TODO: make the end one not glitch out (and match the "new seed" stuff)
-#TODO: figure out why new seed 1/2 to 0 is actually 1 to 0...
-
 class CouplingNumbering(Scene):
     def construct(self):
         random.seed(7)
@@ -18,7 +14,7 @@ class CouplingNumbering(Scene):
 
         coupling = list(g.coupling)
 
-        coupling = [ ((i+1)/59, c[1]) for i, c in enumerate(coupling) ]
+        coupling = [ ((i+1)/60, c[1]) for i, c in enumerate(coupling) ]
 
         g.coupling = coupling
 
@@ -113,17 +109,21 @@ class CouplingUnionFindAbstract(Scene):
                 run_time=0.25
             )
 
+
         truestart = start if start < end else end
         trueend = end if start < end else start
         incrementalruntime = (1/60) * runtime / (trueend - truestart)
 
         prev_r = truestart
+        
+        random.seed(seed)
+
         g.set_p(truestart)
 
         self.wait(incrementalruntime/2)
 
         for r, e in list(coupling):
-            if r > truestart:
+            if r >= truestart and r <= trueend:
                 self.play(
                     g.animate.set_p(r),
                     run_time = incrementalruntime,
@@ -154,7 +154,7 @@ class CouplingUnionFind_Slow_Zero_To_One(CouplingUnionFindAbstract):
 
 class REVERSEDCouplingUnionFind_One_To_OneHalf(CouplingUnionFindAbstract):
     def construct(self):
-        self.construct_abstract(7, 1, 1/2, 6, glitchin=True)
+        self.construct_abstract(7, 1, 1/2, 6)
 
 class NumberRandomizationTransition(Scene):
     def construct(self):
@@ -184,11 +184,16 @@ class NumberRandomizationTransition(Scene):
             run_time=0.5
         )
 
-class NumberResamples1(Scene):
-    def construct(self):
+class NumberResamplesAbstract(Scene):
+    def construct_abstract(self, seed, glitchin=True, glitchout=True, standardized=False):
+        random.seed(seed)
         g = HPCCGrid.from_grid((3,2), 2.5)
 
         coupling = list(g.coupling)
+
+        if standardized:
+            coupling = [ ((i+1)/60, c[1]) for i, c in enumerate(coupling) ]
+            g.coupling = list(coupling)
 
         bg = HPGrid.from_grid(
             (5,3),
@@ -199,13 +204,7 @@ class NumberResamples1(Scene):
 
         self.add(bg, g)
 
-        p = ValueTracker(0.5)
-        slider = ValueSlider(p=0.5, opacity=0.95, bar_color=sol.BASE1, z_index = 2)
-        slider.add_updater(
-            lambda s : s.set_p(p.get_value())
-        )
-        #self.add(slider) TODO
-
+        random.seed(seed)
         g.set_p(0.5)
 
         nums = {}
@@ -219,25 +218,41 @@ class NumberResamples1(Scene):
             nums[e].color = sol.BASE03
             nums[e].next_to(bg.edges[e], ORIGIN)
 
-        self.play(
-            *(
-                Glitch(nums[e])
-                for r, e in coupling
-            ),
-            GlitchEdges(g, intensity=0.03),
-            run_time=0.25
-        )
+        if glitchin:
+            self.play(
+                *(
+                    Glitch(nums[e])
+                    for r, e in coupling
+                ),
+                GlitchEdges(g, intensity=0.03),
+                run_time=0.25
+            )
+        else:
+            self.add(*(nums[e] for r, e in coupling))
 
         self.wait(2.5)
 
-        self.play(
-            *(
-                Glitch(nums[e])
-                for r, e in coupling
-            ),
-            GlitchEdges(g, intensity=0.03),
-            run_time=0.25
-        )
+        if glitchout:
+            self.play(
+                *(
+                    Glitch(nums[e])
+                    for r, e in coupling
+                ),
+                GlitchEdges(g, intensity=0.03),
+                run_time=0.25
+            )
+
+class NumberResamplesFinal(NumberResamplesAbstract):
+    def construct(self):
+        self.construct_abstract(9, glitchout=False, standardized=True)
+
+class NumberResamplesInitial(NumberResamplesAbstract):
+    def construct(self):
+        self.construct_abstract(7, glitchin=False, standardized=True)
+
+class NumberResamples1(NumberResamplesAbstract):
+    def construct(self):
+        self.construct_abstract(random.random())
 
 class NumberResamples2(NumberResamples1):
     pass
@@ -263,24 +278,29 @@ class NumberResamples8(NumberResamples1):
 class NumberResamples9(NumberResamples1):
     pass
 
-class NumberResamples0(NumberResamples1):
-    pass
-
 class REVERSEDCouplingUnionFind_NewSeed_OneHalf_To_Zero(CouplingUnionFindAbstract):
     def construct(self):
-        self.construct_abstract(9, 1/2, 0, 5)
+        self.construct_abstract(9, 1/2, 0, 6)
 
 class CouplingUnionFind_NewSeed_Zero_To_One(CouplingUnionFindAbstract):
     def construct(self):
-        self.construct_abstract(9, 0, 1, 10)
+        self.construct_abstract(9, 0, 1, 12)
 
 class REVERSEDCouplingUnionFind_NewSeed_One_To_Zero(CouplingUnionFindAbstract):
     def construct(self):
-        self.construct_abstract(9, 1, 0, 10)
+        self.construct_abstract(9, 1, 0, 12)
 
 class REVERSEDCouplingUnionFind_NewSeed_One_To_OneHalf(CouplingUnionFindAbstract):
     def construct(self):
-        self.construct_abstract(9, 1, 1/2, 5)
+        self.construct_abstract(9, 1, 1/2, 6)
+
+class FadeInMidResCoupling(Scene):
+    def construct(self):
+        random.seed(2)
+
+        g = HPCCGrid.from_grid((24,14),0.3)
+        
+        self.play(FadeIn(g))
 
 class MidResCoupling(Scene):
     def construct(self):

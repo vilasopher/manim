@@ -54,7 +54,7 @@ class Foreground0(ForegroundAbstract):
 
 class Foreground1(ForegroundAbstract):
     def construct(self):
-        self.abstract_construct(0, 1)
+        self.abstract_construct(1, 0)
 
 class Foreground2(ForegroundAbstract):
     def construct(self):
@@ -79,3 +79,35 @@ class Foreground6(ForegroundAbstract):
 class Foreground7(ForegroundAbstract):
     def construct(self):
         self.abstract_construct(9/16, 7/16)
+
+class REVERSEDForeground0(ForegroundAbstract):
+    def construct(self):
+        self.abstract_construct(1, 0)
+
+class REVERSEDForeground1(ForegroundAbstract):
+    def construct(self):
+        self.abstract_construct(0, 1)
+
+class REVERSEDForeground2(ForegroundAbstract):
+    def construct(self):
+        self.abstract_construct(3/4, 0)
+
+class REVERSEDForeground3(ForegroundAbstract):
+    def construct(self):
+        self.abstract_construct(1/4, 3/4)
+
+class REVERSEDForeground4(ForegroundAbstract):
+    def construct(self):
+        self.abstract_construct(5/8, 1/4)
+
+class REVERSEDForeground5(ForegroundAbstract):
+    def construct(self):
+        self.abstract_construct(3/8, 5/8)
+
+class REVERSEDForeground6(ForegroundAbstract):
+    def construct(self):
+        self.abstract_construct(9/16, 3/8)
+
+class REVERSEDForeground7(ForegroundAbstract):
+    def construct(self):
+        self.abstract_construct(7/16, 9/16)
