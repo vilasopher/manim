@@ -6,6 +6,10 @@ from glitch import Glitch, RandomizeNumber, GlitchEdges
 from more_graphs import HPCCGrid, HPGrid
 from value_slider import ValueSlider
 
+#TODO: for some reason, the color changes somewhere.
+#TODO: make the end one not glitch out (and match the "new seed" stuff)
+#TODO: figure out why new seed 1/2 to 0 is actually 1 to 0...
+
 class CouplingNumbering(Scene):
     def construct(self):
         random.seed(7)
@@ -43,13 +47,16 @@ class CouplingNumbering(Scene):
             nums[e].color = sol.BASE03
             nums[e].next_to(bg.edges[e], ORIGIN)
 
+        randomedgeorder = [ e for r, e in coupling ]
+        random.shuffle(randomedgeorder)
+
         self.play(
             LaggedStart(
                 *(
-                    Glitch(nums[e], inn=True, intensity=0.05, run_time=0.25)
-                    for r, e in coupling
-                )
-            ), lag_ratio=1 #TODO
+                    Glitch(nums[e], inn=True, intensity=0.05, run_time=0.2)
+                    for e in randomedgeorder
+                ), lag_ratio = 1-0.141
+            )
         )
 
         self.wait(6)
@@ -63,15 +70,15 @@ class CouplingNumbering(Scene):
         #self.play(FadeIn(slider)) TODO
         self.wait()
 
-class CouplingUnionFindFast(Scene):
-    def construct(self):
-        random.seed(7)
+class CouplingUnionFindAbstract(Scene):
+    def construct_abstract(self, seed, start, end, runtime, glitchin=False):
+        random.seed(seed)
 
         g = HPCCGrid.from_grid((3,2), 2.5)
 
         coupling = list(g.coupling)
 
-        coupling = [ ((i+1)/59, c[1]) for i, c in enumerate(coupling) ]
+        coupling = [ ((i+1)/60, c[1]) for i, c in enumerate(coupling) ]
 
         g.coupling = coupling
 
@@ -83,14 +90,6 @@ class CouplingUnionFindFast(Scene):
         )
 
         self.add(bg, g)
-
-        p = ValueTracker(0)
-
-        slider = ValueSlider(p=0, opacity=0.95, bar_color=sol.BASE1, z_index = 2)
-        #self.add(slider) TODO
-        slider.add_updater(
-            lambda s : s.set_p(p.get_value())
-        )
 
         nums = {}
 
@@ -104,145 +103,58 @@ class CouplingUnionFindFast(Scene):
             nums[e].next_to(bg.edges[e], ORIGIN)
             self.add(nums[e])
 
-        prev_r = 0
-        for r, e in list(coupling):
+        if glitchin:
             self.play(
-                g.animate.set_p(r),
-                p.animate.set_value(r),
-                run_time = 6 * (r - prev_r),
-                rate_func = rate_functions.linear
-            )
-            prev_r = r
-
-        if prev_r < 1:
-            self.play(
-                g.animate.set_p(1),
-                p.animate.set_value(1),
-                run_time = 6 * (1 - prev_r),
-                rate_func = rate_functions.linear
+                *(
+                    Glitch(nums[e])
+                    for r, e in coupling
+                ),
+                GlitchEdges(g, intensity=0.03),
+                run_time=0.25
             )
 
-class CouplingUnionFindSlow(Scene):
-    def construct(self):
-        random.seed(7)
+        truestart = start if start < end else end
+        trueend = end if start < end else start
+        incrementalruntime = (1/60) * runtime / (trueend - truestart)
 
-        g = HPCCGrid.from_grid((3,2), 2.5)
+        prev_r = truestart
+        g.set_p(truestart)
 
-        coupling = list(g.coupling)
-
-        coupling = [ ((i+1)/59, c[1]) for i, c in enumerate(coupling) ]
-
-        g.coupling = coupling
-
-        bg = HPGrid.from_grid(
-            (5,3),
-            2.5,
-            vertex_config = sol.LIGHT_VERTEX_CONFIG,
-            edge_config = sol.VERY_LIGHT_EDGE_CONFIG
-        )
-
-        self.add(bg, g)
-
-        p = ValueTracker(0)
-
-        slider = ValueSlider(p=0, opacity=0.95, bar_color=sol.BASE1, z_index = 2)
-        #self.add(slider) TODO
-        slider.add_updater(
-            lambda s : s.set_p(p.get_value())
-        )
-
-        nums = {}
-
-        for r, e in coupling:
-            nums[e] = DecimalNumber(
-                    r,
-                    font_size=40,
-                    z_index=1
-                )
-            nums[e].color = sol.BASE03
-            nums[e].next_to(bg.edges[e], ORIGIN)
-            self.add(nums[e])
-
-        prev_r = 0
-        for r, e in list(coupling):
-            self.play(
-                g.animate.set_p(r),
-                p.animate.set_value(r),
-                run_time = 18 * (r - prev_r),
-                rate_func = rate_functions.linear
-            )
-            prev_r = r
-
-        if prev_r < 1:
-            self.play(
-                g.animate.set_p(1),
-                p.animate.set_value(1),
-                run_time = 18 * (1 - prev_r),
-                rate_func = rate_functions.linear
-            )
-
-class CouplingUnionFindOneHalfFromAbove(Scene):
-    def construct(self):
-        random.seed(7)
-
-        g = HPCCGrid.from_grid((3,2), 2.5)
-
-        coupling = list(g.coupling)
-
-        coupling = [ ((i+1)/59, c[1]) for i, c in enumerate(coupling) ]
-
-        g.coupling = coupling
-
-        bg = HPGrid.from_grid(
-            (5,3),
-            2.5,
-            vertex_config = sol.LIGHT_VERTEX_CONFIG,
-            edge_config = sol.VERY_LIGHT_EDGE_CONFIG
-        )
-
-        self.add(bg, g)
-
-        p = ValueTracker(0)
-
-        slider = ValueSlider(p=0, opacity=0.95, bar_color=sol.BASE1, z_index = 2)
-        #self.add(slider) TODO
-        slider.add_updater(
-            lambda s : s.set_p(p.get_value())
-        )
-
-        nums = {}
-
-        for r, e in coupling:
-            nums[e] = DecimalNumber(
-                    r,
-                    font_size=40,
-                    z_index=1
-                )
-            nums[e].color = sol.BASE03
-            nums[e].next_to(bg.edges[e], ORIGIN)
-            self.add(nums[e])
-
-        prev_r = 1/2
-        g.set_p(1/2)
-        p.set_value(1/2)
+        self.wait(incrementalruntime/2)
 
         for r, e in list(coupling):
-            if r > 1/2:
+            if r > truestart:
                 self.play(
                     g.animate.set_p(r),
-                    p.animate.set_value(r),
-                    run_time = 12 * (r - prev_r),
+                    run_time = incrementalruntime,
                     rate_func = rate_functions.linear
                 )
                 prev_r = r
 
-        if prev_r < 1:
+        if prev_r < trueend:
             self.play(
-                g.animate.set_p(1),
-                p.animate.set_value(1),
-                run_time = 12 * (1 - prev_r),
+                g.animate.set_p(trueend),
+                run_time = incrementalruntime,
                 rate_func = rate_functions.linear
             )
+
+        self.wait(incrementalruntime/2)
+
+class CouplingUnionFind_Fast_Zero_To_One(CouplingUnionFindAbstract):
+    def construct(self):
+        self.construct_abstract(7, 0, 1, 6)
+
+class REVERSEDCouplingUnionFind_Fast_One_To_Zero(CouplingUnionFindAbstract):
+    def construct(self):
+        self.construct_abstract(7, 1, 0, 6)
+
+class CouplingUnionFind_Slow_Zero_To_One(CouplingUnionFindAbstract):
+    def construct(self):
+        self.construct_abstract(7, 0, 1, 18)
+
+class REVERSEDCouplingUnionFind_One_To_OneHalf(CouplingUnionFindAbstract):
+    def construct(self):
+        self.construct_abstract(7, 1, 1/2, 6, glitchin=True)
 
 class NumberRandomizationTransition(Scene):
     def construct(self):
@@ -313,7 +225,7 @@ class NumberResamples1(Scene):
                 for r, e in coupling
             ),
             GlitchEdges(g, intensity=0.03),
-            run_time=0.5
+            run_time=0.25
         )
 
         self.wait(2.5)
@@ -324,7 +236,7 @@ class NumberResamples1(Scene):
                 for r, e in coupling
             ),
             GlitchEdges(g, intensity=0.03),
-            run_time=0.5
+            run_time=0.25
         )
 
 class NumberResamples2(NumberResamples1):
@@ -354,187 +266,21 @@ class NumberResamples9(NumberResamples1):
 class NumberResamples0(NumberResamples1):
     pass
 
-class CouplingUnionFindNewSeedOneHalfFromBelow(Scene):
+class REVERSEDCouplingUnionFind_NewSeed_OneHalf_To_Zero(CouplingUnionFindAbstract):
     def construct(self):
-        random.seed(9)
+        self.construct_abstract(9, 1/2, 0, 5)
 
-        g = HPCCGrid.from_grid((3,2), 2.5)
-
-        coupling = list(g.coupling)
-
-        coupling = [ ((i+1)/59, c[1]) for i, c in enumerate(coupling) ]
-
-        g.coupling = coupling
-
-        bg = HPGrid.from_grid(
-            (5,3),
-            2.5,
-            vertex_config = sol.LIGHT_VERTEX_CONFIG,
-            edge_config = sol.VERY_LIGHT_EDGE_CONFIG
-        )
-
-        self.add(bg, g)
-
-        p = ValueTracker(0)
-
-        slider = ValueSlider(p=0, opacity=0.95, bar_color=sol.BASE1, z_index = 2)
-        #self.add(slider) TODO
-        slider.add_updater(
-            lambda s : s.set_p(p.get_value())
-        )
-
-        nums = {}
-
-        for r, e in coupling:
-            nums[e] = DecimalNumber(
-                    r,
-                    font_size=40,
-                    z_index=1
-                )
-            nums[e].color = sol.BASE03
-            nums[e].next_to(bg.edges[e], ORIGIN)
-            self.add(nums[e])
-
-        prev_r = 0
-        for r, e in list(coupling):
-            if r <= 1/2:
-                self.play(
-                    g.animate.set_p(r),
-                    p.animate.set_value(r),
-                    run_time = 10 * (r - prev_r),
-                    rate_func = rate_functions.linear
-                )
-                prev_r = r
-
-        if prev_r < 1/2:
-            self.play(
-                g.animate.set_p(1/2),
-                p.animate.set_value(1/2),
-                run_time = 10 * (1/2 - prev_r),
-                rate_func = rate_functions.linear
-            )
-
-class CouplingUnionFindNewSeed(Scene):
+class CouplingUnionFind_NewSeed_Zero_To_One(CouplingUnionFindAbstract):
     def construct(self):
-        random.seed(9)
+        self.construct_abstract(9, 0, 1, 10)
 
-        g = HPCCGrid.from_grid((3,2), 2.5)
-
-        coupling = list(g.coupling)
-
-        coupling = [ ((i+1)/59, c[1]) for i, c in enumerate(coupling) ]
-
-        g.coupling = coupling
-
-        bg = HPGrid.from_grid(
-            (5,3),
-            2.5,
-            vertex_config = sol.LIGHT_VERTEX_CONFIG,
-            edge_config = sol.VERY_LIGHT_EDGE_CONFIG
-        )
-
-        self.add(bg, g)
-
-        p = ValueTracker(0)
-
-        slider = ValueSlider(p=0, opacity=0.95, bar_color=sol.BASE1, z_index = 2)
-        #self.add(slider) TODO
-        slider.add_updater(
-            lambda s : s.set_p(p.get_value())
-        )
-
-        nums = {}
-
-        for r, e in coupling:
-            nums[e] = DecimalNumber(
-                    r,
-                    font_size=40,
-                    z_index=1
-                )
-            nums[e].color = sol.BASE03
-            nums[e].next_to(bg.edges[e], ORIGIN)
-            self.add(nums[e])
-
-        prev_r = 0
-        for r, e in list(coupling):
-            self.play(
-                g.animate.set_p(r),
-                p.animate.set_value(r),
-                run_time = 10 * (r - prev_r),
-                rate_func = rate_functions.linear
-            )
-            prev_r = r
-
-        if prev_r < 1:
-            self.play(
-                g.animate.set_p(1),
-                p.animate.set_value(1),
-                run_time = 10 * (1 - prev_r),
-                rate_func = rate_functions.linear
-            )
-
-class CouplingUnionFindNewSeedOneHalfFromAbove(Scene):
+class REVERSEDCouplingUnionFind_NewSeed_One_To_Zero(CouplingUnionFindAbstract):
     def construct(self):
-        random.seed(9)
+        self.construct_abstract(9, 1, 0, 10)
 
-        g = HPCCGrid.from_grid((3,2), 2.5)
-
-        coupling = list(g.coupling)
-
-        coupling = [ ((i+1)/59, c[1]) for i, c in enumerate(coupling) ]
-
-        g.coupling = coupling
-
-        bg = HPGrid.from_grid(
-            (5,3),
-            2.5,
-            vertex_config = sol.LIGHT_VERTEX_CONFIG,
-            edge_config = sol.VERY_LIGHT_EDGE_CONFIG
-        )
-
-        self.add(bg, g)
-
-        p = ValueTracker(0)
-
-        slider = ValueSlider(p=0, opacity=0.95, bar_color=sol.BASE1, z_index = 2)
-        #self.add(slider) TODO
-        slider.add_updater(
-            lambda s : s.set_p(p.get_value())
-        )
-
-        nums = {}
-
-        for r, e in coupling:
-            nums[e] = DecimalNumber(
-                    r,
-                    font_size=40,
-                    z_index=1
-                )
-            nums[e].color = sol.BASE03
-            nums[e].next_to(bg.edges[e], ORIGIN)
-            self.add(nums[e])
-
-        prev_r = 1/2
-        g.set_p(1/2)
-        p.set_value(1/2)
-
-        for r, e in list(coupling):
-            if r > 1/2:
-                self.play(
-                    g.animate.set_p(r),
-                    p.animate.set_value(r),
-                    run_time = 10 * (r - prev_r),
-                    rate_func = rate_functions.linear
-                )
-                prev_r = r
-
-        if prev_r < 1:
-            self.play(
-                g.animate.set_p(1),
-                p.animate.set_value(1),
-                run_time = 10 * (1 - prev_r),
-                rate_func = rate_functions.linear
-            )
+class REVERSEDCouplingUnionFind_NewSeed_One_To_OneHalf(CouplingUnionFindAbstract):
+    def construct(self):
+        self.construct_abstract(9, 1, 1/2, 5)
 
 class MidResCoupling(Scene):
     def construct(self):
