@@ -123,3 +123,166 @@ class REVERSEDForeground10(ForegroundAbstract):
 class REVERSEDForeground11(ForegroundAbstract):
     def construct(self):
         self.abstract_construct(31/64, 33/64)
+
+class QuestionsAbstract(Scene):
+    def construct_abstract(self):
+        self.questions = Tex(r'Questions:', color=sol.BASE03, font_size=80)
+        self.questions.shift(4.35 * LEFT + 2.8 * UP)
+
+        self.crit = MathTex(
+            r'\text{What is the critical value of } {{ p }} \text{?}',
+            color=sol.BASE03
+        ).next_to(self.questions, DOWN).align_to(self.questions, LEFT)
+        self.crit.set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'?', sol.BASE03)
+
+        self.critans = MathTex(
+            r'{{p_c}} = 1/2',
+            color=sol.BASE03
+        ).next_to(self.crit, DOWN).align_to(self.questions, LEFT).shift(RIGHT)
+        self.critans.set_color_by_tex(r'p', sol.BLUE).set_color_by_tex(r'=', sol.GREEN)
+
+        self.uniq = Tex(
+            r'Will there ever be more than one infinite cluster?',
+            color=sol.BASE03
+        ).next_to(self.critans, DOWN).align_to(self.questions, LEFT)
+
+        self.uniqans = Tex(r'No', color=sol.GREEN)
+        self.uniqans.next_to(self.uniq, DOWN).align_to(self.questions, LEFT).shift(RIGHT)
+
+        self.fast = Tex(
+            r'How fast does the phase transition happen?',
+            color=sol.BASE03
+        ).next_to(self.uniqans, DOWN).align_to(self.questions, LEFT)
+        
+        self.fastans = MathTex(r'something', color=sol.GREEN)
+        self.fastans.next_to(self.fast, DOWN).align_to(self.questions, LEFT).shift(RIGHT)
+
+        self.merg = Tex(
+            r'How large are the clusters before they merge?',
+            color=sol.BASE03
+        ).next_to(self.fastans, DOWN).align_to(self.questions, LEFT)
+
+        self.mergans = MathTex(
+            r'\chi({{p}}) \sim ({{p}} - {{p_c}})^{-43/18}',
+            color=sol.GREEN
+        )
+        self.mergans.set_color_by_tex(r'p', sol.RED)
+        self.mergans.set_color_by_tex(r'p_c', sol.BLUE)
+        self.mergans.set_color_by_tex(r')', sol.GREEN)
+        self.mergans.next_to(self.merg, DOWN).align_to(self.questions, LEFT).shift(RIGHT)
+
+class Questions(QuestionsAbstract):
+    def construct(self):
+        self.construct_abstract()
+
+        self.crit.next_to(self.questions, DOWN).align_to(self.questions, LEFT)
+        self.uniq.next_to(self.crit, DOWN).align_to(self.questions, LEFT)
+        self.fast.next_to(self.uniq, DOWN).align_to(self.questions, LEFT)
+        self.merg.next_to(self.fast, DOWN).align_to(self.questions, LEFT)
+
+        self.play(Write(self.questions), run_time=1)
+        self.wait()
+        self.play(FadeIn(self.crit))
+        self.wait(10)
+        self.play(FadeIn(self.uniq))
+        self.wait(3)
+        self.play(FadeIn(self.fast))
+        self.wait(2)
+        self.play(FadeIn(self.merg))
+
+        self.wait(12)
+
+        self.uniq.add_updater(
+            lambda s : s.align_to(self.questions, LEFT)
+        )
+        self.fast.add_updater(
+            lambda s : s.next_to(self.uniq, DOWN).align_to(self.questions, LEFT)
+        )
+        self.merg.add_updater(
+            lambda s : s.next_to(self.fast, DOWN).align_to(self.questions, LEFT)
+        )
+
+        self.play(
+            FadeIn(self.critans),
+            self.uniq.animate.next_to(self.critans, DOWN)
+        )
+
+        self.wait(22)
+
+        #TODO: continue
+
+class QuestionsBox(Scene):
+    def construct(self):
+        self.construct_abstract()
+
+        self.crit.next_to(self.questions, DOWN).align_to(self.questions, LEFT)
+        self.uniq.next_to(self.crit, DOWN).align_to(self.questions, LEFT)
+        self.fast.next_to(self.uniq, DOWN).align_to(self.questions, LEFT)
+        self.merg.next_to(self.fast, DOWN).align_to(self.questions, LEFT)
+
+        tbox = TranslucentBox(self.questions)
+        self.add(tbox)
+        self.wait() #self.play(Write(self.questions), run_time=1)
+        self.wait()
+        self.play(
+            Transform(
+                tbox,
+                TranslucentBox(self.questions, self.crit)
+            )
+        ) #self.play(FadeIn(self.crit))
+        self.wait(10)
+        self.play(
+            Transform(
+                tbox,
+                TranslucentBox(
+                    self.questions,
+                    self.crit,
+                    self.uniq
+                )
+            )
+        )#self.play(FadeIn(self.uniq))
+        self.wait(3)
+        self.play(
+            Transform(
+                tbox,
+                TranslucentBox(
+                    self.questions,
+                    self.crit,
+                    self.uniq,
+                    self.fast
+                )
+            )
+        )#self.play(FadeIn(self.fast))
+        self.wait(2)
+        self.play(
+            Transform(
+                tbox,
+                TranslucentBox(
+                    self.questions,
+                    self.crit,
+                    self.uniq,
+                    self.fast
+                )
+            )
+        )#self.play(FadeIn(self.merg))
+
+        self.wait(12)
+
+        self.uniq.next_to(self.critans, DOWN).align_to(self.questions, LEFT)
+        self.fast.next_to(self.uniq, DOWN).align_to(self.questions, LEFT)
+        self.merg.next_to(self.fast, DOWN).align_to(self.questions, LEFT)
+
+        self.play(
+            Transform(
+                tbox,
+                TranslucentBox(
+                    self.questions,
+                    self.crit,
+                    self.uniq,
+                    self.fast,
+                    self.merg
+                )
+            )
+        )
+
+        self.wait(22)
