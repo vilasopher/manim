@@ -292,7 +292,7 @@ class Questions2(QuestionsAbstract):
         self.construct_abstract()
 
         self.crit.next_to(self.questions, DOWN).align_to(self.questions, LEFT)
-        self.critans.next_to(self.crit, DOWN).align_to(self.questions, LEFT)
+        self.critans.next_to(self.crit, DOWN).align_to(self.questions, LEFT).shift(RIGHT)
         self.uniq.next_to(self.critans, DOWN).align_to(self.questions, LEFT)
         self.fast.next_to(self.uniq, DOWN).align_to(self.questions, LEFT)
         self.merg.next_to(self.fast, DOWN).align_to(self.questions, LEFT)
@@ -345,7 +345,7 @@ class Questions2Box(QuestionsAbstract):
         self.construct_abstract()
 
         self.crit.next_to(self.questions, DOWN).align_to(self.questions, LEFT)
-        self.critans.next_to(self.crit, DOWN).align_to(self.questions, LEFT)
+        self.critans.next_to(self.crit, DOWN).align_to(self.questions, LEFT).shift(RIGHT)
         self.uniq.next_to(self.critans, DOWN).align_to(self.questions, LEFT)
         self.fast.next_to(self.uniq, DOWN).align_to(self.questions, LEFT)
         self.merg.next_to(self.fast, DOWN).align_to(self.questions, LEFT)
