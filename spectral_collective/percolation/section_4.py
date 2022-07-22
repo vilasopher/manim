@@ -6,9 +6,6 @@ from more_graphs import HPCCGraph
 from glitch import Glitch, GlitchEdges, GlitchPercolate
 import random
 
-class THIScollection(Scene):
-    pass #TODO
-
 class ParameterSamples(Scene):
     def construct(self):
         random.seed(0)

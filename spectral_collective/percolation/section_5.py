@@ -16,7 +16,7 @@ class CouplingNumbering(Scene):
 
         coupling = [ ((i+1)/60, c[1]) for i, c in enumerate(coupling) ]
 
-        g.coupling = coupling
+        g.coupling = list(coupling)
 
         bg = HPGrid.from_grid(
             (5,3),
@@ -57,13 +57,6 @@ class CouplingNumbering(Scene):
 
         self.wait(6)
 
-        p = ValueTracker(0)
-        slider = ValueSlider(p=0, opacity=0.95, bar_color=sol.BASE1, z_index = 2)
-        slider.add_updater(
-            lambda s : s.set_p(p.get_value())
-        )
-
-        #self.play(FadeIn(slider)) TODO
         self.wait()
 
 class CouplingUnionFindAbstract(Scene):
@@ -76,7 +69,7 @@ class CouplingUnionFindAbstract(Scene):
 
         coupling = [ ((i+1)/60, c[1]) for i, c in enumerate(coupling) ]
 
-        g.coupling = coupling
+        g.coupling = list(coupling)
 
         bg = HPGrid.from_grid(
             (5,3),

@@ -61,10 +61,93 @@ class SliderMedium(Scene):
         self.slide(p, 0, 9)
 
 class Definition(Scene):
-    pass #TODO
+    def construct(self):
+        equiv = MathTex(
+            r'\Leftrightarrow',
+            color=sol.BASE03
+        ).rotate(PI/2)
+        text1 = MathTex(
+            r'\text{an edge is in the graph at parameter } {{p}}',
+            color=sol.BASE03
+        ).next_to(equiv, UP)
+        text2 = MathTex(
+            r'\text{the number at that potential edge is} < {{p}}',
+            color=sol.BASE03
+        ).next_to(equiv, DOWN)
+        text1.set_color_by_tex(r'p', sol.RED)
+        text1.set_color_by_tex(r'a', sol.BASE03)
+        text2.set_color_by_tex(r'p', sol.RED)
+        text2.set_color_by_tex(r'a', sol.BASE03)
+        text1.shift(0.81 * LEFT)
+        text2.shift(0.81 * LEFT)
+        equiv.shift(0.81 * LEFT)
+        t = Group(text1, text2, equiv)
+        tbox = TranslucentBox(t)
+        self.add(tbox, t)
 
-class MonotoneCoupling(Scene):
-    pass #TODO
+class Equivalence(Scene):
+    def construct(self):
+        p = MathTex(r'= \; {{ p }} \; = ', color=sol.BASE03).shift(0.81 * LEFT)
+        text1 = MathTex(
+            r'\mathbb{P}[\text{a uniform random number between } 0 \text{ and } 1 \text{ is} < {{ p }} ]',
+            color = sol.BASE03
+        ).next_to(p, UP)
+        text2 = MathTex(
+            r'\mathbb{P}_{{ p }} [\text{an edge is open}]',
+            color=sol.BASE03
+        ).next_to(p, DOWN)
+        p.set_color_by_tex(r'p', sol.RED)
+        p.set_color_by_tex(r'=', sol.BASE03)
+        text1.set_color_by_tex(r'p', sol.RED)
+        text1.set_color_by_tex(r'a', sol.BASE03)
+        text2.set_color_by_tex(r'p', sol.RED)
+        text2.set_color_by_tex(r'a', sol.BASE03)
+        t = Group(p, text1, text2)
+        tbox = TranslucentBox(t)
+        self.add(tbox, t)
 
-class UniformCoupling(Scene):
-    pass #TODO
+class MonotoneUniformCouplingForeground(Scene):
+    def construct(self):
+        mc = MathTex(
+            r'{{ \text{Monotone} }} {{ \text{ Coupling} }}',
+            color=sol.BASE03,
+            font_size = 100,
+            z_index = 2
+        ).shift(0.81 * LEFT)
+        mtbox = TranslucentBox(mc)
+
+        uc = MathTex(
+            r'{{ \text{Uniform} }} {{ \text{ Coupling} }}',
+            color=sol.BASE03,
+            font_size = 100,
+            z_index = 2
+        ).shift(0.81* LEFT)
+        utbox = TranslucentBox(uc)
+
+        self.add(mc)
+        self.wait(10)
+        self.play(TransformMatchingTex(mc, uc))
+        self.wait(10)
+
+class MonotoneUniformCouplingBackground(Scene):
+    def construct(self):
+        mc = MathTex(
+            r'{{ \text{Monotone} }} {{ \text{ Coupling} }}',
+            color=sol.BASE03,
+            font_size = 100,
+            z_index = 2
+        ).shift(0.81 * LEFT)
+        mtbox = TranslucentBox(mc)
+
+        uc = MathTex(
+            r'{{ \text{Uniform} }} {{ \text{ Coupling} }}',
+            color=sol.BASE03,
+            font_size = 100,
+            z_index = 2
+        ).shift(0.81* LEFT)
+        utbox = TranslucentBox(uc)
+
+        self.add(mtbox)
+        self.wait(10)
+        self.play(Transform(mtbox, utbox))
+        self.wait(10)
