@@ -146,7 +146,7 @@ class QuestionsAbstract(Scene):
             color=sol.BASE03
         ).next_to(self.critans, DOWN).align_to(self.questions, LEFT)
 
-        self.uniqans = Tex(r'No', color=sol.GREEN)
+        self.uniqans = Tex(r'No, the infinite cluster is unique', color=sol.GREEN)
         self.uniqans.next_to(self.uniq, DOWN).align_to(self.questions, LEFT).shift(RIGHT)
 
         self.fast = Tex(
@@ -171,7 +171,7 @@ class QuestionsAbstract(Scene):
         self.mergans.set_color_by_tex(r')', sol.GREEN)
         self.mergans.next_to(self.merg, DOWN).align_to(self.questions, LEFT).shift(RIGHT)
 
-class Questions(QuestionsAbstract):
+class Questions1(QuestionsAbstract):
     def construct(self):
         self.construct_abstract()
 
@@ -190,7 +190,7 @@ class Questions(QuestionsAbstract):
         self.wait(2)
         self.play(FadeIn(self.merg))
 
-        self.wait(12)
+        self.wait(11)
 
         self.uniq.add_updater(
             lambda s : s.align_to(self.questions, LEFT)
@@ -207,11 +207,9 @@ class Questions(QuestionsAbstract):
             self.uniq.animate.next_to(self.critans, DOWN)
         )
 
-        self.wait(22)
+        self.wait(5)
 
-        #TODO: continue
-
-class QuestionsBox(Scene):
+class Questions1Box(QuestionsAbstract):
     def construct(self):
         self.construct_abstract()
 
@@ -261,12 +259,13 @@ class QuestionsBox(Scene):
                     self.questions,
                     self.crit,
                     self.uniq,
-                    self.fast
+                    self.fast,
+                    self.merg
                 )
             )
         )#self.play(FadeIn(self.merg))
 
-        self.wait(12)
+        self.wait(11)
 
         self.uniq.next_to(self.critans, DOWN).align_to(self.questions, LEFT)
         self.fast.next_to(self.uniq, DOWN).align_to(self.questions, LEFT)
@@ -278,6 +277,7 @@ class QuestionsBox(Scene):
                 TranslucentBox(
                     self.questions,
                     self.crit,
+                    self.critans,
                     self.uniq,
                     self.fast,
                     self.merg
@@ -285,4 +285,138 @@ class QuestionsBox(Scene):
             )
         )
 
-        self.wait(22)
+        self.wait(5)
+
+class Questions2(QuestionsAbstract):
+    def construct(self):
+        self.construct_abstract()
+
+        self.crit.next_to(self.questions, DOWN).align_to(self.questions, LEFT)
+        self.critans.next_to(self.crit, DOWN).align_to(self.questions, LEFT)
+        self.uniq.next_to(self.critans, DOWN).align_to(self.questions, LEFT)
+        self.fast.next_to(self.uniq, DOWN).align_to(self.questions, LEFT)
+        self.merg.next_to(self.fast, DOWN).align_to(self.questions, LEFT)
+
+        self.add(
+            self.questions,
+            self.crit,
+            self.critans,
+            self.uniq,
+            self.fast,
+            self.merg
+        )
+
+        self.wait(1.5)
+
+        self.fast.add_updater(
+            lambda s : s.align_to(self.questions, LEFT)
+        )
+        self.merg.add_updater(
+            lambda s : s.next_to(self.fast, DOWN).align_to(self.questions, LEFT)
+        )
+
+        self.play(
+            FadeIn(self.uniqans),
+            self.fast.animate.next_to(self.uniqans, DOWN)
+        )
+
+        self.wait(5)
+
+        self.merg.clear_updaters()
+        self.merg.add_updater(
+            lambda s : s.align_to(self.questions, LEFT)
+        )
+
+        self.play(
+            FadeIn(self.fastans),
+            self.merg.animate.next_to(self.fastans, DOWN),
+            run_time = 0.5
+        )
+
+        self.play(
+            FadeIn(self.mergans),
+            run_time = 0.5
+        )
+
+        self.wait(6)
+
+class Questions2Box(QuestionsAbstract):
+    def construct(self):
+        self.construct_abstract()
+
+        self.crit.next_to(self.questions, DOWN).align_to(self.questions, LEFT)
+        self.critans.next_to(self.crit, DOWN).align_to(self.questions, LEFT)
+        self.uniq.next_to(self.critans, DOWN).align_to(self.questions, LEFT)
+        self.fast.next_to(self.uniq, DOWN).align_to(self.questions, LEFT)
+        self.merg.next_to(self.fast, DOWN).align_to(self.questions, LEFT)
+
+        tbox = TranslucentBox(
+            self.questions,
+            self.crit,
+            self.critans,
+            self.uniq,
+            self.fast,
+            self.merg
+        )
+        self.add(tbox)
+
+        self.wait(1.5)
+
+        self.fast.next_to(self.uniqans, DOWN).align_to(self.questions, LEFT)
+        self.merg.next_to(self.fast, DOWN).align_to(self.questions, LEFT)
+
+        self.play(
+            Transform(
+                tbox,
+                TranslucentBox(
+                    self.questions,
+                    self.crit,
+                    self.critans,
+                    self.uniq,
+                    self.uniqans,
+                    self.fast,
+                    self.merg
+                )
+            )
+        )
+
+        self.wait(5)
+
+        self.merg.next_to(self.fastans, DOWN).align_to(self.questions, LEFT)
+
+        self.play(
+            Transform(
+                tbox,
+                TranslucentBox(
+                    self.questions,
+                    self.crit,
+                    self.critans,
+                    self.uniq,
+                    self.uniqans,
+                    self.fast,
+                    self.fastans,
+                    self.merg
+                )
+            ),
+            run_time = 0.5
+        )
+
+        self.play(
+            Transform(
+                tbox,
+                TranslucentBox(
+                    self.questions,
+                    self.crit,
+                    self.critans,
+                    self.uniq,
+                    self.uniqans,
+                    self.fast,
+                    self.fastans,
+                    self.merg,
+                    self.mergans
+                )
+            ),
+            run_time = 0.5
+        )
+
+        self.wait(6)
