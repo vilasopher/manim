@@ -154,7 +154,7 @@ class QuestionsAbstract(Scene):
             color=sol.BASE03
         ).next_to(self.uniqans, DOWN).align_to(self.questions, LEFT)
         
-        self.fastans = MathTex(r'something', color=sol.GREEN)
+        self.fastans = MathTex(r'Pretty fast (sharp threshold)', color=sol.GREEN)
         self.fastans.next_to(self.fast, DOWN).align_to(self.questions, LEFT).shift(RIGHT)
 
         self.merg = Tex(
@@ -163,7 +163,7 @@ class QuestionsAbstract(Scene):
         ).next_to(self.fastans, DOWN).align_to(self.questions, LEFT)
 
         self.mergans = MathTex(
-            r'\chi({{p}}) \sim ({{p}} - {{p_c}})^{-43/18}',
+            r'\text{Average size} \sim ({{p}} - {{p_c}})^{-43/18} \text{ as } {{p}} \nearrow {{p_c}}',
             color=sol.GREEN
         )
         self.mergans.set_color_by_tex(r'p', sol.RED)
