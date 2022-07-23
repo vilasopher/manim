@@ -127,7 +127,7 @@ class REVERSEDForeground11(ForegroundAbstract):
 class QuestionsAbstract(Scene):
     def construct_abstract(self):
         self.questions = Tex(r'Questions:', color=sol.BASE03, font_size=80)
-        self.questions.shift(4.35 * LEFT + 2.8 * UP)
+        self.questions.shift(4.41 * LEFT + 2.9 * UP)
 
         self.crit = MathTex(
             r'\text{What is the critical value of } {{ p }} \text{?}',
@@ -154,7 +154,7 @@ class QuestionsAbstract(Scene):
             color=sol.BASE03
         ).next_to(self.uniqans, DOWN).align_to(self.questions, LEFT)
         
-        self.fastans = MathTex(r'Pretty fast (sharp threshold)', color=sol.GREEN)
+        self.fastans = MathTex(r'n \hspace{-0.2em} \times \hspace{-0.2em} n \text{ box crossing window} \approx n^{-3/4} \text{ as } n \to \infty', color=sol.GREEN)
         self.fastans.next_to(self.fast, DOWN).align_to(self.questions, LEFT).shift(RIGHT)
 
         self.merg = Tex(
@@ -163,12 +163,13 @@ class QuestionsAbstract(Scene):
         ).next_to(self.fastans, DOWN).align_to(self.questions, LEFT)
 
         self.mergans = MathTex(
-            r'\text{Average size} \sim ({{p}} - {{p_c}})^{-43/18} \text{ as } {{p}} \nearrow {{p_c}}',
+            r'\text{Average size} \approx ({{p}} - {{p_c}})^{-43/18} \text{ as } {{p}} \nearrow {{p_c}}',
             color=sol.GREEN
         )
         self.mergans.set_color_by_tex(r'p', sol.RED)
         self.mergans.set_color_by_tex(r'p_c', sol.BLUE)
         self.mergans.set_color_by_tex(r')', sol.GREEN)
+        self.mergans.set_color_by_tex(r'A', sol.GREEN)
         self.mergans.next_to(self.merg, DOWN).align_to(self.questions, LEFT).shift(RIGHT)
 
 class Questions1(QuestionsAbstract):
@@ -420,3 +421,144 @@ class Questions2Box(QuestionsAbstract):
         )
 
         self.wait(6)
+
+class Kesten(Scene):
+    def construct(self):
+        pic = ImageMobject("pics/kesten.png")
+        name = Tex(r'Harry Kesten', color=sol.BASE03).next_to(pic, DOWN)
+        dates = Tex(r'1931-2019', color=sol.BASE03).next_to(name, DOWN)
+        kesten = Group(pic, name, dates).move_to(4.6 * LEFT)
+        tk = TranslucentBox(kesten)
+        self.add(tk, kesten)
+
+        thm0 = MathTex(
+            r'\textbf{Theorem} \text{ (Kesten, 1980):}',
+            color = sol.BASE03
+        )
+
+        thm1 = MathTex(
+            r'\text{In Bernoulli percolation with}',
+            color = sol.BASE03
+        ).next_to(thm0, DOWN).align_to(thm0, LEFT).shift(0.5 * RIGHT)
+
+        thm2 = MathTex(
+            r'\text{parameter } {{p}} \text{ on the infinite}',
+            color = sol.BASE03
+        ).next_to(thm1, DOWN).align_to(thm1, LEFT)
+        thm2.set_color_by_tex(r'p', sol.RED)
+        thm2.set_color_by_tex(r'e', sol.BASE03)
+
+        thm3a = MathTex(
+            r'\text{square grid, if }',
+            color = sol.BASE03
+        )
+        thm3b = MathTex(
+            r'{{p}} < \frac{1}{2}',
+            color = sol.BASE03
+        ).next_to(thm3a, RIGHT)
+        thm3b.set_color_by_tex(r'p', sol.RED)
+        thm3b.set_color_by_tex(r'<', sol.BASE03)
+        thm3c = MathTex(
+            r', \text{ then}',
+            color = sol.BASE03
+        ).next_to(thm3b, RIGHT)
+
+        thm3 = Group(thm3a, thm3b, thm3c).next_to(thm2, DOWN).align_to(thm1, LEFT)
+
+        thm4a = MathTex(
+            r'\mathbb{P}_{{p}}[\text{infinite cluster}] = 0',
+            color = sol.BASE03
+        )
+        thm4a.set_color_by_tex(r'p', sol.RED)
+        thm4a.set_color_by_tex(r'[', sol.BASE03)
+        thm4b = MathTex(
+            r',',
+            color = sol.BASE03
+        ).next_to(thm4a, RIGHT).align_to(thm4a, DOWN).shift(0.03 * UP + 0.2 * LEFT)
+
+        thm4 = Group(thm4a, thm4b).next_to(thm3, DOWN).align_to(thm1, LEFT).shift(0.5 * RIGHT)
+
+
+        thm5a = MathTex(
+            r'\text{and if }',
+            color = sol.BASE03
+        )
+        thm5b = MathTex(
+            r'{{p}} > \frac{1}{2}',
+            color = sol.BASE03
+        ).next_to(thm5a, RIGHT)
+        thm5b.set_color_by_tex(r'p', sol.RED)
+        thm5b.set_color_by_tex(r'>', sol.BASE03)
+        thm5c = MathTex(
+            r', \text{ then}',
+            color = sol.BASE03
+        ).next_to(thm5b, RIGHT)
+
+        thm5 = Group(thm5a, thm5b, thm5c).next_to(thm4, DOWN).align_to(thm1, LEFT)
+
+        thm6a = MathTex(
+            r'\mathbb{P}_{{p}}[\text{infinite cluster}] = 1}',
+            color = sol.BASE03
+        )
+        thm6a.set_color_by_tex(r'p', sol.RED)
+        thm6a.set_color_by_tex(r'[', sol.BASE03)
+        thm6b = MathTex(
+            r'.',
+            color = sol.BASE03
+        ).next_to(thm6a, RIGHT).align_to(thm6a, DOWN).shift(0.13 * UP + 0.2 * LEFT)
+
+        thm6 = Group(thm6a, thm6b).next_to(thm5, DOWN).align_to(thm4, LEFT)
+
+        thm = Group(
+            thm0,
+            thm1,
+            thm2,
+            thm3,
+            thm4,
+            thm5,
+            thm6
+        ).next_to(tk, RIGHT).shift(0.32 * RIGHT)
+
+        tt = TranslucentBox(thm)
+        self.add(tk, tt, kesten, thm)
+
+        self.wait(3)
+        self.play(Indicate(thm3b))
+        self.wait(0.5)
+        self.play(Indicate(thm4a))
+        self.wait(2)
+        self.play(Indicate(thm5b))
+        self.wait(0.5)
+        self.play(Indicate(thm6a))
+        self.wait(5.5)
+
+class HDC(Scene):
+    def construct(self):
+        pic = ImageMobject('pics/hdc.jpg')
+        name = Tex(r'Hugo Duminil-Copin', color=sol.BASE03).next_to(pic, DOWN)
+        dates = Tex(r'1985-present', color=sol.BASE03).next_to(name, DOWN)
+
+        hdc = Group(pic)
+        hbox = TranslucentBox(hdc)
+
+
+        quote = MathTex(
+            r'&\text{``Hugo Duminil-Copin is awarded the Fields Medal} \\',
+            r'&\;\;\text{2022 for solving longstanding problems in the} \\',
+            r'&\;\;\text{probabilistic theory of phase transitions in} \\',
+            r'&\;\;\text{statistical physics, especially in dimensions} \\',
+            r'&\;\;\text{three and four"}',
+            color=sol.BASE03
+        )
+
+        cite = MathTex(
+            r'&\qquad\qquad\text{-International Mathematical Union}',
+            color=sol.BASE03
+        ).next_to(quote, DOWN).align_to(quote, RIGHT).shift(0.1 * UP)
+
+        imu = Group(quote, cite).next_to(hdc, DOWN).shift(0.32 * DOWN)
+        ibox = TranslucentBox(imu)
+
+        whole = Group(hbox, hdc, ibox, imu).move_to(0.81 * LEFT)
+        self.add(whole)
+
