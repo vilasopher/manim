@@ -182,4 +182,37 @@ class Theorem(Scene):
         thm = Group(thm1, thm2, thm3).move_to(0.6 * LEFT + 2 * UP)
         tbox = TranslucentBox(thm)
 
-        self.add(tbox, thm)
+        self.add(tbox)
+
+        self.wait(0.5)
+        self.play(Write(thm1a), run_time=1)
+        self.wait(1.5)
+        self.play(FadeIn(thm1b))
+        self.wait(0.5)
+        self.play(FadeIn(thm1c))
+        self.wait(0.5)
+        self.play(FadeIn(thm1d), run_time=0.5)
+
+        self.play(FadeIn(thm2a))
+        self.wait()
+        self.play(FadeIn(thm2b))
+        self.wait()
+        self.play(FadeIn(thm2c))
+        self.wait(0.5)
+        self.play(FadeIn(thm2d), run_time=0.5)
+
+        self.play(FadeIn(thm3a))
+        self.wait(0.5)
+        self.play(FadeIn(thm3b))
+        self.wait(0.5)
+        self.play(FadeIn(thm3c))
+
+        self.wait(13)
+
+        self.wait(0.5)
+        self.play(Indicate(thm1c), run_time=2)
+        self.wait(0.5)
+
+        self.wait(8)
+
+
