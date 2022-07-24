@@ -138,7 +138,7 @@ class QuestionsAbstract(Scene):
         self.critans = MathTex(
             r'{{p_c}} = 1/2',
             color=sol.BASE03
-        ).next_to(self.crit, DOWN).align_to(self.questions, LEFT).shift(RIGHT)
+        ).next_to(self.crit, DOWN).align_to(self.questions, LEFT).shift(0.5 * RIGHT)
         self.critans.set_color_by_tex(r'p', sol.BLUE).set_color_by_tex(r'=', sol.GREEN)
 
         self.uniq = Tex(
@@ -147,7 +147,7 @@ class QuestionsAbstract(Scene):
         ).next_to(self.critans, DOWN).align_to(self.questions, LEFT)
 
         self.uniqans = Tex(r'No, the infinite cluster is unique', color=sol.GREEN)
-        self.uniqans.next_to(self.uniq, DOWN).align_to(self.questions, LEFT).shift(RIGHT)
+        self.uniqans.next_to(self.uniq, DOWN).align_to(self.questions, LEFT).shift(0.5 * RIGHT)
 
         self.fast = Tex(
             r'How fast does the phase transition happen?',
@@ -155,7 +155,7 @@ class QuestionsAbstract(Scene):
         ).next_to(self.uniqans, DOWN).align_to(self.questions, LEFT)
         
         self.fastans = MathTex(r'n \hspace{-0.2em} \times \hspace{-0.2em} n \text{ box crossing window} \approx n^{-3/4} \text{ as } n \to \infty', color=sol.GREEN)
-        self.fastans.next_to(self.fast, DOWN).align_to(self.questions, LEFT).shift(RIGHT)
+        self.fastans.next_to(self.fast, DOWN).align_to(self.questions, LEFT).shift(0.5 * RIGHT)
 
         self.merg = Tex(
             r'How large are the clusters before they merge?',
@@ -170,7 +170,22 @@ class QuestionsAbstract(Scene):
         self.mergans.set_color_by_tex(r'p_c', sol.BLUE)
         self.mergans.set_color_by_tex(r')', sol.GREEN)
         self.mergans.set_color_by_tex(r'A', sol.GREEN)
-        self.mergans.next_to(self.merg, DOWN).align_to(self.questions, LEFT).shift(RIGHT)
+        self.mergans.next_to(self.merg, DOWN).align_to(self.questions, LEFT).shift(0.5 * RIGHT)
+
+        g = Group(
+            self.questions,
+            self.crit,
+            self.critans,
+            self.uniq,
+            self.uniqans,
+            self.fast,
+            self.fastans,
+            self.merg,
+            self.mergans
+        )
+        g.move_to(0.81 * LEFT)
+
+
 
 class Questions1(QuestionsAbstract):
     def construct(self):
@@ -293,7 +308,7 @@ class Questions2(QuestionsAbstract):
         self.construct_abstract()
 
         self.crit.next_to(self.questions, DOWN).align_to(self.questions, LEFT)
-        self.critans.next_to(self.crit, DOWN).align_to(self.questions, LEFT).shift(RIGHT)
+        self.critans.next_to(self.crit, DOWN).align_to(self.questions, LEFT).shift(0.5 * RIGHT)
         self.uniq.next_to(self.critans, DOWN).align_to(self.questions, LEFT)
         self.fast.next_to(self.uniq, DOWN).align_to(self.questions, LEFT)
         self.merg.next_to(self.fast, DOWN).align_to(self.questions, LEFT)
@@ -346,7 +361,7 @@ class Questions2Box(QuestionsAbstract):
         self.construct_abstract()
 
         self.crit.next_to(self.questions, DOWN).align_to(self.questions, LEFT)
-        self.critans.next_to(self.crit, DOWN).align_to(self.questions, LEFT).shift(RIGHT)
+        self.critans.next_to(self.crit, DOWN).align_to(self.questions, LEFT).shift(0.5 * RIGHT)
         self.uniq.next_to(self.critans, DOWN).align_to(self.questions, LEFT)
         self.fast.next_to(self.uniq, DOWN).align_to(self.questions, LEFT)
         self.merg.next_to(self.fast, DOWN).align_to(self.questions, LEFT)
@@ -474,7 +489,7 @@ class Kesten(Scene):
         thm4b = MathTex(
             r',',
             color = sol.BASE03
-        ).next_to(thm4a, RIGHT).align_to(thm4a, DOWN).shift(0.03 * UP + 0.2 * LEFT)
+        ).next_to(thm4a, RIGHT).align_to(thm4a, DOWN).shift(0.03 * UP + 0.05 * LEFT)
 
         thm4 = Group(thm4a, thm4b).next_to(thm3, DOWN).align_to(thm1, LEFT).shift(0.5 * RIGHT)
 
@@ -505,7 +520,7 @@ class Kesten(Scene):
         thm6b = MathTex(
             r'.',
             color = sol.BASE03
-        ).next_to(thm6a, RIGHT).align_to(thm6a, DOWN).shift(0.13 * UP + 0.2 * LEFT)
+        ).next_to(thm6a, RIGHT).align_to(thm6a, DOWN).shift(0.13 * UP + 0.05 * LEFT)
 
         thm6 = Group(thm6a, thm6b).next_to(thm5, DOWN).align_to(thm4, LEFT)
 
