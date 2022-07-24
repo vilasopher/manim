@@ -39,6 +39,12 @@ class CriticalValueSlider(VGroup):
             z_index = 1
         )
 
+        self.crittick = Square(
+            side_length = 0.1/1.41,
+            color = sol.BLUE,
+            z_index = 1
+        ).set_fill(sol.BLUE, opacity=1).move_to([self.center, 0, 0]).rotate(PI/4)
+
         self.n0 = MathTex("0", color=sol.BASE03)
         self.n0.next_to(self.line, DOWN)
 
