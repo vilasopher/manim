@@ -5,6 +5,10 @@ from value_slider import ValueSlider
 
 config.background_opacity = 0
 
+class FirstFrameForeground(Scene):
+    def construct(self):
+        self.add(ValueSlider(1))
+
 class TitleBox(Scene):
     def construct(self):
         perc = Tex(r'\textbf{percolation}', color=sol.BASE03, font_size=200)

@@ -4,6 +4,12 @@ from cluster_image import ClusterImage
 from value_slider import ValueSlider
 import numpy as np
 
+class FirstFrameBackground(Scene):
+    def construct(self):
+        random.seed(2)
+        c = ClusterImage((720,1280), 1)
+        self.add(c)
+
 def interp(alpha):
     return np.sqrt((1 - np.cos(2 * np.pi * alpha)) / 2)
 

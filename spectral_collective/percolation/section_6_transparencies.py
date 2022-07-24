@@ -453,7 +453,7 @@ class Kesten(Scene):
             color = sol.BASE03
         )
         thm3b = MathTex(
-            r'{{p}} < \frac{1}{2}',
+            r'{{p}} < 1/2',
             color = sol.BASE03
         ).next_to(thm3a, RIGHT)
         thm3b.set_color_by_tex(r'p', sol.RED)
@@ -484,7 +484,7 @@ class Kesten(Scene):
             color = sol.BASE03
         )
         thm5b = MathTex(
-            r'{{p}} > \frac{1}{2}',
+            r'{{p}} > 1/2',
             color = sol.BASE03
         ).next_to(thm5a, RIGHT)
         thm5b.set_color_by_tex(r'p', sol.RED)
@@ -520,7 +520,11 @@ class Kesten(Scene):
         ).next_to(tk, RIGHT).shift(0.32 * RIGHT)
 
         tt = TranslucentBox(thm)
-        self.add(tk, tt, kesten, thm)
+
+        everything = Group(tk, tt, kesten, thm)
+        everything.move_to(0.81 * LEFT)
+
+        self.add(everything)
 
         self.wait(3)
         self.play(Indicate(thm3b))
