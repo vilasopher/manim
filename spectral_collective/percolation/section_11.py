@@ -11,7 +11,7 @@ def almost_linear(alpha):
     return interp(alpha) * alpha + (1 - interp(alpha)) * (1 - np.cos(np.pi * alpha)) / 2
 
 class BackgroundCritical(Scene):
-    def construct(self)
+    def construct(self):
         random.seed(50) # good ones: 1 = green, 2 = blue
         c = ClusterImage((720,1280), 0.5)
         self.add(c)
