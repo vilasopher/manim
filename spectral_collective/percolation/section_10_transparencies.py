@@ -32,6 +32,6 @@ class KestenQuote(Scene):
         qb.next_to(kb, RIGHT).shift(0.1 * RIGHT)
 
         a = Group(kb, qb)
-        a.move_to(0.81 * LEFT)
+        a.move_to(0.81 * LEFT + UP)
 
         self.add(a)

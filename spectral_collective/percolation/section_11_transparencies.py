@@ -179,7 +179,7 @@ class Theorem(Scene):
 
         thm3 = Group(thm3a, thm3b, thm3c).next_to(thm2, DOWN).align_to(thm2, LEFT)
 
-        thm = Group(thm1, thm2, thm3).move_to(0.6 * LEFT + 2 * UP)
+        thm = Group(thm1, thm2, thm3).move_to(0.6 * LEFT + 2.5 * UP)
         tbox = TranslucentBox(thm)
 
         self.add(tbox)
@@ -215,4 +215,21 @@ class Theorem(Scene):
 
         self.wait(8)
 
+class Peierls(Scene):
+    def construct(self):
+        kpd = ImageMobject('pics/kpd.png').shift(0.6 * LEFT + DOWN)
+        namedate = Tex(r'Rudolf Peierls (1907-1995)', color=sol.BASE03).next_to(kpd, DOWN)
+
+        tb = TranslucentBox(kpd, namedate)
+
+        ar = Arrow([-0.75, -3.25, 0], [0.25, -1.75, 0], color=sol.ORANGE).shift(0.6 * LEFT)
+
+        self.add(tb, kpd)
+
+        self.wait(2.5)
+        self.play(
+            FadeIn(namedate),
+            Create(ar)
+        )
+        self.wait(4)
 
