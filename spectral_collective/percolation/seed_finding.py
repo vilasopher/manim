@@ -18,7 +18,7 @@ class Helper:
         self.play(
             p.animate.set_value(1),
             rate_func = rate_functions.linear,
-            run_time = 10
+            run_time = 5
         )
 
 class h20(Scene, Helper):

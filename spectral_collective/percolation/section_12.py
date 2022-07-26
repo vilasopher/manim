@@ -7,7 +7,7 @@ from glitch import Glitch, GlitchEdges, GlitchPercolate
 from translucent_box import TranslucentBox
 import random
 
-class Kolmogorov(Scene):
+class KolmogorovOLD(Scene):
     def construct(self):
         temp = TexTemplate()
         temp.add_to_preamble(r'\usepackage[margin=0in]{geometry}')
@@ -122,7 +122,7 @@ class Origin(Scene):
 class OriginClusterSuper1(Scene):
     def construct(self):
         g = HPGrid.from_grid((24, 14), 0.3)
-        g.percolate(0.75)
+        g.percolate(0.52)
         g.dramatically_highlight_ball((0,0))
 
         self.play(GlitchEdges(g), run_time=0.25)
@@ -159,7 +159,7 @@ class OriginClusterSuper0(OriginClusterSuper1):
 class OriginClusterSub1(Scene):
     def construct(self):
         g = HPGrid.from_grid((24, 14), 0.3)
-        g.percolate(0.25)
+        g.percolate(0.45)
         g.dramatically_highlight_ball((0,0))
 
         self.play(GlitchEdges(g), run_time=0.25)
@@ -193,10 +193,10 @@ class OriginClusterSub9(OriginClusterSub1):
 class OriginClusterSub0(OriginClusterSub1):
     pass
 
-class OriginPathAnimation(Scene):
+class OriginPathAnimation1(Scene):
     def construct(self):
         g = HPGrid.from_grid((24, 14), 0.3)
-        g.percolate(0.75)
+        g.percolate(0.52)
         g.dramatically_highlight_ball((0,0))
 
         self.play(GlitchEdges(g), run_time=0.25)
@@ -204,12 +204,38 @@ class OriginPathAnimation(Scene):
         self.play(g.animate.highlight_path_to_boundary_from((0,0)))
         self.wait()
         self.play(GlitchEdges(g), run_time=0.25)
-        
+
+class OriginPathAnimation2(OriginPathAnimation1):
+    pass
+
+class OriginPathAnimation3(OriginPathAnimation1):
+    pass
+
+class OriginPathAnimation4(OriginPathAnimation1):
+    pass
+
+class OriginPathAnimation5(OriginPathAnimation1):
+    pass
+
+class OriginPathAnimation6(OriginPathAnimation1):
+    pass
+
+class OriginPathAnimation7(OriginPathAnimation1):
+    pass
+
+class OriginPathAnimation8(OriginPathAnimation1):
+    pass
+
+class OriginPathAnimation9(OriginPathAnimation1):
+    pass
+
+class OriginPathAnimation0(OriginPathAnimation1):
+    pass
 
 class OriginPath1(Scene):
     def construct(self):
         g = HPGrid.from_grid((24, 14), 0.3)
-        g.percolate(0.75)
+        g.percolate(0.52)
         g.dramatically_highlight_ball((0,0))
         g.highlight_path_to_boundary_from((0,0))
 

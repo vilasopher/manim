@@ -12,13 +12,13 @@ def almost_linear(alpha):
 
 class BackgroundCritical(Scene):
     def construct(self):
-        random.seed(50) # good ones: 1 = green, 2 = blue
+        random.seed(24) # good ones: 1 = green, 2 = blue, 24 = pink, 28 = red
         c = ClusterImage((720,1280), 0.5)
         self.add(c)
 
 class BackgroundAbstract(Scene):
-    def abstract_construct(self, start, end, time=10):
-        random.seed(50) # good ones: 1 = green, 2 = blue
+    def construct_abstract(self, start, end, time=10):
+        random.seed(24) # good ones: 1 = green, 2 = blue, 24 = pink, 28 = red
 
         p = ValueTracker(start if start < end else end)
 

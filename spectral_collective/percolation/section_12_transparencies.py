@@ -5,23 +5,23 @@ from value_slider import ValueSlider, CriticalValueSlider
 
 config.background_opacity = 0
 
+LO = 0.45
+HI = 0.52
+
 class SliderSuper(Scene):
     def construct(self):
-        cvs = CriticalValueSlider(0.75)
-        cvs.add_crit()
+        cvs = CriticalValueSlider(HI)
         self.add(cvs)
 
 class SliderSub(Scene):
     def construct(self):
-        cvs = CriticalValueSlider(0.25)
-        cvs.add_crit()
+        cvs = CriticalValueSlider(LO)
         self.add(cvs)
 
 class SliderUp(Scene):
     def construct(self):
-        p = ValueTracker(0.25)
+        p = ValueTracker(LO)
         cvs = CriticalValueSlider(p.get_value())
-        cvs.add_crit()
 
         cvs.add_updater(
             lambda s : s.set_p(p.get_value())
@@ -29,11 +29,36 @@ class SliderUp(Scene):
 
         self.add(cvs)
 
-        self.play(p.animate.set_value(0.75), run_time=0.5)
+        self.play(p.animate.set_value(HI), run_time=0.5)
 
 class SliderDown(Scene):
     def construct(self):
-        p = ValueTracker(0.75)
+        p = ValueTracker(HI)
+        cvs = CriticalValueSlider(p.get_value())
+
+        cvs.add_updater(
+            lambda s : s.set_p(p.get_value())
+        )
+
+        self.add(cvs)
+
+        self.play(p.animate.set_value(LO), run_time=0.5)
+
+class CritSuper(Scene):
+    def construct(self):
+        cvs = CriticalValueSlider(HI)
+        cvs.add_crit()
+        self.add(cvs)
+
+class CritSub(Scene):
+    def construct(self):
+        cvs = CriticalValueSlider(LO)
+        cvs.add_crit()
+        self.add(cvs)
+
+class CritUp(Scene):
+    def construct(self):
+        p = ValueTracker(LO)
         cvs = CriticalValueSlider(p.get_value())
         cvs.add_crit()
 
@@ -43,7 +68,118 @@ class SliderDown(Scene):
 
         self.add(cvs)
 
-        self.play(p.animate.set_value(0.25), run_time=0.5)
+        self.play(p.animate.set_value(HI), run_time=0.5)
+
+class CritDown(Scene):
+    def construct(self):
+        p = ValueTracker(HI)
+        cvs = CriticalValueSlider(p.get_value())
+        cvs.add_crit()
+
+        cvs.add_updater(
+            lambda s : s.set_p(p.get_value())
+        )
+
+        self.add(cvs)
+
+        self.play(p.animate.set_value(LO), run_time=0.5)
+
+class ProbEquivalence(Scene):
+    def construct(self):
+        prob1 = MathTex(
+            r'{{ \mathbb{P} }} _ {{ p }} {{ [\text{the cluster of } o \text{ is infinite}] }}',
+            color=sol.BASE03,
+            font_size = 40
+        ).set_color_by_tex(r'p', sol.RED).move_to(0.6 * LEFT + UP)
+        
+        prob2 = MathTex(
+            r'{{ \mathbb{P} }} _ {{ p }} {{ [\text{the cluster of } o \text{ is infinite}] }} {{ > 0 \Leftrightarrow \mathbb{P} }} _ {{ p \hspace{1em} }} {{ \hspace{-1em} [\text{there is an infinite cluster}] = 1 }}',
+            color=sol.BASE03,
+            font_size = 36
+        ).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'[', sol.BASE03).move_to(0.6 * LEFT + UP)
+
+        lem = MathTex(
+            r'\textbf{Lemma: }',
+            r'& {{ \mathbb{P} }} _ {{ p }} {{ [\text{the cluster of } o \text{ is infinite}] }} {{ > 0 \Leftrightarrow \mathbb{P} }} _ {{ p \hspace{1em} }} {{ \hspace{-1em} [\text{there is an infinite cluster}] = 1 }} {{,}} \\',
+            r'\text{and }',
+            r'& {{ \mathbb{P} \hspace{1em} \hspace{-1em} }} _ {{ p \hspace{2em} }} {{ \hspace{-2em} [\text{the cluster of } o \text{ is infinite}]=0 \Leftrightarrow \mathbb{P} }} _ {{ p \hspace{3em} }} {{ \hspace{-3em} [\text{there is an infinite cluster}] = 0. }}',
+            color=sol.BASE03,
+            font_size=36
+        ).move_to(3.05 * UP).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'[', sol.BASE03).set_color_by_tex(r'\mathbb{P}', sol.BASE03)
+
+        prob3 = MathTex(
+            r'& {{ \mathbb{P} }} _ {{ p }} {{ [\text{the cluster of } o \text{ is infinite}] }} {{ > 0 \Leftrightarrow \mathbb{P} }} _ {{ p \hspace{1em} }} {{ \hspace{-1em} [\text{there is an infinite cluster}] = 1 }} {{,}} \\',
+            r'& {{ \mathbb{P} \hspace{1em} \hspace{-1em} }} _ {{ p \hspace{2em} }} {{ \hspace{-2em} [\text{the cluster of } o \text{ is infinite}]=0 \Leftrightarrow \mathbb{P} }} _ {{ p \hspace{3em} }} {{ \hspace{-3em} [\text{there is an infinite cluster}] = 0. }}',
+            color=sol.BASE03,
+            font_size=36
+        ).move_to(3.05 * UP + 0.6 * LEFT).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'[', sol.BASE03).set_color_by_tex(r'\mathbb{P}', sol.BASE03)
+
+        self.play(FadeIn(prob1))
+        self.wait(5.5)
+        self.play(TransformMatchingTex(prob1, prob2))
+        self.wait(5)
+        self.play(TransformMatchingTex(prob2, lem))
+        self.wait(4.5)
+        self.play(TransformMatchingTex(lem, prob3), run_time=0.5)
+        self.wait(17.5)
+
+class ProbEquivalenceBox(Scene):
+    def construct(self):
+        prob1 = MathTex(
+            r'\mathbb{P}_{{p}}[\text{the cluster of } o \text{ is infinite}]',
+            color=sol.BASE03,
+            font_size = 40
+        ).set_color_by_tex(r'p', sol.RED).move_to(0.6 * LEFT + UP)
+
+        t1 = TranslucentBox(prob1)
+        
+        prob2 = MathTex(
+            r'\mathbb{P}_{{p}}[\text{the cluster of } o \text{ is infinite}] > 0',
+            r'\Leftrightarrow',
+            r'\mathbb{P}_{{p}}[\text{there is an infinite cluster}] = 1',
+            color=sol.BASE03,
+            font_size = 36
+        ).set_color_by_tex(r'p', sol.RED).move_to(0.6 * LEFT + UP)
+
+        t2 = TranslucentBox(prob2)
+
+        lem = MathTex(
+            r'\textbf{Lemma: } ',
+            r'&\mathbb{P}_{{p}}[\text{the cluster of } o \text{ is infinite}]>0',
+            r'\Leftrightarrow',
+            r'\mathbb{P}_{{p}}[\text{there is an infinite cluster}] = 1, \\',
+            r'\text{and }',
+            r'&\mathbb{P}_{{p}}[\text{the cluster of } o \text{ is infinite}]=0',
+            r'\Leftrightarrow',
+            r'\mathbb{P}_{{p}}[\text{there is an infinite cluster}] = 0.',
+            color=sol.BASE03,
+            font_size=36
+        ).move_to(3.05 * UP).set_color_by_tex(r'p', sol.RED)
+
+        tlem = TranslucentBox(lem)
+
+        prob3 = MathTex(
+            r'&\mathbb{P}_{{p}}[\text{the cluster of } o \text{ is infinite}]>0.',
+            r'\Leftrightarrow',
+            r'\mathbb{P}_{{p}}[\text{there is an infinite cluster}] = 1,\\',
+            r'&\mathbb{P}_{{p}}[\text{the cluster of } o \text{ is infinite}]=0',
+            r'\Leftrightarrow',
+            r'\mathbb{P}_{{p}}[\text{there is an infinite cluster}] = 0.',
+            color=sol.BASE03,
+            font_size=36
+        ).move_to(3.05 * UP + 0.6 * LEFT).set_color_by_tex(r'p', sol.RED)
+
+        t3 = TranslucentBox(prob3)
+
+        self.add(t1)
+        self.wait()
+        self.wait(5.5)
+        self.play(Transform(t1, t2))
+        self.wait(5)
+        self.play(Transform(t1, tlem))
+        self.wait(4.5)
+        self.play(Transform(t1, t3), run_time=0.5)
+        self.wait(17.5)
 
 class FinalTheorem(Scene):
     def construct(self):

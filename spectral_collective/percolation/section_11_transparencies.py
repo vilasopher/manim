@@ -32,7 +32,7 @@ class SliderAbstract(Scene):
         self.add(cvs)
 
         self.play(
-            p.animate.set_value(1),
+            p.animate.set_value(end),
             run_time=time,
             rate_func=almost_linear
         )
