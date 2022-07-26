@@ -8,6 +8,24 @@ config.background_opacity = 0
 LO = 0.45
 HI = 0.52
 
+class ODoubleArrowInfinity(Scene):
+    def construct(self):
+        tex = MathTex(
+            r'``o \leftrightarrow \infty" = ``\text{the origin is connected to } \infty"',
+            color=sol.BASE03
+        ).move_to(0.6 * LEFT + 2 * UP)
+        self.add(TranslucentBox(tex), tex)
+
+class SliderCrit(Scene):
+    def construct(self):
+        self.add(CriticalValueSlider(0.5))
+
+class CritCrit(Scene):
+    def construct(self):
+        cvs = CriticalValueSlider(0.5)
+        cvs.add_crit()
+        self.add(cvs)
+
 class SliderSuper(Scene):
     def construct(self):
         cvs = CriticalValueSlider(HI)
@@ -90,13 +108,13 @@ class ProbEquivalence(Scene):
             r'{{ \mathbb{P} }} _ {{ p }} {{ [\text{the cluster of } o \text{ is infinite}] }}',
             color=sol.BASE03,
             font_size = 40
-        ).set_color_by_tex(r'p', sol.RED).move_to(0.6 * LEFT + UP)
+        ).set_color_by_tex(r'p', sol.RED).move_to(0.6 * LEFT + 2 * UP)
         
         prob2 = MathTex(
             r'{{ \mathbb{P} }} _ {{ p }} {{ [\text{the cluster of } o \text{ is infinite}] }} {{ > 0 \Leftrightarrow \mathbb{P} }} _ {{ p \hspace{1em} }} {{ \hspace{-1em} [\text{there is an infinite cluster}] = 1 }}',
             color=sol.BASE03,
             font_size = 36
-        ).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'[', sol.BASE03).move_to(0.6 * LEFT + UP)
+        ).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'[', sol.BASE03).move_to(0.6 * LEFT + 2 * UP)
 
         lem = MathTex(
             r'\textbf{Lemma: }',
@@ -129,7 +147,7 @@ class ProbEquivalenceBox(Scene):
             r'\mathbb{P}_{{p}}[\text{the cluster of } o \text{ is infinite}]',
             color=sol.BASE03,
             font_size = 40
-        ).set_color_by_tex(r'p', sol.RED).move_to(0.6 * LEFT + UP)
+        ).set_color_by_tex(r'p', sol.RED).move_to(0.6 * LEFT + 2 * UP)
 
         t1 = TranslucentBox(prob1)
         
@@ -139,7 +157,7 @@ class ProbEquivalenceBox(Scene):
             r'\mathbb{P}_{{p}}[\text{there is an infinite cluster}] = 1',
             color=sol.BASE03,
             font_size = 36
-        ).set_color_by_tex(r'p', sol.RED).move_to(0.6 * LEFT + UP)
+        ).set_color_by_tex(r'p', sol.RED).move_to(0.6 * LEFT + 2 * UP)
 
         t2 = TranslucentBox(prob2)
 
