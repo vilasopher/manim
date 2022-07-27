@@ -2,7 +2,7 @@ from manim import *
 import solarized as sol
 from translucent_box import TranslucentBox
 from value_slider import CriticalValueSlider
-import math
+from math import sqrt
 
 config.background_opacity = 0
 
@@ -78,11 +78,11 @@ class IncreasingTex(Scene):
         )
         self.wait(7)
         self.play(
-            finala.animate.shift(2 * UP)
+            finala.animate.shift(2.5 * UP)
         )
         self.wait(27)
         self.play(
-            finala.animate.shift(4 * UP),
+            finala.animate.shift(3.5 * UP),
         )
 
 class IncreasingTexBox(Scene):
@@ -148,9 +148,9 @@ class IncreasingTexBox(Scene):
         self.wait(12)
         self.play(Transform(tbox, TranslucentBox(t1, t3b, t4)))
         self.wait(7)
-        self.play(tbox.animate.shift(2 * UP))
+        self.play(tbox.animate.shift(2.5 * UP))
         self.wait(27)
-        self.play(tbox.animate.shift(4 * UP))
+        self.play(tbox.animate.shift(3.5 * UP))
 
 class PcDefinition(Scene):
     def construct(self):
@@ -160,7 +160,7 @@ class PcDefinition(Scene):
             r'{{p_c}} \coloneqq \sup \, \{ {{p}} \in [0, 1] : \mathbb{P}_{{p}}[o \leftrightarrow \infty] = 0 \}',
             color=sol.BASE03,
             tex_template=tmp
-        ).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'p_c', sol.BLUE).set_color_by_tex(r's', sol.BASE03).move_to(2*UP)
+        ).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'p_c', sol.BLUE).set_color_by_tex(r's', sol.BASE03).move_to(2.5*UP)
         td = TranslucentBox(d)
 
         self.add(td, d)
@@ -190,12 +190,12 @@ class Theorem(Scene):
 
         thm3 = Group(thm3a, thm3b).next_to(thm2, DOWN).align_to(thm2, LEFT)
 
-        thm = Group(thm1, thm2, thm3).move_to(2.5 * UP + 4 * UP)
+        thm = Group(thm1, thm2, thm3).move_to(2.5 * UP + 3.5 * UP)
         tbox = TranslucentBox(thm)
 
         self.play(
-            tbox.animate.shift(4 * DOWN),
-            thm.animate.shift(4 * DOWN)
+            tbox.animate.shift(3.5 * DOWN),
+            thm.animate.shift(3.5 * DOWN)
         )
         self.wait(1.5)
 
@@ -209,67 +209,113 @@ class Theorem(Scene):
         self.wait(10)
 
 def theta(pc, p):
-    if p <= pc:
+    if p < pc or pc == 1:
         return 0
     else:
-        if pc == 1:
-            return 1
-        else:
-            return math.sqrt((p - pc)/(1 - pc))
+        return (sqrt((p - pc)/(1 - pc) + 1/3) - sqrt(1/3)) / (sqrt(1 + 1/3) - sqrt(1/3))
 
 class Plot(Scene):
     def construct(self):
         ax = Axes(
             x_range = [0, 1, 1],
             y_range = [0, 1, 1],
-            x_length = 8,
-            y_length = 4,
-            axis_config = {"color" : sol.BASE03},
+            x_length = 10,
+            y_length = 3,
+            axis_config = {'color' : sol.BASE03},
             tips=False
         )
 
-        pc = ValueTracker(0.9)
+        pc = ValueTracker(0.5)
 
-        theta_below = ax.plot(
+        plt = ax.plot(
             lambda p : theta(pc.get_value(), p),
-            t_range = [0, pc.get_value()],
+            x_range = [0, 1, 0.005],
             color=sol.BASE02,
-            discontinuities=[pc.get_value()]
+            discontinuities=[pc.get_value()],
+            use_smoothing=False
         )
 
-        theta_above = ax.plot(
-            lambda p : theta(pc.get_value(), p),
-            t_range = [pc.get_value(), 1],
-            color=sol.BASE02,
-            discontinuities=[pc.get_value()]
-        )
-
-        theta_below.add_updater(
+        plt.add_updater(
             lambda s : s.become(
                 ax.plot(
                     lambda p : theta(pc.get_value(), p),
-                    t_range = [0, pc.get_value()],
+                    x_range = [0, 1, 0.005],
                     color=sol.BASE02,
-                    discontinuities=[pc.get_value()]
+                    discontinuities=[pc.get_value()],
+                    use_smoothing=False
                 )
             )
         )
 
-        theta_above.add_updater(
-            lambda s : s.become(
-                ax.plot(
-                    lambda p : theta(pc.get_value(), p),
-                    t_range = [pc.get_value(), 1],
-                    color=sol.BASE02,
-                    discontinuities=[pc.get_value()]
-                )
-            )
+        pt0 = Dot(ax.coords_to_point(0,0), color=sol.BASE02, radius=0.05)
+        pt1 = Dot(ax.coords_to_point(1,1), color=sol.BASE02, radius=0.05)
+
+        lab = ax.get_axis_labels(
+            x_label = MathTex(r'p', color=sol.RED),
+            y_label = MathTex(
+                r'\mathbb{P}_{{p}}[o \leftrightarrow \infty]',
+                color=sol.BASE03
+            ).set_color_by_tex(r'p', sol.RED)
         )
 
-        plot = Group(ax, theta_below, theta_above)
-        tbox = TranslucentBox(plot)
-        self.add(tbox, plot)
+
+        plot = Group(ax, plt, pt0, pt1, lab).move_to(DOWN)
+
+        crit = Square(
+            0.1 / sqrt(2),
+            color=sol.BLUE
+        ).rotate(PI/4).set_fill(
+            sol.BLUE,
+            opacity=1
+        ).move_to(ax.coords_to_point(pc.get_value(), 0))
+
+        crit.add_updater(
+            lambda s : s.move_to(ax.coords_to_point(pc.get_value(), 0))
+        )
+
+        pctex = MathTex(r'p_c', color=sol.BLUE).next_to(crit, DOWN)
+
+        pctex.add_updater(
+            lambda s : s.next_to(crit, DOWN)
+        )
+
+        pcrit = Group(crit, pctex)
+
+        tbox = TranslucentBox(plot, pcrit)
+
+        self.add(tbox, ax, lab)
 
         self.wait()
-        self.play(pc.animate.set_value(0.1), run_time=5)
-        self.wait()
+
+        self.play(
+            Create(plt),
+            FadeIn(pt0),
+            FadeIn(pt1),
+            run_time=2
+        )
+
+        self.wait(25)
+
+        self.play(FadeIn(pcrit))
+
+        self.wait(16.5)
+
+        self.play(pc.animate.set_value(0))
+        self.play(pc.animate.set_value(1), run_time=2)
+
+        self.wait(2)
+        self.play(pc.animate.set_value(0), run_time=2)
+        self.wait(2)
+        self.play(pc.animate.set_value(1), run_time=2)
+        self.wait(2)
+        self.play(pc.animate.set_value(0), run_time=2)
+        self.wait(2)
+        self.play(pc.animate.set_value(1), run_time=2)
+        self.wait(2)
+        self.play(pc.animate.set_value(0), run_time=2)
+        self.wait(2)
+        self.play(pc.animate.set_value(1), run_time=2)
+        self.wait(2)
+        self.play(pc.animate.set_value(0), run_time=2)
+        self.wait(2)
+        self.play(pc.animate.set_value(1), run_time=2)
