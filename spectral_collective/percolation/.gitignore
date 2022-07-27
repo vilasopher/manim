@@ -2,4 +2,5 @@
 /media/*
 /zooms/*
 /thumbnails/*
+/glauber/*
 /__pycache__/*
