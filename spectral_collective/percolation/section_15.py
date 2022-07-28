@@ -59,7 +59,7 @@ class DualityScene(Scene):
                         run_time = 0.5
                     ) for e in elist
                 )
-            ), run_time = 8
+            ), run_time = 7
         )
 
         self.wait(1.5)
@@ -117,7 +117,7 @@ class DualPercolateLo(Scene):
 class PercolateBoth(Scene):
     def construct(self):
         g = Duality()
-        g.percolate()
+        g.percolate(1/3)
         self.play(
             GlitchEdges(g.primal, intensity=0.03),
             GlitchEdges(g.dual, intensity=0.03), 
@@ -134,7 +134,7 @@ class PercolateBoth(Scene):
 class PercolatePrimal(Scene):
     def construct(self):
         g = Duality()
-        g.percolate()
+        g.percolate(1/3)
 
         self.play(GlitchEdges(g.primal, intensity=0.03), run_time=0.25)
         self.wait(1.75)
@@ -151,7 +151,7 @@ class PercolatePrimal(Scene):
 class PercolateDual(Scene):
     def construct(self):
         g = Duality()
-        g.percolate()
+        g.percolate(1/3)
 
         self.play(GlitchEdges(g.dual, intensity=0.03), run_time=0.25)
         self.wait(1.75)
@@ -166,7 +166,7 @@ class PercolateDual(Scene):
 class PercolateBothLonger1(Scene):
     def construct(self):
         g = Duality()
-        g.percolate()
+        g.percolate(1/3)
 
         self.play(
             GlitchEdges(g.primal, intensity=0.03),
@@ -206,6 +206,15 @@ class GlitchZoomOutB(MovingCameraScene):
 
         self.play(
             self.camera.frame.animate.restore(),
+            GlitchEdges(g.primal, intensity=0.04),
+            GlitchEdges(g.dual, intensity=0.04),
+            run_time = 0.5
+        )
+
+class BothGlitchTransitionLarger(Scene):
+    def construct(self):
+        g = Duality((24, 14), 0.3)
+        self.play(
             GlitchEdges(g.primal, intensity=0.04),
             GlitchEdges(g.dual, intensity=0.04),
             run_time = 0.5

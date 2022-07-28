@@ -1,7 +1,7 @@
 from manim import *
 import solarized as sol
 from translucent_box import TranslucentBox
-from value_slider import CriticalValueSlider
+from value_slider import CriticalValueSlider, ValueSlider
 import math
 
 config.background_opacity = 0
@@ -46,23 +46,28 @@ class PrimalDualBox(Scene):
 
 class SliderMid(Scene):
     def construct(self):
-        cvs = CriticalValueSlider(0.5)
+        cvs = ValueSlider(0.5)
         self.add(cvs)
 
 class SliderHi(Scene):
     def construct(self):
-        cvs = CriticalValueSlider(0.75)
+        cvs = ValueSlider(0.75)
         self.add(cvs)
 
 class SliderLo(Scene):
     def construct(self):
-        cvs = CriticalValueSlider(0.25)
+        cvs = ValueSlider(0.25)
+        self.add(cvs)
+
+class SliderThird(Scene):
+    def construct(self):
+        cvs = ValueSlider(1/3)
         self.add(cvs)
 
 class SliderMidToHi(Scene):
     def construct(self):
         p = ValueTracker(0.5)
-        cvs = CriticalValueSlider(p.get_value())
+        cvs = ValueSlider(p.get_value())
         cvs.add_updater(lambda s : s.set_p(p.get_value()))
         self.add(cvs)
 
@@ -71,7 +76,7 @@ class SliderMidToHi(Scene):
 class SliderHiToLo(Scene):
     def construct(self):
         p = ValueTracker(0.75)
-        cvs = CriticalValueSlider(p.get_value())
+        cvs = ValueSlider(p.get_value())
         cvs.add_updater(lambda s : s.set_p(p.get_value()))
         self.add(cvs)
 
@@ -80,7 +85,25 @@ class SliderHiToLo(Scene):
 class SliderLoToMid(Scene):
     def construct(self):
         p = ValueTracker(0.25)
-        cvs = CriticalValueSlider(p.get_value())
+        cvs = ValueSlider(p.get_value())
+        cvs.add_updater(lambda s : s.set_p(p.get_value()))
+        self.add(cvs)
+
+        self.play(p.animate.set_value(0.5), run_time=0.5)
+
+class SliderLoToThird(Scene):
+    def construct(self):
+        p = ValueTracker(0.25)
+        cvs = ValueSlider(p.get_value())
+        cvs.add_updater(lambda s : s.set_p(p.get_value()))
+        self.add(cvs)
+
+        self.play(p.animate.set_value(1/3), run_time=0.5)
+
+class SliderThirdToMid(Scene):
+    def construct(self):
+        p = ValueTracker(1/3)
+        cvs = ValueSlider(p.get_value())
         cvs.add_updater(lambda s : s.set_p(p.get_value()))
         self.add(cvs)
 
