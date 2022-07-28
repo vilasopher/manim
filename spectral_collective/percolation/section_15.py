@@ -199,7 +199,7 @@ class GlitchZoomOutA(MovingCameraScene):
 
 class GlitchZoomOutB(MovingCameraScene):
     def construct(self):
-        g = self.Duality((24, 14), 0.3)
+        g = Duality((24, 14), 0.3)
 
         self.camera.frame.save_state()
         self.camera.frame.scale(0.3/0.95)
