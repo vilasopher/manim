@@ -24,7 +24,7 @@ hi_log2   = 21
 crit_log2 = 18
 lo_log2   = 15
 
-epsilon = 0.02
+epsilon = 0.01
 
 def i(frame):
     return (1 - np.cos( (2 * np.pi * frame) / (24 * 60) )) / 2
