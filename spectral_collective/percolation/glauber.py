@@ -16,7 +16,7 @@ c_offset = 280
 frame_rate = 60
 run_time = 60
 
-hi_beta   = 0.4407 + 0.3
+hi_beta   = 0.4407 + 0.2
 crit_beta = 0.4407
 lo_beta   = 0.4407 - 0.1
 
@@ -24,22 +24,26 @@ hi_log2   = 21
 crit_log2 = 18
 lo_log2   = 15
 
-epsilon = 0.01
+epsilon = 0.02
 
 def i(frame):
-    return (1 + np.cos( (2 * np.pi * frame) / (20 * 60) )) / 2
+    return (1 - np.cos( (2 * np.pi * frame) / (24 * 60) )) / 2
+
+def j(frame):
+    return (2/3) * (1 - np.cos( (2 * np.pi * (frame - 4 * 60)) / (20 * 60) )) / 2 
+
+def k(frame):
+    return (1/3) + (1/3) * (1 + np.cos( (2 * np.pi * (frame - 10 * 60)) / (12 * 60) )) / 2
 
 def interp(frame):
-    if frame < 20 * 60:
+    if frame < 24 * 60:
         return i(frame)
-    if frame < 27.5 * 60:
-        return i((frame - 20 * 60) * 4/3) * 3/4 + 1/4
-    if frame < 45 * 60:
-        return 1/4
-    if frame < 50 * 60:
-        return (1 - i(frame * 2)) / 4
+    if frame < 34 * 60:
+        return j(frame)
+    if frame < 40 * 60:
+        return k(frame)
     if frame < 60 * 60:
-        return i(frame)
+        return 1/3
 
 def beta(frame):
     return interp(frame) * hi_beta + (1 - interp(frame)) * lo_beta
@@ -51,7 +55,10 @@ def steps_between_frames(beta):
 grid = np.zeros(shape)
 for r in range(shape[0]):
     for c in range(shape[1]):
-        grid[r,c] = -1 if c < shape[1] / 2 else 1
+        if r == 0 or r == shape[0]-1 or c == 0 or c == shape[1]-1:
+            grid[r,c] = -1 if c < shape[1] / 2 else 1
+        else:
+            grid[r,c] = -1 if np.random.random() < 1/2 else 1
 
 def delta_E(r,c):
     s = grid[r+1,c] + grid[r-1,c] + grid[r,c+1] + grid[r,c-1]
