@@ -59,21 +59,25 @@ class Ising(Scene):
         lo_temp   = 1 / hi_beta
         crit_temp = 1 / crit_beta
         hi_temp   = 1 / lo_beta
-        # (MID-LO)/(HI-LO) = 0.579816
+
+        hi_temp = 3
+        lo_temp = crit_temp - (hi_temp - crit_temp)
+
 
         slider = NumberLine(
             include_ticks=False,
             stroke_width=5,
             x_range = [lo_temp, hi_temp],
-            length = 9
+            length = 10
         )
         slider.set_stroke(
             color_gradient(
-                [PURE_RED, PURE_RED, BLUE_C, BLUE_C, BLUE_C],
+                #[PURE_RED, PURE_RED, PURE_RED, PURE_RED, PURE_RED, BLUE_C, BLUE_C, BLUE_C, BLUE_C, BLUE_C, BLUE_C],
+                [RED_C, BLUE_C],
                 100
             )
         )
-        slider.shift(3.1*DOWN + 1.5 * LEFT)
+        slider.shift(3.1*DOWN + 1.2 * LEFT)
         self.add(slider)
 
         crit = Square(0.1/1.41, color=sol.BASE01).rotate(PI/4)
@@ -81,7 +85,7 @@ class Ising(Scene):
         crit.move_to(slider.number_to_point(crit_temp))
         self.add(crit)
 
-        hot = Tex(r'hot', color=PURE_RED, font_size=35).next_to(slider, UP).align_to(slider, RIGHT)
+        hot = Tex(r'hot', color=RED_C, font_size=35).next_to(slider, UP).align_to(slider, RIGHT)
         self.add(hot)
 
         cold = Tex(r'cold', color=BLUE_C, font_size=35).next_to(slider, UP).align_to(slider, LEFT)
@@ -94,7 +98,7 @@ class Ising(Scene):
         f = ValueTracker(0)
         self.add(f)
 
-        b = ValueTracker(lo_beta)
+        b = ValueTracker(beta(f.get_value()))
         self.add(b)
 
         tick = slider.get_tick(
@@ -140,4 +144,4 @@ class Ising(Scene):
             lambda s : s.set_value(speed(b.get_value()))
         )
         
-        self.play(f.animate.set_value(3600), run_time=60)
+        self.play(f.animate.set_value(3600), run_time=60, rate_func=rate_functions.linear)
