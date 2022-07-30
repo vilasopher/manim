@@ -161,7 +161,7 @@ bound4_B2 = MathTex(
 bound4_C = MathTex(
     r'{{ (\text{if } }} 1 - {{p}} < 1 {{ / 3 ) }}',
     color = sol.BASE03
-).set_color_by_tex(r'p', sol.RED).next_to(bound4_B, RIGHT)
+).set_color_by_tex(r'p', sol.RED).next_to(bound4_B, RIGHT).shift(0.05 * UP)
 
 bound4_C2 = MathTex(
     r'{{ (\text{if } }} {{p}} > 2 {{ / 3 ) }}',
@@ -181,10 +181,16 @@ bound5_B = MathTex(
 ).set_color_by_tex(r'N', sol.VIOLET).next_to(bound5_A, RIGHT)
 
 bound5_C = MathTex(
-    r'\mathbb{P}_{{p}}[\text{not } \oo_{\geq {{N}}}] = 1 - \mathbb{P}_{{p}}[\oo_{\geq {{N}}}] > 0.',
+    r'\mathbb{P}_{{p}}[\oo_{\geq {{N}}}] < 1,',
     color = sol.BASE03,
     tex_template = temp
-).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'N', sol.VIOLET).next_to(bound5_B, DOWN).shift(RIGHT + 0.15 * DOWN)
+).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'N', sol.VIOLET).next_to(bound5_B, RIGHT)
+
+bound5_D = MathTex(
+    r'\text{so} \quad \mathbb{P}_{{p}}[\text{not } \oo_{\geq {{N}}}] = 1 - \mathbb{P}_{{p}}[\oo_{\geq {{N}}}] > 0.',
+    color = sol.BASE03,
+    tex_template = temp
+).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'N', sol.VIOLET).next_to(bound5_C, DOWN).align_to(bound5_C, RIGHT).shift(0.15 * DOWN)
 
 ####################################################
 
@@ -269,16 +275,20 @@ class BlueTex(Scene):
 
         self.play(TransformMatchingTex(bound4_B, bound4_B2))
 
-        self.wait(12.5)
+        self.wait(3)
 
         self.play(FadeIn(bound5_A))
 
-        self.wait(0.5)
+        self.wait(1)
 
         self.play(FadeIn(bound5_B))
 
         self.wait(1)
 
         self.play(FadeIn(bound5_C))
+
+        self.wait(8)
+
+        self.play(Write(bound5_D))
 
         self.wait(10)
