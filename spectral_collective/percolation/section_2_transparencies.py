@@ -6,9 +6,9 @@ config.background_opacity = 0
 
 class pOneHalf(Scene):
     def construct(self):
-        pval = MathTex(r'{{ p }} = \frac{1}{2}', color = sol.BASE03)
+        pval = MathTex(r'{{ p }} = 1/2', color = sol.BASE03)
         pval.set_color_by_tex(r'p', sol.RED)
-        pval.move_to(6 * RIGHT + 3 * DOWN)
+        pval.move_to(5.8 * RIGHT + 3.3 * DOWN)
         tbox = TranslucentBox(pval)
         self.add(tbox, pval)
 
