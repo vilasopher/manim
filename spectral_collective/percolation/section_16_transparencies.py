@@ -4,7 +4,9 @@ from translucent_box import TranslucentBox
 from value_slider import CriticalValueSlider, ValueSlider
 import math
 
-config.background_opacity = 1
+config.background_opacity = 0
+
+####################################################
 
 lemma = MathTex(
     r'\textbf{Lemma: } {{ p_c }} < 1.',
@@ -80,7 +82,7 @@ bound2_A = MathTex(
 ).set_color_by_tex(r'\ell', sol.GREEN).next_to(lemma, DOWN).align_to(lemma, LEFT).shift(0.5 * RIGHT + 3 * DOWN)
 
 bound2_B = MathTex(
-    r'\leq { {{\ell}} \over 2 } \cdot 4 \cdot 3^{{{\ell}} - 1}',
+    r'\leq { {{\ell}} \over 2 } \cdot 3^{{{\ell}} - 1}',
     color = sol.BASE03
 ).set_color_by_tex(r'\ell', sol.GREEN).next_to(bound2_A, RIGHT)
 
@@ -290,5 +292,147 @@ class BlueTex(Scene):
         self.wait(8)
 
         self.play(Write(bound5_D))
+
+        self.wait(10)
+
+class BlueTexDefBoxIn(Scene):
+    def construct(self):
+        self.add(TranslucentBox(definition))
+
+class BlueTexB1BoxIn(Scene):
+    def construct(self):
+        self.add(TranslucentBox(bound1_A))
+
+class BlueTexB2BoxIn(Scene):
+    def construct(self):
+        self.add(TranslucentBox(bound2_A))
+
+class BlueTexB3BoxIn(Scene):
+    def construct(self):
+        self.add(TranslucentBox(bound3_A))
+
+class BlueTexBoxesOut(Scene):
+    def construct(self):
+        self.add(TranslucentBox(bound1_A, bound1_B3, bound1_C3))
+        self.add(TranslucentBox(bound2_A, bound2_B, bound2_C))
+
+class BlueTexSEQBoxIn(Scene):
+    def construct(self):
+        self.add(TranslucentBox(sum_equality))
+
+class BlueTexB4BoxIn(Scene):
+    def construct(self):
+        self.add(TranslucentBox(bound4_A))
+
+class BlueTexB5BoxIn(Scene):
+    def construct(self):
+        self.add(TranslucentBox(bound5_A))
+
+class BlueTexBox(Scene):
+    def construct(self):
+        self.add(TranslucentBox(lemma))
+        self.wait()
+
+        #self.play(FadeIn(definition)) TODO
+        self.wait()
+        tdef = TranslucentBox(definition)
+        self.add(tdef)
+        self.wait(5)
+
+        #self.play(FadeIn(bound1_A)) TODO
+        self.wait()
+        t1 = TranslucentBox(bound1_A)
+        self.add(t1)
+        self.play(Transform(t1, TranslucentBox(bound1_A, bound1_B)))
+        self.play(Transform(t1, TranslucentBox(bound1_A, bound1_B, bound1_C)))
+
+        self.wait(7)
+
+        self.play(Transform(t1, TranslucentBox(bound1_A, bound1_B, bound1_C2)))
+
+        self.wait(4)
+
+        self.play(Transform(t1, TranslucentBox(bound1_A, bound1_B3, bound1_C3)))
+
+        self.wait(37)
+
+        #self.play(FadeIn(bound2_A)) TODO
+        self.wait()
+        t2 = TranslucentBox(bound2_A)
+        self.add(t2)
+        self.play(Transform(t2, TranslucentBox(bound2_A, bound2_B)))
+        self.play(Transform(t2, TranslucentBox(bound2_A, bound2_B, bound2_C)))
+
+        self.wait(10)
+
+        #self.play(FadeIn(bound3_A)) TODO
+        self.wait()
+        t3 = TranslucentBox(bound3_A)
+        self.add(t3)
+        self.wait(2)
+        self.play(Transform(t3, TranslucentBox(bound3_A2)))
+        self.wait(1)
+
+        self.remove(t1, t2)
+        self.wait()
+        #self.play(
+        #    FadeOut(bound1_A),
+        #    FadeOut(bound1_B3),
+        #    FadeOut(bound1_C3),
+        #    FadeOut(bound2_A),
+        #    FadeOut(bound2_B),
+        #    FadeOut(bound2_C)
+        #) TODO
+
+        self.play(Transform(t3, TranslucentBox(bound3_A3)))
+        self.wait(6)
+
+        self.play(Transform(tdef, TranslucentBox(definition2)))
+
+        self.wait(2)
+
+        #self.play(FadeIn(sum_equality)) TODO
+        self.wait()
+        tseq = TranslucentBox(sum_equality)
+        self.add(tseq)
+
+        self.wait(1)
+
+        #self.play(FadeIn(bound4_A)) TODO
+        self.wait()
+        t4 = TranslucentBox(bound4_A)
+        self.add(t4)
+
+        self.wait(5)
+
+        self.play(Transform(t4, TranslucentBox(bound4_A, bound4_B)))
+        self.play(Transform(t4, TranslucentBox(bound4_A, bound4_B, bound4_C)))
+
+        self.wait(2)
+
+        self.play(Transform(t4, TranslucentBox(bound4_A, bound4_B, bound4_C2)))
+
+        self.wait(8)
+
+        self.play(Transform(t4, TranslucentBox(bound4_A, bound4_B2, bound4_C2)))
+
+        self.wait(3)
+
+        #self.play(FadeIn(bound5_A)) TODO
+        self.wait()
+        t5 = TranslucentBox(bound5_A)
+        self.add(t5)
+
+        self.wait(1)
+
+        self.play(Transform(t5, TranslucentBox(bound5_A, bound5_B)))
+
+        self.wait(1)
+
+        self.play(Transform(t5, TranslucentBox(bound5_A, bound5_B, bound5_C)))
+
+        self.wait(8)
+
+        self.play(Transform(t5, TranslucentBox(bound5_A, bound5_B, bound5_C, bound5_D)))
 
         self.wait(10)
