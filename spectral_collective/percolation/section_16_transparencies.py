@@ -139,8 +139,9 @@ definition2 = Group(definitionleft2, definitionright2)
 sum_equality = MathTex(
     r'\mathbb{P}_{{p}}[\oo _ { \geq {{N \hspace{0cm} }} } ] {{=}} \sum_{ {{\ell}} = \hspace{0em} {{N}} }^\infty {{ \mathbb{P} }}_{{p}}[\oo_{{\ell \hspace{0em} }}]',
     color = sol.BASE03,
-    tex_template = temp
-).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'0em', sol.GREEN).set_color_by_tex(r'\infty', sol.VIOLET).set_color_by_tex(r'0cm', sol.VIOLET).next_to(bound3_A3, RIGHT).shift(RIGHT + 0.05 * DOWN)
+    tex_template = temp,
+    font_size=36
+).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'0em', sol.GREEN).set_color_by_tex(r'\infty', sol.VIOLET).set_color_by_tex(r'0cm', sol.VIOLET).next_to(bound3_A3, RIGHT).shift(2 * RIGHT + 0.05 * DOWN)
 
 ####################################################
 
@@ -293,7 +294,7 @@ class BlueTex(Scene):
 
         self.play(Write(bound5_D))
 
-        self.wait(10)
+        self.wait(20)
 
 class BlueTexDefBoxIn(Scene):
     def construct(self):
@@ -431,8 +432,9 @@ class BlueTexBox(Scene):
 
         self.play(Transform(t5, TranslucentBox(bound5_A, bound5_B, bound5_C)))
 
-        self.wait(8)
+        self.wait(7.5)
 
         self.play(Transform(t5, TranslucentBox(bound5_A, bound5_B, bound5_C, bound5_D)))
+        self.wait(1.5)
 
-        self.wait(10)
+        self.wait(20)
