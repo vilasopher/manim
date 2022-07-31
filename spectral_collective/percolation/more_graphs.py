@@ -47,7 +47,7 @@ class HighlightableGraph(Graph):
             self[n].scale(scale_factor)
 
         for e in edges:
-            self.edges[e].set_color(edge_colors.get(e, edge_default_color))
+            self.edges[self.safe_edge(e)].set_color(edge_colors.get(e, edge_default_color))
 
     @override_animate(highlight_subgraph)
     def _highlight_subgraph_animation(
@@ -78,7 +78,7 @@ class HighlightableGraph(Graph):
         ))
 
         edgegroup = AnimationGroup(
-            *(self.edges[e].animate.set_color(edge_colors.get(e, edge_default_color))
+            *(self.edges[self.safe_edge(e)].animate.set_color(edge_colors.get(e, edge_default_color))
                 for e in edges)
         )
 
@@ -138,6 +138,9 @@ class HighlightableGraph(Graph):
             )
         )
 
+    def highlight_root(self, root):
+        self.highlight_subgraph([root], node_colors = { root : sol.ROOT }, nodes_to_scale = [root])
+
     def unhighlight_complement_ball(self, root, radius=None, **kwargs):
         self.unhighlight_complement(self.ball(root, radius), **kwargs)
 
@@ -177,7 +180,7 @@ class HighlightableGraph(Graph):
                 node_default_color=color,
                 edge_default_color=color,
                 **kwargs
-            ) for i in range(len(path) - 2)), **kwargs
+            ) for i in range(len(path) - 1)), **kwargs
         )
 
     def highlight_longest_path_from(self, root, color=sol.ORANGE, length=None):
