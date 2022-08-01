@@ -21,10 +21,10 @@ def convert_edge(u,v):
 def z2add(u, v):
     return (u[0] + v[0], u[1] + v[1])
 
-def boundary(primal_graph):
-    c = nx.node_connected_component(primal_graph, (0,0))
+def boundary(primal_graph, o):
+    c = nx.node_connected_component(primal_graph, o)
 
-    q = [(0,0)]
+    q = [o]
     seen = []
 
     boundary = []
@@ -41,22 +41,35 @@ def boundary(primal_graph):
 
     return boundary
 
-def circuit_around_origin(primal_graph, dual_graph, shape):
-    b = boundary(primal_graph)
+def circuit_around_origin(primal_graph, dual_graph, shape, o):
+    b = boundary(primal_graph, o)
     s = dual_graph.edge_subgraph(b).copy()
 
-    for i in range(shape[0]):
+    for i in range(2 * shape[0]):
         j = shape[0] - i 
-        if convert_edge((j-1,0), (j,0)) in b or convert_edge((j,0), (j-1,0)) in b:
-            s.remove_edge((2*j-1,-1), (2*j-1,1))
-            return [(2*j-1,-1)] + nx.shortest_path(s, source=(2*j-1,1), target=(2*j-1,-1))
+        if convert_edge((j-1+o[0],o[1]), (j+o[0],o[1])) in b or convert_edge((j+o[0],o[1]), (j-1+o[0],o[1])) in b:
+            s.remove_edge((2*(j+o[0])-1,2*o[1]-1), (2*(j+o[0])-1,2*o[1]+1))
+            return [(2*(j+o[0])-1,2*o[1]-1)] + nx.shortest_path(s, source=(2*(j+o[0])-1,2*o[1]+1), target=(2*(j+o[0])-1,2*o[1]-1))
 
 class Duality(VGroup):
-    def __init__(self, shape=(8,5), scale=0.95):
+    def __init__(
+        self,
+        shape=(8,5),
+        scale=0.95,
+        primal_vertex_config = sol.VERTEX_CONFIG,
+        primal_edge_config = sol.EDGE_CONFIG,
+        dual_vertex_config = sol.DUAL_VERTEX_CONFIG,
+        dual_edge_config = sol.DUAL_EDGE_CONFIG
+    ):
         self.shape = shape
         self.scale = scale
 
-        self.primal = HPGraph.from_grid(self.shape, scale=self.scale)
+        self.primal = HPGraph.from_grid(
+            self.shape,
+            scale=self.scale,
+            vertex_config = primal_vertex_config,
+            edge_config = primal_edge_config
+        )
 
         dual_nodes, dual_edges = gr.dual_nodes_edges(*self.shape)
         nxdual = nx.Graph()
@@ -66,8 +79,8 @@ class Duality(VGroup):
         self.dual = HPGraph.from_networkx(
             nxdual,
             layout=gr.dual_layout(*self.shape, scale=self.scale),
-            vertex_config = sol.DUAL_VERTEX_CONFIG,
-            edge_config = sol.DUAL_EDGE_CONFIG
+            vertex_config = dual_vertex_config,
+            edge_config = dual_edge_config
         )
 
         super().__init__(self.dual, self.primal)
@@ -78,16 +91,17 @@ class Duality(VGroup):
     def reveal_dual(self):
         self.dual.shift(self.scale * 0.5 * (RIGHT + UP))
 
-    def highlight_circuit_around_origin(self):
-        path = self.primal.path_to_boundary_from((0,0))
+    def highlight_circuit_around_origin(self, origin = (0,0)):
+        path = self.primal.path_to_boundary_from(origin)
 
         if len(path) == 0:
             circuit = circuit_around_origin(
                 self.primal._graph, 
                 self.dual._graph,
-                self.shape
+                self.shape,
+                origin
             )
-            self.dual.highlight_path(circuit)
+            self.dual.highlight_path(circuit, color = sol.FOREST_GREEN)
 
     def percolate(self, p=0.5):
         primal_closed_edges = self.primal.random_edge_set(p)

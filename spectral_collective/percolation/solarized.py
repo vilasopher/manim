@@ -1,4 +1,4 @@
-from manim import rgb_to_color, config
+from manim import rgb_to_color, config, average_color
 from numpy import array
 
 def _r2c(a,b,c):
@@ -84,6 +84,11 @@ DUAL_EDGE_CONFIG = { 'stroke_color' : CYAN }
 
 LIGHT_VERTEX_CONFIG = { 'fill_color' : LIGHT_NODE }
 LIGHT_EDGE_CONFIG = { 'stroke_color' : LIGHT_EDGE }
+
+VERY_LIGHT_VERTEX_CONFIG = { 'fill_color' : BASE2 }
 VERY_LIGHT_EDGE_CONFIG = { 'stroke_color' : BASE2 }
+
+DUAL_LIGHT_VERTEX_CONFIG = { 'fill_color' : average_color(BASE3, BASE3, BASE3, BASE3, BLUE) }
+DUAL_LIGHT_EDGE_CONFIG = { 'stroke_color' : average_color(BASE3, BASE3, BASE3, BASE3, CYAN) }
 
 config.background_color = BASE3
