@@ -29,6 +29,35 @@ def random_color_choice(*args, colorlist=sol.all_colors_rgb):
 def completely_random(*args):
     return np.uint8([*(random.randint(0,255) for _ in range(3)), 255])
 
+def HSV_random(*args):
+    H = random.random() * 360
+    S = random.random()
+    V = random.random()
+    C = V * S
+    X = C * (1 - np.abs(H/60 % 2 - 1))
+    m = V - C
+
+    r, g, b = 0, 0, 0
+
+    if H < 60:
+        r, g, b = C, X, 0
+    elif H < 120:
+        r, g, b = X, C, 0
+    elif H < 180:
+        r, g, b = 0, C, X
+    elif H < 240:
+        r, g, b = 0, X, C
+    elif H < 300:
+        r, g, b = X, 0, C
+    else:
+        r, g, b = C, 0, X
+
+    R = (r+m) * 255
+    G = (g+m) * 255
+    B = (b+m) * 255
+
+    return np.uint8([R, G, B])
+
 class StaticPercolationImage(ImageMobject):
     def __init__(
         self,
@@ -84,7 +113,7 @@ class StaticPercolationImage(ImageMobject):
         self.height = 8
 
 class ClusterImage(ImageMobject):
-    def __init__(self, shape, p=0, color_picker=completely_random):
+    def __init__(self, shape, p=0, color_picker=HSV_random):
         super().__init__(random_pixels(shape, color_picker))
         self.set_resampling_algorithm(RESAMPLING_ALGORITHMS["box"])
         self.height = 8
@@ -110,6 +139,9 @@ class ClusterImage(ImageMobject):
         for v in self.vertices:
             w = self.clusters.find(v)
             self.pixel_array[v] = self.pixel_array[w]
+
+    def get_TL_color(self):
+        return self.pixel_array[0,0]
 
     def highlight_biggest_cluster(self, highlight_color, bg_color=None):
         h = color_to_int_rgba(highlight_color)
