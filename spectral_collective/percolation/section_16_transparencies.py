@@ -101,14 +101,14 @@ bound3_A = MathTex(
     r'\mathbb{P}_{{p}}[\oo_{{\ell}}] \leq {{(1-}}{{p}}{{)}}^{{\ell}} \cdot {{\ell}} \cdot {{3}}^{{\ell}}',
     color = sol.BASE03,
     tex_template = temp
-).set_color_by_tex(r'\ell', sol.FOREST_GREEN).set_color_by_tex(r'p', sol.RED).next_to(lemma, DOWN).align_to(lemma, LEFT).shift(0.5 * RIGHT + 5 * DOWN)
+).set_color_by_tex(r'\ell', sol.FOREST_GREEN).set_color_by_tex(r'p', sol.RED).next_to(lemma, DOWN).align_to(lemma, LEFT).shift(7.5 * RIGHT + 5 * DOWN)
 bound3_A[2][1].set_color(sol.FOREST_GREEN)
 
 bound3_A2 = MathTex(
     r'\mathbb{P}_{{p}}[\oo_{{\ell}}] \leq {{\ell}} \cdot ({{3}} \, {{(1-}}{{p}}{{)}})^{{\ell}}',
     color = sol.BASE03,
     tex_template = temp
-).set_color_by_tex(r'\ell', sol.FOREST_GREEN).set_color_by_tex(r'p', sol.RED).next_to(lemma, DOWN).align_to(lemma, LEFT).shift(0.5 * RIGHT + 5 * DOWN)
+).set_color_by_tex(r'\ell', sol.FOREST_GREEN).set_color_by_tex(r'p', sol.RED).next_to(lemma, DOWN).align_to(lemma, LEFT).shift(7.5 * RIGHT + 5 * DOWN)
 bound3_A2[2][1].set_color(sol.FOREST_GREEN)
 
 bound3_A3 = MathTex(
