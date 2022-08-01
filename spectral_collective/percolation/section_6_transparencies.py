@@ -139,14 +139,14 @@ class QuestionsAbstract(Scene):
             r'{{p_c}} = 1/2',
             color=sol.BASE03
         ).next_to(self.crit, DOWN).align_to(self.questions, LEFT).shift(0.5 * RIGHT)
-        self.critans.set_color_by_tex(r'p', sol.BLUE).set_color_by_tex(r'=', sol.GREEN)
+        self.critans.set_color_by_tex(r'p', sol.BLUE).set_color_by_tex(r'=', sol.FOREST_GREEN)
 
         self.uniq = Tex(
             r'Will there ever be more than one infinite cluster?',
             color=sol.BASE03
         ).next_to(self.critans, DOWN).align_to(self.questions, LEFT)
 
-        self.uniqans = Tex(r'No, the infinite cluster is unique', color=sol.GREEN)
+        self.uniqans = Tex(r'No, the infinite cluster is unique', color=sol.FOREST_GREEN)
         self.uniqans.next_to(self.uniq, DOWN).align_to(self.questions, LEFT).shift(0.5 * RIGHT)
 
         self.fast = Tex(
@@ -154,7 +154,7 @@ class QuestionsAbstract(Scene):
             color=sol.BASE03
         ).next_to(self.uniqans, DOWN).align_to(self.questions, LEFT)
         
-        self.fastans = MathTex(r'n \hspace{-0.2em} \times \hspace{-0.2em} n \text{ box crossing window} \approx n^{-3/4} \text{ as } n \to \infty', color=sol.GREEN)
+        self.fastans = MathTex(r'n \hspace{-0.2em} \times \hspace{-0.2em} n \text{ box crossing window} \approx n^{-3/4} \text{ as } n \to \infty', color=sol.FOREST_GREEN)
         self.fastans.next_to(self.fast, DOWN).align_to(self.questions, LEFT).shift(0.5 * RIGHT)
 
         self.merg = Tex(
@@ -164,12 +164,12 @@ class QuestionsAbstract(Scene):
 
         self.mergans = MathTex(
             r'\text{Average size} \approx ({{p}} - {{p_c}})^{-43/18} \text{ as } {{p}} \nearrow {{p_c}}',
-            color=sol.GREEN
+            color=sol.FOREST_GREEN
         )
         self.mergans.set_color_by_tex(r'p', sol.RED)
         self.mergans.set_color_by_tex(r'p_c', sol.BLUE)
-        self.mergans.set_color_by_tex(r')', sol.GREEN)
-        self.mergans.set_color_by_tex(r'A', sol.GREEN)
+        self.mergans.set_color_by_tex(r')', sol.FOREST_GREEN)
+        self.mergans.set_color_by_tex(r'A', sol.FOREST_GREEN)
         self.mergans.next_to(self.merg, DOWN).align_to(self.questions, LEFT).shift(0.5 * RIGHT)
 
         g = Group(

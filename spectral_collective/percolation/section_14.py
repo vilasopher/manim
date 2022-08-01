@@ -11,7 +11,12 @@ def safe_edge(g, e):
 
 class PrePercolated(Scene):
     def construct(self):
-        g = HPGrid.from_grid((8, 5), 0.95)
+        g = HPGrid.from_grid(
+            (8, 5),
+            0.95,
+            vertex_config = {'fill_color' : sol.BASE00},
+            edge_config = {'stroke_color' : sol.BASE1}
+        )
         g.highlight_root((2,2))
 
         self.add(g)
@@ -22,9 +27,15 @@ class Percolated(Scene):
     def construct(self):
         random.seed(0)
 
-        g = HPGrid.from_grid((8,5), 0.95)
+        g = HPGrid.from_grid(
+            (8, 5),
+            0.95,
+            vertex_config = {'fill_color' : sol.BASE00},
+            edge_config = {'stroke_color' : sol.BASE1}
+        )
         g.percolate()
-        g.dramatically_highlight_ball((2, 2))
+        g.highlight_root((2,2))
+        g.unhighlight_complement_ball((2, 2))
         self.add(g)
 
         self.play(GlitchEdges(g, intensity=0.03), run_time=0.5)
@@ -56,7 +67,7 @@ class Percolated(Scene):
         self.play(
             g.animate.highlight_path(
                 path[:8],
-                color = sol.GREEN,
+                color = sol.FOREST_GREEN,
                 node_colors = {(2, 2) : sol.ROOT}
             ), run_time = 1
         )
@@ -64,9 +75,9 @@ class Percolated(Scene):
         self.play(
             g.animate.highlight_subgraph(
                 path[7:],
-                node_default_color = sol.HIGHLIGHT_NODE,
-                edge_default_color = sol.HIGHLIGHT_EDGE,
-                node_colors = {(5, 0) : sol.GREEN}
+                node_default_color = sol.BASE00,
+                edge_default_color = sol.BASE1,
+                node_colors = {(5, 0) : sol.FOREST_GREEN}
             ), run_time = 1
         )
 
@@ -80,7 +91,12 @@ class Percolated(Scene):
 
 class UnPercolated(Scene):
     def construct(self):
-        g = HPGrid.from_grid((8,5), 0.95)
+        g = HPGrid.from_grid(
+            (8,5),
+            0.95,
+            vertex_config = {'fill_color' : sol.BASE2},
+            edge_config = {'stroke_color' : sol.BASE2}
+        )
         g.highlight_root((2,2))
 
         for v in g.vertices:
@@ -90,18 +106,24 @@ class UnPercolated(Scene):
 
         self.wait(20)
 
-        self.play(Indicate(safe_edge(g, ((2,2),(2,3)))))
-        self.play(Indicate(safe_edge(g, ((2,2),(1,2)))))
-        self.play(Indicate(safe_edge(g, ((2,2),(2,1)))))
+        self.play(
+            Indicate(safe_edge(g, ((2,2),(2,3)))),
+            Indicate(safe_edge(g, ((2,2),(1,2)))),
+            Indicate(safe_edge(g, ((2,2),(2,1)))),
+            Indicate(safe_edge(g, ((2,2),(3,2)))),
+            run_time = 2
+        )
 
         self.play(
             g.animate.highlight_subgraph(
                 [(3, 2)],
                 [((2,2), (3,2))], 
-                node_default_color = sol.GREEN,
-                edge_default_color = sol.GREEN
+                node_default_color = sol.FOREST_GREEN,
+                edge_default_color = sol.FOREST_GREEN
             )
         )
+
+        self.wait()
 
         path = [
             (2, 2),
@@ -121,31 +143,36 @@ class UnPercolated(Scene):
 
         for i in range(1, len(path)-1):
 
-            excluded = [ path[i-1], path[i+1] ]
+            excluded = path[:i]
             tries = [
                 (path[i], tuple_add(path[i], de))
                 for de in des if tuple_add(path[i], de) not in excluded
             ]
 
-            self.play(Indicate(safe_edge(g, tries[0])), run_time=1 if i == 1 else 0.5)
-            self.play(Indicate(safe_edge(g, tries[1])), run_time=1 if i == 1 else 0.5)
+            self.play(
+                *(
+                    Indicate(safe_edge(g, t))
+                    for t in tries
+                ),
+                run_time = 2 if i == 1 else 1
+            )
 
             self.play(
                 g.animate.highlight_subgraph(
                     [path[i+1]],
                     [(path[i], path[i+1])], 
-                    node_default_color = sol.GREEN,
-                    edge_default_color = sol.GREEN
+                    node_default_color = sol.FOREST_GREEN,
+                    edge_default_color = sol.FOREST_GREEN
                 ), run_time= 1 if i == 1 else 0.5
             )
 
-        self.wait(3)
+        self.wait(2)
 
         self.play(
             g.animate.highlight_subgraph(
                 path,
-                node_default_color = sol.NODE,
-                edge_default_color = sol.EDGE,
+                node_default_color = sol.BASE2,
+                edge_default_color = sol.BASE2,
                 node_colors = { (2,2) : sol.ROOT }
             ), run_time = 0.5
         )
@@ -161,21 +188,22 @@ class UnPercolated(Scene):
             (4, 3)
         ]
 
-        self.play(
-            g.animate.highlight_path(
-                badpath,
-                color = sol.GREEN,
-                node_colors = { (2,2) : sol.ROOT }
-            ), run_time = 3
-        )
+        for i in range(len(badpath) - 1):
+            g.highlight_subgraph(
+                [badpath[i+1]],
+                [(badpath[i],badpath[i+1])],
+                node_default_color = sol.FOREST_GREEN,
+                edge_default_color = sol.FOREST_GREEN
+            )
+            self.wait(0.4)
 
-        self.wait(0.5)
+        self.wait(0.7)
 
         self.play(
             g.animate.highlight_subgraph(
                 badpath,
-                node_default_color = sol.NODE,
-                edge_default_color = sol.EDGE,
+                node_default_color = sol.BASE2,
+                edge_default_color = sol.BASE2,
                 node_colors = { (2,2) : sol.ROOT }
             ), run_time = 0.5
         )
@@ -191,12 +219,13 @@ class UnPercolated(Scene):
             (6, -1)
         ]
 
-        self.play(
-            g.animate.highlight_path(
-                goodpath,
-                color = sol.GREEN,
-                node_colors = { (2,2) : sol.ROOT }
-            ), run_time = 3
-        )
+        for i in range(len(goodpath) - 1):
+            g.highlight_subgraph(
+                [goodpath[i+1]],
+                [(goodpath[i],goodpath[i+1])],
+                node_default_color = sol.FOREST_GREEN,
+                edge_default_color = sol.FOREST_GREEN
+            )
+            self.wait(0.4)
 
         self.wait(50)

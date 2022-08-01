@@ -24,14 +24,14 @@ definitionleft = MathTex(
     r'\oo_{{\ell}} \coloneqq',
     color=sol.BASE03,
     tex_template=temp
-).set_color_by_tex(r'\ell', sol.GREEN)
+).set_color_by_tex(r'\ell', sol.FOREST_GREEN)
 definitionleft.next_to(lemma, RIGHT).align_to(lemma, UP).shift(2 * RIGHT)
 
 definitiontop = MathTex(
     r'\text{the event that a length-} {{ \ell }}',
     color=sol.BASE03,
     font_size=36
-).set_color_by_tex(r'\ell', sol.GREEN)
+).set_color_by_tex(r'\ell', sol.FOREST_GREEN)
 definitionbot = MathTex(
     r'\text{dual circuit encircles } o',
     color = sol.BASE03,
@@ -47,49 +47,49 @@ bound1_A = MathTex(
     r'\mathbb{P}_{{p}}[\oo_{{\ell}}] \leq',
     color = sol.BASE03,
     tex_template = temp
-).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'\ell', sol.GREEN).next_to(lemma, DOWN).align_to(lemma, LEFT).shift(1 * DOWN + 0.5 * RIGHT)
+).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'\ell', sol.FOREST_GREEN).next_to(lemma, DOWN).align_to(lemma, LEFT).shift(1 * DOWN + 0.5 * RIGHT)
 
 bound1_B = MathTex(
     r'\sum_{\substack{ {{ \gamma }} \text{ a circuit} \\ \text{of length } {{\ell}} }}',
     color = sol.BASE03
-).set_color_by_tex(r'\gamma', sol.GREEN).set_color_by_tex(r'\ell', sol.GREEN).next_to(bound1_A, RIGHT).shift(0.35 * DOWN + 0.3 * LEFT)
+).set_color_by_tex(r'\gamma', sol.FOREST_GREEN).set_color_by_tex(r'\ell', sol.FOREST_GREEN).next_to(bound1_A, RIGHT).shift(0.35 * DOWN + 0.3 * LEFT)
 
 bound1_C = MathTex(
     r'\mathbb{P}_{{p}}[{{\gamma}} \text{ is all open}]',
     color = sol.BASE03
-).set_color_by_tex(r'\gamma', sol.GREEN).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'o', sol.BASE03).next_to(bound1_B, RIGHT).shift(0.35 * UP + 0.3 * LEFT)
+).set_color_by_tex(r'\gamma', sol.FOREST_GREEN).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'o', sol.BASE03).next_to(bound1_B, RIGHT).shift(0.35 * UP + 0.3 * LEFT)
 
 bound1_C2 = MathTex(
     r'(1-{{p}})^{{\ell}}',
     color = sol.BASE03
-).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'\ell', sol.GREEN).next_to(bound1_B, RIGHT).shift(0.4 * UP + 0.3 * LEFT)
+).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'\ell', sol.FOREST_GREEN).next_to(bound1_B, RIGHT).shift(0.4 * UP + 0.3 * LEFT)
 
 bound1_C3 = MathTex(
     r'(1-{{p}})^{{\ell}}',
     color = sol.BASE03
-).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'\ell', sol.GREEN).next_to(bound1_A, RIGHT).shift(0.05 * UP)
+).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'\ell', sol.FOREST_GREEN).next_to(bound1_A, RIGHT).shift(0.05 * UP)
 
 bound1_B3 = MathTex(
     r'\cdot \, \# \{\text{length-}{{\ell}} \text{ circuits around } o\}',
     color = sol.BASE03
-).set_color_by_tex(r'\ell', sol.GREEN).next_to(bound1_C3, RIGHT).shift(0.05 * DOWN)
+).set_color_by_tex(r'\ell', sol.FOREST_GREEN).next_to(bound1_C3, RIGHT).shift(0.05 * DOWN)
 
 ####################################################
 
 bound2_A = MathTex(
     r'\# \{\text{length-}{{\ell}} \text{ circuits around } o\}',
     color = sol.BASE03
-).set_color_by_tex(r'\ell', sol.GREEN).next_to(lemma, DOWN).align_to(lemma, LEFT).shift(0.5 * RIGHT + 3 * DOWN)
+).set_color_by_tex(r'\ell', sol.FOREST_GREEN).next_to(lemma, DOWN).align_to(lemma, LEFT).shift(0.5 * RIGHT + 3 * DOWN)
 
 bound2_B = MathTex(
     r'\leq { {{\ell}} \over 2 } \cdot 3^{{{\ell}} - 1}',
     color = sol.BASE03
-).set_color_by_tex(r'\ell', sol.GREEN).next_to(bound2_A, RIGHT)
+).set_color_by_tex(r'\ell', sol.FOREST_GREEN).next_to(bound2_A, RIGHT)
 
 bound2_C = MathTex(
     r'\leq {{\ell}} \cdot 3^{{\ell}}',
     color = sol.BASE03
-).set_color_by_tex(r'\ell', sol.GREEN).next_to(bound2_B, RIGHT).shift(0.02 * UP)
+).set_color_by_tex(r'\ell', sol.FOREST_GREEN).next_to(bound2_B, RIGHT).shift(0.02 * UP)
 
 ####################################################
 
@@ -97,19 +97,19 @@ bound3_A = MathTex(
     r'\mathbb{P}_{{p}}[\oo_{{\ell}}] \leq {{(1-}}{{p}}{{)}}^{{\ell}} \cdot {{\ell}} \cdot {{3}}^{{\ell}}',
     color = sol.BASE03,
     tex_template = temp
-).set_color_by_tex(r'\ell', sol.GREEN).set_color_by_tex(r'p', sol.RED).next_to(lemma, DOWN).align_to(lemma, LEFT).shift(0.5 * RIGHT + 5 * DOWN)
+).set_color_by_tex(r'\ell', sol.FOREST_GREEN).set_color_by_tex(r'p', sol.RED).next_to(lemma, DOWN).align_to(lemma, LEFT).shift(0.5 * RIGHT + 5 * DOWN)
 
 bound3_A2 = MathTex(
     r'\mathbb{P}_{{p}}[\oo_{{\ell}}] \leq {{\ell}} \cdot ({{3}} \, {{(1-}}{{p}}{{)}})^{{\ell}}',
     color = sol.BASE03,
     tex_template = temp
-).set_color_by_tex(r'\ell', sol.GREEN).set_color_by_tex(r'p', sol.RED).next_to(lemma, DOWN).align_to(lemma, LEFT).shift(0.5 * RIGHT + 5 * DOWN)
+).set_color_by_tex(r'\ell', sol.FOREST_GREEN).set_color_by_tex(r'p', sol.RED).next_to(lemma, DOWN).align_to(lemma, LEFT).shift(0.5 * RIGHT + 5 * DOWN)
 
 bound3_A3 = MathTex(
     r'\mathbb{P}_{{p}}[\oo_{{\ell}}] \leq {{\ell}} \cdot ({{3}} \, {{(1-}}{{p}}{{)}})^{{\ell}}',
     color = sol.BASE03,
     tex_template = temp
-).set_color_by_tex(r'\ell', sol.GREEN).set_color_by_tex(r'p', sol.RED).next_to(lemma, DOWN).align_to(lemma, LEFT).shift(0.5 * RIGHT + 0.75 * DOWN)
+).set_color_by_tex(r'\ell', sol.FOREST_GREEN).set_color_by_tex(r'p', sol.RED).next_to(lemma, DOWN).align_to(lemma, LEFT).shift(0.5 * RIGHT + 0.75 * DOWN)
 
 ####################################################
 
@@ -141,7 +141,7 @@ sum_equality = MathTex(
     color = sol.BASE03,
     tex_template = temp,
     font_size=36
-).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'0em', sol.GREEN).set_color_by_tex(r'\infty', sol.VIOLET).set_color_by_tex(r'0cm', sol.VIOLET).next_to(bound3_A3, RIGHT).shift(2 * RIGHT + 0.05 * DOWN)
+).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'0em', sol.FOREST_GREEN).set_color_by_tex(r'\infty', sol.VIOLET).set_color_by_tex(r'0cm', sol.VIOLET).next_to(bound3_A3, RIGHT).shift(2 * RIGHT + 0.05 * DOWN)
 
 ####################################################
 
@@ -149,7 +149,7 @@ bound4_A = MathTex(
     r'{\mathbb{P}_{{p}}[\oo _ { \geq {{N \hspace{0cm} }} } ] {{\leq}} \sum_{ {{\ell}} = \hspace{0em} {{N}} }^\infty {{\ell \hspace{0em} }} \cdot (3 \, (1 - {{p}}))^{{\ell \hspace{0em} }}',
     color = sol.BASE03,
     tex_template = temp
-).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'0em', sol.GREEN).set_color_by_tex(r'\infty', sol.VIOLET).set_color_by_tex(r'0cm', sol.VIOLET).next_to(lemma, DOWN).align_to(lemma, LEFT).shift(0.5 * RIGHT + 2.25 * DOWN)
+).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'0em', sol.FOREST_GREEN).set_color_by_tex(r'\infty', sol.VIOLET).set_color_by_tex(r'0cm', sol.VIOLET).next_to(lemma, DOWN).align_to(lemma, LEFT).shift(0.5 * RIGHT + 2.25 * DOWN)
 
 bound4_B = MathTex(
     r'\text{converges}',

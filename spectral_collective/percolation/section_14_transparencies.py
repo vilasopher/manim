@@ -33,11 +33,11 @@ class PurpleTex(Scene):
         t3 = MathTex(
             r'\text{for any } {{ \ell }} \in \mathbb{N},',
             color = sol.BASE03
-        ).next_to(t2, RIGHT).set_color_by_tex(r'\ell', sol.GREEN)
+        ).next_to(t2, RIGHT).set_color_by_tex(r'\ell', sol.FOREST_GREEN)
         t4 = MathTex(
             r'o \leftrightarrow {{ \ell }}',
             color = sol.BASE03
-        ).next_to(t3, RIGHT).set_color_by_tex(r'\ell', sol.GREEN).align_to(t3, UP)
+        ).next_to(t3, RIGHT).set_color_by_tex(r'\ell', sol.FOREST_GREEN).align_to(t3, UP)
 
         t = Group(t1, t2, t3, t4)
 
@@ -52,7 +52,7 @@ class PurpleTex(Scene):
         s3 = MathTex(
             r'\mathbb{P}_{{p}} [ {{ o \leftrightarrow }} {{ \ell }} ]',
             color = sol.BASE03
-        ).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'\ell', sol.GREEN).next_to(s2, RIGHT)
+        ).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'\ell', sol.FOREST_GREEN).next_to(s2, RIGHT)
 
         s = Group(s1, s2, s3)
 
@@ -93,11 +93,11 @@ class PurpleTexBox(Scene):
         t3 = MathTex(
             r'\text{for any } {{ \ell }} \in \mathbb{N},',
             color = sol.BASE03
-        ).next_to(t2, RIGHT).set_color_by_tex(r'\ell', sol.GREEN)
+        ).next_to(t2, RIGHT).set_color_by_tex(r'\ell', sol.FOREST_GREEN)
         t4 = MathTex(
             r'o \leftrightarrow {{ \ell }}',
             color = sol.BASE03
-        ).next_to(t3, RIGHT).set_color_by_tex(r'\ell', sol.GREEN).align_to(t3, UP)
+        ).next_to(t3, RIGHT).set_color_by_tex(r'\ell', sol.FOREST_GREEN).align_to(t3, UP)
 
         t = Group(t1, t2, t3, t4)
 
@@ -112,7 +112,7 @@ class PurpleTexBox(Scene):
         s3 = MathTex(
             r'\mathbb{P}_{{p}} [ {{ o \leftrightarrow }} {{ \ell }} ]',
             color = sol.BASE03
-        ).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'\ell', sol.GREEN).next_to(s2, RIGHT)
+        ).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'\ell', sol.FOREST_GREEN).next_to(s2, RIGHT)
 
         s = Group(s1, s2, s3)
 
@@ -143,7 +143,7 @@ class BlueTex(Scene):
         t1 = MathTex(
             r'\mathbb{P}_{{p}} [ o \leftrightarrow {{ \ell }} ]',
             color = sol.BASE03
-        ).set_color_by_tex(r'\ell', sol.GREEN).set_color_by_tex(r'p', sol.RED).next_to(lem, DOWN).align_to(lem, LEFT).shift(2.25 * DOWN + 0.5 * RIGHT)
+        ).set_color_by_tex(r'\ell', sol.FOREST_GREEN).set_color_by_tex(r'p', sol.RED).next_to(lem, DOWN).align_to(lem, LEFT).shift(2.25 * DOWN + 0.5 * RIGHT)
         t2 = MathTex(
             r'\leq',
             color = sol.BASE03
@@ -151,24 +151,24 @@ class BlueTex(Scene):
         t3 = MathTex(
             r'\sum_{\substack{ {{ \gamma }} \text{ a path} \\ \text{of length } {{\ell}} }}',
             color = sol.BASE03
-        ).set_color_by_tex(r'\gamma', sol.GREEN).set_color_by_tex(r'\ell', sol.GREEN).next_to(t2, RIGHT).shift(0.3 * LEFT)
+        ).set_color_by_tex(r'\gamma', sol.FOREST_GREEN).set_color_by_tex(r'\ell', sol.FOREST_GREEN).next_to(t2, RIGHT).shift(0.3 * LEFT)
         t4 = MathTex(
             r'\mathbb{P}_{{p}} [ {{\gamma}} \text{ is all open} ]',
             color = sol.BASE03
-        ).set_color_by_tex(r'\gamma', sol.GREEN).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'o', sol.BASE03).next_to(t3, RIGHT).shift(0.5 * LEFT)
+        ).set_color_by_tex(r'\gamma', sol.FOREST_GREEN).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'o', sol.BASE03).next_to(t3, RIGHT).shift(0.5 * LEFT)
         t3.shift(0.35 * DOWN)
 
         t = Group(t1, t2, t3, t4)
 
         s4 = MathTex(
             r'{{p}}^{{\ell}}',
-            color=sol.GREEN
+            color=sol.FOREST_GREEN
         ).set_color_by_tex(r'p', sol.RED).next_to(t2, RIGHT).shift(1.2 * RIGHT + 0.1 * UP)
         
         s3 = MathTex(
             r'\cdot \, \# \{ \text{paths of length } {{\ell}}\}',
             color = sol.BASE03
-        ).set_color_by_tex(r'\ell', sol.GREEN).next_to(t2, RIGHT).shift(0.5 * RIGHT)
+        ).set_color_by_tex(r'\ell', sol.FOREST_GREEN).next_to(t2, RIGHT).shift(0.5 * RIGHT)
 
         self.play(FadeIn(t1))
         self.wait(1.5)
@@ -196,7 +196,7 @@ class BlueTexBox(Scene):
         t1 = MathTex(
             r'\mathbb{P}_{{p}} [ o \leftrightarrow {{ \ell }} ]',
             color = sol.BASE03
-        ).set_color_by_tex(r'\ell', sol.GREEN).set_color_by_tex(r'p', sol.RED).next_to(lem, DOWN).align_to(lem, LEFT).shift(2.25 * DOWN + 0.5 * RIGHT)
+        ).set_color_by_tex(r'\ell', sol.FOREST_GREEN).set_color_by_tex(r'p', sol.RED).next_to(lem, DOWN).align_to(lem, LEFT).shift(2.25 * DOWN + 0.5 * RIGHT)
         t2 = MathTex(
             r'\leq',
             color = sol.BASE03
@@ -204,24 +204,24 @@ class BlueTexBox(Scene):
         t3 = MathTex(
             r'\sum_{\substack{ {{ \gamma }} \text{ a path} \\ \text{of length } {{\ell}} }}',
             color = sol.BASE03
-        ).set_color_by_tex(r'\gamma', sol.GREEN).set_color_by_tex(r'\ell', sol.GREEN).next_to(t2, RIGHT).shift(0.3 * LEFT)
+        ).set_color_by_tex(r'\gamma', sol.FOREST_GREEN).set_color_by_tex(r'\ell', sol.FOREST_GREEN).next_to(t2, RIGHT).shift(0.3 * LEFT)
         t4 = MathTex(
             r'\mathbb{P}_{{p}} [ {{\gamma}} \text{ is all open} ]',
             color = sol.BASE03
-        ).set_color_by_tex(r'\gamma', sol.GREEN).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'o', sol.BASE03).next_to(t3, RIGHT).shift(0.5 * LEFT)
+        ).set_color_by_tex(r'\gamma', sol.FOREST_GREEN).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'o', sol.BASE03).next_to(t3, RIGHT).shift(0.5 * LEFT)
         t3.shift(0.35 * DOWN)
 
         t = Group(t1, t2, t3, t4)
 
         s4 = MathTex(
             r'{{p}}^{{\ell}}',
-            color=sol.GREEN
+            color=sol.FOREST_GREEN
         ).set_color_by_tex(r'p', sol.RED).next_to(t2, RIGHT).shift(1.2 * RIGHT + 0.1 * UP)
         
         s3 = MathTex(
             r'\cdot \, \# \{ \text{paths of length } {{\ell}}\}',
             color = sol.BASE03
-        ).set_color_by_tex(r'\ell', sol.GREEN).next_to(t2, RIGHT).shift(0.5 * RIGHT)
+        ).set_color_by_tex(r'\ell', sol.FOREST_GREEN).next_to(t2, RIGHT).shift(0.5 * RIGHT)
 
         tbox = TranslucentBox(t1)
         self.add(tbox)
@@ -249,7 +249,7 @@ class GreenTex(Scene):
         t1 = MathTex(
             r'\# \{ \text{paths of length } {{\ell}}\}',
             color = sol.BASE03
-        ).set_color_by_tex(r'\ell', sol.GREEN).next_to(lem, DOWN).align_to(lem, LEFT).shift(3.75 * DOWN + 0.5 * RIGHT)
+        ).set_color_by_tex(r'\ell', sol.FOREST_GREEN).next_to(lem, DOWN).align_to(lem, LEFT).shift(3.75 * DOWN + 0.5 * RIGHT)
         t2 = MathTex(
             r'\leq',
             color = sol.BASE03
@@ -257,7 +257,7 @@ class GreenTex(Scene):
         t3 = MathTex(
             r'4 \cdot 3^{ {{ \ell }} - 1}',
             color = sol.BASE03
-        ).set_color_by_tex(r'\ell', sol.GREEN).next_to(t2, RIGHT).shift(0.075 * UP)
+        ).set_color_by_tex(r'\ell', sol.FOREST_GREEN).next_to(t2, RIGHT).shift(0.075 * UP)
 
         t = Group(t1, t2, t3)
 
@@ -277,7 +277,7 @@ class GreenTexBox(Scene):
         t1 = MathTex(
             r'\# \{ \text{paths of length } {{\ell}}\}',
             color = sol.BASE03
-        ).set_color_by_tex(r'\ell', sol.GREEN).next_to(lem, DOWN).align_to(lem, LEFT).shift(3.75 * DOWN + 0.5 * RIGHT)
+        ).set_color_by_tex(r'\ell', sol.FOREST_GREEN).next_to(lem, DOWN).align_to(lem, LEFT).shift(3.75 * DOWN + 0.5 * RIGHT)
         t2 = MathTex(
             r'\leq',
             color = sol.BASE03
@@ -285,7 +285,7 @@ class GreenTexBox(Scene):
         t3 = MathTex(
             r'4 \cdot 3^{ {{ \ell }} - 1}',
             color = sol.BASE03
-        ).set_color_by_tex(r'\ell', sol.GREEN).next_to(t2, RIGHT).shift(0.075 * UP)
+        ).set_color_by_tex(r'\ell', sol.FOREST_GREEN).next_to(t2, RIGHT).shift(0.075 * UP)
 
         t = Group(t1, t2, t3)
 
@@ -308,17 +308,17 @@ class YellowTex(Scene):
         t1 = MathTex(
             r'\mathbb{P}_{{p}}[o \leftrightarrow \infty] \leq {{p}}^{{\ell}} \cdot {{4}} \cdot {{3}} ^ { {{\ell}} {{- 1}} }',
             color = sol.BASE03
-        ).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'\ell', sol.GREEN).next_to(lem, DOWN).align_to(lem, LEFT).shift(5.25 * DOWN + 0.5 * RIGHT)
+        ).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'\ell', sol.FOREST_GREEN).next_to(lem, DOWN).align_to(lem, LEFT).shift(5.25 * DOWN + 0.5 * RIGHT)
 
         s1 = MathTex(
             r'\mathbb{P}_{{p}}[o \leftrightarrow \infty] \leq {{4}} \, {{p}} \, ({{3}} \, {{p}}) ^ { {{\ell}} {{- 1}} }',
             color = sol.BASE03
-        ).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'\ell', sol.GREEN).next_to(lem, DOWN).align_to(lem, LEFT).shift(5.25 * DOWN + 0.5 * RIGHT)
+        ).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'\ell', sol.FOREST_GREEN).next_to(lem, DOWN).align_to(lem, LEFT).shift(5.25 * DOWN + 0.5 * RIGHT)
 
         s2 = MathTex(
             r'\to 0 \text{ as } {{ \ell }} \to \infty',
             color = sol.BASE03
-        ).set_color_by_tex(r'\ell', sol.GREEN).next_to(s1, RIGHT).shift(0.05 * UP)
+        ).set_color_by_tex(r'\ell', sol.FOREST_GREEN).next_to(s1, RIGHT).shift(0.05 * UP)
 
         s3 = MathTex(
             r'(\text{if } {{p}} < 1/3)',
@@ -354,7 +354,7 @@ class YellowTexBox(Scene):
         s2 = MathTex(
             r'\to 0 \text{ as } {{ \ell }} \to \infty',
             color = sol.BASE03
-        ).set_color_by_tex(r'\ell', sol.GREEN).next_to(s1, RIGHT).shift(0.05 * UP)
+        ).set_color_by_tex(r'\ell', sol.FOREST_GREEN).next_to(s1, RIGHT).shift(0.05 * UP)
 
         s3 = MathTex(
             r'(\text{if } {{p}} < 1/3)',
