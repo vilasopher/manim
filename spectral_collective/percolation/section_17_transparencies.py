@@ -89,8 +89,38 @@ class Theorem(Scene):
         thmgp.shift(4 * UP)
         self.add(thmgp)
         self.play(thmgp.animate.shift(4 * DOWN))
-        self.wait(19)
+        self.wait(16.5)
         self.play(thmgp.animate.shift(4 * UP))
+
+#################################################
+
+class Pc(Scene):
+    def construct(self):
+        tbox = TranslucentBox(pcbound)
+        pceq.shift(DOWN)
+
+        self.add(tbox)
+        self.wait(0.5)
+        self.play(Write(pcbound))
+        self.wait(5)
+        self.play(
+            Transform(tbox, TranslucentBox(pceq)),
+            TransformMatchingTex(pcbound, pceq)
+        )
+        self.wait(9.5)
+        self.play(
+            tbox.animate.shift(UP),
+            pceq.animate.shift(UP)
+        )
+        self.wait(30)
+
+#################################################
+
+class Text(Scene):
+    def construct(self):
+        self.add(TranslucentBox(tex), tex)
+
+#################################################
 
 def theta(pc, p):
     if p < pc or pc == 1:
@@ -229,7 +259,8 @@ class Plot(Scene):
 
         self.play(
             FadeIn(brace),
-            FadeIn(largebracelabel)
+            FadeIn(largebracelabel),
+            FadeOut(pctex)
         )
 
         self.wait(3.5)
@@ -237,6 +268,7 @@ class Plot(Scene):
         self.play(
             FadeOut(brace),
             FadeOut(largebracelabel),
+            FadeIn(pctex),
             run_time = 0.5
         )
 
@@ -246,7 +278,8 @@ class Plot(Scene):
 
         self.play(
             FadeIn(brace),
-            FadeIn(smallbracelabel)
+            FadeIn(smallbracelabel),
+            FadeOut(pctex)
         )
 
         self.wait(3)
@@ -254,6 +287,7 @@ class Plot(Scene):
         self.play(
             FadeOut(brace),
             FadeOut(smallbracelabel),
+            FadeIn(pctex),
             run_time = 0.5
         )
 
