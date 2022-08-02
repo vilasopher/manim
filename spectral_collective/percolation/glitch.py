@@ -3,12 +3,13 @@ import solarized as sol
 from random import random
 
 class GlitchSingleMobject(Animation):
-    def __init__(self, mobject, intensity=0.05, fade=True, inn=False, out=False, **kwargs):
+    def __init__(self, mobject, intensity=0.05, fade=True, inn=False, out=False, simple=False, **kwargs):
         self.mobject = mobject
         self.intensity = intensity
         self.fade = fade
         self.inn = inn
         self.out = out
+        self.simple = simple
         self.innflag = False
         super().__init__(self.mobject, **kwargs)
 
@@ -19,6 +20,9 @@ class GlitchSingleMobject(Animation):
             self.mobject.copy().set(color=c, z_index=-3)
             for c in [sol.RED, sol.GREEN, sol.BLUE]
         ]
+
+        if self.simple:
+            self.colored_mobjects = []
 
         self.mobject.add(*self.colored_mobjects)
 

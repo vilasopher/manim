@@ -103,6 +103,24 @@ class Duality(VGroup):
             )
             self.dual.highlight_path(circuit, color = sol.FOREST_GREEN)
 
+    def dramatically_highlight_circuit_around_origin(self, origin = (0,0)):
+        path = self.primal.path_to_boundary_from(origin)
+
+        if len(path) == 0:
+            circuit = circuit_around_origin(
+                self.primal._graph, 
+                self.dual._graph,
+                self.shape,
+                origin
+            )
+            self.dual.highlight_path(circuit, color = sol.FOREST_GREEN)
+            self.dual.unhighlight_complement(
+                circuit,
+                self.dual.path_edges(circuit),
+                node_default_color = sol.DUAL_LIGHT_NODE,
+                edge_default_color = sol.DUAL_LIGHT_EDGE
+            )
+
     def percolate(self, p=0.5):
         primal_closed_edges = self.primal.random_edge_set(p)
         primal_open_edges = [ e for e in self.primal.edges

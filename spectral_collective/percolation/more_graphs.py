@@ -98,8 +98,8 @@ class HighlightableGraph(Graph):
         self.highlight_subgraph(
             complement_nodes,
             complement_edges, 
-            node_default_color = sol.UNHIGHLIGHT_NODE,
-            edge_default_color = sol.UNHIGHLIGHT_EDGE,
+            node_default_color = kwargs.pop('node_default_color', sol.UNHIGHLIGHT_NODE),
+            edge_default_color = kwargs.pop('edge_default_color', sol.UNHIGHLIGHT_EDGE),
             **kwargs
         )
 
@@ -113,8 +113,8 @@ class HighlightableGraph(Graph):
         return self._highlight_subgraph_animation(
             complement_nodes,
             complement_edges,
-            node_default_color = sol.UNHIGHLIGHT_NODE,
-            edge_default_color = sol.UNHIGHLIGHT_EDGE,
+            node_default_color = kwargs.pop('node_default_color', sol.UNHIGHLIGHT_NODE),
+            edge_default_color = kwargs.pop('edge_default_color', sol.UNHIGHLIGHT_EDGE),
             **kwargs
         )
 
@@ -138,8 +138,13 @@ class HighlightableGraph(Graph):
             )
         )
 
-    def highlight_root(self, root):
-        self.highlight_subgraph([root], node_colors = { root : sol.ROOT }, nodes_to_scale = [root])
+    def highlight_root(self, root, **kwargs):
+        self.highlight_subgraph(
+            [root],
+            node_colors = { root : sol.ROOT }, 
+            nodes_to_scale = [root],
+            **kwargs
+        )
 
     def unhighlight_complement_ball(self, root, radius=None, **kwargs):
         self.unhighlight_complement(self.ball(root, radius), **kwargs)
@@ -167,18 +172,20 @@ class HighlightableGraph(Graph):
         self.highlight_subgraph(
             path,
             edges = self.path_edges(path),
-            node_default_color = color,
-            edge_default_color = color,
+            node_default_color = kwargs.pop('node_default_color', color),
+            edge_default_color = kwargs.pop('edge_default_color', color),
             **kwargs
         )
 
     @override_animate(highlight_path)
     def _highlight_path_animation(self, path, color=sol.ORANGE, **kwargs):
+        ndc = kwargs.pop('node_default_color', color)
+        edc = kwargs.pop('edge_default_color', color)
         return LaggedStart(*(
             self._highlight_subgraph_animation(
                 path[i:i+2],
-                node_default_color=color,
-                edge_default_color=color,
+                node_default_color=ndc,
+                edge_default_color=edc,
                 **kwargs
             ) for i in range(len(path) - 1)), **kwargs
         )

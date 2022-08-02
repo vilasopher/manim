@@ -4,7 +4,7 @@ import solarized as sol
 import networkx as nx
 from more_graphs import PercolatingGraph, HPGrid
 from glitch import Glitch, GlitchEdges, GlitchPercolate
-from duality import Duality
+from duality import Duality, convert_edge
 import random
 
 def safe_edge(g, e):
@@ -199,5 +199,248 @@ class NumberOfCircuits(Scene):
                 )
 
 
+
+        self.wait(30)
+
+class BigCircuit(Scene):
+    def construct(self):
+        random.seed(12)
+        g = Duality((24, 14), 0.3)
+        g.percolate(0.5)
+
+        self.play(
+            GlitchEdges(g.primal, intensity=0.04),
+            GlitchEdges(g.dual, intensity=0.04),
+            run_time = 0.25
+        )
+
+        self.wait(0.75)
+
+        self.play(
+            g.primal.animate.dramatically_highlight_ball(
+                (0,0),
+                root_scale_factor = 1.5
+            )
+        )
+
+        self.wait(1.5)
+
+        self.play(
+            g.animate.dramatically_highlight_circuit_around_origin()
+        )
+
+        self.wait(50)
+
+class HugeCircuit(Scene):
+    def construct(self):
+        random.seed(20)
+        g = Duality(
+            (24, 14),
+            0.3,
+            primal_vertex_config = sol.VERY_LIGHT_VERTEX_CONFIG,
+            primal_edge_config = sol.VERY_LIGHT_EDGE_CONFIG,
+            dual_vertex_config = sol.DUAL_LIGHT_VERTEX_CONFIG,
+            dual_edge_config = sol.DUAL_LIGHT_EDGE_CONFIG
+        )
+        g.percolate(0.5)
+
+        bad_edges = [ 
+            ((5,-13), (5,-12)),
+            ((7,-13), (7,-12)),
+            ((10,-13), (10,-12))
+        ]
+
+        g.primal.remove_edges(*bad_edges)
+        g.dual.add_edges(*(convert_edge(*e) for e in bad_edges))
+
+        g.primal.highlight_root((0,0), scale_factor=1.5)
+        g.highlight_circuit_around_origin()
+
+        self.add(g)
+
+class BigBox(Scene):
+    def construct(self):
+        random.seed(14)
+        g = Duality(
+            (24, 14),
+            0.3,
+            primal_vertex_config = sol.VERY_LIGHT_VERTEX_CONFIG,
+            primal_edge_config = sol.VERY_LIGHT_EDGE_CONFIG,
+            dual_vertex_config = sol.DUAL_LIGHT_VERTEX_CONFIG,
+            dual_edge_config = sol.DUAL_LIGHT_EDGE_CONFIG
+        )
+        g.percolate(0.5)
+        g.primal.highlight_root((14,4), scale_factor = 1.5)
+
+        self.add(g)
+
+        boxcorners = [
+            (14+8, 4+8),
+            (14-8, 4+8),
+            (14-8, 4-8),
+            (14+8, 4-8)
+        ]
+
+        side1 = [ (14+8-i, 4+8) for i in range(16) ]
+        side2 = [ (14-8, 4+8-i) for i in range(16) ]
+        side3 = [ (14-8+i, 4-8) for i in range(16) ]
+        side4 = [ (14+8, 4-8+i) for i in range(16) ]
+
+        box = side1 + side2 + side3 + side4
+        box_edges = [
+            (u,v) for u in box for v in box
+            if np.abs(u[0]-v[0]) + np.abs(u[1]-v[1]) == 1
+        ]
+
+        b = Graph(
+            box,
+            box_edges,
+            vertex_config = { 'fill_color' : sol.VIOLET },
+            edge_config = { 'stroke_color' : sol.VIOLET },
+            layout = gr.grid_layout(24, 14, scale=0.3)
+        )
+        for v in b.vertices:
+            b[v].set(z_index = 2)
+        for e in b.edges:
+            b.edges[e].set(z_index = 2)
+
+        self.add(b)
+
+        self.wait(15)
+
+        box_to_infinity = [
+            (6, -1),
+            (5, -1),
+            (4, -1),
+            (3, -1),
+            (2, -1),
+            (1, -1),
+            (1, 0),
+            (0, 0),
+            (0, -1),
+            (-1, -1),
+            (-2, -1),
+            (-2, -2),
+            (-3, -2),
+            (-4, -2),
+            (-5, -2),
+            (-5, -1),
+            (-6, -1),
+            (-7, -1),
+            (-8, -1),
+            (-8, -2),
+            (-8, -3),
+            (-8, -4),
+            (-8, -5),
+            (-9, -5),
+            (-10, -5),
+            (-10, -6),
+            (-11, -6),
+            (-11, -7),
+            (-11, -8),
+            (-10, -8),
+            (-10, -9),
+            (-11, -9),
+            (-11, -10),
+            (-12, -10),
+            (-12, -11),
+            (-12, -12),
+            (-11, -12),
+            (-10, -12),
+            (-9, -12),
+            (-8, -12),
+            (-8, -13),
+            (-8, -14)
+        ]
+        
+        self.play(
+            g.primal.animate.highlight_path(
+                box_to_infinity,
+                node_default_color=sol.HIGHLIGHT_NODE,
+                edge_default_color=sol.HIGHLIGHT_EDGE
+            ),
+            run_time = 5
+        )
+        self.wait(4.5)
+
+        box_interior_vertices = [
+            (i, j)
+            for i in range(14-8,14+8+1)
+            for j in range(4-8,4+8-1)
+        ]
+
+        box_interior_edges = [
+            (u,(u[0]+d[0], u[1]+d[1]))
+            for u in box_interior_vertices
+            for d in [(1,0),(0,1)]
+            if u[0]+d[0] <= 14+8 and u[1]+d[1] <= 4+8
+        ]
+
+        self.play(
+            Glitch(
+                Group(
+                    *(
+                        g.primal.edges[g.primal.safe_edge(e)]
+                        for e in box_interior_edges
+                        if e in g.primal.edges
+                    )
+                ),
+                intensity = 0.04,
+                simple = True
+            ),
+            run_time = 1
+        )
+
+        g.primal.add_edges(
+            *(
+                e for e in box_interior_edges
+                if e not in g.primal.edges
+            )
+        )
+        g.dual.remove_edges(
+            *(
+                convert_edge(*e) for e in box_interior_edges
+                if convert_edge(*e) in g.dual.edges
+            )
+        )
+        g.primal.highlight_subgraph(
+            box_interior_vertices,
+            node_colors = { (14,4) : sol.RED },
+        )
+
+        self.play(
+            Glitch(
+                Group(
+                    *(
+                        g.primal.edges[g.primal.safe_edge(e)]
+                        for e in box_interior_edges
+                    )
+                ),
+                intensity = 0.04
+            ),
+            run_time = 1
+        )
+
+        self.wait(25.5)
+        
+        origin_to_box = [
+            (14, 4),
+            (13, 4),
+            (13, 3),
+            (12, 3),
+            (12, 2),
+            (11, 2),
+            (11, 1),
+            (10, 1),
+            (10, 0),
+            (9, 0),
+            (9, -1),
+            (8, -1),
+            (7, -1)
+        ]
+
+        origin_to_infinity = origin_to_box + box_to_infinity
+
+        self.play(g.primal.animate.highlight_path(origin_to_infinity))
 
         self.wait(30)
