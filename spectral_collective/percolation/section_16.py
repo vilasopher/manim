@@ -366,7 +366,7 @@ class BigBox(Scene):
         box_interior_vertices = [
             (i, j)
             for i in range(14-8,14+8+1)
-            for j in range(4-8,4+8-1)
+            for j in range(4-8,4+8+1)
         ]
 
         box_interior_edges = [
@@ -425,15 +425,15 @@ class BigBox(Scene):
         
         origin_to_box = [
             (14, 4),
-            (13, 4),
-            (13, 3),
-            (12, 3),
-            (12, 2),
-            (11, 2),
-            (11, 1),
-            (10, 1),
-            (10, 0),
-            (9, 0),
+            (14, 3),
+            (14, 2),
+            (14, 1),
+            (14, 0),
+            (14, -1),
+            (13, -1),
+            (12, -1),
+            (11, -1),
+            (10, -1),
             (9, -1),
             (8, -1),
             (7, -1)
@@ -441,6 +441,11 @@ class BigBox(Scene):
 
         origin_to_infinity = origin_to_box + box_to_infinity
 
-        self.play(g.primal.animate.highlight_path(origin_to_infinity))
+        self.play(
+            g.primal.animate.highlight_path(
+                origin_to_infinity,
+                node_colors = { (14,4) : sol.RED }
+            )
+        )
 
         self.wait(30)
