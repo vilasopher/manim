@@ -31,8 +31,8 @@ def completely_random(*args):
 
 def HSV_random(*args):
     H = random.random() * 360
-    S = random.random()
-    V = random.random()
+    S = np.random.normal(0.6, 0.2) % 1
+    V = np.random.normal(0.6, 0.2) % 1
     C = V * S
     X = C * (1 - np.abs(H/60 % 2 - 1))
     m = V - C
@@ -155,3 +155,33 @@ class ClusterImage(ImageMobject):
             else:
                 if not b is None:
                     self.pixel_array[v] = b
+
+class ClusterReveal(ClusterImage):
+    def __init__(
+        self,
+        shape,
+        background_image,
+        color_to_replace,
+        p=0,
+        color_picker=HSV_random
+    ):
+        self.bg = background_image.pixel_array
+        self.touched = np.full(shape, False)
+        self.c2r = np.uint8([*color_to_replace[:3], 255])
+        super().__init__(shape, p, color_picker)
+
+    def set_p(self, p):
+        while len(self.coupling) > 0 and self.coupling[0][0] < p:
+            r, e = self.coupling.pop(0)
+            self.clusters.union(e[0], e[1])
+
+        for v in self.vertices:
+            if (self.pixel_array[v] == self.c2r).all():
+                self.touched[v] = True
+
+            w  = self.clusters.find(v)
+
+            if self.touched[w]:
+                self.pixel_array[v] = self.bg[v]
+            else:
+                self.pixel_array[v] = self.pixel_array[w]
