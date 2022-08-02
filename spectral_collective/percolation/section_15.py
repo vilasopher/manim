@@ -62,6 +62,9 @@ class DualityScene(Scene):
             ), run_time = 7
         )
 
+        g.primal.remove_edges(*(e for e in elist if edict[e]))
+        g.dual.remove_edges(*(e for e in elist if not edict[e]))
+
         self.wait(1.5)
 
         self.play(FadeOut(g.primal))
