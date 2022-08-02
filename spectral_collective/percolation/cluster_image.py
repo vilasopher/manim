@@ -160,12 +160,14 @@ class ClusterReveal(ClusterImage):
     def __init__(
         self,
         shape,
-        background_image,
         color_to_replace,
+        background_image = None,
         p=0,
         color_picker=HSV_random
     ):
-        self.bg = background_image.pixel_array
+        self.bg = None
+        if not background_image is None:
+            self.bg = background_image.pixel_array
         self.touched = np.full(shape, False)
         self.c2r = np.uint8([*color_to_replace[:3], 255])
         super().__init__(shape, p, color_picker)
@@ -182,6 +184,9 @@ class ClusterReveal(ClusterImage):
             w  = self.clusters.find(v)
 
             if self.touched[w]:
-                self.pixel_array[v] = self.bg[v]
+                if self.bg is None:
+                    self.pixel_array[v] = np.uint8([0,0,0,0])
+                else:
+                    self.pixel_array[v] = self.bg[v]
             else:
                 self.pixel_array[v] = self.pixel_array[w]

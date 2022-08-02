@@ -23,6 +23,9 @@ class ThankYou(Scene):
 class Outro(Scene):
     def construct(self):
         ty = ImageMobject('ThankYou.png')
+        ty.set(height = 8, z_index = -1)
+        self.add(ty)
+
         random.seed(0)
         np.random.seed(0)
 
@@ -31,7 +34,6 @@ class Outro(Scene):
 
         c = ClusterReveal(
             (720, 1280),
-            ty,
             [82, 67, 161]
         )
         c.add_updater(
