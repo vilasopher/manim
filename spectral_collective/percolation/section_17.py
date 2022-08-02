@@ -32,7 +32,7 @@ class Outro(Scene):
         c = ClusterReveal(
             (720, 1280),
             ty,
-            [91, 115, 26]
+            [82, 67, 161]
         )
         c.add_updater(
             lambda s : c.set_p(p.get_value())
@@ -41,5 +41,6 @@ class Outro(Scene):
 
         self.play(
             p.animate.set_value(1),
-            run_time=5
+            run_time=40,
+            rate_func = rate_functions.linear
         )
