@@ -623,3 +623,14 @@ class CyanTexBox(Scene):
         self.add(tp)
         self.wait()
         self.wait(10)
+
+class Reminder(Scene):
+    def construct(self):
+        tex = MathTex(
+            r'(&\text{for } {{ p }} > 2/3 \text{ and} \\',
+            r'&\text{large enough } {{\blacksquare}})',
+            color = sol.BASE03,
+            font_size = 33
+        ).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'\blacksquare', sol.VIOLET).next_to(lemma, RIGHT).align_to(lemma, UP).shift(0.75 * RIGHT + 0.25 * DOWN)
+
+        self.add(TranslucentBox(tex), tex)
