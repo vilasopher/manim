@@ -63,7 +63,7 @@ class DualityScene(Scene):
         )
 
         g.primal.remove_edges(*(e for e in elist if edict[e]))
-        g.dual.remove_edges(*(convert_edge(e) for e in elist if not edict[e]))
+        g.dual.remove_edges(*(convert_edge(*e) for e in elist if not edict[e]))
 
         self.wait(1.5)
 
