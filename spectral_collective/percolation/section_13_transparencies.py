@@ -369,19 +369,47 @@ class Function(Scene):
 
         self.wait(2.5)
 
-        self.play(Glitch(f))
+        self.play(Glitch(f), run_time=0.5)
+        self.remove(f)
+        f = MathTex(
+            r'\mathbf{f}( \quad \; \; ) =',
+            color = sol.BASE03,
+            font_size = 70
+        ).move_to(4.65 * LEFT + 0.5 * DOWN)
+        self.add(f)
 
         self.wait(2 + 2/3)
 
-        self.play(Glitch(f))
+        self.play(Glitch(f), run_time=0.5)
+        self.remove(f)
+        f = MathTex(
+            r'\mathbf{f}( \quad \; \; ) =',
+            color = sol.BASE03,
+            font_size = 70
+        ).move_to(4.65 * LEFT + 0.5 * DOWN)
+        self.add(f)
         
         self.wait(2 + 2/3)
 
-        self.play(Glitch(f))
+        self.play(Glitch(f), run_time=0.5)
+        self.remove(f)
+        f = MathTex(
+            r'\mathbf{f}( \quad \; \; ) =',
+            color = sol.BASE03,
+            font_size = 70
+        ).move_to(4.65 * LEFT + 0.5 * DOWN)
+        self.add(f)
 
         self.wait(2 + 2/3)
 
-        self.play(Glitch(f))
+        self.play(Glitch(f), run_time=0.5)
+        self.remove(f)
+        f = MathTex(
+            r'\mathbf{f}( \quad \; \; ) =',
+            color = sol.BASE03,
+            font_size = 70
+        ).move_to(4.65 * LEFT + 0.5 * DOWN)
+        self.add(f)
 
         self.wait(1.5)
 
@@ -390,6 +418,7 @@ class Function(Scene):
         self.play(p.animate.set_value(2/3), run_time=2, rate_func=rate_functions.linear)
         self.play(
             p.animate.set_value(1/3),
+            FadeOut(occlusion_frame),
             FadeIn(trocl),
             run_time=2,
             rate_func=rate_functions.linear
@@ -422,6 +451,7 @@ class Faded(Scene):
         )
 
         self.add(f, p, pd, trocl)
+        self.remove(occlusion_frame)
 
         self.play(p.animate.set_value(1), run_time=6, rate_func=rate_functions.linear)
         self.play(p.animate.set_value(0), run_time=6, rate_func=rate_functions.linear)
