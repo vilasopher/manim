@@ -2,6 +2,7 @@ from manim import *
 import solarized as sol
 from translucent_box import TranslucentBox
 from value_slider import CriticalValueSlider
+from glitch import Glitch
 from math import sqrt
 
 config.background_opacity = 0
@@ -319,3 +320,100 @@ class Plot(Scene):
         self.play(pc.animate.set_value(0), run_time=2)
         self.wait(2)
         self.play(pc.animate.set_value(1), run_time=2)
+
+occlusion_top = Rectangle(height=4, width=15, color = sol.BASE3).set_fill(sol.BASE3, opacity=1).move_to(4 * UP)
+occlusion_bottom = Rectangle(height=2, width=15, color = sol.BASE3).set_fill(sol.BASE3, opacity=1).move_to(4 * DOWN)
+occlusion_left = Rectangle(height=9, width=8, color = sol.BASE3).set_fill(sol.BASE3, opacity=1).move_to(7 * LEFT)
+occlusion_right = Rectangle(height=9, width=2, color = sol.BASE3).set_fill(sol.BASE3, opacity=1).move_to(7 * RIGHT)
+occlusion_frame = Rectangle(height=5, width=9, color = sol.BASE0).move_to(1.5 * RIGHT + 0.5 * DOWN)
+occlusion = Group(occlusion_top, occlusion_bottom, occlusion_left, occlusion_right, occlusion_frame)
+
+translucent_occlusion_text = Rectangle(height = 1.5, width=14, color = sol.BASE3).set_fill(sol.BASE3, opacity=0.9).move_to(3 * UP)
+translucent_occlusion_f = Rectangle(height = 2, width=3.5, color = sol.BASE3).set_fill(sol.BASE3, opacity=0.9).move_to(5 * LEFT)
+translucent_occlusion_frame = Rectangle(height=5, width=9, color=sol.BASE2).move_to(1.5 * RIGHT + 0.5 * DOWN)
+trocl = Group(translucent_occlusion_text, translucent_occlusion_f, translucent_occlusion_frame)
+
+
+class Function(Scene):
+    def construct(self):
+        self.add(occlusion)
+
+        t = Tex(
+            r'Uniform Coupling $\Leftrightarrow$ random \emph{function} $\mathbf{f} : [0, 1] \to \{$graphs$\}$',
+            color = sol.BASE03
+        ).move_to(3 * UP)
+
+        self.add(t)
+
+        f = MathTex(
+            r'\mathbf{f}( \quad \; \; ) =',
+            color = sol.BASE03,
+            font_size = 70
+        ).move_to(4.65 * LEFT + 0.5 * DOWN)
+
+        pd = DecimalNumber(0.5, color = sol.BASE03, font_size = 70).next_to(f, RIGHT).shift(2.45 * LEFT)
+
+        p = ValueTracker(0.5)
+
+        pd.add_updater(
+            lambda s : s.set_value(p.get_value())
+        )
+
+        self.add(f, p, pd)
+
+
+        self.play(p.animate.set_value(1), run_time=2, rate_func=rate_functions.linear)
+        self.play(p.animate.set_value(0), run_time=4, rate_func=rate_functions.linear)
+        self.play(p.animate.set_value(1), run_time=4, rate_func=rate_functions.linear)
+        self.play(p.animate.set_value(0.5), run_time=2, rate_func=rate_functions.linear)
+
+        self.wait(2.5)
+
+        self.play(Glitch(f))
+
+        self.wait(2 + 2/3)
+
+        self.play(Glitch(f))
+        
+        self.wait(2 + 2/3)
+
+        self.play(Glitch(f))
+
+        self.wait(2 + 2/3)
+
+        self.play(Glitch(f))
+
+        self.wait(1.5)
+
+        self.play(p.animate.set_value(0), run_time=3, rate_func=rate_functions.linear)
+        self.play(p.animate.set_value(1), run_time=6, rate_func=rate_functions.linear)
+        self.play(p.animate.set_value(2/3), run_time=2, rate_func=rate_functions.linear)
+        self.play(
+            p.animate.set_value(1/3),
+            FadeIn(trocl),
+            run_time=2,
+            rate_func=rate_functions.linear
+        )
+        self.play(p.animate.set_value(0), run_time=2, rate_func=rate_functions.linear)
+
+        self.play(p.animate.set_value(1), run_time=6, rate_func=rate_functions.linear)
+        self.play(p.animate.set_value(0), run_time=6, rate_func=rate_functions.linear)
+        self.play(p.animate.set_value(1), run_time=6, rate_func=rate_functions.linear)
+        self.play(p.animate.set_value(0), run_time=6, rate_func=rate_functions.linear)
+        self.play(p.animate.set_value(1), run_time=6, rate_func=rate_functions.linear)
+        self.play(p.animate.set_value(0), run_time=6, rate_func=rate_functions.linear)
+        self.play(p.animate.set_value(1), run_time=6, rate_func=rate_functions.linear)
+        self.play(p.animate.set_value(0), run_time=6, rate_func=rate_functions.linear)
+        self.play(p.animate.set_value(1), run_time=6, rate_func=rate_functions.linear)
+        self.play(p.animate.set_value(0), run_time=6, rate_func=rate_functions.linear)
+        self.play(p.animate.set_value(1), run_time=6, rate_func=rate_functions.linear)
+        self.play(p.animate.set_value(0), run_time=6, rate_func=rate_functions.linear)
+        self.play(p.animate.set_value(1), run_time=6, rate_func=rate_functions.linear)
+        self.play(p.animate.set_value(0), run_time=6, rate_func=rate_functions.linear)
+        self.play(p.animate.set_value(1), run_time=6, rate_func=rate_functions.linear)
+        self.play(p.animate.set_value(0), run_time=6, rate_func=rate_functions.linear)
+        self.play(p.animate.set_value(1), run_time=6, rate_func=rate_functions.linear)
+        self.play(p.animate.set_value(0), run_time=6, rate_func=rate_functions.linear)
+        self.play(p.animate.set_value(1), run_time=6, rate_func=rate_functions.linear)
+        self.play(p.animate.set_value(0), run_time=6, rate_func=rate_functions.linear)
+        self.play(p.animate.set_value(1), run_time=6, rate_func=rate_functions.linear)
