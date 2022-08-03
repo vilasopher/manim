@@ -396,6 +396,33 @@ class Function(Scene):
         )
         self.play(p.animate.set_value(0), run_time=2, rate_func=rate_functions.linear)
 
+class Faded(Scene):
+    def construct(self):
+        self.add(occlusion)
+
+        t = Tex(
+            r'Uniform Coupling $\Leftrightarrow$ random \emph{function} $\mathbf{f} : [0, 1] \to \{$graphs$\}$',
+            color = sol.BASE03
+        ).move_to(3 * UP)
+
+        self.add(t)
+
+        f = MathTex(
+            r'\mathbf{f}( \quad \; \; ) =',
+            color = sol.BASE03,
+            font_size = 70
+        ).move_to(4.65 * LEFT + 0.5 * DOWN)
+
+        pd = DecimalNumber(0, color = sol.BASE03, font_size = 70).next_to(f, RIGHT).shift(2.45 * LEFT)
+
+        p = ValueTracker(0)
+
+        pd.add_updater(
+            lambda s : s.set_value(p.get_value())
+        )
+
+        self.add(f, p, pd, trocl)
+
         self.play(p.animate.set_value(1), run_time=6, rate_func=rate_functions.linear)
         self.play(p.animate.set_value(0), run_time=6, rate_func=rate_functions.linear)
         self.play(p.animate.set_value(1), run_time=6, rate_func=rate_functions.linear)
