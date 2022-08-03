@@ -474,3 +474,7 @@ class Faded(Scene):
         self.play(p.animate.set_value(1), run_time=6, rate_func=rate_functions.linear)
         self.play(p.animate.set_value(0), run_time=6, rate_func=rate_functions.linear)
         self.play(p.animate.set_value(1), run_time=6, rate_func=rate_functions.linear)
+
+class TextOcclusion(Scene):
+    def construct(self):
+        self.add(occlusion_top.shift(0.2 * UP))

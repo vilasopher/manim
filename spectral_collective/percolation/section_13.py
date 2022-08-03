@@ -62,10 +62,10 @@ class CouplingUnionFindAbstract(Scene):
 
         g.set_p(truestart)
 
-        self.wait(incrementalruntime/2)
-
         if fadeout and not truestart == start:
             occlusion.set_opacity(0.9)
+
+        self.wait(incrementalruntime/2)
 
         for r, e in list(coupling):
             if r >= truestart and r <= trueend:
