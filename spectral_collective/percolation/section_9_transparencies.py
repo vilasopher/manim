@@ -40,3 +40,20 @@ class SliderBackward(Scene):
             run_time=10,
             rate_func=almost_linear
         )
+
+
+class ThreeDCaption(Scene):
+    def construct(self):
+        tex1 = Tex(r'Exploring a cluster in near-critical', color=sol.BASE03, font_size=33)
+        tex2 = Tex(r'percolation on the cubic lattice.', color=sol.BASE03, font_size=33)
+        tex2.next_to(tex1, DOWN).align_to(tex1, LEFT).shift(0.1 * RIGHT + 0.2 * UP)
+        t = Group(tex1, tex2).move_to(3.2 * UP + 4.05 * RIGHT)
+        self.add(TranslucentBox(t, margin=0.15), t)
+
+class ThreeDPC(Scene):
+    def construct(self):
+        tex1 = Tex(r'critical parameter $= 0.24881...$', font_size=35, color=sol.BASE03)
+        tex2 = Tex(r'(from numerical simulations)', color=sol.BASE03, font_size=33)
+        tex2.next_to(tex1, DOWN).shift(0.2 * UP)
+        t = Group(tex1, tex2).move_to(3.15 * DOWN + 4.15 * RIGHT)
+        self.add(TranslucentBox(t, margin=0.15), t)
