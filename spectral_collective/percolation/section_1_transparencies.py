@@ -5,6 +5,18 @@ from value_slider import ValueSlider
 
 config.background_opacity = 0
 
+ucc = Tex(r'Uniform Coupling', color=sol.BASE03).move_to(2 * DOWN + 3 * LEFT + 0.81 * LEFT)
+
+dc = Tex(r'Duality', color=sol.BASE03).align_to(ucc, UP).shift(3 * RIGHT + 0.81 * LEFT)
+
+class UniformCouplingCaption(Scene):
+    def construct(self):
+        self.add(TranslucentBox(ucc, margin=0.15), ucc)
+
+class DualityCaption(Scene):
+    def construct(self):
+        self.add(TranslucentBox(dc, margin=0.15), dc)
+
 class FirstFrameForeground(Scene):
     def construct(self):
         self.add(ValueSlider(1))

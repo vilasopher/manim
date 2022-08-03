@@ -252,3 +252,7 @@ class CouplingUnionFind_NewSeed_ZeroToOne_Faded(CouplingUnionFindAbstract):
 class REVERSEDCouplingUnionFind_NewSeed_OneToZero_Faded(CouplingUnionFindAbstract):
     def construct(self):
         self.construct_abstract(13, 1, 0, 6, faded=True)
+
+class LongCouplingUnionFind(CouplingUnionFindAbstract):
+    def construct(self):
+        self.construct_abstract(13, 0, 1, 30, faded=True)
