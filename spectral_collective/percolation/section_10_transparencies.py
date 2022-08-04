@@ -23,7 +23,7 @@ class KestenQuote(Scene):
             color=sol.BASE03,
             font_size=36
         )
-        cite = Tex(r'-Harry Kesten', color=sol.BASE03)
+        cite = Tex(r'---Harry Kesten', color=sol.BASE03)
         cite.next_to(quote, DOWN).align_to(quote, RIGHT).shift(0.2 * UP)
         q = Group(quote, cite)
         tq = TranslucentBox(q)

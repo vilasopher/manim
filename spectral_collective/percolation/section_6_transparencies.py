@@ -562,16 +562,16 @@ class HDC(Scene):
 
 
         quote = MathTex(
-            r'&\text{``Hugo Duminil-Copin is awarded the Fields Medal} \\',
-            r'&\;\;\text{2022 for solving longstanding problems in the} \\',
-            r'&\;\;\text{probabilistic theory of phase transitions in} \\',
-            r'&\;\;\text{statistical physics, especially in dimensions} \\',
-            r'&\;\;\text{three and four"}',
-            color=sol.BASE03
+            r'&\text{``Hugo Duminil-Copin is awarded the Fields Medal 2022} \\',
+            r'&\;\;\text{for solving longstanding problems in the probabilistic} \\',
+            r'&\;\;\text{theory of phase transitions in statistical physics,} \\',
+            r'&\;\;\text{especially in dimensions three and four"}',
+            color=sol.BASE03,
+            font_size = 36
         )
 
         cite = MathTex(
-            r'&\qquad\qquad\text{-International Mathematical Union}',
+            r'&\qquad\qquad\text{---International Mathematical Union}',
             color=sol.BASE03
         ).next_to(quote, DOWN).align_to(quote, RIGHT).shift(0.1 * UP)
 

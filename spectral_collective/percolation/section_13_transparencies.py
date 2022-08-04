@@ -251,6 +251,12 @@ class Plot(Scene):
         pt0 = Dot(ax.coords_to_point(0,0), color=sol.BASE02, radius=0.05)
         pt1 = Dot(ax.coords_to_point(1,1), color=sol.BASE02, radius=0.05)
 
+        pt0lab = MathTex(r'(0,0)', color=sol.BASE03, font_size=30)
+        pt0lab.next_to(pt0, DL).shift(0.25 * RIGHT + 0.25 * UP)
+
+        pt1lab = MathTex(r'(1,1)', color=sol.BASE03, font_size=30)
+        pt1lab.next_to(pt1, UR).shift(0.25 * LEFT + 0.25 * DOWN)
+
         lab = ax.get_axis_labels(
             x_label = MathTex(r'p', color=sol.RED),
             y_label = MathTex(
@@ -260,7 +266,7 @@ class Plot(Scene):
         )
 
 
-        plot = Group(ax, plt, pt0, pt1, lab).move_to(DOWN)
+        plot = Group(ax, plt, pt0, pt1, pt0lab, pt1lab, lab).move_to(DOWN)
 
         crit = Square(
             0.1 / sqrt(2),
@@ -289,13 +295,21 @@ class Plot(Scene):
         self.wait()
 
         self.play(
-            Create(plt),
-            FadeIn(pt0),
-            FadeIn(pt1),
-            run_time=2
+            LaggedStart(
+                AnimationGroup(
+                    Create(plt),
+                    FadeIn(pt0),
+                    FadeIn(pt0lab)
+                ),
+                AnimationGroup(
+                    FadeIn(pt1),
+                    FadeIn(pt1lab)
+                )
+            ),
+            run_time=4
         )
 
-        self.wait(25)
+        self.wait(24)
 
         self.play(FadeIn(pcrit))
 
