@@ -88,7 +88,10 @@ class PPP(Scene):
 
 class GlitchWholeRootedGrid(Scene):
     def construct(self):
-        g = HPGrid.from_grid((24, 14), 0.3)
+        g = HPGrid.from_grid((24, 14), 0.3,
+            vertex_config = {'fill_color' : sol.BASE00},
+            edge_config = {'stroke_color' : sol.BASE1}
+        )
         g.highlight_subgraph(
             [(0,0)],
             node_colors = { (0,0) : sol.ROOT },

@@ -145,7 +145,7 @@ definition2 = Group(definitionleft2, definitionright2)
 ####################################################
 
 sum_equality = MathTex(
-    r'\mathbb{P}_{{p}}[\oo _ { \geq {{N \hspace{0cm} }} } ] {{=}} \sum_{ {{\ell}} = \hspace{0em} {{N}} }^\infty {{ \mathbb{P} }}_{{p}}[\oo_{{\ell \hspace{0em} }}]',
+    r'\mathbb{P}_{{p}}[\oo _ { \geq {{N \hspace{0cm} }} } ] {{\leq}} \sum_{ {{\ell}} = \hspace{0em} {{N}} }^\infty {{ \mathbb{P} }}_{{p}}[\oo_{{\ell \hspace{0em} }}]',
     color = sol.BASE03,
     tex_template = temp,
     font_size=36
