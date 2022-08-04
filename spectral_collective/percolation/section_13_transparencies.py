@@ -161,7 +161,7 @@ class PcDefinition(Scene):
             r'{{p_c}} \coloneqq \sup \, \{ {{p}} \in [0, 1] : \mathbb{P}_{{p}}[o \leftrightarrow \infty] = 0 \}',
             color=sol.BASE03,
             tex_template=tmp
-        ).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'p_c', sol.BLUE).set_color_by_tex(r's', sol.BASE03).move_to(2.5*UP)
+        ).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'p_c', sol.BLUE).set_color_by_tex(r's', sol.BASE03).move_to(2.25*UP)
         td = TranslucentBox(d)
 
         self.add(td, d)

@@ -17,4 +17,4 @@ class Note(Scene):
             font_size = 30
         ).next_to(n1, DOWN).align_to(n1, RIGHT).shift(0.2 * UP)
 
-        self.add(TranslucentBox(n1, n2), n1, n2)
+        self.add(TranslucentBox(n1, n2, margin=0.15), n1, n2)
