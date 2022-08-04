@@ -14,6 +14,11 @@ class DualityScene(Scene):
     def construct(self):
         g = Duality()
 
+        for v in g.primal.vertices:
+            g.primal[v].set(z_index = 2)
+        for v in g.dual.vertices:
+            g.dual[v].set(z_index = 2)
+
         self.wait()
 
         self.play(FadeIn(g.primal))
@@ -38,7 +43,24 @@ class DualityScene(Scene):
 
         self.play(FadeIn(g.primal))
 
-        self.wait(6)
+        edges_to_indicate = random.choices(list(g.primal.edges), k=30)
+
+        self.wait(0.5)
+
+        self.play(
+            LaggedStart(
+                *(
+                    AnimationGroup(
+                        Indicate(g.primal.edges[e]),
+                        Indicate(g.dual.edges[convert_edge(*e)]),
+                        run_time=1/3
+                    )
+                    for e in edges_to_indicate
+                ), run_time = 5
+            )
+        )
+
+        self.wait(0.5)
 
         edict = { e : True if random.random() < 0.5 else False for e in g.primal.edges }
         elist = list(g.primal.edges)

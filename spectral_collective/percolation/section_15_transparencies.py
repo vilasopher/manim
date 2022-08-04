@@ -19,7 +19,7 @@ primal = MathTex(
 
 dual = MathTex(
     r'\text{Dual} {{ \text{ Grid} }}',
-    color = sol.BASE03,
+    color = sol.CYAN,
     font_size = 60
 )
 
