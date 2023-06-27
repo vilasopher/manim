@@ -28,7 +28,7 @@ class Why(Scene):
 class FunctionGraph(Scene):
     def construct(self):
         permutation = [4, 1, 2, 7, 6, 5, 8, 9, 3]
-        subsequence = [  1, 2,    4,    6, 7 ]
+        subsequence = [   1, 2, 3,       6, 7 ]
 
         pnums = [
             DecimalNumber(
@@ -133,9 +133,9 @@ class FunctionGraph(Scene):
         self.wait()
 
         dots = [
-            Dot(color=sol.BASE03, radius=0.2)
+            Dot(color=sol.BASE03, radius=0.1)
             .align_to(box, DOWN + LEFT)
-            .shift(0.6 * ((i+1)*RIGHT + j*UP) - 0.2*(RIGHT+UP))
+            .shift(0.6 * ((i+1)*RIGHT + j*UP) - 0.1*(RIGHT+UP))
             for i,j in enumerate(permutation)
         ]
 
@@ -146,7 +146,6 @@ class FunctionGraph(Scene):
                         FadeIn(
                             dots[i],
                             scale=1.5,
-                            rate_function=rate_functions.rush_from,
                             run_time=0.5
                         ),
                         Wiggle(Group(dnums[i], pnums[i], arrows[i]), run_time=0.5)
@@ -154,6 +153,51 @@ class FunctionGraph(Scene):
                     for i in range(9)
                 ),
                 lag_ratio=0.75
+            )
+        )
+
+        self.wait()
+
+        LISlines = [
+            Line(
+                dots[subsequence[i]].get_center(),
+                dots[subsequence[i+1]].get_center(),
+                color=sol.RED
+            )
+            for i in range(4)
+        ]
+
+        self.play(
+            LaggedStart(
+                AnimationGroup(
+                    dots[subsequence[0]]
+                    .animate.set_color(sol.RED),
+                    Group(
+                        dnums[subsequence[0]],
+                        pnums[subsequence[0]],
+                        arrows[subsequence[0]]
+                    ).animate.set_color(sol.RED),
+                    run_time=0.5
+                ),
+                Succession(
+                    *(
+                        AnimationGroup(
+                            Create(
+                                LISlines[i],
+                            ),
+                            dots[subsequence[i+1]]
+                            .animate.set_color(sol.RED),
+                            Group(
+                                dnums[subsequence[i+1]],
+                                pnums[subsequence[i+1]],
+                                arrows[subsequence[i+1]]
+                            ).animate.set_color(sol.RED)
+                        )
+                        for i in range(4)
+                    ),
+                    run_time=2
+                ),
+                lag_ratio = 0.5
             )
         )
 
