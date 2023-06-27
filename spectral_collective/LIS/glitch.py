@@ -86,59 +86,19 @@ def Glitch(mobject, intensity=0.05, out=False, **kwargs):
         for mobj in mobject
     ))
 
-def GlitchEdges(graph, intensity=0.05, out=False, **kwargs):
-    return AnimationGroup(
-        AnimationGroup(*(
-            GlitchSingleMobject(graph.edges[e], intensity=intensity, out=out, **kwargs)
-            for e in graph.edges
-        )), AnimationGroup(*(
-            GlitchSingleMobject(graph.vertices[v], intensity=0, fade=False, out=out, **kwargs)
-            for v in graph.vertices
-        ))
-    )
-
-def GlitchPercolate(graph, intensity=0.05, p=0.5, **kwargs):
-    return AnimationGroup(
-        AnimationGroup(*(
-            GlitchSingleMobject(
-                graph.edges[e],
-                intensity=intensity,
-                out = False if random() < p else True,
-            **kwargs
-            ) for e in graph.edges
-        )), AnimationGroup(*(
-            GlitchSingleMobject(
-                graph.vertices[v],
-                intensity=0,
-                fade=False,
-                out=False,
-                **kwargs
-            ) for v in graph.vertices
-        ))
-    )
-
-class RandomizeReal(Animation):
+class GlitchNumber(GlitchSingleMobject):
     def __init__(
         self,
         decnum,
         lo=0, 
         hi=1, 
-        fade=True,
         **kwargs
     ):
         super().__init__(decnum, **kwargs)
         self.lo = lo
         self.hi = hi
 
-        self.colored_mobjects = [
-            self.mobject.copy().set(color=c, z_index=-3).set_opacity(0.5 if fade else 1)
-            for c in [sol.BASE03, sol.RED, sol.GREEN, sol.BLUE]
-        ]
-
-        self.mobject.set_opacity(0)
-
-        self.mobject.add(*self.colored_mobjects)
-
     def interpolate(self, alpha):
+        super().interpolate(alpha)
         for mobj in self.mobject:
             mobj.set_value(random() * (self.hi - self.lo) + self.lo)

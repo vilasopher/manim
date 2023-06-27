@@ -7,6 +7,8 @@ class DefinitionExample(Scene):
     def construct(self):
         permutation = [4, 1, 2, 7, 6, 5, 8, 9, 3]
         subsequence = [  1, 2,    4,    6, 7 ]
+
+
         nums = [
             DecimalNumber(
                 j,
@@ -16,6 +18,9 @@ class DefinitionExample(Scene):
             ).move_to((i-4)*RIGHT + UP)
             for i,j in enumerate(permutation)
         ]
+
+        # TODO: figure out how to make this look good with glitch.
+
         self.play(
             LaggedStart(
                 *(Write(i) for i in nums),
