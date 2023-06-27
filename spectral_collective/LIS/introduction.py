@@ -8,7 +8,6 @@ class DefinitionExample(Scene):
         permutation = [4, 1, 2, 7, 6, 5, 8, 9, 3]
         subsequence = [  1, 2,    4,    6, 7 ]
 
-
         nums = [
             DecimalNumber(
                 j,
