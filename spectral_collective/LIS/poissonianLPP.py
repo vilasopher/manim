@@ -1,7 +1,7 @@
 from manim import *
 from glitch import *
 import solarized as sol
-from random import random
+import random as ra
 
 class Why(Scene):
     def construct(self):
@@ -202,3 +202,150 @@ class FunctionGraph(Scene):
         )
 
         self.wait()
+
+        self.play(
+            FadeOut(
+                Group(
+                    *pnums,
+                    *dnums,
+                    *arrows,
+                    *xticks,
+                    *yticks,
+                    *xlabels,
+                    *ylabels,
+                    *LISlines
+                )
+            ),
+            Group(*dots).animate.set_color(sol.BASE03)
+        )
+
+        self.wait()
+
+        self.play(
+            Group(*dots, box).animate.shift(3*LEFT)
+        )
+
+        self.wait()
+
+        self.play(
+            *(
+                d.animate.scale(4)
+                for d in dots
+            )
+        )
+
+        self.wait()
+
+        xordering = [
+            DecimalNumber(
+                i+1,
+                num_decimal_places=0,
+                color=sol.BASE2,
+                font_size=30
+            ).next_to(dots[i], ORIGIN).shift(0.25*LEFT)
+            for i in range(9)
+        ]
+
+        yordering = [
+            DecimalNumber(
+                j,
+                num_decimal_places=0,
+                color=sol.BASE2,
+                font_size=30
+            ).next_to(dots[i], ORIGIN).shift(0.25*RIGHT)
+            for i,j in sorted(enumerate(permutation), key = lambda x : x[1])
+        ]
+
+        xscanline = Line(
+            ORIGIN,
+            6*UP,
+            color=sol.CYAN,
+            z_index=-1
+        ).align_to(box, DOWN+LEFT)
+
+        yscanline = Line(
+            ORIGIN,
+            6*RIGHT,
+            color=sol.CYAN,
+            z_index=-1
+        ).align_to(box, DOWN+LEFT)
+        
+        self.play(
+            xscanline.animate(
+                rate_func=rate_functions.linear,
+                run_time=3
+            ).shift(6*RIGHT),
+            LaggedStart(
+                *(FadeIn(xo) for xo in xordering),
+                lag_ratio=0.5,
+                run_time=3
+            )
+        ) 
+
+        self.wait()
+
+        self.play(
+            yscanline.animate(
+                rate_func=rate_functions.linear,
+                run_time=3
+            ).shift(6*UP),
+            LaggedStart(
+                *(FadeIn(yo) for yo in yordering),
+                lag_ratio=0.5,
+                run_time=3
+            )
+        ) 
+
+        self.wait()
+
+        smallarrows = [
+            MathTex(
+                r"\mapsto",
+                color=sol.BASE2,
+                font_size=30
+            ).next_to(dots[i], ORIGIN)
+            for i in range(9)
+        ]
+
+        self.play(*(FadeIn(sa, scale=1.5, run_time=0.5) for sa in smallarrows))
+
+        self.wait()
+
+
+        self.play(
+            *(FadeOut(sa) for sa in smallarrows),
+            *(FadeOut(xo) for xo in xordering),
+            *(FadeOut(yo) for yo in yordering),
+            run_time=0.5
+        )
+        self.play(
+            AnimationGroup(*(d.animate.scale(1/2) for d in dots)),
+            run_time=0.5
+        )
+
+        self.wait()
+
+        #TODO: figure out how to make the points move without messing up
+
+        ra.seed(3)
+
+        self.play(
+            *(d.animate.shift((ra.random()-0.5)*UP + (random()-0.5)*RIGHT)
+              for d in dots)
+        )
+
+        self.play(
+            *(d.animate.shift((ra.random()-0.5)*UP + (random()-0.5)*RIGHT)
+              for d in dots)
+        )
+
+        self.play(
+            *(d.animate.shift((ra.random()-0.5)*UP + (random()-0.5)*RIGHT)
+              for d in dots)
+        )
+
+        self.wait()
+
+class PoissonPointProcess(Scene):
+    def construct(self):
+        pass
