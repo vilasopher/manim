@@ -98,7 +98,7 @@ class TheoremStatement(Scene):
             r"""\textbf{Theorem:}""",
             font_size = 100,
             color = sol.BASE02
-        ).align_to(definition, LEFT).shift(DOWN)
+        ).align_to(definition, LEFT).shift(DOWN + 0.5*RIGHT)
 
         theoremstatement = MathTex(
             r"""
@@ -119,7 +119,7 @@ class TheoremStatement(Scene):
 
         theorem = Group(
             theoremword,
-            theoremstatement.next_to(theoremword, RIGHT).shift(RIGHT + 0.2*DOWN)
+            theoremstatement.next_to(theoremword, RIGHT).shift(0.5*RIGHT + 0.2*DOWN)
         )
 
         self.play(FadeIn(definition))
