@@ -85,16 +85,14 @@ class TheoremStatement(Scene):
             """
         )
 
-        definition = Tex(
+        definition = MathTex(
             r"""
-            \end{center}
-                \textbf{Definition:} 
-                $L_n =$ length of longest increasing subsequence \\
-                in a uniformly random permutation of $\{1, \dotsc, n \}$.
-            \begin{center}
+                \textbf{Definition: } 
+                &{{ L_n }} = \text{ length of longest increasing subsequence} \\
+                &\text{in a uniformly random permutation of } \{1, \dotsc, n \}.
             """,
             color = sol.BASE02,
-        ).shift(2*UP)
+        ).shift(2*UP).set_color_by_tex(r"L_n", sol.RED)
 
         theoremword = Tex(
             r"""\textbf{Theorem:}""",
@@ -109,7 +107,7 @@ class TheoremStatement(Scene):
             font_size = 100,
             color = sol.BASE02,
             tex_template = tt
-        )
+        ).set_color_by_tex(r"L_n", sol.RED)
 
         approximate = MathTex(
             r"""
@@ -117,7 +115,7 @@ class TheoremStatement(Scene):
             """,
             font_size = 100,
             color = sol.BASE02
-        ).shift(DOWN)
+        ).shift(DOWN).set_color_by_tex(r"L_n", sol.RED)
 
         theorem = Group(
             theoremword,
