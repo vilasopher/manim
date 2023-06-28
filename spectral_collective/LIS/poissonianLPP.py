@@ -500,3 +500,5 @@ class PoissonPointProcess(Scene):
         #TODO: keep this box on the right side to leave room for the 
         #properties of the poisson point process, as well as for the 
         #heuristic picture with density 1
+
+        #TODO: perhaps make the plot background a different color
