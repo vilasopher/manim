@@ -1,7 +1,8 @@
 from manim import *
-from glitch import *
 import solarized as sol
-import random as ra
+import numpy.random as ra
+import random as random
+import numpy as np
 
 class Why(Scene):
     def construct(self):
@@ -327,7 +328,7 @@ class FunctionGraph(Scene):
 
         #TODO: figure out how to make the points move without messing up
 
-        ra.seed(3)
+        ra.seed(0)
 
         self.play(
             *(d.animate.shift((ra.random()-0.5)*UP + (random()-0.5)*RIGHT)
@@ -347,5 +348,155 @@ class FunctionGraph(Scene):
         self.wait()
 
 class PoissonPointProcess(Scene):
+    def insertPoint(self, p):
+        start = -1
+        end = len(self.points)
+        mid = -1
+
+        while start < end - 1:
+            mid = (start+end)//2
+
+            if p[0] < self.points[mid][0]:
+                end = mid
+            else:
+                start = mid
+            
+        self.points = self.points[:end] + [p] + self.points[end:]
+
+    def longestIncreasingSubsequence(self):
+        P = {}
+        M = {0 : -1}
+        L = 0
+
+        for i, p in enumerate(self.points):
+            lo = 1
+            hi = L+1
+
+            while lo < hi:
+                mid = lo + (hi-lo)//2
+
+                if self.points[M[mid]][1] >= p[1]:
+                    hi = mid
+                else:
+                    lo = mid+1
+            
+            newL = lo
+            P[i] = M[newL-1]
+            M[newL] = i
+            
+            if newL > L:
+                L = newL
+        
+        S = []
+        k = M[L]
+        for j in reversed(range(L)):
+            S.append(self.points[k])
+            k = P[k]
+        
+        return list(reversed(S))
+
     def construct(self):
-        pass
+        self.points =[]
+        self.scale = 6
+
+        # Do this with updaters and what not
+
+        box = Square(side_length=6, color=sol.BASE01, z_index=1)
+
+        ra.seed(9)
+
+        for _ in range(ra.poisson(lam=36)):
+            self.insertPoint((ra.random()*6, ra.random()*6))
+
+        pointcloud = {
+            p : 
+            Dot(
+                radius = 0.1,
+                color = sol.BASE03
+            ).align_to(box, DOWN+LEFT)
+             .shift(p[0] * RIGHT + p[1] * UP - 0.1*(RIGHT+UP))
+             for p in self.points
+        }
+
+        self.add(box)
+
+        self.wait()
+
+        self.play(
+            LaggedStart(
+                *random.sample([
+                    FadeIn(p, scale=0.5, run_time=0.5)
+                    for p in pointcloud.values()
+                ], len(pointcloud.values()))
+            )
+        )
+
+        LIS = self.longestIncreasingSubsequence()
+
+        LISline = [
+            Line(
+                pointcloud[LIS[i]].get_center(),
+                pointcloud[LIS[i+1]].get_center(),
+                color=sol.RED
+            ) for i in range(len(LIS)-1)
+        ]
+
+        self.play(
+            LaggedStart(
+                pointcloud[LIS[0]]
+                .animate(run_time=0.5)
+                .set_color(sol.RED),
+                Succession(
+                    *(
+                        AnimationGroup(
+                            Create(LISline[i]),
+                            pointcloud[LIS[i+1]]
+                            .animate.set_color(sol.RED)
+                        )
+                        for i in range(len(LIS)-1)
+                    ),
+                    run_time=3
+                ),
+                lag_ratio=0.5
+            )
+        )
+
+        self.wait()
+
+        self.play(
+            Group(
+                box,
+                *(p for p in pointcloud.values()),
+                *(l for l in LISline)
+            ).animate.shift(3*LEFT)
+        )
+
+        self.wait()
+
+        lntext = MathTex(
+            r"{{L_n}} \;\; \stackrel{d}{=}",
+            color=sol.BASE02,
+            font_size=80
+        ).set_color_by_tex(r"L_n", sol.RED).shift(1.75*RIGHT + UP)
+
+        text = Tex(
+            r"""
+            \end{center}
+            \phantom{.} \qquad \qquad \qquad maximal \\
+            \phantom{.} \qquad \qquad \qquad number of \\
+            points along an up-right \\
+            path through a box with $n$ \\
+            uniformly random points.
+            \begin{center}
+            """,
+            color=sol.BASE02,
+            font_size=50
+        ).next_to(lntext, DOWN).shift(1.25*UP+1.75*RIGHT)
+
+        self.play(FadeIn(lntext), FadeIn(text))
+
+        self.wait()
+
+        #TODO: keep this box on the right side to leave room for the 
+        #properties of the poisson point process, as well as for the 
+        #heuristic picture with density 1
