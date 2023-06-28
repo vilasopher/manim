@@ -6,13 +6,13 @@ import numpy as np
 
 class Why(Scene):
     def construct(self):
-        text = Tex(
+        text = MathTex(
             r"""
-                Why is $L_n \approx 2 \sqrt{n}$?
+                \text{Why is } {{L_n}} \approx 2 \sqrt{n} \text{ ?}
             """,
             color = sol.BASE02,
             font_size = 100
-        )
+        ).set_color_by_tex(r"L_n", sol.RED)
         heur = Tex(
             r"""
             (a heuristic argument)
