@@ -395,32 +395,42 @@ class PoissonPointProcess(Scene):
         
         return list(reversed(S))
 
+    def randomPointInAnnulus(self, lo, hi):
+        q = (ra.random() * (hi-lo) + lo, ra.random() * (hi+lo) - lo)
+        u = ra.random()
+        if u < 0.25:
+            return q
+        if u < 0.5:
+            return (-q[1], q[0])
+        if u < 0.75:
+            return (-q[0], -q[1])
+        else:
+            return (q[1], -q[0])
+
     def construct(self):
         self.points =[]
-        self.scale = 6
-
-        # Do this with updaters and what not
 
         box = Square(side_length=6, color=sol.BASE01, z_index=1)
 
         ra.seed(9)
 
         for _ in range(ra.poisson(lam=36)):
-            self.insertPoint((ra.random()*6, ra.random()*6))
+            self.insertPoint((ra.random()*6-3, ra.random()*6-3))
 
         pointcloud = {
             p : 
             Dot(
                 radius = 0.1,
                 color = sol.BASE03
-            ).align_to(box, DOWN+LEFT)
-             .shift(p[0] * RIGHT + p[1] * UP - 0.1*(RIGHT+UP))
+            ).next_to(box, ORIGIN).shift(p[0] * RIGHT + p[1] * UP)
              for p in self.points
         }
 
         self.add(box)
 
         self.wait()
+
+        random.seed(0)
 
         self.play(
             LaggedStart(
@@ -497,8 +507,85 @@ class PoissonPointProcess(Scene):
 
         self.wait()
 
-        #TODO: keep this box on the right side to leave room for the 
-        #properties of the poisson point process, as well as for the 
-        #heuristic picture with density 1
+        self.play(
+            FadeOut(lntext, shift=RIGHT),
+            FadeOut(text, shift=RIGHT),
+            box.animate.scale(3.75/3)
+        )
 
-        #TODO: perhaps make the plot background a different color
+        obfuscation = Cutout(
+            Square(15),
+            box,
+            fill_opacity=1,
+            fill_color=config.background_color,
+            stroke_color = sol.BASE01,
+            z_index=3
+        )
+
+        self.remove(box)
+        self.add(obfuscation)
+
+        self.wait()
+
+        ra.seed(3)
+
+        newpoints = []
+
+        for _ in range(ra.poisson(lam=7.5**2-6**2)):
+            p = self.randomPointInAnnulus(3, 3.75)
+            newpoints.append(p)
+            self.insertPoint(p)
+            pointcloud[p] = Dot(
+                radius = 0.1,
+                color = sol.BASE03
+            ).next_to(box, ORIGIN).shift(p[0] * RIGHT + p[1] * UP)
+
+        self.play(
+            LaggedStart(
+            *random.sample([
+                FadeIn(pointcloud[p], scale=0.5, run_time=0.5)
+                for p in newpoints
+            ], len(newpoints)))
+        )
+
+        self.wait()
+
+        newLIS = self.longestIncreasingSubsequence()
+
+        newLISline = [
+            Line(
+                pointcloud[newLIS[i]].get_center(),
+                pointcloud[newLIS[i+1]].get_center(),
+                color=sol.RED
+            ) for i in range(len(newLIS)-1)
+        ]
+
+        bothLISline = [
+            Line(
+                pointcloud[newLIS[i]].get_center(),
+                pointcloud[newLIS[i+1]].get_center(),
+                color=sol.RED
+            ) for i in range(len(newLIS)-1)
+            if newLIS[i] in LIS and newLIS[i+1] in LIS
+        ]
+
+        points_to_black = [p for p in LIS if p not in newLIS]
+        points_to_red = [p for p in newLIS if p not in LIS]
+
+        self.add(*bothLISline)
+
+        self.play(
+            *(pointcloud[p].animate.set_color(sol.BASE03)
+              for p in points_to_black),
+            *(pointcloud[p].animate.set_color(sol.RED)
+              for p in points_to_red),
+            *(FadeOut(l) for l in LISline),
+            *(FadeIn(l) for l in newLISline),
+            run_time = 0.5
+        )
+
+        self.remove(*bothLISline)
+
+        self.wait()
+
+        scale = ValueTracker(3.75)
