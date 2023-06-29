@@ -14,6 +14,9 @@ class PPP(Mobject):
     def add_points(self, *points):
         pass
 
+    def compute_LIS(self):
+        pass
+
     #animation override
     def show_LIS(self):
         pass

@@ -3,6 +3,7 @@ import solarized as sol
 import numpy.random as ra
 import random as random
 import numpy as np
+from functools import partial
 
 class Why(Scene):
     def construct(self):
@@ -407,6 +408,7 @@ class PoissonPointProcess(Scene):
         else:
             return (q[1], -q[0])
 
+
     def construct(self):
         self.points =[]
 
@@ -417,7 +419,7 @@ class PoissonPointProcess(Scene):
         for _ in range(ra.poisson(lam=36)):
             self.insertPoint((ra.random()*6-3, ra.random()*6-3))
 
-        pointcloud = {
+        self.pointcloud = {
             p : 
             Dot(
                 radius = 0.1,
@@ -436,34 +438,34 @@ class PoissonPointProcess(Scene):
             LaggedStart(
                 *random.sample([
                     FadeIn(p, scale=0.5, run_time=0.5)
-                    for p in pointcloud.values()
-                ], len(pointcloud.values()))
+                    for p in self.pointcloud.values()
+                ], len(self.pointcloud.values()))
             )
         )
 
-        LIS = self.longestIncreasingSubsequence()
+        self.LIS = self.longestIncreasingSubsequence()
 
-        LISline = [
+        self.LISline = [
             Line(
-                pointcloud[LIS[i]].get_center(),
-                pointcloud[LIS[i+1]].get_center(),
+                self.pointcloud[self.LIS[i]].get_center(),
+                self.pointcloud[self.LIS[i+1]].get_center(),
                 color=sol.RED
-            ) for i in range(len(LIS)-1)
+            ) for i in range(len(self.LIS)-1)
         ]
 
         self.play(
             LaggedStart(
-                pointcloud[LIS[0]]
+                self.pointcloud[self.LIS[0]]
                 .animate(run_time=0.5)
                 .set_color(sol.RED),
                 Succession(
                     *(
                         AnimationGroup(
-                            Create(LISline[i]),
-                            pointcloud[LIS[i+1]]
+                            Create(self.LISline[i]),
+                            self.pointcloud[self.LIS[i+1]]
                             .animate.set_color(sol.RED)
                         )
-                        for i in range(len(LIS)-1)
+                        for i in range(len(self.LIS)-1)
                     ),
                     run_time=3
                 ),
@@ -476,8 +478,8 @@ class PoissonPointProcess(Scene):
         self.play(
             Group(
                 box,
-                *(p for p in pointcloud.values()),
-                *(l for l in LISline)
+                *(p for p in self.pointcloud.values()),
+                *(l for l in self.LISline)
             ).animate.shift(3*LEFT)
         )
 
@@ -535,7 +537,7 @@ class PoissonPointProcess(Scene):
             p = self.randomPointInAnnulus(3, 3.75)
             newpoints.append(p)
             self.insertPoint(p)
-            pointcloud[p] = Dot(
+            self.pointcloud[p] = Dot(
                 radius = 0.1,
                 color = sol.BASE03
             ).next_to(box, ORIGIN).shift(p[0] * RIGHT + p[1] * UP)
@@ -543,44 +545,44 @@ class PoissonPointProcess(Scene):
         self.play(
             LaggedStart(
             *random.sample([
-                FadeIn(pointcloud[p], scale=0.5, run_time=0.5)
+                FadeIn(self.pointcloud[p], scale=0.5, run_time=0.5)
                 for p in newpoints
             ], len(newpoints)))
         )
 
         self.wait()
 
-        newLIS = self.longestIncreasingSubsequence()
+        self.newLIS = self.longestIncreasingSubsequence()
 
-        newLISline = [
+        self.newLISline = [
             Line(
-                pointcloud[newLIS[i]].get_center(),
-                pointcloud[newLIS[i+1]].get_center(),
+                self.pointcloud[self.newLIS[i]].get_center(),
+                self.pointcloud[self.newLIS[i+1]].get_center(),
                 color=sol.RED
-            ) for i in range(len(newLIS)-1)
+            ) for i in range(len(self.newLIS)-1)
         ]
 
         bothLISline = [
             Line(
-                pointcloud[newLIS[i]].get_center(),
-                pointcloud[newLIS[i+1]].get_center(),
+                self.pointcloud[self.newLIS[i]].get_center(),
+                self.pointcloud[self.newLIS[i+1]].get_center(),
                 color=sol.RED
-            ) for i in range(len(newLIS)-1)
-            if newLIS[i] in LIS and newLIS[i+1] in LIS
+            ) for i in range(len(self.newLIS)-1)
+            if self.newLIS[i] in self.LIS and self.newLIS[i+1] in self.LIS
         ]
 
-        points_to_black = [p for p in LIS if p not in newLIS]
-        points_to_red = [p for p in newLIS if p not in LIS]
+        points_to_black = [p for p in self.LIS if p not in self.newLIS]
+        points_to_red = [p for p in self.newLIS if p not in self.LIS]
 
         self.add(*bothLISline)
 
         self.play(
-            *(pointcloud[p].animate.set_color(sol.BASE03)
+            *(self.pointcloud[p].animate.set_color(sol.BASE03)
               for p in points_to_black),
-            *(pointcloud[p].animate.set_color(sol.RED)
+            *(self.pointcloud[p].animate.set_color(sol.RED)
               for p in points_to_red),
-            *(FadeOut(l) for l in LISline),
-            *(FadeIn(l) for l in newLISline),
+            *(FadeOut(l) for l in self.LISline),
+            *(FadeIn(l) for l in self.newLISline),
             run_time = 0.5
         )
 
@@ -589,6 +591,52 @@ class PoissonPointProcess(Scene):
         self.wait()
 
         scale = ValueTracker(3.75)
+        self.oldscale = 3.75
+
+        def point_updater(x, p):
+            x.scale(
+                (0.375*2)/(scale.get_value()*x.width)
+            ).next_to(
+                box,
+                ORIGIN
+            ).shift(
+                p[0] * (3.75/scale.get_value()) * RIGHT
+                + p[1] * (3.75/scale.get_value()) * UP
+            )
+
+        for p in self.points:
+            self.pointcloud[p].add_updater(partial(point_updater, p=p))
+
+        def tick(dt):
+            newscale = scale.get_value()
+            for _ in range(ra.poisson((2*newscale)**2 - (2*self.oldscale)**2)):
+                p = self.randomPointInAnnulus(self.oldscale, newscale)
+                self.insertPoint(p)
+                self.pointcloud[p] = Dot(
+                    color=sol.BASE03
+                ).add_updater(partial(point_updater, p=p), call_updater=True)
+                self.add(self.pointcloud[p])
+            self.oldscale = newscale
+
+            for p in self.points:
+                self.pointcloud[p].set_color(sol.BASE03)
+
+            self.remove(*self.LISline)
+            LIS = self.longestIncreasingSubsequence()
+            self.LISline = [
+                Line(
+                    self.pointcloud[LIS[i]].get_center(),
+                    self.pointcloud[LIS[i+1]].get_center(),
+                    color=sol.RED
+                ) for i in range(len(LIS)-1)
+            ]
+            self.add(*self.LISline)
+
+        self.remove(*self.newLISline)
+
+        self.add_updater(tick)
+
+        self.play(scale.animate.set_value(10), run_time=3, rate_func=rate_functions.linear)
 
         # could do this by making a new object type, or 
         # could do this by just putting all the dots in a group
