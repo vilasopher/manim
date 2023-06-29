@@ -31,11 +31,11 @@ class RemoveTest(Scene):
         self.c = Circle()
         self.x = ValueTracker(0)
 
+
+        self.add(self.c)
+
         def tick(dt):
-            self.remove(self.c)
-            del(self.c)
-            self.c = Circle().shift(self.x.get_value() * RIGHT)
-            self.add(self.c)
+            self.c.become(Circle().shift(self.x.get_value()*RIGHT))
     
         self.add_updater(tick)
 

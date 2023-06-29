@@ -515,7 +515,7 @@ class PoissonPointProcess(Scene):
             box.animate.scale(3.75/3)
         )
 
-        obfuscation = Cutout(
+        self.obfuscation = Cutout(
             Square(15),
             box,
             fill_opacity=1,
@@ -525,7 +525,7 @@ class PoissonPointProcess(Scene):
         )
 
         self.remove(box)
-        self.add(obfuscation)
+        self.add(self.obfuscation)
 
         self.wait()
 
@@ -606,7 +606,7 @@ class PoissonPointProcess(Scene):
 
         for p in self.points:
             self.pointcloud[p].add_updater(partial(point_updater, p=p))
-
+        
         def tick(dt):
             newscale = scale.get_value()
             for _ in range(ra.poisson((2*newscale)**2 - (2*self.oldscale)**2)):
@@ -622,7 +622,15 @@ class PoissonPointProcess(Scene):
                 self.pointcloud[p].set_color(sol.BASE03)
 
             self.remove(*self.LISline)
+            self.moving_mobjects.clear()
+
+            self.add(*(self.pointcloud[p] for p in self.points))
+
             LIS = self.longestIncreasingSubsequence()
+
+            for p in LIS:
+                self.pointcloud[p].set_color(sol.RED)
+
             self.LISline = [
                 Line(
                     self.pointcloud[LIS[i]].get_center(),
@@ -632,11 +640,15 @@ class PoissonPointProcess(Scene):
             ]
             self.add(*self.LISline)
 
+            self.add(self.obfuscation)
+
         self.remove(*self.newLISline)
 
         self.add_updater(tick)
 
-        self.play(scale.animate.set_value(10), run_time=3, rate_func=rate_functions.linear)
+        self.play(scale.animate.set_value(50), run_time=10, rate_func=rate_functions.linear)
+
+        self.wait()
 
         # could do this by making a new object type, or 
         # could do this by just putting all the dots in a group
