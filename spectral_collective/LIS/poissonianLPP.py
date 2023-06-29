@@ -589,3 +589,8 @@ class PoissonPointProcess(Scene):
         self.wait()
 
         scale = ValueTracker(3.75)
+
+        # could do this by making a new object type, or 
+        # could do this by just putting all the dots in a group
+        # and having the group track the value... probably the 
+        # way to go to be honest...

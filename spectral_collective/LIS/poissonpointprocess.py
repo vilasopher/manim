@@ -9,3 +9,18 @@ class PPP(Mobject):
         scale
     ):
         pass
+
+    #animation override
+    def add_points(self, *points):
+        pass
+
+    #animation override
+    def show_LIS(self):
+        pass
+    
+    #animation override
+    def hide_LIS(self):
+        pass
+
+    def set_scale(self):
+        pass
