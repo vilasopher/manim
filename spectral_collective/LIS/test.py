@@ -40,3 +40,9 @@ class RemoveTest(Scene):
         self.add_updater(tick)
 
         self.play(self.x.animate.set_value(3))
+
+class LineTest(Scene):
+    def construct(self):
+        l = Line(ORIGIN, ORIGIN)
+        l.put_start_and_end_on(ORIGIN, ORIGIN)
+        self.add(l)
