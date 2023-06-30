@@ -17,6 +17,24 @@ class Heuristic(Scene):
                 PI/25,
             ),
             opacity=1
-        ).shift(2*UP + 3*RIGHT)
+        ).shift(5.25*RIGHT).align_to(box, UP)
 
-        self.add(homogbox)
+        homogemptybox = Square(
+            3,
+            color=sol.BASE01, 
+            z_index=2
+        ).next_to(homogbox, ORIGIN)
+
+        homogtext = Tex(
+            r"""
+                homogeneous \\
+                of density $1$ \\
+                $\xrightarrow{\hspace*{2cm}}$
+            """,
+            color=sol.BASE02,
+            font_size=40
+        ).shift(2.25*RIGHT + 2.25*UP)
+
+        self.add(homogbox, homogemptybox, homogtext)
+
+        # TODO: add text, and the staircase line
