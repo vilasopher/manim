@@ -3,7 +3,7 @@ import solarized as sol
 import numpy.random as ra
 from functools import partial
 
-class Heuristic(Scene):
+class HeuristicStaircase(Scene):
     def construct(self):
         box = Square(7.5, color=sol.BASE01).shift(3*LEFT)
         self.add(box)
@@ -29,14 +29,22 @@ class Heuristic(Scene):
         homogtext = Tex(
             r"""
                 homogeneous \\
-                of density $1$ \\
-                $\xrightarrow{\hspace*{2cm}}$
+                of density $1$
             """,
             color=sol.BASE02,
             font_size=40
-        ).shift(2.25*RIGHT + 2.25*UP)
+        ).shift(2.25*RIGHT + 3.1*UP)
 
-        self.add(homogbox, homogemptybox, homogtext)
+        ar = Arrow(ORIGIN, 3*RIGHT, color=sol.BASE03).next_to(homogtext, DOWN)
+
+        areatext = Tex(
+            r"""
+                $n$ points \\
+                area $n$
+            """,
+            color=sol.BASE02,
+            font_size=40
+        ).next_to(ar, DOWN)
 
         self.every_other_point = [
             Dot(
@@ -60,7 +68,7 @@ class Heuristic(Scene):
             if pt[1] < lowercorner[1]:
                 x.shift((lowercorner[1] - pt[1])*UP)
             if pt[1] > uppercorner[1]:
-                x.shift((uppercorner[0] - pt[1])*DOWN)
+                x.shift((uppercorner[1] - pt[1])*DOWN)
 
             if i > 0:
                 pt = x.get_center()
@@ -117,7 +125,37 @@ class Heuristic(Scene):
             for i in range(len(self.every_other_point)-1)
         ]
 
-        self.add(*self.every_other_point, *hlines, *vlines)
+        for i, p in enumerate(self.every_other_point):
+            if i > 0 and i < len(self.every_other_point)-1:
+                p.shift((ra.random()*0.2-0.1)*RIGHT
+                        + (ra.random()*0.2-0.1)*UP)
+
+        self.play(
+            FadeIn(homogbox),
+            FadeIn(homogemptybox),
+            FadeIn(ar, shift=0.25*RIGHT)
+        )
+        
+        self.wait()
+
+        self.play(FadeIn(homogtext, shift=DOWN))
+
+        self.wait()
+
+        self.play(FadeIn(areatext, shift=UP))
+
+        self.wait()
+
+        self.play(
+            *(FadeIn(p) for p in self.every_other_point),
+            *(FadeIn(hl) for hl in hlines),
+            *(FadeIn(vl) for vl in vlines),
+            run_time=0.5
+        )
+        
+        self.wait()
+
+        ra.seed(1)
 
         for _ in range(5):
             self.play(
@@ -130,4 +168,54 @@ class Heuristic(Scene):
                 )
             )
 
-        self.wait()
+            self.wait()
+
+
+class HeuristicText(Scene):
+    def construct(self):
+        box = Square(7.5, color=sol.BASE01).shift(3*LEFT)
+        self.add(box)
+
+        homogbox = Square(
+            3,
+            color=sol.BASE01
+        ).set_fill(
+            interpolate_color(
+                sol.BASE3,
+                sol.BASE03,
+                PI/25,
+            ),
+            opacity=1
+        ).shift(5.25*RIGHT).align_to(box, UP)
+
+        pointslength = Tex(
+            r"""
+                number of points $\approx$ length of path
+            """,
+            color=sol.BASE02,
+            font_size=35
+        ).shift(3.95*RIGHT + DOWN)
+
+        lnapprox = MathTex(
+            r"""
+                {{L_n}} \approx
+            """,
+            color = sol.BASE02,
+            font_size=50
+        ).set_color_by_tex(r"L_n", sol.RED)
+
+        maxlengthurp = Tex(
+            r"""
+                \end{center}
+                maximal length \\
+                of up-right path
+                \begin{center}
+            """,
+            color=sol.BASE02,
+            font_size=35
+        ).next_to(lnapprox, RIGHT)
+
+        Group(lnapprox, maxlengthurp).next_to(pointslength, 1.5*DOWN)
+
+
+        self.add(box, homogbox, pointslength, lnapprox, maxlengthurp)
