@@ -1,5 +1,4 @@
 from manim import *
-from glitch import *
 import solarized as sol
 from random import random
 

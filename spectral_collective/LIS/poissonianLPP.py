@@ -348,6 +348,8 @@ class FunctionGraph(Scene):
 
         self.wait()
 
+R = 0.2
+
 class PoissonPointProcess(Scene):
     def insertPoint(self, p):
         start = -1
@@ -422,13 +424,33 @@ class PoissonPointProcess(Scene):
         self.pointcloud = {
             p : 
             Dot(
-                radius = 0.1,
+                radius = R,
                 color = sol.BASE03
             ).next_to(box, ORIGIN).shift(p[0] * RIGHT + p[1] * UP)
              for p in self.points
         }
 
-        self.add(box)
+        self.obfuscation = Cutout(
+            Square(15),
+            box,
+            fill_opacity=1,
+            fill_color=config.background_color,
+            stroke_color = sol.BASE01,
+            z_index=1
+        ).add_updater(
+            lambda x : x.become(
+                Cutout(
+                    Square(15),
+                    box,
+                    fill_opacity=1,
+                    fill_color=config.background_color,
+                    stroke_color = sol.BASE01,
+                    z_index=1
+                )
+            )
+        )
+
+        self.add(self.obfuscation)
 
         self.wait()
 
@@ -489,7 +511,7 @@ class PoissonPointProcess(Scene):
             r"{{L_n}} \;\; \stackrel{d}{=}",
             color=sol.BASE02,
             font_size=80
-        ).set_color_by_tex(r"L_n", sol.RED).shift(1.75*RIGHT + UP)
+        ).set_color_by_tex(r"L_n", sol.RED).shift(1.75*RIGHT + UP).set_z_index(2)
 
         text = Tex(
             r"""
@@ -503,7 +525,7 @@ class PoissonPointProcess(Scene):
             """,
             color=sol.BASE02,
             font_size=50
-        ).next_to(lntext, DOWN).shift(1.25*UP+1.75*RIGHT)
+        ).next_to(lntext, DOWN).shift(1.25*UP+1.75*RIGHT).set_z_index(2)
 
         self.play(FadeIn(lntext), FadeIn(text))
 
@@ -514,18 +536,6 @@ class PoissonPointProcess(Scene):
             FadeOut(text, shift=RIGHT),
             box.animate.scale(3.75/3)
         )
-
-        self.obfuscation = Cutout(
-            Square(15),
-            box,
-            fill_opacity=1,
-            fill_color=config.background_color,
-            stroke_color = sol.BASE01,
-            z_index=3
-        )
-
-        self.remove(box)
-        self.add(self.obfuscation)
 
         self.wait()
 
@@ -538,7 +548,7 @@ class PoissonPointProcess(Scene):
             newpoints.append(p)
             self.insertPoint(p)
             self.pointcloud[p] = Dot(
-                radius = 0.1,
+                radius = R,
                 color = sol.BASE03
             ).next_to(box, ORIGIN).shift(p[0] * RIGHT + p[1] * UP)
 
@@ -595,7 +605,7 @@ class PoissonPointProcess(Scene):
 
         def point_updater(x, p):
             x.scale(
-                (0.375*2)/(scale.get_value()*x.width)
+                (3.75*R*2)/(scale.get_value()*x.width)
             ).next_to(
                 box,
                 ORIGIN
@@ -630,6 +640,7 @@ class PoissonPointProcess(Scene):
 
             for p in LIS:
                 self.pointcloud[p].set_color(sol.RED)
+                self.bring_to_front(self.pointcloud[p])
 
             self.LISline = [
                 Line(
@@ -646,7 +657,9 @@ class PoissonPointProcess(Scene):
 
         self.add_updater(tick)
 
-        self.play(scale.animate.set_value(50), run_time=10, rate_func=rate_functions.linear)
+        self.play(scale.animate.set_value(10), run_time=5, rate_func=rate_functions.linear)
+
+        self.remove_updater(tick)
 
         self.wait()
 
