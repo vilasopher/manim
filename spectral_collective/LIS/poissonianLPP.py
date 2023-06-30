@@ -650,7 +650,43 @@ class PoissonPointProcess(Scene):
 
         self.wait()
 
-        # could do this by making a new object type, or 
-        # could do this by just putting all the dots in a group
-        # and having the group track the value... probably the 
-        # way to go to be honest...
+class PPPText(Scene):
+    def construct(self):
+        box = Square(7.5, color=sol.BASE01).shift(3*LEFT)
+        self.add(box)
+
+        ppptext = Tex(
+            r"\textbf{Poisson Point Process}",
+            color=sol.BASE02,
+            font_size=50
+        ).shift(4*RIGHT+2.5*UP)
+
+        numtext = Tex(
+            r"""
+                number of points in box \\
+                $\approx$ \\
+                area of box
+            """,
+            color = sol.BASE02,
+            font_size=45
+        ).next_to(ppptext, DOWN).shift(0.5*DOWN)
+
+        uniftext = Tex(
+            r"""
+                \end{center}
+                conditional on any fixed \\
+                number of points, the \\
+                points are uniformly \\
+                random in the box
+                \begin{center}
+            """,
+            color = sol.BASE02,
+            font_size=45
+        ).next_to(numtext, DOWN).shift(0.5*DOWN)
+
+        self.play(FadeIn(ppptext, shift=DOWN))
+        self.wait()
+        self.play(FadeIn(numtext))
+        self.wait()
+        self.play(FadeIn(uniftext))
+        self.wait()
