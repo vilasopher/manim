@@ -657,7 +657,17 @@ class PoissonPointProcess(Scene):
 
         self.add_updater(tick)
 
-        self.play(scale.animate.set_value(10), run_time=5, rate_func=rate_functions.linear)
+        self.play(
+            scale.animate.set_value(10),
+            run_time=(10-3.75)/2,
+            rate_func=(lambda t : 0.5 * t * t)
+        )
+
+        self.play(
+            scale.animate.set_value(200),
+            run_time=(200-10)/2,
+            rate_func=rate_functions.linear
+        )
 
         self.remove_updater(tick)
 
