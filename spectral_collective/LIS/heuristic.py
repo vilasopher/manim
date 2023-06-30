@@ -194,11 +194,11 @@ class HeuristicText(Scene):
             """,
             color=sol.BASE02,
             font_size=35
-        ).shift(3.95*RIGHT + DOWN)
+        ).shift(3.95*RIGHT)
 
         lnapprox = MathTex(
             r"""
-                {{L_n}} \approx
+                {{L_n}} {{\approx}}
             """,
             color = sol.BASE02,
             font_size=50
@@ -215,7 +215,146 @@ class HeuristicText(Scene):
             font_size=35
         ).next_to(lnapprox, RIGHT)
 
-        Group(lnapprox, maxlengthurp).next_to(pointslength, 1.5*DOWN)
+        Group(lnapprox, maxlengthurp).next_to(pointslength, 2.375*DOWN).shift(0.25*LEFT)
 
+        twosidelength = MathTex(
+            r"""
+            = \, 2 \cdot (\text{side length})
+            """,
+            color = sol.BASE02,
+            font_size = 50
+        ).next_to(maxlengthurp, DOWN).shift(0.175*RIGHT)
 
-        self.add(box, homogbox, pointslength, lnapprox, maxlengthurp)
+        twosqrtn = MathTex(
+            r"""
+            {{=}} \, {{ 2 \sqrt{n} }}
+            """,
+            color = sol.BASE02,
+            font_size=50
+        ).next_to(twosidelength, DOWN).align_to(twosidelength, LEFT)
+
+        ln2rn = MathTex(
+            r"""
+            {{L_n}} {{\approx}} {{ 2 \sqrt{n} }}
+            """,
+            color = sol.BASE02,
+            font_size=50
+        ).next_to(pointslength, 2.75*DOWN).align_to(lnapprox, LEFT).set_color_by_tex(r"L_n", sol.RED)
+
+        equals = MathTex(
+            r"""
+            {{=}}
+            """,
+            color = sol.BASE3,
+            font_size=50
+        ).next_to(twosqrtn, ORIGIN).align_to(twosqrtn, LEFT)
+
+        minusorn = MathTex(
+            r"""
+            - \; o(\sqrt{n})
+            """,
+            color = sol.BASE02,
+            font_size = 50
+        ).next_to(ln2rn, RIGHT)
+
+        tt = TexTemplate()
+        tt.add_to_preamble(
+            r"""
+                \usepackage{amsmath, mathrsfs, mathtools}
+            """
+        )
+
+        provable = Tex(
+            r"""
+            \textbf{Provable using this idea:}
+            """,
+            font_size = 40,
+            color = sol.BASE02
+        ).shift(2*DOWN).align_to(pointslength, LEFT)
+
+        problimit = MathTex(
+            r"""
+            { {{L_n}} \over {{\sqrt{n}}} } {{\xlongrightarrow{\mathbb{P}}}} C
+            \text{ for some } C
+            """,
+            color = sol.BASE02,
+            font_size = 50,
+            tex_template = tt
+        ).next_to(provable, DOWN).shift(0.5*RIGHT + 0.1*UP).set_color_by_tex(r"L_n", sol.RED)
+
+        thmtext = Tex(
+            r"""
+            \textbf{Theorem:}
+            """,
+            font_size=40,
+            color = sol.BASE02
+        ).align_to(provable, UP + LEFT).shift(1.4*RIGHT)
+
+        thmlimit = MathTex(
+            r"""
+            { {{L_n}} \over {{\sqrt{n}}} } {{\xlongrightarrow{\mathbb{P}}}} 2
+            """,
+            color = sol.BASE02,
+            font_size=40,
+            tex_template = tt
+        ).align_to(problimit, DOWN + LEFT).set_color_by_tex(r"L_n", sol.RED)
+
+        heuristic = Tex(
+            r"""
+            \textbf{Heuristic:}
+            """,
+            color = sol.BASE02,
+            font_size = 40
+        ).align_to(pointslength, DOWN + LEFT)
+
+        self.add(box, homogbox)
+
+        self.play(FadeIn(pointslength, shift=0.5*UP))
+        self.wait()
+        self.play(FadeIn(lnapprox), FadeIn(maxlengthurp))
+        self.wait()
+        self.play(FadeIn(twosidelength, shift=0.5*UP))
+        self.wait()
+        self.play(FadeIn(twosqrtn, shift=0.5*UP))
+        self.wait()
+        self.play(
+            TransformMatchingTex(Group(lnapprox, twosqrtn), Group(ln2rn, equals)),
+            FadeOut(maxlengthurp),
+            FadeOut(twosidelength)
+        )
+        self.remove(equals)
+        self.wait()
+        self.play(FadeIn(minusorn, shift=LEFT))
+        self.wait()
+        self.play(
+            FadeOut(pointslength),
+            FadeIn(heuristic),
+            Group(ln2rn, minusorn).animate.shift(0.5 * UP)
+        )
+        self.wait()
+        self.play(
+            LaggedStart(
+                Write(provable),
+                FadeIn(problimit),
+                lag_ratio=0.5
+            )
+        )
+        self.wait()
+
+        return
+        # This stuff was used in an earlier iteration, but I think it's unneccessary
+        self.play(
+            FadeOut(provable),
+            FadeIn(thmtext),
+            TransformMatchingTex(problimit, thmlimit)
+        )
+        self.wait()
+        self.play(
+            Create(
+                SurroundingRectangle(
+                    Group(thmtext, thmlimit),
+                    color = sol.BASE01
+                )
+            )
+        )
+        self.wait()

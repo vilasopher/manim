@@ -101,7 +101,7 @@ class TheoremStatement(Scene):
 
         theoremstatement = MathTex(
             r"""
-                { {{ L_n }} \over {{ 2 \sqrt{n} }} } \xlongrightarrow{\mathbb{P}} 1.
+                { {{ L_n }} \over {{ \sqrt{n} }} } \xlongrightarrow{\mathbb{P}} {{ 2 }}.
             """,
             font_size = 100,
             color = sol.BASE02,
@@ -110,7 +110,7 @@ class TheoremStatement(Scene):
 
         approximate = MathTex(
             r"""
-                {{ L_n }} \approx {{ 2 \sqrt{n} }}
+                {{ L_n }} \approx {{ 2 }} {{ \sqrt{n} }}
             """,
             font_size = 100,
             color = sol.BASE02
