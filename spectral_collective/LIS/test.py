@@ -1,10 +1,26 @@
 from manim import *
 from youngdiagrams import *
+import numpy.random as ra
 
 class TileTest(Scene):
     def construct(self):
         t = Tile(3)
         self.add(t)
+
+        self.play(t.animate.shift(3*RIGHT))
+        self.wait()
+
+class YDTest(Scene):
+    def construct(self):
+        yd = YoungDiagram(ra.random(size=100))
+        self.add(yd)
+        self.wait()
+        yd.set_unit(0.5)
+        yd.redraw()
+        self.wait()
+        yd.set_unit(0.1)
+        yd.redraw()
+        self.wait()
 
 class Test(Scene):
     def construct(self):
