@@ -4,7 +4,7 @@ import solarized as sol
 class Tile(Square):
     def __init__(
         self,
-        number,
+        number = None,
         side_length = 1,
         background_color = sol.BASE1,
         edge_color = sol.BASE02,
@@ -17,14 +17,15 @@ class Tile(Square):
 
         self.set_fill(background_color, opacity=1)
 
-        self.add(
-            DecimalNumber(
-                number,
-                color = number_color,
-                num_decimal_places=0,
-                font_size = 80
-            ).next_to(self, ORIGIN)
-        )
+        if not number is None:
+            self.add(
+                DecimalNumber(
+                    number,
+                    color = number_color,
+                    num_decimal_places=0,
+                    font_size = 80
+                ).next_to(self, ORIGIN)
+            )
 
 class YoungDiagram(Group):
     def __init__(
