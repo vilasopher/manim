@@ -1,4 +1,10 @@
 from manim import *
+from youngdiagrams import *
+
+class TileTest(Scene):
+    def construct(self):
+        t = Tile(3)
+        self.add(t)
 
 class Test(Scene):
     def construct(self):
