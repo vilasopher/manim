@@ -34,12 +34,14 @@ class YoungDiagram(Group):
         unit=1,
         origin=2*UP+2*LEFT,
         background_color=sol.BASE1,
-        edge_color=sol.BASE02
+        edge_color=sol.BASE02,
+        first_row_highlighted=False
     ):
         self.unit = unit
         self.origin = origin
         self.background_color = background_color
         self.edge_color = edge_color
+        self.first_row_highlighted = first_row_highlighted
 
         self.tableau = [[permutation[0]]]
         self.lengths = [1]
@@ -84,6 +86,12 @@ class YoungDiagram(Group):
     def set_origin(self, origin):
         self.origin = origin
 
+    def highlight_first_row(self):
+        self.first_row_highlighted = True
+
+    def unhighlight_first_row(self):
+        self.first_row_highlighted = False
+
     def redraw(self):
         self.remove(*self.submobjects)
         self.add(*self.construct_submobjects())
@@ -104,6 +112,9 @@ class YoungDiagram(Group):
             ).shift(h*self.unit*DOWN)
             for h, l in enumerate(self.lengths)
         ]
+        
+        if self.first_row_highlighted:
+            rows[0].set_fill(sol.RED, opacity=1)
 
         verts = [
             Line(

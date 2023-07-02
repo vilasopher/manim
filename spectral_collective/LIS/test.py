@@ -12,13 +12,17 @@ class TileTest(Scene):
 
 class YDTest(Scene):
     def construct(self):
-        yd = YoungDiagram(ra.random(size=100))
+        yd = YoungDiagram(ra.random(size=1000))
         self.add(yd)
         self.wait()
         yd.set_unit(0.5)
         yd.redraw()
         self.wait()
+        yd.highlight_first_row()
         yd.set_unit(0.1)
+        yd.redraw()
+        self.wait()
+        yd.set_unit(0.05)
         yd.redraw()
         self.wait()
 
