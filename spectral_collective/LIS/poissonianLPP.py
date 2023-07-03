@@ -508,10 +508,12 @@ class PoissonPointProcess(Scene):
         self.wait()
 
         lntext = MathTex(
-            r"{{L_n}} \;\; \stackrel{d}{=}",
+            r"{{L}}{{(}}\sigma_n{{)}} \, \stackrel{d}{=}",
             color=sol.BASE02,
             font_size=80
-        ).set_color_by_tex(r"L_n", sol.RED).shift(1.75*RIGHT + UP).set_z_index(2)
+        ).set_color_by_tex(r"L", sol.RED).shift(2*RIGHT + UP).set_z_index(2)
+        lntext.set_color_by_tex(r"(", sol.RED)
+        lntext.set_color_by_tex(r")", sol.RED)
 
         text = Tex(
             r"""
@@ -525,7 +527,7 @@ class PoissonPointProcess(Scene):
             """,
             color=sol.BASE02,
             font_size=50
-        ).next_to(lntext, DOWN).shift(1.25*UP+1.75*RIGHT).set_z_index(2)
+        ).next_to(lntext, DOWN).shift(1.25*UP+1.55*RIGHT).set_z_index(2)
 
         self.play(FadeIn(lntext), FadeIn(text))
 
@@ -585,6 +587,9 @@ class PoissonPointProcess(Scene):
         points_to_red = [p for p in self.newLIS if p not in self.LIS]
 
         self.add(*bothLISline)
+        self.bring_to_front(
+            *(self.pointcloud[p] for p in points_to_red)
+        )
 
         self.play(
             *(self.pointcloud[p].animate.set_color(sol.BASE03)
@@ -639,8 +644,11 @@ class PoissonPointProcess(Scene):
             LIS = self.longestIncreasingSubsequence()
 
             for p in LIS:
-                self.pointcloud[p].set_color(sol.RED)
-                self.bring_to_front(self.pointcloud[p])
+                d = self.pointcloud[p]
+                d.set_color(sol.RED)
+                if d.width < 0.0175:
+                    d.scale(0.0175/d.width)
+                self.bring_to_front(d)
 
             self.LISline = [
                 Line(
@@ -659,17 +667,17 @@ class PoissonPointProcess(Scene):
 
         self.play(
             scale.animate.set_value(10),
-            run_time=(10-3.75)/2,
+            run_time=10-3.75,
             rate_func=(lambda t : 0.5 * t * t)
         )
 
-        self.play(
-            scale.animate.set_value(200),
-            run_time=(200-10)/2,
-            rate_func=rate_functions.linear
-        )
-
-        self.remove_updater(tick)
+        for i in range(2, 21):
+            np.save(f'data/points_before_i={i}.npy', np.array(self.points))
+            self.play(
+                scale.animate.set_value(10*i),
+                run_time=10,
+                rate_func=rate_functions.linear
+            )
 
         self.wait()
 

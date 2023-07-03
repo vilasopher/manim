@@ -2,6 +2,13 @@ from manim import *
 from youngdiagrams import *
 import numpy.random as ra
 
+class DotTest(Scene):
+    def construct(self):
+        l1 = Line(LEFT, ORIGIN, color=sol.RED)
+        l2 = Line(ORIGIN, UP, color=sol.RED)
+        d = Dot(ORIGIN, radius=0.0175, color=sol.RED, )
+        self.add(l1, l2, d)
+
 class TileTest(Scene):
     def construct(self):
         t = Tile(3)
