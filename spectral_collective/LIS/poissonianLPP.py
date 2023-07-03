@@ -673,6 +673,7 @@ class PoissonPointProcess(Scene):
 
         for i in range(2, 21):
             np.save(f'data/points_before_i={i}.npy', np.array(self.points))
+            print(f'Printing iteration i={i}!')
             self.play(
                 scale.animate.set_value(10*i),
                 run_time=10,
