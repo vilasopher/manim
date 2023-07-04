@@ -115,59 +115,94 @@ class RS(Scene):
         )
         self.play(tiles[2].animate.move_to(ROW3+RIGHT))
         self.wait()
-    
-        return
-        self.bring_to_front(tiles[0])
-        self.play(tiles[0].animate.move_to(0.75*UP+0.5*RIGHT+2*LEFT))
+
+        sortedtiles = [Mobject(), tiles[7], tiles[0], tiles[3], tiles[1], tiles[8], tiles[4], tiles[2], tiles[6], tiles[5]]
+
+        self.play(
+            sortedtiles[2].animate.shift(1.1*UP),
+            sortedtiles[6].animate.shift(1.1*UP),
+            sortedtiles[9].animate.shift(1.1*UP),
+            sortedtiles[4].animate.shift(2.2*UP),
+            sortedtiles[7].animate.shift(2.2*UP),
+            FadeOut(row1text),
+            FadeOut(row2text, shift=1.1*UP),
+            FadeOut(row3text, shift=2.2*UP)
+        )
+
         self.wait()
-        self.bring_to_front(tiles[1])
-        self.play(tiles[1].animate.move_to(0.75*UP+0.5*RIGHT+LEFT))
+
+        yttext = Tex(
+            r"Young Tableau",
+            color=sol.BASE02,
+            font_size=100
+        ).shift(2.75*DOWN)
+
+        self.play(Write(yttext))
+
         self.wait()
-        self.bring_to_front(tiles[2])
-        self.play(tiles[2].animate.move_to(0.75*UP+0.5*RIGHT))
+
+        llistext = Tex(
+            r"""
+            length of longest increasing \\
+            subsequence of permutation
+            """,
+            color=sol.BASE02,
+            font_size=50
+        )
+
+        lrowtext = Tex(
+            r"""
+            length of top row of \\
+            resulting Young Tableau
+            """,
+            color=sol.BASE02,
+            font_size=50
+        )
+
+        equals = MathTex(r"=", font_size=80, color=sol.BASE02)
+
+        llistext.next_to(equals, LEFT)
+        lrowtext.next_to(equals, RIGHT)
+
+        Group(equals, llistext, lrowtext).move_to(2.75*UP)
+
+        self.play(
+            FadeIn(equals),
+            FadeIn(llistext, shift=RIGHT),
+            FadeIn(lrowtext, shift=LEFT),
+            sortedtiles[1].submobjects[0].animate.set_fill(sol.RED, opacity=1),
+            sortedtiles[3].submobjects[0].animate.set_fill(sol.RED, opacity=1),
+            sortedtiles[5].submobjects[0].animate.set_fill(sol.RED, opacity=1),
+            sortedtiles[8].submobjects[0].animate.set_fill(sol.RED, opacity=1)
+        )
+
         self.wait()
-        self.bring_to_front(tiles[3])
-        self.play(tiles[3].animate.move_to(0.75*UP+0.5*RIGHT+RIGHT))
-        self.play(Wiggle(tiles[2]),Wiggle(tiles[3]))
-        self.wait()
-        self.play(tiles[3].animate.move_to(0.75*UP+0.5*RIGHT+LEFT+1.1*UP))
-        self.wait()
+
+        obfuscation1 = Rectangle(height=0.5, width=2.15, color=sol.BASE3).set_fill(sol.BASE3, opacity=1)
+        obfuscation2 = Rectangle(height=0.5, width=2.65, color=sol.BASE3).set_fill(sol.BASE3, opacity=1)
+        obfuscation1.align_to(llistext, UP+LEFT)
+        obfuscation2.align_to(lrowtext, UP+LEFT)
+        x = Cross(stroke_color=sol.RED).next_to(equals, ORIGIN).scale(0.4)
+
         self.play(
             LaggedStart(
-                tiles[3].animate.move_to(0.75*UP+0.5*RIGHT+LEFT),
-                tiles[1].animate.move_to(0.75*UP+0.5*RIGHT+LEFT-1.1*UP)
-            )
+                AnimationGroup(FadeIn(obfuscation1), FadeIn(obfuscation2)),
+                FadeIn(x, scale=1.5),
+                lag_ratio=0.25
+             )
         )
+
         self.wait()
-        self.bring_to_front(tiles[1])
-        self.play(tiles[1].animate.move_to(0.5*DOWN+0.5*RIGHT+2*LEFT))
-        self.wait()
-        self.bring_to_front(tiles[4])
-        self.play(tiles[4].animate.move_to(0.75*UP+0.5*RIGHT+1.1*UP))
+
         self.play(
-            LaggedStart(
-                tiles[4].animate.move_to(0.75*UP+0.5*RIGHT),
-                tiles[2].animate.move_to(0.75*UP+0.5*RIGHT-1.1*UP)
-            )
+            FadeOut(obfuscation1),
+            FadeOut(obfuscation2),
+            FadeOut(x)
         )
+
         self.wait()
-        self.bring_to_front(tiles[2])
-        self.play(tiles[2].animate.move_to(0.5*DOWN+0.5*RIGHT+LEFT))
-        self.wait()
-        self.bring_to_front(tiles[5])
-        self.play(tiles[5].animate.move_to(0.75*UP+0.5*RIGHT+2*LEFT+1.1*UP))
-        self.play(
-            LaggedStart(
-                tiles[5].animate.move_to(0.75*UP+0.5*RIGHT+2*LEFT),
-                tiles[0].animate.move_to(0.75*UP+0.5*RIGHT+2*LEFT-1.1*UP)
-            )
-        )
-        self.wait()
-        self.play(tiles[0].animate.move_to(0.5*DOWN+0.5*RIGHT+2*LEFT+1.1*UP))
-        self.play(
-            LaggedStart(
-                tiles[0].animate.move_to(0.5*DOWN+0.5*RIGHT+2*LEFT),
-                tiles[1].animate.move_to(0.5*DOWN+0.5*RIGHT+2*LEFT-1.1*UP)
-            )
-        )
-        self.wait()
+
+class EquivalenceProof(Scene):
+    def construct(self):
+        #TODO: give a proof that the lengths are equal
+        pass

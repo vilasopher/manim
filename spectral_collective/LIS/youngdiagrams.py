@@ -17,6 +17,8 @@ class Tile(Square):
 
         self.set_fill(background_color, opacity=1)
 
+        self.push_self_into_submobjects()
+
         if not number is None:
             self.add(
                 DecimalNumber(
@@ -26,7 +28,7 @@ class Tile(Square):
                     font_size = 80
                 ).next_to(self, ORIGIN)
             )
-
+        
 class YoungDiagram(Group):
     def __init__(
         self,
