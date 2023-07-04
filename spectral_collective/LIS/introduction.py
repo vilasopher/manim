@@ -84,44 +84,63 @@ class TheoremStatement(Scene):
             """
         )
 
-        definition = MathTex(
+        deftext = Tex(
             r"""
-                \textbf{Definition: } 
-                &{{ L_n }} = \text{ length of longest increasing subsequence} \\
-                &\text{in a uniformly random permutation of } \{1, \dotsc, n \}.
+            \textbf{Definitions:}
+            """,
+            font_size=60,
+            color=sol.BASE02
+        ).shift(3*UP+4.5*LEFT)
+
+        defsigma = Tex(
+            r"""
+                $\sigma_n =$ a uniformly random permutation of $\{1, \dotsc, n\}$.
             """,
             color = sol.BASE02,
-        ).shift(2*UP).set_color_by_tex(r"L_n", sol.RED)
+        ).next_to(deftext, DOWN).align_to(deftext, LEFT).shift(0.5*RIGHT)
+
+        defL = MathTex(
+            r"""
+            {{L(}} \sigma_n {{)}} =
+            \text{length of longest increasing subsequence of }
+            \sigma_n.
+            """,
+            color=sol.BASE02
+        ).next_to(defsigma, DOWN).align_to(defsigma, LEFT).set_color_by_tex(r"L(", sol.RED).set_color_by_tex(r")", sol.RED)
 
         theoremword = Tex(
             r"""\textbf{Theorem:}""",
             font_size = 100,
             color = sol.BASE02
-        ).align_to(definition, LEFT).shift(DOWN + 0.5*RIGHT)
+        ).align_to(deftext, LEFT).shift(DOWN)
 
         theoremstatement = MathTex(
             r"""
-                { {{ L_n }} \over {{ \sqrt{n} }} } \xlongrightarrow{\mathbb{P}} {{ 2 }}.
+                { {{L(}} {{\sigma_n}} {{)}} \over {{ \sqrt{n} }} } \xlongrightarrow{\mathbb{P}} {{ 2 }}.
             """,
             font_size = 100,
             color = sol.BASE02,
             tex_template = tt
-        ).set_color_by_tex(r"L_n", sol.RED)
+        ).set_color_by_tex(r"L", sol.RED).set_color_by_tex(r")", sol.RED)
 
         approximate = MathTex(
             r"""
-                {{ L_n }} \approx {{ 2 }} {{ \sqrt{n} }}
+                {{L(}} {{\sigma_n}} {{)}} \approx {{ 2 }} {{ \sqrt{n} }}
             """,
             font_size = 100,
             color = sol.BASE02
-        ).shift(DOWN).set_color_by_tex(r"L_n", sol.RED)
+        ).shift(DOWN).set_color_by_tex(r"L", sol.RED).set_color_by_tex(r")", sol.RED)
 
         theorem = Group(
             theoremword,
             theoremstatement.next_to(theoremword, RIGHT).shift(0.5*RIGHT + 0.2*DOWN)
         )
 
-        self.play(FadeIn(definition))
+        self.play(FadeIn(deftext), FadeIn(defsigma))
+
+        self.wait()
+
+        self.play(FadeIn(defL))
 
         self.wait()
 

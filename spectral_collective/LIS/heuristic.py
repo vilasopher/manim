@@ -64,11 +64,11 @@ class HeuristicStaircase(Scene):
             if pt[0] < lowercorner[0]:
                 x.shift((lowercorner[0] - pt[0])*RIGHT)
             if pt[0] > uppercorner[0]:
-                x.shift((uppercorner[0] - pt[0])*LEFT)
+                x.shift((uppercorner[0] - pt[0])*RIGHT)
             if pt[1] < lowercorner[1]:
                 x.shift((lowercorner[1] - pt[1])*UP)
             if pt[1] > uppercorner[1]:
-                x.shift((uppercorner[1] - pt[1])*DOWN)
+                x.shift((uppercorner[1] - pt[1])*UP)
 
             if i > 0:
                 pt = x.get_center()
@@ -198,11 +198,11 @@ class HeuristicText(Scene):
 
         lnapprox = MathTex(
             r"""
-                {{L_n}} {{\approx}}
+                {{L(}} {{\sigma_n}} {{)}} {{\approx}}
             """,
             color = sol.BASE02,
             font_size=50
-        ).set_color_by_tex(r"L_n", sol.RED)
+        ).set_color_by_tex(r"L", sol.RED).set_color_by_tex(r")", sol.RED)
 
         maxlengthurp = Tex(
             r"""
@@ -215,7 +215,7 @@ class HeuristicText(Scene):
             font_size=35
         ).next_to(lnapprox, RIGHT)
 
-        Group(lnapprox, maxlengthurp).next_to(pointslength, 2.375*DOWN).shift(0.25*LEFT)
+        Group(lnapprox, maxlengthurp).next_to(pointslength, 2.375*DOWN).shift(0.35*LEFT)
 
         twosidelength = MathTex(
             r"""
@@ -235,11 +235,11 @@ class HeuristicText(Scene):
 
         ln2rn = MathTex(
             r"""
-            {{L_n}} {{\approx}} {{ 2 \sqrt{n} }}
+            {{L(}} {{\sigma_n}} {{)}} {{\approx}} {{ 2 \sqrt{n} }}
             """,
             color = sol.BASE02,
             font_size=50
-        ).next_to(pointslength, 2.75*DOWN).align_to(lnapprox, LEFT).set_color_by_tex(r"L_n", sol.RED)
+        ).next_to(pointslength, 2.75*DOWN).align_to(lnapprox, LEFT).set_color_by_tex(r"L", sol.RED).set_color_by_tex(r")", sol.RED)
 
         equals = MathTex(
             r"""
@@ -274,13 +274,13 @@ class HeuristicText(Scene):
 
         problimit = MathTex(
             r"""
-            { {{L_n}} \over {{\sqrt{n}}} } {{\xlongrightarrow{\mathbb{P}}}} C
-            \text{ for some } C
+            { {{L(}} {{\sigma_n}} {{)}} \over {{\sqrt{n}}} } {{\xlongrightarrow{\mathbb{P}}}} c
+            \text{ for some } c
             """,
             color = sol.BASE02,
             font_size = 50,
             tex_template = tt
-        ).next_to(provable, DOWN).shift(0.5*RIGHT + 0.1*UP).set_color_by_tex(r"L_n", sol.RED)
+        ).next_to(provable, DOWN).shift(0.5*RIGHT + 0.1*UP).set_color_by_tex(r"L", sol.RED).set_color_by_tex(r")", sol.RED).align_to(ln2rn, LEFT)
 
         thmtext = Tex(
             r"""
@@ -329,7 +329,7 @@ class HeuristicText(Scene):
         self.play(
             FadeOut(pointslength),
             FadeIn(heuristic),
-            Group(ln2rn, minusorn).animate.shift(0.5 * UP)
+            Group(ln2rn, minusorn).animate.shift(0.45 * UP)
         )
         self.wait()
         self.play(
