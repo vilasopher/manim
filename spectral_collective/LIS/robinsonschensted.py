@@ -206,3 +206,5 @@ class EquivalenceProof(Scene):
     def construct(self):
         #TODO: give a proof that the lengths are equal
         pass
+
+#TODO: finish the rest of the animations in this section
