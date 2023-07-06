@@ -8,7 +8,9 @@ class Tile(Square):
         side_length = 1,
         background_color = sol.BASE1,
         edge_color = sol.BASE02,
-        number_color = sol.BASE03
+        number_color = sol.BASE03,
+        font_size = 80,
+        num_decimal_places = 0
     ):
         super().__init__(
             side_length=side_length,
@@ -24,8 +26,8 @@ class Tile(Square):
                 DecimalNumber(
                     number,
                     color = number_color,
-                    num_decimal_places=0,
-                    font_size = 80
+                    num_decimal_places=num_decimal_places,
+                    font_size = font_size
                 ).next_to(self, ORIGIN)
             )
         
