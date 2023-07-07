@@ -159,3 +159,14 @@ class LimitShape(Scene):
 
         #TODO: make the new tiles fade in by making new young diagrams
         #fade in. You can do this using a loop.
+
+        ra.seed(10)
+
+        for _ in range(8):
+            nums.append(ra.uniform())
+            newd = YoungDiagram(nums, origin=o+0.5*(UP+LEFT))
+            self.play(FadeIn(newd))
+            self.remove(yd)
+            yd = newd
+        
+        self.wait()
