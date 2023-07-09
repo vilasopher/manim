@@ -639,8 +639,6 @@ class PoissonPointProcess(Scene):
             self.remove(*self.LISline)
             self.moving_mobjects.clear()
 
-            self.add(*(self.pointcloud[p] for p in self.points))
-
             LIS = self.longestIncreasingSubsequence()
 
             for p in LIS:
@@ -657,6 +655,9 @@ class PoissonPointProcess(Scene):
                     color=sol.RED
                 ) for i in range(len(LIS)-1)
             ]
+
+            self.add(*(self.pointcloud[p] for p in self.points))
+
             self.add(*self.LISline)
 
             self.add(self.obfuscation)
