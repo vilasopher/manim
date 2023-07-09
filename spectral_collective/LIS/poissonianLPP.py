@@ -617,7 +617,12 @@ class PoissonPointProcess(Scene):
             ).shift(
                 p[0] * (3.75/scale.get_value()) * RIGHT
                 + p[1] * (3.75/scale.get_value()) * UP
-            )
+            ).set_color(sol.BASE03).set_z_index(-1)
+
+            if p in self.LIS:
+                x.set_color(sol.RED)
+                if x.width < 0.035:
+                    x.scale(0.035/x.width)
 
         for p in self.points:
             self.pointcloud[p].add_updater(partial(point_updater, p=p))
@@ -633,30 +638,23 @@ class PoissonPointProcess(Scene):
                 self.add(self.pointcloud[p])
             self.oldscale = newscale
 
-            for p in self.points:
-                self.pointcloud[p].set_color(sol.BASE03)
-
             self.remove(*self.LISline)
             self.moving_mobjects.clear()
 
-            LIS = self.longestIncreasingSubsequence()
-
-            for p in LIS:
-                d = self.pointcloud[p]
-                d.set_color(sol.RED)
-                if d.width < 0.0175:
-                    d.scale(0.0175/d.width)
-                self.bring_to_front(d)
+            self.LIS = self.longestIncreasingSubsequence()
 
             self.LISline = [
                 Line(
-                    self.pointcloud[LIS[i]].get_center(),
-                    self.pointcloud[LIS[i+1]].get_center(),
+                    self.pointcloud[self.LIS[i]].get_center(),
+                    self.pointcloud[self.LIS[i+1]].get_center(),
                     color=sol.RED
-                ) for i in range(len(LIS)-1)
+                ) for i in range(len(self.LIS)-1)
             ]
 
             self.add(*(self.pointcloud[p] for p in self.points))
+
+            for p in self.LIS:
+                self.bring_to_front(self.pointcloud[p])
 
             self.add(*self.LISline)
 
@@ -668,16 +666,16 @@ class PoissonPointProcess(Scene):
 
         self.play(
             scale.animate.set_value(10),
-            run_time=10-3.75,
+            run_time=(10-3.75)/10 * 8,
             rate_func=(lambda t : 0.5 * t * t)
         )
 
-        for i in range(2, 21):
-            np.save(f'data/points_before_i={i}.npy', np.array(self.points))
+        for i in range(2, 26):
+            np.save(f'data/new_points/points_before_i={i}.npy', np.array(self.points))
             print(f'Starting iteration i={i}!')
             self.play(
                 scale.animate.set_value(10*i),
-                run_time=10,
+                run_time=8,
                 rate_func=rate_functions.linear
             )
 
