@@ -1,6 +1,7 @@
 from manim import *
 from youngdiagrams import *
 import numpy.random as ra
+import numpy as np
 from functools import partial
 
 class LimitShape(Scene):
@@ -155,18 +156,45 @@ class LimitShape(Scene):
         self.remove(*tiles)
         self.add(yd)
 
-        self.wait()
+        self.remove(*obfuscations)
 
-        #TODO: make the new tiles fade in by making new young diagrams
-        #fade in. You can do this using a loop.
+        self.wait()
 
         ra.seed(10)
 
         for _ in range(8):
             nums.append(ra.uniform())
-            newd = YoungDiagram(nums, origin=o+0.5*(UP+LEFT))
+            newd = YoungDiagram(nums, origin=o+0.5*(UP+LEFT)).set_z_index(-1)
             self.play(FadeIn(newd))
             self.remove(yd)
             yd = newd
+            yd.set_z_index(1)
         
-        self.wait()
+        self.remove(yd, newd)
+
+        self.time = 0
+
+        self.growingd = YoungDiagram(nums, origin=o+0.5*(UP+LEFT))
+        self.nums = nums
+
+        def scene_updater(dt):
+            self.nums.append(ra.uniform())
+            self.moving_mobjects.clear()
+            self.foreground_mobjects.clear()
+            self.mobjects.clear()
+            self.clear()
+            self.add(
+                YoungDiagram(
+                    nums,
+                    unit=(7/2)/np.sqrt(len(self.nums)),
+                    origin=o+0.5*(UP+LEFT)
+                )
+            )
+
+        self.add_updater(scene_updater)
+        
+        self.wait(10.1)
+
+        #TODO: figure out how to make the limit shape fade in
+        #and make the transition between the two phases smoother
+        

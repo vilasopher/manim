@@ -46,6 +46,7 @@ class YoungDiagram(Group):
         self.background_color = background_color
         self.edge_color = edge_color
         self.first_row_highlighted = first_row_highlighted
+        self.size = 0
 
         self.tableau = [[permutation[0]]]
         self.lengths = [1]
@@ -84,6 +85,8 @@ class YoungDiagram(Group):
                 self.lengths.append(0)
             m = self.insert_to_row(m, r)
 
+        self.size += 1
+
     def set_unit(self, unit):
         self.unit = unit
 
@@ -99,6 +102,9 @@ class YoungDiagram(Group):
     def redraw(self):
         self.remove(*self.submobjects)
         self.add(*self.construct_submobjects())
+
+    def get_size(self):
+        return self.size
 
     def construct_submobjects(self):
         rows = [
