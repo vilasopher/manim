@@ -209,7 +209,7 @@ class LimitShape(Scene):
             self.clear()
             self.add(
                 YoungDiagram(
-                    nums,
+                    self.nums,
                     unit=(7/2)/np.sqrt(len(self.nums)),
                     origin=o+0.5*(UP+LEFT)
                 )
@@ -244,7 +244,7 @@ class LimitShape(Scene):
             self.clear()
             self.add(
                 YoungDiagram(
-                    nums,
+                    self.nums,
                     unit=(7/2)/np.sqrt(len(self.nums)),
                     origin=o+0.5*(UP+LEFT)
                 )
@@ -260,7 +260,7 @@ class LimitShape(Scene):
         self.remove_updater(scene_updater)
         self.add_updater(scene_updater_fadein_limitshape)
         
-        self.wait(3)
+        self.wait(5)
 
         #TODO: figure out why this is starting over a bit...
         
