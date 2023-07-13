@@ -213,8 +213,8 @@ class EquivalenceProof(Scene):
 
 
         tiles[0].submobjects[0].set_fill(sol.RED, opacity=1)
-        tiles[3].submobjects[0].set_fill(sol.RED, opacity=1)
-        tiles[8].submobjects[0].set_fill(sol.RED, opacity=1)
+        tiles[2].submobjects[0].set_fill(sol.RED, opacity=1)
+        tiles[6].submobjects[0].set_fill(sol.RED, opacity=1)
 
         self.play(
             LaggedStart(
@@ -322,6 +322,18 @@ class EquivalenceProof(Scene):
 
         sortedtiles = [Mobject(), tiles[7], tiles[0], tiles[3], tiles[1], tiles[8], tiles[4], tiles[2], tiles[6], tiles[5]]
 
+        conclusion1 = MathTex(
+            r"""
+                {{ \text{length of top row} }}
+                {{ \geq }}
+                {{ \text{length of} }}
+                {{ \text{ \emph{any} } }}
+                {{ \text{increasing subsequence} }}
+            """,
+            color=sol.BASE02,
+            font_size=50
+        ).shift(2.75*DOWN)
+
         self.play(
             sortedtiles[2].animate.shift(1.1*UP),
             sortedtiles[6].animate.shift(1.1*UP),
@@ -330,16 +342,14 @@ class EquivalenceProof(Scene):
             sortedtiles[7].animate.shift(2.2*UP),
             FadeOut(row1text),
             FadeOut(row2text, shift=1.1*UP),
-            FadeOut(row3text, shift=2.2*UP)
+            FadeOut(row3text, shift=2.2*UP),
+            FadeIn(conclusion1, shift=2.5*UP)
         )
-
-        #TODO: some text stuff explaining what we just proved
-        #TODO: add some wiggles or something to indicate tiles
 
         self.play(
             tiles[0].submobjects[0].animate.set_fill(sol.BASE1, opacity=1),
-            tiles[3].submobjects[0].animate.set_fill(sol.BASE1, opacity=1),
-            tiles[8].submobjects[0].animate.set_fill(sol.BASE1, opacity=1)
+            tiles[2].submobjects[0].animate.set_fill(sol.BASE1, opacity=1),
+            tiles[6].submobjects[0].animate.set_fill(sol.BASE1, opacity=1)
         )
 
         self.play(
@@ -351,6 +361,7 @@ class EquivalenceProof(Scene):
             FadeIn(row1text),
             FadeIn(row2text, shift=1.1*DOWN),
             FadeIn(row3text, shift=2.2*DOWN),
+            FadeOut(conclusion1, shift=2.5*DOWN)
         )
 
         faketiles = [
@@ -469,8 +480,81 @@ class EquivalenceProof(Scene):
 
         self.wait()
 
-        #TODO: make more text saying what we proved.
+        conclusion2 = MathTex(
+            r"""
+                {{ \text{length of top row} }}
+                {{ = }}
+                {{ \text{length of} }}
+                {{ \text{ \emph{some} } }}
+                {{ \text{increasing subsequence} }}
+            """,
+            color=sol.BASE02,
+            font_size=50
+        ).shift(1.5*UP)
 
-#TODO: finish the rest of the animations in this section
-#TODO: explain the recording tableau
-#TODO: discuss the plancherel measure and the mapping
+        self.play(FadeIn(conclusion2))
+        self.wait()
+        self.play(FadeIn(conclusion1))
+        self.wait()
+
+        conclusion3a = MathTex(
+            r"""
+                {{ \text{length of top row} }}
+            """,
+            color=sol.BASE02,
+            font_size=70
+        )
+        conclusion3b = MathTex(
+             r"""{{ = }}""",
+             color=sol.BASE02,
+             font_size=100
+        )
+        conclusion3c = MathTex(
+            r"""
+                {{ \text{length of} }} 
+                {{ \text{ \emph{longest} } }}
+                {{ \text{increasing subsequence} }}
+            """,
+            color=sol.BASE02,
+            font_size=70
+        )
+
+        conclusion3b.shift((1.5-2.75)/2*UP)
+        conclusion3a.next_to(conclusion3b, 1.5*UP)
+        conclusion3c.next_to(conclusion3b, 1.5*DOWN)
+
+        faketext1 = MathTex(
+            r"""{{ \geq }}""",
+            color=sol.BASE3,
+            font_size=70
+        ).next_to(conclusion3b, ORIGIN).shift(2*LEFT+0.75*DOWN).set_z_index(-1)
+        faketext2 = MathTex(
+            r"""
+            {{ \text{ \emph{any} } }}
+            """,
+            color=sol.BASE3,
+            font_size=70
+        ).next_to(conclusion3c, ORIGIN).shift(2*LEFT).set_z_index(-1)
+        faketext3 = MathTex(
+            r"""
+            {{ \text{ \emph{some} } }}
+            """,
+            color=sol.BASE3,
+            font_size=70
+        ).next_to(conclusion3c, ORIGIN).shift(2*LEFT).set_z_index(-1)
+
+        self.play(
+            TransformMatchingTex(
+                Group(conclusion1, conclusion2), 
+                Group(conclusion3a, conclusion3b, conclusion3c,
+                      faketext1, faketext2, faketext3)
+            )
+        )
+
+        self.wait()
+
+class RecordingTableau(Scene):
+    def construct(self):
+        #TODO: explain the recording tableau
+        #TODO: discuss the plancherel measure and the mapping
+        pass
