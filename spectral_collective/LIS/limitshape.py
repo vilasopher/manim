@@ -169,6 +169,15 @@ class LimitShape(Scene):
             self.remove(yd)
             yd = newd
             yd.set_z_index(1)
+
+        self.play(
+            yd.animate.scale(
+                (7/2)/np.sqrt(len(nums)),
+                about_point=3.5*UP+6.61111111*LEFT
+            ),
+            rate_func=rate_functions.rush_into,
+            run_time=0.5
+        )
         
         self.remove(yd, newd)
 
@@ -178,7 +187,22 @@ class LimitShape(Scene):
         self.nums = nums
 
         def scene_updater(dt):
-            self.nums.append(ra.uniform())
+            self.time += dt
+
+            for _ in range(
+                    max(1, int(ra.choice(
+                            [
+                                np.floor(self.time/5),
+                                np.ceil(self.time/5)
+                            ],
+                            p=[
+                                1-self.time/5+np.floor(self.time/5),
+                                self.time/5-np.floor(self.time/5)
+                            ]
+                    )))
+                ):
+                self.nums.append(ra.uniform())
+
             self.moving_mobjects.clear()
             self.foreground_mobjects.clear()
             self.mobjects.clear()
@@ -193,8 +217,50 @@ class LimitShape(Scene):
 
         self.add_updater(scene_updater)
         
-        self.wait(10.1)
+        self.wait(13.6)
 
-        #TODO: figure out how to make the limit shape fade in
-        #and make the transition between the two phases smoother
+        self.fadeinstarttime = self.time
+
+        def scene_updater_fadein_limitshape(dt):
+            self.time += dt
+
+            for _ in range(
+                    max(1, int(ra.choice(
+                            [
+                                np.floor(self.time/5),
+                                np.ceil(self.time/5)
+                            ],
+                            p=[
+                                1-self.time/5+np.floor(self.time/5),
+                                self.time/5-np.floor(self.time/5)
+                            ]
+                    )))
+                ):
+                self.nums.append(ra.uniform())
+
+            self.moving_mobjects.clear()
+            self.foreground_mobjects.clear()
+            self.mobjects.clear()
+            self.clear()
+            self.add(
+                YoungDiagram(
+                    nums,
+                    unit=(7/2)/np.sqrt(len(self.nums)),
+                    origin=o+0.5*(UP+LEFT)
+                )
+            )
+            self.add(
+                Square().shift(3*UP+2*LEFT).set_fill(sol.CYAN, opacity=min(1,self.time-self.fadeinstarttime))
+            )
+
+        self.moving_mobjects.clear()
+        self.foreground_mobjects.clear()
+        self.mobjects.clear()
+        self.clear()
+        self.remove_updater(scene_updater)
+        self.add_updater(scene_updater_fadein_limitshape)
+        
+        self.wait(3)
+
+        #TODO: figure out why this is starting over a bit...
         
