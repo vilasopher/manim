@@ -217,7 +217,7 @@ class LimitShape(Scene):
 
         self.add_updater(scene_updater)
         
-        self.wait(13.6)
+        self.wait(13.3)
 
         self.fadeinstarttime = self.time
 
@@ -260,7 +260,8 @@ class LimitShape(Scene):
         self.remove_updater(scene_updater)
         self.add_updater(scene_updater_fadein_limitshape)
         
-        self.wait(5)
+        self.wait(5.5)
 
         #TODO: figure out why this is starting over a bit...
+        #Answer: the fucking caching is messing things up. Figure out how to not cache.
         
