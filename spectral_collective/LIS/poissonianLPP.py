@@ -350,7 +350,7 @@ class FunctionGraph(Scene):
 
 R = 0.2
 
-class PoissonPointProcess(Scene):
+class PoissonPointProcessShort(Scene):
     def insertPoint(self, p):
         start = -1
         end = len(self.points)
@@ -464,6 +464,8 @@ class PoissonPointProcess(Scene):
                 ], len(self.pointcloud.values()))
             )
         )
+
+        self.wait()
 
         self.LIS = self.longestIncreasingSubsequence()
 
@@ -661,6 +663,8 @@ class PoissonPointProcess(Scene):
             self.add(self.obfuscation)
 
         self.remove(*self.newLISline)
+
+        return
 
         self.add_updater(tick)
 
