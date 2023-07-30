@@ -49,10 +49,10 @@ class HeuristicStaircase(Scene):
         self.every_other_point = [
             Dot(
                 homogbox.get_corner(DOWN + LEFT) + 0.02 * (RIGHT+UP)
-                + (3-2*0.02) * 0.05 * i * (RIGHT + UP),
+                + (3-2*0.02) * 1/40 * i * (RIGHT + UP),
                 radius = 0.01,
                 color = sol.RED
-            ) for i in range(21)
+            ) for i in range(41)
         ]
 
         def point_updater(x, i):
@@ -130,21 +130,35 @@ class HeuristicStaircase(Scene):
                 p.shift((ra.random()*0.2-0.1)*RIGHT
                         + (ra.random()*0.2-0.1)*UP)
 
+        # time = 20:30
+
         self.play(
             FadeIn(homogbox),
             FadeIn(homogemptybox),
             FadeIn(ar, shift=0.25*RIGHT)
         )
+
+        # time = 21:30
         
         self.wait()
 
+        # time = 22:30
+
         self.play(FadeIn(homogtext, shift=DOWN))
 
-        self.wait()
+        # time = 23:30
+
+        self.wait(1.5)
+
+        # time = 25
 
         self.play(FadeIn(areatext, shift=UP))
+        
+        # time = 26
 
-        self.wait()
+        self.wait(20)
+
+        # time = 46
 
         self.play(
             *(FadeIn(p) for p in self.every_other_point),
@@ -157,7 +171,7 @@ class HeuristicStaircase(Scene):
 
         ra.seed(1)
 
-        for _ in range(5):
+        for _ in range(35):
             self.play(
                 *(
                     p.animate.shift(
@@ -168,7 +182,7 @@ class HeuristicStaircase(Scene):
                 )
             )
 
-            self.wait()
+            self.wait(2)
 
 
 class HeuristicText(Scene):
@@ -309,29 +323,73 @@ class HeuristicText(Scene):
 
         self.add(box, homogbox)
 
+        # time = 31
+
         self.play(FadeIn(pointslength, shift=0.5*UP))
-        self.wait()
+
+        # time = 32
+
+        self.wait(10)
+
+        # time = 42
+
         self.play(FadeIn(lnapprox), FadeIn(maxlengthurp))
-        self.wait()
+
+        # time = 43
+
+        self.wait(15.5)
+
+        # time = 58:30
+
         self.play(FadeIn(twosidelength, shift=0.5*UP))
-        self.wait()
+
+        # time = 59:30
+
+        self.wait(2.5)
+
+        # time = 2
+
         self.play(FadeIn(twosqrtn, shift=0.5*UP))
-        self.wait()
+
+        # time = 3
+
+        self.wait(5)
+
+        # time = 8
+
         self.play(
             TransformMatchingTex(Group(lnapprox, twosqrtn), Group(ln2rn, equals)),
             FadeOut(maxlengthurp),
             FadeOut(twosidelength)
         )
         self.remove(equals)
-        self.wait()
+
+        # time = 9
+
+        self.wait(6.5)
+
+        # time = 15:30
+
         self.play(FadeIn(minusorn, shift=LEFT))
-        self.wait()
+
+        # time = 16:30
+
+        self.wait(13.5)
+
+        # time = 30
+
         self.play(
             FadeOut(pointslength),
             FadeIn(heuristic),
             Group(ln2rn, minusorn).animate.shift(0.45 * UP)
         )
-        self.wait()
+
+        # time = 31
+
+        self.wait(25)
+
+        # time = 56
+
         self.play(
             LaggedStart(
                 Write(provable),
@@ -339,7 +397,8 @@ class HeuristicText(Scene):
                 lag_ratio=0.5
             )
         )
-        self.wait()
+
+        self.wait(30)
 
         return
         # This stuff was used in an earlier iteration, but I think it's unneccessary
