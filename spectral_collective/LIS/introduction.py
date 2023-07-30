@@ -19,14 +19,38 @@ class DefinitionExample(Scene):
 
         # TODO: figure out how to make this look good with glitch.
 
+        self.wait(5)
+
         self.play(
             LaggedStart(
                 *(Write(i) for i in nums),
                 lag_ratio=0.2
-            )
+            ),
+            run_time=2
         )
 
-        self.wait()
+        # time = 7
+
+        self.wait(3.75)
+
+        # time = 10:45
+
+        question = Tex(
+            r"how long is the longest increasing subsequence?",
+            color=sol.BASE02,
+            font_size=60
+        ).shift(2*DOWN)
+
+        self.play(
+            FadeIn(question),
+            run_time=1.25
+        )
+
+        # time = 12
+        
+        self.wait(4)
+
+        # time = 16
 
         self.play(
             LaggedStart(
@@ -35,45 +59,65 @@ class DefinitionExample(Scene):
                     for i in subsequence
                 ),
                 lag_ratio = 0.1
-            )
+            ),
+            run_time=2
         )
 
-        self.wait()
+        # time = 18
+
+        self.wait(7.5)
+
+        # time = 25:30
 
         self.play(
             LaggedStart(
                 *(Wiggle(nums[i]) for i in subsequence),
                 lag_ratio = 0.2
-            )
+            ),
+            run_time=2
         )
 
-        self.wait()
+        # time = 27:30
+
+        self.wait(1.75)
+
+        # time = 29:15
 
         self.play(
             nums[4].animate.shift(UP).set_color(sol.BASE03),
             nums[3].animate.shift(DOWN).set_color(sol.RED)
         )
 
+        # time = 30:15
+
         self.wait()
+
+        # time = 31:15
 
         self.play(
             nums[3].animate.shift(UP).set_color(sol.BASE03),
             nums[5].animate.shift(DOWN).set_color(sol.RED)
         )
 
-        self.wait()
+        # time = 32:15
+
+        self.wait(1.25)
+
+        # time = 33:30
 
         self.play(
+            FadeOut(question, shift=DOWN),
             FadeIn(
                 Tex(
                     r"length of longest increasing subsequence $=5$",
                     color = sol.BASE02,
                     font_size=60
-                ).shift(1.5*DOWN)
+                ).shift(2*DOWN),
+                shift=DOWN
             )
         )
 
-        self.wait()
+        self.wait(5)
 
 class TheoremStatement(Scene):
     def construct(self):
@@ -136,24 +180,57 @@ class TheoremStatement(Scene):
             theoremstatement.next_to(theoremword, RIGHT).shift(0.5*RIGHT + 0.2*DOWN)
         )
 
+        hint = MathTex(
+            r"""
+            (\text{this means } \mathbb{P}\bigg[ \bigg| { {{L(}} \sigma_n {{)}} \over \sqrt{n} } - 2 \bigg| > \epsilon \bigg] \to 0
+            \text{ for every } \epsilon > 0)
+            """,
+            font_size = 30,
+            color=sol.BASE02,
+            tex_template = tt
+        ).set_color_by_tex(r"L", sol.RED).set_color_by_tex(r")", sol.RED).set_color_by_tex(r"0", sol.BASE02)
+        hint.next_to(theorem, DOWN).align_to(theorem, RIGHT).shift(0.25*DOWN+1.25*RIGHT)
+
+        self.wait(2)
+
         self.play(FadeIn(deftext), FadeIn(defsigma))
 
-        self.wait()
+        # time = 39
+
+        self.wait(4)
 
         self.play(FadeIn(defL))
 
-        self.wait()
+        # time = 44
+
+        self.wait(8)
 
         self.play(FadeIn(approximate))
 
-        self.wait()
+        # time = 54
+
+        self.wait(2.5)
 
         self.play(
             Write(theoremword),
             TransformMatchingTex(approximate, theoremstatement)
         )
+        
+        self.play(
+            FadeIn(hint, shift=UP)
+        )
 
-        self.wait()
+        # time = 58:30
+
+        self.wait(3.5)
+
+        self.play(
+            FadeOut(hint, shift=DOWN),
+            FadeOut(Group(deftext, defL, defsigma), shift=DOWN),
+            theorem.animate.shift(DOWN)
+        )
+
+        self.wait(40)
 
 class InThisVideo(Scene):
     def construct(self):
