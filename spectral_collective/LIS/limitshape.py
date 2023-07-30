@@ -4,6 +4,27 @@ import numpy.random as ra
 import numpy as np
 from functools import partial
 
+TLC = 3.5*UP + 6.6111111111111111111*LEFT
+R = 3.5*RIGHT
+D = 3.5*DOWN
+
+def wx(t):
+    return (2*t/np.pi + 1) * np.sin(t) + (2/np.pi) * np.cos(t)
+
+def wy(t):
+    return (2*t/np.pi - 1) * np.sin(t) + (2/np.pi) * np.cos(t)
+
+LIMIT_SHAPE = Polygon(
+    TLC,
+    *(
+        TLC + wx(t)*R + wy(t)*D
+        for t in np.linspace(-np.pi/2, np.pi/2, 100)
+    ),
+    TLC,
+    color = sol.CYAN,
+    stroke_width = 1
+).set_fill(sol.CYAN, opacity=0)
+
 class LimitShape(Scene):
     def construct(self):
         ra.seed(3)
@@ -14,16 +35,23 @@ class LimitShape(Scene):
             for i, n in enumerate(nums)
         ]
 
+        # time = 15
+
         self.play(
             LaggedStart(
                 *(
                     t.animate.shift(12*1.1*LEFT)
                     for t in tiles
                 )
-            )
+            ),
+            run_time = 3
         )
 
-        self.wait()
+        # time = 18
+
+        self.wait(8)
+
+        # time = 26
 
         o = 3*UP + 6.1111111*LEFT
 
@@ -56,7 +84,9 @@ class LimitShape(Scene):
             tiles[0].animate.move_to(o+3*DOWN)
         )
 
-        self.wait()
+        # time = 35
+
+        self.wait(4.5)
 
         ra.seed(2)
 
@@ -66,20 +96,34 @@ class LimitShape(Scene):
             for i in range(9,14)
         ]
 
+        # time = 39:30
+
         self.play(tiles[9].animate.move_to(ORIGIN))
 
+        # time = 40:30
+
         self.wait()
+
+        # time = 41:30
 
         self.play(
             tiles[9].animate.move_to(o+2*RIGHT),
             tiles[4].animate.move_to(o+2*RIGHT+DOWN)
         )
 
-        self.wait()
+        # time = 42:30
+
+        self.wait(4.5)
+
+        # time = 47
 
         self.play(tiles[10].animate.move_to(ORIGIN))
+
+        # time = 48
         
         self.wait()
+
+        # time = 49
 
         self.play(
             tiles[10].animate.move_to(o),
@@ -89,28 +133,38 @@ class LimitShape(Scene):
             tiles[0].animate.move_to(o+4*DOWN)
         )
 
-        self.wait()
+        # time = 50
 
-        self.play(tiles[11].animate.move_to(ORIGIN))
+        self.wait(0.5)
 
-        self.wait()
+        # time = 50:30
+
+        self.play(tiles[11].animate.move_to(ORIGIN), run_time=0.5)
+
+        # time = 51
+
+        self.wait(0.5)
+
+        # time = 51:30
 
         self.play(
             tiles[11].animate.move_to(o+3*RIGHT),
-            tiles[5].animate.move_to(o+3*RIGHT+DOWN)
+            tiles[5].animate.move_to(o+3*RIGHT+DOWN),
+            run_time=0.5
         )
 
-        self.wait()
+        # time = 52
 
         self.play(
             tiles[12].animate.move_to(o+2*RIGHT),
             tiles[9].animate.move_to(o+RIGHT+DOWN),
             tiles[3].animate.move_to(o+RIGHT+2*DOWN),
-            tiles[1].animate.move_to(o+RIGHT+3*DOWN)
+            tiles[1].animate.move_to(o+RIGHT+3*DOWN),
+            run_time=0.5
         )
-        
-        self.wait()
 
+        # time = 52:30
+        
         obfuscations = [
             Rectangle(
                 height=0.5,
@@ -146,10 +200,11 @@ class LimitShape(Scene):
             tiles[9].animate.move_to(o+RIGHT+2*DOWN),
             tiles[3].animate.move_to(o+RIGHT+3*DOWN),
             tiles[1].animate.move_to(o+RIGHT+4*DOWN),
-            ob_opacity.animate.set_value(1)
+            ob_opacity.animate.set_value(1),
+            run_time = 0.5
         )
 
-        self.wait()
+        # time = 53
 
         yd = YoungDiagram(nums, origin=o+0.5*(UP+LEFT))
 
@@ -158,17 +213,21 @@ class LimitShape(Scene):
 
         self.remove(*obfuscations)
 
-        self.wait()
-
         ra.seed(10)
 
         for _ in range(8):
             nums.append(ra.uniform())
             newd = YoungDiagram(nums, origin=o+0.5*(UP+LEFT)).set_z_index(-1)
-            self.play(FadeIn(newd))
+            self.play(FadeIn(newd), run_time=0.25)
             self.remove(yd)
             yd = newd
             yd.set_z_index(1)
+        
+        # time = 55
+
+        self.wait(3)
+
+        # time = 58
 
         self.play(
             yd.animate.scale(
@@ -178,6 +237,8 @@ class LimitShape(Scene):
             rate_func=rate_functions.rush_into,
             run_time=0.5
         )
+
+        # time = 58:30
         
         self.remove(yd, newd)
 
@@ -190,16 +251,16 @@ class LimitShape(Scene):
             self.time += dt
 
             for _ in range(
-                    max(1, int(ra.choice(
-                            [
-                                np.floor(self.time/5),
-                                np.ceil(self.time/5)
-                            ],
-                            p=[
-                                1-self.time/5+np.floor(self.time/5),
-                                self.time/5-np.floor(self.time/5)
-                            ]
-                    )))
+                    min(4, max(1, int(ra.choice(
+                                [
+                                    np.floor(self.time/4),
+                                    np.ceil(self.time/4)
+                                ],
+                                p=[
+                                    1-self.time/4+np.floor(self.time/4),
+                                    self.time/4-np.floor(self.time/4)
+                                ]
+                    ))))
                 ):
                 self.nums.append(ra.uniform())
 
@@ -217,7 +278,9 @@ class LimitShape(Scene):
 
         self.add_updater(scene_updater)
         
-        self.wait(13.3)
+        self.wait(17)
+
+        # time = 15:30
 
         self.fadeinstarttime = self.time
 
@@ -225,16 +288,16 @@ class LimitShape(Scene):
             self.time += dt
 
             for _ in range(
-                    max(1, int(ra.choice(
+                    min(4, max(1, int(ra.choice(
                             [
-                                np.floor(self.time/5),
-                                np.ceil(self.time/5)
+                                np.floor(self.time/4),
+                                np.ceil(self.time/4)
                             ],
                             p=[
-                                1-self.time/5+np.floor(self.time/5),
-                                self.time/5-np.floor(self.time/5)
+                                1-self.time/4+np.floor(self.time/4),
+                                self.time/4-np.floor(self.time/4)
                             ]
-                    )))
+                    ))))
                 ):
                 self.nums.append(ra.uniform())
 
@@ -250,7 +313,7 @@ class LimitShape(Scene):
                 )
             )
             self.add(
-                Square().shift(3*UP+2*LEFT).set_fill(sol.CYAN, opacity=min(1,self.time-self.fadeinstarttime))
+                LIMIT_SHAPE.set_fill(sol.CYAN, opacity=0.2*min(1, self.time-self.fadeinstarttime))
             )
 
         self.moving_mobjects.clear()
@@ -260,8 +323,35 @@ class LimitShape(Scene):
         self.remove_updater(scene_updater)
         self.add_updater(scene_updater_fadein_limitshape)
         
-        self.wait(5.5)
+        self.wait(56)
 
-        #TODO: figure out why this is starting over a bit...
-        #Answer: the fucking caching is messing things up. Figure out how to not cache.
-        
+        def scene_updater_toprow(dt):
+            self.time += dt
+
+            for _ in range(4):
+                self.nums.append(ra.uniform())
+
+            self.moving_mobjects.clear()
+            self.foreground_mobjects.clear()
+            self.mobjects.clear()
+            self.clear()
+            self.add(
+                YoungDiagram(
+                    self.nums,
+                    unit=(7/2)/np.sqrt(len(self.nums)),
+                    origin=o+0.5*(UP+LEFT),
+                    first_row_highlighted=True
+                )
+            )
+            self.add(
+                LIMIT_SHAPE.set_fill(sol.CYAN, opacity=0.2)
+            )
+
+        self.moving_mobjects.clear()
+        self.foreground_mobjects.clear()
+        self.mobjects.clear()
+        self.clear()
+        self.remove_updater(scene_updater_fadein_limitshape)
+        self.add_updater(scene_updater_toprow)
+
+        self.wait(74)

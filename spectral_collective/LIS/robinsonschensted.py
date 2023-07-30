@@ -260,7 +260,7 @@ class RS(Scene):
         self.wait(0.5)
 
         yttext = Tex(
-            r"Young Tableau",
+            r"Young tableau",
             color=sol.BASE02,
             font_size=100
         ).shift(2.75*DOWN)
@@ -285,7 +285,7 @@ class RS(Scene):
         lrowtext = Tex(
             r"""
             length of first row of \\
-            resulting Young Tableau
+            resulting Young tableau
             """,
             color=sol.BASE02,
             font_size=50
@@ -829,4 +829,115 @@ class RecordingTableau(Scene):
     def construct(self):
         #TODO: explain the recording tableau
         #TODO: discuss the plancherel measure and the mapping
-        pass
+
+        permutation = [2, 4, 7, 3, 6, 9, 8, 1, 5]
+
+        O1 = UP + 5*LEFT
+        O2 = UP + 2*RIGHT
+
+        tiles = [
+            Tile(n).shift(3.25*UP + 5*LEFT + i*(1.25)*RIGHT)
+            for i, n in enumerate(permutation)
+        ]
+
+        recordingtiles = [
+            Tile(1, background_color=sol.YELLOW).move_to(O2),
+            Tile(2, background_color=sol.YELLOW).move_to(O2+RIGHT),
+            Tile(3, background_color=sol.YELLOW).move_to(O2+2*RIGHT),
+            Tile(4, background_color=sol.YELLOW).move_to(O2+DOWN),
+            Tile(5, background_color=sol.YELLOW).move_to(O2+RIGHT+DOWN),
+            Tile(6, background_color=sol.YELLOW).move_to(O2+3*RIGHT),
+            Tile(7, background_color=sol.YELLOW).move_to(O2+2*RIGHT+DOWN),
+            Tile(8, background_color=sol.YELLOW).move_to(O2+2*DOWN),
+            Tile(9, background_color=sol.YELLOW).move_to(O2+RIGHT+2*DOWN)
+        ]
+
+        # time = 53:30
+
+        self.play(
+            *(
+                FadeIn(t, shift=DOWN) for t in tiles
+            )
+        )
+        
+        # time = 54:30
+
+        self.wait()
+
+        # time = 55:30
+
+        self.play(tiles[0].animate.move_to(O1), run_time=0.75)
+        self.play(FadeIn(recordingtiles[0]), run_time=0.75)
+        self.play(tiles[1].animate.move_to(O1+RIGHT), run_time=0.75)
+        self.play(FadeIn(recordingtiles[1]), run_time=0.75)
+        self.play(tiles[2].animate.move_to(O1+2*RIGHT), run_time=0.75)
+        self.play(FadeIn(recordingtiles[2]), run_time=0.75)
+        self.play(
+            tiles[3].animate.move_to(O1+RIGHT),
+            tiles[1].animate.move_to(O1+DOWN),
+            run_time=0.75
+        )
+        self.play(FadeIn(recordingtiles[3]), run_time=0.75)
+
+        self.bring_to_front(tiles[2])
+        self.play(
+            tiles[4].animate.move_to(O1+2*RIGHT),
+            tiles[2].animate.move_to(O1+RIGHT+DOWN),
+            FadeIn(recordingtiles[4]),
+            run_time=0.75
+        )
+        self.play(
+            tiles[5].animate.move_to(O1+3*RIGHT),
+            FadeIn(recordingtiles[5]),
+            run_time=0.75
+        )
+        self.bring_to_front(tiles[5])
+        self.play(
+            tiles[6].animate.move_to(O1+3*RIGHT),
+            tiles[5].animate.move_to(O1+2*RIGHT+DOWN),
+            FadeIn(recordingtiles[6]),
+            run_time=0.75
+        )
+        self.play(
+            tiles[7].animate.move_to(O1),
+            tiles[0].animate.move_to(O1+DOWN),
+            tiles[1].animate.move_to(O1+2*DOWN),
+            FadeIn(recordingtiles[7]),
+            run_time=0.75
+        )
+        self.bring_to_front(tiles[4])
+        self.play(
+            tiles[8].animate.move_to(O1+2*RIGHT),
+            tiles[4].animate.move_to(O1+RIGHT+DOWN),
+            tiles[2].animate.move_to(O1+RIGHT+2*DOWN),
+            FadeIn(recordingtiles[8]),
+            run_time=0.75
+        )
+
+        # time = 5:15
+
+        self.wait(1.25)
+
+        # time = 6:30
+
+
+        bt_arrow = DoubleArrow(start=3.5*LEFT, end=RIGHT, color=sol.BASE02).shift(2*DOWN)
+        bt_perms = Tex(r"permutations", color=sol.BASE02, font_size=50)
+        bt_rs = Tex(r"Robinson-Schensted", color=sol.BASE02, font_size=30)
+        bt_alg = Tex(r"algorithm", color=sol.BASE02, font_size=30)
+        bt_yt = Tex(r"pairs of Young tableaux \\ with the same shape", color=sol.BASE02, font_size=50)
+
+        bt_perms.next_to(bt_arrow, LEFT)
+        bt_yt.next_to(bt_arrow, RIGHT)
+        bt_rs.next_to(bt_arrow, UP).shift(0.25*DOWN)
+        bt_alg.next_to(bt_arrow, DOWN).shift(0.25*UP)
+
+        bt = Group(bt_arrow, bt_perms, bt_rs, bt_alg, bt_yt)
+
+        self.play(
+            Group(*tiles).animate.shift(1.5*UP),
+            Group(*recordingtiles).animate.shift(1.5*UP),
+            FadeIn(bt, shift=1.5*UP)
+        )
+
+        self.wait()
