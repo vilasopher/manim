@@ -186,9 +186,9 @@ class TheoremStatement(Scene):
             \text{ for every } \epsilon > 0)
             """,
             font_size = 30,
-            color=sol.BASE02,
+            color=sol.BASE01,
             tex_template = tt
-        ).set_color_by_tex(r"L", sol.RED).set_color_by_tex(r")", sol.RED).set_color_by_tex(r"0", sol.BASE02)
+        ).set_color_by_tex(r"L", sol.RED).set_color_by_tex(r")", sol.RED).set_color_by_tex(r"0", sol.BASE01)
         hint.next_to(theorem, DOWN).align_to(theorem, RIGHT).shift(0.25*DOWN+1.25*RIGHT)
 
         self.wait(2)
@@ -215,6 +215,8 @@ class TheoremStatement(Scene):
             Write(theoremword),
             TransformMatchingTex(approximate, theoremstatement)
         )
+
+        self.wait(1)
         
         self.play(
             FadeIn(hint, shift=UP)
@@ -222,7 +224,7 @@ class TheoremStatement(Scene):
 
         # time = 58:30
 
-        self.wait(3.5)
+        self.wait(3)
 
         self.play(
             FadeOut(hint, shift=DOWN),
@@ -236,4 +238,8 @@ class InThisVideo(Scene):
     def construct(self):
         # have three boxes, and put the future parts of the video in 
         # using some video editor
+        pass
+
+class BG(Scene):
+    def construct(self):
         pass

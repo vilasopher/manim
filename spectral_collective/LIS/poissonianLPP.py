@@ -23,9 +23,9 @@ class Why(Scene):
         ).next_to(text, DOWN)
 
         self.play(FadeIn(text, shift=DOWN))
-        self.wait()
+        self.wait(0.5)
         self.play(FadeIn(heur))
-        self.wait()
+        self.wait(10)
     
 class FunctionGraph(Scene):
     def construct(self):
@@ -61,9 +61,15 @@ class FunctionGraph(Scene):
             for i in range(9)
         ]
 
-        self.play(*(FadeIn(j) for j in pnums))
+        # time = 46:30
 
-        self.wait()
+        self.play(*(FadeIn(j) for j in pnums), run_time=0.75)
+
+        # time = 47:15
+
+        self.wait(0.25)
+
+        # time = 47:30
 
         self.play(
             *(j.animate.shift(DOWN) for j in pnums),
@@ -71,7 +77,11 @@ class FunctionGraph(Scene):
             *(FadeIn(i) for i in dnums)
         )
 
-        self.wait()
+        # time = 48:30
+
+        self.wait(2)
+
+        # time = 50:30
 
         box = Square(
             side_length=6,
@@ -112,6 +122,8 @@ class FunctionGraph(Scene):
             for i in range(9)
         ]
 
+        # time = 50:30
+
         self.play(
             LaggedStart(
                 Group(
@@ -129,10 +141,11 @@ class FunctionGraph(Scene):
                     *(FadeIn(yl) for yl in ylabels)
                 ),
                 lag_ratio = 0.2
-            )
+            ),
+            run_time = 1
         )
 
-        self.wait()
+        # time = 51:30
 
         dots = [
             Dot(color=sol.BASE03, radius=0.1)
@@ -155,10 +168,15 @@ class FunctionGraph(Scene):
                     for i in range(9)
                 ),
                 lag_ratio=0.75
-            )
+            ),
+            run_time=3
         )
 
-        self.wait()
+        # time = 54:30
+
+        self.wait(3)
+
+        # time = 57:30
 
         LISlines = [
             Line(
@@ -200,10 +218,15 @@ class FunctionGraph(Scene):
                     run_time=2
                 ),
                 lag_ratio = 0.5
-            )
+            ),
+            run_time = 3
         )
 
-        self.wait()
+        # time = 0:30
+
+        self.wait(13)
+
+        # time = 13:30
 
         self.play(
             FadeOut(
@@ -218,16 +241,24 @@ class FunctionGraph(Scene):
                     *LISlines
                 )
             ),
-            Group(*dots).animate.set_color(sol.BASE03)
+            Group(*dots).animate.set_color(sol.BASE03),
         )
 
-        self.wait()
+        # time = 14:45
+
+        self.wait(0.75)
+
+        # time = 15:30
 
         self.play(
             Group(*dots, box).animate.shift(3*LEFT)
         )
 
-        self.wait()
+        # time = 16:30
+
+        self.wait(2.5)
+
+        # time = 18:45
 
         self.play(
             *(
@@ -236,7 +267,11 @@ class FunctionGraph(Scene):
             )
         )
 
-        self.wait()
+        # time = 19:45
+
+        self.wait(0.75)
+
+        # time = 20:30
 
         xordering = [
             DecimalNumber(
@@ -284,7 +319,9 @@ class FunctionGraph(Scene):
             )
         ) 
 
-        self.wait()
+        # time = 23:30
+
+        self.wait(3)
 
         self.play(
             yscanline.animate(
@@ -298,7 +335,11 @@ class FunctionGraph(Scene):
             )
         ) 
 
-        self.wait()
+        # time = 29:30
+
+        self.wait(1.75)
+
+        # time = 31:45
 
         smallarrows = [
             MathTex(
@@ -311,8 +352,11 @@ class FunctionGraph(Scene):
 
         self.play(*(FadeIn(sa, scale=1.5, run_time=0.5) for sa in smallarrows))
 
-        self.wait()
+        # time = 32:45
 
+        self.wait(11.75)
+
+        # time = 44:00
 
         self.play(
             *(FadeOut(sa) for sa in smallarrows),
@@ -325,25 +369,51 @@ class FunctionGraph(Scene):
             run_time=0.5
         )
 
-        self.wait()
+        # time = 46
+
+        self.wait(2)
 
         #TODO: figure out how to make the points move without messing up
 
-        ra.seed(0)
+        ra.seed(5)
 
         self.play(
-            *(d.animate.shift((ra.random()-0.5)*UP + (random()-0.5)*RIGHT)
+            *(d.animate.shift(0.3*((ra.random()-0.5)*UP + (ra.random()-0.5)*RIGHT))
               for d in dots)
         )
 
+        self.wait()
+
         self.play(
-            *(d.animate.shift((ra.random()-0.5)*UP + (random()-0.5)*RIGHT)
+            *(d.animate.shift(0.3*((ra.random()-0.5)*UP + (ra.random()-0.5)*RIGHT))
+              for d in dots)
+        )
+        
+        self.wait()
+
+        self.play(
+            *(d.animate.shift(0.3*((ra.random()-0.5)*UP + (ra.random()-0.5)*RIGHT))
               for d in dots)
         )
 
+        self.wait()
+
         self.play(
-            *(d.animate.shift((ra.random()-0.5)*UP + (random()-0.5)*RIGHT)
+            *(d.animate.shift(0.3*((ra.random()-0.5)*UP + (ra.random()-0.5)*RIGHT))
               for d in dots)
+        )
+
+        self.wait()
+
+        self.play(
+            *(d.animate.shift(0.3*((ra.random()-0.5)*UP + (ra.random()-0.5)*RIGHT))
+              for d in dots)
+        )
+
+        self.wait()
+
+        self.play(
+            *(FadeOut(d, scale=0.5)for d in dots)
         )
 
         self.wait()
@@ -452,7 +522,11 @@ class PoissonPointProcessShort(Scene):
 
         self.add(self.obfuscation)
 
+        # time = 57
+
         self.wait()
+
+        # time = 58
 
         random.seed(0)
 
@@ -462,10 +536,15 @@ class PoissonPointProcessShort(Scene):
                     FadeIn(p, scale=0.5, run_time=0.5)
                     for p in self.pointcloud.values()
                 ], len(self.pointcloud.values()))
-            )
+            ),
+            run_time=3
         )
 
-        self.wait()
+        # time = 1
+
+        self.wait(3)
+
+        # time = 4
 
         self.LIS = self.longestIncreasingSubsequence()
 
@@ -494,10 +573,12 @@ class PoissonPointProcessShort(Scene):
                     run_time=3
                 ),
                 lag_ratio=0.5
-            )
+            ), run_time=3.25
         )
 
-        self.wait()
+        # time = 7:15
+
+        self.wait(2)
 
         self.play(
             Group(
@@ -507,7 +588,11 @@ class PoissonPointProcessShort(Scene):
             ).animate.shift(3*LEFT)
         )
 
-        self.wait()
+        # time = 10:15
+
+        self.wait(0.75)
+
+        # time = 11
 
         lntext = MathTex(
             r"{{L}}{{(}}\sigma_n{{)}} \, \stackrel{d}{=}",
@@ -533,7 +618,11 @@ class PoissonPointProcessShort(Scene):
 
         self.play(FadeIn(lntext), FadeIn(text))
 
-        self.wait()
+        # time = 12
+
+        self.wait(14.75)
+
+        # time = 26:45
 
         self.play(
             FadeOut(lntext, shift=RIGHT),
@@ -541,7 +630,9 @@ class PoissonPointProcessShort(Scene):
             box.animate.scale(3.75/3)
         )
 
-        self.wait()
+        # time = 27:45
+
+        self.wait(0.75)
 
         ra.seed(3)
 
@@ -556,15 +647,22 @@ class PoissonPointProcessShort(Scene):
                 color = sol.BASE03
             ).next_to(box, ORIGIN).shift(p[0] * RIGHT + p[1] * UP)
 
+        # 28:30
+
         self.play(
             LaggedStart(
             *random.sample([
                 FadeIn(self.pointcloud[p], scale=0.5, run_time=0.5)
                 for p in newpoints
-            ], len(newpoints)))
+            ], len(newpoints))),
+            run_time=1.5
         )
 
-        self.wait()
+        # 30
+
+        self.wait(6.25)
+
+        # 36:15
 
         self.newLIS = self.longestIncreasingSubsequence()
 
@@ -605,7 +703,7 @@ class PoissonPointProcessShort(Scene):
 
         self.remove(*bothLISline)
 
-        self.wait()
+        self.wait(10)
 
         scale = ValueTracker(3.75)
         self.oldscale = 3.75
@@ -694,7 +792,7 @@ class PPPText(Scene):
             r"\textbf{Poisson Point Process}",
             color=sol.BASE02,
             font_size=50
-        ).shift(4*RIGHT+2.5*UP)
+        ).shift(4*RIGHT+3*UP)
 
         numtext = Tex(
             r"""
@@ -704,7 +802,7 @@ class PPPText(Scene):
             """,
             color = sol.BASE02,
             font_size=45
-        ).next_to(ppptext, DOWN).shift(0.5*DOWN)
+        ).next_to(ppptext, DOWN).shift(DOWN)
 
         uniftext = Tex(
             r"""
@@ -717,11 +815,17 @@ class PPPText(Scene):
             """,
             color = sol.BASE02,
             font_size=45
-        ).next_to(numtext, DOWN).shift(0.5*DOWN)
+        ).next_to(numtext, DOWN).shift(DOWN)
 
+        # time = 47:30
         self.play(FadeIn(ppptext, shift=DOWN))
-        self.wait()
+        # time = 48:30
+        self.wait(5.25)
+        # time = 53
         self.play(FadeIn(numtext))
-        self.wait()
+        # time = 54
+        self.wait(3.5)
+        # time = 57:30
         self.play(FadeIn(uniftext))
-        self.wait()
+        # time = 58:30
+        self.wait(20)
