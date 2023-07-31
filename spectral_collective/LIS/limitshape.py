@@ -39,17 +39,17 @@ class LimitShapeText(Scene):
         thmtext = MathTex(
             r"""
             &\textbf{Limit Shape Theorem:} \text{ for any } \epsilon > 0, \\
-            &\qquad\mathbb{P}\bigg[(1-\epsilon) \cdot \qquad \subseteq \text{set}(\lambda_n) \subseteq (1+\epsilon) \hspace{-0.2em} \cdot \qquad \bigg] \to 0 \\
-            &\text{as } n \to \infty, \text{ where } \text{set}(\lambda) \text{ is the subset of } \mathbb{R}^2 \text{ consisting} \\
-            &\text{of the boxes of } \lambda \text{ (with top left corner at the origin)}.
+            &\qquad\mathbb{P}\bigg[(1-\epsilon) \cdot \qquad \subseteq \frac{\text{set}(\lambda_n)}{\sqrt{n}} \subseteq (1+\epsilon) \hspace{-0.2em} \cdot \qquad \bigg] \to 0 \\
+            &\text{as } n \to \infty, \text{ where } \text{set}(\lambda) \subseteq \mathbb{R}^2 \text{ is the union of the boxes} \\
+            &\text{of } \lambda, \text{ with top-left corner at } 0 \text{ (each box has area } 1 \text{).}
             """,
             color=sol.BASE02,
             font_size=45,
             tex_template=tt
         ).shift(1.75*DOWN + 0.75*RIGHT)
 
-        ls1 = LIMIT_SHAPE.copy().scale(0.14).next_to(thmtext, ORIGIN).shift(2.02*LEFT + 0.33*UP)
-        ls2 = LIMIT_SHAPE.copy().scale(0.14).next_to(thmtext, ORIGIN).shift(3.12*RIGHT + 0.33*UP)
+        ls1 = LIMIT_SHAPE.copy().scale(0.14).next_to(thmtext, ORIGIN).shift(2.15*LEFT + 0.33*UP)
+        ls2 = LIMIT_SHAPE.copy().scale(0.14).next_to(thmtext, ORIGIN).shift(3.1*RIGHT + 0.33*UP)
 
         pareq = MathTex(
             r"""
