@@ -158,11 +158,210 @@ class TracyWidomDensity(Scene):
 
         text = Tex(r"Tracy-Widom density", color=sol.BASE02).next_to(ax, DOWN).shift(0.5*DOWN)
 
-        self.play(FadeIn(Group(ax,graph,text), shift=4*LEFT))
+        self.play(FadeIn(Group(ax,graph,text), shift=3*UP))
 
         self.wait()
 
-class Text(Scene):
+class TitleCard(Scene):
     def construct(self):
-        pass
+        text = Tex(
+            r"""
+                Fluctuations
+            """,
+            color = sol.BASE02,
+            font_size = 100
+        ).set_color_by_tex(r"L", sol.RED).set_color_by_tex(r")", sol.RED).shift(0.5*UP)
+        heur = Tex(
+            r"""
+            (a connection to random matrix theory)
+            """,
+            color = sol.BASE02,
+            font_size = 60
+        ).next_to(text, DOWN).shift(0.5*DOWN)
 
+        self.play(FadeIn(text, shift=DOWN))
+        self.wait(0.5)
+        self.play(FadeIn(heur))
+        self.wait(10)
+
+class Text1(Scene):
+    def construct(self):
+        #self.add(LIMIT_SHAPE)
+        
+        clt = Tex(r"\textbf{Central Limit Theorem:}", color=sol.BASE02).shift(DOWN + 2*LEFT)
+        clttxt = Tex(r"fluctuations $\longrightarrow$ Gaussian", color=sol.BASE02).shift(1.75*DOWN)
+
+        lis = Tex(r"\textbf{Longest Increasing Subsequence:}", color=sol.BASE02).align_to(clt, UP+LEFT)
+        x = Cross(stroke_color=sol.RED).shift(1.8*DOWN+0.275*RIGHT).scale(0.25)
+
+        tt = TexTemplate()
+        tt.add_to_preamble(
+            r"""
+                \usepackage{amsmath, mathrsfs, mathtools}
+            """
+        )
+
+        thm = MathTex(
+            r"""
+            { { {{L(}} \sigma_n {{)}} - 2 \sqrt{n} } \over n^{1/6} } \xlongrightarrow{\text{d}} \text{TW}_2
+            """,
+            color=sol.BASE02,
+            font_size=60,
+            tex_template=tt
+        ).set_color_by_tex(r'L', sol.RED).set_color_by_tex(r')', sol.RED).shift(2.5*DOWN)
+
+        eq = MathTex(r"=", font_size=60, color=sol.BASE02).next_to(thm, RIGHT).shift(1.5*LEFT)
+
+        tw = Tex(r"Tracy-Widom \\ distribution", color=sol.BASE02).next_to(eq, RIGHT)
+
+        ax = Axes(
+            x_range=[-6, 3, 1],
+            y_range=[0, 1/2, 1/8],
+            tips=False,
+            x_axis_config={"include_numbers": True, "color": sol.BASE02, "decimal_number_config": {"color": sol.BASE02, "num_decimal_places": 0}},
+            y_axis_config={"include_numbers": True, "color": sol.BASE02, "decimal_number_config": {"color": sol.BASE02, "num_decimal_places": 3}, "label_direction": RIGHT}
+        ).scale(0.5).shift(UP+3.6111111*RIGHT)
+
+        tw2 = TracyWidom()
+
+        graph = ax.plot(tw2.pdf, x_range=[-6,3,0.1], color=sol.FOREST_GREEN).set_fill(color=sol.FOREST_GREEN, opacity=0.5)
+
+        twd = Tex(r"Tracy-Widom density", color=sol.BASE02).next_to(ax, DOWN).shift(0.5*DOWN)
+
+        # time = 10
+
+        self.play(FadeIn(clt))
+
+        # time = 11
+
+        self.wait(2.5)
+
+        # time = 13:30
+
+        self.play(FadeIn(clttxt, shift=UP))
+
+        # time = 14:30
+
+        self.wait(3.5)
+
+        # time = 18
+
+        self.play(
+            FadeOut(clt, shift=LEFT),
+            FadeIn(lis, shift=LEFT),
+        )
+
+        # time = 19
+
+        self.wait()
+
+        # time = 20
+
+        self.play(
+            FadeIn(x, scale=2)
+        )
+
+        # time = 21
+
+        self.wait(5)
+
+        # time = 26
+
+        self.play(
+            FadeOut(Group(clttxt,x), shift=0.5*UP),
+            FadeIn(thm, shift=0.5*UP)
+        )
+
+        # time = 27
+
+        self.wait(3.5)
+
+        # time = 30:30
+
+        self.play(
+            thm.animate.shift(1.5*LEFT),
+            FadeIn(Group(eq, tw), shift=1.5*LEFT)
+        )
+
+        # time = 31:30
+
+        self.wait(1.5)
+
+        # time = 33
+
+        self.play(
+            FadeOut(lis),
+            FadeOut(eq),
+            thm.animate.shift(3.5*UP+4.5*RIGHT),
+            tw.animate.shift(1.5*UP+0.8*LEFT)
+        )
+
+        # time = 34
+
+        self.wait(8.25)
+
+        # time = 42:15
+
+        self.play(
+            FadeOut(Group(thm, tw), shift=5*UP),
+            FadeIn(Group(ax, graph, twd), shift=5*UP)
+        )
+
+        self.wait(20)
+
+
+class Text2(Scene):
+    def construct(self):
+        clt = Tex(r"\textbf{Central Limit Theorem:} independence $\Rightarrow$ Gaussian", color=sol.BASE02).shift(3*UP)
+
+        ob = Rectangle(width=5.75,color=sol.BASE3).set_fill(sol.BASE3, opacity=1).align_to(clt, RIGHT+DOWN).set_z_index(2)
+        self.add(ob)
+
+        lis = Tex(r"\textbf{Longest Increasing Subsequence:}", font_size=60, color=sol.BASE02).align_to(clt, LEFT).shift(1.5*UP)
+        int = Tex(r"interaction", color=sol.BASE02).align_to(clt, LEFT).shift(RIGHT + 0.5*UP)
+        dep = Tex(r"dependence", color=sol.BASE02).align_to(clt, LEFT).shift(RIGHT + 0.5*DOWN)
+        opt = Tex(
+            r"""
+                \end{center} optimization over \\ independent noise \begin{center}
+            """,
+            color=sol.BASE02
+        ).align_to(clt, LEFT).shift(RIGHT + 1.75*DOWN)
+
+        # time = 1:30
+
+        self.play(FadeIn(clt))
+
+        # time = 2:30
+
+        self.wait(5)
+
+        # time = 7:30
+
+        self.play(FadeOut(ob))
+
+        # time = 8:30
+
+        self.wait(5)
+
+        # time = 13:30
+
+        self.play(FadeIn(lis))
+
+        # time = 14:30
+
+        self.wait()
+
+        # time = 15:30
+
+        self.play(FadeIn(int))
+        self.play(FadeIn(dep))
+
+        # time = 17:30
+
+        self.wait(2)
+
+        # time = 19:30
+
+        self.play(FadeIn(opt))
+
+        self.wait(30)

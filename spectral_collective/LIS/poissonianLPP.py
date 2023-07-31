@@ -13,14 +13,14 @@ class Why(Scene):
             """,
             color = sol.BASE02,
             font_size = 100
-        ).set_color_by_tex(r"L", sol.RED).set_color_by_tex(r")", sol.RED)
+        ).set_color_by_tex(r"L", sol.RED).set_color_by_tex(r")", sol.RED).shift(0.5*UP)
         heur = Tex(
             r"""
             (a heuristic argument)
             """,
             color = sol.BASE02,
             font_size = 60
-        ).next_to(text, DOWN)
+        ).next_to(text, DOWN).shift(0.5*DOWN)
 
         self.play(FadeIn(text, shift=DOWN))
         self.wait(0.5)
