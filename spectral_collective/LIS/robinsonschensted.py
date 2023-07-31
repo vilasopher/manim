@@ -926,9 +926,11 @@ class RecordingTableau(Scene):
         bt_rs = Tex(r"Robinson-Schensted", color=sol.BASE02, font_size=30)
         bt_alg = Tex(r"algorithm", color=sol.BASE02, font_size=30)
         bt_yt = Tex(r"pairs of Young tableaux \\ with the same shape", color=sol.BASE02, font_size=50)
+        bt_yd = Tex(r"pairs of Young tableaux \\ with the same \emph{diagram}", color=sol.BASE02, font_size=50)
 
         bt_perms.next_to(bt_arrow, LEFT)
         bt_yt.next_to(bt_arrow, RIGHT)
+        bt_yd.next_to(bt_yt, ORIGIN)
         bt_rs.next_to(bt_arrow, UP).shift(0.25*DOWN)
         bt_alg.next_to(bt_arrow, DOWN).shift(0.25*UP)
 
@@ -940,4 +942,140 @@ class RecordingTableau(Scene):
             FadeIn(bt, shift=1.5*UP)
         )
 
-        self.wait()
+        # time = 7:30
+
+        self.wait(7)
+
+        # time = 14:30
+
+        self.play(
+            TransformMatchingTex(bt_yt, bt_yd)
+        )
+
+        # time = 15:30
+
+        self.wait(6)
+
+        yd = YoungDiagram(permutation, origin=3*UP+2*LEFT)
+
+        # time = 21:30
+
+        self.play(
+            Group(*tiles).animate.shift(3.5*RIGHT),
+            FadeOut(Group(*recordingtiles), shift=3.5*RIGHT),
+            FadeIn(yd, shift=3.5*RIGHT)
+        )
+
+        self.remove(*tiles)
+
+        # time = 22:30
+
+        self.wait(2)
+
+        mt_arrow = Arrow(start=2*LEFT, end=2*RIGHT, color=sol.BASE02).shift(2*DOWN)
+        mt_yd = Tex(r"Young diagrams", color=sol.BASE02, font_size=50)
+        mt_yd.next_to(mt_arrow, RIGHT)
+
+        mt = Group(bt_perms, bt_rs, bt_alg, mt_yd, mt_arrow)
+
+        # time = 24:30
+
+        self.play(
+            bt_perms.animate.shift(1.5*RIGHT),
+            Transform(bt_arrow, mt_arrow),
+            FadeOut(bt_yd, shift=UP+0.5*RIGHT),
+            FadeIn(mt_yd, shift=UP),
+            Group(bt_rs, bt_alg).animate.shift(1.125*RIGHT)
+        )
+
+        self.add(mt_arrow)
+        self.remove(bt_arrow)
+
+        # time = 25:30
+
+        self.wait(2.75)
+
+        # time = 28:15
+
+        self.play(
+            mt.animate.shift(4.5*UP),
+            FadeOut(yd, shift=4.5*UP)
+        )
+
+        # time = 29:15
+
+        self.wait(0.5)
+
+        # time = 29:45
+
+        arrow1 = Arrow(start=3*LEFT, end=3*RIGHT, color=sol.BASE02).shift(1.25*UP)
+        sigman = MathTex(r"\sigma_n", color=sol.BASE02).next_to(arrow1, LEFT)
+        lambdan = MathTex(r"\lambda_n", color=sol.BASE02).next_to(arrow1, RIGHT)
+
+        self.play(FadeIn(sigman))
+
+        # time = 30:45
+
+        self.wait(2.75)
+
+        # time = 33:30
+
+        self.play(Create(arrow1), FadeIn(lambdan))
+
+        # time = 34:30
+
+        self.wait(1.5) 
+
+        arrow2 = Arrow(start=3*LEFT, end=3*RIGHT, color=sol.BASE02)
+        Lsigman = MathTex(r"L({{\sigma_n}})", color=sol.RED).next_to(arrow2, LEFT).set_color_by_tex(r"n", sol.BASE02)
+        Llambdan = MathTex(r"L({{\lambda_n}})", color=sol.RED).next_to(arrow2, RIGHT).set_color_by_tex(r"n", sol.BASE02)
+
+        # time = 36
+
+        self.play(FadeIn(Lsigman))
+
+        # time = 37
+
+        self.wait(4.75)
+
+        # time = 41:45
+
+        self.play(Create(arrow2), FadeIn(Llambdan))
+
+        # time = 42:45
+
+        self.wait(5.25)
+
+        # time = 48:30
+
+        tt = TexTemplate()
+        tt.add_to_preamble(
+            r"""
+                \usepackage{amsmath, mathrsfs, mathtools}
+            """
+        )
+
+        weight = MathTex(
+            r"""
+                \mathbb{P} [ \lambda_n = \lambda ] = \frac{\#\{\text{Young tableaux with shape } \lambda \}^2}{n!}
+            """,
+            color=sol.BASE02,
+            font_size=45,
+            tex_template=tt
+        ).shift(1.75*DOWN)
+
+        self.play(FadeIn(weight))
+
+        # time = 49:30
+
+        self.wait(5.5)
+
+        # time = 55
+
+        plancherel = Tex(r"Plancherel distribution", color=sol.BASE02, font_size=60).shift(3*DOWN)
+
+        self.play(Write(plancherel))
+
+        self.wait(30)
+
+        #TODO: finish this

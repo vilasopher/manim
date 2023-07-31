@@ -18,12 +18,129 @@ LIMIT_SHAPE = Polygon(
     TLC,
     *(
         TLC + wx(t)*R + wy(t)*D
-        for t in np.linspace(-np.pi/2, np.pi/2, 100)
+        for t in np.linspace(-np.pi/2, np.pi/2, 200)
     ),
     TLC,
     color = sol.CYAN,
     stroke_width = 1
-).set_fill(sol.CYAN, opacity=0)
+).set_fill(sol.CYAN, opacity=0.2)
+
+class LimitShapeText(Scene):
+    def construct(self):
+        self.add(LIMIT_SHAPE)
+
+        tt = TexTemplate()
+        tt.add_to_preamble(
+            r"""
+                \usepackage{amsmath, mathrsfs, mathtools}
+            """
+        )
+
+        thmtext = MathTex(
+            r"""
+            &\textbf{Limit Shape Theorem:} \text{ for any } \epsilon > 0, \\
+            &\qquad\mathbb{P}\bigg[(1-\epsilon) \cdot \qquad \subseteq \text{set}(\lambda_n) \subseteq (1+\epsilon) \hspace{-0.2em} \cdot \qquad \bigg] \to 0 \\
+            &\text{as } n \to \infty, \text{ where } \text{set}(\lambda) \text{ is the subset of } \mathbb{R}^2 \text{ consisting} \\
+            &\text{of the boxes of } \lambda \text{ (with top left corner at the origin)}.
+            """,
+            color=sol.BASE02,
+            font_size=45,
+            tex_template=tt
+        ).shift(1.75*DOWN + 0.75*RIGHT)
+
+        ls1 = LIMIT_SHAPE.copy().scale(0.14).next_to(thmtext, ORIGIN).shift(2.02*LEFT + 0.33*UP)
+        ls2 = LIMIT_SHAPE.copy().scale(0.14).next_to(thmtext, ORIGIN).shift(3.12*RIGHT + 0.33*UP)
+
+        pareq = MathTex(
+            r"""
+            \longleftarrow
+            \begin{cases}
+                x(\theta) = \big( 1 + \frac{2\theta}{\pi} \big) \sin \theta + \frac{2}{\pi} \cos \theta \\
+                y(\theta) = \big( 1 - \frac{2\theta}{\pi} \big) \sin \theta - \frac{2}{\pi} \cos \theta
+            \end{cases}
+            \text{ for }
+            - \frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}
+            """,
+            color=sol.BASE02,
+            font_size=35
+        ).shift(1.2*UP+0.5*RIGHT)
+
+        pt = Dot(color=sol.CYAN, radius=0.03).align_to(LIMIT_SHAPE, UP+RIGHT).shift(0.03*(UP+RIGHT))
+
+        ar = MathTex(r"\uparrow", color=sol.BASE02, font_size=40).next_to(pt, DOWN).shift(0.15*UP)
+
+        label = MathTex(r"(2,0)", color=sol.BASE02, font_size=40).next_to(ar, DOWN).shift(0.15*UP)
+
+        lambdapprox = MathTex(
+            r"{{L(}}{{\lambda_n}}{{)}} \approx {{2}} {{\sqrt{n}}}",
+            color=sol.BASE02
+        ).set_color_by_tex(r"(", sol.RED).set_color_by_tex(r")", sol.RED).shift(3*UP + 4.5*RIGHT)
+
+        lambdaconv = MathTex(
+            r"{ {{L(}} {{\lambda_n}} {{)}} \over {{\sqrt{n}}} } \xlongrightarrow{\mathbb{P}} {{2}}",
+            color=sol.BASE02,
+            tex_template=tt
+        ).set_color_by_tex(r"(", sol.RED).set_color_by_tex(r")", sol.RED).shift(2.75*UP + 4.5*RIGHT)
+
+        sigmaconv = MathTex(
+            r"{ {{L(}} {{\sigma_n}} {{)}} \over {{\sqrt{n}}} } \xlongrightarrow{\mathbb{P}} {{2}}",
+            color=sol.BASE02,
+            tex_template=tt
+        ).set_color_by_tex(r"(", sol.RED).set_color_by_tex(r")", sol.RED).shift(2.75*UP + 4.5*RIGHT)
+
+        # time = 18:30
+
+        self.play(FadeIn(Group(thmtext, ls1, ls2), shift=0.5*(UP+LEFT)))
+
+        # time = 19:30
+
+        self.wait(25)
+
+        # time = 44:30
+
+        self.play(FadeIn(pareq, shift=LEFT))
+
+        # time = 45:30
+
+        self.wait(2.5)
+
+        # time = 48
+
+        self.play(FadeIn(pt, scale=2))
+
+        # time = 49
+
+        self.wait()
+
+        # time = 50
+
+        self.play(FadeIn(Group(ar, label), shift=0.25*UP))
+
+        # time = 51
+
+        self.wait(20)
+
+        # time = 11
+
+        self.play(FadeIn(lambdapprox))
+
+        # time = 12
+
+        self.wait(9.5)
+
+        # time = 21:30
+
+        self.play(TransformMatchingTex(lambdapprox, lambdaconv))
+
+        # time = 22:30
+
+        self.wait(7.5)
+
+        # time = 30
+
+        self.play(TransformMatchingTex(lambdaconv, sigmaconv))
+
+        self.wait(60)
 
 class LimitShape(Scene):
     def construct(self):
@@ -278,9 +395,9 @@ class LimitShape(Scene):
 
         self.add_updater(scene_updater)
         
-        self.wait(17)
+        self.wait(16.75)
 
-        # time = 15:30
+        # time = 15:15
 
         self.fadeinstarttime = self.time
 
@@ -313,7 +430,7 @@ class LimitShape(Scene):
                 )
             )
             self.add(
-                LIMIT_SHAPE.set_fill(sol.CYAN, opacity=0.2*min(1, self.time-self.fadeinstarttime))
+                LIMIT_SHAPE.copy().fade(rate_functions.smooth(1-min(1,self.time-self.fadeinstarttime)))
             )
 
         self.moving_mobjects.clear()
@@ -323,7 +440,7 @@ class LimitShape(Scene):
         self.remove_updater(scene_updater)
         self.add_updater(scene_updater_fadein_limitshape)
         
-        self.wait(56)
+        self.wait(56.25)
 
         def scene_updater_toprow(dt):
             self.time += dt
@@ -344,7 +461,7 @@ class LimitShape(Scene):
                 )
             )
             self.add(
-                LIMIT_SHAPE.set_fill(sol.CYAN, opacity=0.2)
+                LIMIT_SHAPE
             )
 
         self.moving_mobjects.clear()
