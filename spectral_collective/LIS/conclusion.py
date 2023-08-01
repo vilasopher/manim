@@ -5,7 +5,7 @@ from PIL import Image
 RES = (2160, 3840) 
 BUFF = 80
 
-data = np.zeros((RES[0]+2, RES[1]+2*BUFF), dtype=np.uint8) # 80 extra columns on each side, an extra row on top and bottom
+data = np.zeros((RES[0]+BUFF+1, RES[1]+2*BUFF), dtype=np.uint8) # 80 extra columns on each side, an a few on top and bottom
 data[-1] = np.ones(RES[1]+2*BUFF) # bottom row starts with a block
 clocks = ra.exponential(1/24, size=RES[1]+2*BUFF-2) # never try the first or last column to avoid runtime errors
 pixels = np.full((*RES,3), [253,246,227], dtype=np.uint8)
@@ -39,7 +39,7 @@ def add_block(c, t):
         if max(data[r,c-1], data[r+1,c], data[r,c+1]) == 1:
             data[r,c] = 1
             if c >= BUFF and c < RES[1] + BUFF and r > 0:
-                pixels[r-1,c-BUFF] = RGB(t)
+                pixels[r-BUFF,c-BUFF] = RGB(t)
 
             r = -1
         else: 
@@ -51,9 +51,10 @@ def post_process(pixels):
     for c in range(RES[1]):
         r = 0
         while r < RES[0]:
-            if data[r+1,c+BUFF] == 1:
-                for i in range(min(8, RES[0]-r)):
-                    pppixels[r+i,c] = np.uint8([0,43,54])
+            if data[r,c+BUFF] == 1:
+                for i in range(8):
+                    if 0 <= r-BUFF+i and r-BUFF+i < RES[0]:
+                        pppixels[r-BUFF+i,c] = np.uint8([0,43,54])
                 r = RES[0]
             else:
                 r += 1
