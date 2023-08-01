@@ -80,10 +80,13 @@ class RandomMatrix(Scene):
 
         numberline = Line(8*LEFT, 3*RIGHT, stroke_width=2, color=sol.BASE00).shift(2.5*DOWN+3.6111111111*LEFT)
         end = Line(3*RIGHT, 3.5*RIGHT, stroke_width=2).set_color([sol.BASE3, sol.BASE00]).shift(2.5*DOWN+3.6111111111*LEFT)
-        tick = Line(0.25*UP, 0.25*DOWN, stroke_width=2, color=sol.BASE00).shift(2.5*DOWN+(-2*np.sqrt(N)+4)*RIGHT+3.6111111111*LEFT)
+        tick1 = Line(0.25*UP, 0.25*DOWN, stroke_width=2, color=sol.BASE00).shift(2.5*DOWN+(-2*np.sqrt(N)+4)*RIGHT+3.6111111111*LEFT)
+        tick2 = Line(0.25*UP, 0.25*DOWN, stroke_width=2, color=sol.BASE00).shift(2.5*DOWN+4*RIGHT+3.6111111111*LEFT)
         self.add(numberline, end)
-        self.add(tick)
-        self.add(MathTex(r"0", color=sol.BASE00).next_to(tick, DOWN))
+        self.add(tick1)
+        self.add(tick2)
+        self.add(MathTex(r"0", color=sol.BASE00).next_to(tick1, DOWN))
+        self.add(MathTex(r"2\sqrt{n}", color=sol.BASE00).next_to(tick2, DOWN))
 
         self.add(*evalpts)
 
@@ -203,7 +206,7 @@ class Text1(Scene):
 
         thm = MathTex(
             r"""
-            { { {{L(}} \sigma_n {{)}} - 2 \sqrt{n} } \over n^{1/6} } \xlongrightarrow{\text{d}} \text{TW}_2
+            { { {{L(}} \sigma_n {{)}} - 2 \sqrt{n} } \over n^{1/6} } \xlongrightarrow{d} \text{TW}_2
             """,
             color=sol.BASE02,
             font_size=60,
