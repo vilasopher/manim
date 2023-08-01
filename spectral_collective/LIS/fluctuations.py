@@ -292,8 +292,8 @@ class Text1(Scene):
         self.play(
             FadeOut(lis),
             FadeOut(eq),
-            thm.animate.shift(3.5*UP+4.5*RIGHT),
-            tw.animate.shift(1.5*UP+0.8*LEFT)
+            thm.animate.shift(3.5*UP+5*RIGHT),
+            tw.animate.shift(1.5*UP+0.5*LEFT)
         )
 
         # time = 34
@@ -365,3 +365,17 @@ class Text2(Scene):
         self.play(FadeIn(opt))
 
         self.wait(30)
+
+
+class ExactText(Scene):
+    def construct(self):
+        txt1 = Tex(r"algebraic connections", font_size=60, color=sol.BASE02).shift(1.5*RIGHT)
+        ar = MathTex(r"\Rightarrow", font_size=60, color=sol.BASE02).rotate(-PI/2).next_to(txt1, DOWN)
+        txt2 = Tex(r"exact calculations", font_size=60, color=sol.BASE02).next_to(ar, DOWN)
+
+        self.add(txt1, ar, txt2)
+
+class ThankYouText(Scene):
+    def construct(self):
+        txt = Tex(r"\textbf{thanks for watching!}", color=sol.BASE3, font_size=100)
+        self.add(txt)
