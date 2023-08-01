@@ -65,7 +65,7 @@ time = 0
 dt = 1/(60*360)
 ticks = np.full(RES[1]+2*BUFF-2, dt)
 
-for frame in range(2700):
+for frame in range(3000):
     for _ in range(360):
         time += dt
         clocks -= ticks
