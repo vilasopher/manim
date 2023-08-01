@@ -50,12 +50,12 @@ def post_process(pixels):
 
     for c in range(RES[1]):
         r = 0
-        while r < RES[0]:
+        while r < RES[0]+BUFF+1:
             if data[r,c+BUFF] == 1:
                 for i in range(8):
                     if 0 <= r-BUFF+i and r-BUFF+i < RES[0]:
                         pppixels[r-BUFF+i,c] = np.uint8([0,43,54])
-                r = RES[0]
+                r = RES[0]+BUFF+1
             else:
                 r += 1
             
