@@ -81,7 +81,7 @@ class RandomMatrix(Scene):
         numberline = Line(8*LEFT, 3*RIGHT, stroke_width=2, color=sol.BASE00).shift(2.5*DOWN+3.6111111111*LEFT)
         end = Line(3*RIGHT, 3.5*RIGHT, stroke_width=2).set_color([sol.BASE3, sol.BASE00]).shift(2.5*DOWN+3.6111111111*LEFT)
         tick1 = Line(0.25*UP, 0.25*DOWN, stroke_width=2, color=sol.BASE00).shift(2.5*DOWN+(-2*np.sqrt(N)+4)*RIGHT+3.6111111111*LEFT)
-        tick2 = Line(0.25*UP, 0.25*DOWN, stroke_width=2, color=sol.BASE00).shift(2.5*DOWN+4*RIGHT+3.6111111111*LEFT)
+        tick2 = Line(0.25*UP, 0.25*DOWN, stroke_width=2, color=sol.BASE00).shift(2.5*DOWN+((np.sqrt(2)-2)*np.sqrt(N)+4)*RIGHT+3.6111111111*LEFT)
         self.add(numberline, end)
         self.add(tick1)
         self.add(tick2)
