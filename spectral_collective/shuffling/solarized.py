@@ -94,4 +94,4 @@ VERY_LIGHT_EDGE_CONFIG = { 'stroke_color' : BASE2 }
 DUAL_LIGHT_VERTEX_CONFIG = { 'fill_color' : DUAL_LIGHT_NODE }
 DUAL_LIGHT_EDGE_CONFIG = { 'stroke_color' : DUAL_LIGHT_EDGE }
 
-config.background_color = BASE02
+config.background_color = BASE03
