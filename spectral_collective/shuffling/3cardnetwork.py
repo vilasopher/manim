@@ -27,12 +27,8 @@ class ThreeCardStack(Group):
         self.add(*cards)
         self.add(self.occlusion)
 
-    def set_opacity(self, opacity):
-        self.opacity = opacity
-        self.occlusion.set_fill(sol.BASE02, opacity=1-opacity)
-    
-    def get_opacity(self):
-        return self.opacity
+    def set_percentage(self, percentage):
+        self.occlusion.set_fill(sol.BASE02, opacity=1-np.power(percentage,1/3))
 
 class ThreeCardNetwork(Scene):
     def construct(self):
@@ -80,41 +76,82 @@ class ThreeCardNetwork(Scene):
         self.add(*arrowmobjects.values())
 
         self.play(
-            *(cardstacks[c].animate.set_opacity(0) for c in cardstacks.keys() if c != (1,2,3)),
-            *(FadeToColor(a,sol.BASE02) for a in arrowmobjects.values())
+            *(cardstacks[c].animate.set_percentage(0)
+                for c in cardstacks.keys() if c != (1,2,3)),
+            *(FadeToColor(a,sol.BASE02) 
+                for a in arrowmobjects.values())
         )
 
         self.wait()
 
         percentages = {
-            c : DecimalNumber(33, color=sol.BASE3, unit='\%', num_decimal_places=0) for c in cardstacks.keys()
+            c : ValueTracker(0) for c in cardstacks.keys()
+        }
+        percentages[(1,2,3)].set_value(1)
+
+        percentagelabels = {
+            c : DecimalNumber(
+                percentages[c].get_value() * 100,
+                color=sol.BASE3,
+                unit='\%',
+                num_decimal_places=1
+            )
+            for c in cardstacks.keys()
         }
 
-        percentages[(1,2,3)].next_to(cardstacks[(1,2,3)], DOWN)
-        percentages[(2,1,3)].next_to(cardstacks[(2,1,3)], DOWN)
-        percentages[(3,1,2)].next_to(cardstacks[(3,1,2)], LEFT)
-        percentages[(2,3,1)].next_to(cardstacks[(2,3,1)], LEFT)
-        percentages[(1,3,2)].next_to(cardstacks[(1,3,2)], RIGHT)
-        percentages[(3,2,1)].next_to(cardstacks[(3,2,1)], RIGHT)
+        downlabels = [(1,2,3), (2,1,3)]
+        leftlabels = [(3,1,2), (2,3,1)]
+        rightlabels = [(1,3,2), (3,2,1)]
 
         for c in cardstacks.keys():
-            percentages[c].set_value(0)
-            percentages[c].add_updater(
-                lambda x : x.set_value(cardstacks[c].get_opacity() * 100)
+            cardstacks[c].add_updater(
+                lambda x, card=c:
+                    x.set_percentage(percentages[card].get_value())
             )
 
-        percentages[(1,2,3)].set_value(100)
+            percentagelabels[c].add_updater(
+                lambda x, card=c: 
+                    x.set_value(
+                        percentages[card].get_value() * 100
+                    ).next_to(
+                        cardstacks[card],
+                        DOWN if card in downlabels
+                        else LEFT if card in leftlabels
+                        else RIGHT
+                    )
+            )
 
         self.play(
-            *(FadeIn(p) for p in percentages.values())
+            *(FadeIn(p) for p in percentagelabels.values())
         )
 
         self.wait()
 
-        self.play(
-            cardstacks[(1,2,3)].animate.set_opacity(1/3),
-            cardstacks[(2,3,1)].animate.set_opacity(1/3),
-            cardstacks[(2,1,3)].animate.set_opacity(1/3),
-        )
 
-        #TODO: make the percentages background value trackers, do everything through them.
+        def step_markov_chain():
+            new_percentages = {
+                c : 1/3 * (percentages[c].get_value()
+                           + sum([percentages[a].get_value()
+                                  for a,b in arrowdata if b==c]))
+                for c in cardstacks.keys()
+            }
+            used_arrows = [
+                (a,b) for (a,b) in arrowdata if percentages[a].get_value() > 0
+            ]
+            self.play(
+                *(percentages[c].animate.set_value(new_percentages[c]) for c in cardstacks.keys()),
+                *(Indicate(arrowmobjects[a], scale_factor=1.1, color=sol.BASE2) for a in used_arrows)
+            )
+
+        step_markov_chain()
+        self.wait()
+        step_markov_chain()
+        self.wait()
+        step_markov_chain()
+        self.wait()
+        step_markov_chain()
+        self.wait()
+        step_markov_chain()
+        self.wait()
+        step_markov_chain()
+        self.wait(10)
