@@ -5,7 +5,7 @@ class ThreeCardStack(Group):
     def __init__(self, permutation, z_index=1, **kwargs):
         super().__init__(z_index=1, **kwargs)
 
-        cards = [ Rectangle(color=sol.BASE3, height=0.5, width=1.5) for i in range(3) ]
+        cards = [ Rectangle(color=sol.BASE02, height=0.5, width=1.5) for i in range(3) ]
 
         cards[0].set_fill(sol.RED, opacity=1)
         cards[1].set_fill(sol.BLUE, opacity=1)
@@ -20,15 +20,15 @@ class ThreeCardStack(Group):
         cards[a].next_to(cards[b], UP, buff=0)
         cards[c].next_to(cards[b], DOWN, buff=0)
 
-        self.occlusion = Square(color=sol.BASE02, stroke_width=0, side_length=1.55)
-        self.occlusion.set_fill(sol.BASE02, opacity=0)
+        self.occlusion = Square(color=sol.BASE2, stroke_width=0, side_length=1.55)
+        self.occlusion.set_fill(sol.BASE2, opacity=0)
         self.opacity=0
 
         self.add(*cards)
         self.add(self.occlusion)
 
     def set_percentage(self, percentage):
-        self.occlusion.set_fill(sol.BASE02, opacity=1-np.power(percentage,1/3))
+        self.occlusion.set_fill(sol.BASE2, opacity=1-np.power(percentage,1/4))
 
 class ThreeCardNetwork(Scene):
     def construct(self):
@@ -63,11 +63,11 @@ class ThreeCardNetwork(Scene):
                 start += shift
                 end += shift
 
-            mid = start + 1.5 * (end - start) / 2
+            mid = start + 1.4 * (end - start) / 2
 
             am = Group(
-                Line(start,end,color=sol.BASE1,stroke_width=6, z_index=-1),
-                Arrow(start,mid,color=sol.BASE1, z_index=-1)
+                Line(start,end,color=sol.BASE01,stroke_width=6, z_index=-1),
+                Arrow(start,mid,color=sol.BASE01, z_index=-1)
             )
 
             arrowmobjects[a] = am
@@ -78,7 +78,7 @@ class ThreeCardNetwork(Scene):
         self.play(
             *(cardstacks[c].animate.set_percentage(0)
                 for c in cardstacks.keys() if c != (1,2,3)),
-            *(FadeToColor(a,sol.BASE02) 
+            *(FadeToColor(a,sol.BASE2) 
                 for a in arrowmobjects.values())
         )
 
@@ -92,7 +92,7 @@ class ThreeCardNetwork(Scene):
         percentagelabels = {
             c : DecimalNumber(
                 percentages[c].get_value() * 100,
-                color=sol.BASE3,
+                color=sol.BASE03,
                 unit='\%',
                 num_decimal_places=1
             )
@@ -140,7 +140,7 @@ class ThreeCardNetwork(Scene):
             ]
             self.play(
                 *(percentages[c].animate.set_value(new_percentages[c]) for c in cardstacks.keys()),
-                *(Indicate(arrowmobjects[a], scale_factor=1.1, color=sol.BASE2) for a in used_arrows)
+                *(Indicate(arrowmobjects[a], scale_factor=1.1, color=sol.BASE01) for a in used_arrows)
             )
 
         step_markov_chain()
