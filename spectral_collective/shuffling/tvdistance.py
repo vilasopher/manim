@@ -211,6 +211,51 @@ class CoinFlipExample(Scene):
         ).next_to(uniformtext2, UP, buff=0.25).align_to(uniformtext2, LEFT)
         uniformbar.add(topline, bottomline, topnum, bottomnum, uniformtext1, uniformtext2)
 
+        resultbar = Rectangle(height=5, width=1.25, stroke_width=0)
+        resultbar.set_fill(sol.BASE02, opacity=1).align_to(coin1.Hbar, DOWN).shift(0.5*DOWN+4*RIGHT)
+        disagreebar = Rectangle(height=(0.7-0.4)*5, width=1.25, stroke_width=0)
+        disagreebar.set_fill(sol.BASE01, opacity=0.5).align_to(coin1.Hbar, UP).shift(0.5*DOWN+4*RIGHT)
+        resultbar.add(disagreebar)
+        resultTT1 = Tex(
+            r'\textbf{T}',
+            color=sol.RED,
+            font_size=60
+        ).align_to(resultbar, UP + LEFT).shift(0.1*(DOWN+RIGHT))
+        resultTT2 = Tex(
+            r'\textbf{T}',
+            color=sol.BLUE,
+            font_size=60
+        ).align_to(resultbar, UP + RIGHT).shift(0.1*(DOWN+LEFT))
+        resultbar.add(resultTT1, resultTT2)
+        resultHH1 = Tex(
+            r'\textbf{H}',
+            color=sol.RED,
+            font_size=60
+        ).align_to(resultbar, DOWN + LEFT).shift(0.1*(UP+RIGHT))
+        resultHH2 = Tex(
+            r'\textbf{H}',
+            color=sol.BLUE,
+            font_size=60
+        ).align_to(resultbar, DOWN + RIGHT).shift(0.1*(UP+LEFT))
+        resultbar.add(resultHH1, resultHH2)
+        resultHT1 = Tex(
+            r'\textbf{H}',
+            color=sol.RED,
+            font_size=60
+        ).next_to(disagreebar, LEFT).align_to(disagreebar, LEFT).shift(0.1*RIGHT)
+        resultHT2 = Tex(
+            r'\textbf{T}',
+            color=sol.BLUE,
+            font_size=60
+        ).next_to(disagreebar, RIGHT).align_to(resultbar, RIGHT).shift(0.1*LEFT)
+        resultbar.add(resultHT1, resultHT2)
+        resulttext = Tex(
+            r'Result',
+            color = sol.BASE03,
+            font_size=60
+        ).next_to(resultbar, UP).shift(0.1*UP)
+        resultbar.add(resulttext)
+
         self.play(FadeIn(coin1), FadeIn(coin2))
         self.play(coin1.animate.shift(3.75 * LEFT), coin2.animate.shift(5*LEFT))
         self.play(FadeIn(definition1))
@@ -235,4 +280,5 @@ class CoinFlipExample(Scene):
         self.play(coin1.animate.transform())
         self.play(FadeIn(uniformbar))
         self.play(FadeIn(coin2))
+        self.play(FadeIn(resultbar))
         self.wait()
