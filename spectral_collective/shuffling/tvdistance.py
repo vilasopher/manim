@@ -30,70 +30,80 @@ class CoinBarChart(Group):
     def __init__(self, p, label=r'Coin', plabel=r'p', color=sol.RED):
         super().__init__()
 
-        baseline = Line(color=sol.BASE03, z_index=1, start=1*LEFT, end=1*RIGHT)
-        Hbar = Rectangle(
+        self.baseline = Line(color=sol.BASE03, z_index=1, start=1*LEFT, end=1*RIGHT)
+        self.Hbar = Rectangle(
             height=p*5, width=0.75, stroke_width=0
         ).set_fill(
             interpolate_color(color, sol.BASE03, 0.2), opacity=1
         ).next_to(
-            baseline, UP, buff=0
+            self.baseline, UP, buff=0
         ).align_to(
-            baseline, LEFT
+            self.baseline, LEFT
         ).shift(
             0.125 * RIGHT
         )
-        Tbar = Rectangle(
+        self.Tbar = Rectangle(
             height=(1-p)*5, width=0.75, stroke_width=0
         ).set_fill(
             interpolate_color(color, sol.BASE3, 0.2), opacity=1
         ).next_to(
-            baseline, UP, buff=0
+            self.baseline, UP, buff=0
         ).align_to(
-            baseline, RIGHT
+            self.baseline, RIGHT
         ).shift(
             0.125 * LEFT
         )
 
-        Htext = Tex(
+        self.Htext = Tex(
             r'H',
             font_size=60,
             color=sol.BASE03
-        ).next_to(Hbar, DOWN)
-        Ttext = Tex(
+        ).next_to(self.Hbar, DOWN)
+        self.Ttext = Tex(
             r'T',
             font_size=60,
             color=sol.BASE03
-        ).next_to(Tbar, DOWN)
+        ).next_to(self.Tbar, DOWN)
 
-        Hplabel = MathTex(
+        self.Hplabel = MathTex(
             plabel, color=sol.BASE03, font_size=40
         ).set_color_by_tex(
             plabel, color
-        ).next_to(Hbar, UP)
-        Tplabel = MathTex(
+        ).next_to(self.Hbar, UP)
+        self.Tplabel = MathTex(
             r'{{1-}}'+plabel, color=sol.BASE03, font_size=40
         ).set_color_by_tex(
             plabel,color
-        ).next_to(Tbar, UP)
+        ).next_to(self.Tbar, UP)
 
-        coinlabel = Tex(
+        self.coinlabel = Tex(
             r'\textbf{'+label+r'}',
             font_size=60,
             color=color
-        ).next_to(baseline, UP).shift(4.25*UP)
+        ).next_to(self.baseline, UP).shift(4.25*UP)
 
-        self.add(baseline, Hbar, Tbar, Htext, Ttext, Hplabel, Tplabel, coinlabel)
+        self.add(self.baseline, self.Hbar, self.Tbar, self.Htext, self.Ttext, self.Hplabel, self.Tplabel, self.coinlabel)
+
+    def transform(self):
+        self.baseline.set_opacity(0)
+        self.Tplabel.set_opacity(0)
+        self.coinlabel.shift(0.5*UP)
+        self.Hbar.shift(0.5*DOWN + 0.25*RIGHT)
+        self.Tbar.next_to(self.Hbar, UP, buff=0)
+        self.Htext.next_to(self.Hbar, DOWN, buff=0).shift(0.75*UP)
+        self.Ttext.next_to(self.Tbar, UP, buff=0).shift(0.75*DOWN)
+        self.Hplabel.next_to(self.Hbar, RIGHT).align_to(self.Hbar, UP).shift(0.1*UP)
 
 class CoinFlipExample(Scene):
     def construct(self):
-        coin1 = CoinBarChart(0.7, label='Coin 1', plabel='p', color=sol.RED).shift(5.75*LEFT + 2.5*DOWN)
-        coin2 = CoinBarChart(0.4, label='Coin 2', plabel='q', color=sol.BLUE).shift(3*LEFT + 2.5*DOWN)
+        coin1 = CoinBarChart(0.7, label='Coin 1', plabel='p', color=sol.RED).shift(2*LEFT + 2.5*DOWN) #5.75
+        coin2 = CoinBarChart(0.4, label='Coin 2', plabel='q', color=sol.BLUE).shift(2*RIGHT + 2.5*DOWN) #3
 
         definition1 = Tex(
             r'\textbf{Definition 1}',
             color=sol.BASE03,
             font_size=70
-        ).move_to(2.5*UP + 2.75*RIGHT)
+        ).move_to(2.75*UP + 2.75*RIGHT)
 
         dtv = MathTex(
             r'\mathrm{d_{TV}}({{C_1}}, {{C_2}})',
@@ -123,13 +133,13 @@ class CoinFlipExample(Scene):
             r'\textbf{Definition 2}',
             color=sol.BASE03,
             font_size=70
-        ).move_to(2.5*UP + 2.75*RIGHT)
+        ).move_to(2.75*UP + 2.75*RIGHT)
 
         formula2a = MathTex(
             r'= \max_{A \subseteq \{H,T\}} |{{C_1}}(A) - {{C_2}}(A)|',
             color=sol.BASE03,
             font_size=50
-        ).next_to(dtv, DOWN).align_to(dtv, LEFT).shift(0.25*RIGHT).set_color_by_tex(r'C_1', sol.RED).set_color_by_tex(r'C_2', sol.BLUE).shift(0.25*DOWN)
+        ).next_to(dtv, DOWN).align_to(dtv, LEFT).shift(RIGHT).set_color_by_tex(r'C_1', sol.RED).set_color_by_tex(r'C_2', sol.BLUE).shift(0.25*DOWN)
 
         formula2b = MathTex(
             r'\geq |{{C_1}}(\{H\}) - {{C_2}}(\{H\})|',
@@ -143,4 +153,62 @@ class CoinFlipExample(Scene):
             font_size=50
         ).next_to(formula2b, DOWN).align_to(formula2a, LEFT).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'q', sol.BLUE).shift(0.25*DOWN)
 
-        self.add(coin1, coin2, definition1, dtv, formula2a, formula2b, formula2c)
+        definition3 = Tex(
+            r'\textbf{Definition 3}',
+            color=sol.BASE03,
+            font_size=70
+        ).move_to(2.75*UP + 2.75*RIGHT)
+
+        formula3a = MathTex(
+            r'= \min_{\substack{X \sim {{C_1}} \\ Y \sim {{C_2}}}} \mathbb{P}[X \neq Y]',
+            color=sol.BASE03,
+            font_size=50
+        ).next_to(dtv, DOWN).align_to(dtv, LEFT).shift(0.25*RIGHT).set_color_by_tex(r'C_1', sol.RED).set_color_by_tex(r'C_2', sol.BLUE).shift(0.25*DOWN)
+
+        formula3b = MathTex(
+            r'\leq',
+            color=sol.BASE03,
+            font_size=50
+        ).next_to(formula3a, DOWN).shift(0.5*DOWN).align_to(formula3a, LEFT).set_color_by_tex(r'Coin 1', sol.RED).set_color_by_tex(r'Coin 2', sol.BLUE).shift(0.25*DOWN)
+
+        formula3c = MathTex(
+            r'\quad \text{Probability that when {{Coin 1}} is}',
+            color=sol.BASE03,
+            font_size=40
+        ).next_to(formula3a, DOWN).align_to(formula3a, LEFT).shift(0.75*RIGHT+0.1*UP).set_color_by_tex(r'Coin 1', sol.RED).set_color_by_tex(r'Coin 2', sol.BLUE).shift(0.25*DOWN)
+
+        formula3d = MathTex(
+            r'\quad \text{flipped independently from {{Coin 2}}}',
+            color=sol.BASE03,
+            font_size=40
+        ).next_to(formula3c, DOWN).align_to(formula3c, LEFT).shift(0.25*UP).set_color_by_tex(r'Coin 1', sol.RED).set_color_by_tex(r'Coin 2', sol.BLUE).shift(0.25*DOWN)
+
+        formula3e = MathTex(
+            r'\quad \text{the coins come up on different sides}',
+            color=sol.BASE03,
+            font_size=40
+        ).next_to(formula3d, DOWN).align_to(formula3c, LEFT).shift(0.25*UP).set_color_by_tex(r'Coin 1', sol.RED).set_color_by_tex(r'Coin 2', sol.BLUE).shift(0.25*DOWN)
+
+        formula3f = MathTex(
+            r'= {{p}}(1-{{q}}) + (1-{{p}}){{q}}',
+            color=sol.BASE03,
+            font_size=50
+        ).next_to(formula3e, DOWN).align_to(formula3a, LEFT).shift(0.25*UP).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'q', sol.BLUE).shift(0.25*DOWN)
+
+        self.play(FadeIn(coin1), FadeIn(coin2))
+        self.play(coin1.animate.shift(3.75 * LEFT), coin2.animate.shift(5*LEFT))
+        self.play(FadeIn(definition1))
+        self.play(FadeIn(dtv))
+        self.play(FadeIn(formula1a))
+        self.play(FadeIn(formula1b))
+        self.play(FadeIn(formula1c))
+        self.play(FadeOut(formula1a, formula1b, formula1c))
+        self.play(Transform(definition1, definition2))
+        self.play(FadeIn(formula2a))
+        self.play(FadeIn(formula2b))
+        self.play(FadeIn(formula2c))
+        self.play(FadeOut(formula2a, formula2b, formula2c))
+        self.play(Transform(definition1, definition3))
+        self.play(FadeIn(formula3a))
+        self.play(FadeIn(formula3b, formula3c, formula3d, formula3e))
+        self.play(FadeIn(formula3f))
