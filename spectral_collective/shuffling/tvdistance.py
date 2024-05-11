@@ -88,7 +88,7 @@ class CoinBarChart(Group):
         self.baseline.set_opacity(0)
         self.Tplabel.set_opacity(0)
         self.coinlabel.shift(0.5*UP)
-        self.Hbar.shift(0.5*DOWN + 0.25*RIGHT)
+        self.Hbar.shift(0.5*DOWN + 0.5*RIGHT)
         self.Tbar.next_to(self.Hbar, UP, buff=0)
         self.Htext.next_to(self.Hbar, DOWN, buff=0).shift(0.75*UP)
         self.Ttext.next_to(self.Tbar, UP, buff=0).shift(0.75*DOWN)
@@ -195,6 +195,22 @@ class CoinFlipExample(Scene):
             font_size=50
         ).next_to(formula3e, DOWN).align_to(formula3a, LEFT).shift(0.25*UP).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'q', sol.BLUE).shift(0.25*DOWN)
 
+        uniformbar = Rectangle(height=5, width=0.5, stroke_width=0)
+        uniformbar.set_fill(sol.BASE1, opacity=1).align_to(coin1.Hbar, DOWN).shift(0.5*DOWN+4.75*LEFT)
+        topline = Line(ORIGIN, 0.5*RIGHT, color=sol.BASE02).next_to(uniformbar, DOWN, buff=0)
+        bottomline = Line(ORIGIN, 0.5*RIGHT, color=sol.BASE02).next_to(uniformbar, UP, buff=0)
+        topnum = DecimalNumber(1, color=sol.BASE03, num_decimal_places=0).next_to(uniformbar, RIGHT).align_to(uniformbar, UP).shift(0.125*UP)
+        bottomnum = DecimalNumber(0, color=sol.BASE03, num_decimal_places=0).next_to(uniformbar, RIGHT).align_to(uniformbar, DOWN).shift(0.125*DOWN)
+        uniformtext2 = Tex(
+            r'Number',
+            color=sol.BASE03
+        ).next_to(uniformbar, UP).shift(0.5*LEFT+0.125*UP)
+        uniformtext1 = Tex(
+            r'Random',
+            color=sol.BASE03
+        ).next_to(uniformtext2, UP, buff=0.25).align_to(uniformtext2, LEFT)
+        uniformbar.add(topline, bottomline, topnum, bottomnum, uniformtext1, uniformtext2)
+
         self.play(FadeIn(coin1), FadeIn(coin2))
         self.play(coin1.animate.shift(3.75 * LEFT), coin2.animate.shift(5*LEFT))
         self.play(FadeIn(definition1))
@@ -212,3 +228,11 @@ class CoinFlipExample(Scene):
         self.play(FadeIn(formula3a))
         self.play(FadeIn(formula3b, formula3c, formula3d, formula3e))
         self.play(FadeIn(formula3f))
+        self.play(FadeOut(definition1, dtv, formula3a, formula3b, formula3c, formula3d, formula3e, formula3f),
+                  FadeOut(coin2, shift=3.75*RIGHT), coin1.animate.shift(3.75*RIGHT))
+        coin2.shift(3.75*RIGHT)
+        coin2.transform()
+        self.play(coin1.animate.transform())
+        self.play(FadeIn(uniformbar))
+        self.play(FadeIn(coin2))
+        self.wait()
