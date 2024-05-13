@@ -209,12 +209,12 @@ class CoinFlipExample(Scene):
             r'Random',
             color=sol.BASE03
         ).next_to(uniformtext2, UP, buff=0.25).align_to(uniformtext2, LEFT)
-        uniformbar.add(topline, bottomline, topnum, bottomnum, uniformtext1, uniformtext2)
+        randomnumberBar = Group(uniformbar, topline, bottomline, topnum, bottomnum, uniformtext1, uniformtext2)
 
-        resultbar = Rectangle(height=5, width=1.25, stroke_width=0)
-        resultbar.set_fill(sol.BASE02, opacity=1).align_to(coin1.Hbar, DOWN).shift(0.5*DOWN+4*RIGHT)
-        disagreebar = Rectangle(height=(0.7-0.4)*5, width=1.25, stroke_width=0)
-        disagreebar.set_fill(sol.BASE01, opacity=0.5).align_to(coin1.Hbar, UP).shift(0.5*DOWN+4*RIGHT)
+        resultbar = Rectangle(height=5, width=1.25, stroke_width=0.5, color=sol.BASE02)
+        resultbar.set_fill(sol.BASE2, opacity=1).align_to(coin1.Hbar, DOWN).shift(0.5*DOWN+4*RIGHT)
+        disagreebar = Rectangle(height=(0.7-0.4)*5, width=1.25, stroke_width=0.5, color=sol.BASE02)
+        disagreebar.set_fill(sol.BASE1, opacity=0.5).align_to(coin1.Hbar, UP).shift(0.5*DOWN+4*RIGHT)
         resultbar.add(disagreebar)
         resultTT1 = Tex(
             r'\textbf{T}',
@@ -231,18 +231,18 @@ class CoinFlipExample(Scene):
             r'\textbf{H}',
             color=sol.RED,
             font_size=60
-        ).align_to(resultbar, DOWN + LEFT).shift(0.1*(UP+RIGHT))
+        ).align_to(resultbar, DOWN + LEFT).shift(0.1*UP+0.05*RIGHT)
         resultHH2 = Tex(
             r'\textbf{H}',
             color=sol.BLUE,
             font_size=60
-        ).align_to(resultbar, DOWN + RIGHT).shift(0.1*(UP+LEFT))
+        ).align_to(resultbar, DOWN + RIGHT).shift(0.1*UP+0.05*LEFT)
         resultbar.add(resultHH1, resultHH2)
         resultHT1 = Tex(
             r'\textbf{H}',
             color=sol.RED,
             font_size=60
-        ).next_to(disagreebar, LEFT).align_to(disagreebar, LEFT).shift(0.1*RIGHT)
+        ).next_to(disagreebar, LEFT).align_to(disagreebar, LEFT).shift(0.075*RIGHT)
         resultHT2 = Tex(
             r'\textbf{T}',
             color=sol.BLUE,
@@ -255,6 +255,23 @@ class CoinFlipExample(Scene):
             font_size=60
         ).next_to(resultbar, UP).shift(0.1*UP)
         resultbar.add(resulttext)
+        resultbar.set_z_index(3)
+
+        randomnumber = ValueTracker(0.5)
+        randomnumberPoint = Dot(color=sol.BASE03)
+        randomnumberPoint.add_updater(
+            lambda x : x.next_to(uniformbar, DOWN, buff=0).shift(5 * randomnumber.get_value() * UP)
+        )
+        randomnumberText = DecimalNumber(randomnumber.get_value(), color=sol.BASE03)
+        randomnumberText.add_updater(
+            lambda x : x.next_to(randomnumberPoint, LEFT).set_value(randomnumber.get_value())
+        )
+        randomnumberLine = Line(randomnumberPoint.get_midpoint(), randomnumberPoint.get_midpoint() + 9 * RIGHT, color=sol.BASE02, stroke_width=0.5, z_index=1)
+        randomnumberLine.add_updater(
+            lambda x : x.put_start_and_end_on(randomnumberPoint.get_midpoint(), randomnumberPoint.get_midpoint() + 9 * RIGHT)
+        )
+
+        disagreeprob
 
         self.play(FadeIn(coin1), FadeIn(coin2))
         self.play(coin1.animate.shift(3.75 * LEFT), coin2.animate.shift(5*LEFT))
@@ -278,7 +295,8 @@ class CoinFlipExample(Scene):
         coin2.shift(3.75*RIGHT)
         coin2.transform()
         self.play(coin1.animate.transform())
-        self.play(FadeIn(uniformbar))
+        self.play(FadeIn(randomnumberBar, randomnumberPoint, randomnumberText, randomnumberLine))
         self.play(FadeIn(coin2))
         self.play(FadeIn(resultbar))
+        self.play(randomnumber.animate.set_value(0.9))
         self.wait()
