@@ -1,5 +1,6 @@
 from manim import *
 import solarized as sol
+from numpy.random import random
 
 class TVDefinition(Scene):
     def construct(self):
@@ -204,58 +205,61 @@ class CoinFlipExample(Scene):
         uniformtext2 = Tex(
             r'Number',
             color=sol.BASE03
-        ).next_to(uniformbar, UP).shift(0.5*LEFT+0.125*UP)
+        ).next_to(uniformbar, UP).shift(0.65*LEFT+0.125*UP)
         uniformtext1 = Tex(
             r'Random',
             color=sol.BASE03
         ).next_to(uniformtext2, UP, buff=0.25).align_to(uniformtext2, LEFT)
         randomnumberBar = Group(uniformbar, topline, bottomline, topnum, bottomnum, uniformtext1, uniformtext2)
 
-        resultbar = Rectangle(height=5, width=1.25, stroke_width=0.5, color=sol.BASE02)
-        resultbar.set_fill(sol.BASE2, opacity=1).align_to(coin1.Hbar, DOWN).shift(0.5*DOWN+4*RIGHT)
-        disagreebar = Rectangle(height=(0.7-0.4)*5, width=1.25, stroke_width=0.5, color=sol.BASE02)
-        disagreebar.set_fill(sol.BASE1, opacity=0.5).align_to(coin1.Hbar, UP).shift(0.5*DOWN+4*RIGHT)
-        resultbar.add(disagreebar)
+        resultbar = Rectangle(height=5, width=1.25, stroke_width=0.5, color=sol.BASE02, z_index=2)
+        resultbar.set_fill(sol.BASE2, opacity=1).align_to(coin1.Hbar, DOWN).shift(0.5*DOWN+2.5*RIGHT)
+        HHbar = Rectangle(height=0.4*5, width=1.25, stroke_width=0.5, color=sol.BASE02, z_index=4)
+        HHbar.set_fill(sol.BASE1, opacity=1).next_to(resultbar, DOWN).align_to(resultbar, DOWN)
+        HTbar = Rectangle(height=(0.7-0.4)*5, width=1.25, stroke_width=0.5, color=sol.BASE02, z_index=4)
+        HTbar.set_fill(sol.BASE1, opacity=1).next_to(HHbar, UP, buff=0)
+        TTbar = Rectangle(height=(1-0.7)*5, width=1.25, stroke_width=0.5, color=sol.BASE02, z_index=4)
+        TTbar.set_fill(sol.BASE1, opacity=1).next_to(HTbar, UP, buff=0)
+
         resultTT1 = Tex(
             r'\textbf{T}',
             color=sol.RED,
             font_size=60
-        ).align_to(resultbar, UP + LEFT).shift(0.1*(DOWN+RIGHT))
+        ).align_to(TTbar, UP + LEFT).shift(0.1*(DOWN+RIGHT)).set_z_index(3)
         resultTT2 = Tex(
             r'\textbf{T}',
             color=sol.BLUE,
             font_size=60
-        ).align_to(resultbar, UP + RIGHT).shift(0.1*(DOWN+LEFT))
-        resultbar.add(resultTT1, resultTT2)
+        ).align_to(TTbar, UP + RIGHT).shift(0.1*(DOWN+LEFT)).set_z_index(3)
         resultHH1 = Tex(
             r'\textbf{H}',
             color=sol.RED,
             font_size=60
-        ).align_to(resultbar, DOWN + LEFT).shift(0.1*UP+0.05*RIGHT)
+        ).align_to(HHbar, DOWN + LEFT).shift(0.1*UP+0.05*RIGHT).set_z_index(3)
         resultHH2 = Tex(
             r'\textbf{H}',
             color=sol.BLUE,
             font_size=60
-        ).align_to(resultbar, DOWN + RIGHT).shift(0.1*UP+0.05*LEFT)
-        resultbar.add(resultHH1, resultHH2)
+        ).align_to(HHbar, DOWN + RIGHT).shift(0.1*UP+0.05*LEFT).set_z_index(3)
         resultHT1 = Tex(
             r'\textbf{H}',
             color=sol.RED,
             font_size=60
-        ).next_to(disagreebar, LEFT).align_to(disagreebar, LEFT).shift(0.075*RIGHT)
+        ).next_to(HTbar, LEFT).align_to(HTbar, LEFT).shift(0.075*RIGHT).set_z_index(3)
         resultHT2 = Tex(
             r'\textbf{T}',
             color=sol.BLUE,
             font_size=60
-        ).next_to(disagreebar, RIGHT).align_to(resultbar, RIGHT).shift(0.1*LEFT)
-        resultbar.add(resultHT1, resultHT2)
+        ).next_to(HTbar, RIGHT).align_to(HTbar, RIGHT).shift(0.1*LEFT).set_z_index(3)
+
+        resultbar.add(resultHH1, resultHH2, resultHT1, resultHT2, resultTT1, resultTT2, HHbar, HTbar, TTbar)
         resulttext = Tex(
             r'Result',
             color = sol.BASE03,
-            font_size=60
-        ).next_to(resultbar, UP).shift(0.1*UP)
+            font_size=60,
+            z_index=3
+        ).next_to(resultbar, UP).shift(0.1*UP + 0.25*RIGHT)
         resultbar.add(resulttext)
-        resultbar.set_z_index(3)
 
         randomnumber = ValueTracker(0.5)
         randomnumberPoint = Dot(color=sol.BASE03)
@@ -266,12 +270,24 @@ class CoinFlipExample(Scene):
         randomnumberText.add_updater(
             lambda x : x.next_to(randomnumberPoint, LEFT).set_value(randomnumber.get_value())
         )
-        randomnumberLine = Line(randomnumberPoint.get_midpoint(), randomnumberPoint.get_midpoint() + 9 * RIGHT, color=sol.BASE02, stroke_width=0.5, z_index=1)
+        randomnumberLine = Line(randomnumberPoint.get_midpoint(), randomnumberPoint.get_midpoint() + 7 * RIGHT, color=sol.BASE02, stroke_width=0.5, z_index=1)
         randomnumberLine.add_updater(
-            lambda x : x.put_start_and_end_on(randomnumberPoint.get_midpoint(), randomnumberPoint.get_midpoint() + 9 * RIGHT)
+            lambda x : x.put_start_and_end_on(randomnumberPoint.get_midpoint(), randomnumberPoint.get_midpoint() + 7 * RIGHT)
         )
 
-        disagreeprob
+        disagreebrace = Brace(HTbar, RIGHT, color=sol.BASE03)
+        disagreeprob1 = MathTex(
+            r'\mathbb{P}[X \neq Y]',
+            font_size = 60,
+            color=sol.BASE03
+        )
+        disagreeprob2 = MathTex(
+            r'={{p}}-{{q}}',
+            font_size=60,
+            color=sol.BASE03
+        ).set_color_by_tex(r'p', sol.RED).set_color_by_tex(r'q', sol.BLUE).next_to(disagreeprob1, DOWN).shift(0.125*RIGHT)
+        disagreeprob = Group(disagreeprob1, disagreeprob2)
+        disagreeprob.next_to(disagreebrace)
 
         self.play(FadeIn(coin1), FadeIn(coin2))
         self.play(coin1.animate.shift(3.75 * LEFT), coin2.animate.shift(5*LEFT))
@@ -291,12 +307,43 @@ class CoinFlipExample(Scene):
         self.play(FadeIn(formula3b, formula3c, formula3d, formula3e))
         self.play(FadeIn(formula3f))
         self.play(FadeOut(definition1, dtv, formula3a, formula3b, formula3c, formula3d, formula3e, formula3f),
-                  FadeOut(coin2, shift=3.75*RIGHT), coin1.animate.shift(3.75*RIGHT))
-        coin2.shift(3.75*RIGHT)
+                  FadeOut(coin2, shift=3*RIGHT), coin1.animate.shift(3*RIGHT))
+        coin2.shift(3*RIGHT)
         coin2.transform()
         self.play(coin1.animate.transform())
         self.play(FadeIn(randomnumberBar, randomnumberPoint, randomnumberText, randomnumberLine))
         self.play(FadeIn(coin2))
-        self.play(FadeIn(resultbar))
+        self.play(FadeIn(HHbar, HTbar, TTbar, resulttext))
+
+        HHbar.add_updater(
+            lambda x : x.set_fill(sol.BASE1, opacity=0.25 if randomnumber.get_value() < 0.4 else 1)
+        )
+        HTbar.add_updater(
+            lambda x : x.set_fill(sol.BASE1, opacity=0.25 if randomnumber.get_value() >= 0.4 and randomnumber.get_value() < 0.7 else 1)
+        )
+        TTbar.add_updater(
+            lambda x : x.set_fill(sol.BASE1, opacity=0.25 if randomnumber.get_value() >= 0.7 else 1)
+        )
+
+        def rerandomize():
+            randomnumber.set_value(random())
+            self.update_mobjects(0)
+
+        self.add(resultbar)
         self.play(randomnumber.animate.set_value(0.9))
+        self.play(FadeIn(disagreebrace, disagreeprob))
         self.wait()
+        rerandomize()
+        self.wait(0.5)
+        rerandomize()
+        self.wait(0.5)
+        rerandomize()
+        self.wait(0.5)
+        rerandomize()
+        self.wait(0.5)
+        rerandomize()
+        self.wait(0.5)
+        rerandomize()
+        self.wait(0.5)
+        rerandomize()
+        self.wait(1)
