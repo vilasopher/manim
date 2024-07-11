@@ -6182,6 +6182,91 @@
         "comment": "fade in formula 2",
         "pos": 18210,
         "type": 2
+    },
+    {
+        "comment": "event = subset",
+        "pos": 18450,
+        "type": 2
+    },
+    {
+        "comment": "probability = sum",
+        "pos": 18600,
+        "type": 2
+    },
+    {
+        "comment": "fade to example",
+        "pos": 18990,
+        "type": 2
+    },
+    {
+        "comment": "event that card 2 is above card 3",
+        "pos": 19080,
+        "type": 2
+    },
+    {
+        "comment": "uniform distribution",
+        "pos": 19350,
+        "type": 2
+    },
+    {
+        "comment": "one-half",
+        "pos": 19500,
+        "type": 2
+    },
+    {
+        "comment": "after one step of top-to-random",
+        "pos": 19890,
+        "type": 2
+    },
+    {
+        "comment": "probability = 1",
+        "pos": 20070,
+        "type": 2
+    },
+    {
+        "comment": "implication for tv distance",
+        "pos": 20250,
+        "type": 2
+    },
+    {
+        "comment": "fade out example, back to definitions",
+        "pos": 20580,
+        "type": 2
+    },
+    {
+        "comment": "fade in table",
+        "pos": 20670,
+        "type": 1
+    },
+    {
+        "comment": "explanation of 60%",
+        "pos": 20970,
+        "type": 1
+    },
+    {
+        "comment": "explanation of 3 or 4 shuffles",
+        "pos": 21450,
+        "type": 1
+    },
+    {
+        "comment": "go fish skit",
+        "pos": 22425,
+        "type": 5
+    },
+    {
+        "comment": "fade back to manim",
+        "pos": 22470,
+        "type": 0
+    },
+    {
+        "comment": "Random variables",
+        "pos": 22650,
+        "type": 1
+    },
+    {
+        "comment": "random outcome, i.e. random element of omega",
+        "pos": 22920,
+        "type": 1
     }
 ]
 </property>
@@ -6191,15 +6276,15 @@
   <property name="kdenlive:sequenceproperties.documentuuid">{6145f7b6-8bb3-4e2d-afc5-1905046347f9}</property>
   <property name="kdenlive:sequenceproperties.hasAudio">1</property>
   <property name="kdenlive:sequenceproperties.hasVideo">1</property>
-  <property name="kdenlive:sequenceproperties.position">18611</property>
-  <property name="kdenlive:sequenceproperties.scrollPos">37576</property>
+  <property name="kdenlive:sequenceproperties.position">23190</property>
+  <property name="kdenlive:sequenceproperties.scrollPos">358526</property>
   <property name="kdenlive:sequenceproperties.tracks">4</property>
   <property name="kdenlive:sequenceproperties.tracksCount">4</property>
   <property name="kdenlive:sequenceproperties.verticalzoom">1</property>
   <property name="kdenlive:sequenceproperties.videoTarget">2</property>
   <property name="kdenlive:sequenceproperties.zonein">0</property>
   <property name="kdenlive:sequenceproperties.zoneout">75</property>
-  <property name="kdenlive:sequenceproperties.zoom">5</property>
+  <property name="kdenlive:sequenceproperties.zoom">2</property>
   <property name="kdenlive:sequenceproperties.groups">[
 ]
 </property>
@@ -6518,6 +6603,91 @@
         "comment": "fade in formula 2",
         "pos": 18210,
         "type": 2
+    },
+    {
+        "comment": "event = subset",
+        "pos": 18450,
+        "type": 2
+    },
+    {
+        "comment": "probability = sum",
+        "pos": 18600,
+        "type": 2
+    },
+    {
+        "comment": "fade to example",
+        "pos": 18990,
+        "type": 2
+    },
+    {
+        "comment": "event that card 2 is above card 3",
+        "pos": 19080,
+        "type": 2
+    },
+    {
+        "comment": "uniform distribution",
+        "pos": 19350,
+        "type": 2
+    },
+    {
+        "comment": "one-half",
+        "pos": 19500,
+        "type": 2
+    },
+    {
+        "comment": "after one step of top-to-random",
+        "pos": 19890,
+        "type": 2
+    },
+    {
+        "comment": "probability = 1",
+        "pos": 20070,
+        "type": 2
+    },
+    {
+        "comment": "implication for tv distance",
+        "pos": 20250,
+        "type": 2
+    },
+    {
+        "comment": "fade out example, back to definitions",
+        "pos": 20580,
+        "type": 2
+    },
+    {
+        "comment": "fade in table",
+        "pos": 20670,
+        "type": 1
+    },
+    {
+        "comment": "explanation of 60%",
+        "pos": 20970,
+        "type": 1
+    },
+    {
+        "comment": "explanation of 3 or 4 shuffles",
+        "pos": 21450,
+        "type": 1
+    },
+    {
+        "comment": "go fish skit",
+        "pos": 22425,
+        "type": 5
+    },
+    {
+        "comment": "fade back to manim",
+        "pos": 22470,
+        "type": 0
+    },
+    {
+        "comment": "Random variables",
+        "pos": 22650,
+        "type": 1
+    },
+    {
+        "comment": "random outcome, i.e. random element of omega",
+        "pos": 22920,
+        "type": 1
     }
 ]
 </property>
