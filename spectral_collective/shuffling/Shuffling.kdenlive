@@ -6260,31 +6260,161 @@
     },
     {
         "comment": "Random variables",
-        "pos": 22650,
+        "pos": 22620,
         "type": 1
     },
     {
         "comment": "random outcome, i.e. random element of omega",
         "pos": 22920,
         "type": 1
+    },
+    {
+        "comment": "X tilde mu",
+        "pos": 23070,
+        "type": 1
+    },
+    {
+        "comment": "definition of X ~ mu",
+        "pos": 23190,
+        "type": 1
+    },
+    {
+        "comment": "\"a random variable is not the same as a distribution\"",
+        "pos": 23340,
+        "type": 1
+    },
+    {
+        "comment": "Example",
+        "pos": 23550,
+        "type": 1
+    },
+    {
+        "comment": "Flip a fair coin 5 times",
+        "pos": 23610,
+        "type": 1
+    },
+    {
+        "comment": "X = heads, Y = tails",
+        "pos": 23730,
+        "type": 1
+    },
+    {
+        "comment": "X ~ mu, Y ~ mu",
+        "pos": 23880,
+        "type": 1
+    },
+    {
+        "comment": "where mu = Binomial(5,1/2)",
+        "pos": 24000,
+        "type": 1
+    },
+    {
+        "comment": "But X != Y",
+        "pos": 24240,
+        "type": 1
+    },
+    {
+        "comment": "Fade back to dtv manim",
+        "pos": 24510,
+        "type": 0
+    },
+    {
+        "comment": "dtv(mu1,mu2)",
+        "pos": 24570,
+        "type": 2
+    },
+    {
+        "comment": "fade in definition 3",
+        "pos": 24660,
+        "type": 2
+    },
+    {
+        "comment": "highlight X1, X2",
+        "pos": 24810,
+        "type": 2
+    },
+    {
+        "comment": "have the distributions",
+        "pos": 24900,
+        "type": 2
+    },
+    {
+        "comment": "mu1 and mu2",
+        "pos": 24960,
+        "type": 2
+    },
+    {
+        "comment": "highlight probability",
+        "pos": 25140,
+        "type": 2
+    },
+    {
+        "comment": "sample from mu1 and mu2 simultaneously",
+        "pos": 25620,
+        "type": 2
+    },
+    {
+        "comment": "\"coupling\"",
+        "pos": 26010,
+        "type": 2
+    },
+    {
+        "comment": "fade to coin manim",
+        "pos": 26730,
+        "type": 0
+    },
+    {
+        "comment": "\"Example\"",
+        "pos": 26760,
+        "type": 1
+    },
+    {
+        "comment": "\"coin flips\"",
+        "pos": 26880,
+        "type": 1
+    },
+    {
+        "comment": "fade in coin 1",
+        "pos": 27570,
+        "type": 1
+    },
+    {
+        "comment": "highlight p",
+        "pos": 27660,
+        "type": 1
+    },
+    {
+        "comment": "fade in coin 2",
+        "pos": 27780,
+        "type": 1
+    },
+    {
+        "comment": "highlight q",
+        "pos": 27870,
+        "type": 1
+    },
+    {
+        "comment": "assumption: p >= q",
+        "pos": 28020,
+        "type": 1
     }
 ]
 </property>
-  <property name="kdenlive:sequenceproperties.activeTrack">1</property>
+  <property name="kdenlive:sequenceproperties.activeTrack">3</property>
   <property name="kdenlive:sequenceproperties.audioTarget">1</property>
   <property name="kdenlive:sequenceproperties.disablepreview">0</property>
   <property name="kdenlive:sequenceproperties.documentuuid">{6145f7b6-8bb3-4e2d-afc5-1905046347f9}</property>
   <property name="kdenlive:sequenceproperties.hasAudio">1</property>
   <property name="kdenlive:sequenceproperties.hasVideo">1</property>
-  <property name="kdenlive:sequenceproperties.position">23190</property>
-  <property name="kdenlive:sequenceproperties.scrollPos">358526</property>
+  <property name="kdenlive:sequenceproperties.position">28320</property>
+  <property name="kdenlive:sequenceproperties.scrollPos">218729</property>
   <property name="kdenlive:sequenceproperties.tracks">4</property>
   <property name="kdenlive:sequenceproperties.tracksCount">4</property>
   <property name="kdenlive:sequenceproperties.verticalzoom">1</property>
   <property name="kdenlive:sequenceproperties.videoTarget">2</property>
   <property name="kdenlive:sequenceproperties.zonein">0</property>
   <property name="kdenlive:sequenceproperties.zoneout">75</property>
-  <property name="kdenlive:sequenceproperties.zoom">2</property>
+  <property name="kdenlive:sequenceproperties.zoom">3</property>
   <property name="kdenlive:sequenceproperties.groups">[
 ]
 </property>
@@ -6681,12 +6811,142 @@
     },
     {
         "comment": "Random variables",
-        "pos": 22650,
+        "pos": 22620,
         "type": 1
     },
     {
         "comment": "random outcome, i.e. random element of omega",
         "pos": 22920,
+        "type": 1
+    },
+    {
+        "comment": "X tilde mu",
+        "pos": 23070,
+        "type": 1
+    },
+    {
+        "comment": "definition of X ~ mu",
+        "pos": 23190,
+        "type": 1
+    },
+    {
+        "comment": "\"a random variable is not the same as a distribution\"",
+        "pos": 23340,
+        "type": 1
+    },
+    {
+        "comment": "Example",
+        "pos": 23550,
+        "type": 1
+    },
+    {
+        "comment": "Flip a fair coin 5 times",
+        "pos": 23610,
+        "type": 1
+    },
+    {
+        "comment": "X = heads, Y = tails",
+        "pos": 23730,
+        "type": 1
+    },
+    {
+        "comment": "X ~ mu, Y ~ mu",
+        "pos": 23880,
+        "type": 1
+    },
+    {
+        "comment": "where mu = Binomial(5,1/2)",
+        "pos": 24000,
+        "type": 1
+    },
+    {
+        "comment": "But X != Y",
+        "pos": 24240,
+        "type": 1
+    },
+    {
+        "comment": "Fade back to dtv manim",
+        "pos": 24510,
+        "type": 0
+    },
+    {
+        "comment": "dtv(mu1,mu2)",
+        "pos": 24570,
+        "type": 2
+    },
+    {
+        "comment": "fade in definition 3",
+        "pos": 24660,
+        "type": 2
+    },
+    {
+        "comment": "highlight X1, X2",
+        "pos": 24810,
+        "type": 2
+    },
+    {
+        "comment": "have the distributions",
+        "pos": 24900,
+        "type": 2
+    },
+    {
+        "comment": "mu1 and mu2",
+        "pos": 24960,
+        "type": 2
+    },
+    {
+        "comment": "highlight probability",
+        "pos": 25140,
+        "type": 2
+    },
+    {
+        "comment": "sample from mu1 and mu2 simultaneously",
+        "pos": 25620,
+        "type": 2
+    },
+    {
+        "comment": "\"coupling\"",
+        "pos": 26010,
+        "type": 2
+    },
+    {
+        "comment": "fade to coin manim",
+        "pos": 26730,
+        "type": 0
+    },
+    {
+        "comment": "\"Example\"",
+        "pos": 26760,
+        "type": 1
+    },
+    {
+        "comment": "\"coin flips\"",
+        "pos": 26880,
+        "type": 1
+    },
+    {
+        "comment": "fade in coin 1",
+        "pos": 27570,
+        "type": 1
+    },
+    {
+        "comment": "highlight p",
+        "pos": 27660,
+        "type": 1
+    },
+    {
+        "comment": "fade in coin 2",
+        "pos": 27780,
+        "type": 1
+    },
+    {
+        "comment": "highlight q",
+        "pos": 27870,
+        "type": 1
+    },
+    {
+        "comment": "assumption: p >= q",
+        "pos": 28020,
         "type": 1
     }
 ]
