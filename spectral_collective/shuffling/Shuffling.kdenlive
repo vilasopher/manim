@@ -2887,7 +2887,7 @@
   <property name="kdenlive:folderid">4</property>
   <property name="kdenlive:audio_max0">206</property>
  </chain>
- <producer id="producer0" in="00:00:00.000" out="00:29:09.133">
+ <producer id="producer0" in="00:00:00.000" out="00:29:14.317">
   <property name="length">2147483647</property>
   <property name="eof">continue</property>
   <property name="resource">black</property>
@@ -4803,7 +4803,7 @@
     <property name="end">0</property>
    </filter>
   </entry>
-  <blank length="00:00:00.233"/>
+  <blank length="00:00:00.433"/>
   <entry in="00:00:00.350" out="00:00:27.833" producer="chain13">
    <property name="kdenlive:id">63</property>
    <filter id="filter31" in="00:00:00.350" out="00:00:00.583">
@@ -4995,7 +4995,7 @@
     <property name="kdenlive:collapsed">0</property>
    </filter>
   </entry>
-  <blank length="00:00:00.467"/>
+  <blank length="00:00:00.950"/>
   <entry in="00:00:00.900" out="00:00:22.083" producer="chain22">
    <property name="kdenlive:id">81</property>
    <filter id="filter49" in="00:00:00.900" out="00:00:01.083">
@@ -5059,7 +5059,7 @@
     <property name="end">0</property>
    </filter>
   </entry>
-  <blank length="00:00:00.483"/>
+  <blank length="00:00:00.833"/>
   <entry in="00:00:00.433" out="00:00:11.767" producer="chain25">
    <property name="kdenlive:id">87</property>
    <filter id="filter55" in="00:00:00.433" out="00:00:00.650">
@@ -5082,7 +5082,7 @@
    </filter>
   </entry>
   <blank length="00:00:00.800"/>
-  <entry in="00:00:00.667" out="00:00:26.300" producer="chain26">
+  <entry in="00:00:00.667" out="00:00:21.917" producer="chain26">
    <property name="kdenlive:id">89</property>
    <filter id="filter57" in="00:00:00.667" out="00:00:00.817">
     <property name="window">75</property>
@@ -5093,7 +5093,19 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter58" in="00:00:25.917" out="00:00:26.300">
+   <filter id="filter58" in="00:00:21.417" out="00:00:21.917">
+    <property name="window">75</property>
+    <property name="max_gain">20dB</property>
+    <property name="mlt_service">volume</property>
+    <property name="kdenlive_id">fadeout</property>
+    <property name="gain">1</property>
+    <property name="end">0</property>
+   </filter>
+  </entry>
+  <blank length="00:00:01.083"/>
+  <entry in="00:00:21.933" out="00:00:26.300" producer="chain26">
+   <property name="kdenlive:id">89</property>
+   <filter id="filter59" in="00:00:25.933" out="00:00:26.317">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5102,11 +5114,7 @@
     <property name="end">0</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-  </entry>
-  <blank length="00:00:00.383"/>
-  <entry in="00:00:00.933" out="00:00:28.283" producer="chain27">
-   <property name="kdenlive:id">91</property>
-   <filter id="filter59" in="00:00:00.933" out="00:00:01.117">
+   <filter id="filter60" in="00:00:21.933" out="00:00:22.250">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5115,7 +5123,20 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter60" in="00:00:27.950" out="00:00:28.283">
+  </entry>
+  <blank length="00:00:00.383"/>
+  <entry in="00:00:00.933" out="00:00:28.283" producer="chain27">
+   <property name="kdenlive:id">91</property>
+   <filter id="filter61" in="00:00:00.933" out="00:00:01.117">
+    <property name="window">75</property>
+    <property name="max_gain">20dB</property>
+    <property name="mlt_service">volume</property>
+    <property name="kdenlive_id">fadein</property>
+    <property name="gain">0</property>
+    <property name="end">1</property>
+    <property name="kdenlive:collapsed">0</property>
+   </filter>
+   <filter id="filter62" in="00:00:27.950" out="00:00:28.283">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5128,7 +5149,7 @@
   <blank length="00:00:00.250"/>
   <entry in="00:00:00.817" out="00:00:24.917" producer="chain28">
    <property name="kdenlive:id">93</property>
-   <filter id="filter61" in="00:00:00.817" out="00:00:01.133">
+   <filter id="filter63" in="00:00:00.817" out="00:00:01.133">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5137,7 +5158,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter62" in="00:00:24.483" out="00:00:24.917">
+   <filter id="filter64" in="00:00:24.483" out="00:00:24.917">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5150,7 +5171,7 @@
   <blank length="00:00:00.533"/>
   <entry in="00:00:00.700" out="00:00:25.517" producer="chain29">
    <property name="kdenlive:id">95</property>
-   <filter id="filter63" in="00:00:00.700" out="00:00:00.883">
+   <filter id="filter65" in="00:00:00.700" out="00:00:00.883">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5159,7 +5180,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter64" in="00:00:25.100" out="00:00:25.517">
+   <filter id="filter66" in="00:00:25.100" out="00:00:25.517">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5172,7 +5193,7 @@
   <blank length="00:00:00.500"/>
   <entry in="00:00:00.683" out="00:00:21.267" producer="chain30">
    <property name="kdenlive:id">96</property>
-   <filter id="filter65" in="00:00:00.683" out="00:00:01.000">
+   <filter id="filter67" in="00:00:00.683" out="00:00:01.000">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5181,7 +5202,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter66" in="00:00:20.883" out="00:00:21.267">
+   <filter id="filter68" in="00:00:20.883" out="00:00:21.267">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5194,7 +5215,7 @@
   <blank length="00:00:00.500"/>
   <entry in="00:00:00.483" out="00:00:15.133" producer="chain31">
    <property name="kdenlive:id">98</property>
-   <filter id="filter67" in="00:00:00.483" out="00:00:00.700">
+   <filter id="filter69" in="00:00:00.483" out="00:00:00.700">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5203,7 +5224,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter68" in="00:00:14.817" out="00:00:15.133">
+   <filter id="filter70" in="00:00:14.817" out="00:00:15.133">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5216,7 +5237,7 @@
   <blank length="00:00:00.283"/>
   <entry in="00:00:01.017" out="00:00:31.017" producer="chain32">
    <property name="kdenlive:id">101</property>
-   <filter id="filter69" in="00:00:01.017" out="00:00:01.183">
+   <filter id="filter71" in="00:00:01.017" out="00:00:01.183">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5225,7 +5246,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter70" in="00:00:30.800" out="00:00:31.017">
+   <filter id="filter72" in="00:00:30.800" out="00:00:31.017">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5238,7 +5259,7 @@
   <blank length="00:00:00.350"/>
   <entry in="00:00:01.633" out="00:00:24.417" producer="chain33">
    <property name="kdenlive:id">103</property>
-   <filter id="filter71" in="00:00:01.633" out="00:00:02.033">
+   <filter id="filter73" in="00:00:01.633" out="00:00:02.033">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5247,7 +5268,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter72" in="00:00:23.950" out="00:00:24.417">
+   <filter id="filter74" in="00:00:23.950" out="00:00:24.417">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5259,7 +5280,7 @@
   </entry>
   <entry in="00:00:00.233" out="00:00:08.783" producer="chain34">
    <property name="kdenlive:id">105</property>
-   <filter id="filter73" in="00:00:00.233" out="00:00:00.500">
+   <filter id="filter75" in="00:00:00.233" out="00:00:00.500">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5268,7 +5289,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter74" in="00:00:08.350" out="00:00:08.783">
+   <filter id="filter76" in="00:00:08.350" out="00:00:08.783">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5280,7 +5301,7 @@
   </entry>
   <entry in="00:00:00.933" out="00:00:12.683" producer="chain35">
    <property name="kdenlive:id">106</property>
-   <filter id="filter75" in="00:00:00.933" out="00:00:01.317">
+   <filter id="filter77" in="00:00:00.933" out="00:00:01.317">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5289,7 +5310,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter76" in="00:00:12.317" out="00:00:12.683">
+   <filter id="filter78" in="00:00:12.317" out="00:00:12.683">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5302,7 +5323,7 @@
   <blank length="00:00:00.967"/>
   <entry in="00:00:13.667" out="00:00:17.083" producer="chain35">
    <property name="kdenlive:id">106</property>
-   <filter id="filter77" in="00:00:16.850" out="00:00:17.083">
+   <filter id="filter79" in="00:00:16.850" out="00:00:17.083">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5311,7 +5332,7 @@
     <property name="end">0</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter78" in="00:00:13.667" out="00:00:14.050">
+   <filter id="filter80" in="00:00:13.667" out="00:00:14.050">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5321,10 +5342,10 @@
     <property name="kdenlive:collapsed">0</property>
    </filter>
   </entry>
-  <blank length="00:00:00.450"/>
+  <blank length="00:00:00.767"/>
   <entry in="00:00:01.350" out="00:00:17.300" producer="chain36">
    <property name="kdenlive:id">108</property>
-   <filter id="filter79" in="00:00:01.350" out="00:00:01.517">
+   <filter id="filter81" in="00:00:01.350" out="00:00:01.517">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5333,7 +5354,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter80" in="00:00:16.950" out="00:00:17.300">
+   <filter id="filter82" in="00:00:16.950" out="00:00:17.300">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5343,10 +5364,10 @@
     <property name="kdenlive:collapsed">0</property>
    </filter>
   </entry>
-  <blank length="00:00:00.183"/>
+  <blank length="00:00:00.650"/>
   <entry in="00:00:01.217" out="00:00:32.217" producer="chain37">
    <property name="kdenlive:id">112</property>
-   <filter id="filter81" in="00:00:01.217" out="00:00:01.383">
+   <filter id="filter83" in="00:00:01.217" out="00:00:01.383">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5355,7 +5376,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter82" in="00:00:31.867" out="00:00:32.217">
+   <filter id="filter84" in="00:00:31.867" out="00:00:32.217">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5368,7 +5389,7 @@
   <blank length="00:00:00.233"/>
   <entry in="00:00:01.017" out="00:00:33.317" producer="chain38">
    <property name="kdenlive:id">114</property>
-   <filter id="filter83" in="00:00:01.017" out="00:00:01.200">
+   <filter id="filter85" in="00:00:01.017" out="00:00:01.200">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5377,7 +5398,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter84" in="00:00:33.000" out="00:00:33.317">
+   <filter id="filter86" in="00:00:33.000" out="00:00:33.317">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5386,10 +5407,10 @@
     <property name="end">0</property>
    </filter>
   </entry>
-  <blank length="00:00:00.133"/>
+  <blank length="00:00:01.533"/>
   <entry in="00:00:00.633" out="00:00:16.633" producer="chain39">
    <property name="kdenlive:id">9</property>
-   <filter id="filter85" in="00:00:00.633" out="00:00:00.700">
+   <filter id="filter87" in="00:00:00.633" out="00:00:00.700">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5398,7 +5419,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter86" in="00:00:16.317" out="00:00:16.633">
+   <filter id="filter88" in="00:00:16.317" out="00:00:16.633">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5411,7 +5432,7 @@
   <blank length="00:00:00.250"/>
   <entry in="00:00:00.950" out="00:00:14.833" producer="chain40">
    <property name="kdenlive:id">12</property>
-   <filter id="filter87" in="00:00:00.950" out="00:00:01.017">
+   <filter id="filter89" in="00:00:00.950" out="00:00:01.017">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5420,7 +5441,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter88" in="00:00:14.533" out="00:00:14.833">
+   <filter id="filter90" in="00:00:14.533" out="00:00:14.833">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5433,7 +5454,7 @@
   <blank length="00:00:00.267"/>
   <entry in="00:00:00.967" out="00:00:20.133" producer="chain41">
    <property name="kdenlive:id">13</property>
-   <filter id="filter89" in="00:00:00.967" out="00:00:01.083">
+   <filter id="filter91" in="00:00:00.967" out="00:00:01.083">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5442,7 +5463,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter90" in="00:00:19.817" out="00:00:20.133">
+   <filter id="filter92" in="00:00:19.817" out="00:00:20.133">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5455,7 +5476,7 @@
   <blank length="00:00:00.400"/>
   <entry in="00:00:00.350" out="00:00:12.367" producer="chain42">
    <property name="kdenlive:id">16</property>
-   <filter id="filter91" in="00:00:00.350" out="00:00:00.617">
+   <filter id="filter93" in="00:00:00.350" out="00:00:00.617">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5464,7 +5485,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter92" in="00:00:11.767" out="00:00:12.367">
+   <filter id="filter94" in="00:00:11.767" out="00:00:12.367">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5475,7 +5496,7 @@
   </entry>
   <entry in="00:00:20.450" out="00:00:27.900" producer="chain42">
    <property name="kdenlive:id">16</property>
-   <filter id="filter93" in="00:00:20.450" out="00:00:21.117">
+   <filter id="filter95" in="00:00:20.450" out="00:00:21.117">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5484,7 +5505,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter94" in="00:00:27.483" out="00:00:27.900">
+   <filter id="filter96" in="00:00:27.483" out="00:00:27.900">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5496,7 +5517,7 @@
   </entry>
   <entry in="00:00:00.650" out="00:00:12.000" producer="chain43">
    <property name="kdenlive:id">18</property>
-   <filter id="filter95" in="00:00:00.650" out="00:00:00.883">
+   <filter id="filter97" in="00:00:00.650" out="00:00:00.883">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5505,7 +5526,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter96" in="00:00:11.733" out="00:00:12.000">
+   <filter id="filter98" in="00:00:11.733" out="00:00:12.000">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5518,7 +5539,7 @@
   <blank length="00:00:00.183"/>
   <entry in="00:00:34.300" out="00:00:44.367" producer="chain43">
    <property name="kdenlive:id">18</property>
-   <filter id="filter97" in="00:00:34.300" out="00:00:34.600">
+   <filter id="filter99" in="00:00:34.300" out="00:00:34.600">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5527,7 +5548,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter98" in="00:00:44.217" out="00:00:44.367">
+   <filter id="filter100" in="00:00:44.217" out="00:00:44.367">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5537,10 +5558,10 @@
     <property name="kdenlive:collapsed">0</property>
    </filter>
   </entry>
-  <blank length="00:00:00.767"/>
+  <blank length="00:00:01.083"/>
   <entry in="00:00:00.750" out="00:00:30.267" producer="chain44">
    <property name="kdenlive:id">20</property>
-   <filter id="filter99" in="00:00:00.750" out="00:00:00.867">
+   <filter id="filter101" in="00:00:00.750" out="00:00:00.867">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5549,7 +5570,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter100" in="00:00:30.117" out="00:00:30.267">
+   <filter id="filter102" in="00:00:30.117" out="00:00:30.267">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5562,7 +5583,7 @@
   <blank length="00:00:00.767"/>
   <entry in="00:00:00.700" out="00:00:16.867" producer="chain45">
    <property name="kdenlive:id">23</property>
-   <filter id="filter101" in="00:00:00.700" out="00:00:00.783">
+   <filter id="filter103" in="00:00:00.700" out="00:00:00.783">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5571,7 +5592,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter102" in="00:00:16.700" out="00:00:16.867">
+   <filter id="filter104" in="00:00:16.700" out="00:00:16.867">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5584,7 +5605,7 @@
   <blank length="00:00:00.683"/>
   <entry in="00:00:00.817" out="00:00:18.217" producer="chain46">
    <property name="kdenlive:id">25</property>
-   <filter id="filter103" in="00:00:00.817" out="00:00:00.933">
+   <filter id="filter105" in="00:00:00.817" out="00:00:00.933">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5593,7 +5614,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter104" in="00:00:17.967" out="00:00:18.217">
+   <filter id="filter106" in="00:00:17.967" out="00:00:18.217">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5606,7 +5627,7 @@
   <blank length="00:00:00.567"/>
   <entry in="00:00:00.783" out="00:00:15.717" producer="chain47">
    <property name="kdenlive:id">27</property>
-   <filter id="filter105" in="00:00:00.783" out="00:00:00.900">
+   <filter id="filter107" in="00:00:00.783" out="00:00:00.900">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5615,7 +5636,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter106" in="00:00:15.417" out="00:00:15.717">
+   <filter id="filter108" in="00:00:15.417" out="00:00:15.717">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5627,7 +5648,7 @@
   <blank length="00:00:00.550"/>
   <entry in="00:00:01.083" out="00:00:31.417" producer="chain48">
    <property name="kdenlive:id">29</property>
-   <filter id="filter107" in="00:00:01.083" out="00:00:01.200">
+   <filter id="filter109" in="00:00:01.083" out="00:00:01.200">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5636,7 +5657,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter108" in="00:00:31.117" out="00:00:31.417">
+   <filter id="filter110" in="00:00:31.117" out="00:00:31.417">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5649,7 +5670,7 @@
   <blank length="00:00:00.600"/>
   <entry in="00:00:00.700" out="00:00:13.100" producer="chain49">
    <property name="kdenlive:id">31</property>
-   <filter id="filter109" in="00:00:00.700" out="00:00:00.867">
+   <filter id="filter111" in="00:00:00.700" out="00:00:00.867">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5658,7 +5679,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter110" in="00:00:12.900" out="00:00:13.100">
+   <filter id="filter112" in="00:00:12.900" out="00:00:13.100">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5671,7 +5692,7 @@
   <blank length="00:00:00.317"/>
   <entry in="00:00:24.433" out="00:00:38.033" producer="chain49">
    <property name="kdenlive:id">31</property>
-   <filter id="filter111" in="00:00:24.433" out="00:00:24.533">
+   <filter id="filter113" in="00:00:24.433" out="00:00:24.533">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5680,7 +5701,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter112" in="00:00:37.783" out="00:00:38.033">
+   <filter id="filter114" in="00:00:37.783" out="00:00:38.033">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5693,7 +5714,7 @@
   <blank length="00:00:00.467"/>
   <entry in="00:00:00.683" out="00:00:09.700" producer="chain50">
    <property name="kdenlive:id">33</property>
-   <filter id="filter113" in="00:00:00.683" out="00:00:00.767">
+   <filter id="filter115" in="00:00:00.683" out="00:00:00.767">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5702,7 +5723,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter114" in="00:00:09.567" out="00:00:09.700">
+   <filter id="filter116" in="00:00:09.567" out="00:00:09.700">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5712,10 +5733,10 @@
     <property name="kdenlive:collapsed">0</property>
    </filter>
   </entry>
-  <blank length="00:00:01.050"/>
+  <blank length="00:00:01.617"/>
   <entry in="00:00:01.050" out="00:00:13.583" producer="chain51">
    <property name="kdenlive:id">35</property>
-   <filter id="filter115" in="00:00:01.050" out="00:00:01.100">
+   <filter id="filter117" in="00:00:01.050" out="00:00:01.100">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5724,7 +5745,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter116" in="00:00:13.350" out="00:00:13.583">
+   <filter id="filter118" in="00:00:13.350" out="00:00:13.583">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5737,7 +5758,7 @@
   <blank length="00:00:00.083"/>
   <entry in="00:00:21.033" out="00:00:29.200" producer="chain51">
    <property name="kdenlive:id">35</property>
-   <filter id="filter117" in="00:00:28.983" out="00:00:29.200">
+   <filter id="filter119" in="00:00:28.983" out="00:00:29.200">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5746,7 +5767,7 @@
     <property name="end">0</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter118" in="00:00:21.033" out="00:00:21.200">
+   <filter id="filter120" in="00:00:21.033" out="00:00:21.200">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5759,7 +5780,7 @@
   <blank length="00:00:00.683"/>
   <entry in="00:00:00.767" out="00:00:32.200" producer="chain52">
    <property name="kdenlive:id">37</property>
-   <filter id="filter119" in="00:00:00.767" out="00:00:00.833">
+   <filter id="filter121" in="00:00:00.767" out="00:00:00.833">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5768,7 +5789,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter120" in="00:00:31.883" out="00:00:32.200">
+   <filter id="filter122" in="00:00:31.883" out="00:00:32.200">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5781,7 +5802,7 @@
   <blank length="00:00:00.567"/>
   <entry in="00:00:00.600" out="00:00:29.217" producer="chain53">
    <property name="kdenlive:id">39</property>
-   <filter id="filter121" in="00:00:00.600" out="00:00:00.650">
+   <filter id="filter123" in="00:00:00.600" out="00:00:00.650">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5790,7 +5811,7 @@
     <property name="end">1</property>
     <property name="kdenlive:collapsed">0</property>
    </filter>
-   <filter id="filter122" in="00:00:29.017" out="00:00:29.217">
+   <filter id="filter124" in="00:00:29.017" out="00:00:29.217">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5804,7 +5825,7 @@
  <playlist id="playlist3">
   <property name="kdenlive:audio_track">1</property>
  </playlist>
- <tractor id="tractor1" in="00:00:00.000" out="00:24:09.117">
+ <tractor id="tractor1" in="00:00:00.000" out="00:24:14.300">
   <property name="kdenlive:audio_track">1</property>
   <property name="kdenlive:trackheight">67</property>
   <property name="kdenlive:timeline_active">1</property>
@@ -5813,21 +5834,21 @@
   <property name="kdenlive:audio_rec"/>
   <track hide="video" producer="playlist2"/>
   <track hide="video" producer="playlist3"/>
-  <filter id="filter123">
+  <filter id="filter125">
    <property name="window">75</property>
    <property name="max_gain">20dB</property>
    <property name="mlt_service">volume</property>
    <property name="internal_added">237</property>
    <property name="disable">1</property>
   </filter>
-  <filter id="filter124">
+  <filter id="filter126">
    <property name="channel">-1</property>
    <property name="mlt_service">panner</property>
    <property name="internal_added">237</property>
    <property name="start">0.5</property>
    <property name="disable">1</property>
   </filter>
-  <filter id="filter125">
+  <filter id="filter127">
    <property name="iec_scale">0</property>
    <property name="mlt_service">audiolevel</property>
    <property name="dbpeak">1</property>
@@ -5856,9 +5877,9 @@
   <track hide="audio" producer="playlist6"/>
   <track hide="audio" producer="playlist7"/>
  </tractor>
- <tractor id="tractor4" in="00:00:00.000" out="00:24:09.117">
-  <property name="kdenlive:duration">00:24:09.133</property>
-  <property name="kdenlive:maxduration">86948</property>
+ <tractor id="tractor4" in="00:00:00.000" out="00:24:14.300">
+  <property name="kdenlive:duration">00:24:14.317</property>
+  <property name="kdenlive:maxduration">87259</property>
   <property name="kdenlive:clipname">Sequence 1</property>
   <property name="kdenlive:description"/>
   <property name="kdenlive:uuid">{6145f7b6-8bb3-4e2d-afc5-1905046347f9}</property>
@@ -6397,24 +6418,444 @@
         "comment": "assumption: p >= q",
         "pos": 28020,
         "type": 1
+    },
+    {
+        "comment": "mu_p",
+        "pos": 28290,
+        "type": 1
+    },
+    {
+        "comment": "mu_q",
+        "pos": 28350,
+        "type": 1
+    },
+    {
+        "comment": "slide to the left",
+        "pos": 28530,
+        "type": 1
+    },
+    {
+        "comment": "definition 1",
+        "pos": 28560,
+        "type": 1
+    },
+    {
+        "comment": "dtv(mup,muq) = formula",
+        "pos": 28620,
+        "type": 1
+    },
+    {
+        "comment": "write what it is in this case",
+        "pos": 28800,
+        "type": 1
+    },
+    {
+        "comment": "simplified",
+        "pos": 29130,
+        "type": 1
+    },
+    {
+        "comment": "definition 2",
+        "pos": 29340,
+        "type": 1
+    },
+    {
+        "comment": "dtv(mup,muq) = max(..)",
+        "pos": 29370,
+        "type": 1
+    },
+    {
+        "comment": ">= thing for any particular event A",
+        "pos": 29460,
+        "type": 1
+    },
+    {
+        "comment": "let A = {H}",
+        "pos": 29700,
+        "type": 1
+    },
+    {
+        "comment": "?? figure this out",
+        "pos": 30045,
+        "type": 7
+    },
+    {
+        "comment": "clean things up",
+        "pos": 30360,
+        "type": 1
+    },
+    {
+        "comment": "Since we know dtv(mup,muq) = p-q, this event achieves the maximum",
+        "pos": 30540,
+        "type": 1
+    },
+    {
+        "comment": "Definition 3",
+        "pos": 31020,
+        "type": 1
+    },
+    {
+        "comment": "dtv(mup,muq) = min(..)",
+        "pos": 31050,
+        "type": 1
+    },
+    {
+        "comment": "what is this? (arrow to coupling)",
+        "pos": 31170,
+        "type": 1
+    },
+    {
+        "comment": "?? figure this out",
+        "pos": 31495,
+        "type": 7
+    },
+    {
+        "comment": "Example",
+        "pos": 31680,
+        "type": 1
+    },
+    {
+        "comment": "Independent coupling",
+        "pos": 31710,
+        "type": 1
+    },
+    {
+        "comment": "table",
+        "pos": 31920,
+        "type": 1
+    },
+    {
+        "comment": "&lt;= P[X != Y when X and Y are independent]",
+        "pos": 32730,
+        "type": 1
+    },
+    {
+        "comment": "These two entries of the table",
+        "pos": 33270,
+        "type": 1
+    },
+    {
+        "comment": "fade it in",
+        "pos": 33390,
+        "type": 1
+    },
+    {
+        "comment": "> p-q",
+        "pos": 33780,
+        "type": 1
+    },
+    {
+        "comment": "the independent coupling does not achieve the minimum",
+        "pos": 33990,
+        "type": 1
+    },
+    {
+        "comment": "fade to new manim",
+        "pos": 34290,
+        "type": 0
+    },
+    {
+        "comment": "number line",
+        "pos": 34500,
+        "type": 1
+    },
+    {
+        "comment": "Fade back to all definitions of dtv",
+        "pos": 39270,
+        "type": 0
+    },
+    {
+        "comment": "any event gives a lower bound",
+        "pos": 39960,
+        "type": 1
+    },
+    {
+        "comment": "any coupling gives an upper bound",
+        "pos": 40170,
+        "type": 1
+    },
+    {
+        "comment": "|omega| = 52! >> astronomical",
+        "pos": 40830,
+        "type": 1
+    },
+    {
+        "comment": "What is the probability of a specific arrangement after 4 riffle shuffles?",
+        "pos": 41070,
+        "type": 1
+    },
+    {
+        "comment": "In the rest of the video (fade in the whole thing at once)",
+        "pos": 41580,
+        "type": 1
+    },
+    {
+        "comment": "\"the total variation distance between...\"",
+        "pos": 42150,
+        "type": 2
+    },
+    {
+        "comment": "d(t)",
+        "pos": 42720,
+        "type": 2
+    },
+    {
+        "comment": "d^shuffle",
+        "pos": 42810,
+        "type": 2
+    },
+    {
+        "comment": "d^top-to-random",
+        "pos": 43050,
+        "type": 2
+    },
+    {
+        "comment": "n = number of cards in the deck",
+        "pos": 43410,
+        "type": 2
+    },
+    {
+        "comment": "d_n",
+        "pos": 43620,
+        "type": 2
+    },
+    {
+        "comment": "d(t) &lt; f_n(t)",
+        "pos": 43800,
+        "type": 2
+    },
+    {
+        "comment": "f_n^{-1}(epsilon)",
+        "pos": 44010,
+        "type": 2
+    },
+    {
+        "comment": "&lt;",
+        "pos": 44130,
+        "type": 2
+    },
+    {
+        "comment": "tau(epsilon) = number of times we need to shuffle before the distance is at most epsilon",
+        "pos": 44190,
+        "type": 2
+    },
+    {
+        "comment": "= mixing time",
+        "pos": 44520,
+        "type": 2
+    },
+    {
+        "comment": "fade to blank",
+        "pos": 44940,
+        "type": 0
+    },
+    {
+        "comment": "sneaky trick: reversing the shuffle",
+        "pos": 45060,
+        "type": 1
+    },
+    {
+        "comment": "fade in network",
+        "pos": 45270,
+        "type": 1
+    },
+    {
+        "comment": "reverse all of the arrows",
+        "pos": 45660,
+        "type": 1
+    },
+    {
+        "comment": "\"random-to-top\" shuffle",
+        "pos": 45960,
+        "type": 1
+    },
+    {
+        "comment": "slide over, show both networks at once (titled: original and reverse)",
+        "pos": 46200,
+        "type": 1
+    },
+    {
+        "comment": "turn all nodes into blank circles or boxes",
+        "pos": 46800,
+        "type": 1
+    },
+    {
+        "comment": "isomorphism symbol",
+        "pos": 47100,
+        "type": 1
+    },
+    {
+        "comment": "show definition 1 and highlight the sum over all outcomes",
+        "pos": 47280,
+        "type": 1
+    },
+    {
+        "comment": "d^top-to-random = d^random-to-top",
+        "pos": 47580,
+        "type": 1
+    },
+    {
+        "comment": "Why?",
+        "pos": 48030,
+        "type": 1
+    },
+    {
+        "comment": "in short;",
+        "pos": 48150,
+        "type": 1
+    },
+    {
+        "comment": "this is a random walk on a group",
+        "pos": 48270,
+        "type": 1
+    },
+    {
+        "comment": "Groups are symmetric",
+        "pos": 48540,
+        "type": 1
+    },
+    {
+        "comment": "There will not be any group theory in this video!",
+        "pos": 49080,
+        "type": 1
+    },
+    {
+        "comment": "Just remember that d^top-to-random = d^random-to-top",
+        "pos": 49200,
+        "type": 1
+    },
+    {
+        "comment": "We will upper bound this by constructing a coupling",
+        "pos": 49440,
+        "type": 1
+    },
+    {
+        "comment": "Fade to real life",
+        "pos": 49800,
+        "type": 0
+    },
+    {
+        "comment": "show deck, text saying it's uniformly random",
+        "pos": 49890,
+        "type": 8
+    },
+    {
+        "comment": "Do one shuffle",
+        "pos": 50040,
+        "type": 8
+    },
+    {
+        "comment": "Still uniformly random!",
+        "pos": 50160,
+        "type": 8
+    },
+    {
+        "comment": "do some more shuffles",
+        "pos": 50340,
+        "type": 8
+    },
+    {
+        "comment": "anisah's hand comes in with the unshuffled deck",
+        "pos": 50640,
+        "type": 8
+    },
+    {
+        "comment": "say this deck is unshuffled, that is uniformly random",
+        "pos": 50700,
+        "type": 8
+    },
+    {
+        "comment": "start shuffling simultaneously",
+        "pos": 50896,
+        "type": 8
+    },
+    {
+        "comment": "switch to face up cards",
+        "pos": 51134,
+        "type": 8
+    },
+    {
+        "comment": "put finger on random card",
+        "pos": 51484,
+        "type": 8
+    },
+    {
+        "comment": "put it on top",
+        "pos": 51592,
+        "type": 8
+    },
+    {
+        "comment": "do the same with the perfectly random deck, but choose the same card",
+        "pos": 51729,
+        "type": 8
+    },
+    {
+        "comment": "do this a few more times",
+        "pos": 52031,
+        "type": 8
+    },
+    {
+        "comment": "show the choice of card, then show shuffle being done",
+        "pos": 52671,
+        "type": 8
+    },
+    {
+        "comment": "replay the footage",
+        "pos": 53058,
+        "type": 8
+    },
+    {
+        "comment": "add check mark for top cards",
+        "pos": 53160,
+        "type": 8
+    },
+    {
+        "comment": "do it again",
+        "pos": 53361,
+        "type": 8
+    },
+    {
+        "comment": "check mark for two cards",
+        "pos": 53447,
+        "type": 8
+    },
+    {
+        "comment": "keep shuffling and adding check marks until the deck is shuffled, keep shuffling",
+        "pos": 53716,
+        "type": 8
+    },
+    {
+        "comment": "fade to manim",
+        "pos": 54540,
+        "type": 0
+    },
+    {
+        "comment": "242 skit",
+        "pos": 62656,
+        "type": 5
+    },
+    {
+        "comment": "fade back to manim",
+        "pos": 73380,
+        "type": 0
     }
 ]
 </property>
-  <property name="kdenlive:sequenceproperties.activeTrack">3</property>
+  <property name="kdenlive:sequenceproperties.activeTrack">2</property>
   <property name="kdenlive:sequenceproperties.audioTarget">1</property>
   <property name="kdenlive:sequenceproperties.disablepreview">0</property>
   <property name="kdenlive:sequenceproperties.documentuuid">{6145f7b6-8bb3-4e2d-afc5-1905046347f9}</property>
   <property name="kdenlive:sequenceproperties.hasAudio">1</property>
   <property name="kdenlive:sequenceproperties.hasVideo">1</property>
-  <property name="kdenlive:sequenceproperties.position">28320</property>
-  <property name="kdenlive:sequenceproperties.scrollPos">218729</property>
+  <property name="kdenlive:sequenceproperties.position">84998</property>
+  <property name="kdenlive:sequenceproperties.scrollPos">34565</property>
   <property name="kdenlive:sequenceproperties.tracks">4</property>
   <property name="kdenlive:sequenceproperties.tracksCount">4</property>
   <property name="kdenlive:sequenceproperties.verticalzoom">1</property>
   <property name="kdenlive:sequenceproperties.videoTarget">2</property>
   <property name="kdenlive:sequenceproperties.zonein">0</property>
   <property name="kdenlive:sequenceproperties.zoneout">75</property>
-  <property name="kdenlive:sequenceproperties.zoom">3</property>
+  <property name="kdenlive:sequenceproperties.zoom">9</property>
   <property name="kdenlive:sequenceproperties.groups">[
 ]
 </property>
@@ -6948,6 +7389,426 @@
         "comment": "assumption: p >= q",
         "pos": 28020,
         "type": 1
+    },
+    {
+        "comment": "mu_p",
+        "pos": 28290,
+        "type": 1
+    },
+    {
+        "comment": "mu_q",
+        "pos": 28350,
+        "type": 1
+    },
+    {
+        "comment": "slide to the left",
+        "pos": 28530,
+        "type": 1
+    },
+    {
+        "comment": "definition 1",
+        "pos": 28560,
+        "type": 1
+    },
+    {
+        "comment": "dtv(mup,muq) = formula",
+        "pos": 28620,
+        "type": 1
+    },
+    {
+        "comment": "write what it is in this case",
+        "pos": 28800,
+        "type": 1
+    },
+    {
+        "comment": "simplified",
+        "pos": 29130,
+        "type": 1
+    },
+    {
+        "comment": "definition 2",
+        "pos": 29340,
+        "type": 1
+    },
+    {
+        "comment": "dtv(mup,muq) = max(..)",
+        "pos": 29370,
+        "type": 1
+    },
+    {
+        "comment": ">= thing for any particular event A",
+        "pos": 29460,
+        "type": 1
+    },
+    {
+        "comment": "let A = {H}",
+        "pos": 29700,
+        "type": 1
+    },
+    {
+        "comment": "?? figure this out",
+        "pos": 30045,
+        "type": 7
+    },
+    {
+        "comment": "clean things up",
+        "pos": 30360,
+        "type": 1
+    },
+    {
+        "comment": "Since we know dtv(mup,muq) = p-q, this event achieves the maximum",
+        "pos": 30540,
+        "type": 1
+    },
+    {
+        "comment": "Definition 3",
+        "pos": 31020,
+        "type": 1
+    },
+    {
+        "comment": "dtv(mup,muq) = min(..)",
+        "pos": 31050,
+        "type": 1
+    },
+    {
+        "comment": "what is this? (arrow to coupling)",
+        "pos": 31170,
+        "type": 1
+    },
+    {
+        "comment": "?? figure this out",
+        "pos": 31495,
+        "type": 7
+    },
+    {
+        "comment": "Example",
+        "pos": 31680,
+        "type": 1
+    },
+    {
+        "comment": "Independent coupling",
+        "pos": 31710,
+        "type": 1
+    },
+    {
+        "comment": "table",
+        "pos": 31920,
+        "type": 1
+    },
+    {
+        "comment": "&lt;= P[X != Y when X and Y are independent]",
+        "pos": 32730,
+        "type": 1
+    },
+    {
+        "comment": "These two entries of the table",
+        "pos": 33270,
+        "type": 1
+    },
+    {
+        "comment": "fade it in",
+        "pos": 33390,
+        "type": 1
+    },
+    {
+        "comment": "> p-q",
+        "pos": 33780,
+        "type": 1
+    },
+    {
+        "comment": "the independent coupling does not achieve the minimum",
+        "pos": 33990,
+        "type": 1
+    },
+    {
+        "comment": "fade to new manim",
+        "pos": 34290,
+        "type": 0
+    },
+    {
+        "comment": "number line",
+        "pos": 34500,
+        "type": 1
+    },
+    {
+        "comment": "Fade back to all definitions of dtv",
+        "pos": 39270,
+        "type": 0
+    },
+    {
+        "comment": "any event gives a lower bound",
+        "pos": 39960,
+        "type": 1
+    },
+    {
+        "comment": "any coupling gives an upper bound",
+        "pos": 40170,
+        "type": 1
+    },
+    {
+        "comment": "|omega| = 52! >> astronomical",
+        "pos": 40830,
+        "type": 1
+    },
+    {
+        "comment": "What is the probability of a specific arrangement after 4 riffle shuffles?",
+        "pos": 41070,
+        "type": 1
+    },
+    {
+        "comment": "In the rest of the video (fade in the whole thing at once)",
+        "pos": 41580,
+        "type": 1
+    },
+    {
+        "comment": "\"the total variation distance between...\"",
+        "pos": 42150,
+        "type": 2
+    },
+    {
+        "comment": "d(t)",
+        "pos": 42720,
+        "type": 2
+    },
+    {
+        "comment": "d^shuffle",
+        "pos": 42810,
+        "type": 2
+    },
+    {
+        "comment": "d^top-to-random",
+        "pos": 43050,
+        "type": 2
+    },
+    {
+        "comment": "n = number of cards in the deck",
+        "pos": 43410,
+        "type": 2
+    },
+    {
+        "comment": "d_n",
+        "pos": 43620,
+        "type": 2
+    },
+    {
+        "comment": "d(t) &lt; f_n(t)",
+        "pos": 43800,
+        "type": 2
+    },
+    {
+        "comment": "f_n^{-1}(epsilon)",
+        "pos": 44010,
+        "type": 2
+    },
+    {
+        "comment": "&lt;",
+        "pos": 44130,
+        "type": 2
+    },
+    {
+        "comment": "tau(epsilon) = number of times we need to shuffle before the distance is at most epsilon",
+        "pos": 44190,
+        "type": 2
+    },
+    {
+        "comment": "= mixing time",
+        "pos": 44520,
+        "type": 2
+    },
+    {
+        "comment": "fade to blank",
+        "pos": 44940,
+        "type": 0
+    },
+    {
+        "comment": "sneaky trick: reversing the shuffle",
+        "pos": 45060,
+        "type": 1
+    },
+    {
+        "comment": "fade in network",
+        "pos": 45270,
+        "type": 1
+    },
+    {
+        "comment": "reverse all of the arrows",
+        "pos": 45660,
+        "type": 1
+    },
+    {
+        "comment": "\"random-to-top\" shuffle",
+        "pos": 45960,
+        "type": 1
+    },
+    {
+        "comment": "slide over, show both networks at once (titled: original and reverse)",
+        "pos": 46200,
+        "type": 1
+    },
+    {
+        "comment": "turn all nodes into blank circles or boxes",
+        "pos": 46800,
+        "type": 1
+    },
+    {
+        "comment": "isomorphism symbol",
+        "pos": 47100,
+        "type": 1
+    },
+    {
+        "comment": "show definition 1 and highlight the sum over all outcomes",
+        "pos": 47280,
+        "type": 1
+    },
+    {
+        "comment": "d^top-to-random = d^random-to-top",
+        "pos": 47580,
+        "type": 1
+    },
+    {
+        "comment": "Why?",
+        "pos": 48030,
+        "type": 1
+    },
+    {
+        "comment": "in short;",
+        "pos": 48150,
+        "type": 1
+    },
+    {
+        "comment": "this is a random walk on a group",
+        "pos": 48270,
+        "type": 1
+    },
+    {
+        "comment": "Groups are symmetric",
+        "pos": 48540,
+        "type": 1
+    },
+    {
+        "comment": "There will not be any group theory in this video!",
+        "pos": 49080,
+        "type": 1
+    },
+    {
+        "comment": "Just remember that d^top-to-random = d^random-to-top",
+        "pos": 49200,
+        "type": 1
+    },
+    {
+        "comment": "We will upper bound this by constructing a coupling",
+        "pos": 49440,
+        "type": 1
+    },
+    {
+        "comment": "Fade to real life",
+        "pos": 49800,
+        "type": 0
+    },
+    {
+        "comment": "show deck, text saying it's uniformly random",
+        "pos": 49890,
+        "type": 8
+    },
+    {
+        "comment": "Do one shuffle",
+        "pos": 50040,
+        "type": 8
+    },
+    {
+        "comment": "Still uniformly random!",
+        "pos": 50160,
+        "type": 8
+    },
+    {
+        "comment": "do some more shuffles",
+        "pos": 50340,
+        "type": 8
+    },
+    {
+        "comment": "anisah's hand comes in with the unshuffled deck",
+        "pos": 50640,
+        "type": 8
+    },
+    {
+        "comment": "say this deck is unshuffled, that is uniformly random",
+        "pos": 50700,
+        "type": 8
+    },
+    {
+        "comment": "start shuffling simultaneously",
+        "pos": 50896,
+        "type": 8
+    },
+    {
+        "comment": "switch to face up cards",
+        "pos": 51134,
+        "type": 8
+    },
+    {
+        "comment": "put finger on random card",
+        "pos": 51484,
+        "type": 8
+    },
+    {
+        "comment": "put it on top",
+        "pos": 51592,
+        "type": 8
+    },
+    {
+        "comment": "do the same with the perfectly random deck, but choose the same card",
+        "pos": 51729,
+        "type": 8
+    },
+    {
+        "comment": "do this a few more times",
+        "pos": 52031,
+        "type": 8
+    },
+    {
+        "comment": "show the choice of card, then show shuffle being done",
+        "pos": 52671,
+        "type": 8
+    },
+    {
+        "comment": "replay the footage",
+        "pos": 53058,
+        "type": 8
+    },
+    {
+        "comment": "add check mark for top cards",
+        "pos": 53160,
+        "type": 8
+    },
+    {
+        "comment": "do it again",
+        "pos": 53361,
+        "type": 8
+    },
+    {
+        "comment": "check mark for two cards",
+        "pos": 53447,
+        "type": 8
+    },
+    {
+        "comment": "keep shuffling and adding check marks until the deck is shuffled, keep shuffling",
+        "pos": 53716,
+        "type": 8
+    },
+    {
+        "comment": "fade to manim",
+        "pos": 54540,
+        "type": 0
+    },
+    {
+        "comment": "242 skit",
+        "pos": 62656,
+        "type": 5
+    },
+    {
+        "comment": "fade back to manim",
+        "pos": 73380,
+        "type": 0
     }
 ]
 </property>
@@ -6994,14 +7855,14 @@
    <property name="internal_added">237</property>
    <property name="always_active">1</property>
   </transition>
-  <filter id="filter126">
+  <filter id="filter128">
    <property name="window">75</property>
    <property name="max_gain">20dB</property>
    <property name="mlt_service">volume</property>
    <property name="internal_added">237</property>
    <property name="disable">1</property>
   </filter>
-  <filter id="filter127">
+  <filter id="filter129">
    <property name="channel">-1</property>
    <property name="mlt_service">panner</property>
    <property name="internal_added">237</property>
@@ -7205,8 +8066,8 @@
   <entry in="00:00:00.000" out="00:25:32.333" producer="chain163"/>
   <entry in="00:00:00.000" out="00:24:09.117" producer="tractor4"/>
  </playlist>
- <tractor id="tractor5" in="00:00:00.000" out="00:24:09.117">
+ <tractor id="tractor5" in="00:00:00.000" out="00:24:14.300">
   <property name="kdenlive:projectTractor">1</property>
-  <track in="00:00:00.000" out="00:24:09.117" producer="tractor4"/>
+  <track in="00:00:00.000" out="00:24:14.300" producer="tractor4"/>
  </tractor>
 </mlt>
