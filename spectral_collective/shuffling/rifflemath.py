@@ -1,13 +1,16 @@
 from manim import *
 import solarized as sol
 
+tt = TexTemplate()
+tt.add_to_preamble(r'\include{amsfonts}')
+tt.add_to_preamble(r'\include{amsmath}')
+tt.add_to_preamble(r'\addtolength{\jot}{-0.35em}')
+tt.add_to_preamble(r'\newcommand{\coloredt}{t}')
+tt.add_to_preamble(r'\newcommand{\coloredn}{n}')
+tt.add_to_preamble(r'\newcommand{\coloredeps}{\varepsilon}')
+
 class BirthdayProblem(Scene):
     def construct(self):
-        tt = TexTemplate()
-        tt.add_to_preamble(r'\addtolength{\jot}{-0.35em}')
-        tt.add_to_preamble(r'\newcommand{\coloredt}{t}')
-        tt.add_to_preamble(r'\newcommand{\coloredn}{n}')
-        tt.add_to_preamble(r'\newcommand{\coloredeps}{\varepsilon}')
 
         title = MathTex(
             r'&\text{How many shuffles until every} \\\
@@ -57,3 +60,79 @@ class BirthdayProblem(Scene):
         birthdaymobject = Group(arrow2, birthdaybox, birthdaytext)
 
         self.add(title, stmt1, stmt2, reform, arrow1, arrow2, birthdaymobject)
+
+
+class Indicators(Scene):
+    def construct(self):
+        
+        prob = MathTex(
+            r'\mathbb{P}[\text{there is a duplicate}]',
+            color=sol.BASE02,
+            tex_template=tt
+        )
+
+        alignleq = MathTex(
+            r'\leq',
+            color=sol.BASE02,
+            tex_template=tt
+        ).next_to(prob, RIGHT)
+
+        expectation = MathTex(
+            r'\mathbb{E}[\text{number of duplicates}]',
+            color=sol.BASE02,
+            tex_template=tt
+        ).next_to(alignleq, RIGHT)
+
+        firstmomentmethod = Group(prob,alignleq,expectation).move_to(3*UP)
+
+        firstmomentexplanation = MathTex(
+            r'\text{(since the number of duplicates is a nonnegative integer)}',
+            color=sol.BASE01,
+            font_size=40,
+            tex_template=tt
+        ).next_to(firstmomentmethod, DOWN)
+
+        obvious = MathTex(
+            r'{{\text{number of duplicates} =}} \underbrace{1 + 1 + \dotsb + 1 + 1}_{\text{one for each duplicate}}',
+            color=sol.BASE02,
+            tex_template=tt
+        ).shift(UP)
+
+        indicatordef = MathTex(
+            r'{{\mathbf{1}}}_A = \begin{cases} 1 & \text{if } A \text{ happens} \\ 0 & \text{otherwise} \end{cases}',
+            color=sol.BASE02,
+            tex_template=tt
+        ).shift(DOWN)
+
+        indicatorexample = MathTex(
+            r'{{\mathbf{1}}}_{\left\{\substack{\text{Cards } C_1 \text{ and } C_2 \\ \text{ have the same number}} \right\}}',
+            color=sol.BASE02,
+            tex_template=tt
+        ).shift(1.2*DOWN).align_to(indicatordef, LEFT)
+
+        obvioussigma = MathTex(
+            r'{{\text{number of duplicates} =}} \sum_{\substack{(C_1,C_2) \\ \text{pair of cards}}}',
+            color=sol.BASE02,
+            tex_template=tt
+        ).shift(UP + 2.4*LEFT)
+ 
+
+        self.add(firstmomentmethod, obvious, indicatordef)
+        self.play(
+            FadeOut(indicatordef),
+            FadeIn(indicatorexample)
+        )
+        self.play(
+            TransformMatchingTex(obvious, obvioussigma, fade_transform_mismatches=True),
+            indicatorexample.animate.next_to(obvioussigma, RIGHT).shift(0.25*UP+0.25*LEFT)
+        )
+        self.wait()
+
+
+
+        return
+        
+        self.play(FadeIn(firstmomentmethod, shift=DOWN))
+        self.play(FadeIn(firstmomentexplanation))
+        self.play(FadeOut(firstmomentexplanation))
+        self.play(Wiggle(expectation))
