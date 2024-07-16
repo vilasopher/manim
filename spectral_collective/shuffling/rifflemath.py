@@ -2,9 +2,11 @@ from manim import *
 import solarized as sol
 
 tt = TexTemplate()
-tt.add_to_preamble(r'\include{amsfonts}')
-tt.add_to_preamble(r'\include{amsmath}')
+tt.add_to_preamble(r'\usepackage{amsfonts}')
+tt.add_to_preamble(r'\usepackage{amsmath}')
+tt.add_to_preamble(r'\usepackage{xcolor}')
 tt.add_to_preamble(r'\addtolength{\jot}{-0.35em}')
+tt.add_to_preamble(r'\renewcommand{\P}{\mathbb{P}}')
 tt.add_to_preamble(r'\newcommand{\coloredt}{t}')
 tt.add_to_preamble(r'\newcommand{\coloredn}{n}')
 tt.add_to_preamble(r'\newcommand{\coloredeps}{\varepsilon}')
@@ -62,77 +64,81 @@ class BirthdayProblem(Scene):
         self.add(title, stmt1, stmt2, reform, arrow1, arrow2, birthdaymobject)
 
 
-class Indicators(Scene):
+class Arithmetic(Scene):
     def construct(self):
         
-        prob = MathTex(
-            r'\mathbb{P}[\text{there is a duplicate}]',
-            color=sol.BASE02,
+        implication = MathTex(
+            r'\text{there is a duplicate} \Rightarrow \substack{\text{there are two distinct cards, } C_1 \\ \text{and } C_2, \text{ with the same number}}',
+            color=sol.BASE03,
             tex_template=tt
-        )
+        ).shift(3*UP)
 
-        alignleq = MathTex(
-            r'\leq',
-            color=sol.BASE02,
-            tex_template=tt
-        ).next_to(prob, RIGHT)
-
-        expectation = MathTex(
-            r'\mathbb{E}[\text{number of duplicates}]',
-            color=sol.BASE02,
-            tex_template=tt
-        ).next_to(alignleq, RIGHT)
-
-        firstmomentmethod = Group(prob,alignleq,expectation).move_to(3*UP)
-
-        firstmomentexplanation = MathTex(
-            r'\text{(since the number of duplicates is a nonnegative integer)}',
-            color=sol.BASE01,
-            font_size=40,
-            tex_template=tt
-        ).next_to(firstmomentmethod, DOWN)
-
-        obvious = MathTex(
-            r'{{\text{number of duplicates} =}} \underbrace{1 + 1 + \dotsb + 1 + 1}_{\text{one for each duplicate}}',
-            color=sol.BASE02,
+        unionbound = MathTex(
+            r'\P[\text{there is a duplicate}] \leq \sum_{\substack{C_1, C_2 \\ \text{distinct cards}}} \P\Big[\substack{C_1 \text{ and } C_2 \text{ have}\\ \text{the same number}}\Big]',
+            color=sol.BASE03,
             tex_template=tt
         ).shift(UP)
 
-        indicatordef = MathTex(
-            r'{{\mathbf{1}}}_A = \begin{cases} 1 & \text{if } A \text{ happens} \\ 0 & \text{otherwise} \end{cases}',
-            color=sol.BASE02,
-            tex_template=tt
-        ).shift(DOWN)
+        energy = MathTex(
+            r'1 \over 2^{{\coloredt}}',
+            color=sol.BASE03,
+            tex_template=tt,
+            font_size=36
+        ).set_color_by_tex(r'\coloredt', sol.BLUE).shift(4.75*RIGHT)
 
-        indicatorexample = MathTex(
-            r'{{\mathbf{1}}}_{\left\{\substack{\text{Cards } C_1 \text{ and } C_2 \\ \text{ have the same number}} \right\}}',
-            color=sol.BASE02,
-            tex_template=tt
-        ).shift(1.2*DOWN).align_to(indicatordef, LEFT)
+        brace1 = BraceBetweenPoints([2,1,0],[6,1,0], color=sol.BASE1)
+        arrow1 = CurvedArrow(4.5*RIGHT, 4*RIGHT+0.5*UP, color=sol.BASE1, radius=-0.5, tip_shape=StealthTip, tip_length=0.1)
 
-        obvioussigma = MathTex(
-            r'{{\text{number of duplicates} =}} \sum_{\substack{(C_1,C_2) \\ \text{pair of cards}}}',
-            color=sol.BASE02,
-            tex_template=tt
-        ).shift(UP + 2.4*LEFT)
- 
+        entropy = MathTex(
+            r'\binom{n}{2} \leq \frac{n^2}{2}',
+            color=sol.BASE03,
+            tex_template=tt,
+            font_size=36
+        ).shift(2.25*RIGHT + 0.7*DOWN)
+        entropy[0][1].set_color(sol.FOREST_GREEN)
+        entropy[0][5].set_color(sol.FOREST_GREEN)
 
-        self.add(firstmomentmethod, obvious, indicatordef)
+        brace2 = BraceBetweenPoints([-0.5,0.3,0],[2.2,0.3,0],color=sol.BASE1)
+        arrow2 = CurvedArrow([1.35, -0.7, 0], [0.85, -0.2, 0], color=sol.BASE1, radius=-0.5, tip_shape=StealthTip, tip_length=0.1)
+
+        dbound1 = MathTex(
+            r'{{ \P[ }} \text{there is a duplicate} {{ ] }} {{ \leq }} { {{\coloredn}}^2 \over 2^{{{\coloredt}} + 1} }',
+            color=sol.BASE03,
+            tex_template=tt,
+        ).set_color_by_tex(r'\coloredt', sol.BLUE).set_color_by_tex(r'\coloredn', sol.FOREST_GREEN).shift(2.5*DOWN)
+
+        dbound2 = MathTex(
+            r"{{ \P[ }} \text{decks don't align after } {{\coloredt}} \text{ shuffles} {{ ] }} {{ \leq }} { {{\coloredn}}^2 \over 2^{{{\coloredt}} + 1} }",
+            color=sol.BASE03,
+            tex_template=tt,
+        ).set_color_by_tex(r'\coloredt', sol.BLUE).set_color_by_tex(r'\coloredn', sol.FOREST_GREEN).shift(2.5*DOWN).align_to(dbound1,RIGHT)
+
+        dbound3 = MathTex(
+            r'\mathrm{d}^\mathrm{riffle}_{ {{\coloredn}} } ({{\coloredt}}) {{ \leq }} { {{\coloredn}}^2 \over 2^{{{\coloredt}} + 1} }',
+            color=sol.BASE03,
+            tex_template=tt
+        ).set_color_by_tex(r'\coloredt', sol.BLUE).set_color_by_tex(r'\coloredn', sol.FOREST_GREEN).shift(2.5*DOWN).align_to(dbound1,RIGHT)
+
+        tbound = MathTex(
+            r'\tau^\mathrm{riffle}_{ {{\coloredn}} } ({{\coloredeps}}) \leq 2 \log_2({{\coloredn}}) + \log_2\Big( { 1 \over {{\coloredeps}} } \Big) - 1',
+            color=sol.BASE03,
+            tex_template=tt
+        ).set_color_by_tex(r'\coloredn', sol.FOREST_GREEN).set_color_by_tex(r'\coloredeps', sol.RED).shift(2.5*DOWN + 2.5*RIGHT)
+
+        arrow3 = CurvedDoubleArrow([-4.45, -2.25, 0], [0.65, -2.25, 0], color=sol.BASE1, radius=-2.65)
+    
+        self.add(implication, unionbound, energy, brace1, arrow1, entropy, brace2, arrow2, dbound1)
+
+        self.play(TransformMatchingTex(dbound1,dbound2))
+        self.remove(dbound1)
+        self.add(dbound2)
         self.play(
-            FadeOut(indicatordef),
-            FadeIn(indicatorexample)
+            FadeOut(dbound2),
+            FadeIn(dbound3)
         )
         self.play(
-            TransformMatchingTex(obvious, obvioussigma, fade_transform_mismatches=True),
-            indicatorexample.animate.next_to(obvioussigma, RIGHT).shift(0.25*UP+0.25*LEFT)
+            dbound3.animate.shift(6.25*LEFT),
+            FadeIn(tbound, shift=6.25*LEFT)
         )
-        self.wait()
-
-
-
-        return
-        
-        self.play(FadeIn(firstmomentmethod, shift=DOWN))
-        self.play(FadeIn(firstmomentexplanation))
-        self.play(FadeOut(firstmomentexplanation))
-        self.play(Wiggle(expectation))
+        self.play(FadeIn(arrow3, shift=0.5*DOWN))
+        self.wait(10)
