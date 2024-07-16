@@ -102,13 +102,13 @@ class Arithmetic(Scene):
         arrow2 = CurvedArrow([1.35, -0.7, 0], [0.85, -0.2, 0], color=sol.BASE1, radius=-0.5, tip_shape=StealthTip, tip_length=0.1)
 
         dbound1 = MathTex(
-            r'{{ \P[ }} \text{there is a duplicate} {{ ] }} {{ \leq }} { {{\coloredn}}^2 \over 2^{{{\coloredt}} + 1} }',
+            r'{{ \P[ }} \text{there is a duplicate} {{ \text{ after } }} {{\coloredt}} {{ \text{ shuffles} }} {{ ] }} {{ \leq }} { {{\coloredn}}^2 \over 2^{{{\coloredt}} + 1} }',
             color=sol.BASE03,
             tex_template=tt,
         ).set_color_by_tex(r'\coloredt', sol.BLUE).set_color_by_tex(r'\coloredn', sol.FOREST_GREEN).shift(2.5*DOWN)
 
         dbound2 = MathTex(
-            r"{{ \P[ }} \text{decks don't align after } {{\coloredt}} \text{ shuffles} {{ ] }} {{ \leq }} { {{\coloredn}}^2 \over 2^{{{\coloredt}} + 1} }",
+            r"{{ \P[ }} \text{decks don't align} {{ \text{ after } }} {{\coloredt}} {{ \text{ shuffles} }} {{ ] }} {{ \leq }} { {{\coloredn}}^2 \over 2^{{{\coloredt}} + 1} }",
             color=sol.BASE03,
             tex_template=tt,
         ).set_color_by_tex(r'\coloredt', sol.BLUE).set_color_by_tex(r'\coloredn', sol.FOREST_GREEN).shift(2.5*DOWN).align_to(dbound1,RIGHT)
@@ -117,7 +117,7 @@ class Arithmetic(Scene):
             r'\mathrm{d}^\mathrm{riffle}_{ {{\coloredn}} } ({{\coloredt}}) {{ \leq }} { {{\coloredn}}^2 \over 2^{{{\coloredt}} + 1} }',
             color=sol.BASE03,
             tex_template=tt
-        ).set_color_by_tex(r'\coloredt', sol.BLUE).set_color_by_tex(r'\coloredn', sol.FOREST_GREEN).shift(2.5*DOWN).align_to(dbound1,RIGHT)
+        ).set_color_by_tex(r'\coloredt', sol.BLUE).set_color_by_tex(r'\coloredn', sol.FOREST_GREEN).shift(2.5*DOWN)
 
         tbound = MathTex(
             r'\tau^\mathrm{riffle}_{ {{\coloredn}} } ({{\coloredeps}}) \leq 2 \log_2({{\coloredn}}) + \log_2\bigg( { 1 \over {{\coloredeps}} } \bigg) - 1',
@@ -153,11 +153,12 @@ class Arithmetic(Scene):
         self.remove(dbound1)
         self.add(dbound2)
         self.play(
-            FadeOut(dbound2),
-            FadeIn(dbound3)
+            FadeOut(dbound2, shift=dbound3.get_right() - dbound2.get_right()),
+            FadeIn(dbound3, shift=dbound3.get_right() - dbound2.get_right())
         )
         self.play(
-            dbound3.animate.shift(6.25*LEFT),
-            FadeIn(tbound, shift=6.25*LEFT)
+            dbound3.animate.shift(4.75*LEFT),
+            FadeIn(tbound, shift=4.75*LEFT)
         )
         self.play(FadeIn(arrow3, shift=0.5*DOWN))
+        self.wait(10)
