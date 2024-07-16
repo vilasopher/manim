@@ -120,15 +120,35 @@ class Arithmetic(Scene):
         ).set_color_by_tex(r'\coloredt', sol.BLUE).set_color_by_tex(r'\coloredn', sol.FOREST_GREEN).shift(2.5*DOWN).align_to(dbound1,RIGHT)
 
         tbound = MathTex(
-            r'\tau^\mathrm{riffle}_{ {{\coloredn}} } ({{\coloredeps}}) \leq 2 \log_2({{\coloredn}}) + \log_2\Big( { 1 \over {{\coloredeps}} } \Big) - 1',
+            r'\tau^\mathrm{riffle}_{ {{\coloredn}} } ({{\coloredeps}}) \leq 2 \log_2({{\coloredn}}) + \log_2\bigg( { 1 \over {{\coloredeps}} } \bigg) - 1',
             color=sol.BASE03,
             tex_template=tt
         ).set_color_by_tex(r'\coloredn', sol.FOREST_GREEN).set_color_by_tex(r'\coloredeps', sol.RED).shift(2.5*DOWN + 2.5*RIGHT)
 
-        arrow3 = CurvedDoubleArrow([-4.45, -2.25, 0], [0.65, -2.25, 0], color=sol.BASE1, radius=-2.65)
+        #arrow3 = CurvedDoubleArrow([-4.45, -2.25, 0], [0.65, -2.25, 0], color=sol.BASE1, radius=-2.65)
+        arrow3 = CubicBezier(
+            [-4.4, -2.15, 0],
+            [-4.4, -0.5, 0],
+            [0.66, -0.45, 0],
+            [0.66, -2.1, 0],
+            color=sol.BASE1
+        )
+        arrow3.add(ArrowTriangleFilledTip(color=sol.BASE1, width=0.2, length=0.2).rotate(PI/2).move_to(arrow3.get_start()))
+        arrow3.add(ArrowTriangleFilledTip(color=sol.BASE1, width=0.2, length=0.2).rotate(PI/2).move_to(arrow3.get_end()))
     
-        self.add(implication, unionbound, energy, brace1, arrow1, entropy, brace2, arrow2, dbound1)
-
+        self.play(FadeIn(implication, shift=DOWN))
+        self.play(FadeIn(unionbound))
+        self.play(
+            FadeIn(energy, shift=LEFT),
+            Create(arrow1),
+            FadeIn(brace1, shift=0.05*UP)
+        )
+        self.play(
+            FadeIn(entropy, shift=LEFT),
+            Create(arrow2),
+            FadeIn(brace2, shift=0.05*UP)
+        )
+        self.play(FadeIn(dbound1))
         self.play(TransformMatchingTex(dbound1,dbound2))
         self.remove(dbound1)
         self.add(dbound2)
@@ -141,4 +161,3 @@ class Arithmetic(Scene):
             FadeIn(tbound, shift=6.25*LEFT)
         )
         self.play(FadeIn(arrow3, shift=0.5*DOWN))
-        self.wait(10)
