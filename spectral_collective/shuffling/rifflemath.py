@@ -27,13 +27,13 @@ class BirthdayProblem(Scene):
                 &\text{ random binary number with } {{\coloredt}} \text{ bits.}',
             color=sol.BASE03,
             tex_template=tt
-        ).next_to(title, DOWN).align_to(title,LEFT).shift(0.5*DOWN+0.5*RIGHT).set_color_by_tex(r'\coloredt',sol.BLUE)
+        ).next_to(title, DOWN).align_to(title,LEFT).shift(0.5*DOWN+0.5*RIGHT).set_color_by_tex(r'\coloredt',sol.ROYAL_BLUE)
 
         stmt2 = MathTex(
             r'\bullet &\text{ there are } 2^{{\coloredt}} \text{ such binary numbers.}',
             color=sol.BASE03,
             tex_template=tt
-        ).next_to(stmt1, DOWN).align_to(stmt1,LEFT).set_color_by_tex(r'\coloredt',sol.BLUE)
+        ).next_to(stmt1, DOWN).align_to(stmt1,LEFT).set_color_by_tex(r'\coloredt',sol.ROYAL_BLUE)
 
         reform = MathTex(
             r'&\text{If we sample } {{\coloredn}} \text{ items (with replacement) } \\\
@@ -42,7 +42,7 @@ class BirthdayProblem(Scene):
             color=sol.BASE03,
             font_size=60,
             tex_template=tt
-        ).next_to(stmt2, DOWN).align_to(title,LEFT).shift(0.5*DOWN).set_color_by_tex(r'\coloredt',sol.BLUE).set_color_by_tex(r'\coloredn',sol.FOREST_GREEN)
+        ).next_to(stmt2, DOWN).align_to(title,LEFT).shift(0.5*DOWN).set_color_by_tex(r'\coloredt',sol.ROYAL_BLUE).set_color_by_tex(r'\coloredn',sol.FOREST_GREEN)
 
         arrow1 = CurvedDoubleArrow([-6,2,0],[-6,-1.5,0],color=sol.BASE1)
 
@@ -56,7 +56,7 @@ class BirthdayProblem(Scene):
         ).shift(2.85*UP+5.05*RIGHT)
 
         birthdaybox = SurroundingRectangle(
-            birthdaytext, color=sol.BASE01, buff=MED_SMALL_BUFF
+            birthdaytext, color=sol.BASE01, buff=MED_SMALL_BUFF, corner_radius=0.1
         ).set_fill(sol.BASE2, opacity=1)
 
         birthdaymobject = Group(arrow2, birthdaybox, birthdaytext)
@@ -94,7 +94,7 @@ class Arithmetic(Scene):
             color=sol.BASE03,
             tex_template=tt,
             font_size=36
-        ).set_color_by_tex(r'\coloredt', sol.BLUE).shift(4.75*RIGHT)
+        ).set_color_by_tex(r'\coloredt', sol.ROYAL_BLUE).shift(4.75*RIGHT)
 
         brace1 = BraceBetweenPoints([2,1,0],[6,1,0], color=sol.BASE1)
         arrow1 = CurvedArrow(4.5*RIGHT, 4*RIGHT+0.5*UP, color=sol.BASE1, radius=-0.5, tip_shape=StealthTip, tip_length=0.1)
@@ -115,25 +115,25 @@ class Arithmetic(Scene):
             r'{{ \P[ }} \text{there is a duplicate} {{ \text{ after } }} {{\coloredt}} {{ \text{ shuffles} }} {{ ] }} {{ \leq }} { {{\coloredn}}^2 \over 2^{{{\coloredt}} + 1} }',
             color=sol.BASE03,
             tex_template=tt,
-        ).set_color_by_tex(r'\coloredt', sol.BLUE).set_color_by_tex(r'\coloredn', sol.FOREST_GREEN).shift(2.5*DOWN)
+        ).set_color_by_tex(r'\coloredt', sol.ROYAL_BLUE).set_color_by_tex(r'\coloredn', sol.FOREST_GREEN).shift(2.5*DOWN)
 
         dbound2 = MathTex(
             r"{{ \P[ }} \text{decks don't align} {{ \text{ after } }} {{\coloredt}} {{ \text{ shuffles} }} {{ ] }} {{ \leq }} { {{\coloredn}}^2 \over 2^{{{\coloredt}} + 1} }",
             color=sol.BASE03,
             tex_template=tt,
-        ).set_color_by_tex(r'\coloredt', sol.BLUE).set_color_by_tex(r'\coloredn', sol.FOREST_GREEN).shift(2.5*DOWN).align_to(dbound1,RIGHT)
+        ).set_color_by_tex(r'\coloredt', sol.ROYAL_BLUE).set_color_by_tex(r'\coloredn', sol.FOREST_GREEN).shift(2.5*DOWN).align_to(dbound1,RIGHT)
 
         dbound3 = MathTex(
             r'\mathrm{d}^\text{riffle}_{ {{\coloredn}} } ({{\coloredt}}) {{ \leq }} { {{\coloredn}}^2 \over 2^{{{\coloredt}} + 1} }',
             color=sol.BASE03,
             tex_template=tt
-        ).set_color_by_tex(r'\coloredt', sol.BLUE).set_color_by_tex(r'\coloredn', sol.FOREST_GREEN).shift(2.5*DOWN)
+        ).set_color_by_tex(r'\coloredt', sol.ROYAL_BLUE).set_color_by_tex(r'\coloredn', sol.FOREST_GREEN).shift(2.5*DOWN)
 
         tbound = MathTex(
             r'\tau^\text{riffle}_{ {{\coloredn}} } ({{\coloredeps}}) \leq 2 \log_2({{\coloredn}}) + \log_2\bigg( { 1 \over {{\coloredeps}} } \bigg) - 1',
             color=sol.BASE03,
             tex_template=tt
-        ).set_color_by_tex(r'\coloredn', sol.FOREST_GREEN).set_color_by_tex(r'\coloredeps', sol.RED).shift(2.5*DOWN + 2.5*RIGHT)
+        ).set_color_by_tex(r'\coloredn', sol.FOREST_GREEN).set_color_by_tex(r'\coloredeps', sol.CRIMSON_RED).shift(2.5*DOWN + 2.5*RIGHT)
 
         #arrow3 = CurvedDoubleArrow([-4.45, -2.25, 0], [0.65, -2.25, 0], color=sol.BASE1, radius=-2.65)
         arrow3 = CubicBezier(

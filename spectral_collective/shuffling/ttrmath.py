@@ -8,11 +8,11 @@ def MyTex(text, color=sol.BASE03, **kwargs):
         tex_template=tt,
         **kwargs
     ).set_color_by_tex(
-        r'\coloredt', sol.BLUE
+        r'\coloredt', sol.ROYAL_BLUE
     ).set_color_by_tex(
         r'\coloredn', sol.FOREST_GREEN
     ).set_color_by_tex(
-        r'\coloredeps', sol.RED
+        r'\coloredeps', sol.CRIMSON_RED
     )
 
 tt = TexTemplate()
@@ -51,7 +51,7 @@ class Coupon(Scene):
         ).shift(2.5*DOWN+3.5*RIGHT)
 
         ccpbox = SurroundingRectangle(
-            ccptext, color=sol.BASE01, buff=MED_SMALL_BUFF
+            ccptext, color=sol.BASE01, buff=MED_SMALL_BUFF, corner_radius=0.1
         ).set_fill(sol.BASE2, opacity=1)
 
         ccparrow = CurvedArrow(ccpbox.get_right(), reduction.get_corner(DOWN+RIGHT) + 0.1*(RIGHT+DOWN), color=sol.BASE01)
@@ -68,7 +68,7 @@ class Coupon(Scene):
 
         bigccpbox = SurroundingRectangle(
             Group(ccptext, expectation),
-            color=sol.BASE01, buff=MED_SMALL_BUFF
+            color=sol.BASE01, buff=MED_SMALL_BUFF, corner_radius=0.1
         ).set_fill(sol.BASE2, opacity=1)
 
         self.play(FadeIn(goal, shift=DOWN))
@@ -94,8 +94,8 @@ class Analysis(Scene):
         unionbound = MyTex(
             r'\P\big[\substack{ \text{not every card has been} \\ \text{chosen after } t \text{ shuffles}} \big] \leq \sum_{\text{card } C} \P\big[\substack{C \text{ has not been} \\ \text{chosen after } t \text{ shuffles}} \big]'
         ).shift(1.5*UP)
-        unionbound[0][32].set_color(sol.BLUE)
-        unionbound[0][71].set_color(sol.BLUE)
+        unionbound[0][32].set_color(sol.ROYAL_BLUE)
+        unionbound[0][71].set_color(sol.ROYAL_BLUE)
 
         brace = Brace(Group(unionbound[0][47], unionbound[0][-1]), DOWN, color=sol.BASE1).shift(0.1*UP)
         arrow = CurvedArrow(brace.get_bottom() + 0.5*(DOWN + RIGHT) + 0.025*DOWN, brace.get_bottom() + 0.025*DOWN, tip_shape=StealthTip, tip_length=0.1, color=sol.BASE1, radius=-0.5)
@@ -138,7 +138,7 @@ class Analysis(Scene):
         fiftytwo1 = MyTex(
             r'\tau^\text{top-to-random}_{ {{52}} }({{50\%}})',
             font_size=40
-        ).shift(1.5*DOWN + 4.75*RIGHT).set_color_by_tex(r'52', sol.FOREST_GREEN).set_color_by_tex(r'50', sol.RED)
+        ).shift(2*DOWN + 4.75*RIGHT).set_color_by_tex(r'52', sol.FOREST_GREEN).set_color_by_tex(r'50', sol.CRIMSON_RED)
 
         fiftytwo2 = MyTex(
             r'\leq 242',
@@ -146,7 +146,7 @@ class Analysis(Scene):
         ).next_to(fiftytwo1, DOWN).shift(0.1*UP)
 
         fiftytwobox = SurroundingRectangle(
-            Group(fiftytwo1, fiftytwo2), color=sol.BASE01, buff=SMALL_BUFF, corner_radius=0.25
+            Group(fiftytwo1, fiftytwo2), color=sol.BASE01, buff=SMALL_BUFF, corner_radius=0.1
         ).set_fill(sol.BASE2, opacity=1)
 
         fiftytwo = Group(fiftytwobox, fiftytwo1, fiftytwo2)

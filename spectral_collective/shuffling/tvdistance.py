@@ -2,6 +2,202 @@ from manim import *
 import solarized as sol
 from numpy.random import random
 
+tt = TexTemplate()
+tt.add_to_preamble(r'\usepackage{amsfonts}')
+tt.add_to_preamble(r'\usepackage{amsmath}')
+tt.add_to_preamble(r'\usepackage{xcolor}')
+tt.add_to_preamble(r'\addtolength{\jot}{-0.35em}')
+tt.add_to_preamble(r'\renewcommand{\P}{\mathbb{P}}')
+tt.add_to_preamble(r'\newcommand{\coloredt}{t}')
+tt.add_to_preamble(r'\newcommand{\coloredn}{n}')
+tt.add_to_preamble(r'\newcommand{\coloredeps}{\varepsilon}')
+
+class ThreeCardStack(Group):
+    def __init__(self, permutation, z_index=1, **kwargs):
+        super().__init__(z_index=1, **kwargs)
+
+        cards = [ Rectangle(color=sol.BASE02, height=0.5, width=1.5, stroke_width=2) for i in range(3) ]
+
+        cards[0].set_fill(sol.CRIMSON_RED, opacity=1)
+        cards[1].set_fill(sol.ROYAL_BLUE, opacity=1)
+        cards[2].set_fill(sol.FOREST_GREEN, opacity=1)
+
+        for i in range(3):
+            cards[i].add(MathTex(rf'\mathbf{{{i+1}}}', color=sol.BASE3).next_to(cards[i], ORIGIN))
+
+        a, b, c = (i-1 for i in permutation)
+
+        cards[b].move_to(ORIGIN)
+        cards[a].next_to(cards[b], UP, buff=0)
+        cards[c].next_to(cards[b], DOWN, buff=0)
+
+        self.occlusion = Square(color=sol.BASE2, stroke_width=0, side_length=1.55)
+        self.occlusion.set_fill(sol.BASE2, opacity=0)
+        self.opacity=0
+
+        self.add(*cards)
+        self.add(self.occlusion)
+
+    def set_percentage(self, percentage):
+        self.occlusion.set_fill(sol.BASE2, opacity=1-np.power(percentage,1/4))
+
+def MyMathTex(text, color=sol.BASE03, **kwargs):
+    return MathTex(
+        text,
+        color=color,
+        tex_template=tt,
+        **kwargs
+    ).set_color_by_tex(
+        r'\coloredt', sol.BLUE
+    ).set_color_by_tex(
+        r'\coloredn', sol.FOREST_GREEN
+    ).set_color_by_tex(
+        r'\coloredeps', sol.RED
+    )
+
+def MyTex(text, color=sol.BASE03, **kwargs):
+    return Tex(
+        text,
+        color=color,
+        tex_template=tt,
+        **kwargs
+    ).set_color_by_tex(
+        r'\coloredt', sol.BLUE
+    ).set_color_by_tex(
+        r'\coloredn', sol.FOREST_GREEN
+    ).set_color_by_tex(
+        r'\coloredeps', sol.RED
+    )
+
+class Equivalence(Scene):
+    def construct(self):
+        text1 = MyTex(
+            r'How close are we to perfect randomness?',
+            font_size=60
+        ).shift(2*UP)
+
+        text2 = MyTex(
+            r'What is the \emph{distance} between the uniform distribution \\ and the distribution of arrangements after {{$\coloredt$}} shuffles?',
+            font_size=50
+        ).shift(2*DOWN)
+
+        arrow = DoubleArrow([0,1.5,0],[0,-1.3,0],color=sol.BASE1)
+
+        self.play(FadeIn(text1, scale=0.75))
+        self.play(Write(text2))
+        self.play(FadeIn(arrow, scale=0.75))
+
+
+class Notations(Scene):
+    def construct(self):
+        notation = MyTex(
+            r'\textbf{Notation}',
+            font_size=70
+        ).shift(3.25*UP + 5*LEFT)
+
+        muomega = MyTex(
+            r'$\mu$ denotes a \emph{probability distribution} on an \emph{outcome space} $\Omega$'
+        ).shift(2.25*UP)
+
+        omegalabeltext = MyTex(
+            r'e.g. the set of all possible \\ arrangements of a deck of cards',
+            font_size=40
+        ).shift(3.25*RIGHT + 1.15*UP)
+
+        omegalabelbox = SurroundingRectangle(
+            omegalabeltext, color=sol.BASE01, corner_radius=0.05
+        ).set_fill(sol.BASE2, opacity=1)
+
+        omegalabelline = Line(
+            muomega.get_corner(DOWN+RIGHT) + 0.05*DOWN + 0.5*LEFT,
+            muomega.get_corner(DOWN+RIGHT) + 0.05*DOWN + 3.6*LEFT,
+            color=sol.BASE01
+        )
+
+        omegalabelcurve = Line(
+            omegalabelbox.get_top() + RIGHT,
+            omegalabelline.get_center(),
+            color=sol.BASE01
+        )
+
+        omegalabel = Group(omegalabelcurve, omegalabelline, omegalabelbox, omegalabeltext)
+
+
+        mulabeltext = MyTex(
+            r'determines how likely each \\ possible outcome in $\Omega$ is',
+            font_size=40
+        ).shift(3*LEFT + 1.15*UP)
+
+        mulabelbox = SurroundingRectangle(
+            mulabeltext, color=sol.BASE01, corner_radius=0.05
+        ).set_fill(sol.BASE2, opacity=1)
+
+        mulabelline = Line(
+            muomega.get_corner(DOWN+LEFT) + 0.05*DOWN + 2.6*RIGHT,
+            muomega.get_corner(DOWN+LEFT) + 0.05*DOWN + 7.6*RIGHT,
+            color=sol.BASE01
+        )
+
+        mulabelcurve = Line(
+            mulabelbox.get_top() + RIGHT,
+            mulabelline.get_center(),
+            color=sol.BASE01
+        )
+
+        mulabel = Group(mulabelcurve, mulabelline, mulabelbox, mulabeltext)
+
+        example = MyTex(
+            r'\textbf{Examples}',
+            font_size=70
+        ).align_to(notation, LEFT).shift(0.5*DOWN)
+
+        exomegatext = MyTex(
+            r'\bigg(with $\Omega = \bigg\{ \qquad, \qquad, \qquad, \qquad, \qquad, \qquad \bigg\}$ \bigg)',
+            font_size=40
+        ).next_to(example, RIGHT).shift(0.5*RIGHT)
+
+        arrangements = Group(
+            ThreeCardStack([1,2,3]).scale(0.5),
+            ThreeCardStack([2,1,3]).scale(0.5),
+            ThreeCardStack([2,3,1]).scale(0.5),
+            ThreeCardStack([1,3,2]).scale(0.5),
+            ThreeCardStack([3,1,2]).scale(0.5),
+            ThreeCardStack([3,2,1]).scale(0.5)
+        ).arrange().shift(0.5*DOWN+2.875*RIGHT)
+
+        exomega = Group(exomegatext, arrangements)
+
+        ex1 = MyMathTex(
+            r'\bullet & \text{ if } \mu \text{ is the uniform} \\\
+            & \text{ distribution on } \Omega, \\\
+            & \qquad {\textstyle \mu(x) = \frac{1}{6}} \\\
+            & \text{ for each } x \in \Omega.'
+        ).shift(2.5*DOWN + 4.25*LEFT)
+
+        ex2 = MyMathTex(
+            r"\bullet & \text{ if } \mu \text{ is the distribution after one} \\\
+                & \text{ top-to-random shuffle,} \\\
+                & \quad {\textstyle \mu(\quad) = \mu(\quad) = \mu(\quad) = \frac{1}{3}}, \text{ and} \\\
+                & \quad {\textstyle \mu(\quad) = \mu(\quad) = \mu(\quad) = 0}"
+        ).align_to(ex1, UP).shift(2.75*RIGHT)
+
+        ex2arrangements1 = Group(
+            ThreeCardStack([1,2,3]).scale(0.275),
+            ThreeCardStack([2,1,3]).scale(0.275),
+            ThreeCardStack([2,3,1]).scale(0.275),
+        ).arrange(buff=1.42).shift(2.85*DOWN + 2.175*RIGHT)
+
+        ex2arrangements2 = Group(
+            ThreeCardStack([1,3,2]).scale(0.275),
+            ThreeCardStack([3,1,2]).scale(0.275),
+            ThreeCardStack([3,2,1]).scale(0.275),
+        ).arrange(buff=1.42).shift(3.43*DOWN + 2.175*RIGHT)
+
+        ex2.add(ex2arrangements1, ex2arrangements2)
+
+        self.add(notation, muomega, omegalabel, mulabel, example, exomega, ex1, ex2)
+
+
 class TVDefinition(Scene):
     def construct(self):
         headertext = Tex(
