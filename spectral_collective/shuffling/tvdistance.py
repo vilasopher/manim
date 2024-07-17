@@ -48,11 +48,11 @@ def MyMathTex(text, color=sol.BASE03, **kwargs):
         tex_template=tt,
         **kwargs
     ).set_color_by_tex(
-        r'\coloredt', sol.BLUE
+        r'\mu_1', sol.CRIMSON_RED
     ).set_color_by_tex(
-        r'\coloredn', sol.FOREST_GREEN
+        r'\mu_2', sol.ROYAL_BLUE
     ).set_color_by_tex(
-        r'\coloredeps', sol.RED
+        r'\coloredeps', sol.FOREST_GREEN
     )
 
 def MyTex(text, color=sol.BASE03, **kwargs):
@@ -62,11 +62,11 @@ def MyTex(text, color=sol.BASE03, **kwargs):
         tex_template=tt,
         **kwargs
     ).set_color_by_tex(
-        r'\coloredt', sol.BLUE
+        r'\mu_1', sol.CRIMSON_RED
     ).set_color_by_tex(
-        r'\coloredn', sol.FOREST_GREEN
+        r'\mu_2', sol.ROYAL_BLUE
     ).set_color_by_tex(
-        r'\coloredeps', sol.RED
+        r'\coloredeps', sol.FOREST_GREEN
     )
 
 class Equivalence(Scene):
@@ -174,7 +174,7 @@ class Notations(Scene):
             & \text{ for each } x \in \Omega.'
         ).shift(2.5*DOWN + 4.25*LEFT)
 
-        ex2 = MyMathTex(
+        ex2text = MyMathTex(
             r"\bullet & \text{ if } \mu \text{ is the distribution after one} \\\
                 & \text{ top-to-random shuffle,} \\\
                 & \quad {\textstyle \mu(\quad) = \mu(\quad) = \mu(\quad) = \frac{1}{3}}, \text{ and} \\\
@@ -193,35 +193,50 @@ class Notations(Scene):
             ThreeCardStack([3,2,1]).scale(0.275),
         ).arrange(buff=1.42).shift(3.43*DOWN + 2.175*RIGHT)
 
-        ex2.add(ex2arrangements1, ex2arrangements2)
+        ex2 = Group(ex2text, ex2arrangements1, ex2arrangements2)
 
-        self.add(notation, muomega, omegalabel, mulabel, example, exomega, ex1, ex2)
+        self.play(FadeIn(notation, shift=DOWN+RIGHT))
+        self.play(FadeIn(muomega, scale=0.75))
+        self.play(FadeIn(omegalabel, shift=LEFT))
+        self.play(FadeIn(mulabel, shift=RIGHT))
+        self.play(FadeIn(example, scale=0.75))
+        self.play(
+            FadeIn(exomega, shift=LEFT),
+            FadeIn(ex1, shift=LEFT)
+        )
+        self.play(FadeIn(ex2, shift=LEFT))
 
 
 class TVDefinition(Scene):
     def construct(self):
-        headertext = Tex(
-            r'Let $\mu$ and $\lambda$ be probability distributions on $\Omega$, \\'
-            r'the set of possible outcomes.',
-            color=sol.BASE03
-        ).shift(2*UP)
+        headertext = MyTex(
+            r'Let {{$\mu_1$}} and {{$\mu_2$}} be two probability distributions\\\
+                on the same outcome space $\Omega$.',
+        ).shift(3*UP)
 
-        def1text = MathTex(
-            r'\textbf{Definition 1: } \mathrm{d_{TV}}(\mu, \lambda) = \frac{1}{2} \sum_{x \in \Omega} |\mu(x) - \lambda(x)|',
-            color=sol.BASE03
-        ).next_to(headertext, DOWN).align_to(headertext, LEFT)
+        def1text = MyMathTex(
+            r'\textbf{Definition 1: } \mathrm{d_{TV}}({{\mu_1}}, {{\mu_2}}) = \frac{1}{2} \sum_{ {{x}} \in \Omega} |{{\mu_1}}({{x}}) - {{\mu_2}}({{x}})|',
+            font_size=55
+        ).shift(UP).set_color_by_tex(r'x', sol.FOREST_GREEN).set_color_by_tex(r'D', sol.BASE03)
 
-        def2text = MathTex(
-            r'\textbf{Definition 2: } \mathrm{d_{TV}}(\mu,\lambda) = \max_{A \subseteq \Omega} |\mu(A) - \lambda(A)|',
-            color=sol.BASE03
-        ).next_to(def1text, DOWN).align_to(headertext, LEFT)
+        def2text = MyMathTex(
+            r'\textbf{Definition 2: } \mathrm{d_{TV}}({{\mu_1}},{{\mu_2}}) = \max_{ {{A}} \subseteq \Omega} \big( {{\mu_1}}({{A}}) - {{\mu_2}}({{A}}) \big)',
+            font_size=55
+        ).next_to(def1text, DOWN).align_to(def1text, LEFT).shift(0.25*DOWN).set_color_by_tex(r'A', sol.FOREST_GREEN)
 
-        def3text = MathTex(
-            r'\textbf{Definition 3: } \mathrm{d_{TV}}(\mu, \lambda) = \min_{\substack{X \sim \mu \\ Y \sim \lambda}} \mathbb{P}[X \neq Y]',
-            color=sol.BASE03
-        ).next_to(def2text, DOWN).align_to(headertext, LEFT)
+        def3text = MyMathTex(
+            r'\textbf{Definition 3: } \mathrm{d_{TV}}({{\mu_1}}, {{\mu_2}}) = \min_{\substack{ {{X_1}} \sim {{\mu_1}} \\ {{X_2}} \sim {{\mu_2}} }} \mathbb{P}[{{X_1}} \neq {{X_2}}]',
+            font_size=55
+        ).next_to(def2text, DOWN).align_to(def1text, LEFT).shift(0.5*DOWN).set_color_by_tex(r'X_1', sol.FOREST_GREEN).set_color_by_tex(r'X_2', sol.FOREST_GREEN)
 
-        self.add(headertext, def1text, def2text, def3text)
+        self.play(FadeIn(headertext, shift=DOWN))
+        self.play(FadeIn(def1text, scale=0.75))
+        self.play(Wiggle(Group(def1text[5][0], def1text[6][0:2])))
+        self.play(Wiggle(Group(def1text[6][2], def1text[7:])))
+        self.play(Wiggle(def1text[4][-1]))
+        self.play(Wiggle(Group(def1text[4][-4:-1])))
+        self.play(Wiggle(Group(def1text[0][-3:-1])))
+        self.play(FadeIn(def2text, scale=0.75))
 
 class CoinBarChart(Group):
     def __init__(self, p, label=r'Coin', plabel=r'p', color=sol.RED):
