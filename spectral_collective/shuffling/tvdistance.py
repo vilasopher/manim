@@ -217,10 +217,10 @@ class TVDefinition(Scene):
         def1text = MyMathTex(
             r'\textbf{Definition 1: } \mathrm{d_{TV}}({{\mu_1}}, {{\mu_2}}) = \frac{1}{2} \sum_{ {{x}} \in \Omega} |{{\mu_1}}({{x}}) - {{\mu_2}}({{x}})|',
             font_size=55
-        ).shift(UP).set_color_by_tex(r'x', sol.FOREST_GREEN).set_color_by_tex(r'D', sol.BASE03)
+        ).shift(1.25*UP).set_color_by_tex(r'x', sol.FOREST_GREEN).set_color_by_tex(r'D', sol.BASE03)
 
         def2text = MyMathTex(
-            r'\textbf{Definition 2: } \mathrm{d_{TV}}({{\mu_1}},{{\mu_2}}) = \max_{ {{A}} \subseteq \Omega} \big( {{\mu_1}}({{A}}) - {{\mu_2}}({{A}}) \big)',
+            r'\textbf{Definition 2: } \mathrm{d_{TV}}({{\mu_1}},{{\mu_2}}) = \max_{ {{A}} \subseteq \Omega} | {{\mu_1}}({{A}}) - {{\mu_2}}({{A}}) |',
             font_size=55
         ).next_to(def1text, DOWN).align_to(def1text, LEFT).shift(0.25*DOWN).set_color_by_tex(r'A', sol.FOREST_GREEN)
 
@@ -229,14 +229,71 @@ class TVDefinition(Scene):
             font_size=55
         ).next_to(def2text, DOWN).align_to(def1text, LEFT).shift(0.5*DOWN).set_color_by_tex(r'X_1', sol.FOREST_GREEN).set_color_by_tex(r'X_2', sol.FOREST_GREEN)
 
+        nametext = MyTex(
+            r"``Total Variation Distance''",
+            font_size=80
+        ).shift(0.5*DOWN)
+
+        eventtext1 = MyTex(
+            r'$A$ is an event \\ $\Leftrightarrow A \subseteq \Omega$',
+            font_size=40
+        ).shift(5*LEFT+1.75*DOWN)
+
+        eventtext2 = MyMathTex(
+            r'\mu(A) = \sum_{x \in A} \mu(x)',
+            font_size=40
+        ).next_to(eventtext1, DOWN).shift(0.25*DOWN)
+
+        extext1 = MyMathTex(
+            r'\text{e.g. } {{A}} = \{ x \in \Omega : \text{card } 2 \text{ is above card } 3 \}',
+            font_size=40
+        ).shift(2*RIGHT + 1.5*DOWN).set_color_by_tex(r'A', sol.FOREST_GREEN)
+
+        extext2 = MyMathTex(
+            r'\textstyle \bullet \text{ if } {{\mu_1}} \text{ is uniform, then } {{\mu_1}}({{A}}) = \frac{1}{2}',
+            font_size=40
+        ).next_to(extext1, DOWN).align_to(extext1, LEFT).set_color_by_tex(r'A', sol.FOREST_GREEN)
+
+        extext3 = MyMathTex(
+            r'\textstyle \bullet &\text{ if } {{\mu_2}} \text{ is the distribution after one} \\ \textstyle &\text{ top-to-random shuffle, then } {{\mu_2}}({{A}}) = 1',
+            font_size=40
+        ).next_to(extext2, DOWN).align_to(extext1, LEFT).set_color_by_tex(r'A', sol.FOREST_GREEN)
+
+        extext4 = MyMathTex(
+            r'\Rightarrow \mathrm{d_{TV}}({{\mu_1}},{{\mu_2}}) \geq \frac{1}{2}'
+        ).next_to(Group(extext1,extext2,extext3), RIGHT).shift(4*LEFT)
+
+        exbrace = Brace(Group(extext1, extext2, extext3), RIGHT, color=sol.BASE03).shift(4.5*LEFT)
+
+
         self.play(FadeIn(headertext, shift=DOWN))
+
         self.play(FadeIn(def1text, scale=0.75))
         self.play(Wiggle(Group(def1text[5][0], def1text[6][0:2])))
         self.play(Wiggle(Group(def1text[6][2], def1text[7:])))
         self.play(Wiggle(def1text[4][-1]))
         self.play(Wiggle(Group(def1text[4][-4:-1])))
+        self.play(Wiggle(Group(def1text[0][-4:], def1text[1:4], def1text[4][0])))
+        self.play(Write(nametext))
         self.play(Wiggle(Group(def1text[0][-3:-1])))
+
+        self.play(FadeOut(nametext, shift=DOWN))
         self.play(FadeIn(def2text, scale=0.75))
+        self.play(FadeIn(eventtext1, shift=RIGHT))
+        self.play(FadeIn(eventtext2, shift=RIGHT))
+        self.play(FadeIn(extext1, scale=0.75))
+        self.play(FadeIn(extext2, shift=LEFT))
+        self.play(FadeIn(extext3, shift=LEFT))
+        self.play(
+            FadeOut(Group(eventtext1, eventtext2), shift=4.5*LEFT),
+            extext1.animate.shift(4.5*LEFT),
+            extext2.animate.shift(4.5*LEFT),
+            extext3.animate.shift(4.5*LEFT),
+            FadeIn(Group(exbrace, extext4), shift=4.5*LEFT)
+        )
+
+        self.wait(5)
+
 
 class CoinBarChart(Group):
     def __init__(self, p, label=r'Coin', plabel=r'p', color=sol.RED):
