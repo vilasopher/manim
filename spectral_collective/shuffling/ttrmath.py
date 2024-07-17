@@ -136,8 +136,9 @@ class Analysis(Scene):
         ).shift(2.75*DOWN).align_to(dbound2, LEFT)
 
         fiftytwo1 = MyTex(
-            r'\tau^\text{top-to-random}_{ {{52}} }({{50\%}})'
-        ).shift(2*DOWN + 4.5*RIGHT).set_color_by_tex(r'52', sol.FOREST_GREEN).set_color_by_tex(r'50', sol.RED)
+            r'\tau^\text{top-to-random}_{ {{52}} }({{50\%}})',
+            font_size=40
+        ).shift(1.5*DOWN + 4.75*RIGHT).set_color_by_tex(r'52', sol.FOREST_GREEN).set_color_by_tex(r'50', sol.RED)
 
         fiftytwo2 = MyTex(
             r'\leq 242',
