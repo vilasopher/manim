@@ -12,6 +12,7 @@ tt.add_to_preamble(r'\newcommand{\coloredt}{t}')
 tt.add_to_preamble(r'\newcommand{\coloredn}{n}')
 tt.add_to_preamble(r'\newcommand{\coloredeps}{\varepsilon}')
 
+
 class ThreeCardStack(Group):
     def __init__(self, permutation, z_index=1, **kwargs):
         super().__init__(z_index=1, **kwargs)
@@ -68,6 +69,23 @@ def MyTex(text, color=sol.BASE03, **kwargs):
     ).set_color_by_tex(
         r'\coloredeps', sol.FOREST_GREEN
     )
+
+diaconistable = Table(
+    [[r"\large number of \\ riffle shuffles", r"\huge 1", r"\huge 2", r"\huge 3", r"\huge 4", r"\huge 5", r"\huge 6", r"\huge 7", r"\huge 8", r"\huge 9", r"\huge 10"],
+     [r"\large distance from \\ perfect randomness", r"100\%", r"100\%", r"100\%", r"100\%", r"92.4\%", r"61.4\%", r"33.4\%", r"16.7\%", r"8.5\%", r"4.3\%"]],
+     include_outer_lines=True,
+     include_background_rectangle=True,
+     background_rectangle_color=sol.BASE2,
+     v_buff=0.25,
+     h_buff=0.25,
+     line_config={"color" : sol.BASE01},
+     element_to_mobject=MyTex,
+     element_to_mobject_config={"color" : sol.BASE03, "font_size" : 30}
+).shift(2.5*DOWN)
+
+class DiaconisTable(Scene):
+    def construct(self):
+        self.add(diaconistable)
 
 class Equivalence(Scene):
     def construct(self):
@@ -290,6 +308,10 @@ class TVDefinition(Scene):
             extext2.animate.shift(4.5*LEFT),
             extext3.animate.shift(4.5*LEFT),
             FadeIn(Group(exbrace, extext4), shift=4.5*LEFT)
+        )
+        self.play(
+            FadeOut(Group(extext1, extext2, extext3, extext4, exbrace), shift=14*LEFT),
+            FadeIn(diaconistable, shift=14*LEFT)
         )
 
         self.wait(5)
