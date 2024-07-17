@@ -114,13 +114,13 @@ class Arithmetic(Scene):
         ).set_color_by_tex(r'\coloredt', sol.BLUE).set_color_by_tex(r'\coloredn', sol.FOREST_GREEN).shift(2.5*DOWN).align_to(dbound1,RIGHT)
 
         dbound3 = MathTex(
-            r'\mathrm{d}^\mathrm{riffle}_{ {{\coloredn}} } ({{\coloredt}}) {{ \leq }} { {{\coloredn}}^2 \over 2^{{{\coloredt}} + 1} }',
+            r'\mathrm{d}^\text{riffle}_{ {{\coloredn}} } ({{\coloredt}}) {{ \leq }} { {{\coloredn}}^2 \over 2^{{{\coloredt}} + 1} }',
             color=sol.BASE03,
             tex_template=tt
         ).set_color_by_tex(r'\coloredt', sol.BLUE).set_color_by_tex(r'\coloredn', sol.FOREST_GREEN).shift(2.5*DOWN)
 
         tbound = MathTex(
-            r'\tau^\mathrm{riffle}_{ {{\coloredn}} } ({{\coloredeps}}) \leq 2 \log_2({{\coloredn}}) + \log_2\bigg( { 1 \over {{\coloredeps}} } \bigg) - 1',
+            r'\tau^\text{riffle}_{ {{\coloredn}} } ({{\coloredeps}}) \leq 2 \log_2({{\coloredn}}) + \log_2\bigg( { 1 \over {{\coloredeps}} } \bigg) - 1',
             color=sol.BASE03,
             tex_template=tt
         ).set_color_by_tex(r'\coloredn', sol.FOREST_GREEN).set_color_by_tex(r'\coloredeps', sol.RED).shift(2.5*DOWN + 2.5*RIGHT)
