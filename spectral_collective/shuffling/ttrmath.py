@@ -114,7 +114,7 @@ class Analysis(Scene):
 
         dbound2 = MyTex(
             r'\mathrm{d}^\text{top-to-random}_{{\coloredn}}({{\coloredt}}) \leq {{\coloredn}} e^{- {{\coloredt}} / {{\coloredn}}}'
-        ).shift(1.75*DOWN + 3*LEFT)
+        ).shift(1.75*DOWN + 3.75*LEFT)
 
         solving2 = MyTex(
             r'\Leftrightarrow',
@@ -133,7 +133,22 @@ class Analysis(Scene):
 
         tbound = MyTex(
             r'\tau^\text{top-to-random}_{{\coloredn}}({{\coloredeps}}) \leq {{\coloredn}} \log({{\coloredn}}) + {{\coloredn}} \log\bigg({1 \over {{\coloredeps}}}\bigg)'
-        ).shift(2.75*DOWN)
+        ).shift(2.75*DOWN).align_to(dbound2, LEFT)
+
+        fiftytwo1 = MyTex(
+            r'\tau^\text{top-to-random}_{ {{52}} }({{50\%}})'
+        ).shift(2*DOWN + 4.5*RIGHT).set_color_by_tex(r'52', sol.FOREST_GREEN).set_color_by_tex(r'50', sol.RED)
+
+        fiftytwo2 = MyTex(
+            r'\leq 242',
+            font_size=80
+        ).next_to(fiftytwo1, DOWN).shift(0.1*UP)
+
+        fiftytwobox = SurroundingRectangle(
+            Group(fiftytwo1, fiftytwo2), color=sol.BASE01, buff=SMALL_BUFF, corner_radius=0.25
+        ).set_fill(sol.BASE2, opacity=1)
+
+        fiftytwo = Group(fiftytwobox, fiftytwo1, fiftytwo2)
              
 
         self.play(FadeIn(implication, shift=DOWN))
@@ -151,16 +166,17 @@ class Analysis(Scene):
         self.play(FadeIn(dbound1, scale=0.75))
         
         self.play(
-            dbound1.animate.shift(0.75*UP + 3*LEFT),
+            dbound1.animate.shift(0.75*UP + 3.75*LEFT),
             FadeIn(solving1, shift=UP+RIGHT)
         )
         self.play(FadeIn(Group(solving2, solving3), scale=0.75))
 
         self.play(FadeOut(dbound1), FadeIn(dbound2))
         self.play(
-            FadeIn(tbound, shift=1.5*RIGHT),
-            dbound2.animate.align_to(tbound, LEFT),
-            FadeOut(Group(solving1, solving2, solving3), shift=1.5*RIGHT)
+            FadeIn(tbound, shift=LEFT),
+            FadeOut(Group(solving1, solving2, solving3), scale=0.75)
         )
+
+        self.play(FadeIn(fiftytwo, scale=0.75))
 
         self.wait(5)
