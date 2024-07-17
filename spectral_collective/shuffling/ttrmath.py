@@ -71,11 +71,96 @@ class Coupon(Scene):
             color=sol.BASE01, buff=MED_SMALL_BUFF
         ).set_fill(sol.BASE2, opacity=1)
 
-        self.add(goal, item1, item2, reduction, ccp)
+        self.play(FadeIn(goal, shift=DOWN))
+        self.play(FadeIn(item1, shift=0.5*LEFT))
+        self.play(FadeIn(item2, shift=0.5*LEFT))
+        self.play(FadeIn(reduction, scale=0.75))
+        self.play(FadeIn(ccp, scale=0.75))
 
         self.play(
             Transform(ccpbox, bigccpbox),
             FadeIn(expectation, shift=bigccpbox.get_left() - ccpbox.get_left(), scale=0.25)
         )
 
-        self.wait()
+        self.wait(5)
+
+
+class Analysis(Scene):
+    def construct(self):
+        implication = MyTex(
+            r'\text{not every card has been chosen} \Rightarrow \substack{ \text{there is some card } C \\ \text{ which has not been chosen.}}'
+        ).shift(3*UP)
+
+        unionbound = MyTex(
+            r'\P\big[\substack{ \text{not every card has been} \\ \text{chosen after } t \text{ shuffles}} \big] \leq \sum_{\text{card } C} \P\big[\substack{C \text{ has not been} \\ \text{chosen after } t \text{ shuffles}} \big]'
+        ).shift(1.5*UP)
+        unionbound[0][32].set_color(sol.BLUE)
+        unionbound[0][71].set_color(sol.BLUE)
+
+        brace = Brace(Group(unionbound[0][47], unionbound[0][-1]), DOWN, color=sol.BASE1).shift(0.1*UP)
+        arrow = CurvedArrow(brace.get_bottom() + 0.5*(DOWN + RIGHT) + 0.025*DOWN, brace.get_bottom() + 0.025*DOWN, tip_shape=StealthTip, tip_length=0.1, color=sol.BASE1, radius=-0.5)
+        probability = MyTex(
+            r'\bigg({ {{\coloredn}} - 1 \over {{\coloredn}} }\bigg)^{{\coloredt}}',
+            font_size=36
+        ).next_to(arrow, RIGHT).shift(0.25*DOWN+0.1*LEFT)
+
+        equality = MyTex(
+            r'= {{\coloredn}} \bigg( 1 - {1 \over {{\coloredn}}} \bigg)^{{\coloredt}}'
+        ).align_to(unionbound[0][40], LEFT)
+
+        dbound1 = MyTex(
+            r'\mathrm{d}^\text{random-to-top}_{{\coloredn}}({{\coloredt}}) \leq {{\coloredn}} e^{- {{\coloredt}} / {{\coloredn}}}'
+        ).shift(2.5*DOWN)
+
+        dbound2 = MyTex(
+            r'\mathrm{d}^\text{top-to-random}_{{\coloredn}}({{\coloredt}}) \leq {{\coloredn}} e^{- {{\coloredt}} / {{\coloredn}}}'
+        ).shift(1.75*DOWN + 3*LEFT)
+
+        solving2 = MyTex(
+            r'\Leftrightarrow',
+            font_size=45
+        ).shift(2.25*DOWN + 4*RIGHT)
+
+        solving1 = MyTex(
+            r'{{\coloredn}} e^{-{{\coloredt}} / {{\coloredn}} } \leq {{\coloredeps}}',
+            font_size=45
+        ).next_to(solving2, UP)
+
+        solving3 = MyTex(
+            r'{{\coloredt}} \leq {{\coloredn}} \log({{\coloredn}}) + {{\coloredn}} \log \bigg({1 \over {{\coloredeps}} } \bigg)',
+            font_size=45
+        ).next_to(solving2, DOWN).shift(0.25*UP)
+
+        tbound = MyTex(
+            r'\tau^\text{top-to-random}_{{\coloredn}}({{\coloredeps}}) \leq {{\coloredn}} \log({{\coloredn}}) + {{\coloredn}} \log\bigg({1 \over {{\coloredeps}}}\bigg)'
+        ).shift(2.75*DOWN)
+             
+
+        self.play(FadeIn(implication, shift=DOWN))
+
+        self.play(FadeIn(unionbound, scale=0.75))
+
+        self.play(
+            FadeIn(brace, shift=0.05*UP),
+            Create(arrow),
+            FadeIn(probability, shift=0.25*LEFT)
+        )
+
+        self.play(FadeIn(equality, scale=0.75))
+
+        self.play(FadeIn(dbound1, scale=0.75))
+        
+        self.play(
+            dbound1.animate.shift(0.75*UP + 3*LEFT),
+            FadeIn(solving1, shift=UP+RIGHT)
+        )
+        self.play(FadeIn(Group(solving2, solving3), scale=0.75))
+
+        self.play(FadeOut(dbound1), FadeIn(dbound2))
+        self.play(
+            FadeIn(tbound, shift=1.5*RIGHT),
+            dbound2.animate.align_to(tbound, LEFT),
+            FadeOut(Group(solving1, solving2, solving3), shift=1.5*RIGHT)
+        )
+
+        self.wait(5)

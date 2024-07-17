@@ -61,7 +61,17 @@ class BirthdayProblem(Scene):
 
         birthdaymobject = Group(arrow2, birthdaybox, birthdaytext)
 
-        self.add(title, stmt1, stmt2, reform, arrow1, arrow2, birthdaymobject)
+        self.play(FadeIn(title, scale=0.75))
+        self.play(FadeIn(stmt1, shift=LEFT))
+        self.play(FadeIn(stmt2, shift=LEFT))
+        self.play(
+            FadeIn(reform, scale=0.75),
+            FadeIn(arrow1, shift=RIGHT, scale=0.75)
+        )
+        self.play(
+            FadeIn(birthdaymobject, scale=0.75)
+        )
+        self.wait(5)
 
 
 class Arithmetic(Scene):
@@ -137,18 +147,18 @@ class Arithmetic(Scene):
         arrow3.add(ArrowTriangleFilledTip(color=sol.BASE1, width=0.2, length=0.2).rotate(PI/2).move_to(arrow3.get_end()))
     
         self.play(FadeIn(implication, shift=DOWN))
-        self.play(FadeIn(unionbound))
+        self.play(FadeIn(unionbound, scale=0.75))
         self.play(
-            FadeIn(energy, shift=LEFT),
+            FadeIn(energy, shift=0.25*LEFT),
             Create(arrow1),
             FadeIn(brace1, shift=0.05*UP)
         )
         self.play(
-            FadeIn(entropy, shift=LEFT),
+            FadeIn(entropy, shift=0.25*LEFT),
             Create(arrow2),
             FadeIn(brace2, shift=0.05*UP)
         )
-        self.play(FadeIn(dbound1))
+        self.play(FadeIn(dbound1, scale=0.75))
         self.play(TransformMatchingTex(dbound1,dbound2))
         self.remove(dbound1)
         self.add(dbound2)
@@ -158,7 +168,7 @@ class Arithmetic(Scene):
         )
         self.play(
             dbound3.animate.shift(4.75*LEFT),
-            FadeIn(tbound, shift=4.75*LEFT)
+            FadeIn(tbound, shift=4.75*LEFT),
+            FadeIn(arrow3, shift=0.5*DOWN, scale=0.75)
         )
-        self.play(FadeIn(arrow3, shift=0.5*DOWN))
-        self.wait(10)
+        self.wait(5)
