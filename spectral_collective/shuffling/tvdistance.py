@@ -283,6 +283,43 @@ class TVDefinition(Scene):
 
         exbrace = Brace(Group(extext1, extext2, extext3), RIGHT, color=sol.BASE03).shift(4.5*LEFT)
 
+        popupbox = Rectangle(color=sol.BASE01, height=7, width=13).set_fill(sol.BASE2, opacity=1)
+
+        randomvars = MyTex(
+            r'\textbf{Random Variables 101}',
+            font_size=60
+        ).align_to(popupbox, UP + LEFT).shift(0.5*(DOWN + RIGHT))
+
+        rvtext1 = MyTex(
+            r'\textbullet{} A \emph{random variable} is a random outcome $X \in \Omega$.'
+        ).next_to(randomvars, DOWN).align_to(randomvars, LEFT).shift(0.25*DOWN + 0.5*RIGHT)
+
+        rvtext2 = MyMathTex(
+            r'\bullet & \text{ } X \sim \mu \text{ means that } X \text{ has distribution } \mu, \\ &\text{ i.e. } \mu(x) = \P[X = x] \text{ for each fixed } x \in \Omega.'
+        ).next_to(rvtext1, DOWN).align_to(rvtext1, LEFT)
+
+        rvtext3 = MyTex(
+            r'\emph{different random variables may} \\ \emph{have the same distribution}'
+        ).next_to(rvtext2, DOWN)
+        rvtext3.shift([-rvtext3.get_center()[0], -0.15, 0])
+
+        rvextext = MyMathTex(
+            r'\textstyle &\textbf{Example:} \text{ flip a fair coin } 5 \text{ times. Let } X \text{ be the number of} \\\
+              \textstyle &\text{ heads, and let } Y \text{ be the number of tails. Then } X \text{ and } Y \\\
+              \textstyle &\text{ have the same distribution } \mu = \mathrm{Binomial}(5,\tfrac{1}{2}), \text{ but } X \neq Y.',
+            font_size=45
+        ).next_to(rvtext3, DOWN).align_to(randomvars, LEFT).shift(0.3*DOWN + 0.1*LEFT)
+
+        couplingtext = MyTex(
+            r"``coupling''"
+        ).next_to(def3text, DOWN).shift(LEFT + 0.25*UP)
+
+        couplingarrow = Arrow(
+            couplingtext.get_right(),
+            def3text[5].get_left()+0.25*DOWN,
+            color=sol.BASE01
+        )
+
 
         self.play(FadeIn(headertext, shift=DOWN))
 
@@ -313,6 +350,16 @@ class TVDefinition(Scene):
             FadeOut(Group(extext1, extext2, extext3, extext4, exbrace), shift=14*LEFT),
             FadeIn(diaconistable, shift=14*LEFT)
         )
+
+        self.play(FadeIn(Group(popupbox, randomvars), scale=0.75))
+        self.play(FadeIn(rvtext1, shift=LEFT)) 
+        self.play(FadeIn(rvtext2, shift=LEFT))
+        self.play(FadeIn(rvtext3, scale=0.75))
+        self.play(FadeIn(rvextext, scale=0.75))
+        self.remove(diaconistable)
+        self.play(FadeOut(Group(popupbox, randomvars, rvtext1, rvtext2, rvtext3, rvextext), scale=0.75))
+        self.play(FadeIn(def3text, scale=0.75))
+        self.play(Write(couplingtext), FadeIn(couplingarrow, scale=0.75))
 
         self.wait(5)
 
