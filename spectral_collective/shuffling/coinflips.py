@@ -1,5 +1,6 @@
 from manim import *
 import solarized as sol
+from numpy.random import random
 
 class CoinBarChart(Group):
     def __init__(self, p, label=r'Coin', plabel=r'p', color=sol.RED):

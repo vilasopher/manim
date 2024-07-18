@@ -53,7 +53,11 @@ def MyMathTex(text, color=sol.BASE03, **kwargs):
     ).set_color_by_tex(
         r'\mu_2', sol.ROYAL_BLUE
     ).set_color_by_tex(
-        r'\coloredeps', sol.FOREST_GREEN
+        r'\coloredn', sol.FOREST_GREEN
+    ).set_color_by_tex(
+        r'\coloredeps', sol.CRIMSON_RED
+    ).set_color_by_tex(
+        r'\coloredt', sol.ROYAL_BLUE
     )
 
 def MyTex(text, color=sol.BASE03, **kwargs):
@@ -67,7 +71,11 @@ def MyTex(text, color=sol.BASE03, **kwargs):
     ).set_color_by_tex(
         r'\mu_2', sol.ROYAL_BLUE
     ).set_color_by_tex(
-        r'\coloredeps', sol.FOREST_GREEN
+        r'\coloredn', sol.FOREST_GREEN
+    ).set_color_by_tex(
+        r'\coloredeps', sol.CRIMSON_RED
+    ).set_color_by_tex(
+        r'\coloredt', sol.ROYAL_BLUE
     )
 
 diaconistable = Table(
@@ -104,6 +112,7 @@ class Equivalence(Scene):
         self.play(FadeIn(text1, scale=0.75))
         self.play(Write(text2))
         self.play(FadeIn(arrow, scale=0.75))
+        self.wait(5)
 
 
 class Notations(Scene):
@@ -223,6 +232,7 @@ class Notations(Scene):
             FadeIn(ex1, shift=LEFT)
         )
         self.play(FadeIn(ex2, shift=LEFT))
+        self.wait(5)
 
 
 class TVDefinition(Scene):
@@ -311,7 +321,8 @@ class TVDefinition(Scene):
         ).next_to(rvtext3, DOWN).align_to(randomvars, LEFT).shift(0.3*DOWN + 0.1*LEFT)
 
         couplingtext = MyTex(
-            r"``coupling''"
+            r"``coupling''",
+            font_size=60
         ).next_to(def3text, DOWN).shift(LEFT + 0.25*UP)
 
         couplingarrow = Arrow(
@@ -362,3 +373,8 @@ class TVDefinition(Scene):
         self.play(Write(couplingtext), FadeIn(couplingarrow, scale=0.75))
 
         self.wait(5)
+
+
+class Yapping(Scene):
+    def construct(self):
+        pass
