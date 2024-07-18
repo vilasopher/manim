@@ -130,17 +130,17 @@ class Arithmetic(Scene):
         ).set_color_by_tex(r'\coloredt', sol.ROYAL_BLUE).set_color_by_tex(r'\coloredn', sol.FOREST_GREEN).shift(2.5*DOWN)
 
         tbound = MathTex(
-            r'\tau^\text{riffle}_{ {{\coloredn}} } ({{\coloredeps}}) \leq 2 \log_2({{\coloredn}}) + \log_2\bigg( { 1 \over {{\coloredeps}} } \bigg) - 1',
+            r'\textstyle \tau^\text{riffle}_{ {{\coloredn}} } ({{\coloredeps}}) \leq 2 \log_2({{\coloredn}}) + \log_2\big( { 1 \over {{\coloredeps}} } \big) - 1',
             color=sol.BASE03,
             tex_template=tt
         ).set_color_by_tex(r'\coloredn', sol.FOREST_GREEN).set_color_by_tex(r'\coloredeps', sol.CRIMSON_RED).shift(2.5*DOWN + 2.5*RIGHT)
 
         #arrow3 = CurvedDoubleArrow([-4.45, -2.25, 0], [0.65, -2.25, 0], color=sol.BASE1, radius=-2.65)
         arrow3 = CubicBezier(
-            [-4.4, -2.15, 0],
-            [-4.4, -0.5, 0],
-            [0.66, -0.45, 0],
-            [0.66, -2.1, 0],
+            [-4.45, -2.15, 0],
+            [-4.45, -0.5, 0],
+            [0.75, -0.45, 0],
+            [0.75, -2.1, 0],
             color=sol.BASE1
         )
         arrow3.add(ArrowTriangleFilledTip(color=sol.BASE1, width=0.2, length=0.2).rotate(PI/2).move_to(arrow3.get_start()))

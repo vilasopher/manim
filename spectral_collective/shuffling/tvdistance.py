@@ -232,6 +232,8 @@ class Notations(Scene):
             FadeIn(ex1, shift=LEFT)
         )
         self.play(FadeIn(ex2, shift=LEFT))
+        self.play(ApplyWave(ex2arrangements1))
+        self.play(ApplyWave(ex2arrangements2))
         self.wait(5)
 
 

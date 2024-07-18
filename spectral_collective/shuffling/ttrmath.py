@@ -127,18 +127,18 @@ class Analysis(Scene):
         ).next_to(solving2, UP)
 
         solving3 = MyTex(
-            r'{{\coloredt}} \leq {{\coloredn}} \log({{\coloredn}}) + {{\coloredn}} \log \bigg({1 \over {{\coloredeps}} } \bigg)',
+            r'\textstyle {{\coloredt}} \leq {{\coloredn}} \log({{\coloredn}}) + {{\coloredn}} \log \big({1 \over {{\coloredeps}} } \big)',
             font_size=45
-        ).next_to(solving2, DOWN).shift(0.25*UP)
+        ).next_to(solving2, DOWN)
 
         tbound = MyTex(
-            r'\tau^\text{top-to-random}_{{\coloredn}}({{\coloredeps}}) \leq {{\coloredn}} \log({{\coloredn}}) + {{\coloredn}} \log\bigg({1 \over {{\coloredeps}}}\bigg)'
-        ).shift(2.75*DOWN).align_to(dbound2, LEFT)
+            r'\textstyle \tau^\text{top-to-random}_{{\coloredn}}({{\coloredeps}}) \leq {{\coloredn}} \log({{\coloredn}}) + {{\coloredn}} \log\big({1 \over {{\coloredeps}}}\big)'
+        ).shift(2.85*DOWN).align_to(dbound2, LEFT)
 
         fiftytwo1 = MyTex(
             r'\tau^\text{top-to-random}_{ {{52}} }({{50\%}})',
             font_size=40
-        ).shift(2*DOWN + 4.75*RIGHT).set_color_by_tex(r'52', sol.FOREST_GREEN).set_color_by_tex(r'50', sol.CRIMSON_RED)
+        ).shift(1.75*DOWN + 4.5*RIGHT).set_color_by_tex(r'52', sol.FOREST_GREEN).set_color_by_tex(r'50', sol.CRIMSON_RED)
 
         fiftytwo2 = MyTex(
             r'\leq 242',
@@ -175,7 +175,8 @@ class Analysis(Scene):
         self.play(FadeOut(dbound1), FadeIn(dbound2))
         self.play(
             FadeIn(tbound, shift=LEFT),
-            FadeOut(Group(solving1, solving2, solving3), scale=0.75)
+            FadeOut(Group(solving1, solving2), scale=0.75),
+            FadeOut(solving3, shift=LEFT)
         )
 
         self.play(FadeIn(fiftytwo, scale=0.75))
