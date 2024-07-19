@@ -300,6 +300,23 @@ class Reversal(Scene):
             color=sol.BASE01
         ).shift(3.25*UP)
 
+        prob = MyMathTex(
+            r'\leq \P[X_1 \neq X_2]',
+            font_size=80
+        ).shift(1.25*UP).align_to(equality[4][1], LEFT)
+
+        coupling = MyMathTex(
+            r'&\text{\large for a specific coupling} \vspace{0.5cm} \\[0.5em]'
+            r'&\quad X_1 \sim \text{uniform distribution on all arrangements} \\'
+            r'&\quad X_2 \sim \text{distribution after } {{\coloredt}} \text{ random-to-top shuffles} \\[0.5em]'
+            r'&\text{\large which we will construct}',
+            font_size=55
+        ).shift(DOWN)
+
+        def3 = MyMathTex(
+            r'\text{(invoking Definition 3 for the Total Variation distance)}'
+        ).shift(3.35*DOWN)
+
         self.play(FadeIn(Group(*cardstacks.values()), scale=0.75))
         self.play(FadeIn(Group(*arrowmobjects.values())))
 
@@ -326,5 +343,16 @@ class Reversal(Scene):
         )
 
         self.play(FadeIn(grouptext, shift=DOWN))
+
+        self.play(
+            Group(grouptext, oldnetwork, *cardstacks.values(), *arrowmobjects.values()).animate.shift(6*UP),
+            equality.animate.shift(5.5*UP)
+        )
+
+        self.remove(grouptext, oldnetwork, *cardstacks.values(), *arrowmobjects.values())
+
+        self.play(FadeIn(prob, shift=LEFT))
+        self.play(FadeIn(coupling, scale=0.75))
+        self.play(FadeIn(def3, shift=UP))
 
         self.wait(5)
