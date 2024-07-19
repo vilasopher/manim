@@ -7,8 +7,8 @@ class ThreeCardStack(Group):
 
         cards = [ Rectangle(color=sol.BASE02, height=0.5, width=1.5) for i in range(3) ]
 
-        cards[0].set_fill(sol.RED, opacity=1)
-        cards[1].set_fill(sol.BLUE, opacity=1)
+        cards[0].set_fill(sol.CRIMSON_RED, opacity=1)
+        cards[1].set_fill(sol.ROYAL_BLUE, opacity=1)
         cards[2].set_fill(sol.FOREST_GREEN, opacity=1)
 
         for i in range(3):
@@ -34,10 +34,10 @@ class ThreeCardNetwork(Scene):
     def construct(self):
         cardstacks = {
             (1,2,3) : ThreeCardStack([1,2,3]).move_to([-2,0,0]),
-            (3,1,2) : ThreeCardStack([3,1,2]).move_to([-4.5,2.5,0]),
-            (2,3,1) : ThreeCardStack([2,3,1]).move_to([-4.5,-2.5,0]),
             (2,1,3) : ThreeCardStack([2,1,3]).move_to([2,0,0]),
+            (2,3,1) : ThreeCardStack([2,3,1]).move_to([-4.5,-2.5,0]),
             (1,3,2) : ThreeCardStack([1,3,2]).move_to([4.5,2.5,0]),
+            (3,1,2) : ThreeCardStack([3,1,2]).move_to([-4.5,2.5,0]),
             (3,2,1) : ThreeCardStack([3,2,1]).move_to([4.5,-2.5,0])
         }
 
@@ -72,22 +72,10 @@ class ThreeCardNetwork(Scene):
 
             arrowmobjects[a] = am
 
-        self.add(*cardstacks.values())
-        self.add(*arrowmobjects.values())
-
-        self.play(
-            *(cardstacks[c].animate.set_percentage(0)
-                for c in cardstacks.keys() if c != (1,2,3)),
-            *(FadeToColor(a,sol.BASE2) 
-                for a in arrowmobjects.values())
-        )
-
-        self.wait()
 
         percentages = {
-            c : ValueTracker(0) for c in cardstacks.keys()
+            c : ValueTracker(1) for c in cardstacks.keys()
         }
-        percentages[(1,2,3)].set_value(1)
 
         percentagelabels = {
             c : DecimalNumber(
@@ -121,13 +109,6 @@ class ThreeCardNetwork(Scene):
                     )
             )
 
-        self.play(
-            *(FadeIn(p) for p in percentagelabels.values())
-        )
-
-        self.wait()
-
-
         def step_markov_chain():
             new_percentages = {
                 c : 1/3 * (percentages[c].get_value()
@@ -142,6 +123,63 @@ class ThreeCardNetwork(Scene):
                 *(percentages[c].animate.set_value(new_percentages[c]) for c in cardstacks.keys()),
                 *(Indicate(arrowmobjects[a], scale_factor=1.1, color=sol.BASE01) for a in used_arrows)
             )
+
+        cardstacks[(1,2,3)].move_to(5*LEFT)
+        cardstacks[(2,1,3)].move_to(3*LEFT)
+        cardstacks[(2,3,1)].move_to(LEFT)
+        cardstacks[(1,3,2)].move_to(RIGHT)
+        cardstacks[(3,1,2)].move_to(3*RIGHT)
+        cardstacks[(3,2,1)].move_to(5*RIGHT)
+
+        self.play(
+            LaggedStart(
+                FadeIn(cardstacks[(1,2,3)], shift=LEFT),
+                FadeIn(cardstacks[(2,1,3)], shift=LEFT),
+                FadeIn(cardstacks[(2,3,1)], shift=LEFT),
+                FadeIn(cardstacks[(1,3,2)], shift=LEFT),
+                FadeIn(cardstacks[(3,1,2)], shift=LEFT),
+                FadeIn(cardstacks[(3,2,1)], shift=LEFT)
+            )
+        )
+
+        self.play(
+            *(percentages[c].animate.set_value(0)
+              for c in cardstacks.keys() if c != (1,2,3))
+        )
+
+        self.play(
+            *(percentages[c].animate.set_value(1)
+              for c in [(2,1,3), (2,3,1)])
+        )
+
+        self.play(
+            *(percentages[c].animate.set_value(1) for c in cardstacks.keys()),
+            cardstacks[(1,2,3)].animate.move_to([-2,0,0]),
+            cardstacks[(3,1,2)].animate.move_to([-4.5,2.5,0]),
+            cardstacks[(2,3,1)].animate.move_to([-4.5,-2.5,0]),
+            cardstacks[(2,1,3)].animate.move_to([2,0,0]),
+            cardstacks[(1,3,2)].animate.move_to([4.5,2.5,0]),
+            cardstacks[(3,2,1)].animate.move_to([4.5,-2.5,0])
+        )
+
+        self.play(
+            *(FadeIn(a) for a in arrowmobjects.values())
+        )
+
+        self.play(
+            *(percentages[c].animate.set_value(0)
+                for c in cardstacks.keys() if c != (1,2,3)),
+            *(FadeToColor(a,sol.BASE2) 
+                for a in arrowmobjects.values())
+        )
+
+        self.wait()
+
+        self.play(
+            *(FadeIn(p) for p in percentagelabels.values())
+        )
+
+        self.wait()
 
         step_markov_chain()
         self.wait()
