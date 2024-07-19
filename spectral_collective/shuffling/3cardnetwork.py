@@ -301,17 +301,17 @@ class Reversal(Scene):
         ).shift(3.25*UP)
 
         prob = MyMathTex(
-            r'\leq \P[X_1 \neq X_2]',
+            r'\leq \P[{{X_1}} \neq {{X_2}}]',
             font_size=80
-        ).shift(1.25*UP).align_to(equality[4][1], LEFT)
+        ).shift(1.25*UP).align_to(equality[4][1], LEFT).set_color_by_tex(r'X', sol.YELLOW)
 
         coupling = MyMathTex(
             r'&\text{\large for a specific coupling} \vspace{0.5cm} \\[0.5em]'
-            r'&\quad X_1 \sim \text{uniform distribution on all arrangements} \\'
-            r'&\quad X_2 \sim \text{distribution after } {{\coloredt}} \text{ random-to-top shuffles} \\[0.5em]'
+            r'&\quad {{X_1}} \sim \text{uniform distribution on all arrangements} \\'
+            r'&\quad {{X_2}} \sim \text{distribution after } {{\coloredt}} \text{ random-to-top shuffles} \\[0.5em]'
             r'&\text{\large which we will construct}',
             font_size=55
-        ).shift(DOWN)
+        ).shift(DOWN).set_color_by_tex(r'X', sol.YELLOW)
 
         def3 = MyMathTex(
             r'\text{(invoking Definition 3 for the Total Variation distance)}'
