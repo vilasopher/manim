@@ -1,95 +1,7 @@
 from manim import *
 import solarized as sol
 from numpy.random import random
-
-tt = TexTemplate()
-tt.add_to_preamble(r'\usepackage{amsfonts}')
-tt.add_to_preamble(r'\usepackage{amsmath}')
-tt.add_to_preamble(r'\usepackage{xcolor}')
-tt.add_to_preamble(r'\addtolength{\jot}{-0.35em}')
-tt.add_to_preamble(r'\renewcommand{\P}{\mathbb{P}}')
-tt.add_to_preamble(r'\newcommand{\coloredt}{t}')
-tt.add_to_preamble(r'\newcommand{\coloredn}{n}')
-tt.add_to_preamble(r'\newcommand{\coloredeps}{\varepsilon}')
-
-
-class ThreeCardStack(Group):
-    def __init__(self, permutation, z_index=1, **kwargs):
-        super().__init__(z_index=1, **kwargs)
-
-        cards = [ Rectangle(color=sol.BASE02, height=0.5, width=1.5, stroke_width=2) for i in range(3) ]
-
-        cards[0].set_fill(sol.CRIMSON_RED, opacity=1)
-        cards[1].set_fill(sol.ROYAL_BLUE, opacity=1)
-        cards[2].set_fill(sol.FOREST_GREEN, opacity=1)
-
-        for i in range(3):
-            cards[i].add(MathTex(rf'\mathbf{{{i+1}}}', color=sol.BASE3).next_to(cards[i], ORIGIN))
-
-        a, b, c = (i-1 for i in permutation)
-
-        cards[b].move_to(ORIGIN)
-        cards[a].next_to(cards[b], UP, buff=0)
-        cards[c].next_to(cards[b], DOWN, buff=0)
-
-        self.occlusion = Square(color=sol.BASE2, stroke_width=0, side_length=1.55)
-        self.occlusion.set_fill(sol.BASE2, opacity=0)
-        self.opacity=0
-
-        self.add(*cards)
-        self.add(self.occlusion)
-
-    def set_percentage(self, percentage):
-        self.occlusion.set_fill(sol.BASE2, opacity=1-np.power(percentage,1/4))
-
-def MyMathTex(text, color=sol.BASE03, **kwargs):
-    return MathTex(
-        text,
-        color=color,
-        tex_template=tt,
-        **kwargs
-    ).set_color_by_tex(
-        r'\mu_1', sol.RED
-    ).set_color_by_tex(
-        r'\mu_2', sol.BLUE
-    ).set_color_by_tex(
-        r'\coloredn', sol.FOREST_GREEN
-    ).set_color_by_tex(
-        r'\coloredeps', sol.CRIMSON_RED
-    ).set_color_by_tex(
-        r'\coloredt', sol.ROYAL_BLUE
-    )
-
-def MyTex(text, color=sol.BASE03, **kwargs):
-    return Tex(
-        text,
-        color=color,
-        tex_template=tt,
-        **kwargs
-    ).set_color_by_tex(
-        r'\mu_1', sol.RED
-    ).set_color_by_tex(
-        r'\mu_2', sol.BLUE
-    ).set_color_by_tex(
-        r'\coloredn', sol.FOREST_GREEN
-    ).set_color_by_tex(
-        r'\coloredeps', sol.CRIMSON_RED
-    ).set_color_by_tex(
-        r'\coloredt', sol.ROYAL_BLUE
-    )
-
-diaconistable = Table(
-    [[r"\large number of \\ riffle shuffles", r"\huge 1", r"\huge 2", r"\huge 3", r"\huge 4", r"\huge 5", r"\huge 6", r"\huge 7", r"\huge 8", r"\huge 9", r"\huge 10"],
-     [r"\large distance from \\ perfect randomness", r"100\%", r"100\%", r"100\%", r"100\%", r"92.4\%", r"61.4\%", r"33.4\%", r"16.7\%", r"8.5\%", r"4.3\%"]],
-     include_outer_lines=True,
-     include_background_rectangle=True,
-     background_rectangle_color=sol.BASE2,
-     v_buff=0.25,
-     h_buff=0.25,
-     line_config={"color" : sol.BASE01},
-     element_to_mobject=MyTex,
-     element_to_mobject_config={"color" : sol.BASE03, "font_size" : 30}
-).shift(2.5*DOWN)
+from sharedclasses import *
 
 class DiaconisTable(Scene):
     def construct(self):
@@ -103,7 +15,7 @@ class Equivalence(Scene):
         ).shift(2*UP)
 
         text2 = MyTex(
-            r'What is the \emph{distance} between the uniform distribution \\ and the distribution of arrangements after {{$\coloredt$}} shuffles?',
+            r'What is the \emph{distance} between the uniform distribution \\ and the distribution of arrangements after {{$\ct$}} shuffles?',
             font_size=50
         ).shift(2*DOWN)
 
@@ -240,24 +152,24 @@ class Notations(Scene):
 class TVDefinition(Scene):
     def construct(self):
         headertext = MyTex(
-            r'Let {{$\mu_1$}} and {{$\mu_2$}} be two probability distributions\\\
+            r'Let {{$\cmuone$}} and {{$\cmutwo$}} be two probability distributions\\\
                 on the same outcome space $\Omega$.',
         ).shift(3*UP)
 
         def1text = MyMathTex(
-            r'\textbf{Definition 1: } \mathrm{d_{TV}}({{\mu_1}}, {{\mu_2}}) = \frac{1}{2} \sum_{ {{x}} \in \Omega} |{{\mu_1}}({{x}}) - {{\mu_2}}({{x}})|',
+            r'\textbf{Definition 1: } \mathrm{d_{TV}}({{\cmuone}}, {{\cmutwo}}) = \frac{1}{2} \sum_{ {{\cx}} \in \Omega} |{{\cmuone}}({{\cx}}) - {{\cmutwo}}({{\cx}})|',
             font_size=55
-        ).shift(1.25*UP).set_color_by_tex(r'x', sol.YELLOW).set_color_by_tex(r'D', sol.BASE03)
+        ).shift(1.25*UP)
 
         def2text = MyMathTex(
-            r'\textbf{Definition 2: } \mathrm{d_{TV}}({{\mu_1}},{{\mu_2}}) = \max_{ {{A}} \subseteq \Omega} | {{\mu_1}}({{A}}) - {{\mu_2}}({{A}}) |',
+            r'\textbf{Definition 2: } \mathrm{d_{TV}}({{\cmuone}},{{\cmutwo}}) = \max_{ {{\cA}} \subseteq \Omega} | {{\cmuone}}({{\cA}}) - {{\cmutwo}}({{\cA}}) |',
             font_size=55
-        ).next_to(def1text, DOWN).align_to(def1text, LEFT).shift(0.25*DOWN).set_color_by_tex(r'A', sol.YELLOW)
+        ).next_to(def1text, DOWN).align_to(def1text, LEFT).shift(0.25*DOWN)
 
         def3text = MyMathTex(
-            r'\textbf{Definition 3: } \mathrm{d_{TV}}({{\mu_1}}, {{\mu_2}}) = \min_{\substack{ {{X_1}} \sim {{\mu_1}} \\ {{X_2}} \sim {{\mu_2}} }} \mathbb{P}[{{X_1}} \neq {{X_2}}]',
+            r'\textbf{Definition 3: } \mathrm{d_{TV}}({{\cmuone}}, {{\cmutwo}}) = \min_{\substack{ {{\cX_1}} \sim {{\cmuone}} \\ {{\cX_2}} \sim {{\cmutwo}} }} \mathbb{P}[{{\cX_1}} \neq {{\cX_2}}]',
             font_size=55
-        ).next_to(def2text, DOWN).align_to(def1text, LEFT).shift(0.5*DOWN).set_color_by_tex(r'X', sol.YELLOW)
+        ).next_to(def2text, DOWN).align_to(def1text, LEFT).shift(0.5*DOWN)
 
         nametext = MyTex(
             r"``Total Variation Distance''",
@@ -275,22 +187,22 @@ class TVDefinition(Scene):
         ).next_to(eventtext1, DOWN).shift(0.25*DOWN)
 
         extext1 = MyMathTex(
-            r'\text{e.g. } {{A}} = \{ x \in \Omega : \text{card } 2 \text{ is above card } 3 \}',
+            r'\text{e.g. } {{\cA}} = \{ x \in \Omega : \text{card } 2 \text{ is above card } 3 \}',
             font_size=40
         ).shift(2*RIGHT + 1.5*DOWN).set_color_by_tex(r'A', sol.YELLOW)
 
         extext2 = MyMathTex(
-            r'\textstyle \bullet \text{ if } {{\mu_1}} \text{ is uniform, then } {{\mu_1}}({{A}}) = \frac{1}{2}',
+            r'\textstyle \bullet \text{ if } {{\cmuone}} \text{ is uniform, then } {{\cmuone}}({{\cA}}) = \frac{1}{2}',
             font_size=40
-        ).next_to(extext1, DOWN).align_to(extext1, LEFT).set_color_by_tex(r'A', sol.YELLOW)
+        ).next_to(extext1, DOWN).align_to(extext1, LEFT)
 
         extext3 = MyMathTex(
-            r'\textstyle \bullet &\text{ if } {{\mu_2}} \text{ is the distribution after one} \\ \textstyle &\text{ top-to-random shuffle, then } {{\mu_2}}({{A}}) = 1',
+            r'\textstyle \bullet &\text{ if } {{\cmutwo}} \text{ is the distribution after one} \\ \textstyle &\text{ top-to-random shuffle, then } {{\cmutwo}}({{\cA}}) = 1',
             font_size=40
-        ).next_to(extext2, DOWN).align_to(extext1, LEFT).set_color_by_tex(r'A', sol.YELLOW)
+        ).next_to(extext2, DOWN).align_to(extext1, LEFT)
 
         extext4 = MyMathTex(
-            r'\Rightarrow \mathrm{d_{TV}}({{\mu_1}},{{\mu_2}}) \geq \frac{1}{2}'
+            r'\Rightarrow \mathrm{d_{TV}}({{\cmuone}},{{\cmutwo}}) \geq \frac{1}{2}'
         ).next_to(Group(extext1,extext2,extext3), RIGHT).shift(4*LEFT)
 
         exbrace = Brace(Group(extext1, extext2, extext3), RIGHT, color=sol.BASE03).shift(4.5*LEFT)

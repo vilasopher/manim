@@ -1,51 +1,28 @@
 from manim import *
 import solarized as sol
-
-def MyTex(text, color=sol.BASE03, **kwargs):
-    return MathTex(
-        text,
-        color=color,
-        tex_template=tt,
-        **kwargs
-    ).set_color_by_tex(
-        r'\coloredt', sol.ROYAL_BLUE
-    ).set_color_by_tex(
-        r'\coloredn', sol.FOREST_GREEN
-    ).set_color_by_tex(
-        r'\coloredeps', sol.CRIMSON_RED
-    )
-
-tt = TexTemplate()
-tt.add_to_preamble(r'\usepackage{amsfonts}')
-tt.add_to_preamble(r'\usepackage{amsmath}')
-tt.add_to_preamble(r'\usepackage{xcolor}')
-tt.add_to_preamble(r'\addtolength{\jot}{-0.35em}')
-tt.add_to_preamble(r'\renewcommand{\P}{\mathbb{P}}')
-tt.add_to_preamble(r'\newcommand{\coloredt}{t}')
-tt.add_to_preamble(r'\newcommand{\coloredn}{n}')
-tt.add_to_preamble(r'\newcommand{\coloredeps}{\varepsilon}')
+from sharedclasses import *
 
 class Coupon(Scene):
     def construct(self):
-        goal = MyTex(
-            r"\mathrm{d}^\text{random-to-top}_{ {{\coloredn}} } ({{\coloredt}}) \leq \P[\text{decks don't align after } {{\coloredt}} \text{ shuffles}]",
+        goal = MyMathTex(
+            r"\mathrm{d}^\text{random-to-top}_{ {{\cn}} } ({{\ct}}) \leq \P[\text{decks don't align after } {{\ct}} \text{ shuffles}]",
         ).shift(2.75*UP)
 
-        item1 = MyTex(
+        item1 = MyMathTex(
             r'\bullet \text{ after a card is chosen, its position is the same in both decks}',
             font_size=45
         ).shift(1.5*UP)
 
-        item2 = MyTex(
+        item2 = MyMathTex(
             r'\bullet \text{ decks will align after every card is chosen at least once.}',
             font_size=45
         ).shift(0.75*UP).align_to(item1, LEFT)
 
-        reduction = MyTex(
-            r'\mathrm{d}^\text{random-to-top}_{ {{\coloredn}} } ({{\coloredt}}) \leq \P[\text{not every card is among the } {{\coloredt}} \text{ choices}]',
+        reduction = MyMathTex(
+            r'\mathrm{d}^\text{random-to-top}_{ {{\cn}} } ({{\ct}}) \leq \P[\text{not every card is among the } {{\ct}} \text{ choices}]',
         ).shift(0.5*DOWN)
 
-        ccptext = MyTex(
+        ccptext = MyMathTex(
             r'\textbf{Coupon} \\ \textbf{Collector} \\ \textbf{Problem}',
             font_size=60
         ).shift(2.5*DOWN+3.5*RIGHT)
@@ -58,12 +35,11 @@ class Coupon(Scene):
 
         ccp = Group(ccparrow, ccpbox, ccptext)
         
-        expectation = MyTex(
-            r'&\text{expected number of trials } {{\coloredt}} \\\
-                &\text{before all } {{\coloredn}} \text{ cards are chosen} \\\
-                &\text{is approximately } {{\coloredn}} \log({{\coloredn}})',
-            font_size=45,
-            color=sol.BASE03
+        expectation = MyMathTex(
+            r'&\text{expected number of trials } {{\ct}} \\\
+                &\text{before all } {{\cn}} \text{ cards are chosen} \\\
+                &\text{is approximately } {{\cn}} \log({{\cn}})',
+            font_size=45
         ).shift(2.5*DOWN + 2.25*LEFT)
 
         bigccpbox = SurroundingRectangle(
@@ -87,11 +63,11 @@ class Coupon(Scene):
 
 class Analysis(Scene):
     def construct(self):
-        implication = MyTex(
+        implication = MyMathTex(
             r'\text{not every card has been chosen} \Rightarrow \substack{ \text{there is some card } C \\ \text{ which has not been chosen.}}'
         ).shift(3*UP)
 
-        unionbound = MyTex(
+        unionbound = MyMathTex(
             r'\P\big[\substack{ \text{not every card has been} \\ \text{chosen after } t \text{ shuffles}} \big] \leq \sum_{\text{card } C} \P\big[\substack{C \text{ has not been} \\ \text{chosen after } t \text{ shuffles}} \big]'
         ).shift(1.5*UP)
         unionbound[0][32].set_color(sol.ROYAL_BLUE)
@@ -99,48 +75,48 @@ class Analysis(Scene):
 
         brace = Brace(Group(unionbound[0][47], unionbound[0][-1]), DOWN, color=sol.BASE1).shift(0.1*UP)
         arrow = CurvedArrow(brace.get_bottom() + 0.5*(DOWN + RIGHT) + 0.025*DOWN, brace.get_bottom() + 0.025*DOWN, tip_shape=StealthTip, tip_length=0.1, color=sol.BASE1, radius=-0.5)
-        probability = MyTex(
-            r'\bigg({ {{\coloredn}} - 1 \over {{\coloredn}} }\bigg)^{{\coloredt}}',
+        probability = MyMathTex(
+            r'\bigg({ {{\cn}} - 1 \over {{\cn}} }\bigg)^{{\ct}}',
             font_size=36
         ).next_to(arrow, RIGHT).shift(0.25*DOWN+0.1*LEFT)
 
-        equality = MyTex(
-            r'= {{\coloredn}} \bigg( 1 - {1 \over {{\coloredn}}} \bigg)^{{\coloredt}}'
+        equality = MyMathTex(
+            r'= {{\cn}} \bigg( 1 - {1 \over {{\cn}}} \bigg)^{{\ct}}'
         ).align_to(unionbound[0][40], LEFT)
 
-        dbound1 = MyTex(
-            r'\mathrm{d}^\text{random-to-top}_{{\coloredn}}({{\coloredt}}) \leq {{\coloredn}} e^{- {{\coloredt}} / {{\coloredn}}}'
+        dbound1 = MyMathTex(
+            r'\mathrm{d}^\text{random-to-top}_{{\cn}}({{\ct}}) \leq {{\cn}} e^{- {{\ct}} / {{\cn}}}'
         ).shift(2.5*DOWN)
 
-        dbound2 = MyTex(
-            r'\mathrm{d}^\text{top-to-random}_{{\coloredn}}({{\coloredt}}) \leq {{\coloredn}} e^{- {{\coloredt}} / {{\coloredn}}}'
+        dbound2 = MyMathTex(
+            r'\mathrm{d}^\text{top-to-random}_{{\cn}}({{\ct}}) \leq {{\cn}} e^{- {{\ct}} / {{\cn}}}'
         ).shift(1.75*DOWN + 3.75*LEFT)
 
-        solving2 = MyTex(
+        solving2 = MyMathTex(
             r'\Leftrightarrow',
             font_size=45
         ).shift(2.25*DOWN + 4*RIGHT)
 
-        solving1 = MyTex(
-            r'{{\coloredn}} e^{-{{\coloredt}} / {{\coloredn}} } \leq {{\coloredeps}}',
+        solving1 = MyMathTex(
+            r'{{\cn}} e^{-{{\ct}} / {{\cn}} } \leq {{\ceps}}',
             font_size=45
         ).next_to(solving2, UP)
 
-        solving3 = MyTex(
-            r'\textstyle {{\coloredt}} \leq {{\coloredn}} \log({{\coloredn}}) + {{\coloredn}} \log \big({1 \over {{\coloredeps}} } \big)',
+        solving3 = MyMathTex(
+            r'\textstyle {{\ct}} \leq {{\cn}} \log({{\cn}}) + {{\cn}} \log \big({1 \over {{\ceps}} } \big)',
             font_size=45
         ).next_to(solving2, DOWN)
 
-        tbound = MyTex(
-            r'\textstyle \tau^\text{top-to-random}_{{\coloredn}}({{\coloredeps}}) \leq {{\coloredn}} \log({{\coloredn}}) + {{\coloredn}} \log\big({1 \over {{\coloredeps}}}\big)'
+        tbound = MyMathTex(
+            r'\textstyle \tau^\text{top-to-random}_{{\cn}}({{\ceps}}) \leq {{\cn}} \log({{\cn}}) + {{\cn}} \log\big({1 \over {{\ceps}}}\big)'
         ).shift(2.85*DOWN).align_to(dbound2, LEFT)
 
-        fiftytwo1 = MyTex(
+        fiftytwo1 = MyMathTex(
             r'\tau^\text{top-to-random}_{ {{52}} }({{50\%}})',
             font_size=40
         ).shift(1.75*DOWN + 4.5*RIGHT).set_color_by_tex(r'52', sol.FOREST_GREEN).set_color_by_tex(r'50', sol.CRIMSON_RED)
 
-        fiftytwo2 = MyTex(
+        fiftytwo2 = MyMathTex(
             r'\leq 242',
             font_size=80
         ).next_to(fiftytwo1, DOWN).shift(0.1*UP)

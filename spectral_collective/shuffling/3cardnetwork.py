@@ -1,62 +1,6 @@
 from manim import *
 import solarized as sol
-
-tt = TexTemplate()
-tt.add_to_preamble(r'\usepackage{amsfonts}')
-tt.add_to_preamble(r'\usepackage{amsmath}')
-tt.add_to_preamble(r'\usepackage{xcolor}')
-tt.add_to_preamble(r'\addtolength{\jot}{-0.35em}')
-tt.add_to_preamble(r'\renewcommand{\P}{\mathbb{P}}')
-tt.add_to_preamble(r'\newcommand{\coloredt}{t}')
-tt.add_to_preamble(r'\newcommand{\coloredn}{n}')
-tt.add_to_preamble(r'\newcommand{\coloredeps}{\varepsilon}')
-
-def MyMathTex(text, color=sol.BASE03, **kwargs):
-    return MathTex(
-        text,
-        color=color,
-        tex_template=tt,
-        **kwargs
-    ).set_color_by_tex(
-        r'\mu_1', sol.CRIMSON_RED
-    ).set_color_by_tex(
-        r'\mu_2', sol.ROYAL_BLUE
-    ).set_color_by_tex(
-        r'\coloredn', sol.FOREST_GREEN
-    ).set_color_by_tex(
-        r'\coloredeps', sol.CRIMSON_RED
-    ).set_color_by_tex(
-        r'\coloredt', sol.ROYAL_BLUE
-    )
-
-class ThreeCardStack(Group):
-    def __init__(self, permutation, z_index=1, **kwargs):
-        super().__init__(z_index=1, **kwargs)
-
-        cards = [ Rectangle(color=sol.BASE02, height=0.5, width=1.5) for i in range(3) ]
-
-        cards[0].set_fill(sol.CRIMSON_RED, opacity=1)
-        cards[1].set_fill(sol.ROYAL_BLUE, opacity=1)
-        cards[2].set_fill(sol.FOREST_GREEN, opacity=1)
-
-        for i in range(3):
-            cards[i].add(DecimalNumber(i+1, num_decimal_places=0, color=sol.BASE3).next_to(cards[i], ORIGIN))
-
-        a, b, c = (i-1 for i in permutation)
-
-        cards[b].move_to(ORIGIN)
-        cards[a].next_to(cards[b], UP, buff=0)
-        cards[c].next_to(cards[b], DOWN, buff=0)
-
-        self.occlusion = Square(color=sol.BASE2, stroke_width=0, side_length=1.55)
-        self.occlusion.set_fill(sol.BASE2, opacity=0)
-        self.opacity=0
-
-        self.add(*cards)
-        self.add(self.occlusion)
-
-    def set_percentage(self, percentage):
-        self.occlusion.set_fill(sol.BASE2, opacity=1-np.power(percentage,1/4))
+from sharedclasses import *
 
 class ThreeCardNetwork(Scene):
     def construct(self):
@@ -277,20 +221,23 @@ class Reversal(Scene):
 
         oldnetwork = Group(*arrowmobjects.values(), *cardstacks.values()).copy().stretch(0.6,0).stretch(0.7,1).shift(3.5*LEFT + 0.5*UP)
 
-        oldtext = Tex(
+        oldtext = MyTex(
             r'Original Network',
-            color=sol.BASE03,
             font_size=70
         ).shift(3.5*LEFT + 2.75*DOWN)
 
-        newtext = Tex(
+        newtext = MyTex(
             r'Reversed Network',
-            color=sol.BASE03,
             font_size=70
         ).shift(3.5*RIGHT + 2.75*DOWN)
 
+        def1text = MyMathTex(
+            r'\textbf{Definition 1: } \mathrm{d_{TV}}({{\cmuone}}, {{\cmutwo}}) = \frac{1}{2} \sum_{ {{\cx}} \in \Omega} |{{\cmutwo}}({{\cx}}) - {{\cmuone}}({{\cx}})|',
+            font_size=40
+        ).shift(3.2*UP)
+
         equality = MyMathTex(
-            r'\mathrm{d}^\text{top-to-random}_{{\coloredn}}({{\coloredt}}) = \mathrm{d}^\text{random-to-top}_{{\coloredn}}({{\coloredt}})',
+            r'\mathrm{d}^\text{top-to-random}_{{\cn}}({{\ct}}) = \mathrm{d}^\text{random-to-top}_{{\cn}}({{\ct}})',
             font_size=80
         ).shift(2.75*DOWN)
 
@@ -301,15 +248,15 @@ class Reversal(Scene):
         ).shift(3.25*UP)
 
         prob = MyMathTex(
-            r'\leq \P[{{X_1}} \neq {{X_2}}]',
+            r'\leq \P[{{\cX_1}} \neq {{\cX_2}}]',
             font_size=80
         ).shift(1.25*UP).align_to(equality[4][1], LEFT).set_color_by_tex(r'X', sol.YELLOW)
 
         coupling = MyMathTex(
             r'&\text{\large for a specific coupling} \vspace{0.5cm} \\[0.5em]'
-            r'&\quad {{X_1}} \sim \text{uniform distribution on all arrangements} \\'
-            r'&\quad {{X_2}} \sim \text{distribution after } {{\coloredt}} \text{ random-to-top shuffles} \\[0.5em]'
-            r'&\text{\large which we will construct}',
+            r'&\quad {{\cX_1}} \sim \text{uniform distribution on all arrangements} \\'
+            r'&\quad {{\cX_2}} \sim \text{distribution after } {{\ct}} \text{ random-to-top shuffles} \\[0.5em]'
+            r'&\text{\large which we will construct next}',
             font_size=55
         ).shift(DOWN).set_color_by_tex(r'X', sol.YELLOW)
 
@@ -337,12 +284,19 @@ class Reversal(Scene):
         )
 
         self.play(
+            FadeIn(def1text, shift=DOWN)
+        )
+
+        self.play(
             FadeOut(oldtext, shift=8*LEFT),
             FadeOut(newtext, shift=8*RIGHT),
             FadeIn(equality, scale=0.25)
         )
 
-        self.play(FadeIn(grouptext, shift=DOWN))
+        self.play(
+            FadeIn(grouptext, shift=DOWN),
+            FadeOut(def1text, scale=0.5)
+        )
 
         self.play(
             Group(grouptext, oldnetwork, *cardstacks.values(), *arrowmobjects.values()).animate.shift(6*UP),

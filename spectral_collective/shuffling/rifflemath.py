@@ -1,58 +1,39 @@
 from manim import *
 import solarized as sol
-
-tt = TexTemplate()
-tt.add_to_preamble(r'\usepackage{amsfonts}')
-tt.add_to_preamble(r'\usepackage{amsmath}')
-tt.add_to_preamble(r'\usepackage{xcolor}')
-tt.add_to_preamble(r'\addtolength{\jot}{-0.35em}')
-tt.add_to_preamble(r'\renewcommand{\P}{\mathbb{P}}')
-tt.add_to_preamble(r'\newcommand{\coloredt}{t}')
-tt.add_to_preamble(r'\newcommand{\coloredn}{n}')
-tt.add_to_preamble(r'\newcommand{\coloredeps}{\varepsilon}')
+from sharedclasses import *
 
 class BirthdayProblem(Scene):
     def construct(self):
 
-        title = MathTex(
+        title = MyMathTex(
             r'&\text{How many shuffles until every} \\\
             &\text{card has a unique number?}',
-            color=sol.BASE03,
             font_size=60,
-            tex_template=tt
         ).shift(2.65*UP + 1.75*LEFT)
 
-        stmt1 = MathTex(
-            r'\bullet &\text{ after } {{\coloredt}} \text{ shuffles, each card has a uniformly} \\\
-                &\text{ random binary number with } {{\coloredt}} \text{ bits.}',
-            color=sol.BASE03,
-            tex_template=tt
-        ).next_to(title, DOWN).align_to(title,LEFT).shift(0.5*DOWN+0.5*RIGHT).set_color_by_tex(r'\coloredt',sol.ROYAL_BLUE)
+        stmt1 = MyMathTex(
+            r'\bullet &\text{ after } {{\ct}} \text{ shuffles, each card has a uniformly} \\\
+                &\text{ random binary number with } {{\ct}} \text{ bits.}'
+        ).next_to(title, DOWN).align_to(title,LEFT).shift(0.5*DOWN+0.5*RIGHT)
 
-        stmt2 = MathTex(
-            r'\bullet &\text{ there are } 2^{{\coloredt}} \text{ such binary numbers.}',
-            color=sol.BASE03,
-            tex_template=tt
-        ).next_to(stmt1, DOWN).align_to(stmt1,LEFT).set_color_by_tex(r'\coloredt',sol.ROYAL_BLUE)
+        stmt2 = MyMathTex(
+            r'\bullet &\text{ there are } 2^{{\ct}} \text{ such binary nubers.}'
+        ).next_to(stmt1, DOWN).align_to(stmt1,LEFT)
 
-        reform = MathTex(
-            r'&\text{If we sample } {{\coloredn}} \text{ items (with replacement) } \\\
-            &\text{from } 2^{{\coloredt}} \text{ possibilities, what is the probability } \\\
+        reform = MyMathTex(
+            r'&\text{If we sample } {{\cn}} \text{ items (with replacement) } \\\
+            &\text{from } 2^{{\ct}} \text{ possibilities, what is the probability } \\\
             &\text{that there is a duplicate somewhere?}',
-            color=sol.BASE03,
             font_size=60,
-            tex_template=tt
-        ).next_to(stmt2, DOWN).align_to(title,LEFT).shift(0.5*DOWN).set_color_by_tex(r'\coloredt',sol.ROYAL_BLUE).set_color_by_tex(r'\coloredn',sol.FOREST_GREEN)
+        ).next_to(stmt2, DOWN).align_to(title,LEFT).shift(0.5*DOWN)
 
         arrow1 = CurvedDoubleArrow([-6,2,0],[-6,-1.5,0],color=sol.BASE1)
 
         arrow2 = CurvedArrow([6,1.95,0],[5.75,-1.75,0],color=sol.BASE01, radius=-6)
 
-        birthdaytext = MathTex(
+        birthdaytext = MyMathTex(
             r'&\textbf{Birthday} \\\ &\textbf{Problem}',
-            color=sol.BASE03,
             font_size=70,
-            tex_template=tt
         ).shift(2.85*UP+5.05*RIGHT)
 
         birthdaybox = SurroundingRectangle(
@@ -77,32 +58,24 @@ class BirthdayProblem(Scene):
 class Arithmetic(Scene):
     def construct(self):
         
-        implication = MathTex(
-            r'\text{there is a duplicate} \Rightarrow \substack{\text{there are two distinct cards, } C_1 \\ \text{and } C_2, \text{ with the same number}}',
-            color=sol.BASE03,
-            tex_template=tt
+        implication = MyMathTex(
+            r'\text{there is a duplicate} \Rightarrow \substack{\text{there are two distinct cards, } C_1 \\ \text{and } C_2, \text{ with the same number}}'
         ).shift(3*UP)
 
-        unionbound = MathTex(
-            r'\P[\text{there is a duplicate}] \leq \sum_{\substack{C_1, C_2 \\ \text{distinct cards}}} \P\Big[\substack{C_1 \text{ and } C_2 \text{ have}\\ \text{the same number}}\Big]',
-            color=sol.BASE03,
-            tex_template=tt
+        unionbound = MyMathTex(
+            r'\P[\text{there is a duplicate}] \leq \sum_{\substack{C_1, C_2 \\ \text{distinct cards}}} \P\Big[\substack{C_1 \text{ and } C_2 \text{ have}\\ \text{the same number}}\Big]'
         ).shift(UP)
 
-        energy = MathTex(
-            r'1 \over 2^{{\coloredt}}',
-            color=sol.BASE03,
-            tex_template=tt,
+        energy = MyMathTex(
+            r'1 \over 2^{{\ct}}',
             font_size=36
-        ).set_color_by_tex(r'\coloredt', sol.ROYAL_BLUE).shift(4.75*RIGHT)
+        ).shift(4.75*RIGHT)
 
         brace1 = BraceBetweenPoints([2,1,0],[6,1,0], color=sol.BASE1)
         arrow1 = CurvedArrow(4.5*RIGHT, 4*RIGHT+0.5*UP, color=sol.BASE1, radius=-0.5, tip_shape=StealthTip, tip_length=0.1)
 
-        entropy = MathTex(
+        entropy = MyMathTex(
             r'\binom{n}{2} \leq \frac{n^2}{2}',
-            color=sol.BASE03,
-            tex_template=tt,
             font_size=36
         ).shift(2.25*RIGHT + 0.7*DOWN)
         entropy[0][1].set_color(sol.FOREST_GREEN)
@@ -111,29 +84,21 @@ class Arithmetic(Scene):
         brace2 = BraceBetweenPoints([-0.5,0.3,0],[2.2,0.3,0],color=sol.BASE1)
         arrow2 = CurvedArrow([1.35, -0.7, 0], [0.85, -0.2, 0], color=sol.BASE1, radius=-0.5, tip_shape=StealthTip, tip_length=0.1)
 
-        dbound1 = MathTex(
-            r'{{ \P[ }} \text{there is a duplicate} {{ \text{ after } }} {{\coloredt}} {{ \text{ shuffles} }} {{ ] }} {{ \leq }} { {{\coloredn}}^2 \over 2^{{{\coloredt}} + 1} }',
-            color=sol.BASE03,
-            tex_template=tt,
-        ).set_color_by_tex(r'\coloredt', sol.ROYAL_BLUE).set_color_by_tex(r'\coloredn', sol.FOREST_GREEN).shift(2.5*DOWN)
+        dbound1 = MyMathTex(
+            r'{{ \P[ }} \text{there is a duplicate} {{ \text{ after } }} {{\ct}} {{ \text{ shuffles} }} {{ ] }} {{ \leq }} { {{\cn}}^2 \over 2^{{{\ct}} + 1} }'
+        ).shift(2.5*DOWN)
 
-        dbound2 = MathTex(
-            r"{{ \P[ }} \text{decks don't align} {{ \text{ after } }} {{\coloredt}} {{ \text{ shuffles} }} {{ ] }} {{ \leq }} { {{\coloredn}}^2 \over 2^{{{\coloredt}} + 1} }",
-            color=sol.BASE03,
-            tex_template=tt,
-        ).set_color_by_tex(r'\coloredt', sol.ROYAL_BLUE).set_color_by_tex(r'\coloredn', sol.FOREST_GREEN).shift(2.5*DOWN).align_to(dbound1,RIGHT)
+        dbound2 = MyMathTex(
+            r"{{ \P[ }} \text{decks don't align} {{ \text{ after } }} {{\ct}} {{ \text{ shuffles} }} {{ ] }} {{ \leq }} { {{\cn}}^2 \over 2^{{{\ct}} + 1} }"
+        ).shift(2.5*DOWN).align_to(dbound1,RIGHT)
 
-        dbound3 = MathTex(
-            r'\mathrm{d}^\text{riffle}_{ {{\coloredn}} } ({{\coloredt}}) {{ \leq }} { {{\coloredn}}^2 \over 2^{{{\coloredt}} + 1} }',
-            color=sol.BASE03,
-            tex_template=tt
-        ).set_color_by_tex(r'\coloredt', sol.ROYAL_BLUE).set_color_by_tex(r'\coloredn', sol.FOREST_GREEN).shift(2.5*DOWN)
+        dbound3 = MyMathTex(
+            r'\mathrm{d}^\text{riffle}_{ {{\cn}} } ({{\ct}}) {{ \leq }} { {{\cn}}^2 \over 2^{{{\ct}} + 1} }'
+        ).shift(2.5*DOWN)
 
-        tbound = MathTex(
-            r'\textstyle \tau^\text{riffle}_{ {{\coloredn}} } ({{\coloredeps}}) \leq 2 \log_2({{\coloredn}}) + \log_2\big( { 1 \over {{\coloredeps}} } \big) - 1',
-            color=sol.BASE03,
-            tex_template=tt
-        ).set_color_by_tex(r'\coloredn', sol.FOREST_GREEN).set_color_by_tex(r'\coloredeps', sol.CRIMSON_RED).shift(2.5*DOWN + 2.5*RIGHT)
+        tbound = MyMathTex(
+            r'\textstyle \tau^\text{riffle}_{ {{\cn}} } ({{\ceps}}) \leq 2 \log_2({{\cn}}) + \log_2\big( { 1 \over {{\ceps}} } \big) - 1'
+        ).shift(2.5*DOWN + 2.5*RIGHT)
 
         #arrow3 = CurvedDoubleArrow([-4.45, -2.25, 0], [0.65, -2.25, 0], color=sol.BASE1, radius=-2.65)
         arrow3 = CubicBezier(
