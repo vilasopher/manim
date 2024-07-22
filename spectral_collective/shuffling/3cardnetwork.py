@@ -91,10 +91,24 @@ class ThreeCardNetwork(Scene):
             used_arrows = [
                 (a,b) for (a,b) in arrowdata if percentages[a].get_value() > 0
             ]
+            self_loops = [
+                a for a in cardstacks.keys() if percentages[a].get_value() > 0
+            ]
             self.play(
                 *(percentages[c].animate.set_value(new_percentages[c]) for c in cardstacks.keys()),
                 *(Indicate(arrowmobjects[a], scale_factor=1.1, color=sol.BASE01) for a in used_arrows)
             )
+
+        perfdeftext = MyTex(
+            r"``perfect randomness'' \\ $=$ \\ uniform distribution on all arrangements \\ (each arrangement is equally likely)",
+            font_size=70
+        )
+
+        perfdefbox = SurroundingRectangle(
+            perfdeftext, color=sol.BASE01, corner_radius=0.05, buff=MED_SMALL_BUFF
+        ).set_fill(sol.BASE2, opacity=1)
+
+        perfdef = Group(perfdefbox, perfdeftext, z_index=10)
 
         cardstacks[(1,2,3)].move_to(5*LEFT)
         cardstacks[(2,1,3)].move_to(3*LEFT)
@@ -108,14 +122,25 @@ class ThreeCardNetwork(Scene):
             for c in cardstacks.keys()
         }
 
+        cardstacks[(1,2,3)].move_to(ORIGIN).scale(2)
+        cardstacks[(1,2,3)][0].shift(0.5*UP)
+        cardstacks[(1,2,3)][2].shift(0.5*DOWN)
+
+        self.play(FadeIn(cardstacks[(1,2,3)]))
+
+        self.play(
+            cardstacks[(1,2,3)][0].animate(rate_func=rate_functions.ease_in_expo).shift(0.5*DOWN),
+            cardstacks[(1,2,3)][2].animate(rate_func=rate_functions.ease_in_expo).shift(0.5*UP),
+        )
+
         self.play(
             LaggedStart(
-                FadeIn(cardstacks[(1,2,3)], shift=LEFT),
-                FadeIn(cardstacks[(2,1,3)], shift=LEFT),
-                FadeIn(cardstacks[(2,3,1)], shift=LEFT),
-                FadeIn(cardstacks[(1,3,2)], shift=LEFT),
-                FadeIn(cardstacks[(3,1,2)], shift=LEFT),
-                FadeIn(cardstacks[(3,2,1)], shift=LEFT)
+                cardstacks[(1,2,3)].animate.move_to(5*LEFT).scale(0.5),
+                FadeIn(cardstacks[(2,1,3)], shift=5*LEFT),
+                FadeIn(cardstacks[(2,3,1)], shift=5*LEFT),
+                FadeIn(cardstacks[(1,3,2)], shift=5*LEFT),
+                FadeIn(cardstacks[(3,1,2)], shift=5*LEFT),
+                FadeIn(cardstacks[(3,2,1)], shift=5*LEFT)
             )
         )
 
@@ -165,11 +190,24 @@ class ThreeCardNetwork(Scene):
 
         step_markov_chain()
         self.wait()
+        
+        self.play(
+            Indicate(arrowmobjects[(1,2,3),(2,1,3)], scale_factor=1.2, color=sol.BASE02),
+            Indicate(arrowmobjects[(1,2,3),(2,3,1)], scale_factor=1.2, color=sol.BASE02)
+        )
+
+        self.play(Wiggle(cardstacks[(1,2,3)]))
+
+        self.wait()
+        step_markov_chain()
+        self.wait()
         step_markov_chain()
         self.wait()
         step_markov_chain()
         self.wait()
         step_markov_chain()
+        self.wait()
+        self.play(FadeIn(perfdef, scale=0.75))
         self.wait()
         step_markov_chain()
         self.wait()

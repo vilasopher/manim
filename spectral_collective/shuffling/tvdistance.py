@@ -250,10 +250,11 @@ class TVDefinition(Scene):
 
         self.play(FadeIn(def1text, scale=0.75))
         self.play(Wiggle(Group(def1text[5][0], def1text[6][0:2])))
-        self.play(Wiggle(Group(def1text[6][2], def1text[7:])))
+        self.play(Wiggle(Group(def1text[7:10], def1text[10][0])))
+        self.play(Wiggle(Group(def1text[11:14], def1text[14][0])))
         self.play(Wiggle(def1text[4][-1]))
         self.play(Wiggle(Group(def1text[4][-4:-1])))
-        self.play(Wiggle(Group(def1text[0][-4:], def1text[1:4], def1text[4][0])))
+        self.play(Circumscribe(Group(def1text[0][-4:], def1text[1:4], def1text[4][0]), color=sol.BASE03, fade_out=True))
         self.play(Write(nametext))
         self.play(Wiggle(Group(def1text[0][-3:-1])))
 

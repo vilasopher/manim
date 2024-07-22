@@ -2887,7 +2887,7 @@
   <property name="kdenlive:folderid">4</property>
   <property name="kdenlive:audio_max0">206</property>
  </chain>
- <producer id="producer0" in="00:00:00.000" out="00:29:14.317">
+ <producer id="producer0" in="00:00:00.000" out="00:29:17.817">
   <property name="length">2147483647</property>
   <property name="eof">continue</property>
   <property name="resource">black</property>
@@ -5081,7 +5081,7 @@
     <property name="kdenlive:collapsed">0</property>
    </filter>
   </entry>
-  <blank length="00:00:00.800"/>
+  <blank length="00:00:02.867"/>
   <entry in="00:00:00.667" out="00:00:21.917" producer="chain26">
    <property name="kdenlive:id">89</property>
    <filter id="filter57" in="00:00:00.667" out="00:00:00.817">
@@ -5105,7 +5105,7 @@
   <blank length="00:00:01.083"/>
   <entry in="00:00:21.933" out="00:00:26.300" producer="chain26">
    <property name="kdenlive:id">89</property>
-   <filter id="filter59" in="00:00:25.933" out="00:00:26.317">
+   <filter id="filter59" in="00:00:25.917" out="00:00:26.300">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
     <property name="mlt_service">volume</property>
@@ -5146,7 +5146,7 @@
     <property name="kdenlive:collapsed">0</property>
    </filter>
   </entry>
-  <blank length="00:00:00.250"/>
+  <blank length="00:00:00.683"/>
   <entry in="00:00:00.817" out="00:00:24.917" producer="chain28">
    <property name="kdenlive:id">93</property>
    <filter id="filter63" in="00:00:00.817" out="00:00:01.133">
@@ -5451,7 +5451,7 @@
     <property name="kdenlive:collapsed">0</property>
    </filter>
   </entry>
-  <blank length="00:00:00.267"/>
+  <blank length="00:00:00.717"/>
   <entry in="00:00:00.967" out="00:00:20.133" producer="chain41">
    <property name="kdenlive:id">13</property>
    <filter id="filter91" in="00:00:00.967" out="00:00:01.083">
@@ -5558,7 +5558,7 @@
     <property name="kdenlive:collapsed">0</property>
    </filter>
   </entry>
-  <blank length="00:00:01.083"/>
+  <blank length="00:00:01.633"/>
   <entry in="00:00:00.750" out="00:00:30.267" producer="chain44">
    <property name="kdenlive:id">20</property>
    <filter id="filter101" in="00:00:00.750" out="00:00:00.867">
@@ -5825,7 +5825,7 @@
  <playlist id="playlist3">
   <property name="kdenlive:audio_track">1</property>
  </playlist>
- <tractor id="tractor1" in="00:00:00.000" out="00:24:14.300">
+ <tractor id="tractor1" in="00:00:00.000" out="00:24:17.800">
   <property name="kdenlive:audio_track">1</property>
   <property name="kdenlive:trackheight">67</property>
   <property name="kdenlive:timeline_active">1</property>
@@ -5877,9 +5877,9 @@
   <track hide="audio" producer="playlist6"/>
   <track hide="audio" producer="playlist7"/>
  </tractor>
- <tractor id="tractor4" in="00:00:00.000" out="00:24:14.300">
-  <property name="kdenlive:duration">00:24:14.317</property>
-  <property name="kdenlive:maxduration">87259</property>
+ <tractor id="tractor4" in="00:00:00.000" out="00:24:17.800">
+  <property name="kdenlive:duration">00:24:17.817</property>
+  <property name="kdenlive:maxduration">87469</property>
   <property name="kdenlive:clipname">Sequence 1</property>
   <property name="kdenlive:description"/>
   <property name="kdenlive:uuid">{6145f7b6-8bb3-4e2d-afc5-1905046347f9}</property>
@@ -5900,6 +5900,16 @@
         "type": 1
     },
     {
+        "comment": "arrow pointing to 7",
+        "pos": 1500,
+        "type": 1
+    },
+    {
+        "comment": "get rid of arrow",
+        "pos": 1813,
+        "type": 1
+    },
+    {
         "comment": "Stop shuffling, fade to manim",
         "pos": 3512,
         "type": 0
@@ -5950,14 +5960,14 @@
         "type": 1
     },
     {
-        "comment": "Fade to shuffling",
+        "comment": "What is shuffling? manim",
         "pos": 5580,
-        "type": 0
+        "type": 2
     },
     {
-        "comment": "Stop shuffling, hold up cards",
+        "comment": "Fade to shuffling",
         "pos": 6420,
-        "type": 8
+        "type": 0
     },
     {
         "comment": "Take a card off the top of the deck",
@@ -5975,7 +5985,7 @@
         "type": 8
     },
     {
-        "comment": "Counting skit",
+        "comment": "speed up shuffling, have anisah come in and be bored",
         "pos": 7506,
         "type": 5
     },
@@ -5988,6 +5998,16 @@
         "comment": "Fade to manim",
         "pos": 8370,
         "type": 0
+    },
+    {
+        "comment": "fade in 3 cards",
+        "pos": 8430,
+        "type": 1
+    },
+    {
+        "comment": "put cards together",
+        "pos": 8490,
+        "type": 1
     },
     {
         "comment": "Six possible arrangements",
@@ -6005,7 +6025,12 @@
         "type": 1
     },
     {
-        "comment": "Fade all in, erase numbers",
+        "comment": "fade all in",
+        "pos": 9585,
+        "type": 1
+    },
+    {
+        "comment": "move them to their positoins",
         "pos": 9600,
         "type": 1
     },
@@ -6115,13 +6140,13 @@
         "type": 2
     },
     {
-        "comment": "mu(these) = 1/3",
-        "pos": 15060,
+        "comment": "wave these",
+        "pos": 15150,
         "type": 2
     },
     {
         "comment": "mu(those) = 0",
-        "pos": 15240,
+        "pos": 15270,
         "type": 2
     },
     {
@@ -6145,38 +6170,33 @@
         "type": 2
     },
     {
-        "comment": "highlight mu1(x)",
+        "comment": "wiggle x",
+        "pos": 16230,
+        "type": 2
+    },
+    {
+        "comment": "wiggle mu1(x)",
         "pos": 16320,
         "type": 2
     },
     {
-        "comment": "highlight mu2(x)",
+        "comment": "wiggle mu2(x)",
         "pos": 16530,
         "type": 2
     },
     {
-        "comment": "fade out highlights",
-        "pos": 16710,
+        "comment": "wiggle sum",
+        "pos": 16755,
         "type": 2
     },
     {
-        "comment": "highlight sum",
-        "pos": 16770,
+        "comment": "wiggle 1/2",
+        "pos": 16875,
         "type": 2
     },
     {
-        "comment": "highlight 1/2",
-        "pos": 16890,
-        "type": 2
-    },
-    {
-        "comment": "highlight dtv(mu1,mu2)",
+        "comment": "wiggle dtv(mu1,mu2)",
         "pos": 16950,
-        "type": 2
-    },
-    {
-        "comment": "fade out hightlights",
-        "pos": 17100,
         "type": 2
     },
     {
@@ -6185,7 +6205,7 @@
         "type": 2
     },
     {
-        "comment": "underline TV",
+        "comment": "wiggle TV",
         "pos": 17460,
         "type": 2
     },
@@ -6195,13 +6215,8 @@
         "type": 2
     },
     {
-        "comment": "dtv(mu1,mu2)",
-        "pos": 18090,
-        "type": 2
-    },
-    {
         "comment": "fade in formula 2",
-        "pos": 18210,
+        "pos": 18120,
         "type": 2
     },
     {
@@ -6215,13 +6230,8 @@
         "type": 2
     },
     {
-        "comment": "fade to example",
+        "comment": "example event",
         "pos": 18990,
-        "type": 2
-    },
-    {
-        "comment": "event that card 2 is above card 3",
-        "pos": 19080,
         "type": 2
     },
     {
@@ -6230,18 +6240,8 @@
         "type": 2
     },
     {
-        "comment": "one-half",
-        "pos": 19500,
-        "type": 2
-    },
-    {
         "comment": "after one step of top-to-random",
-        "pos": 19890,
-        "type": 2
-    },
-    {
-        "comment": "probability = 1",
-        "pos": 20070,
+        "pos": 19830,
         "type": 2
     },
     {
@@ -6250,22 +6250,17 @@
         "type": 2
     },
     {
-        "comment": "fade out example, back to definitions",
-        "pos": 20580,
-        "type": 2
-    },
-    {
-        "comment": "fade in table",
+        "comment": "swipe in table",
         "pos": 20670,
         "type": 1
     },
     {
-        "comment": "explanation of 60%",
+        "comment": "highlight 6 shuffles somehow",
         "pos": 20970,
         "type": 1
     },
     {
-        "comment": "explanation of 3 or 4 shuffles",
+        "comment": "highlight 3 or 4 shuffles somehow",
         "pos": 21450,
         "type": 1
     },
@@ -6286,17 +6281,12 @@
     },
     {
         "comment": "random outcome, i.e. random element of omega",
-        "pos": 22920,
+        "pos": 22830,
         "type": 1
     },
     {
         "comment": "X tilde mu",
         "pos": 23070,
-        "type": 1
-    },
-    {
-        "comment": "definition of X ~ mu",
-        "pos": 23190,
         "type": 1
     },
     {
@@ -6306,32 +6296,7 @@
     },
     {
         "comment": "Example",
-        "pos": 23550,
-        "type": 1
-    },
-    {
-        "comment": "Flip a fair coin 5 times",
-        "pos": 23610,
-        "type": 1
-    },
-    {
-        "comment": "X = heads, Y = tails",
-        "pos": 23730,
-        "type": 1
-    },
-    {
-        "comment": "X ~ mu, Y ~ mu",
-        "pos": 23880,
-        "type": 1
-    },
-    {
-        "comment": "where mu = Binomial(5,1/2)",
-        "pos": 24000,
-        "type": 1
-    },
-    {
-        "comment": "But X != Y",
-        "pos": 24240,
+        "pos": 23580,
         "type": 1
     },
     {
@@ -6731,112 +6696,112 @@
     },
     {
         "comment": "Fade to real life",
-        "pos": 49800,
+        "pos": 49924,
         "type": 0
     },
     {
         "comment": "show deck, text saying it's uniformly random",
-        "pos": 49890,
+        "pos": 50014,
         "type": 8
     },
     {
         "comment": "Do one shuffle",
-        "pos": 50040,
+        "pos": 50164,
         "type": 8
     },
     {
         "comment": "Still uniformly random!",
-        "pos": 50160,
+        "pos": 50284,
         "type": 8
     },
     {
         "comment": "do some more shuffles",
-        "pos": 50340,
+        "pos": 50464,
         "type": 8
     },
     {
         "comment": "anisah's hand comes in with the unshuffled deck",
-        "pos": 50640,
+        "pos": 50764,
         "type": 8
     },
     {
         "comment": "say this deck is unshuffled, that is uniformly random",
-        "pos": 50700,
+        "pos": 50824,
         "type": 8
     },
     {
         "comment": "start shuffling simultaneously",
-        "pos": 50896,
+        "pos": 51020,
         "type": 8
     },
     {
         "comment": "switch to face up cards",
-        "pos": 51134,
+        "pos": 51258,
         "type": 8
     },
     {
         "comment": "put finger on random card",
-        "pos": 51484,
+        "pos": 51608,
         "type": 8
     },
     {
         "comment": "put it on top",
-        "pos": 51592,
+        "pos": 51716,
         "type": 8
     },
     {
         "comment": "do the same with the perfectly random deck, but choose the same card",
-        "pos": 51729,
+        "pos": 51853,
         "type": 8
     },
     {
         "comment": "do this a few more times",
-        "pos": 52031,
+        "pos": 52155,
         "type": 8
     },
     {
         "comment": "show the choice of card, then show shuffle being done",
-        "pos": 52671,
+        "pos": 52795,
         "type": 8
     },
     {
         "comment": "replay the footage",
-        "pos": 53058,
+        "pos": 53208,
         "type": 8
     },
     {
         "comment": "add check mark for top cards",
-        "pos": 53160,
+        "pos": 53310,
         "type": 8
     },
     {
         "comment": "do it again",
-        "pos": 53361,
+        "pos": 53511,
         "type": 8
     },
     {
         "comment": "check mark for two cards",
-        "pos": 53447,
+        "pos": 53597,
         "type": 8
     },
     {
         "comment": "keep shuffling and adding check marks until the deck is shuffled, keep shuffling",
-        "pos": 53716,
+        "pos": 53866,
         "type": 8
     },
     {
         "comment": "fade to manim",
-        "pos": 54540,
+        "pos": 54690,
         "type": 0
     },
     {
         "comment": "242 skit",
-        "pos": 62656,
+        "pos": 62806,
         "type": 5
     },
     {
         "comment": "fade back to manim",
-        "pos": 73380,
+        "pos": 73590,
         "type": 0
     }
 ]
@@ -6847,15 +6812,15 @@
   <property name="kdenlive:sequenceproperties.documentuuid">{6145f7b6-8bb3-4e2d-afc5-1905046347f9}</property>
   <property name="kdenlive:sequenceproperties.hasAudio">1</property>
   <property name="kdenlive:sequenceproperties.hasVideo">1</property>
-  <property name="kdenlive:sequenceproperties.position">84998</property>
-  <property name="kdenlive:sequenceproperties.scrollPos">34565</property>
+  <property name="kdenlive:sequenceproperties.position">8599</property>
+  <property name="kdenlive:sequenceproperties.scrollPos">9755</property>
   <property name="kdenlive:sequenceproperties.tracks">4</property>
   <property name="kdenlive:sequenceproperties.tracksCount">4</property>
   <property name="kdenlive:sequenceproperties.verticalzoom">1</property>
   <property name="kdenlive:sequenceproperties.videoTarget">2</property>
   <property name="kdenlive:sequenceproperties.zonein">0</property>
   <property name="kdenlive:sequenceproperties.zoneout">75</property>
-  <property name="kdenlive:sequenceproperties.zoom">9</property>
+  <property name="kdenlive:sequenceproperties.zoom">6</property>
   <property name="kdenlive:sequenceproperties.groups">[
 ]
 </property>
@@ -6871,6 +6836,16 @@
         "type": 1
     },
     {
+        "comment": "arrow pointing to 7",
+        "pos": 1500,
+        "type": 1
+    },
+    {
+        "comment": "get rid of arrow",
+        "pos": 1813,
+        "type": 1
+    },
+    {
         "comment": "Stop shuffling, fade to manim",
         "pos": 3512,
         "type": 0
@@ -6921,14 +6896,14 @@
         "type": 1
     },
     {
-        "comment": "Fade to shuffling",
+        "comment": "What is shuffling? manim",
         "pos": 5580,
-        "type": 0
+        "type": 2
     },
     {
-        "comment": "Stop shuffling, hold up cards",
+        "comment": "Fade to shuffling",
         "pos": 6420,
-        "type": 8
+        "type": 0
     },
     {
         "comment": "Take a card off the top of the deck",
@@ -6946,7 +6921,7 @@
         "type": 8
     },
     {
-        "comment": "Counting skit",
+        "comment": "speed up shuffling, have anisah come in and be bored",
         "pos": 7506,
         "type": 5
     },
@@ -6959,6 +6934,16 @@
         "comment": "Fade to manim",
         "pos": 8370,
         "type": 0
+    },
+    {
+        "comment": "fade in 3 cards",
+        "pos": 8430,
+        "type": 1
+    },
+    {
+        "comment": "put cards together",
+        "pos": 8490,
+        "type": 1
     },
     {
         "comment": "Six possible arrangements",
@@ -6976,7 +6961,12 @@
         "type": 1
     },
     {
-        "comment": "Fade all in, erase numbers",
+        "comment": "fade all in",
+        "pos": 9585,
+        "type": 1
+    },
+    {
+        "comment": "move them to their positoins",
         "pos": 9600,
         "type": 1
     },
@@ -7086,13 +7076,13 @@
         "type": 2
     },
     {
-        "comment": "mu(these) = 1/3",
-        "pos": 15060,
+        "comment": "wave these",
+        "pos": 15150,
         "type": 2
     },
     {
         "comment": "mu(those) = 0",
-        "pos": 15240,
+        "pos": 15270,
         "type": 2
     },
     {
@@ -7116,38 +7106,33 @@
         "type": 2
     },
     {
-        "comment": "highlight mu1(x)",
+        "comment": "wiggle x",
+        "pos": 16230,
+        "type": 2
+    },
+    {
+        "comment": "wiggle mu1(x)",
         "pos": 16320,
         "type": 2
     },
     {
-        "comment": "highlight mu2(x)",
+        "comment": "wiggle mu2(x)",
         "pos": 16530,
         "type": 2
     },
     {
-        "comment": "fade out highlights",
-        "pos": 16710,
+        "comment": "wiggle sum",
+        "pos": 16755,
         "type": 2
     },
     {
-        "comment": "highlight sum",
-        "pos": 16770,
+        "comment": "wiggle 1/2",
+        "pos": 16875,
         "type": 2
     },
     {
-        "comment": "highlight 1/2",
-        "pos": 16890,
-        "type": 2
-    },
-    {
-        "comment": "highlight dtv(mu1,mu2)",
+        "comment": "wiggle dtv(mu1,mu2)",
         "pos": 16950,
-        "type": 2
-    },
-    {
-        "comment": "fade out hightlights",
-        "pos": 17100,
         "type": 2
     },
     {
@@ -7156,7 +7141,7 @@
         "type": 2
     },
     {
-        "comment": "underline TV",
+        "comment": "wiggle TV",
         "pos": 17460,
         "type": 2
     },
@@ -7166,13 +7151,8 @@
         "type": 2
     },
     {
-        "comment": "dtv(mu1,mu2)",
-        "pos": 18090,
-        "type": 2
-    },
-    {
         "comment": "fade in formula 2",
-        "pos": 18210,
+        "pos": 18120,
         "type": 2
     },
     {
@@ -7186,13 +7166,8 @@
         "type": 2
     },
     {
-        "comment": "fade to example",
+        "comment": "example event",
         "pos": 18990,
-        "type": 2
-    },
-    {
-        "comment": "event that card 2 is above card 3",
-        "pos": 19080,
         "type": 2
     },
     {
@@ -7201,18 +7176,8 @@
         "type": 2
     },
     {
-        "comment": "one-half",
-        "pos": 19500,
-        "type": 2
-    },
-    {
         "comment": "after one step of top-to-random",
-        "pos": 19890,
-        "type": 2
-    },
-    {
-        "comment": "probability = 1",
-        "pos": 20070,
+        "pos": 19830,
         "type": 2
     },
     {
@@ -7221,22 +7186,17 @@
         "type": 2
     },
     {
-        "comment": "fade out example, back to definitions",
-        "pos": 20580,
-        "type": 2
-    },
-    {
-        "comment": "fade in table",
+        "comment": "swipe in table",
         "pos": 20670,
         "type": 1
     },
     {
-        "comment": "explanation of 60%",
+        "comment": "highlight 6 shuffles somehow",
         "pos": 20970,
         "type": 1
     },
     {
-        "comment": "explanation of 3 or 4 shuffles",
+        "comment": "highlight 3 or 4 shuffles somehow",
         "pos": 21450,
         "type": 1
     },
@@ -7257,17 +7217,12 @@
     },
     {
         "comment": "random outcome, i.e. random element of omega",
-        "pos": 22920,
+        "pos": 22830,
         "type": 1
     },
     {
         "comment": "X tilde mu",
         "pos": 23070,
-        "type": 1
-    },
-    {
-        "comment": "definition of X ~ mu",
-        "pos": 23190,
         "type": 1
     },
     {
@@ -7277,32 +7232,7 @@
     },
     {
         "comment": "Example",
-        "pos": 23550,
-        "type": 1
-    },
-    {
-        "comment": "Flip a fair coin 5 times",
-        "pos": 23610,
-        "type": 1
-    },
-    {
-        "comment": "X = heads, Y = tails",
-        "pos": 23730,
-        "type": 1
-    },
-    {
-        "comment": "X ~ mu, Y ~ mu",
-        "pos": 23880,
-        "type": 1
-    },
-    {
-        "comment": "where mu = Binomial(5,1/2)",
-        "pos": 24000,
-        "type": 1
-    },
-    {
-        "comment": "But X != Y",
-        "pos": 24240,
+        "pos": 23580,
         "type": 1
     },
     {
@@ -7702,112 +7632,112 @@
     },
     {
         "comment": "Fade to real life",
-        "pos": 49800,
+        "pos": 49924,
         "type": 0
     },
     {
         "comment": "show deck, text saying it's uniformly random",
-        "pos": 49890,
+        "pos": 50014,
         "type": 8
     },
     {
         "comment": "Do one shuffle",
-        "pos": 50040,
+        "pos": 50164,
         "type": 8
     },
     {
         "comment": "Still uniformly random!",
-        "pos": 50160,
+        "pos": 50284,
         "type": 8
     },
     {
         "comment": "do some more shuffles",
-        "pos": 50340,
+        "pos": 50464,
         "type": 8
     },
     {
         "comment": "anisah's hand comes in with the unshuffled deck",
-        "pos": 50640,
+        "pos": 50764,
         "type": 8
     },
     {
         "comment": "say this deck is unshuffled, that is uniformly random",
-        "pos": 50700,
+        "pos": 50824,
         "type": 8
     },
     {
         "comment": "start shuffling simultaneously",
-        "pos": 50896,
+        "pos": 51020,
         "type": 8
     },
     {
         "comment": "switch to face up cards",
-        "pos": 51134,
+        "pos": 51258,
         "type": 8
     },
     {
         "comment": "put finger on random card",
-        "pos": 51484,
+        "pos": 51608,
         "type": 8
     },
     {
         "comment": "put it on top",
-        "pos": 51592,
+        "pos": 51716,
         "type": 8
     },
     {
         "comment": "do the same with the perfectly random deck, but choose the same card",
-        "pos": 51729,
+        "pos": 51853,
         "type": 8
     },
     {
         "comment": "do this a few more times",
-        "pos": 52031,
+        "pos": 52155,
         "type": 8
     },
     {
         "comment": "show the choice of card, then show shuffle being done",
-        "pos": 52671,
+        "pos": 52795,
         "type": 8
     },
     {
         "comment": "replay the footage",
-        "pos": 53058,
+        "pos": 53208,
         "type": 8
     },
     {
         "comment": "add check mark for top cards",
-        "pos": 53160,
+        "pos": 53310,
         "type": 8
     },
     {
         "comment": "do it again",
-        "pos": 53361,
+        "pos": 53511,
         "type": 8
     },
     {
         "comment": "check mark for two cards",
-        "pos": 53447,
+        "pos": 53597,
         "type": 8
     },
     {
         "comment": "keep shuffling and adding check marks until the deck is shuffled, keep shuffling",
-        "pos": 53716,
+        "pos": 53866,
         "type": 8
     },
     {
         "comment": "fade to manim",
-        "pos": 54540,
+        "pos": 54690,
         "type": 0
     },
     {
         "comment": "242 skit",
-        "pos": 62656,
+        "pos": 62806,
         "type": 5
     },
     {
         "comment": "fade back to manim",
-        "pos": 73380,
+        "pos": 73590,
         "type": 0
     }
 ]
@@ -8064,10 +7994,10 @@
   <entry in="00:00:00.000" out="00:00:34.433" producer="chain162"/>
   <entry in="00:00:00.000" out="00:00:34.550" producer="chain164"/>
   <entry in="00:00:00.000" out="00:25:32.333" producer="chain163"/>
-  <entry in="00:00:00.000" out="00:24:09.117" producer="tractor4"/>
+  <entry in="00:00:00.000" out="00:24:16.367" producer="tractor4"/>
  </playlist>
- <tractor id="tractor5" in="00:00:00.000" out="00:24:14.300">
+ <tractor id="tractor5" in="00:00:00.000" out="00:24:17.800">
   <property name="kdenlive:projectTractor">1</property>
-  <track in="00:00:00.000" out="00:24:14.300" producer="tractor4"/>
+  <track in="00:00:00.000" out="00:24:17.800" producer="tractor4"/>
  </tractor>
 </mlt>
