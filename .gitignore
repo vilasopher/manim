@@ -2,5 +2,4 @@
 **/__pycache__
 **/presentation
 **/data/images
-**/shuffling/livevideo/*
-**/shuffling/liveaudio/*
+**/shuffling/live/**
