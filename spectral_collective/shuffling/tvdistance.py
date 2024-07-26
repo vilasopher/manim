@@ -321,12 +321,66 @@ class Yapping(Scene):
             r'\emph{any event gives a lower bound!}',
             font_size=45
         ).next_to(def2text, DOWN)
+        event.shift(event.get_center()[0]*LEFT)
 
         coupling = MyTex(
             r'\emph{any coupling gives an upper bound!}',
             font_size=45
         ).next_to(def3text, DOWN)
+        coupling.shift(coupling.get_center()[0]*LEFT)
 
+        restofvideo1 = MyTex(
+            r'\textbf{The rest of the video:}',
+            font_size=60
+        ).shift(UP + 3*LEFT)
+
+        restofvideo2 = MyMathTex(
+            r'&\text{constructing couplings to get upper bounds on the total} \\\
+                &\text{variation distance between the uniform distribution and} \\\
+                &\text{the distribution of arrangements after } {{\ct}} \text{ shuffles.}'
+        ).next_to(restofvideo1, DOWN).align_to(restofvideo1, LEFT).shift(0.25*RIGHT)
+
+        doft1 = MyMathTex(
+            r'{{\mathrm{d}}} {{(}} {{\ct}} {{)}}',
+            font_size=70
+        ).shift(2.25*DOWN)
+        doft2 = MyMathTex(
+            r'{{\mathrm{d}}}^{{\text{[shuffle]}}} {{(}} {{\ct}} {{)}}',
+            font_size=70
+        ).shift(2.25*DOWN)
+        doft3 = MyMathTex(
+            r'{{\mathrm{d}}}^{{\text{top-to-random}}} {{(}} {{\ct}} {{)}}',
+            font_size=70
+        ).shift(2.25*DOWN)
+        doft4 = MyMathTex(
+            r'{{\mathrm{d}}}^{{\text{top-to-random}}}_{{\cn}} {{(}} {{\ct}} {{)}}',
+            font_size=70
+        ).shift(2.25*DOWN + 3*LEFT)
+
+        ncards = MyMathTex(
+            r'({{\cn}} = \text{number of cards})',
+            font_size=50
+        ).next_to(doft4, RIGHT).shift(RIGHT)
+
+        doft5 = MyMathTex(
+            r'{{\mathrm{d}}}^{{\text{top-to-random}}}_{{\cn}} {{(}} {{\ct}} {{)}} \leq f_{{\cn {} }} {{( {} }} {{\ct {} }} {{) {} }}',
+            font_size=70
+        ).shift(0.25*DOWN)
+
+        tmix = MyMathTex(
+            r'\tau^\text{top-to-random}_{{\cn}} {{(}} {{\ceps}} {{)}} \leq f^{-1}_{{\cn}} ({{\ceps}})',
+            font_size=70
+        ).shift(1.5*DOWN + 0.325*RIGHT)
+
+        tmixexplanation1 = MyTex(
+            r'number of shuffles before the distance is at most {{$\ceps$}}'
+        ).shift(2.75*DOWN)
+
+        tmixexplanation2 = MyTex(
+            r'= the \emph{mixing time}'
+        ).next_to(tmixexplanation1, DOWN)
+
+        tmixarrow = CurvedArrow(tmixexplanation1.get_corner(UP+LEFT)+0.25*RIGHT, tmix.get_left() + 0.2*LEFT, color=sol.BASE1, radius=-2)
 
         self.play(FadeIn(def1text, scale=0.75))
         self.play(FadeIn(def2text, scale=0.75))
@@ -336,12 +390,45 @@ class Yapping(Scene):
         self.play(FadeIn(coupling, scale=0.75))
         self.play(FadeIn(number, scale=0.75))
         self.play(
-            FadeIn(number2, shift=LEFT),
+            FadeIn(number2, shift=2*LEFT),
             rate_func=rate_functions.ease_in_sine,
-            run_time=2/3
+            run_time=0.5
         )
         self.play(
-            Group(number, number2).animate.shift(30*LEFT),
-            rate_func=rate_functions.linear,
-            run_time=10
+            Group(number, number2).animate.shift(26*LEFT),
+            rate_func=rate_functions.ease_out_sine,
+            run_time=7.5
         )
+
+        self.play(
+            FadeOut(Group(def1text, def2text, number, number2, event, coupling), shift=4.5*UP),
+            def3text.animate.shift(4.5*UP)
+        )
+
+        self.play(FadeIn(restofvideo1, scale=0.75))
+        self.play(Write(restofvideo2))
+
+        self.play(FadeIn(doft1, scale=0.75))
+        self.play(TransformMatchingTex(doft1, doft2))
+        self.play(TransformMatchingTex(doft2, doft3))
+        self.play(
+            doft3.animate.shift(3*LEFT),
+            FadeIn(ncards, shift=3*LEFT)
+        )
+        self.play(TransformMatchingTex(doft3, doft4))
+
+        self.play(
+            FadeOut(def3text, shift=2*UP),
+            Group(restofvideo1, restofvideo2).animate.shift(2*UP),
+            FadeOut(ncards, shift=2*UP + 3*RIGHT),
+            TransformMatchingTex(doft4, doft5)
+        )
+
+        self.play(FadeIn(tmix, shift=UP))
+        self.play(
+            FadeIn(tmixexplanation1, shift=UP),
+            FadeIn(tmixarrow, scale=0.75)
+        )
+        self.play(FadeIn(tmixexplanation2, scale=0.75))
+
+        self.wait(5)
