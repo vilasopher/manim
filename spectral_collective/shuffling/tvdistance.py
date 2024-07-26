@@ -292,4 +292,56 @@ class TVDefinition(Scene):
 
 class Yapping(Scene):
     def construct(self):
-        pass
+        def1text = MyMathTex(
+            r'\textbf{Definition 1: } \mathrm{d_{TV}}({{\cmuone}}, {{\cmutwo}}) = \frac{1}{2} \sum_{ {{\cx}} \in \Omega} |{{\cmuone}}({{\cx}}) - {{\cmutwo}}({{\cx}})|',
+            font_size=55
+        ).shift(2.75*UP)
+
+        def2text = MyMathTex(
+            r'\textbf{Definition 2: } \mathrm{d_{TV}}({{\cmuone}},{{\cmutwo}}) = \max_{ {{\cA}} \subseteq \Omega} | {{\cmuone}}({{\cA}}) - {{\cmutwo}}({{\cA}}) |',
+            font_size=55
+        ).shift(0.25*UP).align_to(def1text, LEFT)
+
+        def3text = MyMathTex(
+            r'\textbf{Definition 3: } \mathrm{d_{TV}}({{\cmuone}}, {{\cmutwo}}) = \min_{\substack{ {{\cX_1}} \sim {{\cmuone}} \\ {{\cX_2}} \sim {{\cmutwo}} }} \mathbb{P}[{{\cX_1}} \neq {{\cX_2}}]',
+            font_size=55
+        ).shift(2.25*DOWN).align_to(def1text, LEFT)
+
+        number = MyTex(
+            r'\emph{number of arrangements of a $52$ card deck is $52!$}',
+            font_size=45
+        ).next_to(def1text, DOWN)
+        
+        number2 = MyMathTex(
+            r'= 8065817517 0943878571 6606368564 0376697528 9505440883 2778240000 00000000 \approx \text{number of atoms in the Milky Way galaxy}',
+            font_size=45
+        ).next_to(number, RIGHT)
+
+        event = MyTex(
+            r'\emph{any event gives a lower bound!}',
+            font_size=45
+        ).next_to(def2text, DOWN)
+
+        coupling = MyTex(
+            r'\emph{any coupling gives an upper bound!}',
+            font_size=45
+        ).next_to(def3text, DOWN)
+
+
+        self.play(FadeIn(def1text, scale=0.75))
+        self.play(FadeIn(def2text, scale=0.75))
+        self.play(FadeIn(def3text, scale=0.75))
+
+        self.play(FadeIn(event, scale=0.75))
+        self.play(FadeIn(coupling, scale=0.75))
+        self.play(FadeIn(number, scale=0.75))
+        self.play(
+            FadeIn(number2, shift=LEFT),
+            rate_func=rate_functions.ease_in_sine,
+            run_time=2/3
+        )
+        self.play(
+            Group(number, number2).animate.shift(30*LEFT),
+            rate_func=rate_functions.linear,
+            run_time=10
+        )

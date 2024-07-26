@@ -50,3 +50,11 @@ class Intro(Scene):
 
         self.add(questions, verify, distance, check1, check2, asterisk,
                  inthisvideo, twoshuffles, tvdistance, coupling)
+            
+class WhatIsShuffling(Scene):
+    def construct(self):
+        pass
+
+class Conclusion(Scene):
+    def construct(self):
+        pass
