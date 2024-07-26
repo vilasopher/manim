@@ -53,7 +53,59 @@ class Intro(Scene):
             
 class WhatIsShuffling(Scene):
     def construct(self):
-        pass
+        bg = RoundedRectangle(
+            width=13,
+            height=2.5,
+            color=sol.BASE01,
+            corner_radius=0.05
+        ).set_fill(color=sol.BASE2, opacity=1).shift(2.5*DOWN)
+
+        question = MyTex(
+            r'\textbf{Question:} what is shuffling?',
+            font_size=70
+        ).align_to(bg, UP+LEFT).shift(0.25*(DOWN + RIGHT))
+
+        answer1 = MyTex(
+           r'\textbullet{} adding randomness to a deck of cards, step-by-step.' 
+        ).next_to(question, DOWN).align_to(question, LEFT).shift(0.25*RIGHT)
+
+        answer2 = MyTex(
+            r'\textbullet{} after enough steps, the deck is random enough.'
+        ).next_to(answer1, DOWN).align_to(answer1, LEFT)
+
+        self.add(bg, question, answer1, answer2)
+
+class DiaconisTable(Scene):
+    def construct(self):
+
+        overlay1 = SurroundingRectangle(
+            Group(diaconistable[13], diaconistable[14]),
+            color=sol.FOREST_GREEN,
+            corner_radius=0.1
+        ).set_fill(sol.FOREST_GREEN, opacity=0.25)
+
+        overlay2 = SurroundingRectangle(
+            Group(diaconistable[16], diaconistable[6]),
+            color=sol.FOREST_GREEN,
+            corner_radius=0.1
+        ).set_fill(sol.FOREST_GREEN, opacity=0.25)
+
+        overlay3 = SurroundingRectangle(
+            Group(diaconistable[9], diaconistable[11]),
+            color=sol.FOREST_GREEN,
+            corner_radius=0.1
+        ).set_fill(sol.FOREST_GREEN, opacity=0.25)
+
+        self.play(FadeIn(diaconistable, scale=0.75))
+        self.wait()
+        self.play(FadeIn(overlay1, scale=1.25))
+        self.wait()
+        self.play(Transform(overlay1, overlay2))
+        self.wait()
+        self.play(Transform(overlay1, overlay3))
+        self.wait()
+        self.play(FadeOut(overlay1, scale=1.25))
+        self.wait(5)
 
 class Conclusion(Scene):
     def construct(self):

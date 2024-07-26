@@ -3,10 +3,6 @@ import solarized as sol
 from numpy.random import random
 from sharedclasses import *
 
-class DiaconisTable(Scene):
-    def construct(self):
-        self.add(diaconistable)
-
 class Equivalence(Scene):
     def construct(self):
         text1 = MyTex(
