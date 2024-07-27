@@ -10,12 +10,16 @@ tt.add_to_preamble(r'\addtolength{\jot}{-0.35em}')
 tt.add_to_preamble(r'\renewcommand{\P}{\mathbb{P}}')
 tt.add_to_preamble(r'\newcommand{\cmuone}{\mu_1}')
 tt.add_to_preamble(r'\newcommand{\cmutwo}{\mu_2}')
+tt.add_to_preamble(r'\newcommand{\cmup}{\mu_p}')
+tt.add_to_preamble(r'\newcommand{\cmuq}{\mu_q}')
 tt.add_to_preamble(r'\newcommand{\ct}{t}')
 tt.add_to_preamble(r'\newcommand{\cn}{n}')
 tt.add_to_preamble(r'\newcommand{\ceps}{\varepsilon}')
 tt.add_to_preamble(r'\newcommand{\cx}{x}')
 tt.add_to_preamble(r'\newcommand{\cX}{X}')
 tt.add_to_preamble(r'\newcommand{\cA}{A}')
+tt.add_to_preamble(r'\newcommand{\cp}{p}')
+tt.add_to_preamble(r'\newcommand{\cq}{q}')
 
 def MyMathTex(text, color=sol.BASE03, **kwargs):
     return MathTex(
@@ -28,11 +32,19 @@ def MyMathTex(text, color=sol.BASE03, **kwargs):
     ).set_color_by_tex(
         r'\cmutwo', sol.VIOLET
     ).set_color_by_tex(
-        r'\cn', sol.FOREST_GREEN
+        r'\cmup', sol.MAGENTA
     ).set_color_by_tex(
-        r'\ceps', sol.CRIMSON_RED
+        r'\cmuq', sol.VIOLET
     ).set_color_by_tex(
-        r'\ct', sol.ROYAL_BLUE
+        r'\cp', sol.MAGENTA
+    ).set_color_by_tex(
+        r'\cq', sol.VIOLET
+    ).set_color_by_tex(
+        r'\cn', sol.GREEN
+    ).set_color_by_tex(
+        r'\ceps', sol.RED
+    ).set_color_by_tex(
+        r'\ct', sol.BLUE
     ).set_color_by_tex(
         r'\cx', sol.YELLOW
     ).set_color_by_tex(
@@ -52,11 +64,19 @@ def MyTex(text, color=sol.BASE03, **kwargs):
     ).set_color_by_tex(
         r'\cmutwo', sol.VIOLET
     ).set_color_by_tex(
-        r'\cn', sol.FOREST_GREEN
+        r'\cmup', sol.MAGENTA
     ).set_color_by_tex(
-        r'\ceps', sol.CRIMSON_RED
+        r'\cmuq', sol.VIOLET
     ).set_color_by_tex(
-        r'\ct', sol.ROYAL_BLUE
+        r'\cp', sol.MAGENTA
+    ).set_color_by_tex(
+        r'\cq', sol.VIOLET
+    ).set_color_by_tex(
+        r'\cn', sol.GREEN
+    ).set_color_by_tex(
+        r'\ceps', sol.RED
+    ).set_color_by_tex(
+        r'\ct', sol.BLUE
     ).set_color_by_tex(
         r'\cx', sol.YELLOW
     ).set_color_by_tex(
