@@ -113,7 +113,7 @@ class CoinFlipExample(Scene):
 
         formula2c = MyMathTex(
             r'= {{\cp}}-{{\cq}}'
-        ).next_to(formula2b, DOWN).align_to(formula2a, LEFT).shift(0.75*DOWN)
+        ).next_to(formula2b, DOWN).align_to(formula2a, LEFT).shift(0.625*DOWN)
 
         definition3 = MyTex(
             r'\textbf{Definition 3}',
@@ -180,7 +180,7 @@ class CoinFlipExample(Scene):
         resultbar.add(resulttext)
 
         randomnumber = ValueTracker(0.5)
-        randomnumberPoint = Dot(color=sol.BASE03, radius=0.12)
+        randomnumberPoint = Dot(color=sol.BASE03, radius=0.125)
         randomnumberPoint.add_updater(
             lambda x : x.move_to(uniformbar.get_bottom()).shift(5 * randomnumber.get_value() * UP)
         )
@@ -188,16 +188,40 @@ class CoinFlipExample(Scene):
         randomnumberText.add_updater(
             lambda x : x.next_to(randomnumberPoint, LEFT).set_value(randomnumber.get_value())
         )
-        xpPoint = Group(Dot(color=sol.BASE02, radius=0.12, z_index=5), Dot(color=sol.YELLOW, z_index=10))
+
+        #xpPoint = Group(Dot(color=sol.BASE02, radius=0.12, z_index=5), Dot(color=sol.YELLOW, z_index=10))
+        xpPoint = RoundedRectangle(
+            width=0.5,
+            height=0.25,
+            color=sol.BASE02,
+            corner_radius=0.125,
+            z_index=5
+        ).set_fill(
+            sol.YELLOW,
+            opacity=1
+        ).move_to(coin1.Hbar.get_bottom()).shift(5*randomnumber.get_value()*UP)
+
         xpPoint.add_updater(
             lambda x : x.move_to(coin1.Hbar.get_bottom()).shift(5 * randomnumber.get_value() * UP)
         )
-        xpText = MyMathTex(r'{{\cX_p}} = {{H}}' if randomnumber.get_value() < 0.7 else r'{{\cX_p}} = {{T}}').set_color_by_tex(r'H', sol.YELLOW).set_color_by_tex(r'T', sol.YELLOW).next_to(xpPoint, RIGHT).shift(0.5*RIGHT)
-        xqPoint = Group(Dot(color=sol.BASE02, radius=0.12, z_index=5), Dot(color=sol.YELLOW, z_index=10))
+
+        xpText = MyMathTex(r'{{\cX_p}} = {{H}}' if randomnumber.get_value() < 0.7 else r'{{\cX_p}} = {{T}}').set_color_by_tex(r'H', sol.YELLOW).set_color_by_tex(r'T', sol.YELLOW).next_to(xpPoint, RIGHT)
+
+        #xqPoint = Group(Dot(color=sol.BASE02, radius=0.12, z_index=5), Dot(color=sol.YELLOW, z_index=10))
+        xqPoint = RoundedRectangle(
+            width=0.5,
+            height=0.25,
+            color=sol.BASE02,
+            corner_radius=0.125,
+            z_index=5
+        ).set_fill(
+            sol.YELLOW,
+            opacity=1
+        ).move_to(coin2.Hbar.get_bottom()).shift(5*randomnumber.get_value()*UP)
         xqPoint.add_updater(
             lambda x : x.move_to(coin2.Hbar.get_bottom()).shift(5 * randomnumber.get_value() * UP)
         )
-        randomnumberLine = Line(randomnumberPoint.get_center(), xpPoint.get_center(), color=sol.BASE02, stroke_width=0.5, z_index=1)
+        randomnumberLine = Line(randomnumberPoint.get_center(), xpPoint.get_center(), color=sol.BASE02, stroke_width=1, z_index=1)
         randomnumberLine.add_updater(
             lambda x : x.put_start_and_end_on(randomnumberPoint.get_center(), xpPoint.get_center())
         )
@@ -255,19 +279,24 @@ class CoinFlipExample(Scene):
         )
         self.play(
             FadeIn(xpPoint, scale=0.75),
-            FadeIn(xpText, scale=0.75),
             Create(randomnumberLine)
         )
 
-        xpText.add_updater(
-            lambda x : x.become(MyMathTex(r'{{\cX_p}} = {{H}}' if randomnumber.get_value() < 0.7 else r'{{\cX_p}} = {{T}}').set_color_by_tex(r'H', sol.YELLOW).set_color_by_tex(r'T', sol.YELLOW)).next_to(xpPoint, RIGHT).shift(0.5*RIGHT)
+        self.play(
+            FadeIn(xpText, scale=0.75)
         )
+
+        xpText.add_updater(
+            lambda x : x.become(MyMathTex(r'{{\cX_p}} = {{H}}' if randomnumber.get_value() < 0.7 else r'{{\cX_p}} = {{T}}').set_color_by_tex(r'H', sol.YELLOW).set_color_by_tex(r'T', sol.YELLOW)).next_to(xpPoint, RIGHT)
+        )
+        
         self.wait()
         rerandomize()
         self.wait()
         rerandomize()
         self.wait()
         xpText.clear_updaters()
+        randomnumberLine.clear_updaters()
 
         #TODO: fix lots of this stuff
 
