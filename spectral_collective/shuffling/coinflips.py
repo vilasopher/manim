@@ -179,8 +179,8 @@ class CoinFlipExample(Scene):
         ).next_to(resultbar, UP).shift(0.1*UP)
         resultbar.add(resulttext)
 
-        randomnumber = ValueTracker(0.5)
-        randomnumberPoint = Dot(color=sol.BASE03, radius=0.125)
+        randomnumber = ValueTracker(0.2327)
+        randomnumberPoint = Dot(color=sol.BASE03, radius=0.125).move_to(uniformbar.get_bottom()).shift(5*randomnumber.get_value() * UP)
         randomnumberPoint.add_updater(
             lambda x : x.move_to(uniformbar.get_bottom()).shift(5 * randomnumber.get_value() * UP)
         )
@@ -205,7 +205,7 @@ class CoinFlipExample(Scene):
             lambda x : x.move_to(coin1.Hbar.get_bottom()).shift(5 * randomnumber.get_value() * UP)
         )
 
-        xpText = MyMathTex(r'{{\cX_p}} = {{H}}' if randomnumber.get_value() < 0.7 else r'{{\cX_p}} = {{T}}').set_color_by_tex(r'H', sol.YELLOW).set_color_by_tex(r'T', sol.YELLOW).next_to(xpPoint, RIGHT)
+        xpText = MyMathTex(r'{{\cX_p}} = {{H}}' if randomnumber.get_value() < 0.7 else r'{{\cX_p}} = {{T}}').set_color_by_tex(r'H', sol.YELLOW).set_color_by_tex(r'T', sol.YELLOW)
 
         #xqPoint = Group(Dot(color=sol.BASE02, radius=0.12, z_index=5), Dot(color=sol.YELLOW, z_index=10))
         xqPoint = RoundedRectangle(
@@ -268,8 +268,10 @@ class CoinFlipExample(Scene):
         self.play(FadeIn(formula3d, shift=LEFT))
         self.play(FadeOut(definition1, dtv, formula3a, formula3b, formula3c, formula3d, shift=3.25*RIGHT),
                   FadeOut(coin2, shift=3.25*RIGHT), coin1.animate.shift(3.25*RIGHT))
+
         coin2.shift(2.5*RIGHT)
         coin2.transform()
+
         self.play(coin1.animate.transform())
         self.play(FadeIn(randomnumberBar, scale=0.75))
         self.play(
@@ -277,6 +279,10 @@ class CoinFlipExample(Scene):
             FadeIn(randomnumberText, scale=0.75),
             FadeIn(uniformtext, shift=RIGHT)
         )
+
+        xpPoint.update()
+        xpText.next_to(xpPoint, RIGHT).shift(0.1*RIGHT + 0.05*DOWN)
+
         self.play(
             FadeIn(xpPoint, scale=0.75),
             Create(randomnumberLine)
@@ -287,18 +293,20 @@ class CoinFlipExample(Scene):
         )
 
         xpText.add_updater(
-            lambda x : x.become(MyMathTex(r'{{\cX_p}} = {{H}}' if randomnumber.get_value() < 0.7 else r'{{\cX_p}} = {{T}}').set_color_by_tex(r'H', sol.YELLOW).set_color_by_tex(r'T', sol.YELLOW)).next_to(xpPoint, RIGHT)
+            lambda x : x.become(MyMathTex(r'{{\cX_p}} = {{H}}' if randomnumber.get_value() < 0.7 else r'{{\cX_p}} = {{T}}').set_color_by_tex(r'H', sol.YELLOW).set_color_by_tex(r'T', sol.YELLOW)).next_to(xpPoint, RIGHT).shift(0.1*RIGHT+0.05*DOWN)
         )
         
         self.wait()
-        rerandomize()
+        self.play(randomnumber.animate.set_value(0.32), run_time=0.5)
         self.wait()
-        rerandomize()
+        self.play(randomnumber.animate.set_value(0.17), run_time=0.5)
         self.wait()
+        self.play(randomnumber.animate.set_value(0.83), run_time=0.5)
+        self.wait()
+
         xpText.clear_updaters()
         randomnumberLine.clear_updaters()
-
-        #TODO: fix lots of this stuff
+        xqPoint.update()
 
         self.play(
             FadeIn(coin2, shift=2*LEFT),
@@ -308,11 +316,12 @@ class CoinFlipExample(Scene):
         )
 
         self.play(
-            FadeIn(HHbar, HTbar, TTbar, resulttext)
+            FadeIn(Group(HHbar, HTbar, TTbar, resulttext), shift=LEFT),
+            randomnumberLine.animate.put_start_and_end_on(randomnumberPoint.get_center(), randomnumberPoint.get_center() + 6*RIGHT)
         )
 
         randomnumberLine.add_updater(
-            lambda x : x.put_start_and_end_on(randomnumberPoint.get_center(), randomnumberPoint.get_center() + 6 * RIGHT)
+            lambda x : x.put_start_and_end_on(randomnumberPoint.get_center(), randomnumberPoint.get_center() + 6*RIGHT)
         )
 
         HHbar.add_updater(
