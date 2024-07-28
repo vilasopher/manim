@@ -242,6 +242,35 @@ class CoinFlipExample(Scene):
         disagreeprob = Group(disagreeprob1, disagreeprob2)
         disagreeprob.next_to(disagreebrace)
 
+        table = Table(
+            [[r'{{\cp}} {{\cq}}', r'{{\cp}} (1 - {{\cq}})'],
+            [r'(1-{{\cp}}) {{\cq}}', r'(1-{{\cp}}) (1 - {{\cq}})']],
+            row_labels=[MyTex(r'H'), MyTex(r'T')],
+            col_labels=[MyTex(r'H'), MyTex(r'T')],
+            top_left_entry=VGroup(MyMathTex(r'\cX_p').shift(0.3*(DOWN+LEFT)), MyMathTex(r'\cX_q').shift(0.3*(UP+RIGHT))),
+            include_outer_lines=True,
+            include_background_rectangle=True,
+            background_rectangle_color=sol.BASE2,
+            v_buff=0.45,
+            h_buff=0.25,
+            line_config={"color" : sol.BASE01},
+            element_to_mobject=MyMathTex,
+            element_to_mobject_config={"color" : sol.BASE03, "font_size" : 30}
+        )
+        table.add(Line(table.get_cell((1,1)).get_corner(UL), table.get_cell((1,1)).get_corner(DR), color=sol.BASE01))
+        table.shift(4*LEFT + 0.5*DOWN)
+        tablelabel = Tex(
+            r'\textbf{Independent} \\ \textbf{coupling}',
+            color=sol.YELLOW,
+            font_size=60
+        ).next_to(table, UP, buff=MED_LARGE_BUFF)
+        tablesuboptimal = Tex(
+            r'\textbf{\emph{Not optimal!}}',
+            color=PURE_RED,
+            font_size=65
+        ).next_to(table, DOWN, buff=MED_LARGE_BUFF)
+
+
         self.play(
             FadeIn(coin1, shift=RIGHT),
             FadeIn(coin2, shift=LEFT)
@@ -265,12 +294,28 @@ class CoinFlipExample(Scene):
         self.play(FadeIn(formula3a, shift=LEFT))
         self.play(FadeIn(formula3b, shift=LEFT))
         self.play(FadeIn(formula3c, scale=0.75))
-        self.play(FadeIn(formula3d, shift=LEFT))
-        self.play(FadeOut(definition1, dtv, formula3a, formula3b, formula3c, formula3d, shift=3.25*RIGHT),
-                  FadeOut(coin2, shift=3.25*RIGHT), coin1.animate.shift(3.25*RIGHT))
 
+        self.play(
+            FadeOut(Group(coin1, coin2), scale=0.75),
+            FadeIn(table, shift=UP),
+            FadeIn(tablelabel, shift=DOWN)
+        )
+
+        self.play(FadeIn(formula3d, shift=LEFT))
+
+        #TODO: say that this is bigger than p-q
+
+        self.play(FadeIn(tablesuboptimal, shift=UP))
+
+        coin1.shift(3.25*RIGHT)
         coin2.shift(2.5*RIGHT)
         coin2.transform()
+
+        self.play(
+            FadeOut(definition1, dtv, formula3a, formula3b, formula3c, formula3d, shift=3.25*RIGHT),
+            FadeOut(table, tablelabel, tablesuboptimal, scale=1.25),
+            FadeIn(coin1, shift=3.25*RIGHT)
+        )
 
         self.play(coin1.animate.transform())
         self.play(FadeIn(randomnumberBar, scale=0.75))
