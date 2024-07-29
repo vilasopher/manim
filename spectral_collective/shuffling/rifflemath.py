@@ -2,6 +2,16 @@ from manim import *
 import solarized as sol
 from sharedclasses import *
 
+class ModelTransparencies(Scene):
+    def construct(self):
+        #TODO
+        pass
+
+class CouplingTransparencies(Scene):
+    def construct(self):
+        #TODO
+        pass
+
 class BirthdayProblem(Scene):
     def construct(self):
 

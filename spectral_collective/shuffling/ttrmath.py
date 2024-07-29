@@ -2,6 +2,11 @@ from manim import *
 import solarized as sol
 from sharedclasses import *
 
+class Transparencies(Scene):
+    def construct(self):
+        #TODO
+        pass
+
 class Coupon(Scene):
     def construct(self):
         goal = MyMathTex(
@@ -70,8 +75,8 @@ class Analysis(Scene):
         unionbound = MyMathTex(
             r'\P\big[\substack{ \text{not every card has been} \\ \text{chosen after } t \text{ shuffles}} \big] \leq \sum_{\text{card } C} \P\big[\substack{C \text{ has not been} \\ \text{chosen after } t \text{ shuffles}} \big]'
         ).shift(1.5*UP)
-        unionbound[0][32].set_color(sol.ROYAL_BLUE)
-        unionbound[0][71].set_color(sol.ROYAL_BLUE)
+        unionbound[0][32].set_color(sol.BLUE)
+        unionbound[0][71].set_color(sol.BLUE)
 
         brace = Brace(Group(unionbound[0][47], unionbound[0][-1]), DOWN, color=sol.BASE1).shift(0.1*UP)
         arrow = CurvedArrow(brace.get_bottom() + 0.5*(DOWN + RIGHT) + 0.025*DOWN, brace.get_bottom() + 0.025*DOWN, tip_shape=StealthTip, tip_length=0.1, color=sol.BASE1, radius=-0.5)
@@ -114,7 +119,7 @@ class Analysis(Scene):
         fiftytwo1 = MyMathTex(
             r'\tau^\text{top-to-random}_{ {{52}} }({{50\%}})',
             font_size=40
-        ).shift(1.75*DOWN + 4.5*RIGHT).set_color_by_tex(r'52', sol.FOREST_GREEN).set_color_by_tex(r'50', sol.CRIMSON_RED)
+        ).shift(1.75*DOWN + 4.5*RIGHT).set_color_by_tex(r'52', sol.GREEN).set_color_by_tex(r'50', sol.RED)
 
         fiftytwo2 = MyMathTex(
             r'\leq 242',
