@@ -115,6 +115,15 @@ class CoinFlipExample(Scene):
             r'= {{\cp}}-{{\cq}}'
         ).next_to(formula2b, DOWN).align_to(formula2a, LEFT).shift(0.625*DOWN)
 
+        optimaltext = MyTex(
+            r'so {{$\{ H \}$}} is an \\ optimal event',
+            font_size=60
+        ).next_to(formula2c, RIGHT).shift(0.5*DOWN+1*RIGHT).set_color_by_tex(r'H', sol.YELLOW)
+        optimalbox = SurroundingRectangle(
+            optimaltext, color=sol.BASE01, corner_radius=0.1, buff=MED_SMALL_BUFF
+        ).set_fill(sol.BASE2, opacity=1)
+        optimal = Group(optimalbox, optimaltext)
+
         definition3 = MyTex(
             r'\textbf{Definition 3}',
             font_size=70
@@ -136,6 +145,11 @@ class CoinFlipExample(Scene):
         formula3d = MyMathTex(
             r'= {{\cp}}(1-{{\cq}}) + (1-{{\cp}}){{\cq}}'
         ).next_to(formula3c, DOWN).align_to(formula3a, LEFT).shift(0.25*DOWN)
+
+        formula3e = MyMathTex(
+            r'> {{\cp}} - {{\cq}}',
+            font_size=55
+        ).next_to(formula3d, RIGHT).shift(0.05*DOWN + 0.1*RIGHT)
 
         uniformbar = Rectangle(height=5, width=0.5, stroke_width=0)
         uniformbar.set_fill(sol.BASE1, opacity=1).align_to(coin1.Hbar, DOWN).shift(0.5*DOWN+4.35*LEFT)
@@ -243,11 +257,11 @@ class CoinFlipExample(Scene):
         disagreeprob.next_to(disagreebrace)
 
         table = Table(
-            [[r'{{\cp}} {{\cq}}', r'{{\cp}} (1 - {{\cq}})'],
-            [r'(1-{{\cp}}) {{\cq}}', r'(1-{{\cp}}) (1 - {{\cq}})']],
+            [[r'{{\cp}} {{\cq}}', r'(1-{{\cp}}) {{\cq}}'],
+            [r'{{\cp}} (1-{{\cq}})', r'(1-{{\cp}}) (1 - {{\cq}})']],
             row_labels=[MyTex(r'H'), MyTex(r'T')],
             col_labels=[MyTex(r'H'), MyTex(r'T')],
-            top_left_entry=VGroup(MyMathTex(r'\cX_p').shift(0.3*(DOWN+LEFT)), MyMathTex(r'\cX_q').shift(0.3*(UP+RIGHT))),
+            top_left_entry=VGroup(MyMathTex(r'\cX_q').shift(0.3*(DOWN+LEFT)), MyMathTex(r'\cX_p').shift(0.3*(UP+RIGHT))),
             include_outer_lines=True,
             include_background_rectangle=True,
             background_rectangle_color=sol.BASE2,
@@ -260,16 +274,39 @@ class CoinFlipExample(Scene):
         table.add(Line(table.get_cell((1,1)).get_corner(UL), table.get_cell((1,1)).get_corner(DR), color=sol.BASE01))
         table.shift(4*LEFT + 0.5*DOWN)
         tablelabel = Tex(
-            r'\textbf{Independent} \\ \textbf{coupling}',
+            r'\textbf{independent} \\ \textbf{coupling}',
             color=sol.YELLOW,
             font_size=60
         ).next_to(table, UP, buff=MED_LARGE_BUFF)
         tablesuboptimal = Tex(
-            r'\textbf{\emph{Not optimal!}}',
+            r'\textbf{\emph{not optimal!}}',
             color=PURE_RED,
             font_size=65
         ).next_to(table, DOWN, buff=MED_LARGE_BUFF)
 
+        disagreebox1 = SurroundingRectangle(
+            table.get_cell((2,3)), color=sol.FOREST_GREEN, corner_radius=0.1
+        ).set_fill(sol.FOREST_GREEN, opacity=0.25)
+        disagreebox2 = SurroundingRectangle(
+            table.get_cell((3,2)), color=sol.FOREST_GREEN, corner_radius=0.1
+        ).set_fill(sol.FOREST_GREEN, opacity=0.25)
+
+        takeawaytext = MyTex(
+            r'\textbf{Takeaway:} good couplings generally arise \\\
+                when you can simulate two distributions \\\
+                using the same source of randomness.',
+            font_size=62,
+        ).set_z_index(10)
+
+        takeawaybox = SurroundingRectangle(
+            takeawaytext, color=sol.BASE01, buff=MED_SMALL_BUFF, corner_radius=0.1, z_index=9
+        ).set_fill(sol.BASE2, opacity=1)
+
+        takeawayobfuscation = Rectangle(
+            width=20, height=15, color=sol.BASE3
+        ).set_fill(sol.BASE3, opacity=0.80).set_z_index(8)
+
+        takeaway = Group(takeawayobfuscation, takeawaybox, takeawaytext)
 
         self.play(
             FadeIn(coin1, shift=RIGHT),
@@ -289,7 +326,8 @@ class CoinFlipExample(Scene):
         self.play(FadeIn(formula2a, shift=LEFT))
         self.play(FadeIn(formula2b, shift=LEFT))
         self.play(FadeIn(formula2c, shift=LEFT))
-        self.play(FadeOut(formula2a, formula2b, formula2c, scale=0.75))
+        self.play(FadeIn(optimal, scale=0.75))
+        self.play(FadeOut(formula2a, formula2b, formula2c, optimal, scale=0.75))
         self.play(Transform(definition1, definition3))
         self.play(FadeIn(formula3a, shift=LEFT))
         self.play(FadeIn(formula3b, shift=LEFT))
@@ -301,29 +339,47 @@ class CoinFlipExample(Scene):
             FadeIn(tablelabel, shift=DOWN)
         )
 
-        self.play(FadeIn(formula3d, shift=LEFT))
+        self.play(
+            LaggedStart(
+                FadeIn(disagreebox1, scale=1.25),
+                FadeIn(disagreebox2, scale=1.25)
+            ),
+            run_time=1
+        )
 
-        #TODO: say that this is bigger than p-q
+        self.play(
+            FadeIn(formula3d, shift=LEFT),
+            FadeOut(disagreebox1, scale=1.25),
+            FadeOut(disagreebox2, scale=1.25)
+        )
+
+        self.play(FadeIn(formula3e, scale=0.75))
 
         self.play(FadeIn(tablesuboptimal, shift=UP))
 
-        coin1.shift(3.25*RIGHT)
+        coin1.shift(5.75*RIGHT)
+        #coin1.shift(3.25*RIGHT)
         coin2.shift(2.5*RIGHT)
         coin2.transform()
 
         self.play(
-            FadeOut(definition1, dtv, formula3a, formula3b, formula3c, formula3d, shift=3.25*RIGHT),
-            FadeOut(table, tablelabel, tablesuboptimal, scale=1.25),
-            FadeIn(coin1, shift=3.25*RIGHT)
+            FadeOut(definition1, dtv, formula3a, formula3b, formula3c, formula3d, formula3e, shift=5*RIGHT),
+            FadeOut(table, tablelabel, tablesuboptimal, shift=5*RIGHT),
+            FadeIn(randomnumberBar, shift=5*RIGHT)
         )
 
-        self.play(coin1.animate.transform())
-        self.play(FadeIn(randomnumberBar, scale=0.75))
         self.play(
             FadeIn(randomnumberPoint, scale=0.75),
             FadeIn(randomnumberText, scale=0.75),
             FadeIn(uniformtext, shift=RIGHT)
         )
+
+        self.play(randomnumber.animate.set_value(0.62))
+        self.play(randomnumber.animate.set_value(0.86))
+        self.play(randomnumber.animate.set_value(0.13))
+
+        self.play(FadeIn(coin1, scale=0.75))
+        self.play(coin1.animate.transform().shift(2.5*LEFT))
 
         xpPoint.update()
         xpText.next_to(xpPoint, RIGHT).shift(0.1*RIGHT + 0.05*DOWN)
@@ -393,8 +449,9 @@ class CoinFlipExample(Scene):
         rerandomize()
         self.wait(0.5)
         rerandomize()
-        self.wait(0.5)
+        self.play(FadeIn(takeaway, scale=0.75))
         rerandomize()
         self.wait(0.5)
         rerandomize()
         self.wait(1)
+
