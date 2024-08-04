@@ -3,7 +3,7 @@ import solarized as sol
 from numpy.random import random, seed
 from sharedclasses import *
 
-seed(0)
+seed(1)
 
 class CoinBarChart(Group):
     def __init__(self, p, label=r'Coin', plabel=r'p', color=sol.RED):
@@ -109,7 +109,11 @@ class CoinFlipExample(Scene):
         ).next_to(dtv, DOWN).align_to(dtv, LEFT).shift(0.25*RIGHT)
 
         formula1b = MyMathTex(
-            r'= \frac{1}{2} \big(|{{\cp}} - {{\cq}}| + |(1-{{\cp}}) - (1-{{\cq}})|\big)'
+            r'{{ = \frac{1}{2} \big( }} | {{\cp}} {{-}} {{\cq}} | {{+}} | {{(1-}} {{\cp {} }} {{)}} {{- {} }} {{(1- {} }} {{\cq {} }} {{) {} }} | {{\big)}}'
+        ).next_to(formula1a, DOWN).align_to(formula1a, LEFT)
+
+        formula1bprime = MyMathTex(
+            r'{{ = \frac{1}{2} \big( }} {{}} {{\cp}} {{-}} {{\cq}} {{}} {{+}} {{}} {{(1- {} }} {{\cq {} }} {{) {} }} {{- {} }} {{(1-}} {{\cp {} }} {{)}} {{}} {{\big)}}'
         ).next_to(formula1a, DOWN).align_to(formula1a, LEFT)
 
         formula1c = MyMathTex(
@@ -220,7 +224,7 @@ class CoinFlipExample(Scene):
         ).next_to(resultbar, UP).shift(0.1*UP)
         resultbar.add(resulttext)
 
-        randomnumber = ValueTracker(0.2327)
+        randomnumber = ValueTracker(random() * 0.95 + 0.025)
         randomnumberPoint = Dot(color=sol.BASE03, radius=0.125).move_to(uniformbar.get_bottom()).shift(5*randomnumber.get_value() * UP)
         randomnumberPoint.add_updater(
             lambda x : x.move_to(uniformbar.get_bottom()).shift(5 * randomnumber.get_value() * UP)
@@ -362,17 +366,18 @@ class CoinFlipExample(Scene):
 
         self.add(mupqobfuscation)
 
-        self.wait(5)
-
         #7:51:30
         self.play(FadeIn(exampletext, shift=DOWN+RIGHT))
 
         self.wait()
         
         #7:53:30
-        self.play(Write(goal))
+        self.play(
+            Write(goal),
+            run_time=5
+        )
 
-        self.wait(9)
+        self.wait(5)
 
         #8:03:30
         self.play(
@@ -395,7 +400,7 @@ class CoinFlipExample(Scene):
         #8:15:00
         self.play(FadeOut(mupqobfuscation))
 
-        self.wait(4.5)
+        self.wait(2.5)
 
         #8:18:30
         self.play(
@@ -416,7 +421,13 @@ class CoinFlipExample(Scene):
         #8:23:30
         self.play(FadeIn(formula1b, shift=LEFT))
 
-        self.wait(5.5)
+        self.wait(1.5)
+
+        #8:26:00
+        self.play(TransformMatchingTex(formula1b, formula1bprime, fade_transform_mismatches=True))
+
+        self.wait(2)
+        return
 
         #8:29:00
         self.play(FadeIn(formula1c, shift=LEFT))
@@ -425,7 +436,7 @@ class CoinFlipExample(Scene):
 
         #8:32:30
         self.play(
-            FadeOut(formula1a, formula1b, formula1c, scale=0.75),
+            FadeOut(formula1a, formula1bprime, formula1c, scale=0.75),
             Transform(definition1, definition2),
             run_time=0.5
         )
@@ -449,17 +460,17 @@ class CoinFlipExample(Scene):
             FadeOut(formula2extratext, shift=RIGHT)
         )
 
-        self.wait(10)
+        self.wait(7)
 
-        #8:49:30
+        #8:46:30
         self.play(FadeIn(formula2c, shift=LEFT))
 
-        self.wait(5.5)
+        self.wait(8.5)
 
         #8:56:00
         self.play(FadeIn(optimal, scale=0.75))
 
-        self.wait()
+        self.wait(3.5)
 
         #9:00:30
         self.play(
@@ -471,17 +482,26 @@ class CoinFlipExample(Scene):
         #9:01:00
         self.play(FadeIn(formula3a, shift=LEFT))
 
+        self.wait()
+
         #9:03:00
         self.play(
             FadeIn(whatisacoupling1, scale=0.75),
             GrowArrow(whatisacouplingarrow)
         )
 
+        self.wait(4)
+
         #9:08:00
         self.play(FadeIn(whatisacoupling2, shift=UP))
 
+        self.wait(3)
+
         #9:12:00
         self.play(FadeIn(whatisacoupling3, shift=UP))
+
+
+        self.wait(2.5)
 
         #9:15:30
         self.play(
@@ -489,6 +509,8 @@ class CoinFlipExample(Scene):
             FadeIn(table, shift=UP),
             FadeIn(tablelabel, shift=DOWN)
         )
+
+        self.wait(11.5)
 
         #9:28:00 
         self.play(FadeOut(Group(whatisacoupling1, whatisacoupling2, whatisacoupling3, whatisacouplingarrow), scale=0.75))
@@ -499,6 +521,8 @@ class CoinFlipExample(Scene):
         #9:30:00
         self.play(FadeIn(formula3c, scale=0.75))
 
+        self.wait(7)
+
         #9:38:00
         self.play(
             LaggedStart(
@@ -508,6 +532,8 @@ class CoinFlipExample(Scene):
             run_time=1
         )
 
+        self.wait()
+
         #9:40:00 
         self.play(
             FadeIn(formula3d, shift=LEFT),
@@ -515,8 +541,12 @@ class CoinFlipExample(Scene):
             FadeOut(disagreebox2, scale=1.25)
         )
 
+        self.wait(6)
+
         #9:47:00
         self.play(FadeIn(formula3e, scale=0.75))
+
+        self.wait(4)
 
         #9:52:00
         self.play(FadeIn(tablesuboptimal, shift=UP))
@@ -525,6 +555,8 @@ class CoinFlipExample(Scene):
         coin2.shift(2.5*RIGHT)
         coin2.transform()
 
+        self.wait(3.5)
+
         #9:56:30
         self.play(
             FadeOut(definition1, dtv, formula3a, formula3b, formula3c, formula3d, formula3e, shift=5*RIGHT),
@@ -532,25 +564,29 @@ class CoinFlipExample(Scene):
             FadeIn(randomnumberBar, shift=5*RIGHT)
         )
 
+        self.wait()
+
         #9:58:30
         self.play(
             FadeIn(randomnumberPoint, scale=0.75),
             FadeIn(randomnumberText, scale=0.75),
             FadeIn(uniformtext, shift=RIGHT)
         )
+        #9:59:30
 
-        for _ in range(3):
-            self.play(
-                randomnumber.animate.set_value(random()*0.95+0.025),
-                run_time=0.5
-            )
-            self.wait(0.5)
+        self.wait(0.75)
+
+        self.play(
+            randomnumber.animate.set_value(random()*0.95+0.025),
+            run_time=0.25
+        )
+        self.wait()
         
         self.play(
             randomnumber.animate.set_value(0.23),
-            run_time=0.5
+            run_time=0.25
         )
-        self.wait(0.5)
+        self.wait(0.75)
 
         #10:02:30
         self.play(FadeIn(coin1, scale=0.75))
@@ -577,21 +613,22 @@ class CoinFlipExample(Scene):
         #10:07:30
         self.play(randomnumber.animate.set_value(0.79))
         
-        self.wait(0.5)
 
-        #10:09:00
-        for _ in range(6):
+        #10:08:30
+        for _ in range(5):
+            self.wait()
+
             self.play(
                 randomnumber.animate.set_value(random()*0.95+0.025),
                 run_time=0.5
             )
-            self.wait(0.5)
+
+        self.wait()
         
         self.play(
             randomnumber.animate.set_value(0.46),
-            run_time=0.5
+            run_time=0.25
         )
-        self.wait(0.5)
 
         xpText.clear_updaters()
         randomnumberLine.clear_updaters()
@@ -632,51 +669,59 @@ class CoinFlipExample(Scene):
             lambda x : x.put_start_and_end_on(randomnumberPoint.get_center(), randomnumberPoint.get_center() + 6*RIGHT)
         )
 
-        self.wait(0.5)
+        self.wait()
 
-        #10:19:30
-        for _ in range(41-19):
+        #10:20:00
+        for _ in range(17):
             self.play(
                 randomnumber.animate.set_value(random()*0.95+0.025),
-                run_time=0.5
+                run_time=0.25
             )
-            self.wait(0.5)
+            self.wait()
+
+        #10:41:15
+        self.wait(0.25)
 
         #10:41:30 -- rerandomizations ending up in HH
 
-        for _ in range(46-41):
+        for _ in range(4):
             self.play(
                 randomnumber.animate.set_value(random()*0.35+0.025),
-                run_time=0.5
+                run_time=0.25
             )
-            self.wait(0.5)
+            self.wait()
 
         #10:46:30 -- rerandomizations ending up in TT
+        self.wait(0.25)
 
-        for _ in range(51-46):
+        #10:46:45
+        for _ in range(4):
             self.play(
                 randomnumber.animate.set_value(random()*0.25+0.725),
-                run_time=0.5
+                run_time=0.25
             )
-            self.wait(0.5)
+            self.wait()
 
-        #10:51:30 -- rerandomizations ending up in HT
+        #10:51:45 -- rerandomizations ending up in HT
+        self.wait(0.25)
 
-        for _ in range(56-51):
+        #10:52:00
+        for _ in range(4):
             self.play(
-                randomnumber.animate.set_value(random()*0.25+0.725),
-                run_time=0.5
+                randomnumber.animate.set_value(random()*0.25+0.425),
+                run_time=0.25
             )
-            self.wait(0.5)
+            self.wait()
 
         #10:56:30 -- all rerandomizations
+        self.wait(0.25)
 
         for _ in range(30):
             self.play(
                 randomnumber.animate.set_value(random()*0.95 + 0.025),
-                run_time=0.5
+                run_time=0.25
             )
-            self.wait(0.5)
+            self.wait()
 
         #11:21:00 -- end
 
