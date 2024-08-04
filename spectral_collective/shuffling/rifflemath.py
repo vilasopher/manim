@@ -88,8 +88,8 @@ class Arithmetic(Scene):
             r'\binom{n}{2} \leq \frac{n^2}{2}',
             font_size=36
         ).shift(2.25*RIGHT + 0.7*DOWN)
-        entropy[0][1].set_color(sol.FOREST_GREEN)
-        entropy[0][5].set_color(sol.FOREST_GREEN)
+        entropy[0][1].set_color(sol.GREEN)
+        entropy[0][5].set_color(sol.GREEN)
 
         brace2 = BraceBetweenPoints([-0.5,0.3,0],[2.2,0.3,0],color=sol.BASE1)
         arrow2 = CurvedArrow([1.35, -0.7, 0], [0.85, -0.2, 0], color=sol.BASE1, radius=-0.5, tip_shape=StealthTip, tip_length=0.1)

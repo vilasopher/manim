@@ -1,7 +1,9 @@
 from manim import *
 import solarized as sol
-from numpy.random import random
+from numpy.random import random, seed
 from sharedclasses import *
+
+seed(0)
 
 class CoinBarChart(Group):
     def __init__(self, p, label=r'Coin', plabel=r'p', color=sol.RED):
@@ -74,8 +76,24 @@ class CoinBarChart(Group):
 
 class CoinFlipExample(Scene):
     def construct(self):
-        coin1 = CoinBarChart(0.7, label='$\mu_p$', plabel='p', color=sol.MAGENTA).shift(2*LEFT + 2.5*DOWN) #5.75
-        coin2 = CoinBarChart(0.4, label='$\mu_q$', plabel='q', color=sol.VIOLET).shift(2*RIGHT + 2.5*DOWN) #3
+        exampletext = MyTex(
+            r'\textbf{Example:} \\ coin flips',
+            font_size=80
+        ).shift(4.5*LEFT + 2*UP)
+
+        pbiggerqtext = MyMathTex(
+            r'\text{Assumption:} \\ {{\cp}} \geq {{\cq}} \quad \; \;',
+            font_size=70
+        ).shift(4.5*LEFT + 1.5*DOWN)
+
+        mupqobfuscation = Rectangle(
+            width=10, height=1,
+            color=sol.BASE3, stroke_width=0,
+            z_index=10
+        ).set_fill(sol.BASE3, opacity=1).shift(2.5*UP + 4*RIGHT)
+
+        coin1 = CoinBarChart(0.7, label='$\mu_p$', plabel='p', color=sol.MAGENTA).shift(0*LEFT + 2.5*DOWN) #5.75, 2
+        coin2 = CoinBarChart(0.4, label='$\mu_q$', plabel='q', color=sol.VIOLET).shift(4*RIGHT + 2.5*DOWN) #3, 2
 
         definition1 = MyTex(
             r'\textbf{Definition 1}',
@@ -106,6 +124,15 @@ class CoinFlipExample(Scene):
         formula2a = MyMathTex(
             r'= \max_{{{\cA}} \subseteq \{H,T\}} |{{\cmup}}({{\cA}}) - {{\cmuq}}({{\cA}})|'
         ).next_to(dtv, DOWN).align_to(dtv, LEFT).shift(RIGHT + 0.25*DOWN)
+
+        formula2bprime = MyMathTex(
+            r'\geq |{{\cmup}}({{ \cA }}) - {{\cmuq}}({{ \cA }})|'
+        ).next_to(formula2a, DOWN).align_to(formula2a, LEFT).shift(0.25*DOWN)
+
+        formula2extratext = MyTex(
+            r'(for any particular event {{$\cA$}})',
+            font_size=45
+        ).next_to(formula2bprime, DOWN).shift(1.5*RIGHT)
 
         formula2b = MyMathTex(
             r'\geq |{{\cmup}}({{ \{H\} }}) - {{\cmuq}}({{ \{H\} }})|'
@@ -308,37 +335,171 @@ class CoinFlipExample(Scene):
 
         takeaway = Group(takeawayobfuscation, takeawaybox, takeawaytext)
 
-        self.play(
-            FadeIn(coin1, shift=RIGHT),
-            FadeIn(coin2, shift=LEFT)
+        whatisacoupling1 = MyTex(
+            r'What is this?',
+            font_size=45
+        ).next_to(formula3a, DOWN).shift(0.25*DOWN + 0.25*LEFT)
+        whatisacouplingarrow = Arrow(
+            whatisacoupling1.get_corner(UP+RIGHT) + 0.25*LEFT,
+            formula3a[6].get_corner(DOWN + RIGHT) + 0.1*DOWN+0.5*RIGHT,
+            color=sol.BASE1
         )
-        self.play(
-            coin1.animate.shift(3.75 * LEFT),
-            coin2.animate.shift(5*LEFT)
-        )
-        self.play(FadeIn(definition1, shift=DOWN))
-        self.play(FadeIn(dtv, scale=0.75))
-        self.play(FadeIn(formula1a, shift=LEFT))
-        self.play(FadeIn(formula1b, shift=LEFT))
-        self.play(FadeIn(formula1c, shift=LEFT))
-        self.play(FadeOut(formula1a, formula1b, formula1c, scale=0.75))
-        self.play(Transform(definition1, definition2))
-        self.play(FadeIn(formula2a, shift=LEFT))
-        self.play(FadeIn(formula2b, shift=LEFT))
-        self.play(FadeIn(formula2c, shift=LEFT))
-        self.play(FadeIn(optimal, scale=0.75))
-        self.play(FadeOut(formula2a, formula2b, formula2c, optimal, scale=0.75))
-        self.play(Transform(definition1, definition3))
-        self.play(FadeIn(formula3a, shift=LEFT))
-        self.play(FadeIn(formula3b, shift=LEFT))
-        self.play(FadeIn(formula3c, scale=0.75))
+        whatisacoupling2 = MyTex(
+            r'A way to flip both coins at once.',
+            font_size=45
+        ).next_to(whatisacoupling1, DOWN).align_to(whatisacoupling1, LEFT)
+        whatisacoupling3 = MyMathTex(
+            r'&\text{For instance,} \\ &\text{we could flip them independently.}',
+            font_size=45
+        ).next_to(whatisacoupling2, DOWN).shift(0.25*DOWN).align_to(whatisacoupling1, LEFT)
 
+        goal = MyTex(
+            r'\textbf{Goal:} compute the total variation distance \\\
+                between two different (possibly unfair) coin flip \\\
+                distributions, using all three definitions.',
+            font_size=60
+        ).shift(1.5*DOWN)
+
+        self.add(mupqobfuscation)
+
+        self.wait(5)
+
+        #7:51:30
+        self.play(FadeIn(exampletext, shift=DOWN+RIGHT))
+
+        self.wait()
+        
+        #7:53:30
+        self.play(Write(goal))
+
+        self.wait(9)
+
+        #8:03:30
+        self.play(
+            FadeOut(goal, shift=9*LEFT),
+            FadeIn(coin1, shift=9*LEFT)
+        )
+
+        self.wait(2.5)
+
+        #8:07:00
+        self.play(FadeIn(coin2, shift=4*LEFT))
+
+        self.wait(2.5)
+
+        #8:10:30
+        self.play(FadeIn(pbiggerqtext, scale=0.75))
+
+        self.wait(3.5)
+
+        #8:15:00
+        self.play(FadeOut(mupqobfuscation))
+
+        self.wait(4.5)
+
+        #8:18:30
+        self.play(
+            FadeOut(exampletext, shift=5.75*LEFT),
+            FadeOut(pbiggerqtext, shift=5.75*LEFT),
+            coin1.animate.shift(5.75 * LEFT),
+            coin2.animate.shift(7*LEFT)
+        )
+
+        #8:19:30
+        self.play(FadeIn(definition1, shift=DOWN))
+
+        #8:20:30
+        self.play(FadeIn(Group(dtv, formula1a), scale=0.75))
+
+        self.wait(2)
+
+        #8:23:30
+        self.play(FadeIn(formula1b, shift=LEFT))
+
+        self.wait(5.5)
+
+        #8:29:00
+        self.play(FadeIn(formula1c, shift=LEFT))
+
+        self.wait(2.5)
+
+        #8:32:30
+        self.play(
+            FadeOut(formula1a, formula1b, formula1c, scale=0.75),
+            Transform(definition1, definition2),
+            run_time=0.5
+        )
+
+        #8:33:00
+        self.play(FadeIn(formula2a, shift=LEFT))
+
+        self.wait(0.5)
+
+        #8:34:30
+        self.play(
+            FadeIn(formula2bprime, shift=LEFT),
+            FadeIn(formula2extratext, shift=LEFT)
+        )
+
+        self.wait(3)
+
+        #8:38:30
+        self.play(
+            TransformMatchingTex(formula2bprime, formula2b),
+            FadeOut(formula2extratext, shift=RIGHT)
+        )
+
+        self.wait(10)
+
+        #8:49:30
+        self.play(FadeIn(formula2c, shift=LEFT))
+
+        self.wait(5.5)
+
+        #8:56:00
+        self.play(FadeIn(optimal, scale=0.75))
+
+        self.wait()
+
+        #9:00:30
+        self.play(
+            FadeOut(formula2a, formula2b, formula2c, optimal, scale=0.75),
+            Transform(definition1, definition3),
+            run_time=0.5
+        )
+
+        #9:01:00
+        self.play(FadeIn(formula3a, shift=LEFT))
+
+        #9:03:00
+        self.play(
+            FadeIn(whatisacoupling1, scale=0.75),
+            GrowArrow(whatisacouplingarrow)
+        )
+
+        #9:08:00
+        self.play(FadeIn(whatisacoupling2, shift=UP))
+
+        #9:12:00
+        self.play(FadeIn(whatisacoupling3, shift=UP))
+
+        #9:15:30
         self.play(
             FadeOut(Group(coin1, coin2), scale=0.75),
             FadeIn(table, shift=UP),
             FadeIn(tablelabel, shift=DOWN)
         )
 
+        #9:28:00 
+        self.play(FadeOut(Group(whatisacoupling1, whatisacoupling2, whatisacoupling3, whatisacouplingarrow), scale=0.75))
+
+        #9:29:00
+        self.play(FadeIn(formula3b, shift=LEFT))
+
+        #9:30:00
+        self.play(FadeIn(formula3c, scale=0.75))
+
+        #9:38:00
         self.play(
             LaggedStart(
                 FadeIn(disagreebox1, scale=1.25),
@@ -347,68 +508,96 @@ class CoinFlipExample(Scene):
             run_time=1
         )
 
+        #9:40:00 
         self.play(
             FadeIn(formula3d, shift=LEFT),
             FadeOut(disagreebox1, scale=1.25),
             FadeOut(disagreebox2, scale=1.25)
         )
 
+        #9:47:00
         self.play(FadeIn(formula3e, scale=0.75))
 
+        #9:52:00
         self.play(FadeIn(tablesuboptimal, shift=UP))
 
         coin1.shift(5.75*RIGHT)
-        #coin1.shift(3.25*RIGHT)
         coin2.shift(2.5*RIGHT)
         coin2.transform()
 
+        #9:56:30
         self.play(
             FadeOut(definition1, dtv, formula3a, formula3b, formula3c, formula3d, formula3e, shift=5*RIGHT),
             FadeOut(table, tablelabel, tablesuboptimal, shift=5*RIGHT),
             FadeIn(randomnumberBar, shift=5*RIGHT)
         )
 
+        #9:58:30
         self.play(
             FadeIn(randomnumberPoint, scale=0.75),
             FadeIn(randomnumberText, scale=0.75),
             FadeIn(uniformtext, shift=RIGHT)
         )
 
-        self.play(randomnumber.animate.set_value(0.62))
-        self.play(randomnumber.animate.set_value(0.86))
-        self.play(randomnumber.animate.set_value(0.13))
+        for _ in range(3):
+            self.play(
+                randomnumber.animate.set_value(random()*0.95+0.025),
+                run_time=0.5
+            )
+            self.wait(0.5)
+        
+        self.play(
+            randomnumber.animate.set_value(0.23),
+            run_time=0.5
+        )
+        self.wait(0.5)
 
+        #10:02:30
         self.play(FadeIn(coin1, scale=0.75))
+
+        #10:03:30
         self.play(coin1.animate.transform().shift(2.5*LEFT))
 
         xpPoint.update()
         xpText.next_to(xpPoint, RIGHT).shift(0.1*RIGHT + 0.05*DOWN)
 
+        #10:04:30
         self.play(
             FadeIn(xpPoint, scale=0.75),
-            Create(randomnumberLine)
-        )
-
-        self.play(
+            Create(randomnumberLine),
             FadeIn(xpText, scale=0.75)
         )
 
         xpText.add_updater(
             lambda x : x.become(MyMathTex(r'{{\cX_p}} = {{H}}' if randomnumber.get_value() < 0.7 else r'{{\cX_p}} = {{T}}').set_color_by_tex(r'H', sol.YELLOW).set_color_by_tex(r'T', sol.YELLOW)).next_to(xpPoint, RIGHT).shift(0.1*RIGHT+0.05*DOWN)
         )
+
+        self.wait(2)
+
+        #10:07:30
+        self.play(randomnumber.animate.set_value(0.79))
         
-        self.wait()
-        self.play(randomnumber.animate.set_value(0.32), run_time=0.5)
-        self.wait()
-        self.play(randomnumber.animate.set_value(0.17), run_time=0.5)
-        self.wait()
-        self.play(randomnumber.animate.set_value(0.83), run_time=0.5)
-        self.wait()
+        self.wait(0.5)
+
+        #10:09:00
+        for _ in range(6):
+            self.play(
+                randomnumber.animate.set_value(random()*0.95+0.025),
+                run_time=0.5
+            )
+            self.wait(0.5)
+        
+        self.play(
+            randomnumber.animate.set_value(0.46),
+            run_time=0.5
+        )
+        self.wait(0.5)
 
         xpText.clear_updaters()
         randomnumberLine.clear_updaters()
         xqPoint.update()
 
+        #10:16:00
         self.play(
             FadeIn(coin2, shift=2*LEFT),
             FadeOut(xpText, scale=0.75),
@@ -416,13 +605,17 @@ class CoinFlipExample(Scene):
             randomnumberLine.animate.put_start_and_end_on(randomnumberPoint.get_center(), xqPoint.get_center())
         )
 
+        #10:17:00
         self.play(
             FadeIn(Group(HHbar, HTbar, TTbar, resulttext), shift=LEFT),
             randomnumberLine.animate.put_start_and_end_on(randomnumberPoint.get_center(), randomnumberPoint.get_center() + 6*RIGHT)
         )
 
-        randomnumberLine.add_updater(
-            lambda x : x.put_start_and_end_on(randomnumberPoint.get_center(), randomnumberPoint.get_center() + 6*RIGHT)
+        self.add(resultbar)
+
+        #10:18:00
+        self.play(
+            HTbar.animate.set_fill(sol.BASE1, opacity=0)
         )
 
         HHbar.add_updater(
@@ -435,23 +628,104 @@ class CoinFlipExample(Scene):
             lambda x : x.set_fill(sol.BASE1, opacity=0 if randomnumber.get_value() >= 0.7 else 1)
         )
 
+        randomnumberLine.add_updater(
+            lambda x : x.put_start_and_end_on(randomnumberPoint.get_center(), randomnumberPoint.get_center() + 6*RIGHT)
+        )
 
-        self.add(resultbar)
-        self.play(randomnumber.animate.set_value(0.9))
+        self.wait(0.5)
+
+        #10:19:30
+        for _ in range(41-19):
+            self.play(
+                randomnumber.animate.set_value(random()*0.95+0.025),
+                run_time=0.5
+            )
+            self.wait(0.5)
+
+        #10:41:30 -- rerandomizations ending up in HH
+
+        for _ in range(46-41):
+            self.play(
+                randomnumber.animate.set_value(random()*0.35+0.025),
+                run_time=0.5
+            )
+            self.wait(0.5)
+
+        #10:46:30 -- rerandomizations ending up in TT
+
+        for _ in range(51-46):
+            self.play(
+                randomnumber.animate.set_value(random()*0.25+0.725),
+                run_time=0.5
+            )
+            self.wait(0.5)
+
+        #10:51:30 -- rerandomizations ending up in HT
+
+        for _ in range(56-51):
+            self.play(
+                randomnumber.animate.set_value(random()*0.25+0.725),
+                run_time=0.5
+            )
+            self.wait(0.5)
+
+        #10:56:30 -- all rerandomizations
+
+        for _ in range(30):
+            self.play(
+                randomnumber.animate.set_value(random()*0.95 + 0.025),
+                run_time=0.5
+            )
+            self.wait(0.5)
+
+        #11:21:00 -- end
+
+
+class CoinFlipTransparencies(Scene):
+    def construct(self):
+        coin1 = CoinBarChart(0.7, label='$\mu_p$', plabel='p', color=sol.MAGENTA).shift(0*LEFT + 2.5*DOWN) #5.75, 2
+        resultbar = Rectangle(height=5, width=1.75, stroke_width=0.5, color=sol.BASE02, z_index=2)
+        resultbar.set_fill(sol.BASE2, opacity=1).align_to(coin1.Hbar, DOWN).shift(0.5*DOWN+2*RIGHT)
+        HHbar = Rectangle(height=0.4*5, width=1.75, stroke_width=0.5, color=sol.BASE02, z_index=4)
+        HHbar.set_fill(sol.BASE1, opacity=1).next_to(resultbar, DOWN).align_to(resultbar, DOWN)
+        HTbar = Rectangle(height=(0.7-0.4)*5, width=1.75, stroke_width=0.5, color=sol.BASE02, z_index=4)
+        HTbar.set_fill(sol.BASE1, opacity=1).next_to(HHbar, UP, buff=0)
+
+        disagreebrace = Brace(HTbar, RIGHT, color=sol.BASE03)
+        disagreeprob1 = MyMathTex(
+            r'\mathbb{P}[{{\cX_p}} \neq {{\cX_q}}]',
+            font_size = 60
+        )
+        disagreeprob2 = MyMathTex(
+            r'={{\cp}}-{{\cq}}',
+            font_size=60
+        ).next_to(disagreeprob1, DOWN).shift(0.125*RIGHT)
+        disagreeprob = Group(disagreeprob1, disagreeprob2)
+        disagreeprob.next_to(disagreebrace)
+
+        takeawaytext = MyTex(
+            r'\textbf{Takeaway:} good couplings generally arise \\\
+                when you can simulate two distributions \\\
+                using the same source of randomness.',
+            font_size=62,
+        ).set_z_index(10)
+
+        takeawaybox = SurroundingRectangle(
+            takeawaytext, color=sol.BASE01, buff=MED_SMALL_BUFF, corner_radius=0.1, z_index=9
+        ).set_fill(sol.BASE2, opacity=1)
+
+        takeawayobfuscation = Rectangle(
+            width=20, height=15, color=sol.BASE3
+        ).set_fill(sol.BASE3, opacity=0.80).set_z_index(8)
+
+        takeaway = Group(takeawayobfuscation, takeawaybox, takeawaytext)
+
+        #10:56:00
         self.play(FadeIn(disagreebrace, disagreeprob))
-        self.wait()
-        rerandomize()
-        self.wait(0.5)
-        rerandomize()
-        self.wait(0.5)
-        rerandomize()
-        self.wait(0.5)
-        rerandomize()
-        self.wait(0.5)
-        rerandomize()
-        self.play(FadeIn(takeaway, scale=0.75))
-        rerandomize()
-        self.wait(0.5)
-        rerandomize()
-        self.wait(1)
+        
+        self.wait(13)
 
+        #11:10:00
+        self.play(FadeIn(takeaway, scale=0.75))
+
+        self.wait(15)
