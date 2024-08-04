@@ -3133,10 +3133,10 @@
   <property name="kdenlive:id">124</property>
   <property name="mute_on_pause">0</property>
   <property name="kdenlive:clip_type">0</property>
-  <property name="kdenlive:file_size">39658892</property>
+  <property name="kdenlive:file_size">43258313</property>
+  <property name="kdenlive:file_hash">96f201736ed90d2b0d972ca5d120453a</property>
   <property name="kdenlive:audio_max1">256</property>
   <property name="kdenlive:monitorPosition">0</property>
-  <property name="kdenlive:file_hash">047ef60cfcb344d9a13283d56c4ddba3</property>
  </chain>
  <chain id="chain176" out="00:00:26.433">
   <property name="length">1587</property>
@@ -3196,9 +3196,9 @@
   <property name="kdenlive:id">125</property>
   <property name="mute_on_pause">0</property>
   <property name="kdenlive:clip_type">0</property>
-  <property name="kdenlive:file_size">20567636</property>
-  <property name="kdenlive:audio_max1">209</property>
-  <property name="kdenlive:file_hash">bf962b01989e0867dfc4adb46f0dd594</property>
+  <property name="kdenlive:file_size">22260415</property>
+  <property name="kdenlive:file_hash">bc71d46a98ab7412cda3917aad2ac488</property>
+  <property name="kdenlive:audio_max1">208</property>
  </chain>
  <chain id="chain177" out="00:02:39.517">
   <property name="length">9572</property>
@@ -3659,40 +3659,6 @@
   <property name="kdenlive:file_hash">3b5574cbe9a646f7a3dcc85fa5b0a278</property>
   <property name="kdenlive:audio_max1">171</property>
  </chain>
- <producer id="producer39" in="00:00:00.000" out="00:00:06.500">
-  <property name="length">391</property>
-  <property name="eof">pause</property>
-  <property name="resource">#ff002b36</property>
-  <property name="aspect_ratio">1</property>
-  <property name="mlt_service">color</property>
-  <property name="kdenlive:clipname">black</property>
-  <property name="kdenlive:duration">00:00:05.000</property>
-  <property name="xml">was here</property>
-  <property name="seekable">1</property>
-  <property name="kdenlive:folderid">134</property>
-  <property name="kdenlive:id">133</property>
-  <property name="mlt_image_format">rgb</property>
-  <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:monitorPosition">78</property>
-  <property name="kdenlive:file_hash">2094cb08448cb72ead3efd6ab671cf73</property>
- </producer>
- <producer id="producer40" in="00:00:00.000" out="00:00:04.983">
-  <property name="length">00:00:05.000</property>
-  <property name="eof">pause</property>
-  <property name="resource">0xfdf6e3ff</property>
-  <property name="aspect_ratio">1</property>
-  <property name="mlt_service">color</property>
-  <property name="kdenlive:clipname">white</property>
-  <property name="kdenlive:duration">00:00:05:00</property>
-  <property name="xml">was here</property>
-  <property name="seekable">1</property>
-  <property name="kdenlive:folderid">134</property>
-  <property name="kdenlive:id">135</property>
-  <property name="mlt_image_format">rgb</property>
-  <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_hash">cc30cdd48d6cbf56eebf35af0f9d87b3</property>
-  <property name="kdenlive:monitorPosition">51</property>
- </producer>
  <producer id="producer0" in="00:00:00.000" out="00:29:07.500">
   <property name="length">2147483647</property>
   <property name="eof">continue</property>
@@ -3716,7 +3682,6 @@
   <property name="kdenlive:collapsed">0</property>
   <property name="kdenlive:thumbs_format"/>
   <property name="kdenlive:audio_rec"/>
-  <property name="kdenlive:locked_track">1</property>
   <track hide="video" producer="playlist0"/>
   <track hide="video" producer="playlist1"/>
   <filter id="filter0">
@@ -6516,7 +6481,6 @@
   <property name="kdenlive:collapsed">0</property>
   <property name="kdenlive:thumbs_format"/>
   <property name="kdenlive:audio_rec"/>
-  <property name="kdenlive:locked_track">1</property>
   <track hide="video" producer="playlist2"/>
   <track hide="video" producer="playlist3"/>
   <filter id="filter125">
@@ -6637,7 +6601,7 @@
   <property name="meta.media.0.codec.color_trc">1</property>
   <property name="meta.media.0.codec.name">h264</property>
   <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
-  <property name="meta.media.0.codec.bit_rate">6045522</property>
+  <property name="meta.media.0.codec.bit_rate">6561552</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
   <property name="meta.media.1.stream.type">audio</property>
@@ -6647,7 +6611,7 @@
   <property name="meta.media.1.codec.layout">stereo</property>
   <property name="meta.media.1.codec.name">aac</property>
   <property name="meta.media.1.codec.long_name">AAC (Advanced Audio Coding)</property>
-  <property name="meta.media.1.codec.bit_rate">159488</property>
+  <property name="meta.media.1.codec.bit_rate">159534</property>
   <property name="meta.attr.1.stream.handler_name.markup">SoundHandler</property>
   <property name="meta.attr.1.stream.vendor_id.markup">[0][0][0][0]</property>
   <property name="meta.attr.major_brand.markup">isom</property>
@@ -7255,7 +7219,7 @@
     <property name="kdenlive:collapsed">0</property>
    </filter>
   </entry>
-  <blank length="00:04:26.983"/>
+  <blank length="00:04:26.600"/>
   <entry in="00:00:03.033" out="00:00:25.867" producer="chain170">
    <property name="kdenlive:id">125</property>
    <filter id="filter133" in="00:00:03.033" out="00:00:04.250">
@@ -7284,7 +7248,7 @@
     <property name="end">0</property>
    </filter>
   </entry>
-  <blank length="00:11:15.600"/>
+  <blank length="00:11:15.983"/>
   <entry in="00:00:41.233" out="00:00:55.250" producer="chain172">
    <property name="kdenlive:id">124</property>
    <filter id="filter136">
@@ -7426,7 +7390,6 @@
   <property name="kdenlive:collapsed">0</property>
   <property name="kdenlive:thumbs_format"/>
   <property name="kdenlive:audio_rec"/>
-  <property name="kdenlive:locked_track">1</property>
   <track hide="video" producer="playlist4"/>
   <track hide="video" producer="playlist5"/>
   <filter id="filter149">
@@ -7684,7 +7647,7 @@
   <property name="meta.media.0.codec.color_trc">1</property>
   <property name="meta.media.0.codec.name">h264</property>
   <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
-  <property name="meta.media.0.codec.bit_rate">6045522</property>
+  <property name="meta.media.0.codec.bit_rate">6561552</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
   <property name="meta.media.1.stream.type">audio</property>
@@ -7694,7 +7657,7 @@
   <property name="meta.media.1.codec.layout">stereo</property>
   <property name="meta.media.1.codec.name">aac</property>
   <property name="meta.media.1.codec.long_name">AAC (Advanced Audio Coding)</property>
-  <property name="meta.media.1.codec.bit_rate">159488</property>
+  <property name="meta.media.1.codec.bit_rate">159534</property>
   <property name="meta.attr.1.stream.handler_name.markup">SoundHandler</property>
   <property name="meta.attr.1.stream.vendor_id.markup">[0][0][0][0]</property>
   <property name="meta.attr.major_brand.markup">isom</property>
@@ -10037,11 +10000,11 @@
   <entry in="00:00:05.367" out="00:00:24.017" producer="producer26">
    <property name="kdenlive:id">132</property>
   </entry>
-  <blank length="00:03:53.200"/>
+  <blank length="00:03:52.817"/>
   <entry in="00:00:03.033" out="00:00:25.867" producer="chain185">
    <property name="kdenlive:id">125</property>
   </entry>
-  <blank length="00:07:38.850"/>
+  <blank length="00:07:39.233"/>
   <entry in="00:00:01.950" out="00:00:10.233" producer="chain186">
    <property name="kdenlive:id">130</property>
   </entry>
@@ -10159,10 +10122,26 @@
   <property name="kdenlive:collapsed">0</property>
   <property name="kdenlive:thumbs_format"/>
   <property name="kdenlive:audio_rec"/>
-  <property name="kdenlive:locked_track">1</property>
   <track hide="audio" producer="playlist6"/>
   <track hide="audio" producer="playlist7"/>
  </tractor>
+ <producer id="producer39" in="00:00:00.000" out="00:00:06.500">
+  <property name="length">391</property>
+  <property name="eof">pause</property>
+  <property name="resource">#ff002b36</property>
+  <property name="aspect_ratio">1</property>
+  <property name="mlt_service">color</property>
+  <property name="kdenlive:clipname">black</property>
+  <property name="kdenlive:duration">00:00:05.000</property>
+  <property name="xml">was here</property>
+  <property name="seekable">1</property>
+  <property name="kdenlive:folderid">134</property>
+  <property name="kdenlive:id">133</property>
+  <property name="mlt_image_format">rgb</property>
+  <property name="kdenlive:clip_type">2</property>
+  <property name="kdenlive:monitorPosition">78</property>
+  <property name="kdenlive:file_hash">2094cb08448cb72ead3efd6ab671cf73</property>
+ </producer>
  <playlist id="playlist8">
   <blank length="00:01:46.450"/>
   <entry in="00:00:00.000" out="00:00:00.900" producer="producer39">
@@ -10204,7 +10183,6 @@
   <property name="kdenlive:collapsed">0</property>
   <property name="kdenlive:thumbs_format"/>
   <property name="kdenlive:audio_rec"/>
-  <property name="kdenlive:locked_track">1</property>
   <track hide="audio" producer="playlist8"/>
   <track hide="audio" producer="playlist9"/>
  </tractor>
@@ -10219,14 +10197,14 @@
   <property name="kdenlive:clip_type">0</property>
   <property name="kdenlive:file_hash">117485639c4f0ef28609a216dd2a1f51</property>
   <property name="kdenlive:folderid">2</property>
-  <property name="kdenlive:sequenceproperties.activeTrack">3</property>
+  <property name="kdenlive:sequenceproperties.activeTrack">2</property>
   <property name="kdenlive:sequenceproperties.audioTarget">1</property>
   <property name="kdenlive:sequenceproperties.disablepreview">0</property>
   <property name="kdenlive:sequenceproperties.documentuuid">{6145f7b6-8bb3-4e2d-afc5-1905046347f9}</property>
   <property name="kdenlive:sequenceproperties.hasAudio">1</property>
   <property name="kdenlive:sequenceproperties.hasVideo">1</property>
-  <property name="kdenlive:sequenceproperties.position">28185</property>
-  <property name="kdenlive:sequenceproperties.scrollPos">11069</property>
+  <property name="kdenlive:sequenceproperties.position">7823</property>
+  <property name="kdenlive:sequenceproperties.scrollPos">1238</property>
   <property name="kdenlive:sequenceproperties.subtitlesList">[
     {
         "file": "/home/vilas/.local/share/kdenlive/.backup/Shuffling-1720486770903-2024-08-02-11-06.kdenlive.srt",
@@ -10241,7 +10219,7 @@
   <property name="kdenlive:sequenceproperties.videoTarget">2</property>
   <property name="kdenlive:sequenceproperties.zonein">0</property>
   <property name="kdenlive:sequenceproperties.zoneout">75</property>
-  <property name="kdenlive:sequenceproperties.zoom">9</property>
+  <property name="kdenlive:sequenceproperties.zoom">11</property>
   <property name="kdenlive:sequenceproperties.groups">[
     {
         "children": [
@@ -10306,12 +10284,12 @@
     {
         "children": [
             {
-                "data": "3:22425",
+                "data": "3:22402",
                 "leaf": "clip",
                 "type": "Leaf"
             },
             {
-                "data": "2:22425",
+                "data": "2:22402",
                 "leaf": "clip",
                 "type": "Leaf"
             }
@@ -11343,237 +11321,931 @@
     }
 ]
 </property>
+  <property name="kdenlive:markers">[
+    {
+        "comment": "Just shuffling",
+        "pos": 0,
+        "type": 0
+    },
+    {
+        "comment": "Fade in table",
+        "pos": 1101,
+        "type": 1
+    },
+    {
+        "comment": "arrow pointing to 7",
+        "pos": 1500,
+        "type": 1
+    },
+    {
+        "comment": "get rid of arrow",
+        "pos": 1813,
+        "type": 1
+    },
+    {
+        "comment": "Stop shuffling, fade to manim",
+        "pos": 3512,
+        "type": 0
+    },
+    {
+        "comment": "Fade in \"Questions\"",
+        "pos": 3630,
+        "type": 1
+    },
+    {
+        "comment": "How to get this table?",
+        "pos": 3720,
+        "type": 1
+    },
+    {
+        "comment": "What is the distance to perfect randomness?",
+        "pos": 3900,
+        "type": 1
+    },
+    {
+        "comment": "Check marks",
+        "pos": 4230,
+        "type": 1
+    },
+    {
+        "comment": "Asterisk",
+        "pos": 4410,
+        "type": 1
+    },
+    {
+        "comment": "\"In this video\"",
+        "pos": 4710,
+        "type": 1
+    },
+    {
+        "comment": "Top-to-random and Riffle shuffle",
+        "pos": 4770,
+        "type": 1
+    },
+    {
+        "comment": "Total variation distance",
+        "pos": 4890,
+        "type": 1
+    },
+    {
+        "comment": "Coupling technique",
+        "pos": 5190,
+        "type": 1
+    },
+    {
+        "comment": "What is shuffling? manim",
+        "pos": 5580,
+        "type": 2
+    },
+    {
+        "comment": "Fade to shuffling",
+        "pos": 6420,
+        "type": 0
+    },
+    {
+        "comment": "Take a card off the top of the deck",
+        "pos": 6750,
+        "type": 8
+    },
+    {
+        "comment": "Riffle to a random spot",
+        "pos": 6870,
+        "type": 8
+    },
+    {
+        "comment": "Insert card",
+        "pos": 6960,
+        "type": 8
+    },
+    {
+        "comment": "speed up shuffling, have anisah come in and be bored",
+        "pos": 7506,
+        "type": 5
+    },
+    {
+        "comment": "Stay tuned for the riffle shuffle",
+        "pos": 7800,
+        "type": 2
+    },
+    {
+        "comment": "Fade to manim",
+        "pos": 8370,
+        "type": 0
+    },
+    {
+        "comment": "fade in 3 cards",
+        "pos": 8430,
+        "type": 1
+    },
+    {
+        "comment": "put cards together",
+        "pos": 8490,
+        "type": 1
+    },
+    {
+        "comment": "Six possible arrangements",
+        "pos": 8640,
+        "type": 1
+    },
+    {
+        "comment": "Start with 123",
+        "pos": 8940,
+        "type": 1
+    },
+    {
+        "comment": "One of these three",
+        "pos": 9330,
+        "type": 1
+    },
+    {
+        "comment": "fade all in",
+        "pos": 9585,
+        "type": 1
+    },
+    {
+        "comment": "move them to their positoins",
+        "pos": 9600,
+        "type": 1
+    },
+    {
+        "comment": "Draw some arrows",
+        "pos": 9630,
+        "type": 1
+    },
+    {
+        "comment": "Fade out everything except 123, add probs",
+        "pos": 10080,
+        "type": 1
+    },
+    {
+        "comment": "Do one top-to-random shuffle",
+        "pos": 10320,
+        "type": 1
+    },
+    {
+        "comment": "Highlight the two arrows",
+        "pos": 10500,
+        "type": 1
+    },
+    {
+        "comment": "Highlight 123",
+        "pos": 10590,
+        "type": 1
+    },
+    {
+        "comment": "Do another shuffle",
+        "pos": 10980,
+        "type": 1
+    },
+    {
+        "comment": "Do another shuffle",
+        "pos": 11160,
+        "type": 1
+    },
+    {
+        "comment": "Do another shuffle",
+        "pos": 11340,
+        "type": 1
+    },
+    {
+        "comment": "Do another shuffle",
+        "pos": 11520,
+        "type": 1
+    },
+    {
+        "comment": "\"perfect randomness = uniform distribution\"",
+        "pos": 11640,
+        "type": 1
+    },
+    {
+        "comment": "Do another shuffle",
+        "pos": 11700,
+        "type": 1
+    },
+    {
+        "comment": "Do another shuffle",
+        "pos": 11880,
+        "type": 1
+    },
+    {
+        "comment": "Fade to a different manim with question",
+        "pos": 12000,
+        "type": 0
+    },
+    {
+        "comment": "Fade in rehprased question",
+        "pos": 12540,
+        "type": 2
+    },
+    {
+        "comment": "Notation",
+        "pos": 13140,
+        "type": 2
+    },
+    {
+        "comment": "mu = probability distribution on outcome space omega",
+        "pos": 13260,
+        "type": 2
+    },
+    {
+        "comment": "Example omega (with arrow or something)",
+        "pos": 13560,
+        "type": 2
+    },
+    {
+        "comment": "\"tells you how likely each outcome is\"",
+        "pos": 13860,
+        "type": 2
+    },
+    {
+        "comment": "Example 1: mu = uniform on six arrangements",
+        "pos": 14100,
+        "type": 2
+    },
+    {
+        "comment": "mu(x) = 1/6 for each x",
+        "pos": 14460,
+        "type": 2
+    },
+    {
+        "comment": "mu = distribution after one \"top-to-random\" shuffle",
+        "pos": 14760,
+        "type": 2
+    },
+    {
+        "comment": "wave these",
+        "pos": 15150,
+        "type": 2
+    },
+    {
+        "comment": "mu(those) = 0",
+        "pos": 15270,
+        "type": 2
+    },
+    {
+        "comment": "Fade to new manim, definition of TV",
+        "pos": 15450,
+        "type": 0
+    },
+    {
+        "comment": "mu1, mu2 probability distributions on omega",
+        "pos": 15570,
+        "type": 1
+    },
+    {
+        "comment": "dtv(mu1,mu2)",
+        "pos": 15900,
+        "type": 2
+    },
+    {
+        "comment": "fade in formula 1",
+        "pos": 16140,
+        "type": 2
+    },
+    {
+        "comment": "wiggle x",
+        "pos": 16230,
+        "type": 2
+    },
+    {
+        "comment": "wiggle mu1(x)",
+        "pos": 16320,
+        "type": 2
+    },
+    {
+        "comment": "wiggle mu2(x)",
+        "pos": 16530,
+        "type": 2
+    },
+    {
+        "comment": "wiggle sum",
+        "pos": 16755,
+        "type": 2
+    },
+    {
+        "comment": "wiggle 1/2",
+        "pos": 16875,
+        "type": 2
+    },
+    {
+        "comment": "wiggle dtv(mu1,mu2)",
+        "pos": 16950,
+        "type": 2
+    },
+    {
+        "comment": "\"total variation distance\"",
+        "pos": 17280,
+        "type": 2
+    },
+    {
+        "comment": "wiggle TV",
+        "pos": 17460,
+        "type": 2
+    },
+    {
+        "comment": "Fade out \"total variation distance\"",
+        "pos": 18060,
+        "type": 2
+    },
+    {
+        "comment": "fade in formula 2",
+        "pos": 18120,
+        "type": 2
+    },
+    {
+        "comment": "event = subset",
+        "pos": 18450,
+        "type": 2
+    },
+    {
+        "comment": "probability = sum",
+        "pos": 18600,
+        "type": 2
+    },
+    {
+        "comment": "example event",
+        "pos": 18990,
+        "type": 2
+    },
+    {
+        "comment": "uniform distribution",
+        "pos": 19350,
+        "type": 2
+    },
+    {
+        "comment": "after one step of top-to-random",
+        "pos": 19830,
+        "type": 2
+    },
+    {
+        "comment": "implication for tv distance",
+        "pos": 20250,
+        "type": 2
+    },
+    {
+        "comment": "swipe in table",
+        "pos": 20670,
+        "type": 1
+    },
+    {
+        "comment": "highlight 6 shuffles somehow",
+        "pos": 20970,
+        "type": 1
+    },
+    {
+        "comment": "highlight 3 or 4 shuffles somehow",
+        "pos": 21450,
+        "type": 1
+    },
+    {
+        "comment": "go fish skit",
+        "pos": 22425,
+        "type": 5
+    },
+    {
+        "comment": "fade back to manim",
+        "pos": 23890,
+        "type": 0
+    },
+    {
+        "comment": "Random variables",
+        "pos": 24040,
+        "type": 1
+    },
+    {
+        "comment": "random outcome, i.e. random element of omega",
+        "pos": 24250,
+        "type": 1
+    },
+    {
+        "comment": "X tilde mu",
+        "pos": 24490,
+        "type": 1
+    },
+    {
+        "comment": "\"a random variable is not the same as a distribution\"",
+        "pos": 24760,
+        "type": 1
+    },
+    {
+        "comment": "Example",
+        "pos": 25000,
+        "type": 1
+    },
+    {
+        "comment": "Fade back to dtv manim",
+        "pos": 25930,
+        "type": 0
+    },
+    {
+        "comment": "dtv(mu1,mu2)",
+        "pos": 25990,
+        "type": 2
+    },
+    {
+        "comment": "fade in definition 3",
+        "pos": 26080,
+        "type": 2
+    },
+    {
+        "comment": "highlight X1, X2",
+        "pos": 26230,
+        "type": 2
+    },
+    {
+        "comment": "have the distributions",
+        "pos": 26320,
+        "type": 2
+    },
+    {
+        "comment": "mu1 and mu2",
+        "pos": 26380,
+        "type": 2
+    },
+    {
+        "comment": "highlight probability",
+        "pos": 26560,
+        "type": 2
+    },
+    {
+        "comment": "sample from mu1 and mu2 simultaneously",
+        "pos": 27040,
+        "type": 2
+    },
+    {
+        "comment": "\"coupling\"",
+        "pos": 27430,
+        "type": 2
+    },
+    {
+        "comment": "fade to coin manim",
+        "pos": 28150,
+        "type": 0
+    },
+    {
+        "comment": "\"Example\"",
+        "pos": 28180,
+        "type": 1
+    },
+    {
+        "comment": "\"coin flips\"",
+        "pos": 28300,
+        "type": 1
+    },
+    {
+        "comment": "fade in coin 1",
+        "pos": 28990,
+        "type": 1
+    },
+    {
+        "comment": "highlight p",
+        "pos": 29080,
+        "type": 1
+    },
+    {
+        "comment": "fade in coin 2",
+        "pos": 29200,
+        "type": 1
+    },
+    {
+        "comment": "highlight q",
+        "pos": 29290,
+        "type": 1
+    },
+    {
+        "comment": "assumption: p >= q",
+        "pos": 29440,
+        "type": 1
+    },
+    {
+        "comment": "mu_p",
+        "pos": 29710,
+        "type": 1
+    },
+    {
+        "comment": "mu_q",
+        "pos": 29770,
+        "type": 1
+    },
+    {
+        "comment": "slide to the left",
+        "pos": 29950,
+        "type": 1
+    },
+    {
+        "comment": "definition 1",
+        "pos": 29980,
+        "type": 1
+    },
+    {
+        "comment": "dtv(mup,muq) = formula",
+        "pos": 30040,
+        "type": 1
+    },
+    {
+        "comment": "write what it is in this case",
+        "pos": 30220,
+        "type": 1
+    },
+    {
+        "comment": "simplified",
+        "pos": 30550,
+        "type": 1
+    },
+    {
+        "comment": "definition 2",
+        "pos": 30760,
+        "type": 1
+    },
+    {
+        "comment": "dtv(mup,muq) = max(..)",
+        "pos": 30790,
+        "type": 1
+    },
+    {
+        "comment": ">= thing for any particular event A",
+        "pos": 30880,
+        "type": 1
+    },
+    {
+        "comment": "let A = {H}",
+        "pos": 31120,
+        "type": 1
+    },
+    {
+        "comment": "?? figure this out",
+        "pos": 31465,
+        "type": 7
+    },
+    {
+        "comment": "clean things up",
+        "pos": 31780,
+        "type": 1
+    },
+    {
+        "comment": "Since we know dtv(mup,muq) = p-q, this event achieves the maximum",
+        "pos": 31960,
+        "type": 1
+    },
+    {
+        "comment": "Definition 3",
+        "pos": 32440,
+        "type": 1
+    },
+    {
+        "comment": "dtv(mup,muq) = min(..)",
+        "pos": 32470,
+        "type": 1
+    },
+    {
+        "comment": "what is this? (arrow to coupling)",
+        "pos": 32590,
+        "type": 1
+    },
+    {
+        "comment": "?? figure this out",
+        "pos": 32915,
+        "type": 7
+    },
+    {
+        "comment": "Example",
+        "pos": 33100,
+        "type": 1
+    },
+    {
+        "comment": "Independent coupling",
+        "pos": 33130,
+        "type": 1
+    },
+    {
+        "comment": "table",
+        "pos": 33340,
+        "type": 1
+    },
+    {
+        "comment": "&lt;= P[X != Y when X and Y are independent]",
+        "pos": 34150,
+        "type": 1
+    },
+    {
+        "comment": "These two entries of the table",
+        "pos": 34690,
+        "type": 1
+    },
+    {
+        "comment": "fade it in",
+        "pos": 34810,
+        "type": 1
+    },
+    {
+        "comment": "> p-q",
+        "pos": 35200,
+        "type": 1
+    },
+    {
+        "comment": "the independent coupling does not achieve the minimum",
+        "pos": 35410,
+        "type": 1
+    },
+    {
+        "comment": "fade to new manim",
+        "pos": 35710,
+        "type": 0
+    },
+    {
+        "comment": "number line",
+        "pos": 35920,
+        "type": 1
+    },
+    {
+        "comment": "Fade back to all definitions of dtv",
+        "pos": 40690,
+        "type": 0
+    },
+    {
+        "comment": "any event gives a lower bound",
+        "pos": 41380,
+        "type": 1
+    },
+    {
+        "comment": "any coupling gives an upper bound",
+        "pos": 41590,
+        "type": 1
+    },
+    {
+        "comment": "|omega| = 52! >> astronomical",
+        "pos": 42250,
+        "type": 1
+    },
+    {
+        "comment": "What is the probability of a specific arrangement after 4 riffle shuffles?",
+        "pos": 42490,
+        "type": 1
+    },
+    {
+        "comment": "In the rest of the video (fade in the whole thing at once)",
+        "pos": 43000,
+        "type": 1
+    },
+    {
+        "comment": "\"the total variation distance between...\"",
+        "pos": 43570,
+        "type": 2
+    },
+    {
+        "comment": "d(t)",
+        "pos": 44140,
+        "type": 2
+    },
+    {
+        "comment": "d^shuffle",
+        "pos": 44230,
+        "type": 2
+    },
+    {
+        "comment": "d^top-to-random",
+        "pos": 44470,
+        "type": 2
+    },
+    {
+        "comment": "n = number of cards in the deck",
+        "pos": 44830,
+        "type": 2
+    },
+    {
+        "comment": "d_n",
+        "pos": 45040,
+        "type": 2
+    },
+    {
+        "comment": "d(t) &lt; f_n(t)",
+        "pos": 45220,
+        "type": 2
+    },
+    {
+        "comment": "f_n^{-1}(epsilon)",
+        "pos": 45430,
+        "type": 2
+    },
+    {
+        "comment": "&lt;",
+        "pos": 45550,
+        "type": 2
+    },
+    {
+        "comment": "tau(epsilon) = number of times we need to shuffle before the distance is at most epsilon",
+        "pos": 45610,
+        "type": 2
+    },
+    {
+        "comment": "= mixing time",
+        "pos": 45940,
+        "type": 2
+    },
+    {
+        "comment": "fade to blank",
+        "pos": 46360,
+        "type": 0
+    },
+    {
+        "comment": "sneaky trick: reversing the shuffle",
+        "pos": 46480,
+        "type": 1
+    },
+    {
+        "comment": "fade in network",
+        "pos": 46690,
+        "type": 1
+    },
+    {
+        "comment": "reverse all of the arrows",
+        "pos": 47080,
+        "type": 1
+    },
+    {
+        "comment": "\"random-to-top\" shuffle",
+        "pos": 47380,
+        "type": 1
+    },
+    {
+        "comment": "slide over, show both networks at once (titled: original and reverse)",
+        "pos": 47620,
+        "type": 1
+    },
+    {
+        "comment": "turn all nodes into blank circles or boxes",
+        "pos": 48220,
+        "type": 1
+    },
+    {
+        "comment": "isomorphism symbol",
+        "pos": 48520,
+        "type": 1
+    },
+    {
+        "comment": "show definition 1 and highlight the sum over all outcomes",
+        "pos": 48700,
+        "type": 1
+    },
+    {
+        "comment": "d^top-to-random = d^random-to-top",
+        "pos": 49000,
+        "type": 1
+    },
+    {
+        "comment": "Why?",
+        "pos": 49450,
+        "type": 1
+    },
+    {
+        "comment": "in short;",
+        "pos": 49570,
+        "type": 1
+    },
+    {
+        "comment": "this is a random walk on a group",
+        "pos": 49690,
+        "type": 1
+    },
+    {
+        "comment": "Groups are symmetric",
+        "pos": 49960,
+        "type": 1
+    },
+    {
+        "comment": "There will not be any group theory in this video!",
+        "pos": 50500,
+        "type": 1
+    },
+    {
+        "comment": "Just remember that d^top-to-random = d^random-to-top",
+        "pos": 50620,
+        "type": 1
+    },
+    {
+        "comment": "We will upper bound this by constructing a coupling",
+        "pos": 50860,
+        "type": 1
+    },
+    {
+        "comment": "Fade to real life",
+        "pos": 51344,
+        "type": 0
+    },
+    {
+        "comment": "show deck, text saying it's uniformly random",
+        "pos": 51434,
+        "type": 8
+    },
+    {
+        "comment": "Do one shuffle",
+        "pos": 51584,
+        "type": 8
+    },
+    {
+        "comment": "Still uniformly random!",
+        "pos": 51704,
+        "type": 8
+    },
+    {
+        "comment": "do some more shuffles",
+        "pos": 51884,
+        "type": 8
+    },
+    {
+        "comment": "anisah's hand comes in with the unshuffled deck",
+        "pos": 52184,
+        "type": 8
+    },
+    {
+        "comment": "say this deck is unshuffled, that is uniformly random",
+        "pos": 52244,
+        "type": 8
+    },
+    {
+        "comment": "start shuffling simultaneously",
+        "pos": 52440,
+        "type": 8
+    },
+    {
+        "comment": "switch to face up cards",
+        "pos": 52678,
+        "type": 8
+    },
+    {
+        "comment": "put finger on random card",
+        "pos": 53028,
+        "type": 8
+    },
+    {
+        "comment": "put it on top",
+        "pos": 53136,
+        "type": 8
+    },
+    {
+        "comment": "do the same with the perfectly random deck, but choose the same card",
+        "pos": 53273,
+        "type": 8
+    },
+    {
+        "comment": "do this a few more times",
+        "pos": 53575,
+        "type": 8
+    },
+    {
+        "comment": "show the choice of card, then show shuffle being done",
+        "pos": 54215,
+        "type": 8
+    },
+    {
+        "comment": "replay the footage",
+        "pos": 54628,
+        "type": 8
+    },
+    {
+        "comment": "add check mark for top cards",
+        "pos": 54730,
+        "type": 8
+    },
+    {
+        "comment": "do it again",
+        "pos": 54931,
+        "type": 8
+    },
+    {
+        "comment": "check mark for two cards",
+        "pos": 55017,
+        "type": 8
+    },
+    {
+        "comment": "keep shuffling and adding check marks until the deck is shuffled, keep shuffling",
+        "pos": 55286,
+        "type": 8
+    },
+    {
+        "comment": "fade to manim",
+        "pos": 56110,
+        "type": 0
+    },
+    {
+        "comment": "242 skit",
+        "pos": 64332,
+        "type": 5
+    },
+    {
+        "comment": "fade back to manim",
+        "pos": 76335,
+        "type": 0
+    }
+]
+</property>
   <track producer="producer0"/>
   <track producer="tractor0"/>
   <track producer="tractor1"/>
   <track producer="tractor2"/>
   <track producer="tractor3"/>
   <track producer="tractor4"/>
-  <transition id="transition0" in="00:20:03.967" out="00:20:04.417">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition1" in="00:20:03.167" out="00:20:03.617">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition2" in="00:19:33.233" out="00:19:33.683">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition3" in="00:01:46.767" out="00:01:47.350">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition4" in="00:18:10.667" out="00:18:11.000">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition5" in="00:14:37.567" out="00:14:37.950">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition6" in="00:18:05.883" out="00:18:06.217">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition7" in="00:14:37.967" out="00:14:38.350">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition8" in="00:15:10.183" out="00:15:10.450">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition9" in="00:19:31.683" out="00:19:32.317">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition10" in="00:15:09.933" out="00:15:10.167">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition11" in="00:18:27.950" out="00:18:28.400">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition12" in="00:18:27.633" out="00:18:27.933">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition13" in="00:18:17.867" out="00:18:18.450">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition14" in="00:01:46.450" out="00:01:46.750">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition15" in="00:18:17.467" out="00:18:17.850">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition16">
+  <transition id="transition0">
    <property name="a_track">0</property>
    <property name="b_track">1</property>
    <property name="mlt_service">mix</property>
@@ -11583,7 +12255,7 @@
    <property name="accepts_blanks">1</property>
    <property name="sum">1</property>
   </transition>
-  <transition id="transition17">
+  <transition id="transition1">
    <property name="a_track">0</property>
    <property name="b_track">2</property>
    <property name="mlt_service">mix</property>
@@ -11593,7 +12265,7 @@
    <property name="accepts_blanks">1</property>
    <property name="sum">1</property>
   </transition>
-  <transition id="transition18">
+  <transition id="transition2">
    <property name="a_track">0</property>
    <property name="b_track">3</property>
    <property name="mlt_service">mix</property>
@@ -11602,6 +12274,230 @@
    <property name="always_active">1</property>
    <property name="accepts_blanks">1</property>
    <property name="sum">1</property>
+  </transition>
+  <transition id="transition3" in="00:20:03.967" out="00:20:04.417">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.450=0% 0% 100% 100% 0%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition4" in="00:20:03.167" out="00:20:03.617">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.450=0% 0% 100% 100% 100%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition5" in="00:19:33.233" out="00:19:33.683">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.450=0% 0% 100% 100% 0%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition6" in="00:18:17.467" out="00:18:17.850">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.383=0% 0% 100% 100% 100%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition7" in="00:01:46.450" out="00:01:46.750">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.300=0% 0% 100% 100% 100%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition8" in="00:18:17.867" out="00:18:18.450">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.583=0% 0% 100% 100% 0%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition9" in="00:18:27.633" out="00:18:27.933">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.300=0% 0% 100% 100% 100%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition10" in="00:18:27.950" out="00:18:28.400">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.450=0% 0% 100% 100% 0%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition11" in="00:15:09.933" out="00:15:10.167">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.233=0% 0% 100% 100% 100%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition12" in="00:19:31.683" out="00:19:32.317">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.633=0% 0% 100% 100% 100%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition13" in="00:15:10.183" out="00:15:10.450">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.267=0% 0% 100% 100% 0%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition14" in="00:14:37.967" out="00:14:38.350">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.383=0% 0% 100% 100% 0%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition15" in="00:18:05.883" out="00:18:06.217">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.333=0% 0% 100% 100% 100%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition16" in="00:14:37.567" out="00:14:37.950">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.383=0% 0% 100% 100% 100%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition17" in="00:18:10.667" out="00:18:11.000">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.333=0% 0% 100% 100% 0%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition18" in="00:01:46.767" out="00:01:47.350">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.583=0% 0% 100% 100% 0%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
   </transition>
   <transition id="transition19">
    <property name="a_track">0</property>
@@ -11637,6 +12533,23 @@
    <property name="disable">1</property>
   </filter>
  </tractor>
+ <producer id="producer40" in="00:00:00.000" out="00:00:04.983">
+  <property name="length">00:00:05.000</property>
+  <property name="eof">pause</property>
+  <property name="resource">0xfdf6e3ff</property>
+  <property name="aspect_ratio">1</property>
+  <property name="mlt_service">color</property>
+  <property name="kdenlive:clipname">white</property>
+  <property name="kdenlive:duration">00:00:05:00</property>
+  <property name="xml">was here</property>
+  <property name="seekable">1</property>
+  <property name="kdenlive:folderid">134</property>
+  <property name="kdenlive:id">135</property>
+  <property name="mlt_image_format">rgb</property>
+  <property name="kdenlive:clip_type">2</property>
+  <property name="kdenlive:file_hash">cc30cdd48d6cbf56eebf35af0f9d87b3</property>
+  <property name="kdenlive:monitorPosition">51</property>
+ </producer>
  <playlist id="main_bin">
   <property name="kdenlive:folder.-1.2">Sequences</property>
   <property name="kdenlive:folder.-1.4">voice</property>
@@ -11849,9 +12762,9 @@
   <entry in="00:00:00.000" out="00:01:22.500" producer="chain179"/>
   <entry in="00:00:00.000" out="00:03:07.800" producer="chain180"/>
   <entry in="00:00:00.000" out="00:02:00.150" producer="chain183"/>
-  <entry in="00:00:00.000" out="00:00:06.500" producer="producer39"/>
+  <entry in="00:00:00.000" out="00:24:07.183" producer="tractor5"/>
   <entry in="00:00:00.000" out="00:00:04.983" producer="producer40"/>
-  <entry in="00:00:00.000" out="00:24:07.483" producer="tractor5"/>
+  <entry in="00:00:00.000" out="00:00:04.983" producer="producer39"/>
  </playlist>
  <tractor id="tractor6" in="00:00:00.000" out="00:24:07.483">
   <property name="kdenlive:projectTractor">1</property>
