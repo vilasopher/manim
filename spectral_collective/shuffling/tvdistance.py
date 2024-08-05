@@ -617,18 +617,21 @@ class Yapping(Scene):
 
         #11:44:00
         self.play(FadeIn(number, scale=0.75))
+
+        self.wait(3.5)
+
         self.play(
             FadeIn(number2, shift=2*LEFT),
             rate_func=rate_functions.ease_in_sine,
-            run_time=0.5
+            run_time=0.25
         )
         self.play(
             Group(number, number2).animate.shift(26*LEFT),
             rate_func=rate_functions.ease_out_sine,
-            run_time=7.5
+            run_time=3.75
         )
 
-        self.wait(4)
+        self.wait(3.5)
 
         #11:56:00
         self.play(
@@ -638,9 +641,9 @@ class Yapping(Scene):
 
         #11:57:00
         self.play(FadeIn(restofvideo1, scale=0.75))
-        self.play(Write(restofvideo2), run_time=4)
+        self.play(Write(restofvideo2), run_time=7)
 
-        self.wait(15)
+        self.wait(11)
 
         #12:16:00
         self.play(FadeIn(doft1, scale=0.75))
@@ -663,7 +666,7 @@ class Yapping(Scene):
             FadeIn(ncards, shift=3*LEFT)
         )
 
-        self.wait(3)
+        self.wait(2.5)
 
         #12:31:00
         self.play(TransformMatchingTex(doft3, doft4))

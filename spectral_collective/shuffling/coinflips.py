@@ -3,7 +3,7 @@ import solarized as sol
 from numpy.random import random, seed
 from sharedclasses import *
 
-seed(3)
+seed(4)
 
 class CoinBarChart(Group):
     def __init__(self, p, label=r'Coin', plabel=r'p', color=sol.RED):
@@ -108,13 +108,29 @@ class CoinFlipExample(Scene):
             r'= \frac{1}{2} \sum_{{{\cx}} \in \{H, T\}} |{{\cmup}}({{\cx}}) - {{\cmuq}}({{\cx}})|'
         ).next_to(dtv, DOWN).align_to(dtv, LEFT).shift(0.25*RIGHT)
 
+        #formula1b = MyMathTex(
+        #    r'{{ = \frac{1}{2} \big( }} | {{\cp}} {{-}} {{\cq}} | {{+}} | {{(1-}} {{\cp {} }} {{) {} }} {{- {} }} {{(1- {} }} {{\cq {} }} {{) {} {} }} | {{\big)}}'
+        #).next_to(formula1a, DOWN).align_to(formula1a, LEFT)
+
         formula1b = MyMathTex(
-            r'{{ = \frac{1}{2} \big( }} | {{\cp}} {{-}} {{\cq}} | {{+}} | {{(1-}} {{\cp {} }} {{) {} }} {{- {} }} {{(1- {} }} {{\cq {} }} {{) {} {} }} | {{\big)}}'
+            r'= \frac{1}{2} \big( |p-q| + |(1-p)-(1-q)| \big)'
         ).next_to(formula1a, DOWN).align_to(formula1a, LEFT)
+        formula1b[0][6].set_color(sol.MAGENTA)
+        formula1b[0][8].set_color(sol.VIOLET)
+        formula1b[0][15].set_color(sol.MAGENTA)
+        formula1b[0][21].set_color(sol.VIOLET)
+
+        #formula1bprime = MyMathTex(
+        #    r'{{ = \frac{1}{2} \big( }} {{\cp}} {{-}} {{\cq}} {{+}} {{(1- {} }} {{\cq {} }} {{) {} {} }} {{- {} }} {{(1-}} {{\cp {} }} {{) {} }} {{\big)}}'
+        #).next_to(formula1a, DOWN).align_to(formula1a, LEFT)
 
         formula1bprime = MyMathTex(
-            r'{{ = \frac{1}{2} \big( }} {{\cp}} {{-}} {{\cq}} {{+}} {{(1- {} }} {{\cq {} }} {{) {} {} }} {{- {} }} {{(1-}} {{\cp {} }} {{) {} }} {{\big)}}'
+            r'= \frac{1}{2} \big( p-q + (1-q)-(1-p) \big)'
         ).next_to(formula1a, DOWN).align_to(formula1a, LEFT)
+        formula1bprime[0][5].set_color(sol.MAGENTA)
+        formula1bprime[0][7].set_color(sol.VIOLET)
+        formula1bprime[0][12].set_color(sol.VIOLET)
+        formula1bprime[0][18].set_color(sol.MAGENTA)
 
         formula1c = MyMathTex(
             r'= {{\cp}}-{{\cq}}'
@@ -426,9 +442,12 @@ class CoinFlipExample(Scene):
         #8:26:00
         self.play(
             #TransformMatchingTex(formula1b, formula1bprime, transform_mismatches=True)
-            #TransformByGlyphMap(formula1b, formula1bprime,
-            #    ([],[])
-            #)
+            TransformByGlyphMap(formula1b, formula1bprime,
+                ([5,9,11,23],[]),
+                #([0,1,2,3,4],[0,1,2,3,4]),
+                ([12,13,14,15,16],[15,16,17,18,19]),
+                ([18,19,20,21,22],[9,10,11,12,13])
+            )
         )
 
         self.wait(2)
