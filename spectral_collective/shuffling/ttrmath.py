@@ -2,7 +2,11 @@ from manim import *
 import solarized as sol
 from sharedclasses import *
 
-class Transparencies(Scene):
+class DemoTransparencies(Scene):
+    def construct(self):
+        pass
+    
+class CouplingTransparencies(Scene):
     def construct(self):
         #TODO
         pass
