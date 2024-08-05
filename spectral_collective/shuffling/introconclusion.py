@@ -49,9 +49,9 @@ class Intro(Scene):
         ).next_to(tvdistance, DOWN).align_to(tvdistance, LEFT)
 
         #1:00:00
-        self.add(questions)
+        self.play(FadeIn(questions, scale=0.75))
 
-        self.wait(2)
+        self.wait(1)
 
         #1:02:00
         self.play(FadeIn(verify, shift=LEFT))

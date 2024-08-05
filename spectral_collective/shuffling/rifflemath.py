@@ -164,8 +164,12 @@ class Arithmetic(Scene):
         #21:43:30
         self.play(FadeIn(implication, shift=DOWN))
 
+        self.wait(4.5)
+
         #21:49:00
         self.play(FadeIn(unionbound, scale=0.75))
+
+        self.wait(15)
 
         #22:05:00
         self.play(
@@ -174,6 +178,8 @@ class Arithmetic(Scene):
             FadeIn(brace1, shift=0.05*UP)
         )
 
+        self.wait(3)
+
         #22:09:00
         self.play(
             FadeIn(entropy, shift=0.25*LEFT),
@@ -181,8 +187,12 @@ class Arithmetic(Scene):
             FadeIn(brace2, shift=0.05*UP)
         )
 
+        self.wait(5)
+
         #21:15:00
         self.play(FadeIn(dbound1, scale=0.75))
+
+        self.wait(6.5)
 
         #22:22:30
         self.play(TransformMatchingTex(dbound1,dbound2))
@@ -190,11 +200,15 @@ class Arithmetic(Scene):
         self.remove(dbound1)
         self.add(dbound2)
 
+        self.wait(6)
+
         #22:29:30
         self.play(
             FadeOut(dbound2, shift=dbound3.get_right() - dbound2.get_right()),
             FadeIn(dbound3, shift=dbound3.get_right() - dbound2.get_right())
         )
+
+        self.wait(5.5)
 
         #22:36:00
         self.play(
@@ -203,35 +217,49 @@ class Arithmetic(Scene):
             FadeIn(arrow3, shift=0.5*DOWN, scale=0.75)
         )
 
+        self.wait(9)
+
         #22:46:00
         self.play(
             tbound.animate.move_to(2.5*UP),
             FadeOut(Group(implication, unionbound, energy, arrow1, brace1, entropy, arrow2, brace2, dbound3, arrow3), shift=5*UP + 2.5*LEFT)
         )
 
+        self.wait(0.5)
+
         #22:47:30
         self.play(FadeIn(fiftytwo1, scale=0.75))
 
-        #22:54:30
+        self.wait(0.5)
+
+        #22:49:00
         self.play(FadeIn(fiftytwo2, shift=LEFT))
 
-        #22:56:00
+        self.wait(4.5)
+
+        #22:54:30
         self.play(
             FadeOut(fiftytwo2),
             FadeIn(fiftytwo3)
         )
 
-        #22:57:00
+        self.wait()
+
+        #22:56:30
         self.play(
             FadeOut(fiftytwo3),
             FadeIn(fiftytwo4)
         )
 
-        #23:00:00
+        self.wait(1.5)
+
+        #22:59:00
         self.play(FadeIn(diaconistable, shift=UP))
 
-        #23:01:00
+        #23:00:00
         self.play(FadeIn(overlay1, scale=1.25))
+
+        self.wait(3.5)
 
         #23:04:30
         self.play(
