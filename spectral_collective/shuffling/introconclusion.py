@@ -48,8 +48,51 @@ class Intro(Scene):
             r'\textbullet{} use the coupling technique to get upper bounds'
         ).next_to(tvdistance, DOWN).align_to(tvdistance, LEFT)
 
-        self.add(questions, verify, distance, check1, check2, asterisk,
-                 inthisvideo, twoshuffles, tvdistance, coupling)
+        #1:00:00
+        self.add(questions)
+
+        self.wait(2)
+
+        #1:02:00
+        self.play(FadeIn(verify, shift=LEFT))
+
+        self.wait(2)
+
+        #1:05:00
+        self.play(FadeIn(distance, shift=LEFT))
+
+        self.wait(4.5)
+
+        #1:10:30
+        self.play(
+            SpinInFromNothing(check1, angle=2*PI),
+            SpinInFromNothing(check2, angle=2*PI)
+        )
+
+        self.wait(2)
+
+        #1:13:30
+        self.play(FadeIn(asterisk))
+
+        self.wait(4)
+
+        #1:18:30
+        self.play(FadeIn(inthisvideo, scale=0.75))
+
+        #1:19:30
+        self.play(FadeIn(twoshuffles, shift=LEFT))
+
+        self.wait()
+
+        #1:21:30
+        self.play(FadeIn(tvdistance, shift=LEFT))
+
+        self.wait(4)
+
+        #1:26:30
+        self.play(FadeIn(coupling, shift=LEFT))
+
+        self.wait(10)
             
 class WhatIsShuffling(Scene):
     def construct(self):
@@ -96,16 +139,21 @@ class DiaconisTable(Scene):
             corner_radius=0.1
         ).set_fill(sol.FOREST_GREEN, opacity=0.25)
 
+        #0:18:00
         self.play(FadeIn(diaconistable, scale=0.75))
-        self.wait()
-        self.play(FadeIn(overlay1, scale=1.25))
-        self.wait()
-        self.play(Transform(overlay1, overlay2))
-        self.wait()
-        self.play(Transform(overlay1, overlay3))
-        self.wait()
-        self.play(FadeOut(overlay1, scale=1.25))
         self.wait(5)
+        #0:24:00
+        self.play(FadeIn(overlay1, scale=1.25))
+        self.wait(11.5)
+        #0:36:30
+        self.play(Transform(overlay1, overlay2))
+        self.wait(8.5)
+        #0:46:00
+        self.play(Transform(overlay1, overlay3))
+        self.wait(9.5)
+        #0:56:30
+        self.play(FadeOut(overlay1, scale=1.25))
+        self.wait(10)
 
 class Definition1Transparency(Scene):
     def construct(self):
