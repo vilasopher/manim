@@ -17,10 +17,17 @@ class Equivalence(Scene):
 
         arrow = DoubleArrow([0,1.5,0],[0,-1.3,0],color=sol.BASE1)
 
+        #3:20:30
         self.play(FadeIn(text1, scale=0.75))
-        self.play(Write(text2))
+
+        self.wait(7.5)
+
+        #3:29:00
+        self.play(FadeIn(text2, shift=UP))
         self.play(FadeIn(arrow, scale=0.75))
-        self.wait(5)
+
+
+        self.wait(10)
 
 
 class Notations(Scene):
@@ -130,19 +137,49 @@ class Notations(Scene):
 
         ex2 = Group(ex2text, ex2arrangements1, ex2arrangements2)
 
+        #3:39:00
         self.play(FadeIn(notation, shift=DOWN+RIGHT))
-        self.play(FadeIn(muomega, scale=0.75))
+
+        self.wait()
+
+        #3:41:00
+        self.play(Write(muomega), run_time=3)
+
+        self.wait(2)
+
+        #3:46:00
         self.play(FadeIn(omegalabel, shift=LEFT))
+
+        self.wait(4)
+
+        #3:51:00
         self.play(FadeIn(mulabel, shift=RIGHT))
+
+        self.wait(2)
+
+        #3:54:00
         self.play(FadeIn(example, scale=0.75))
+
+        #3:55:00
         self.play(
             FadeIn(exomega, shift=LEFT),
             FadeIn(ex1, shift=LEFT)
         )
+
+        self.wait(10)
+
+        #4:06:00
         self.play(FadeIn(ex2, shift=LEFT))
-        self.play(ApplyWave(ex2arrangements1))
-        self.play(ApplyWave(ex2arrangements2))
+
         self.wait(5)
+
+        #4:12:30
+        self.play(ApplyWave(ex2arrangements1))
+
+        #4:14:30
+        self.play(ApplyWave(ex2arrangements2))
+
+        self.wait(10)
 
 
 class TVDefinition(Scene):
@@ -204,6 +241,9 @@ class TVDefinition(Scene):
         exbrace = Brace(Group(extext1, extext2, extext3), RIGHT, color=sol.BASE03).shift(4.5*LEFT)
 
         popupbox = Rectangle(color=sol.BASE01, height=7, width=13).set_fill(sol.BASE2, opacity=1)
+        popupocclusion = Rectangle(
+            width=20, height=15, color=sol.BASE3
+        ).set_fill(sol.BASE3, opacity=0.80)
 
         randomvars = MyTex(
             r'\textbf{Random Variables 101}',
@@ -235,6 +275,11 @@ class TVDefinition(Scene):
             font_size=60
         ).next_to(def3text, DOWN).shift(LEFT + 0.25*UP)
 
+        couplingtextprime = MyTex(
+            r'a way to sample from {{$\cmuone$}} and {{$\cmutwo$}} simultaneously',
+            font_size=40
+        ).next_to(def3text, DOWN).shift(2*RIGHT)
+
         couplingarrow = Arrow(
             couplingtext.get_right(),
             def3text[5].get_left()+0.25*DOWN,
@@ -242,25 +287,110 @@ class TVDefinition(Scene):
             tip_shape=StealthTip
         )
 
+        def1obfuscation = SurroundingRectangle(
+            Group(def1text[4][1:], def1text[5:]),
+            stroke_width=0,
+            color=sol.BASE3
+        ).set_fill(sol.BASE3, opacity=1).set_z_index(10)
+
+        self.add(def1obfuscation)
+
+        overlay1 = SurroundingRectangle(
+            Group(diaconistable[12], diaconistable[13]),
+            color=sol.FOREST_GREEN,
+            corner_radius=0.1
+        ).set_fill(sol.FOREST_GREEN, opacity=0.25)
+
+        overlay2 = SurroundingRectangle(
+            Group(diaconistable[9], diaconistable[11]),
+            color=sol.FOREST_GREEN,
+            corner_radius=0.1
+        ).set_fill(sol.FOREST_GREEN, opacity=0.25)
+
+        #4:19:30
         self.play(FadeIn(headertext, shift=DOWN))
 
+        self.wait(4.5)
+
+        #4:25:00
         self.play(FadeIn(def1text, scale=0.75))
+
+        self.wait(2.5)
+
+        #4:28:30
+        self.play(FadeOut(def1obfuscation))
+
+        self.wait()
+
+        #4:30:30
         self.play(Wiggle(Group(def1text[5][0], def1text[6][0:2])))
+
+        #4:32:30
         self.play(Wiggle(Group(def1text[7:10], def1text[10][0])))
+
+        self.wait()
+
+        #4:35:30
         self.play(Wiggle(Group(def1text[11:14], def1text[14][0])))
+
+        self.wait()
+
+        #4:38:30
         self.play(Wiggle(def1text[4][-1]))
+
+        #4:40:30
         self.play(Wiggle(Group(def1text[4][-4:-1])))
-        self.play(Circumscribe(Group(def1text[0][-4:], def1text[1:4], def1text[4][0]), color=sol.BASE03, fade_out=True))
+
+        #4:42:30
+        self.play(Circumscribe(Group(def1text[0][-4:], def1text[1:4], def1text[4][0]), color=sol.BASE03, fade_out=True),
+                  run_time=2)
+        
+        self.wait(3)
+
+        #4:47:30
         self.play(Write(nametext))
+
+        self.wait(2)
+
+        #4:50:30
         self.play(Wiggle(Group(def1text[0][-3:-1])))
 
+        self.wait(8.5)
+
+        #5:01:00
         self.play(FadeOut(nametext, shift=DOWN))
+
+        #5:02:00
         self.play(FadeIn(def2text, scale=0.75))
+
+        self.wait(4.5)
+
+        #5:07:30
         self.play(FadeIn(eventtext1, shift=RIGHT))
+
+        self.wait(1.5)
+
+        #5:10:00
         self.play(FadeIn(eventtext2, shift=RIGHT))
+
+        self.wait(5.5)
+
+        #5:16:30
         self.play(FadeIn(extext1, scale=0.75))
+
+        self.wait(5)
+
+        #5:22:30
         self.play(FadeIn(extext2, shift=LEFT))
+
+        self.wait(7)
+
+        #5:30:30
         self.play(FadeIn(extext3, shift=LEFT))
+
+        self.wait(6)
+
+        #5:37:30
         self.play(
             FadeOut(Group(eventtext1, eventtext2), shift=4.5*LEFT),
             extext1.animate.shift(4.5*LEFT),
@@ -268,22 +398,103 @@ class TVDefinition(Scene):
             extext3.animate.shift(4.5*LEFT),
             FadeIn(Group(exbrace, extext4), shift=4.5*LEFT)
         )
+
+        self.wait(6)
+
+        #5:44:30
         self.play(
             FadeOut(Group(extext1, extext2, extext3, extext4, exbrace), shift=14*LEFT),
             FadeIn(diaconistable, shift=14*LEFT)
         )
 
-        self.play(FadeIn(Group(popupbox, randomvars), scale=0.75))
+        self.wait(4)
+
+        #5:49:30
+        self.play(FadeIn(overlay1, scale=1.25))
+
+        self.wait(7)
+
+        #5:57:30
+        self.play(Transform(overlay1, overlay2))
+
+        self.wait(5.5)
+
+        #6:04:00
+        self.play(FadeOut(overlay1, scale=1.25))
+
+        self.wait(35.5)
+
+        #6:40:30
+        self.play(FadeIn(Group(popupocclusion, popupbox, randomvars), scale=0.75))
+
+        self.wait(2.5)
+
+        #6:44:00
         self.play(FadeIn(rvtext1, shift=LEFT)) 
+        
+        self.wait(3)
+
+        #6:48:00
         self.play(FadeIn(rvtext2, shift=LEFT))
+
+        self.wait(3.5)
+
+        #6:52:30
         self.play(FadeIn(rvtext3, scale=0.75))
+
+        self.wait(3)
+
+        #6:56:30
         self.play(FadeIn(rvextext, scale=0.75))
         self.remove(diaconistable)
-        self.play(FadeOut(Group(popupbox, randomvars, rvtext1, rvtext2, rvtext3, rvextext), scale=0.75))
-        self.play(FadeIn(def3text, scale=0.75))
-        self.play(Write(couplingtext), FadeIn(couplingarrow, scale=0.75))
 
-        self.wait(5)
+        self.wait(14.5)
+
+        #7:12:00
+        self.play(FadeOut(Group(popupocclusion, popupbox, randomvars, rvtext1, rvtext2, rvtext3, rvextext), scale=0.75))
+
+        self.wait(1.5)
+
+        #7:14:30
+        self.play(FadeIn(def3text, scale=0.75))
+
+        self.wait(1.5)
+
+        #7:17:00
+        self.play(ApplyWave(Group(def3text[5], def3text[9]), direction=LEFT, amplitude=0.05),
+                  run_time=1)
+
+        self.wait(0.5)
+
+        #7:18:30
+        self.play(Indicate(Group(def3text[6], def3text[10]), color=sol.BASE01))
+
+        #7:19:30
+        self.play(ApplyWave(Group(def3text[7], def3text[11]), direction=RIGHT, amplitude=0.05),
+                  run_time=1)
+
+        self.wait(2)
+
+        #7:22:30
+        self.play(Wiggle(Group(def3text[12:])))
+
+        self.wait(6)
+
+        #7:30:30
+        self.play(FadeIn(couplingtextprime, shift=UP), GrowArrow(couplingarrow, scale=0.75))
+
+        self.wait(5.5)
+
+        #7:37:00
+        self.play(
+            LaggedStart(
+                FadeOut(couplingtextprime, shift=4*RIGHT),
+                Write(couplingtext),
+            ),
+            run_time=1.5
+        )
+
+        self.wait(10)
 
 
 class Yapping(Scene):
