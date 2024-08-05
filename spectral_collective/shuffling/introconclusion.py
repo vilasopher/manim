@@ -194,11 +194,19 @@ class Conclusion(Scene):
             font_size=65
         ).next_to(ours, DOWN).shift(0.25*DOWN).align_to(theirs, LEFT)
 
+        #23:49:00
         self.play(FadeIn(theirs, shift=UP))
-        self.wait(4)
+
+        self.wait(5)
+
+        #23:55:00
         self.play(FadeIn(ours, shift=UP))
         self.wait(4)
-        self.play(Write(theirproof), run_time=3.5)
+
+        #24:00:00
+        self.play(Write(theirproof), run_time=4)
         self.wait(2)
+
+        #24:06:00
         self.play(FadeIn(ourproof, scale=0.75))
-        self.wait(5)
+        self.wait(10)

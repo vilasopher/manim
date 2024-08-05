@@ -52,17 +52,35 @@ class BirthdayProblem(Scene):
 
         birthdaymobject = Group(arrow2, birthdaybox, birthdaytext)
 
+        #21:12:30
         self.play(FadeIn(title, scale=0.75))
+
+        self.wait(1.5)
+
+        #21:15:00
         self.play(FadeIn(stmt1, shift=LEFT))
+
+        self.wait(6)
+
+        #21:22:00
         self.play(FadeIn(stmt2, shift=LEFT))
+
+        self.wait(3.5)
+
+        #21:26:30
         self.play(
             FadeIn(reform, scale=0.75),
             FadeIn(arrow1, shift=RIGHT, scale=0.75)
         )
+
+        self.wait(8)
+
+        #21:35:30
         self.play(
             FadeIn(birthdaymobject, scale=0.75)
         )
-        self.wait(5)
+
+        self.wait(10)
 
 
 class Arithmetic(Scene):
@@ -143,51 +161,82 @@ class Arithmetic(Scene):
 
         justUBarrow = Arrow(justUBtext.get_top(), 2*UP, color=sol.BASE1)
 
-    
+        #21:43:30
         self.play(FadeIn(implication, shift=DOWN))
+
+        #21:49:00
         self.play(FadeIn(unionbound, scale=0.75))
+
+        #22:05:00
         self.play(
             FadeIn(energy, shift=0.25*LEFT),
             Create(arrow1),
             FadeIn(brace1, shift=0.05*UP)
         )
+
+        #22:09:00
         self.play(
             FadeIn(entropy, shift=0.25*LEFT),
             Create(arrow2),
             FadeIn(brace2, shift=0.05*UP)
         )
+
+        #21:15:00
         self.play(FadeIn(dbound1, scale=0.75))
+
+        #22:22:30
         self.play(TransformMatchingTex(dbound1,dbound2))
+
         self.remove(dbound1)
         self.add(dbound2)
+
+        #22:29:30
         self.play(
             FadeOut(dbound2, shift=dbound3.get_right() - dbound2.get_right()),
             FadeIn(dbound3, shift=dbound3.get_right() - dbound2.get_right())
         )
+
+        #22:36:00
         self.play(
             dbound3.animate.shift(4.75*LEFT),
             FadeIn(tbound, shift=4.75*LEFT),
             FadeIn(arrow3, shift=0.5*DOWN, scale=0.75)
         )
 
+        #22:46:00
         self.play(
             tbound.animate.move_to(2.5*UP),
             FadeOut(Group(implication, unionbound, energy, arrow1, brace1, entropy, arrow2, brace2, dbound3, arrow3), shift=5*UP + 2.5*LEFT)
         )
+
+        #22:47:30
         self.play(FadeIn(fiftytwo1, scale=0.75))
+
+        #22:54:30
         self.play(FadeIn(fiftytwo2, shift=LEFT))
+
+        #22:56:00
         self.play(
             FadeOut(fiftytwo2),
             FadeIn(fiftytwo3)
         )
+
+        #22:57:00
         self.play(
             FadeOut(fiftytwo3),
             FadeIn(fiftytwo4)
         )
+
+        #23:00:00
         self.play(FadeIn(diaconistable, shift=UP))
+
+        #23:01:00
         self.play(FadeIn(overlay1, scale=1.25))
+
+        #23:04:30
         self.play(
             FadeIn(justUBtext, scale=0.75),
             GrowArrow(justUBarrow)
         )
-        self.wait(5)
+
+        self.wait(10)

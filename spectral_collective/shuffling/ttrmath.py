@@ -211,9 +211,9 @@ class Analysis(Scene):
         #17:41:30
         self.play(FadeIn(fiftytwo, scale=0.75))
 
-        self.wait(7.5)
+        self.wait(7)
 
-        #17:50:00
+        #17:49:30
         self.play(SpinInFromNothing(fiftytwo2))
 
         self.wait(10)
