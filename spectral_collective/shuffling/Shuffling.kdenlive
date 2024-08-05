@@ -3693,7 +3693,7 @@
   <property name="kdenlive:file_hash">cc30cdd48d6cbf56eebf35af0f9d87b3</property>
   <property name="kdenlive:monitorPosition">51</property>
  </producer>
- <producer id="producer0" in="00:00:00.000" out="00:29:07.500">
+ <producer id="producer0" in="00:00:00.000" out="00:29:07.650">
   <property name="length">2147483647</property>
   <property name="eof">continue</property>
   <property name="resource">black</property>
@@ -6483,7 +6483,7 @@
     <property name="kdenlive:collapsed">0</property>
    </filter>
   </entry>
-  <blank length="00:00:00.567"/>
+  <blank length="00:00:00.717"/>
   <entry in="00:00:00.600" out="00:00:29.217" producer="chain53">
    <property name="kdenlive:id">39</property>
    <filter id="filter123" in="00:00:00.600" out="00:00:00.650">
@@ -6509,7 +6509,7 @@
  <playlist id="playlist3">
   <property name="kdenlive:audio_track">1</property>
  </playlist>
- <tractor id="tractor1" in="00:00:00.000" out="00:24:07.483">
+ <tractor id="tractor1" in="00:00:00.000" out="00:24:07.633">
   <property name="kdenlive:audio_track">1</property>
   <property name="kdenlive:trackheight">49</property>
   <property name="kdenlive:timeline_active">1</property>
@@ -6702,7 +6702,7 @@
   <property name="meta.media.0.codec.color_trc">1</property>
   <property name="meta.media.0.codec.name">h264</property>
   <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
-  <property name="meta.media.0.codec.bit_rate">6058337</property>
+  <property name="meta.media.0.codec.bit_rate">5538099</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
   <property name="meta.media.1.stream.type">audio</property>
@@ -6712,7 +6712,7 @@
   <property name="meta.media.1.codec.layout">stereo</property>
   <property name="meta.media.1.codec.name">aac</property>
   <property name="meta.media.1.codec.long_name">AAC (Advanced Audio Coding)</property>
-  <property name="meta.media.1.codec.bit_rate">159569</property>
+  <property name="meta.media.1.codec.bit_rate">159594</property>
   <property name="meta.attr.1.stream.handler_name.markup">SoundHandler</property>
   <property name="meta.attr.1.stream.vendor_id.markup">[0][0][0][0]</property>
   <property name="meta.attr.major_brand.markup">isom</property>
@@ -7718,8 +7718,8 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain169" out="00:03:39.150">
-  <property name="length">13150</property>
+ <chain id="chain169" out="00:03:44.483">
+  <property name="length">13470</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/coinflips/1080p60/CoinFlipExample.mp4</property>
   <property name="mlt_service">avformat-novalidate</property>
@@ -7730,8 +7730,8 @@
   <property name="vstream">0</property>
   <property name="kdenlive:id">136</property>
   <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">8790903</property>
-  <property name="kdenlive:file_hash">b54337f082c0180ce931e0cc2a2788f5</property>
+  <property name="kdenlive:file_size">8982909</property>
+  <property name="kdenlive:file_hash">3574e9ac5f059a9c39193e05a3e844cb</property>
   <property name="kdenlive:folderid">139</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">video</property>
@@ -7745,7 +7745,7 @@
   <property name="meta.media.0.codec.colorspace">709</property>
   <property name="meta.media.0.codec.name">h264</property>
   <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
-  <property name="meta.media.0.codec.bit_rate">315234</property>
+  <property name="meta.media.0.codec.bit_rate">314450</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
   <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 libx264</property>
@@ -8603,7 +8603,7 @@
   <property name="meta.media.0.codec.color_trc">1</property>
   <property name="meta.media.0.codec.name">h264</property>
   <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
-  <property name="meta.media.0.codec.bit_rate">6058337</property>
+  <property name="meta.media.0.codec.bit_rate">5538099</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
   <property name="meta.media.1.stream.type">audio</property>
@@ -8613,7 +8613,7 @@
   <property name="meta.media.1.codec.layout">stereo</property>
   <property name="meta.media.1.codec.name">aac</property>
   <property name="meta.media.1.codec.long_name">AAC (Advanced Audio Coding)</property>
-  <property name="meta.media.1.codec.bit_rate">159569</property>
+  <property name="meta.media.1.codec.bit_rate">159594</property>
   <property name="meta.attr.1.stream.handler_name.markup">SoundHandler</property>
   <property name="meta.attr.1.stream.vendor_id.markup">[0][0][0][0]</property>
   <property name="meta.attr.major_brand.markup">isom</property>
@@ -10325,9 +10325,9 @@
   <track hide="audio" producer="playlist8"/>
   <track hide="audio" producer="playlist9"/>
  </tractor>
- <tractor id="tractor5" in="00:00:00.000" out="00:24:07.483">
-  <property name="kdenlive:duration">00:24:07.500</property>
-  <property name="kdenlive:maxduration">86850</property>
+ <tractor id="tractor5" in="00:00:00.000" out="00:24:07.633">
+  <property name="kdenlive:duration">00:24:07.650</property>
+  <property name="kdenlive:maxduration">86859</property>
   <property name="kdenlive:clipname">Sequence 1</property>
   <property name="kdenlive:description"/>
   <property name="kdenlive:uuid">{6145f7b6-8bb3-4e2d-afc5-1905046347f9}</property>
@@ -10336,14 +10336,14 @@
   <property name="kdenlive:clip_type">0</property>
   <property name="kdenlive:file_hash">117485639c4f0ef28609a216dd2a1f51</property>
   <property name="kdenlive:folderid">2</property>
-  <property name="kdenlive:sequenceproperties.activeTrack">3</property>
+  <property name="kdenlive:sequenceproperties.activeTrack">4</property>
   <property name="kdenlive:sequenceproperties.audioTarget">1</property>
   <property name="kdenlive:sequenceproperties.disablepreview">0</property>
   <property name="kdenlive:sequenceproperties.documentuuid">{6145f7b6-8bb3-4e2d-afc5-1905046347f9}</property>
   <property name="kdenlive:sequenceproperties.hasAudio">1</property>
   <property name="kdenlive:sequenceproperties.hasVideo">1</property>
-  <property name="kdenlive:sequenceproperties.position">33419</property>
-  <property name="kdenlive:sequenceproperties.scrollPos">27498</property>
+  <property name="kdenlive:sequenceproperties.position">84480</property>
+  <property name="kdenlive:sequenceproperties.scrollPos">52022</property>
   <property name="kdenlive:sequenceproperties.subtitlesList">[
     {
         "file": "/home/vilas/.local/share/kdenlive/.backup/Shuffling-1720486770903-2024-08-02-11-06.kdenlive.srt",
@@ -10358,7 +10358,7 @@
   <property name="kdenlive:sequenceproperties.videoTarget">2</property>
   <property name="kdenlive:sequenceproperties.zonein">0</property>
   <property name="kdenlive:sequenceproperties.zoneout">75</property>
-  <property name="kdenlive:sequenceproperties.zoom">7</property>
+  <property name="kdenlive:sequenceproperties.zoom">8</property>
   <property name="kdenlive:sequenceproperties.groups">[
     {
         "children": [
@@ -11519,14 +11519,264 @@
         "type": 0
     },
     {
+        "comment": "goal",
+        "pos": 56190,
+        "type": 1
+    },
+    {
+        "comment": "after a card is chosen,",
+        "pos": 56430,
+        "type": 1
+    },
+    {
+        "comment": "decks align after all cards chosen",
+        "pos": 56850,
+        "type": 1
+    },
+    {
+        "comment": "reframing",
+        "pos": 57660,
+        "type": 1
+    },
+    {
+        "comment": "coupon collector",
+        "pos": 58170,
+        "type": 1
+    },
+    {
+        "comment": "couponconclusions",
+        "pos": 58410,
+        "type": 1
+    },
+    {
+        "comment": "fade to other manim",
+        "pos": 59010,
+        "type": 0
+    },
+    {
+        "comment": "implication",
+        "pos": 59100,
+        "type": 2
+    },
+    {
+        "comment": "unionbound",
+        "pos": 59400,
+        "type": 2
+    },
+    {
+        "comment": "prob for each card",
+        "pos": 60120,
+        "type": 2
+    },
+    {
+        "comment": "simplification for sum",
+        "pos": 60600,
+        "type": 2
+    },
+    {
+        "comment": "fade to desmos screen recording",
+        "pos": 61050,
+        "type": 8
+    },
+    {
+        "comment": "back to manim",
+        "pos": 61290,
+        "type": 8
+    },
+    {
+        "comment": "dbound1",
+        "pos": 61320,
+        "type": 2
+    },
+    {
+        "comment": "solving 1",
+        "pos": 62250,
+        "type": 2
+    },
+    {
+        "comment": "solve for t",
+        "pos": 62490,
+        "type": 2
+    },
+    {
+        "comment": "change to top-to-random",
+        "pos": 62970,
+        "type": 2
+    },
+    {
+        "comment": "mixing time",
+        "pos": 63150,
+        "type": 2
+    },
+    {
+        "comment": "fiftytwo",
+        "pos": 63660,
+        "type": 2
+    },
+    {
+        "comment": "242",
+        "pos": 64170,
+        "type": 2
+    },
+    {
         "comment": "242 skit",
         "pos": 64322,
         "type": 5
     },
     {
         "comment": "fade back to manim",
-        "pos": 76325,
+        "pos": 76290,
         "type": 0
+    },
+    {
+        "comment": "how many shuffles?",
+        "pos": 76320,
+        "type": 1
+    },
+    {
+        "comment": "first bullet point",
+        "pos": 76470,
+        "type": 1
+    },
+    {
+        "comment": "second bullet point",
+        "pos": 76890,
+        "type": 1
+    },
+    {
+        "comment": "reformulation",
+        "pos": 77160,
+        "type": 1
+    },
+    {
+        "comment": "birthday problem",
+        "pos": 77700,
+        "type": 1
+    },
+    {
+        "comment": "Transition to new manim",
+        "pos": 78150,
+        "type": 0
+    },
+    {
+        "comment": "implication",
+        "pos": 78180,
+        "type": 2
+    },
+    {
+        "comment": "union bound",
+        "pos": 78510,
+        "type": 2
+    },
+    {
+        "comment": "1/2^t",
+        "pos": 79470,
+        "type": 2
+    },
+    {
+        "comment": "n choose 2",
+        "pos": 79710,
+        "type": 2
+    },
+    {
+        "comment": "probability statement",
+        "pos": 80070,
+        "type": 2
+    },
+    {
+        "comment": "transform probability",
+        "pos": 80520,
+        "type": 2
+    },
+    {
+        "comment": "transform to distance",
+        "pos": 80940,
+        "type": 2
+    },
+    {
+        "comment": "equivalence",
+        "pos": 81330,
+        "type": 2
+    },
+    {
+        "comment": "shift everything up",
+        "pos": 81930,
+        "type": 2
+    },
+    {
+        "comment": "fiftytwo",
+        "pos": 82020,
+        "type": 2
+    },
+    {
+        "comment": "fiftytwo2",
+        "pos": 82440,
+        "type": 2
+    },
+    {
+        "comment": "fiftytwo3",
+        "pos": 82530,
+        "type": 2
+    },
+    {
+        "comment": "fiftytwo4",
+        "pos": 82590,
+        "type": 2
+    },
+    {
+        "comment": "diaconistable",
+        "pos": 82770,
+        "type": 2
+    },
+    {
+        "comment": "highlight 7 shuffles",
+        "pos": 82830,
+        "type": 2
+    },
+    {
+        "comment": "just an upper bound",
+        "pos": 83040,
+        "type": 2
+    },
+    {
+        "comment": "fade to paper",
+        "pos": 83489,
+        "type": 8
+    },
+    {
+        "comment": "fade in definition 1",
+        "pos": 84240,
+        "type": 2
+    },
+    {
+        "comment": "fade out definition 1",
+        "pos": 84480,
+        "type": 2
+    },
+    {
+        "comment": "conclusion manim",
+        "pos": 85710,
+        "type": 0
+    },
+    {
+        "comment": "theirs",
+        "pos": 85800,
+        "type": 1
+    },
+    {
+        "comment": "ours",
+        "pos": 86100,
+        "type": 1
+    },
+    {
+        "comment": "theirproof",
+        "pos": 86400,
+        "type": 1
+    },
+    {
+        "comment": "ourproof",
+        "pos": 86730,
+        "type": 1
     }
 ]
 </property>
@@ -12507,14 +12757,264 @@
         "type": 0
     },
     {
+        "comment": "goal",
+        "pos": 56190,
+        "type": 1
+    },
+    {
+        "comment": "after a card is chosen,",
+        "pos": 56430,
+        "type": 1
+    },
+    {
+        "comment": "decks align after all cards chosen",
+        "pos": 56850,
+        "type": 1
+    },
+    {
+        "comment": "reframing",
+        "pos": 57660,
+        "type": 1
+    },
+    {
+        "comment": "coupon collector",
+        "pos": 58170,
+        "type": 1
+    },
+    {
+        "comment": "couponconclusions",
+        "pos": 58410,
+        "type": 1
+    },
+    {
+        "comment": "fade to other manim",
+        "pos": 59010,
+        "type": 0
+    },
+    {
+        "comment": "implication",
+        "pos": 59100,
+        "type": 2
+    },
+    {
+        "comment": "unionbound",
+        "pos": 59400,
+        "type": 2
+    },
+    {
+        "comment": "prob for each card",
+        "pos": 60120,
+        "type": 2
+    },
+    {
+        "comment": "simplification for sum",
+        "pos": 60600,
+        "type": 2
+    },
+    {
+        "comment": "fade to desmos screen recording",
+        "pos": 61050,
+        "type": 8
+    },
+    {
+        "comment": "back to manim",
+        "pos": 61290,
+        "type": 8
+    },
+    {
+        "comment": "dbound1",
+        "pos": 61320,
+        "type": 2
+    },
+    {
+        "comment": "solving 1",
+        "pos": 62250,
+        "type": 2
+    },
+    {
+        "comment": "solve for t",
+        "pos": 62490,
+        "type": 2
+    },
+    {
+        "comment": "change to top-to-random",
+        "pos": 62970,
+        "type": 2
+    },
+    {
+        "comment": "mixing time",
+        "pos": 63150,
+        "type": 2
+    },
+    {
+        "comment": "fiftytwo",
+        "pos": 63660,
+        "type": 2
+    },
+    {
+        "comment": "242",
+        "pos": 64170,
+        "type": 2
+    },
+    {
         "comment": "242 skit",
         "pos": 64322,
         "type": 5
     },
     {
         "comment": "fade back to manim",
-        "pos": 76325,
+        "pos": 76290,
         "type": 0
+    },
+    {
+        "comment": "how many shuffles?",
+        "pos": 76320,
+        "type": 1
+    },
+    {
+        "comment": "first bullet point",
+        "pos": 76470,
+        "type": 1
+    },
+    {
+        "comment": "second bullet point",
+        "pos": 76890,
+        "type": 1
+    },
+    {
+        "comment": "reformulation",
+        "pos": 77160,
+        "type": 1
+    },
+    {
+        "comment": "birthday problem",
+        "pos": 77700,
+        "type": 1
+    },
+    {
+        "comment": "Transition to new manim",
+        "pos": 78150,
+        "type": 0
+    },
+    {
+        "comment": "implication",
+        "pos": 78180,
+        "type": 2
+    },
+    {
+        "comment": "union bound",
+        "pos": 78510,
+        "type": 2
+    },
+    {
+        "comment": "1/2^t",
+        "pos": 79470,
+        "type": 2
+    },
+    {
+        "comment": "n choose 2",
+        "pos": 79710,
+        "type": 2
+    },
+    {
+        "comment": "probability statement",
+        "pos": 80070,
+        "type": 2
+    },
+    {
+        "comment": "transform probability",
+        "pos": 80520,
+        "type": 2
+    },
+    {
+        "comment": "transform to distance",
+        "pos": 80940,
+        "type": 2
+    },
+    {
+        "comment": "equivalence",
+        "pos": 81330,
+        "type": 2
+    },
+    {
+        "comment": "shift everything up",
+        "pos": 81930,
+        "type": 2
+    },
+    {
+        "comment": "fiftytwo",
+        "pos": 82020,
+        "type": 2
+    },
+    {
+        "comment": "fiftytwo2",
+        "pos": 82440,
+        "type": 2
+    },
+    {
+        "comment": "fiftytwo3",
+        "pos": 82530,
+        "type": 2
+    },
+    {
+        "comment": "fiftytwo4",
+        "pos": 82590,
+        "type": 2
+    },
+    {
+        "comment": "diaconistable",
+        "pos": 82770,
+        "type": 2
+    },
+    {
+        "comment": "highlight 7 shuffles",
+        "pos": 82830,
+        "type": 2
+    },
+    {
+        "comment": "just an upper bound",
+        "pos": 83040,
+        "type": 2
+    },
+    {
+        "comment": "fade to paper",
+        "pos": 83489,
+        "type": 8
+    },
+    {
+        "comment": "fade in definition 1",
+        "pos": 84240,
+        "type": 2
+    },
+    {
+        "comment": "fade out definition 1",
+        "pos": 84480,
+        "type": 2
+    },
+    {
+        "comment": "conclusion manim",
+        "pos": 85710,
+        "type": 0
+    },
+    {
+        "comment": "theirs",
+        "pos": 85800,
+        "type": 1
+    },
+    {
+        "comment": "ours",
+        "pos": 86100,
+        "type": 1
+    },
+    {
+        "comment": "theirproof",
+        "pos": 86400,
+        "type": 1
+    },
+    {
+        "comment": "ourproof",
+        "pos": 86730,
+        "type": 1
     }
 ]
 </property>
@@ -12695,7 +13195,7 @@
   <transition id="transition12" in="00:18:05.883" out="00:18:06.217">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.333=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -12709,7 +13209,7 @@
   <transition id="transition13" in="00:14:37.567" out="00:14:37.950">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.383=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -12723,7 +13223,7 @@
   <transition id="transition14" in="00:18:10.667" out="00:18:11.000">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.333=0% 0% 100% 100% 0%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -12864,8 +13364,8 @@
   <property name="kdenlive:file_hash">7bb544399d0efc20d61df1bc181a8436</property>
   <property name="kdenlive:monitorPosition">0</property>
  </chain>
- <chain id="chain193" out="00:03:39.150">
-  <property name="length">13150</property>
+ <chain id="chain193" out="00:03:44.483">
+  <property name="length">13470</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/coinflips/1080p60/CoinFlipExample.mp4</property>
   <property name="mlt_service">avformat</property>
@@ -12881,7 +13381,7 @@
   <property name="meta.media.0.codec.colorspace">709</property>
   <property name="meta.media.0.codec.name">h264</property>
   <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
-  <property name="meta.media.0.codec.bit_rate">315234</property>
+  <property name="meta.media.0.codec.bit_rate">314450</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
   <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 libx264</property>
@@ -12910,8 +13410,8 @@
   <property name="meta.media.progressive">1</property>
   <property name="kdenlive:id">136</property>
   <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">8790903</property>
-  <property name="kdenlive:file_hash">b54337f082c0180ce931e0cc2a2788f5</property>
+  <property name="kdenlive:file_size">8982909</property>
+  <property name="kdenlive:file_hash">3574e9ac5f059a9c39193e05a3e844cb</property>
   <property name="kdenlive:folderid">139</property>
  </chain>
  <playlist id="main_bin">
@@ -13132,10 +13632,10 @@
   <entry in="00:00:00.000" out="00:00:04.983" producer="producer40"/>
   <entry in="00:00:00.000" out="00:24:07.483" producer="tractor5"/>
   <entry in="00:00:00.000" out="00:00:29.983" producer="chain192"/>
-  <entry in="00:00:00.000" out="00:03:39.150" producer="chain193"/>
+  <entry in="00:00:00.000" out="00:03:44.483" producer="chain193"/>
  </playlist>
- <tractor id="tractor6" in="00:00:00.000" out="00:24:07.483">
+ <tractor id="tractor6" in="00:00:00.000" out="00:24:07.633">
   <property name="kdenlive:projectTractor">1</property>
-  <track in="00:00:00.000" out="00:24:07.483" producer="tractor5"/>
+  <track in="00:00:00.000" out="00:24:07.633" producer="tractor5"/>
  </tractor>
 </mlt>

@@ -130,8 +130,7 @@ class Analysis(Scene):
             Group(fiftytwo1, fiftytwo2), color=sol.BASE01, buff=SMALL_BUFF, corner_radius=0.1
         ).set_fill(sol.BASE2, opacity=1)
 
-        fiftytwo = Group(fiftytwobox, fiftytwo1, fiftytwo2)
-             
+        fiftytwo = Group(fiftytwobox, fiftytwo1)
 
         self.play(FadeIn(implication, shift=DOWN))
 
@@ -161,5 +160,6 @@ class Analysis(Scene):
         )
 
         self.play(FadeIn(fiftytwo, scale=0.75))
+        self.play(SpinInFromNothing(fiftytwo2))
 
         self.wait(5)

@@ -107,6 +107,50 @@ class DiaconisTable(Scene):
         self.play(FadeOut(overlay1, scale=1.25))
         self.wait(5)
 
+class Definition1Transparency(Scene):
+    def construct(self):
+        def1text = MyMathTex(
+            r'\textbf{Definition 1: } \mathrm{d_{TV}}({{\cmuone}}, {{\cmutwo}}) = \frac{1}{2} \sum_{ {{\cx}} \in \Omega} |{{\cmuone}}({{\cx}}) - {{\cmutwo}}({{\cx}})|',
+            font_size=55
+        ).shift(2.5*UP)
+        def1textbox = SurroundingRectangle(
+            def1text, buff=MED_SMALL_BUFF, corner_radius=0.1,
+            color=sol.BASE01
+        ).set_fill(sol.BASE2, opacity=1)
+        def1 = Group(def1textbox, def1text)
+
+        self.play(FadeIn(def1))
+        self.wait(3)
+        self.play(FadeOut(def1))
+
 class Conclusion(Scene):
     def construct(self):
-        pass
+        theirs = MyMathTex(
+            r'&\textbf{Bayer-Diaconis:} \\ &\qquad\qquad \tau^\text{riffle}_{{\cn}}({{\ceps}}) = \frac{3}{2} \log_2({{\cn}}) + \Theta_{{\ceps}}(1)',
+            font_size=60
+        ).shift(2.5*UP + 1.6*LEFT)
+
+        theirproof = MyMathTex(
+            r'& \text{\emph{Proof: } analysis of a card trick, and the determination of the idempotents} \\\
+                & \text{of a natural commutative subalgebra in the symmetric group algebra.}',
+            font_size=40
+        ).next_to(theirs, DOWN).shift(0.25*DOWN).align_to(theirs, LEFT)
+
+        ours = MyMathTex(
+            r'&\textbf{This Video:} \\ &\qquad\qquad \tau^\text{riffle}_{{\cn}}({{\ceps}}) \leq 2 \log_2({{\cn}}) + \Theta_{{\ceps}}(1)',
+            font_size=60
+        ).shift(1.5*DOWN).align_to(theirs, LEFT)
+
+        ourproof = MyMathTex(
+            r'\text{\emph{Proof:} you just watched it, congratulations!}',
+            font_size=65
+        ).next_to(ours, DOWN).shift(0.25*DOWN).align_to(theirs, LEFT)
+
+        self.play(FadeIn(theirs, shift=UP))
+        self.wait(4)
+        self.play(FadeIn(ours, shift=UP))
+        self.wait(4)
+        self.play(Write(theirproof), run_time=3.5)
+        self.wait(2)
+        self.play(FadeIn(ourproof, scale=0.75))
+        self.wait(5)

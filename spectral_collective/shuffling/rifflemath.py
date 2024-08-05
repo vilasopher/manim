@@ -120,6 +120,29 @@ class Arithmetic(Scene):
         )
         arrow3.add(ArrowTriangleFilledTip(color=sol.BASE1, width=0.2, length=0.2).rotate(PI/2).move_to(arrow3.get_start()))
         arrow3.add(ArrowTriangleFilledTip(color=sol.BASE1, width=0.2, length=0.2).rotate(PI/2).move_to(arrow3.get_end()))
+
+        fiftytwo1 = MyMathTex(r'\tau^\text{riffle}_{ {{ 52 }} } ( {{ 50\% }} )', font_size=60).set_color_by_tex(r'52', sol.GREEN).set_color_by_tex(r'50', sol.RED)
+        fiftytwo2 = MyMathTex(r'{{\leq}} 2 \log_2( {{52}} ) + \log_2 \bigg( { 1 \over {{0.5}} } \bigg) - 1', font_size=60).set_color_by_tex(r'52', sol.GREEN).set_color_by_tex(r'0.5', sol.RED).next_to(fiftytwo1, RIGHT)
+        fiftytwo3 = MyMathTex(r'{{\leq}} 11.40088...', font_size=60)
+        fiftytwo4 = MyMathTex(r'{{\leq}} 12', font_size=60)
+
+        Group(fiftytwo1, fiftytwo2).move_to(ORIGIN).shift(UP)
+        fiftytwo3.next_to(fiftytwo1, RIGHT)
+        fiftytwo4.next_to(fiftytwo1, RIGHT)
+
+        overlay1 = SurroundingRectangle(
+            Group(diaconistable[13], diaconistable[14]),
+            color=sol.FOREST_GREEN,
+            corner_radius=0.1
+        ).set_fill(sol.FOREST_GREEN, opacity=0.25)
+
+        justUBtext = MyTex(
+            r'just an upper bound...',
+            font_size=55
+        ).shift(2.5*RIGHT + 0.25*DOWN)
+
+        justUBarrow = Arrow(justUBtext.get_top(), 2*UP, color=sol.BASE1)
+
     
         self.play(FadeIn(implication, shift=DOWN))
         self.play(FadeIn(unionbound, scale=0.75))
@@ -145,5 +168,26 @@ class Arithmetic(Scene):
             dbound3.animate.shift(4.75*LEFT),
             FadeIn(tbound, shift=4.75*LEFT),
             FadeIn(arrow3, shift=0.5*DOWN, scale=0.75)
+        )
+
+        self.play(
+            tbound.animate.move_to(2.5*UP),
+            FadeOut(Group(implication, unionbound, energy, arrow1, brace1, entropy, arrow2, brace2, dbound3, arrow3), shift=5*UP + 2.5*LEFT)
+        )
+        self.play(FadeIn(fiftytwo1, scale=0.75))
+        self.play(FadeIn(fiftytwo2, shift=LEFT))
+        self.play(
+            FadeOut(fiftytwo2),
+            FadeIn(fiftytwo3)
+        )
+        self.play(
+            FadeOut(fiftytwo3),
+            FadeIn(fiftytwo4)
+        )
+        self.play(FadeIn(diaconistable, shift=UP))
+        self.play(FadeIn(overlay1, scale=1.25))
+        self.play(
+            FadeIn(justUBtext, scale=0.75),
+            GrowArrow(justUBarrow)
         )
         self.wait(5)
