@@ -100,7 +100,7 @@ class WhatIsShuffling(Scene):
             width=13,
             height=2.5,
             color=sol.BASE01,
-            corner_radius=0.05
+            corner_radius=0.1
         ).set_fill(color=sol.BASE2, opacity=1).shift(2.5*DOWN)
 
         question = MyTex(
@@ -116,7 +116,41 @@ class WhatIsShuffling(Scene):
             r'\textbullet{} after enough steps, the deck is random enough.'
         ).next_to(answer1, DOWN).align_to(answer1, LEFT)
 
-        self.add(bg, question, answer1, answer2)
+        #self.add(bg, question, answer1, answer2)
+
+        #1:33:00
+        self.play(FadeIn(Group(bg, question), scale=0.75))
+
+        self.wait(2)
+
+        #1:36:00
+        self.play(FadeIn(answer1, shift=LEFT))
+
+        self.wait(5)
+
+        #1:42:00
+        self.play(FadeIn(answer2, shift=LEFT))
+
+        self.wait(2.5)
+
+        #1:45:30
+        self.play(FadeOut(Group(bg,question,answer1,answer2), scale=0.75))
+    
+class TopToRandom(Scene):
+    def construct(self):
+        ttrtext = MyTex(r"``top-to-random'' shuffle", font_size=80).shift(2.5*DOWN)
+        ttrbox = SurroundingRectangle(ttrtext, buff=MED_SMALL_BUFF, color=sol.BASE01, corner_radius=0.1).set_fill(sol.BASE2, opacity=1)
+
+        riffletext = MyTex(r'stay tuned for the \\ riffle shuffle...', font_size=60).shift(4*RIGHT + 2*UP)
+        rifflebox = SurroundingRectangle(riffletext, buff=MED_SMALL_BUFF, color=sol.BASE01, corner_radius=0.1).set_fill(sol.BASE2, opacity=1)
+
+        self.play(FadeIn(Group(ttrbox, ttrtext), scale=0.75))
+        self.wait(11)
+        self.play(FadeOut(Group(ttrbox, ttrtext), scale=0.75))
+        self.wait(6)
+        self.play(FadeIn(Group(rifflebox, riffletext), shift=LEFT))
+        self.wait(3)
+        self.play(FadeOut(Group(rifflebox, riffletext), shift=RIGHT))
 
 class DiaconisTable(Scene):
     def construct(self):
@@ -167,9 +201,9 @@ class Definition1Transparency(Scene):
         ).set_fill(sol.BASE2, opacity=1)
         def1 = Group(def1textbox, def1text)
 
-        self.play(FadeIn(def1))
+        self.play(FadeIn(def1, scale=0.75))
         self.wait(3)
-        self.play(FadeOut(def1))
+        self.play(FadeOut(def1, scale=0.75))
 
 class Conclusion(Scene):
     def construct(self):
