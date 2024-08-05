@@ -52,18 +52,38 @@ class Coupon(Scene):
             color=sol.BASE01, buff=MED_SMALL_BUFF, corner_radius=0.1
         ).set_fill(sol.BASE2, opacity=1)
 
+        #15:37:00
         self.play(FadeIn(goal, shift=DOWN))
+
+        self.wait(3)
+
+        #15:41:00
         self.play(FadeIn(item1, shift=0.5*LEFT))
+
+        self.wait(6)
+
+        #15:48:00
         self.play(FadeIn(item2, shift=0.5*LEFT))
+
+        self.wait(12.5)
+
+        #16:01:30
         self.play(FadeIn(reduction, scale=0.75))
+
+        self.wait(7.5)
+
+        #16:10:00
         self.play(FadeIn(ccp, scale=0.75))
 
+        self.wait(3)
+
+        #16:14:00
         self.play(
             Transform(ccpbox, bigccpbox),
             FadeIn(expectation, shift=bigccpbox.get_left() - ccpbox.get_left(), scale=0.25)
         )
 
-        self.wait(5)
+        self.wait(10)
 
 
 class Analysis(Scene):
@@ -132,34 +152,68 @@ class Analysis(Scene):
 
         fiftytwo = Group(fiftytwobox, fiftytwo1)
 
+        #16:25:30
         self.play(FadeIn(implication, shift=DOWN))
 
+        self.wait(4)
+
+        #16:30:30
         self.play(FadeIn(unionbound, scale=0.75))
 
+        self.wait(11)
+
+        #16:42:30
         self.play(
             FadeIn(brace, shift=0.05*UP),
             Create(arrow),
             FadeIn(probability, shift=0.25*LEFT)
         )
 
+        self.wait(7)
+
+        #16:50:30
         self.play(FadeIn(equality, scale=0.75))
 
+        self.wait(11)
+
+        #17:02:30
         self.play(FadeIn(dbound1, scale=0.75))
+
+        self.wait(14.5)
         
+        #17:18:00
         self.play(
             dbound1.animate.shift(0.75*UP + 3.75*LEFT),
             FadeIn(solving1, shift=UP+RIGHT)
         )
+
+        self.wait(3)
+
+        #17:22:00
         self.play(FadeIn(Group(solving2, solving3), scale=0.75))
 
+        self.wait(7)
+
+        #17:30:00
         self.play(FadeOut(dbound1), FadeIn(dbound2))
+
+        self.wait(2)
+
+        #17:33:00
         self.play(
             FadeIn(tbound, shift=LEFT),
             FadeOut(Group(solving1, solving2), scale=0.75),
             FadeOut(solving3, shift=LEFT)
         )
 
+        self.wait(7.5)
+
+        #17:41:30
         self.play(FadeIn(fiftytwo, scale=0.75))
+
+        self.wait(7.5)
+
+        #17:50:00
         self.play(SpinInFromNothing(fiftytwo2))
 
-        self.wait(5)
+        self.wait(10)
