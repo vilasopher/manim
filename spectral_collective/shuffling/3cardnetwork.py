@@ -108,7 +108,11 @@ class ThreeCardNetwork(Scene):
             perfdeftext, color=sol.BASE01, corner_radius=0.05, buff=MED_SMALL_BUFF
         ).set_fill(sol.BASE2, opacity=1)
 
-        perfdef = Group(perfdefbox, perfdeftext, z_index=10)
+        perfdefocclusion = Rectangle(
+            width=20, height=15, color=sol.BASE3
+        ).set_fill(sol.BASE3, opacity=0.80)
+
+        perfdef = Group(perfdefocclusion, perfdefbox, perfdeftext, z_index=10)
 
         cardstacks[(1,2,3)].move_to(5*LEFT)
         cardstacks[(2,1,3)].move_to(3*LEFT)
@@ -126,13 +130,21 @@ class ThreeCardNetwork(Scene):
         cardstacks[(1,2,3)][0].shift(0.5*UP)
         cardstacks[(1,2,3)][2].shift(0.5*DOWN)
 
+
+        #2:20:30
         self.play(FadeIn(cardstacks[(1,2,3)]))
 
+        self.wait(0.5)
+
+        #2:22:00
         self.play(
             cardstacks[(1,2,3)][0].animate(rate_func=rate_functions.ease_in_expo).shift(0.5*DOWN),
             cardstacks[(1,2,3)][2].animate(rate_func=rate_functions.ease_in_expo).shift(0.5*UP),
         )
 
+        self.wait()
+
+        #2:24:00
         self.play(
             LaggedStart(
                 cardstacks[(1,2,3)].animate.move_to(5*LEFT).scale(0.5),
@@ -141,38 +153,55 @@ class ThreeCardNetwork(Scene):
                 FadeIn(cardstacks[(1,3,2)], shift=5*LEFT),
                 FadeIn(cardstacks[(3,1,2)], shift=5*LEFT),
                 FadeIn(cardstacks[(3,2,1)], shift=5*LEFT)
-            )
+            ),
+            run_time=2
         )
 
+        self.wait(3)
+
+        #2:29:00
         self.play(
             *(FadeIn(external_occlusions[c])
               for c in cardstacks.keys() if c != (1,2,3))
         )
 
+        self.wait(5.5)
+
+        #2:35:30
         self.play(
             FadeOut(external_occlusions[(2,1,3)]),
             FadeOut(external_occlusions[(2,3,1)])
         )
 
+        self.wait(3)
+
+        #2:39:30
         self.play(
             FadeOut(external_occlusions[(1,3,2)]),
             FadeOut(external_occlusions[(3,1,2)]),
             FadeOut(external_occlusions[(3,2,1)]),
+            run_time=0.5
         )
 
+        #2:40:00
         self.play(
             cardstacks[(1,2,3)].animate.move_to([-2,0,0]),
             cardstacks[(3,1,2)].animate.move_to([-4.5,2.5,0]),
             cardstacks[(2,3,1)].animate.move_to([-4.5,-2.5,0]),
             cardstacks[(2,1,3)].animate.move_to([2,0,0]),
             cardstacks[(1,3,2)].animate.move_to([4.5,2.5,0]),
-            cardstacks[(3,2,1)].animate.move_to([4.5,-2.5,0])
+            cardstacks[(3,2,1)].animate.move_to([4.5,-2.5,0]),
+            run_time=0.5
         )
 
+        #2:40:30
         self.play(
             *(FadeIn(a) for a in arrowmobjects.values())
         )
 
+        self.wait(6.5)
+
+        #2:48:00
         self.play(
             *(percentages[c].animate.set_value(0)
                 for c in cardstacks.keys() if c != (1,2,3)),
@@ -180,37 +209,56 @@ class ThreeCardNetwork(Scene):
                 for a in arrowmobjects.values())
         )
 
-        self.wait()
+        self.wait(0.5)
 
+        #2:49:30
         self.play(
             FadeIn(Group(*(p for p in percentagelabels.values())))
         )
 
-        self.wait()
+        self.wait(1.5)
 
+        #2:52:00
         step_markov_chain()
-        self.wait()
+
+        self.wait(2)
         
+        #2:55:00
         self.play(
             Indicate(arrowmobjects[(1,2,3),(2,1,3)], scale_factor=1.2, color=sol.BASE02),
             Indicate(arrowmobjects[(1,2,3),(2,3,1)], scale_factor=1.2, color=sol.BASE02)
         )
 
-        self.play(Wiggle(cardstacks[(1,2,3)]))
+        #2:56:00
+        self.play(Wiggle(cardstacks[(1,2,3)]), run_time=1.5)
 
-        self.wait()
+        self.wait(5.5)
+
+        #3:03:00
         step_markov_chain()
-        self.wait()
+        self.wait(2)
+
+        #3:06:00
         step_markov_chain()
-        self.wait()
+        self.wait(2)
+
+        #3:09:00
         step_markov_chain()
-        self.wait()
+        self.wait(2)
+
+        #3:12:00
         step_markov_chain()
-        self.wait()
+        self.wait(0.5)
+
+        #3:13:30
         self.play(FadeIn(perfdef, scale=0.75))
-        self.wait()
+        self.wait(0.5)
+
+        #3:15:00
         step_markov_chain()
-        self.wait()
+        self.wait(2)
+
+        #3:18:00
         step_markov_chain()
         self.wait(5)
 
