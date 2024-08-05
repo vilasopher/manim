@@ -523,7 +523,7 @@ class Yapping(Scene):
         ).next_to(def1text, DOWN)
         
         number2 = MyMathTex(
-            r'= 8065817517 0943878571 6606368564 0376697528 9505440883 2778240000 00000000 \approx \text{number of atoms in the Milky Way galaxy}',
+            r'= 8065817517 0943878571 6606368564 0376697528 9505440883 2778240000 00000000 \approx \text{\emph{number of atoms in the Milky Way galaxy}}',
             font_size=45
         ).next_to(number, RIGHT)
 
@@ -618,7 +618,7 @@ class Yapping(Scene):
         #11:44:00
         self.play(FadeIn(number, scale=0.75))
 
-        self.wait(3.5)
+        self.wait(2)
 
         self.play(
             FadeIn(number2, shift=2*LEFT),
@@ -631,7 +631,7 @@ class Yapping(Scene):
             run_time=3.75
         )
 
-        self.wait(3.5)
+        self.wait(5)
 
         #11:56:00
         self.play(

@@ -4160,58 +4160,6 @@
   <property name="kdenlive:monitorPosition">0</property>
   <property name="mute_on_pause">0</property>
  </chain>
- <chain id="chain212" out="00:01:35.400">
-  <property name="length">5725</property>
-  <property name="eof">pause</property>
-  <property name="resource">media/videos/tvdistance/1080p60/Yapping.mp4</property>
-  <property name="mlt_service">avformat-novalidate</property>
-  <property name="meta.media.nb_streams">1</property>
-  <property name="meta.media.0.stream.type">video</property>
-  <property name="meta.media.0.stream.frame_rate">60</property>
-  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
-  <property name="meta.media.0.codec.width">1920</property>
-  <property name="meta.media.0.codec.height">1080</property>
-  <property name="meta.media.0.codec.rotate">0</property>
-  <property name="meta.media.0.codec.pix_fmt">yuv420p</property>
-  <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
-  <property name="meta.media.0.codec.colorspace">709</property>
-  <property name="meta.media.0.codec.name">h264</property>
-  <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
-  <property name="meta.media.0.codec.bit_rate">436153</property>
-  <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
-  <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
-  <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 libx264</property>
-  <property name="meta.attr.major_brand.markup">isom</property>
-  <property name="meta.attr.minor_version.markup">512</property>
-  <property name="meta.attr.compatible_brands.markup">isomiso2avc1mp41</property>
-  <property name="meta.attr.encoder.markup">Lavf61.1.100</property>
-  <property name="meta.attr.comment.markup">Rendered with Manim Community v0.18.1</property>
-  <property name="seekable">1</property>
-  <property name="meta.media.sample_aspect_num">1</property>
-  <property name="meta.media.sample_aspect_den">1</property>
-  <property name="format">3</property>
-  <property name="audio_index">-1</property>
-  <property name="video_index">0</property>
-  <property name="vstream">0</property>
-  <property name="meta.media.frame_rate_num">60</property>
-  <property name="meta.media.frame_rate_den">1</property>
-  <property name="meta.media.colorspace">709</property>
-  <property name="meta.media.color_trc">2</property>
-  <property name="meta.media.has_b_frames">2</property>
-  <property name="meta.media.width">1920</property>
-  <property name="meta.media.height">1080</property>
-  <property name="meta.media.aspect_ratio">1</property>
-  <property name="meta.media.color_range">mpeg</property>
-  <property name="meta.media.top_field_first">0</property>
-  <property name="meta.media.progressive">1</property>
-  <property name="kdenlive:id">150</property>
-  <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">5269752</property>
-  <property name="kdenlive:file_hash">86325848e0a9a5ce2d2e4a43c9c288e7</property>
-  <property name="kdenlive:folderid">146</property>
-  <property name="kdenlive:monitorPosition">0</property>
-  <property name="mute_on_pause">0</property>
- </chain>
  <chain id="chain214" out="00:00:47.983">
   <property name="length">2880</property>
   <property name="eof">pause</property>
@@ -4492,6 +4440,7 @@
   <property name="kdenlive:collapsed">0</property>
   <property name="kdenlive:thumbs_format"/>
   <property name="kdenlive:audio_rec"/>
+  <property name="kdenlive:locked_track">1</property>
   <track hide="video" producer="playlist0"/>
   <track hide="video" producer="playlist1"/>
   <filter id="filter0">
@@ -8261,6 +8210,7 @@
   <property name="kdenlive:collapsed">0</property>
   <property name="kdenlive:thumbs_format"/>
   <property name="kdenlive:audio_rec"/>
+  <property name="kdenlive:locked_track">1</property>
   <track hide="video" producer="playlist4"/>
   <track hide="video" producer="playlist5"/>
   <filter id="filter149">
@@ -8878,8 +8828,8 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain193" out="00:01:35.400">
-  <property name="length">5725</property>
+ <chain id="chain193" out="00:01:35.483">
+  <property name="length">5730</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/tvdistance/1080p60/Yapping.mp4</property>
   <property name="mlt_service">avformat-novalidate</property>
@@ -8890,8 +8840,8 @@
   <property name="vstream">0</property>
   <property name="kdenlive:id">150</property>
   <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">5269752</property>
-  <property name="kdenlive:file_hash">86325848e0a9a5ce2d2e4a43c9c288e7</property>
+  <property name="kdenlive:file_size">5366063</property>
+  <property name="kdenlive:file_hash">5c82850cac869e85bd73860d21e0315d</property>
   <property name="kdenlive:folderid">146</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">video</property>
@@ -8905,7 +8855,7 @@
   <property name="meta.media.0.codec.colorspace">709</property>
   <property name="meta.media.0.codec.name">h264</property>
   <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
-  <property name="meta.media.0.codec.bit_rate">436153</property>
+  <property name="meta.media.0.codec.bit_rate">443845</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
   <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 libx264</property>
@@ -12408,10 +12358,9 @@
    <property name="kdenlive:id">152</property>
   </entry>
   <blank length="00:00:01.033"/>
-  <entry in="00:00:00.000" out="00:01:27.867" producer="chain198">
+  <entry in="00:00:00.000" out="00:01:28.333" producer="chain198">
    <property name="kdenlive:id">153</property>
   </entry>
-  <blank length="00:00:00.467"/>
   <entry in="00:00:41.917" out="00:00:55.250" producer="chain199">
    <property name="kdenlive:id">124</property>
   </entry>
@@ -12549,10 +12498,11 @@
   <property name="kdenlive:collapsed">0</property>
   <property name="kdenlive:thumbs_format"/>
   <property name="kdenlive:audio_rec"/>
+  <property name="kdenlive:locked_track">1</property>
   <track hide="audio" producer="playlist6"/>
   <track hide="audio" producer="playlist7"/>
  </tractor>
- <chain id="chain220" out="00:00:49.483">
+ <chain id="chain212" out="00:00:49.483">
   <property name="length">2970</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/introconclusion/1080p60/DiaconisTable.mov</property>
@@ -12606,7 +12556,7 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain221" out="00:00:13.483">
+ <chain id="chain220" out="00:00:13.483">
   <property name="length">810</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/introconclusion/1080p60/WhatIsShuffling.mov</property>
@@ -12660,7 +12610,7 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain222" out="00:00:23.983">
+ <chain id="chain221" out="00:00:23.983">
   <property name="length">1440</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/introconclusion/1080p60/TopToRandom.mov</property>
@@ -12715,7 +12665,7 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain223" out="00:00:29.983">
+ <chain id="chain222" out="00:00:29.983">
   <property name="length">1800</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/coinflips/1080p60/CoinFlipTransparencies.mov</property>
@@ -12824,7 +12774,7 @@
   <property name="meta.media.top_field_first">0</property>
   <property name="meta.media.progressive">1</property>
  </producer>
- <chain id="chain224" out="00:00:04.983">
+ <chain id="chain223" out="00:00:04.983">
   <property name="length">300</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/introconclusion/1080p60/Definition1Transparency.mov</property>
@@ -12881,7 +12831,7 @@
  </chain>
  <playlist id="playlist8">
   <blank length="00:00:18.000"/>
-  <entry in="00:00:00.000" out="00:00:41.983" producer="chain220">
+  <entry in="00:00:00.000" out="00:00:41.983" producer="chain212">
    <property name="kdenlive:id">141</property>
   </entry>
   <blank length="00:00:30.967"/>
@@ -12889,14 +12839,14 @@
    <property name="kdenlive:id">135</property>
   </entry>
   <blank length="00:00:00.367"/>
-  <entry in="00:00:00.000" out="00:00:13.483" producer="chain221">
+  <entry in="00:00:00.000" out="00:00:13.483" producer="chain220">
    <property name="kdenlive:id">162</property>
   </entry>
   <entry in="00:00:00.000" out="00:00:00.850" producer="producer39">
    <property name="kdenlive:id">133</property>
   </entry>
   <blank length="00:00:03.633"/>
-  <entry in="00:00:00.000" out="00:00:23.983" producer="chain222">
+  <entry in="00:00:00.000" out="00:00:23.983" producer="chain221">
    <property name="kdenlive:id">163</property>
   </entry>
   <blank length="00:00:03.500"/>
@@ -12924,7 +12874,7 @@
    <property name="kdenlive:id">135</property>
   </entry>
   <blank length="00:03:04.500"/>
-  <entry in="00:00:00.000" out="00:00:24.983" producer="chain223">
+  <entry in="00:00:00.000" out="00:00:24.983" producer="chain222">
    <property name="kdenlive:id">137</property>
   </entry>
   <blank length="00:01:31.500"/>
@@ -12947,7 +12897,11 @@
   <entry in="00:00:00.000" out="00:00:01.483" producer="producer40">
    <property name="kdenlive:id">135</property>
   </entry>
-  <blank length="00:01:20.750"/>
+  <blank length="00:00:46.000"/>
+  <entry in="00:00:00.000" out="00:00:02.017" producer="producer40">
+   <property name="kdenlive:id">135</property>
+  </entry>
+  <blank length="00:00:32.717"/>
   <entry in="00:00:10.233" out="00:00:14.600" producer="producer54">
    <property name="kdenlive:id">159</property>
   </entry>
@@ -12988,7 +12942,7 @@
    <property name="kdenlive:id">135</property>
   </entry>
   <blank length="00:00:12.217"/>
-  <entry in="00:00:00.000" out="00:00:04.983" producer="chain224">
+  <entry in="00:00:00.000" out="00:00:04.983" producer="chain223">
    <property name="kdenlive:id">161</property>
   </entry>
   <blank length="00:00:17.450"/>
@@ -13003,6 +12957,7 @@
   <property name="kdenlive:collapsed">0</property>
   <property name="kdenlive:thumbs_format"/>
   <property name="kdenlive:audio_rec"/>
+  <property name="kdenlive:locked_track">1</property>
   <track hide="audio" producer="playlist8"/>
   <track hide="audio" producer="playlist9"/>
  </tractor>
@@ -13043,8 +12998,8 @@
   <property name="kdenlive:sequenceproperties.documentuuid">{6145f7b6-8bb3-4e2d-afc5-1905046347f9}</property>
   <property name="kdenlive:sequenceproperties.hasAudio">1</property>
   <property name="kdenlive:sequenceproperties.hasVideo">1</property>
-  <property name="kdenlive:sequenceproperties.position">28108</property>
-  <property name="kdenlive:sequenceproperties.scrollPos">58005</property>
+  <property name="kdenlive:sequenceproperties.position">87243</property>
+  <property name="kdenlive:sequenceproperties.scrollPos">4773</property>
   <property name="kdenlive:sequenceproperties.subtitlesList">[
     {
         "file": "/home/vilas/.local/share/kdenlive/.backup/Shuffling-1720486770903-2024-08-02-11-06.kdenlive.srt",
@@ -13059,7 +13014,7 @@
   <property name="kdenlive:sequenceproperties.videoTarget">2</property>
   <property name="kdenlive:sequenceproperties.zonein">0</property>
   <property name="kdenlive:sequenceproperties.zoneout">75</property>
-  <property name="kdenlive:sequenceproperties.zoom">5</property>
+  <property name="kdenlive:sequenceproperties.zoom">13</property>
   <property name="kdenlive:sequenceproperties.groups">[
     {
         "children": [
@@ -15789,7 +15744,7 @@
   <transition id="transition3" in="00:11:19.283" out="00:11:21.483">
    <property name="a_track">5</property>
    <property name="b_track">6</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:02.200=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -15817,7 +15772,7 @@
   <transition id="transition5" in="00:14:15.650" out="00:14:15.833">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.183=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -15831,7 +15786,7 @@
   <transition id="transition6" in="00:18:06.383" out="00:18:06.717">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.333=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -15845,7 +15800,7 @@
   <transition id="transition7" in="00:19:33.733" out="00:19:34.183">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.450=0% 0% 100% 100% 0%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -15873,7 +15828,7 @@
   <transition id="transition9" in="00:15:35.500" out="00:15:36.383">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.883=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -15887,7 +15842,7 @@
   <transition id="transition10" in="00:17:52.700" out="00:17:53.367">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.667=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -15901,7 +15856,7 @@
   <transition id="transition11" in="00:14:38.467" out="00:14:38.850">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.383=0% 0% 100% 100% 0%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -15915,7 +15870,7 @@
   <transition id="transition12" in="00:18:11.167" out="00:18:11.500">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.333=0% 0% 100% 100% 0%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -15943,7 +15898,7 @@
   <transition id="transition14" in="00:12:53.000" out="00:12:53.833">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.833=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -15957,7 +15912,7 @@
   <transition id="transition15" in="00:20:03.667" out="00:20:04.117">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.450=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -15971,7 +15926,7 @@
   <transition id="transition16" in="00:19:32.183" out="00:19:32.817">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.633=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -15985,7 +15940,7 @@
   <transition id="transition17" in="00:20:04.467" out="00:20:04.917">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.450=0% 0% 100% 100% 0%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -16013,7 +15968,7 @@
   <transition id="transition19" in="00:14:15.850" out="00:14:16.050">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.200=0% 0% 100% 100% 0%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -16055,7 +16010,7 @@
   <transition id="transition22" in="00:07:50.000" out="00:07:50.650">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.650=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -16083,7 +16038,7 @@
   <transition id="transition24" in="00:17:53.383" out="00:17:54.000">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.617=0% 0% 100% 100% 0%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -16097,7 +16052,7 @@
   <transition id="transition25" in="00:18:18.367" out="00:18:18.950">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.583=0% 0% 100% 100% 0%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -16167,7 +16122,7 @@
   <transition id="transition30" in="00:21:11.650" out="00:21:12.483">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.833=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -16195,7 +16150,7 @@
   <transition id="transition32" in="00:14:38.067" out="00:14:38.450">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.383=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -16223,7 +16178,7 @@
   <transition id="transition34" in="00:18:17.967" out="00:18:18.350">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.383=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -16237,7 +16192,7 @@
   <transition id="transition35" in="00:15:10.683" out="00:15:10.950">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.267=0% 0% 100% 100% 0%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -16265,7 +16220,7 @@
   <transition id="transition37" in="00:18:28.133" out="00:18:28.433">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.300=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -16293,7 +16248,7 @@
   <transition id="transition39" in="00:18:28.450" out="00:18:28.900">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.450=0% 0% 100% 100% 0%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -16307,7 +16262,7 @@
   <transition id="transition40" in="00:15:10.433" out="00:15:10.667">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.233=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -16321,7 +16276,7 @@
   <transition id="transition41" in="00:21:42.683" out="00:21:43.483">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.800=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -16346,7 +16301,21 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition43">
+  <transition id="transition43" in="00:16:23.000" out="00:16:23.983">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.983=0% 0% 100% 100% 100%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition44">
    <property name="a_track">0</property>
    <property name="b_track">4</property>
    <property name="version">0.1</property>
@@ -16355,7 +16324,7 @@
    <property name="internal_added">237</property>
    <property name="always_active">1</property>
   </transition>
-  <transition id="transition44">
+  <transition id="transition45">
    <property name="a_track">0</property>
    <property name="b_track">5</property>
    <property name="version">0.1</property>
@@ -16364,7 +16333,7 @@
    <property name="internal_added">237</property>
    <property name="always_active">1</property>
   </transition>
-  <transition id="transition45">
+  <transition id="transition46">
    <property name="a_track">0</property>
    <property name="b_track">6</property>
    <property name="version">0.1</property>
@@ -16389,7 +16358,7 @@
    <property name="disable">1</property>
   </filter>
  </tractor>
- <chain id="chain225" out="00:00:32.100">
+ <chain id="chain224" out="00:00:32.100">
   <property name="length">1927</property>
   <property name="eof">pause</property>
   <property name="resource">screen/desmos.mp4</property>
@@ -16442,7 +16411,7 @@
   <property name="kdenlive:file_hash">baa9b34d62f04c4e8f15276bd7bd4135</property>
   <property name="kdenlive:monitorPosition">0</property>
  </chain>
- <chain id="chain226" out="00:01:53.567">
+ <chain id="chain225" out="00:01:53.567">
   <property name="length">6815</property>
   <property name="eof">pause</property>
   <property name="resource">screen/paper.mp4</property>
@@ -16495,7 +16464,7 @@
   <property name="kdenlive:file_hash">a8b1f2939768fda222992fe73596bcd7</property>
   <property name="kdenlive:monitorPosition">0</property>
  </chain>
- <chain id="chain227" out="00:00:04.983">
+ <chain id="chain226" out="00:00:04.983">
   <property name="length">300</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/introconclusion/1080p60/Definition1Transparency.mov</property>
@@ -16546,7 +16515,7 @@
   <property name="kdenlive:folderid">140</property>
   <property name="kdenlive:monitorPosition">0</property>
  </chain>
- <chain id="chain228" out="00:00:23.983">
+ <chain id="chain227" out="00:00:23.983">
   <property name="length">1440</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/introconclusion/1080p60/TopToRandom.mov</property>
@@ -16597,7 +16566,7 @@
   <property name="kdenlive:folderid">140</property>
   <property name="kdenlive:monitorPosition">0</property>
  </chain>
- <chain id="chain229" out="00:00:13.483">
+ <chain id="chain228" out="00:00:13.483">
   <property name="length">810</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/introconclusion/1080p60/WhatIsShuffling.mov</property>
@@ -16647,7 +16616,7 @@
   <property name="kdenlive:file_hash">6769f11fd74136b1e47b3319c55acc2d</property>
   <property name="kdenlive:folderid">140</property>
  </chain>
- <chain id="chain230" out="00:01:11.017">
+ <chain id="chain229" out="00:01:11.017">
   <property name="length">4262</property>
   <property name="eof">pause</property>
   <property name="resource">live/liveaudio/gofish3.mp3</property>
@@ -16672,6 +16641,57 @@
   <property name="kdenlive:file_size">2842121</property>
   <property name="kdenlive:file_hash">dfc1cd405e73fa6dbc28fce7e69b7c4a</property>
   <property name="kdenlive:audio_max0">245</property>
+  <property name="kdenlive:monitorPosition">99</property>
+ </chain>
+ <chain id="chain230" out="00:01:35.483">
+  <property name="length">5730</property>
+  <property name="eof">pause</property>
+  <property name="resource">media/videos/tvdistance/1080p60/Yapping.mp4</property>
+  <property name="mlt_service">avformat</property>
+  <property name="meta.media.nb_streams">1</property>
+  <property name="meta.media.0.stream.type">video</property>
+  <property name="meta.media.0.stream.frame_rate">60</property>
+  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.width">1920</property>
+  <property name="meta.media.0.codec.height">1080</property>
+  <property name="meta.media.0.codec.rotate">0</property>
+  <property name="meta.media.0.codec.pix_fmt">yuv420p</property>
+  <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.colorspace">709</property>
+  <property name="meta.media.0.codec.name">h264</property>
+  <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
+  <property name="meta.media.0.codec.bit_rate">443845</property>
+  <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
+  <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
+  <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 libx264</property>
+  <property name="meta.attr.major_brand.markup">isom</property>
+  <property name="meta.attr.minor_version.markup">512</property>
+  <property name="meta.attr.compatible_brands.markup">isomiso2avc1mp41</property>
+  <property name="meta.attr.encoder.markup">Lavf61.1.100</property>
+  <property name="meta.attr.comment.markup">Rendered with Manim Community v0.18.1</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.sample_aspect_num">1</property>
+  <property name="meta.media.sample_aspect_den">1</property>
+  <property name="format">3</property>
+  <property name="audio_index">-1</property>
+  <property name="video_index">0</property>
+  <property name="vstream">0</property>
+  <property name="meta.media.frame_rate_num">60</property>
+  <property name="meta.media.frame_rate_den">1</property>
+  <property name="meta.media.colorspace">709</property>
+  <property name="meta.media.color_trc">2</property>
+  <property name="meta.media.has_b_frames">2</property>
+  <property name="meta.media.width">1920</property>
+  <property name="meta.media.height">1080</property>
+  <property name="meta.media.aspect_ratio">1</property>
+  <property name="meta.media.color_range">mpeg</property>
+  <property name="meta.media.top_field_first">0</property>
+  <property name="meta.media.progressive">1</property>
+  <property name="kdenlive:id">150</property>
+  <property name="kdenlive:clip_type">2</property>
+  <property name="kdenlive:file_size">5366063</property>
+  <property name="kdenlive:file_hash">5c82850cac869e85bd73860d21e0315d</property>
+  <property name="kdenlive:folderid">146</property>
  </chain>
  <playlist id="main_bin">
   <property name="kdenlive:folder.-1.2">Sequences</property>
@@ -16760,7 +16780,7 @@
   <property name="kdenlive:docproperties.storagefolder">1720486770903</property>
   <property name="kdenlive:docproperties.uuid">{6145f7b6-8bb3-4e2d-afc5-1905046347f9}</property>
   <property name="kdenlive:docproperties.version">1.1</property>
-  <property name="kdenlive:expandedFolders"/>
+  <property name="kdenlive:expandedFolders">138;134</property>
   <property name="kdenlive:binZoom">4</property>
   <property name="kdenlive:extraBins">project_bin:-1:0</property>
   <property name="kdenlive:documentnotes"/>
@@ -16904,19 +16924,19 @@
   <entry in="00:00:00.000" out="00:00:20.483" producer="chain209"/>
   <entry in="00:00:00.000" out="00:00:46.983" producer="chain210"/>
   <entry in="00:00:00.000" out="00:03:38.983" producer="chain211"/>
-  <entry in="00:00:00.000" out="00:01:35.400" producer="chain212"/>
   <entry in="00:00:00.000" out="00:00:47.983" producer="chain214"/>
   <entry in="00:00:00.000" out="00:01:34.983" producer="chain215"/>
   <entry in="00:00:00.000" out="00:01:31.983" producer="chain218"/>
   <entry in="00:00:00.000" out="00:00:33.983" producer="chain216"/>
   <entry in="00:00:00.000" out="00:00:27.983" producer="chain219"/>
   <entry in="00:00:00.000" out="00:24:16.983" producer="tractor6"/>
-  <entry in="00:00:00.000" out="00:00:32.100" producer="chain225"/>
-  <entry in="00:00:00.000" out="00:01:53.567" producer="chain226"/>
-  <entry in="00:00:00.000" out="00:00:04.983" producer="chain227"/>
-  <entry in="00:00:00.000" out="00:00:23.983" producer="chain228"/>
-  <entry in="00:00:00.000" out="00:00:13.483" producer="chain229"/>
-  <entry in="00:00:00.000" out="00:01:11.017" producer="chain230"/>
+  <entry in="00:00:00.000" out="00:00:32.100" producer="chain224"/>
+  <entry in="00:00:00.000" out="00:01:53.567" producer="chain225"/>
+  <entry in="00:00:00.000" out="00:00:04.983" producer="chain226"/>
+  <entry in="00:00:00.000" out="00:00:23.983" producer="chain227"/>
+  <entry in="00:00:00.000" out="00:00:13.483" producer="chain228"/>
+  <entry in="00:00:00.000" out="00:01:11.017" producer="chain229"/>
+  <entry in="00:00:00.000" out="00:01:35.483" producer="chain230"/>
  </playlist>
  <tractor id="tractor7" in="00:00:00.000" out="00:24:16.983">
   <property name="kdenlive:projectTractor">1</property>
