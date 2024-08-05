@@ -240,7 +240,7 @@ class CoinFlipExample(Scene):
         ).next_to(resultbar, UP).shift(0.1*UP)
         resultbar.add(resulttext)
 
-        randomnumber = ValueTracker(random() * 0.95 + 0.025)
+        randomnumber = ValueTracker(random() * 0.65 + 0.025)
         randomnumberPoint = Dot(color=sol.BASE03, radius=0.125).move_to(uniformbar.get_bottom()).shift(5*randomnumber.get_value() * UP)
         randomnumberPoint.add_updater(
             lambda x : x.move_to(uniformbar.get_bottom()).shift(5 * randomnumber.get_value() * UP)
