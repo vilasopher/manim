@@ -5,7 +5,52 @@ from sharedclasses import *
 class ModelTransparencies(Scene):
     def construct(self):
         #TODO
-        pass
+        box = RoundedRectangle(
+            color=sol.BASE01, width=13, height=3, corner_radius=0.1
+        ).set_fill(sol.BASE2, opacity=1).shift(2*DOWN)
+
+        cut = MyTex(
+            r'\textbf{Cut the deck}',
+            font_size=55
+        ).align_to(box, UP+LEFT).shift(0.25*(DOWN+RIGHT))
+
+        riffle = MyTex(
+            r'\textbf{Riffle the halves together}',
+            font_size=55
+        ).align_to(box, UP+RIGHT).shift(0.25*(DOWN+LEFT))
+
+        binomial = MyMathTex(
+            r'&\text{size of the top half} \\ &\;\; \sim \mathrm{Binomial}({{\cn}}, \tfrac{1}{2})'
+        ).next_to(cut, DOWN).align_to(cut, LEFT).shift(0.25*RIGHT)
+
+        binomialexplanation = MyMathTex(
+            r'(\text{\emph{pretty close to }} {{\cn}} / 2)'
+        ).next_to(binomial, DOWN).align_to(cut, LEFT)
+
+        choice = MyTex(
+            r'place a card down from a packet \\ with probability proporitional to the \\ number of cards left in that packet',
+            font_size=43
+        ).next_to(riffle, DOWN).align_to(riffle, RIGHT).shift(0.25*LEFT)
+
+        uniform = MyTex(
+            r'choose a uniformly random \\ interleaving of the two halves',
+        ).next_to(cut, DOWN).align_to(riffle, RIGHT).shift(0.25*LEFT)
+
+        reverse = MyTex(
+            r'\textbf{Reverse shuffle: } put a uniformly random subset on top.'
+        ).align_to(box, DOWN).shift(0.15*UP)
+
+        self.play(FadeIn(box, scale=0.75))
+        self.play(FadeIn(cut, shift=0.5*(UP+LEFT)))
+        self.play(FadeIn(riffle, shift=0.5*(UP+RIGHT)))
+        self.play(FadeIn(binomial, scale=0.75))
+        self.play(FadeIn(binomialexplanation, scale=0.75))
+        self.play(FadeIn(choice, scale=0.75))
+        self.play(FadeTransform(choice, uniform))
+        self.play(
+            FadeOut(binomialexplanation, scale=0.25),
+            FadeIn(reverse, scale=0.5, shift=3*LEFT)
+        )
 
 class CouplingTransparencies(Scene):
     def construct(self):
