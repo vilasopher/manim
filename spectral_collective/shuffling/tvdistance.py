@@ -320,10 +320,12 @@ class TVDefinition(Scene):
         #4:28:30
         self.play(FadeOut(def1obfuscation))
 
-        self.wait()
+        self.wait(0.5)
 
-        #4:30:30
+        #4:30:00
         self.play(Wiggle(Group(def1text[5][0], def1text[6][0:2])))
+
+        self.wait(0.5)
 
         #4:32:30
         self.play(Wiggle(Group(def1text[7:10], def1text[10][0])))
@@ -348,9 +350,9 @@ class TVDefinition(Scene):
         self.wait(3)
 
         #4:47:30
-        self.play(Write(nametext))
+        self.play(Write(nametext), run_time=2)
 
-        self.wait(2)
+        self.wait()
 
         #4:50:30
         self.play(Wiggle(Group(def1text[0][-3:-1])))
@@ -407,22 +409,22 @@ class TVDefinition(Scene):
             FadeIn(diaconistable, shift=14*LEFT)
         )
 
-        self.wait(4)
+        self.wait(2.5)
 
-        #5:49:30
+        #5:48:00
         self.play(FadeIn(overlay1, scale=1.25))
 
         self.wait(7)
 
-        #5:57:30
+        #5:56:00
         self.play(Transform(overlay1, overlay2))
 
-        self.wait(5.5)
+        self.wait(17)
 
-        #6:04:00
+        #6:14:00
         self.play(FadeOut(overlay1, scale=1.25))
 
-        self.wait(35.5)
+        self.wait(25.5)
 
         #6:40:30
         self.play(FadeIn(Group(popupocclusion, popupbox, randomvars), scale=0.75))
@@ -490,11 +492,12 @@ class TVDefinition(Scene):
             LaggedStart(
                 FadeOut(couplingtextprime, shift=4*RIGHT),
                 Write(couplingtext),
+                lag_ratio=0.25
             ),
             run_time=1.5
         )
 
-        self.wait(10)
+        self.wait(20)
 
 
 class Yapping(Scene):
@@ -589,12 +592,30 @@ class Yapping(Scene):
 
         tmixarrow = CurvedArrow(tmixexplanation1.get_corner(UP+LEFT)+0.25*RIGHT, tmix.get_left() + 0.2*LEFT, color=sol.BASE1, radius=-2)
 
-        self.play(FadeIn(def1text, scale=0.75))
-        self.play(FadeIn(def2text, scale=0.75))
-        self.play(FadeIn(def3text, scale=0.75))
+        #11:21:30
+        self.play(
+            LaggedStart(
+                FadeIn(def1text, scale=0.75),
+                FadeIn(def2text, scale=0.75),
+                FadeIn(def3text, scale=0.75),
+                lag_ratio=0.5
+            ),
+            run_time=2
+        )
 
+        self.wait(6.5)
+
+        #11:30:00
         self.play(FadeIn(event, scale=0.75))
+
+        self.wait(2.5)
+
+        #11:33:30
         self.play(FadeIn(coupling, scale=0.75))
+
+        self.wait(9.5)
+
+        #11:44:00
         self.play(FadeIn(number, scale=0.75))
         self.play(
             FadeIn(number2, shift=2*LEFT),
@@ -607,23 +628,49 @@ class Yapping(Scene):
             run_time=7.5
         )
 
+        self.wait(4)
+
+        #11:56:00
         self.play(
             FadeOut(Group(def1text, def2text, number, number2, event, coupling), shift=4.5*UP),
             def3text.animate.shift(4.5*UP)
         )
 
+        #11:57:00
         self.play(FadeIn(restofvideo1, scale=0.75))
-        self.play(Write(restofvideo2))
+        self.play(Write(restofvideo2), run_time=4)
 
+        self.wait(15)
+
+        #12:16:00
         self.play(FadeIn(doft1, scale=0.75))
+
+        self.wait(0.5)
+
+        #12:17:30
         self.play(TransformMatchingTex(doft1, doft2))
+
+        self.wait(3)
+
+        #12:21:30
         self.play(TransformMatchingTex(doft2, doft3))
+
+        self.wait(5)
+
+        #12:27:30
         self.play(
             doft3.animate.shift(3*LEFT),
             FadeIn(ncards, shift=3*LEFT)
         )
+
+        self.wait(3)
+
+        #12:31:00
         self.play(TransformMatchingTex(doft3, doft4))
 
+        self.wait(2)
+
+        #12:34:00
         self.play(
             FadeOut(def3text, shift=2*UP),
             Group(restofvideo1, restofvideo2).animate.shift(2*UP),
@@ -631,11 +678,20 @@ class Yapping(Scene):
             TransformMatchingTex(doft4, doft5)
         )
 
+        self.wait(4.5)
+
+        #12:39:30
         self.play(FadeIn(tmix, shift=UP))
+
+        #12:40:30
         self.play(
             FadeIn(tmixexplanation1, shift=UP),
             FadeIn(tmixarrow, scale=0.75)
         )
+
+        self.wait(4.5)
+
+        #12:46:00
         self.play(FadeIn(tmixexplanation2, scale=0.75))
 
-        self.wait(5)
+        self.wait(10)

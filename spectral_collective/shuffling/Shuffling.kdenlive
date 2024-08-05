@@ -3796,7 +3796,7 @@
   <property name="kdenlive:file_hash">7bb544399d0efc20d61df1bc181a8436</property>
   <property name="kdenlive:monitorPosition">0</property>
  </chain>
- <producer id="producer0" in="00:00:00.000" out="00:29:07.650">
+ <producer id="producer0" in="00:00:00.000" out="00:29:08.150">
   <property name="length">2147483647</property>
   <property name="eof">continue</property>
   <property name="resource">black</property>
@@ -5567,7 +5567,7 @@
     <property name="kdenlive:collapsed">0</property>
    </filter>
   </entry>
-  <blank length="00:00:00.350"/>
+  <blank length="00:00:00.850"/>
   <entry in="00:00:00.367" out="00:00:43.067" producer="chain11">
    <property name="kdenlive:id">57</property>
    <filter id="filter25" in="00:00:00.367" out="00:00:00.750">
@@ -6611,14 +6611,14 @@
  <playlist id="playlist3">
   <property name="kdenlive:audio_track">1</property>
  </playlist>
- <tractor id="tractor1" in="00:00:00.000" out="00:24:07.633">
+ <tractor id="tractor1" in="00:00:00.000" out="00:24:08.133">
   <property name="kdenlive:audio_track">1</property>
   <property name="kdenlive:trackheight">41</property>
   <property name="kdenlive:timeline_active">1</property>
   <property name="kdenlive:collapsed">0</property>
   <property name="kdenlive:thumbs_format"/>
   <property name="kdenlive:audio_rec"/>
-  <property name="kdenlive:locked_track">1</property>
+  <property name="kdenlive:locked_track"/>
   <track hide="video" producer="playlist2"/>
   <track hide="video" producer="playlist3"/>
   <filter id="filter125">
@@ -7386,7 +7386,7 @@
     <property name="end">0</property>
    </filter>
   </entry>
-  <blank length="00:11:15.600"/>
+  <blank length="00:11:16.100"/>
   <entry in="00:00:41.233" out="00:00:55.250" producer="chain172">
    <property name="kdenlive:id">124</property>
    <filter id="filter136">
@@ -7521,14 +7521,14 @@
  <playlist id="playlist5">
   <property name="kdenlive:audio_track">1</property>
  </playlist>
- <tractor id="tractor2" in="00:00:00.000" out="00:19:32.317">
+ <tractor id="tractor2" in="00:00:00.000" out="00:19:32.817">
   <property name="kdenlive:audio_track">1</property>
   <property name="kdenlive:trackheight">41</property>
   <property name="kdenlive:timeline_active">1</property>
   <property name="kdenlive:collapsed">0</property>
   <property name="kdenlive:thumbs_format"/>
   <property name="kdenlive:audio_rec"/>
-  <property name="kdenlive:locked_track">1</property>
+  <property name="kdenlive:locked_track"/>
   <track hide="video" producer="playlist4"/>
   <track hide="video" producer="playlist5"/>
   <filter id="filter149">
@@ -7918,7 +7918,62 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain187" out="00:00:26.433">
+ <chain id="chain187" out="00:03:38.983">
+  <property name="length">13140</property>
+  <property name="eof">pause</property>
+  <property name="resource">media/videos/tvdistance/1080p60/TVDefinition.mp4</property>
+  <property name="mlt_service">avformat-novalidate</property>
+  <property name="seekable">1</property>
+  <property name="format">3</property>
+  <property name="audio_index">-1</property>
+  <property name="video_index">0</property>
+  <property name="vstream">0</property>
+  <property name="kdenlive:id">149</property>
+  <property name="kdenlive:clip_type">2</property>
+  <property name="kdenlive:file_size">9891833</property>
+  <property name="kdenlive:file_hash">c08784e0436dab1a4bd0f30108f11e99</property>
+  <property name="kdenlive:folderid">146</property>
+  <property name="kdenlive:monitorPosition">0</property>
+  <property name="meta.media.nb_streams">1</property>
+  <property name="meta.media.0.stream.type">video</property>
+  <property name="meta.media.0.stream.frame_rate">60</property>
+  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.width">1920</property>
+  <property name="meta.media.0.codec.height">1080</property>
+  <property name="meta.media.0.codec.rotate">0</property>
+  <property name="meta.media.0.codec.pix_fmt">yuv420p</property>
+  <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.colorspace">709</property>
+  <property name="meta.media.0.codec.name">h264</property>
+  <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
+  <property name="meta.media.0.codec.bit_rate">355610</property>
+  <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
+  <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
+  <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 libx264</property>
+  <property name="meta.attr.major_brand.markup">isom</property>
+  <property name="meta.attr.minor_version.markup">512</property>
+  <property name="meta.attr.compatible_brands.markup">isomiso2avc1mp41</property>
+  <property name="meta.attr.encoder.markup">Lavf61.1.100</property>
+  <property name="meta.attr.comment.markup">Rendered with Manim Community v0.18.1</property>
+  <property name="meta.media.sample_aspect_num">1</property>
+  <property name="meta.media.sample_aspect_den">1</property>
+  <property name="meta.media.frame_rate_num">60</property>
+  <property name="meta.media.frame_rate_den">1</property>
+  <property name="meta.media.colorspace">709</property>
+  <property name="meta.media.color_trc">2</property>
+  <property name="meta.media.has_b_frames">2</property>
+  <property name="meta.media.width">1920</property>
+  <property name="meta.media.height">1080</property>
+  <property name="meta.media.aspect_ratio">1</property>
+  <property name="meta.media.color_range">mpeg</property>
+  <property name="xml">was here</property>
+  <property name="mute_on_pause">0</property>
+  <property name="meta.media.top_field_first">0</property>
+  <property name="meta.media.progressive">1</property>
+  <property name="set.test_audio">1</property>
+  <property name="set.test_image">0</property>
+ </chain>
+ <chain id="chain188" out="00:00:26.433">
   <property name="length">1587</property>
   <property name="eof">pause</property>
   <property name="resource">hands/gofish_skit.mp4</property>
@@ -7983,7 +8038,7 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain188" out="00:03:44.483">
+ <chain id="chain189" out="00:03:44.483">
   <property name="length">13470</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/coinflips/1080p60/CoinFlipExample.mp4</property>
@@ -8037,7 +8092,7 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain189" out="00:01:23.983">
+ <chain id="chain190" out="00:01:23.983">
   <property name="length">5040</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/3cardnetwork/1080p60/Reversal.mp4</property>
@@ -8091,7 +8146,7 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain190" out="00:01:22.500">
+ <chain id="chain191" out="00:01:22.500">
   <property name="length">4951</property>
   <property name="eof">pause</property>
   <property name="resource">hands/rtt_coupling_demonstration.mp4</property>
@@ -8352,7 +8407,7 @@
   <property name="meta.media.top_field_first">0</property>
   <property name="meta.media.progressive">1</property>
  </producer>
- <chain id="chain191" out="00:04:54.117">
+ <chain id="chain194" out="00:04:54.117">
   <property name="length">17648</property>
   <property name="eof">pause</property>
   <property name="resource">hands/rtt.mp4</property>
@@ -8891,7 +8946,7 @@
   <property name="meta.media.top_field_first">0</property>
   <property name="meta.media.progressive">1</property>
  </producer>
- <chain id="chain194" out="00:00:55.533">
+ <chain id="chain195" out="00:00:55.533">
   <property name="length">3333</property>
   <property name="eof">pause</property>
   <property name="resource">hands/242_skit.mp4</property>
@@ -9266,7 +9321,7 @@
   <property name="meta.media.top_field_first">0</property>
   <property name="meta.media.progressive">1</property>
  </producer>
- <chain id="chain195" out="00:02:39.517">
+ <chain id="chain196" out="00:02:39.517">
   <property name="length">9572</property>
   <property name="eof">pause</property>
   <property name="resource">hands/riffle_demonstration.mp4</property>
@@ -9522,7 +9577,7 @@
   <property name="meta.media.top_field_first">0</property>
   <property name="meta.media.progressive">1</property>
  </producer>
- <chain id="chain196" out="00:03:50.467">
+ <chain id="chain197" out="00:03:50.467">
   <property name="length">13829</property>
   <property name="eof">pause</property>
   <property name="resource">hands/riffleblank.mp4</property>
@@ -10421,19 +10476,26 @@
   <entry in="00:00:00.000" out="00:00:38.483" producer="chain186">
    <property name="kdenlive:id">148</property>
   </entry>
-  <blank length="00:01:56.250"/>
-  <entry in="00:00:03.033" out="00:00:25.867" producer="chain187">
+  <blank length="00:00:02.000"/>
+  <entry in="00:00:00.000" out="00:01:54.233" producer="chain187">
+   <property name="kdenlive:id">149</property>
+  </entry>
+  <entry in="00:00:03.033" out="00:00:25.867" producer="chain188">
    <property name="kdenlive:id">125</property>
   </entry>
-  <blank length="00:01:14.900"/>
-  <entry in="00:00:00.000" out="00:03:39.150" producer="chain188">
+  <blank length="00:00:01.183"/>
+  <entry in="00:02:18.283" out="00:03:31.150" producer="chain187">
+   <property name="kdenlive:id">149</property>
+  </entry>
+  <blank length="00:00:01.333"/>
+  <entry in="00:00:00.000" out="00:03:39.150" producer="chain189">
    <property name="kdenlive:id">136</property>
   </entry>
   <blank length="00:01:23.833"/>
-  <entry in="00:00:00.000" out="00:01:20.933" producer="chain189">
+  <entry in="00:00:00.000" out="00:01:20.933" producer="chain190">
    <property name="kdenlive:id">145</property>
   </entry>
-  <entry in="00:00:01.950" out="00:00:10.233" producer="chain190">
+  <entry in="00:00:01.950" out="00:00:10.233" producer="chain191">
    <property name="kdenlive:id">130</property>
   </entry>
   <entry in="00:00:04.067" out="00:00:18.267" producer="producer9">
@@ -10445,7 +10507,7 @@
   <entry in="00:00:08.417" out="00:00:34.783" producer="producer11">
    <property name="kdenlive:id">129</property>
   </entry>
-  <entry in="00:00:41.583" out="00:00:41.850" producer="chain191">
+  <entry in="00:00:41.583" out="00:00:41.850" producer="chain194">
    <property name="kdenlive:id">129</property>
   </entry>
   <entry in="00:00:05.967" out="00:00:07.717" producer="producer12">
@@ -10470,7 +10532,7 @@
    <property name="kdenlive:id">129</property>
   </entry>
   <blank length="00:02:16.300"/>
-  <entry in="00:00:41.233" out="00:00:55.250" producer="chain194">
+  <entry in="00:00:41.233" out="00:00:55.250" producer="chain195">
    <property name="kdenlive:id">124</property>
   </entry>
   <blank length="00:00:04.433"/>
@@ -10489,7 +10551,7 @@
   <entry in="00:00:17.850" out="00:00:27.017" producer="producer23">
    <property name="kdenlive:id">126</property>
   </entry>
-  <entry in="00:00:54.083" out="00:01:28.800" producer="chain195">
+  <entry in="00:00:54.083" out="00:01:28.800" producer="chain196">
    <property name="kdenlive:id">126</property>
   </entry>
   <entry in="00:00:22.200" out="00:00:35.883" producer="producer24">
@@ -10503,7 +10565,7 @@
    <property name="kdenlive:id">128</property>
   </entry>
   <blank length="00:00:00.333"/>
-  <entry in="00:00:21.967" out="00:00:26.400" producer="chain196">
+  <entry in="00:00:21.967" out="00:00:26.400" producer="chain197">
    <property name="kdenlive:id">127</property>
   </entry>
   <entry in="00:00:10.567" out="00:00:12.650" producer="producer27">
@@ -10544,7 +10606,7 @@
   </entry>
  </playlist>
  <playlist id="playlist7"/>
- <tractor id="tractor3" in="00:00:00.000" out="00:21:12.233">
+ <tractor id="tractor3" in="00:00:00.000" out="00:21:12.733">
   <property name="kdenlive:trackheight">41</property>
   <property name="kdenlive:timeline_active">1</property>
   <property name="kdenlive:collapsed">0</property>
@@ -10554,7 +10616,7 @@
   <track hide="audio" producer="playlist6"/>
   <track hide="audio" producer="playlist7"/>
  </tractor>
- <chain id="chain197" out="00:00:49.483">
+ <chain id="chain198" out="00:00:49.483">
   <property name="length">2970</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/introconclusion/1080p60/DiaconisTable.mov</property>
@@ -10608,7 +10670,7 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain198" out="00:00:37.483">
+ <chain id="chain199" out="00:00:37.483">
   <property name="length">2250</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/introconclusion/1080p60/Intro.mp4</property>
@@ -10662,7 +10724,7 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain199" out="00:00:29.983">
+ <chain id="chain200" out="00:00:29.983">
   <property name="length">1800</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/coinflips/1080p60/CoinFlipTransparencies.mov</property>
@@ -10719,10 +10781,10 @@
  </chain>
  <playlist id="playlist8">
   <blank length="00:00:18.000"/>
-  <entry in="00:00:00.000" out="00:00:41.983" producer="chain197">
+  <entry in="00:00:00.000" out="00:00:41.983" producer="chain198">
    <property name="kdenlive:id">141</property>
   </entry>
-  <entry in="00:00:00.000" out="00:00:32.983" producer="chain198">
+  <entry in="00:00:00.000" out="00:00:32.983" producer="chain199">
    <property name="kdenlive:id">142</property>
   </entry>
   <blank length="00:00:13.450"/>
@@ -10741,8 +10803,16 @@
   <entry in="00:00:00.000" out="00:00:01.267" producer="producer40">
    <property name="kdenlive:id">135</property>
   </entry>
-  <blank length="00:07:17.000"/>
-  <entry in="00:00:00.000" out="00:00:29.983" producer="chain199">
+  <blank length="00:02:34.367"/>
+  <entry in="00:00:00.000" out="00:00:00.717" producer="producer40">
+   <property name="kdenlive:id">135</property>
+  </entry>
+  <blank length="00:01:36.217"/>
+  <entry in="00:00:00.000" out="00:00:01.667" producer="producer40">
+   <property name="kdenlive:id">135</property>
+  </entry>
+  <blank length="00:03:04.500"/>
+  <entry in="00:00:00.000" out="00:00:29.983" producer="chain200">
    <property name="kdenlive:id">137</property>
   </entry>
   <blank length="00:02:49.350"/>
@@ -10779,7 +10849,7 @@
   </entry>
  </playlist>
  <playlist id="playlist9"/>
- <tractor id="tractor4" in="00:00:00.000" out="00:20:04.417">
+ <tractor id="tractor4" in="00:00:00.000" out="00:20:04.917">
   <property name="kdenlive:trackheight">41</property>
   <property name="kdenlive:timeline_active">1</property>
   <property name="kdenlive:collapsed">0</property>
@@ -10801,9 +10871,9 @@
   <track hide="audio" producer="playlist10"/>
   <track hide="audio" producer="playlist11"/>
  </tractor>
- <tractor id="tractor6" in="00:00:00.000" out="00:24:07.633">
-  <property name="kdenlive:duration">00:24:07.650</property>
-  <property name="kdenlive:maxduration">86859</property>
+ <tractor id="tractor6" in="00:00:00.000" out="00:24:08.133">
+  <property name="kdenlive:duration">00:24:08.150</property>
+  <property name="kdenlive:maxduration">86889</property>
   <property name="kdenlive:clipname">Sequence 1</property>
   <property name="kdenlive:description"/>
   <property name="kdenlive:uuid">{6145f7b6-8bb3-4e2d-afc5-1905046347f9}</property>
@@ -11115,7 +11185,7 @@
     },
     {
         "comment": "wiggle x",
-        "pos": 16230,
+        "pos": 16200,
         "type": 2
     },
     {
@@ -11200,12 +11270,12 @@
     },
     {
         "comment": "6 overlay",
-        "pos": 20970,
+        "pos": 20880,
         "type": 1
     },
     {
         "comment": "3 4 overlay",
-        "pos": 21450,
+        "pos": 21360,
         "type": 1
     },
     {
@@ -11217,6 +11287,11 @@
         "comment": "go fish skit",
         "pos": 22425,
         "type": 5
+    },
+    {
+        "comment": "TODO: add something here",
+        "pos": 23830,
+        "type": 7
     },
     {
         "comment": "fade back to manim",
@@ -11295,267 +11370,257 @@
     },
     {
         "comment": "fade to coin manim",
-        "pos": 28170,
+        "pos": 28200,
         "type": 0
     },
     {
         "comment": "\"coin flips\"",
-        "pos": 28290,
+        "pos": 28320,
         "type": 1
     },
     {
         "comment": "write goal text",
-        "pos": 28410,
+        "pos": 28440,
         "type": 1
     },
     {
         "comment": "fade in coin 1",
-        "pos": 29010,
+        "pos": 29040,
         "type": 1
     },
     {
         "comment": "fade in coin 2",
-        "pos": 29220,
+        "pos": 29250,
         "type": 1
     },
     {
         "comment": "assumption: p >= q",
-        "pos": 29430,
+        "pos": 29460,
         "type": 1
     },
     {
         "comment": "mu_p and mu_q",
-        "pos": 29700,
+        "pos": 29730,
         "type": 1
     },
     {
         "comment": "slide to the left",
-        "pos": 29910,
+        "pos": 29940,
         "type": 1
     },
     {
         "comment": "definition 1",
-        "pos": 29970,
+        "pos": 30000,
         "type": 1
     },
     {
         "comment": "dtv(mup,muq)  = formula",
-        "pos": 30030,
+        "pos": 30060,
         "type": 1
     },
     {
         "comment": "write what it is in this case",
-        "pos": 30210,
+        "pos": 30240,
         "type": 1
     },
     {
         "comment": "remove absolute value",
-        "pos": 30360,
+        "pos": 30390,
         "type": 1
     },
     {
         "comment": "simplified",
-        "pos": 30540,
-        "type": 1
-    },
-    {
-        "comment": "definition 2",
-        "pos": 30750,
+        "pos": 30570,
         "type": 1
     },
     {
         "comment": "dtv(mup,muq) = max(..)",
-        "pos": 30780,
+        "pos": 30810,
         "type": 1
     },
     {
         "comment": ">= thing for any particular event A",
-        "pos": 30870,
+        "pos": 30900,
         "type": 1
     },
     {
         "comment": "let A = {H}",
-        "pos": 31110,
+        "pos": 31140,
         "type": 1
     },
     {
         "comment": ">= p-q",
-        "pos": 31590,
+        "pos": 31620,
         "type": 1
     },
     {
         "comment": "{H} is optimal",
-        "pos": 32160,
-        "type": 1
-    },
-    {
-        "comment": "Definition 3",
-        "pos": 32430,
+        "pos": 32190,
         "type": 1
     },
     {
         "comment": "dtv(mup,muq) = min(..)",
-        "pos": 32460,
+        "pos": 32490,
         "type": 1
     },
     {
         "comment": "what is this? (arrow to coupling)",
-        "pos": 32580,
+        "pos": 32610,
         "type": 1
     },
     {
         "comment": "a way to flip both coins at once",
-        "pos": 32880,
+        "pos": 32910,
         "type": 1
     },
     {
         "comment": "could flip them independently",
-        "pos": 33120,
+        "pos": 33150,
         "type": 1
     },
     {
         "comment": "table",
-        "pos": 33330,
+        "pos": 33360,
         "type": 1
     },
     {
         "comment": "fade out whatisacoupling",
-        "pos": 34080,
+        "pos": 34110,
         "type": 1
     },
     {
         "comment": "&lt;= Prob",
-        "pos": 34140,
+        "pos": 34170,
         "type": 1
     },
     {
         "comment": "when Xp and Xq are independent",
-        "pos": 34200,
+        "pos": 34230,
         "type": 1
     },
     {
         "comment": "These two entries of the table",
-        "pos": 34680,
+        "pos": 34710,
         "type": 1
     },
     {
         "comment": "fade it in",
-        "pos": 34800,
+        "pos": 34830,
         "type": 1
     },
     {
         "comment": "> p-q",
-        "pos": 35220,
+        "pos": 35250,
         "type": 1
     },
     {
         "comment": "the independent coupling does not achieve the minimum",
-        "pos": 35520,
+        "pos": 35550,
         "type": 1
     },
     {
         "comment": "transition to new thing",
-        "pos": 35790,
+        "pos": 35820,
         "type": 0
     },
     {
         "comment": "random number text",
-        "pos": 35910,
+        "pos": 35940,
         "type": 1
     },
     {
         "comment": "rerandomize a few times",
-        "pos": 35955,
+        "pos": 35985,
         "type": 2
     },
     {
         "comment": "fade in first coin",
-        "pos": 36150,
+        "pos": 36180,
         "type": 1
     },
     {
         "comment": "transition first coin",
-        "pos": 36210,
+        "pos": 36240,
         "type": 1
     },
     {
         "comment": "fade in Xp stuff at heads",
-        "pos": 36270,
+        "pos": 36300,
         "type": 1
     },
     {
         "comment": "make random number bigger to get T",
-        "pos": 36450,
+        "pos": 36480,
         "type": 1
     },
     {
         "comment": "rerandomize a few times",
-        "pos": 36603,
+        "pos": 36633,
         "type": 2
     },
     {
         "comment": "fade in coin 2",
-        "pos": 36960,
+        "pos": 36990,
         "type": 1
     },
     {
         "comment": "fade in coupling block",
-        "pos": 37020,
+        "pos": 37050,
         "type": 1
     },
     {
         "comment": "make sure the number is at HT",
-        "pos": 37080,
+        "pos": 37110,
         "type": 1
     },
     {
         "comment": "do some more randomizations",
-        "pos": 37150,
+        "pos": 37180,
         "type": 2
     },
     {
         "comment": "rerandomizations end up less than q",
-        "pos": 38490,
+        "pos": 38520,
         "type": 1
     },
     {
         "comment": "rerandomizations bigger than p",
-        "pos": 38790,
+        "pos": 38820,
         "type": 1
     },
     {
         "comment": "random number between p and q",
-        "pos": 39090,
+        "pos": 39120,
         "type": 1
     },
     {
         "comment": "fade in disagreeprob",
-        "pos": 39360,
+        "pos": 39390,
         "type": 1
     },
     {
         "comment": "rerandomize as usual",
-        "pos": 39450,
+        "pos": 39480,
         "type": 2
     },
     {
         "comment": "fade in takeaway",
-        "pos": 40200,
+        "pos": 40230,
         "type": 1
     },
     {
         "comment": "Fade back to all definitions of dtv",
-        "pos": 40860,
+        "pos": 40890,
         "type": 0
     },
     {
         "comment": "any event gives a lower bound",
-        "pos": 41370,
+        "pos": 41400,
         "type": 1
     },
     {
         "comment": "any coupling gives an upper bound",
-        "pos": 41580,
+        "pos": 41610,
         "type": 1
     },
     {
@@ -11564,515 +11629,495 @@
         "type": 1
     },
     {
-        "comment": "What is the probability of a specific arrangement after 4 riffle shuffles?",
-        "pos": 42480,
-        "type": 1
-    },
-    {
         "comment": "In the rest of the video (fade in the whole thing at once)",
-        "pos": 42990,
+        "pos": 43020,
         "type": 1
     },
     {
         "comment": "\"the total variation distance between...\"",
-        "pos": 43560,
+        "pos": 43590,
         "type": 2
     },
     {
         "comment": "d(t)",
-        "pos": 44130,
+        "pos": 44160,
         "type": 2
     },
     {
         "comment": "d^shuffle",
-        "pos": 44220,
+        "pos": 44250,
         "type": 2
     },
     {
         "comment": "d^top-to-random",
-        "pos": 44460,
+        "pos": 44490,
         "type": 2
     },
     {
         "comment": "n = number of cards in the deck",
-        "pos": 44820,
+        "pos": 44850,
         "type": 2
     },
     {
         "comment": "d_n",
-        "pos": 45030,
+        "pos": 45060,
         "type": 2
     },
     {
         "comment": "d(t) &lt; f_n(t)",
-        "pos": 45210,
+        "pos": 45240,
         "type": 2
     },
     {
         "comment": "f_n^{-1}(epsilon)",
-        "pos": 45420,
+        "pos": 45450,
         "type": 2
     },
     {
         "comment": "&lt;",
-        "pos": 45540,
+        "pos": 45570,
         "type": 2
     },
     {
         "comment": "tau(epsilon) = number of times we need to shuffle before the distance is at most epsilon",
-        "pos": 45600,
+        "pos": 45630,
         "type": 2
     },
     {
         "comment": "= mixing time",
-        "pos": 45930,
+        "pos": 45960,
         "type": 2
     },
     {
         "comment": "fade to blank",
-        "pos": 46350,
+        "pos": 46380,
         "type": 0
     },
     {
         "comment": "sneaky trick: reversing the shuffle",
-        "pos": 46470,
+        "pos": 46500,
         "type": 1
     },
     {
         "comment": "fade out sneaky trick",
-        "pos": 46650,
+        "pos": 46680,
         "type": 1
     },
     {
         "comment": "fade in network",
-        "pos": 46710,
+        "pos": 46740,
         "type": 1
     },
     {
         "comment": "reverse all of the arrows",
-        "pos": 47070,
+        "pos": 47100,
         "type": 1
     },
     {
         "comment": "\"random-to-top\" shuffle",
-        "pos": 47370,
+        "pos": 47400,
         "type": 1
     },
     {
         "comment": "remove random to top",
-        "pos": 47610,
+        "pos": 47640,
         "type": 1
     },
     {
         "comment": "slide over, show both networks at once (titled: original and reverse)",
-        "pos": 47670,
+        "pos": 47700,
         "type": 1
     },
     {
         "comment": "turn all nodes into blank circles or boxes",
-        "pos": 48210,
+        "pos": 48240,
         "type": 1
     },
     {
         "comment": "isomorphism",
-        "pos": 48540,
+        "pos": 48570,
         "type": 1
     },
     {
         "comment": "show definition 1 and highlight the sum over all outcomes",
-        "pos": 48690,
+        "pos": 48720,
         "type": 1
     },
     {
         "comment": "d^top-to-random = d^random-to-top",
-        "pos": 48990,
+        "pos": 49020,
         "type": 1
     },
     {
         "comment": "group",
-        "pos": 49560,
+        "pos": 49590,
         "type": 1
     },
     {
         "comment": "shift up, equality",
-        "pos": 50610,
+        "pos": 50640,
         "type": 1
     },
     {
         "comment": "the rest of everything",
-        "pos": 50790,
+        "pos": 50820,
         "type": 1
     },
     {
         "comment": "Fade to real life",
-        "pos": 51334,
+        "pos": 51364,
         "type": 0
     },
     {
         "comment": "show deck, text saying it's uniformly random",
-        "pos": 51424,
+        "pos": 51454,
         "type": 8
     },
     {
         "comment": "Do one shuffle",
-        "pos": 51574,
+        "pos": 51604,
         "type": 8
     },
     {
         "comment": "Still uniformly random!",
-        "pos": 51694,
+        "pos": 51724,
         "type": 8
     },
     {
         "comment": "do some more shuffles",
-        "pos": 51874,
+        "pos": 51904,
         "type": 8
     },
     {
         "comment": "anisah's hand comes in with the unshuffled deck",
-        "pos": 52174,
+        "pos": 52204,
         "type": 8
     },
     {
         "comment": "say this deck is unshuffled, that is uniformly random",
-        "pos": 52234,
+        "pos": 52264,
         "type": 8
     },
     {
         "comment": "start shuffling simultaneously",
-        "pos": 52430,
+        "pos": 52460,
         "type": 8
     },
     {
         "comment": "switch to face up cards",
-        "pos": 52668,
+        "pos": 52698,
         "type": 8
     },
     {
         "comment": "put finger on random card",
-        "pos": 53018,
+        "pos": 53048,
         "type": 8
     },
     {
         "comment": "put it on top",
-        "pos": 53126,
+        "pos": 53156,
         "type": 8
     },
     {
         "comment": "do the same with the perfectly random deck, but choose the same card",
-        "pos": 53263,
+        "pos": 53293,
         "type": 8
     },
     {
         "comment": "do this a few more times",
-        "pos": 53565,
+        "pos": 53595,
         "type": 8
     },
     {
         "comment": "show the choice of card, then show shuffle being done",
-        "pos": 54205,
+        "pos": 54235,
         "type": 8
     },
     {
         "comment": "replay the footage",
-        "pos": 54618,
+        "pos": 54648,
         "type": 8
     },
     {
         "comment": "add check mark for top cards",
-        "pos": 54720,
+        "pos": 54750,
         "type": 8
     },
     {
         "comment": "do it again",
-        "pos": 54921,
+        "pos": 54951,
         "type": 8
     },
     {
         "comment": "check mark for two cards",
-        "pos": 55007,
+        "pos": 55037,
         "type": 8
     },
     {
         "comment": "keep shuffling and adding check marks until the deck is shuffled, keep shuffling",
-        "pos": 55276,
+        "pos": 55306,
         "type": 8
     },
     {
         "comment": "fade to manim",
-        "pos": 56100,
+        "pos": 56130,
         "type": 0
     },
     {
         "comment": "goal",
-        "pos": 56190,
+        "pos": 56220,
         "type": 1
     },
     {
         "comment": "after a card is chosen,",
-        "pos": 56430,
+        "pos": 56460,
         "type": 1
     },
     {
         "comment": "decks align after all cards chosen",
-        "pos": 56850,
+        "pos": 56880,
         "type": 1
     },
     {
         "comment": "reframing",
-        "pos": 57660,
+        "pos": 57690,
         "type": 1
     },
     {
         "comment": "coupon collector",
-        "pos": 58170,
+        "pos": 58200,
         "type": 1
     },
     {
         "comment": "couponconclusions",
-        "pos": 58410,
+        "pos": 58440,
         "type": 1
     },
     {
         "comment": "fade to other manim",
-        "pos": 59010,
+        "pos": 59040,
         "type": 0
     },
     {
         "comment": "implication",
-        "pos": 59100,
+        "pos": 59130,
         "type": 2
     },
     {
         "comment": "unionbound",
-        "pos": 59400,
+        "pos": 59430,
         "type": 2
     },
     {
         "comment": "prob for each card",
-        "pos": 60120,
+        "pos": 60150,
         "type": 2
     },
     {
         "comment": "simplification for sum",
-        "pos": 60600,
+        "pos": 60630,
         "type": 2
     },
     {
         "comment": "fade to desmos screen recording",
-        "pos": 61050,
-        "type": 8
-    },
-    {
-        "comment": "back to manim",
-        "pos": 61290,
+        "pos": 61080,
         "type": 8
     },
     {
         "comment": "dbound1",
-        "pos": 61320,
+        "pos": 61350,
         "type": 2
     },
     {
         "comment": "solving 1",
-        "pos": 62250,
+        "pos": 62280,
         "type": 2
     },
     {
         "comment": "solve for t",
-        "pos": 62490,
+        "pos": 62520,
         "type": 2
     },
     {
         "comment": "change to top-to-random",
-        "pos": 62970,
+        "pos": 63000,
         "type": 2
     },
     {
         "comment": "mixing time",
-        "pos": 63150,
+        "pos": 63180,
         "type": 2
     },
     {
         "comment": "fiftytwo",
-        "pos": 63660,
+        "pos": 63690,
         "type": 2
     },
     {
         "comment": "242",
-        "pos": 64170,
+        "pos": 64200,
         "type": 2
     },
     {
         "comment": "242 skit",
-        "pos": 64322,
+        "pos": 64352,
         "type": 5
     },
     {
-        "comment": "fade back to manim",
-        "pos": 76290,
-        "type": 0
-    },
-    {
         "comment": "how many shuffles?",
-        "pos": 76320,
+        "pos": 76350,
         "type": 1
     },
     {
         "comment": "first bullet point",
-        "pos": 76470,
+        "pos": 76500,
         "type": 1
     },
     {
         "comment": "second bullet point",
-        "pos": 76890,
+        "pos": 76920,
         "type": 1
     },
     {
         "comment": "reformulation",
-        "pos": 77160,
+        "pos": 77190,
         "type": 1
     },
     {
         "comment": "birthday problem",
-        "pos": 77700,
+        "pos": 77730,
         "type": 1
     },
     {
-        "comment": "Transition to new manim",
-        "pos": 78150,
-        "type": 0
-    },
-    {
         "comment": "implication",
-        "pos": 78180,
+        "pos": 78210,
         "type": 2
     },
     {
         "comment": "union bound",
-        "pos": 78510,
+        "pos": 78540,
         "type": 2
     },
     {
         "comment": "1/2^t",
-        "pos": 79470,
+        "pos": 79500,
         "type": 2
     },
     {
         "comment": "n choose 2",
-        "pos": 79710,
+        "pos": 79740,
         "type": 2
     },
     {
         "comment": "probability statement",
-        "pos": 80070,
+        "pos": 80100,
         "type": 2
     },
     {
         "comment": "transform probability",
-        "pos": 80520,
+        "pos": 80550,
         "type": 2
     },
     {
         "comment": "transform to distance",
-        "pos": 80940,
+        "pos": 80970,
         "type": 2
     },
     {
         "comment": "equivalence",
-        "pos": 81330,
+        "pos": 81360,
         "type": 2
     },
     {
         "comment": "shift everything up",
-        "pos": 81930,
+        "pos": 81960,
         "type": 2
     },
     {
         "comment": "fiftytwo",
-        "pos": 82020,
+        "pos": 82050,
         "type": 2
     },
     {
         "comment": "fiftytwo2",
-        "pos": 82440,
+        "pos": 82470,
         "type": 2
     },
     {
         "comment": "fiftytwo3",
-        "pos": 82530,
+        "pos": 82560,
         "type": 2
     },
     {
         "comment": "fiftytwo4",
-        "pos": 82590,
+        "pos": 82620,
         "type": 2
     },
     {
         "comment": "diaconistable",
-        "pos": 82770,
+        "pos": 82800,
         "type": 2
     },
     {
         "comment": "highlight 7 shuffles",
-        "pos": 82830,
+        "pos": 82860,
         "type": 2
     },
     {
         "comment": "just an upper bound",
-        "pos": 83040,
+        "pos": 83070,
         "type": 2
     },
     {
         "comment": "fade to paper",
-        "pos": 83489,
+        "pos": 83519,
         "type": 8
     },
     {
         "comment": "fade in definition 1",
-        "pos": 84240,
+        "pos": 84270,
         "type": 2
     },
     {
         "comment": "fade out definition 1",
-        "pos": 84480,
+        "pos": 84510,
         "type": 2
     },
     {
         "comment": "conclusion manim",
-        "pos": 85710,
+        "pos": 85740,
         "type": 0
     },
     {
         "comment": "theirs",
-        "pos": 85800,
+        "pos": 85830,
         "type": 1
     },
     {
         "comment": "ours",
-        "pos": 86100,
+        "pos": 86130,
         "type": 1
     },
     {
         "comment": "theirproof",
-        "pos": 86400,
+        "pos": 86430,
         "type": 1
     },
     {
         "comment": "ourproof",
-        "pos": 86730,
+        "pos": 86760,
         "type": 1
     }
 ]
 </property>
-  <property name="kdenlive:sequenceproperties.activeTrack">2</property>
+  <property name="kdenlive:sequenceproperties.activeTrack">5</property>
   <property name="kdenlive:sequenceproperties.audioTarget">1</property>
   <property name="kdenlive:sequenceproperties.disablepreview">0</property>
   <property name="kdenlive:sequenceproperties.documentuuid">{6145f7b6-8bb3-4e2d-afc5-1905046347f9}</property>
   <property name="kdenlive:sequenceproperties.hasAudio">1</property>
   <property name="kdenlive:sequenceproperties.hasVideo">1</property>
-  <property name="kdenlive:sequenceproperties.position">27030</property>
-  <property name="kdenlive:sequenceproperties.scrollPos">55272</property>
+  <property name="kdenlive:sequenceproperties.position">42793</property>
+  <property name="kdenlive:sequenceproperties.scrollPos">34809</property>
   <property name="kdenlive:sequenceproperties.subtitlesList">[
     {
         "file": "/home/vilas/.local/share/kdenlive/.backup/Shuffling-1720486770903-2024-08-02-11-06.kdenlive.srt",
@@ -12087,17 +12132,17 @@
   <property name="kdenlive:sequenceproperties.videoTarget">2</property>
   <property name="kdenlive:sequenceproperties.zonein">0</property>
   <property name="kdenlive:sequenceproperties.zoneout">75</property>
-  <property name="kdenlive:sequenceproperties.zoom">5</property>
+  <property name="kdenlive:sequenceproperties.zoom">7</property>
   <property name="kdenlive:sequenceproperties.groups">[
     {
         "children": [
             {
-                "data": "2:65872",
+                "data": "2:65902",
                 "leaf": "clip",
                 "type": "Leaf"
             },
             {
-                "data": "3:65872",
+                "data": "3:65902",
                 "leaf": "clip",
                 "type": "Leaf"
             }
@@ -12107,12 +12152,12 @@
     {
         "children": [
             {
-                "data": "3:67028",
+                "data": "3:67058",
                 "leaf": "clip",
                 "type": "Leaf"
             },
             {
-                "data": "2:67028",
+                "data": "2:67058",
                 "leaf": "clip",
                 "type": "Leaf"
             }
@@ -12122,12 +12167,12 @@
     {
         "children": [
             {
-                "data": "3:64332",
+                "data": "3:64362",
                 "leaf": "clip",
                 "type": "Leaf"
             },
             {
-                "data": "2:64332",
+                "data": "2:64362",
                 "leaf": "clip",
                 "type": "Leaf"
             }
@@ -12137,12 +12182,12 @@
     {
         "children": [
             {
-                "data": "3:66126",
+                "data": "3:66156",
                 "leaf": "clip",
                 "type": "Leaf"
             },
             {
-                "data": "2:66126",
+                "data": "2:66156",
                 "leaf": "clip",
                 "type": "Leaf"
             }
@@ -12182,12 +12227,12 @@
     {
         "children": [
             {
-                "data": "3:69112",
+                "data": "3:69142",
                 "leaf": "clip",
                 "type": "Leaf"
             },
             {
-                "data": "2:69112",
+                "data": "2:69142",
                 "leaf": "clip",
                 "type": "Leaf"
             }
@@ -12197,12 +12242,12 @@
     {
         "children": [
             {
-                "data": "3:65440",
+                "data": "3:65470",
                 "leaf": "clip",
                 "type": "Leaf"
             },
             {
-                "data": "2:65440",
+                "data": "2:65470",
                 "leaf": "clip",
                 "type": "Leaf"
             }
@@ -12227,12 +12272,12 @@
     {
         "children": [
             {
-                "data": "2:66199",
+                "data": "2:66229",
                 "leaf": "clip",
                 "type": "Leaf"
             },
             {
-                "data": "3:66199",
+                "data": "3:66229",
                 "leaf": "clip",
                 "type": "Leaf"
             }
@@ -12242,12 +12287,12 @@
     {
         "children": [
             {
-                "data": "3:69934",
+                "data": "3:69964",
                 "leaf": "clip",
                 "type": "Leaf"
             },
             {
-                "data": "2:69934",
+                "data": "2:69964",
                 "leaf": "clip",
                 "type": "Leaf"
             }
@@ -12257,12 +12302,12 @@
     {
         "children": [
             {
-                "data": "2:66477",
+                "data": "2:66507",
                 "leaf": "clip",
                 "type": "Leaf"
             },
             {
-                "data": "3:66477",
+                "data": "3:66507",
                 "leaf": "clip",
                 "type": "Leaf"
             }
@@ -12574,7 +12619,7 @@
     },
     {
         "comment": "wiggle x",
-        "pos": 16230,
+        "pos": 16200,
         "type": 2
     },
     {
@@ -12659,12 +12704,12 @@
     },
     {
         "comment": "6 overlay",
-        "pos": 20970,
+        "pos": 20880,
         "type": 1
     },
     {
         "comment": "3 4 overlay",
-        "pos": 21450,
+        "pos": 21360,
         "type": 1
     },
     {
@@ -12676,6 +12721,11 @@
         "comment": "go fish skit",
         "pos": 22425,
         "type": 5
+    },
+    {
+        "comment": "TODO: add something here",
+        "pos": 23830,
+        "type": 7
     },
     {
         "comment": "fade back to manim",
@@ -12754,267 +12804,257 @@
     },
     {
         "comment": "fade to coin manim",
-        "pos": 28170,
+        "pos": 28200,
         "type": 0
     },
     {
         "comment": "\"coin flips\"",
-        "pos": 28290,
+        "pos": 28320,
         "type": 1
     },
     {
         "comment": "write goal text",
-        "pos": 28410,
+        "pos": 28440,
         "type": 1
     },
     {
         "comment": "fade in coin 1",
-        "pos": 29010,
+        "pos": 29040,
         "type": 1
     },
     {
         "comment": "fade in coin 2",
-        "pos": 29220,
+        "pos": 29250,
         "type": 1
     },
     {
         "comment": "assumption: p >= q",
-        "pos": 29430,
+        "pos": 29460,
         "type": 1
     },
     {
         "comment": "mu_p and mu_q",
-        "pos": 29700,
+        "pos": 29730,
         "type": 1
     },
     {
         "comment": "slide to the left",
-        "pos": 29910,
+        "pos": 29940,
         "type": 1
     },
     {
         "comment": "definition 1",
-        "pos": 29970,
+        "pos": 30000,
         "type": 1
     },
     {
         "comment": "dtv(mup,muq)  = formula",
-        "pos": 30030,
+        "pos": 30060,
         "type": 1
     },
     {
         "comment": "write what it is in this case",
-        "pos": 30210,
+        "pos": 30240,
         "type": 1
     },
     {
         "comment": "remove absolute value",
-        "pos": 30360,
+        "pos": 30390,
         "type": 1
     },
     {
         "comment": "simplified",
-        "pos": 30540,
-        "type": 1
-    },
-    {
-        "comment": "definition 2",
-        "pos": 30750,
+        "pos": 30570,
         "type": 1
     },
     {
         "comment": "dtv(mup,muq) = max(..)",
-        "pos": 30780,
+        "pos": 30810,
         "type": 1
     },
     {
         "comment": ">= thing for any particular event A",
-        "pos": 30870,
+        "pos": 30900,
         "type": 1
     },
     {
         "comment": "let A = {H}",
-        "pos": 31110,
+        "pos": 31140,
         "type": 1
     },
     {
         "comment": ">= p-q",
-        "pos": 31590,
+        "pos": 31620,
         "type": 1
     },
     {
         "comment": "{H} is optimal",
-        "pos": 32160,
-        "type": 1
-    },
-    {
-        "comment": "Definition 3",
-        "pos": 32430,
+        "pos": 32190,
         "type": 1
     },
     {
         "comment": "dtv(mup,muq) = min(..)",
-        "pos": 32460,
+        "pos": 32490,
         "type": 1
     },
     {
         "comment": "what is this? (arrow to coupling)",
-        "pos": 32580,
+        "pos": 32610,
         "type": 1
     },
     {
         "comment": "a way to flip both coins at once",
-        "pos": 32880,
+        "pos": 32910,
         "type": 1
     },
     {
         "comment": "could flip them independently",
-        "pos": 33120,
+        "pos": 33150,
         "type": 1
     },
     {
         "comment": "table",
-        "pos": 33330,
+        "pos": 33360,
         "type": 1
     },
     {
         "comment": "fade out whatisacoupling",
-        "pos": 34080,
+        "pos": 34110,
         "type": 1
     },
     {
         "comment": "&lt;= Prob",
-        "pos": 34140,
+        "pos": 34170,
         "type": 1
     },
     {
         "comment": "when Xp and Xq are independent",
-        "pos": 34200,
+        "pos": 34230,
         "type": 1
     },
     {
         "comment": "These two entries of the table",
-        "pos": 34680,
+        "pos": 34710,
         "type": 1
     },
     {
         "comment": "fade it in",
-        "pos": 34800,
+        "pos": 34830,
         "type": 1
     },
     {
         "comment": "> p-q",
-        "pos": 35220,
+        "pos": 35250,
         "type": 1
     },
     {
         "comment": "the independent coupling does not achieve the minimum",
-        "pos": 35520,
+        "pos": 35550,
         "type": 1
     },
     {
         "comment": "transition to new thing",
-        "pos": 35790,
+        "pos": 35820,
         "type": 0
     },
     {
         "comment": "random number text",
-        "pos": 35910,
+        "pos": 35940,
         "type": 1
     },
     {
         "comment": "rerandomize a few times",
-        "pos": 35955,
+        "pos": 35985,
         "type": 2
     },
     {
         "comment": "fade in first coin",
-        "pos": 36150,
+        "pos": 36180,
         "type": 1
     },
     {
         "comment": "transition first coin",
-        "pos": 36210,
+        "pos": 36240,
         "type": 1
     },
     {
         "comment": "fade in Xp stuff at heads",
-        "pos": 36270,
+        "pos": 36300,
         "type": 1
     },
     {
         "comment": "make random number bigger to get T",
-        "pos": 36450,
+        "pos": 36480,
         "type": 1
     },
     {
         "comment": "rerandomize a few times",
-        "pos": 36603,
+        "pos": 36633,
         "type": 2
     },
     {
         "comment": "fade in coin 2",
-        "pos": 36960,
+        "pos": 36990,
         "type": 1
     },
     {
         "comment": "fade in coupling block",
-        "pos": 37020,
+        "pos": 37050,
         "type": 1
     },
     {
         "comment": "make sure the number is at HT",
-        "pos": 37080,
+        "pos": 37110,
         "type": 1
     },
     {
         "comment": "do some more randomizations",
-        "pos": 37150,
+        "pos": 37180,
         "type": 2
     },
     {
         "comment": "rerandomizations end up less than q",
-        "pos": 38490,
+        "pos": 38520,
         "type": 1
     },
     {
         "comment": "rerandomizations bigger than p",
-        "pos": 38790,
+        "pos": 38820,
         "type": 1
     },
     {
         "comment": "random number between p and q",
-        "pos": 39090,
+        "pos": 39120,
         "type": 1
     },
     {
         "comment": "fade in disagreeprob",
-        "pos": 39360,
+        "pos": 39390,
         "type": 1
     },
     {
         "comment": "rerandomize as usual",
-        "pos": 39450,
+        "pos": 39480,
         "type": 2
     },
     {
         "comment": "fade in takeaway",
-        "pos": 40200,
+        "pos": 40230,
         "type": 1
     },
     {
         "comment": "Fade back to all definitions of dtv",
-        "pos": 40860,
+        "pos": 40890,
         "type": 0
     },
     {
         "comment": "any event gives a lower bound",
-        "pos": 41370,
+        "pos": 41400,
         "type": 1
     },
     {
         "comment": "any coupling gives an upper bound",
-        "pos": 41580,
+        "pos": 41610,
         "type": 1
     },
     {
@@ -13023,503 +13063,483 @@
         "type": 1
     },
     {
-        "comment": "What is the probability of a specific arrangement after 4 riffle shuffles?",
-        "pos": 42480,
-        "type": 1
-    },
-    {
         "comment": "In the rest of the video (fade in the whole thing at once)",
-        "pos": 42990,
+        "pos": 43020,
         "type": 1
     },
     {
         "comment": "\"the total variation distance between...\"",
-        "pos": 43560,
+        "pos": 43590,
         "type": 2
     },
     {
         "comment": "d(t)",
-        "pos": 44130,
+        "pos": 44160,
         "type": 2
     },
     {
         "comment": "d^shuffle",
-        "pos": 44220,
+        "pos": 44250,
         "type": 2
     },
     {
         "comment": "d^top-to-random",
-        "pos": 44460,
+        "pos": 44490,
         "type": 2
     },
     {
         "comment": "n = number of cards in the deck",
-        "pos": 44820,
+        "pos": 44850,
         "type": 2
     },
     {
         "comment": "d_n",
-        "pos": 45030,
+        "pos": 45060,
         "type": 2
     },
     {
         "comment": "d(t) &lt; f_n(t)",
-        "pos": 45210,
+        "pos": 45240,
         "type": 2
     },
     {
         "comment": "f_n^{-1}(epsilon)",
-        "pos": 45420,
+        "pos": 45450,
         "type": 2
     },
     {
         "comment": "&lt;",
-        "pos": 45540,
+        "pos": 45570,
         "type": 2
     },
     {
         "comment": "tau(epsilon) = number of times we need to shuffle before the distance is at most epsilon",
-        "pos": 45600,
+        "pos": 45630,
         "type": 2
     },
     {
         "comment": "= mixing time",
-        "pos": 45930,
+        "pos": 45960,
         "type": 2
     },
     {
         "comment": "fade to blank",
-        "pos": 46350,
+        "pos": 46380,
         "type": 0
     },
     {
         "comment": "sneaky trick: reversing the shuffle",
-        "pos": 46470,
+        "pos": 46500,
         "type": 1
     },
     {
         "comment": "fade out sneaky trick",
-        "pos": 46650,
+        "pos": 46680,
         "type": 1
     },
     {
         "comment": "fade in network",
-        "pos": 46710,
+        "pos": 46740,
         "type": 1
     },
     {
         "comment": "reverse all of the arrows",
-        "pos": 47070,
+        "pos": 47100,
         "type": 1
     },
     {
         "comment": "\"random-to-top\" shuffle",
-        "pos": 47370,
+        "pos": 47400,
         "type": 1
     },
     {
         "comment": "remove random to top",
-        "pos": 47610,
+        "pos": 47640,
         "type": 1
     },
     {
         "comment": "slide over, show both networks at once (titled: original and reverse)",
-        "pos": 47670,
+        "pos": 47700,
         "type": 1
     },
     {
         "comment": "turn all nodes into blank circles or boxes",
-        "pos": 48210,
+        "pos": 48240,
         "type": 1
     },
     {
         "comment": "isomorphism",
-        "pos": 48540,
+        "pos": 48570,
         "type": 1
     },
     {
         "comment": "show definition 1 and highlight the sum over all outcomes",
-        "pos": 48690,
+        "pos": 48720,
         "type": 1
     },
     {
         "comment": "d^top-to-random = d^random-to-top",
-        "pos": 48990,
+        "pos": 49020,
         "type": 1
     },
     {
         "comment": "group",
-        "pos": 49560,
+        "pos": 49590,
         "type": 1
     },
     {
         "comment": "shift up, equality",
-        "pos": 50610,
+        "pos": 50640,
         "type": 1
     },
     {
         "comment": "the rest of everything",
-        "pos": 50790,
+        "pos": 50820,
         "type": 1
     },
     {
         "comment": "Fade to real life",
-        "pos": 51334,
+        "pos": 51364,
         "type": 0
     },
     {
         "comment": "show deck, text saying it's uniformly random",
-        "pos": 51424,
+        "pos": 51454,
         "type": 8
     },
     {
         "comment": "Do one shuffle",
-        "pos": 51574,
+        "pos": 51604,
         "type": 8
     },
     {
         "comment": "Still uniformly random!",
-        "pos": 51694,
+        "pos": 51724,
         "type": 8
     },
     {
         "comment": "do some more shuffles",
-        "pos": 51874,
+        "pos": 51904,
         "type": 8
     },
     {
         "comment": "anisah's hand comes in with the unshuffled deck",
-        "pos": 52174,
+        "pos": 52204,
         "type": 8
     },
     {
         "comment": "say this deck is unshuffled, that is uniformly random",
-        "pos": 52234,
+        "pos": 52264,
         "type": 8
     },
     {
         "comment": "start shuffling simultaneously",
-        "pos": 52430,
+        "pos": 52460,
         "type": 8
     },
     {
         "comment": "switch to face up cards",
-        "pos": 52668,
+        "pos": 52698,
         "type": 8
     },
     {
         "comment": "put finger on random card",
-        "pos": 53018,
+        "pos": 53048,
         "type": 8
     },
     {
         "comment": "put it on top",
-        "pos": 53126,
+        "pos": 53156,
         "type": 8
     },
     {
         "comment": "do the same with the perfectly random deck, but choose the same card",
-        "pos": 53263,
+        "pos": 53293,
         "type": 8
     },
     {
         "comment": "do this a few more times",
-        "pos": 53565,
+        "pos": 53595,
         "type": 8
     },
     {
         "comment": "show the choice of card, then show shuffle being done",
-        "pos": 54205,
+        "pos": 54235,
         "type": 8
     },
     {
         "comment": "replay the footage",
-        "pos": 54618,
+        "pos": 54648,
         "type": 8
     },
     {
         "comment": "add check mark for top cards",
-        "pos": 54720,
+        "pos": 54750,
         "type": 8
     },
     {
         "comment": "do it again",
-        "pos": 54921,
+        "pos": 54951,
         "type": 8
     },
     {
         "comment": "check mark for two cards",
-        "pos": 55007,
+        "pos": 55037,
         "type": 8
     },
     {
         "comment": "keep shuffling and adding check marks until the deck is shuffled, keep shuffling",
-        "pos": 55276,
+        "pos": 55306,
         "type": 8
     },
     {
         "comment": "fade to manim",
-        "pos": 56100,
+        "pos": 56130,
         "type": 0
     },
     {
         "comment": "goal",
-        "pos": 56190,
+        "pos": 56220,
         "type": 1
     },
     {
         "comment": "after a card is chosen,",
-        "pos": 56430,
+        "pos": 56460,
         "type": 1
     },
     {
         "comment": "decks align after all cards chosen",
-        "pos": 56850,
+        "pos": 56880,
         "type": 1
     },
     {
         "comment": "reframing",
-        "pos": 57660,
+        "pos": 57690,
         "type": 1
     },
     {
         "comment": "coupon collector",
-        "pos": 58170,
+        "pos": 58200,
         "type": 1
     },
     {
         "comment": "couponconclusions",
-        "pos": 58410,
+        "pos": 58440,
         "type": 1
     },
     {
         "comment": "fade to other manim",
-        "pos": 59010,
+        "pos": 59040,
         "type": 0
     },
     {
         "comment": "implication",
-        "pos": 59100,
+        "pos": 59130,
         "type": 2
     },
     {
         "comment": "unionbound",
-        "pos": 59400,
+        "pos": 59430,
         "type": 2
     },
     {
         "comment": "prob for each card",
-        "pos": 60120,
+        "pos": 60150,
         "type": 2
     },
     {
         "comment": "simplification for sum",
-        "pos": 60600,
+        "pos": 60630,
         "type": 2
     },
     {
         "comment": "fade to desmos screen recording",
-        "pos": 61050,
-        "type": 8
-    },
-    {
-        "comment": "back to manim",
-        "pos": 61290,
+        "pos": 61080,
         "type": 8
     },
     {
         "comment": "dbound1",
-        "pos": 61320,
+        "pos": 61350,
         "type": 2
     },
     {
         "comment": "solving 1",
-        "pos": 62250,
+        "pos": 62280,
         "type": 2
     },
     {
         "comment": "solve for t",
-        "pos": 62490,
+        "pos": 62520,
         "type": 2
     },
     {
         "comment": "change to top-to-random",
-        "pos": 62970,
+        "pos": 63000,
         "type": 2
     },
     {
         "comment": "mixing time",
-        "pos": 63150,
+        "pos": 63180,
         "type": 2
     },
     {
         "comment": "fiftytwo",
-        "pos": 63660,
+        "pos": 63690,
         "type": 2
     },
     {
         "comment": "242",
-        "pos": 64170,
+        "pos": 64200,
         "type": 2
     },
     {
         "comment": "242 skit",
-        "pos": 64322,
+        "pos": 64352,
         "type": 5
     },
     {
-        "comment": "fade back to manim",
-        "pos": 76290,
-        "type": 0
-    },
-    {
         "comment": "how many shuffles?",
-        "pos": 76320,
+        "pos": 76350,
         "type": 1
     },
     {
         "comment": "first bullet point",
-        "pos": 76470,
+        "pos": 76500,
         "type": 1
     },
     {
         "comment": "second bullet point",
-        "pos": 76890,
+        "pos": 76920,
         "type": 1
     },
     {
         "comment": "reformulation",
-        "pos": 77160,
+        "pos": 77190,
         "type": 1
     },
     {
         "comment": "birthday problem",
-        "pos": 77700,
+        "pos": 77730,
         "type": 1
     },
     {
-        "comment": "Transition to new manim",
-        "pos": 78150,
-        "type": 0
-    },
-    {
         "comment": "implication",
-        "pos": 78180,
+        "pos": 78210,
         "type": 2
     },
     {
         "comment": "union bound",
-        "pos": 78510,
+        "pos": 78540,
         "type": 2
     },
     {
         "comment": "1/2^t",
-        "pos": 79470,
+        "pos": 79500,
         "type": 2
     },
     {
         "comment": "n choose 2",
-        "pos": 79710,
+        "pos": 79740,
         "type": 2
     },
     {
         "comment": "probability statement",
-        "pos": 80070,
+        "pos": 80100,
         "type": 2
     },
     {
         "comment": "transform probability",
-        "pos": 80520,
+        "pos": 80550,
         "type": 2
     },
     {
         "comment": "transform to distance",
-        "pos": 80940,
+        "pos": 80970,
         "type": 2
     },
     {
         "comment": "equivalence",
-        "pos": 81330,
+        "pos": 81360,
         "type": 2
     },
     {
         "comment": "shift everything up",
-        "pos": 81930,
+        "pos": 81960,
         "type": 2
     },
     {
         "comment": "fiftytwo",
-        "pos": 82020,
+        "pos": 82050,
         "type": 2
     },
     {
         "comment": "fiftytwo2",
-        "pos": 82440,
+        "pos": 82470,
         "type": 2
     },
     {
         "comment": "fiftytwo3",
-        "pos": 82530,
+        "pos": 82560,
         "type": 2
     },
     {
         "comment": "fiftytwo4",
-        "pos": 82590,
+        "pos": 82620,
         "type": 2
     },
     {
         "comment": "diaconistable",
-        "pos": 82770,
+        "pos": 82800,
         "type": 2
     },
     {
         "comment": "highlight 7 shuffles",
-        "pos": 82830,
+        "pos": 82860,
         "type": 2
     },
     {
         "comment": "just an upper bound",
-        "pos": 83040,
+        "pos": 83070,
         "type": 2
     },
     {
         "comment": "fade to paper",
-        "pos": 83489,
+        "pos": 83519,
         "type": 8
     },
     {
         "comment": "fade in definition 1",
-        "pos": 84240,
+        "pos": 84270,
         "type": 2
     },
     {
         "comment": "fade out definition 1",
-        "pos": 84480,
+        "pos": 84510,
         "type": 2
     },
     {
         "comment": "conclusion manim",
-        "pos": 85710,
+        "pos": 85740,
         "type": 0
     },
     {
         "comment": "theirs",
-        "pos": 85800,
+        "pos": 85830,
         "type": 1
     },
     {
         "comment": "ours",
-        "pos": 86100,
+        "pos": 86130,
         "type": 1
     },
     {
         "comment": "theirproof",
-        "pos": 86400,
+        "pos": 86430,
         "type": 1
     },
     {
         "comment": "ourproof",
-        "pos": 86730,
+        "pos": 86760,
         "type": 1
     }
 ]
@@ -13589,10 +13609,10 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition5" in="00:18:05.883" out="00:18:06.217">
+  <transition id="transition5" in="00:14:38.467" out="00:14:38.850">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.383=0% 0% 100% 100% 0%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -13603,7 +13623,7 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition6" in="00:18:17.467" out="00:18:17.850">
+  <transition id="transition6" in="00:18:17.967" out="00:18:18.350">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
@@ -13631,7 +13651,7 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition8" in="00:18:17.867" out="00:18:18.450">
+  <transition id="transition8" in="00:18:18.367" out="00:18:18.950">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
@@ -13645,7 +13665,21 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition9" in="00:18:27.633" out="00:18:27.933">
+  <transition id="transition9" in="00:06:13.367" out="00:06:13.733">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.367=0% 0% 100% 100% 100%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition10" in="00:18:28.133" out="00:18:28.433">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
@@ -13659,7 +13693,21 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition10" in="00:18:27.950" out="00:18:28.400">
+  <transition id="transition11" in="00:06:13.750" out="00:06:14.083">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.333=0% 0% 100% 100% 0%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition12" in="00:18:28.450" out="00:18:28.900">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
@@ -13673,7 +13721,7 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition11" in="00:15:09.933" out="00:15:10.167">
+  <transition id="transition13" in="00:15:10.433" out="00:15:10.667">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.233=0% 0% 100% 100% 100%</property>
@@ -13687,7 +13735,7 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition12" in="00:19:31.683" out="00:19:32.317">
+  <transition id="transition14" in="00:19:32.183" out="00:19:32.817">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
@@ -13701,7 +13749,7 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition13" in="00:15:10.183" out="00:15:10.450">
+  <transition id="transition15" in="00:15:10.683" out="00:15:10.950">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.267=0% 0% 100% 100% 0%</property>
@@ -13715,10 +13763,10 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition14" in="00:14:37.967" out="00:14:38.350">
+  <transition id="transition16" in="00:07:50.317" out="00:07:50.650">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.383=0% 0% 100% 100% 0%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.333=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -13729,91 +13777,7 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition15" in="00:03:37.717" out="00:03:38.983">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:01.267=0% 0% 100% 100% 100%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition16" in="00:14:37.567" out="00:14:37.950">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.383=0% 0% 100% 100% 100%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition17" in="00:18:10.667" out="00:18:11.000">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition18" in="00:01:46.767" out="00:01:47.350">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.583=0% 0% 100% 100% 0%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition19" in="00:03:19.533" out="00:03:19.983">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.450=0% 0% 100% 100% 100%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition20" in="00:19:33.233" out="00:19:33.683">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition21" in="00:20:03.167" out="00:20:03.617">
+  <transition id="transition17" in="00:18:06.383" out="00:18:06.717">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
@@ -13827,10 +13791,10 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition22" in="00:14:15.350" out="00:14:15.433">
+  <transition id="transition18" in="00:14:38.067" out="00:14:38.450">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.083=0% 0% 100% 100% 100%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.383=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -13841,7 +13805,7 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition23" in="00:20:03.967" out="00:20:04.417">
+  <transition id="transition19" in="00:18:11.167" out="00:18:11.500">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
@@ -13855,7 +13819,91 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition24" in="00:14:15.450" out="00:14:15.550">
+  <transition id="transition20" in="00:01:46.767" out="00:01:47.350">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.583=0% 0% 100% 100% 0%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition21" in="00:03:19.533" out="00:03:19.983">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.450=0% 0% 100% 100% 100%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition22" in="00:19:33.733" out="00:19:34.183">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition23" in="00:20:03.667" out="00:20:04.117">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition24" in="00:14:15.850" out="00:14:15.933">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.083=0% 0% 100% 100% 100%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition25" in="00:20:04.467" out="00:20:04.917">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition26" in="00:14:15.950" out="00:14:16.050">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.100=0% 0% 100% 100% 0%</property>
@@ -13869,7 +13917,7 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition25" in="00:02:18.500" out="00:02:19.483">
+  <transition id="transition27" in="00:02:18.500" out="00:02:19.483">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.983=0% 0% 100% 100% 100%</property>
@@ -13883,7 +13931,21 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition26">
+  <transition id="transition28" in="00:03:37.717" out="00:03:38.983">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:01.267=0% 0% 100% 100% 100%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition29">
    <property name="a_track">0</property>
    <property name="b_track">4</property>
    <property name="version">0.1</property>
@@ -13892,7 +13954,7 @@
    <property name="internal_added">237</property>
    <property name="always_active">1</property>
   </transition>
-  <transition id="transition27">
+  <transition id="transition30">
    <property name="a_track">0</property>
    <property name="b_track">5</property>
    <property name="version">0.1</property>
@@ -13901,7 +13963,7 @@
    <property name="internal_added">237</property>
    <property name="always_active">1</property>
   </transition>
-  <transition id="transition28">
+  <transition id="transition31">
    <property name="a_track">0</property>
    <property name="b_track">6</property>
    <property name="version">0.1</property>
@@ -13926,7 +13988,7 @@
    <property name="disable">1</property>
   </filter>
  </tractor>
- <chain id="chain200" out="00:00:49.483">
+ <chain id="chain201" out="00:00:49.483">
   <property name="length">2970</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/introconclusion/1080p60/DiaconisTable.mov</property>
@@ -13978,7 +14040,7 @@
   <property name="kdenlive:file_hash">8da81e293cbc6706a95ca40953403389</property>
   <property name="kdenlive:monitorPosition">0</property>
  </chain>
- <chain id="chain201" out="00:00:37.483">
+ <chain id="chain202" out="00:00:37.483">
   <property name="length">2250</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/introconclusion/1080p60/Intro.mp4</property>
@@ -14029,7 +14091,7 @@
   <property name="kdenlive:folderid">140</property>
   <property name="kdenlive:monitorPosition">0</property>
  </chain>
- <chain id="chain202" out="00:01:03.483">
+ <chain id="chain203" out="00:01:03.483">
   <property name="length">3810</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/3cardnetwork/1080p60/ThreeCardNetwork.mp4</property>
@@ -14080,7 +14142,7 @@
   <property name="kdenlive:folderid">143</property>
   <property name="kdenlive:monitorPosition">0</property>
  </chain>
- <chain id="chain203" out="00:01:23.983">
+ <chain id="chain204" out="00:01:23.983">
   <property name="length">5040</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/3cardnetwork/1080p60/Reversal.mp4</property>
@@ -14131,7 +14193,7 @@
   <property name="kdenlive:folderid">143</property>
   <property name="kdenlive:monitorPosition">0</property>
  </chain>
- <chain id="chain204" out="00:00:20.483">
+ <chain id="chain205" out="00:00:20.483">
   <property name="length">1230</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/tvdistance/1080p60/Equivalence.mp4</property>
@@ -14182,7 +14244,7 @@
   <property name="kdenlive:folderid">146</property>
   <property name="kdenlive:monitorPosition">0</property>
  </chain>
- <chain id="chain205" out="00:00:46.983">
+ <chain id="chain206" out="00:00:46.983">
   <property name="length">2820</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/tvdistance/1080p60/Notations.mp4</property>
@@ -14231,6 +14293,58 @@
   <property name="kdenlive:file_size">2321045</property>
   <property name="kdenlive:file_hash">c8e5ef20e9cfb77fe044dabaf3175a01</property>
   <property name="kdenlive:folderid">146</property>
+  <property name="kdenlive:monitorPosition">0</property>
+ </chain>
+ <chain id="chain207" out="00:03:38.983">
+  <property name="length">13140</property>
+  <property name="eof">pause</property>
+  <property name="resource">media/videos/tvdistance/1080p60/TVDefinition.mp4</property>
+  <property name="mlt_service">avformat</property>
+  <property name="meta.media.nb_streams">1</property>
+  <property name="meta.media.0.stream.type">video</property>
+  <property name="meta.media.0.stream.frame_rate">60</property>
+  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.width">1920</property>
+  <property name="meta.media.0.codec.height">1080</property>
+  <property name="meta.media.0.codec.rotate">0</property>
+  <property name="meta.media.0.codec.pix_fmt">yuv420p</property>
+  <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.colorspace">709</property>
+  <property name="meta.media.0.codec.name">h264</property>
+  <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
+  <property name="meta.media.0.codec.bit_rate">355610</property>
+  <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
+  <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
+  <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 libx264</property>
+  <property name="meta.attr.major_brand.markup">isom</property>
+  <property name="meta.attr.minor_version.markup">512</property>
+  <property name="meta.attr.compatible_brands.markup">isomiso2avc1mp41</property>
+  <property name="meta.attr.encoder.markup">Lavf61.1.100</property>
+  <property name="meta.attr.comment.markup">Rendered with Manim Community v0.18.1</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.sample_aspect_num">1</property>
+  <property name="meta.media.sample_aspect_den">1</property>
+  <property name="format">3</property>
+  <property name="audio_index">-1</property>
+  <property name="video_index">0</property>
+  <property name="vstream">0</property>
+  <property name="meta.media.frame_rate_num">60</property>
+  <property name="meta.media.frame_rate_den">1</property>
+  <property name="meta.media.colorspace">709</property>
+  <property name="meta.media.color_trc">2</property>
+  <property name="meta.media.has_b_frames">2</property>
+  <property name="meta.media.width">1920</property>
+  <property name="meta.media.height">1080</property>
+  <property name="meta.media.aspect_ratio">1</property>
+  <property name="meta.media.color_range">mpeg</property>
+  <property name="meta.media.top_field_first">0</property>
+  <property name="meta.media.progressive">1</property>
+  <property name="kdenlive:id">149</property>
+  <property name="kdenlive:clip_type">2</property>
+  <property name="kdenlive:file_size">9891833</property>
+  <property name="kdenlive:file_hash">c08784e0436dab1a4bd0f30108f11e99</property>
+  <property name="kdenlive:folderid">146</property>
+  <property name="kdenlive:monitorPosition">0</property>
  </chain>
  <playlist id="main_bin">
   <property name="kdenlive:folder.-1.2">Sequences</property>
@@ -14314,7 +14428,7 @@
   <property name="kdenlive:docproperties.storagefolder">1720486770903</property>
   <property name="kdenlive:docproperties.uuid">{6145f7b6-8bb3-4e2d-afc5-1905046347f9}</property>
   <property name="kdenlive:docproperties.version">1.1</property>
-  <property name="kdenlive:expandedFolders">138;134;146</property>
+  <property name="kdenlive:expandedFolders">138;134</property>
   <property name="kdenlive:binZoom">4</property>
   <property name="kdenlive:extraBins">project_bin:-1:0</property>
   <property name="kdenlive:documentnotes"/>
@@ -14454,15 +14568,16 @@
   <entry in="00:00:00.000" out="00:03:44.483" producer="chain193"/>
   <entry in="00:00:00.000" out="00:00:29.983" producer="chain192"/>
   <entry in="00:00:00.000" out="00:24:07.633" producer="tractor6"/>
-  <entry in="00:00:00.000" out="00:00:49.483" producer="chain200"/>
-  <entry in="00:00:00.000" out="00:00:37.483" producer="chain201"/>
-  <entry in="00:00:00.000" out="00:01:03.483" producer="chain202"/>
-  <entry in="00:00:00.000" out="00:01:23.983" producer="chain203"/>
-  <entry in="00:00:00.000" out="00:00:20.483" producer="chain204"/>
-  <entry in="00:00:00.000" out="00:00:46.983" producer="chain205"/>
+  <entry in="00:00:00.000" out="00:00:49.483" producer="chain201"/>
+  <entry in="00:00:00.000" out="00:00:37.483" producer="chain202"/>
+  <entry in="00:00:00.000" out="00:01:03.483" producer="chain203"/>
+  <entry in="00:00:00.000" out="00:01:23.983" producer="chain204"/>
+  <entry in="00:00:00.000" out="00:00:20.483" producer="chain205"/>
+  <entry in="00:00:00.000" out="00:00:46.983" producer="chain206"/>
+  <entry in="00:00:00.000" out="00:03:38.983" producer="chain207"/>
  </playlist>
- <tractor id="tractor7" in="00:00:00.000" out="00:24:07.633">
+ <tractor id="tractor7" in="00:00:00.000" out="00:24:08.133">
   <property name="kdenlive:projectTractor">1</property>
-  <track in="00:00:00.000" out="00:24:07.633" producer="tractor6"/>
+  <track in="00:00:00.000" out="00:24:08.133" producer="tractor6"/>
  </tractor>
 </mlt>
