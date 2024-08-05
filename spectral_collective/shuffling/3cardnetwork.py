@@ -317,6 +317,27 @@ class Reversal(Scene):
             font_size=70
         ).shift(3.5*RIGHT + 2.75*DOWN)
 
+        isomorphism = MyMathTex(
+            r'\cong',
+            font_size=70
+        ).shift(2.75*DOWN)
+
+        rtttext = MyTex(
+            r"``random-to-top'' shuffle",
+            font_size = 70
+        )
+
+        rttbox = SurroundingRectangle(
+            rtttext, color=sol.BASE01, buff=MED_SMALL_BUFF, corner_radius=0.1
+        ).set_fill(sol.BASE2, opacity=1)
+
+        rttocclusion = Rectangle(
+            width=20, height=15, color=sol.BASE3
+        ).set_fill(sol.BASE3, opacity=0.80)
+
+        rtt = Group(rttocclusion, rttbox, rtttext).set_z_index(10)
+
+
         def1text = MyMathTex(
             r'\textbf{Definition 1: } \mathrm{d_{TV}}({{\cmuone}}, {{\cmutwo}}) = \frac{1}{2} \sum_{ {{\cx}} \in \Omega} |{{\cmutwo}}({{\cx}}) - {{\cmuone}}({{\cx}})|',
             font_size=40
@@ -350,13 +371,41 @@ class Reversal(Scene):
             r'\text{(invoking Definition 3 for the Total Variation distance)}'
         ).shift(3.35*DOWN)
 
+        sneakytrick = MyTex(
+            r'{\Large \emph{sneaky trick:}} \\ reversing the shuffle',
+            font_size=60
+        )
+
+        #12:54:30
+        self.play(FadeIn(sneakytrick, scale=0.75))
+
+        self.wait(2)
+
+        #12:57:30
+        self.play(FadeOut(sneakytrick, scale=1.25))
+
+        #12:58:30
         self.play(FadeIn(Group(*cardstacks.values()), scale=0.75))
         self.play(FadeIn(Group(*arrowmobjects.values())))
 
+        self.wait(4)
+
+        #13:04:30
         self.play(
             *(am[1].animate.rotate(PI, about_point=am[0].get_center()) for am in arrowmobjects.values())
         )
 
+        self.wait(4)
+
+        #13:09:30
+        self.play(FadeIn(rtt, scale=0.75))
+
+        self.wait(3)
+
+        #13:13:30
+        self.play(FadeOut(rtt, scale=0.75))
+
+        #13:14:30
         self.play(
             Group(*cardstacks.values(), *arrowmobjects.values()).animate.stretch(0.6, 0).stretch(0.7,1).shift(3.5*RIGHT + 0.5*UP),
             FadeIn(oldnetwork, shift=5*RIGHT),
@@ -364,26 +413,47 @@ class Reversal(Scene):
             FadeIn(newtext, shift=UP)
         )
 
+        self.wait(8)
+
+        #13:23:30
         self.play(
             *(Transform(c, Dot(c.get_center(), radius=0.4, color=sol.BASE02)) for c in cardstacks.values()),
             *(Transform(c, Dot(c.get_center(), radius=0.4, color=sol.BASE02)) for c in oldnetwork[12:]),
         )
 
+        self.wait(4)
+
+        #13:29:00
+        self.play(SpinInFromNothing(isomorphism, angle=2*PI))
+
+        self.wait(2)
+
+        #13:31:30
         self.play(
             FadeIn(def1text, shift=DOWN)
         )
 
+        self.wait(4)
+
+        #13:36:30
         self.play(
             FadeOut(oldtext, shift=8*LEFT),
             FadeOut(newtext, shift=8*RIGHT),
+            FadeOut(isomorphism, scale=0.75),
             FadeIn(equality, scale=0.25)
         )
 
+        self.wait(9)
+
+        #13:46:00
         self.play(
             FadeIn(grouptext, shift=DOWN),
             FadeOut(def1text, scale=0.5)
         )
 
+        self.wait(16.5)
+
+        #14:03:30
         self.play(
             Group(grouptext, oldnetwork, *cardstacks.values(), *arrowmobjects.values()).animate.shift(6*UP),
             equality.animate.shift(5.5*UP)
@@ -391,8 +461,16 @@ class Reversal(Scene):
 
         self.remove(grouptext, oldnetwork, *cardstacks.values(), *arrowmobjects.values())
 
-        self.play(FadeIn(prob, shift=LEFT))
-        self.play(FadeIn(coupling, scale=0.75))
-        self.play(FadeIn(def3, shift=UP))
+        self.wait(2)
 
-        self.wait(5)
+        #14:06:30
+        self.play(
+            LaggedStart(
+                FadeIn(prob, shift=LEFT),
+                FadeIn(coupling, scale=0.75),
+                FadeIn(def3, shift=UP)
+            ),
+            run_time=1.5
+        )
+
+        self.wait(10)
