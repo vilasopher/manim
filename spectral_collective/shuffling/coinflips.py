@@ -3,7 +3,7 @@ import solarized as sol
 from numpy.random import random, seed
 from sharedclasses import *
 
-seed(1)
+seed(2)
 
 class CoinBarChart(Group):
     def __init__(self, p, label=r'Coin', plabel=r'p', color=sol.RED):
@@ -109,11 +109,11 @@ class CoinFlipExample(Scene):
         ).next_to(dtv, DOWN).align_to(dtv, LEFT).shift(0.25*RIGHT)
 
         formula1b = MyMathTex(
-            r'{{ = \frac{1}{2} \big( }} | {{\cp}} {{-}} {{\cq}} | {{+}} | {{(1-}} {{\cp {} }} {{)}} {{- {} }} {{(1- {} }} {{\cq {} }} {{) {} }} | {{\big)}}'
+            r'{{ = \frac{1}{2} \big( }} | {{\cp}} {{-}} {{\cq}} | {{+}} | {{(1-}} {{\cp {} }} {{) {} }} {{- {} }} {{(1- {} }} {{\cq {} }} {{) {} {} }} | {{\big)}}'
         ).next_to(formula1a, DOWN).align_to(formula1a, LEFT)
 
         formula1bprime = MyMathTex(
-            r'{{ = \frac{1}{2} \big( }} {{}} {{\cp}} {{-}} {{\cq}} {{}} {{+}} {{}} {{(1- {} }} {{\cq {} }} {{) {} }} {{- {} }} {{(1-}} {{\cp {} }} {{)}} {{}} {{\big)}}'
+            r'{{ = \frac{1}{2} \big( }} {{\cp}} {{-}} {{\cq}} {{+}} {{(1- {} }} {{\cq {} }} {{) {} {} }} {{- {} }} {{(1-}} {{\cp {} }} {{) {} }} {{\big)}}'
         ).next_to(formula1a, DOWN).align_to(formula1a, LEFT)
 
         formula1c = MyMathTex(
@@ -424,10 +424,28 @@ class CoinFlipExample(Scene):
         self.wait(1.5)
 
         #8:26:00
-        self.play(TransformMatchingTex(formula1b, formula1bprime, fade_transform_mismatches=True))
+        self.play(
+            TransformMatchingTex(formula1b, formula1bprime, transform_mismatches=True)
+            #Transform(formula1b[0], formula1bprime[0]),
+            #FadeOut(formula1b[1]),
+            #Transform(formula1b[2], formula1bprime[1]),
+            #Transform(formula1b[3], formula1bprime[2]),
+            #Transform(formula1b[4], formula1bprime[3]),
+            #FadeOut(formula1b[5]),
+            #Transform(formula1b[6], formula1bprime[4]),
+            #FadeOut(formula1b[7]),
+            #Transform(formula1b[8], formula1bprime[9]),
+            #Transform(formula1b[9], formula1bprime[10]),
+            #Transform(formula1b[10], formula1bprime[11]),
+            #Transform(formula1b[11], formula1bprime[8]),
+            #Transform(formula1b[12], formula1bprime[5]),
+            #Transform(formula1b[13], formula1bprime[6]),
+            #Transform(formula1b[14], formula1bprime[7]),
+            #FadeOut(formula1b[15]),
+            #Transform(formula1b[16], formula1bprime[12])
+        )
 
         self.wait(2)
-        return
 
         #8:29:00
         self.play(FadeIn(formula1c, shift=LEFT))

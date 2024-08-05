@@ -7718,8 +7718,8 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain169" out="00:03:44.483">
-  <property name="length">13470</property>
+ <chain id="chain169" out="00:03:39.150">
+  <property name="length">13150</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/coinflips/1080p60/CoinFlipExample.mp4</property>
   <property name="mlt_service">avformat-novalidate</property>
@@ -7730,8 +7730,8 @@
   <property name="vstream">0</property>
   <property name="kdenlive:id">136</property>
   <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">10112080</property>
-  <property name="kdenlive:file_hash">3bc530a351ea623b8b4efb5aed5886eb</property>
+  <property name="kdenlive:file_size">8790903</property>
+  <property name="kdenlive:file_hash">b54337f082c0180ce931e0cc2a2788f5</property>
   <property name="kdenlive:folderid">139</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">video</property>
@@ -7745,7 +7745,7 @@
   <property name="meta.media.0.codec.colorspace">709</property>
   <property name="meta.media.0.codec.name">h264</property>
   <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
-  <property name="meta.media.0.codec.bit_rate">354668</property>
+  <property name="meta.media.0.codec.bit_rate">315234</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
   <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 libx264</property>
@@ -10096,10 +10096,10 @@
    <property name="kdenlive:id">125</property>
   </entry>
   <blank length="00:01:14.900"/>
-  <entry in="00:00:00.000" out="00:03:44.483" producer="chain169">
+  <entry in="00:00:00.000" out="00:03:39.150" producer="chain169">
    <property name="kdenlive:id">136</property>
   </entry>
-  <blank length="00:02:39.450"/>
+  <blank length="00:02:44.783"/>
   <entry in="00:00:01.950" out="00:00:10.233" producer="chain186">
    <property name="kdenlive:id">130</property>
   </entry>
@@ -10342,8 +10342,8 @@
   <property name="kdenlive:sequenceproperties.documentuuid">{6145f7b6-8bb3-4e2d-afc5-1905046347f9}</property>
   <property name="kdenlive:sequenceproperties.hasAudio">1</property>
   <property name="kdenlive:sequenceproperties.hasVideo">1</property>
-  <property name="kdenlive:sequenceproperties.position">40716</property>
-  <property name="kdenlive:sequenceproperties.scrollPos">24315</property>
+  <property name="kdenlive:sequenceproperties.position">33419</property>
+  <property name="kdenlive:sequenceproperties.scrollPos">27498</property>
   <property name="kdenlive:sequenceproperties.subtitlesList">[
     {
         "file": "/home/vilas/.local/share/kdenlive/.backup/Shuffling-1720486770903-2024-08-02-11-06.kdenlive.srt",
@@ -10358,7 +10358,7 @@
   <property name="kdenlive:sequenceproperties.videoTarget">2</property>
   <property name="kdenlive:sequenceproperties.zonein">0</property>
   <property name="kdenlive:sequenceproperties.zoneout">75</property>
-  <property name="kdenlive:sequenceproperties.zoom">8</property>
+  <property name="kdenlive:sequenceproperties.zoom">7</property>
   <property name="kdenlive:sequenceproperties.groups">[
     {
         "children": [
@@ -12864,8 +12864,8 @@
   <property name="kdenlive:file_hash">7bb544399d0efc20d61df1bc181a8436</property>
   <property name="kdenlive:monitorPosition">0</property>
  </chain>
- <chain id="chain193" out="00:03:44.483">
-  <property name="length">13470</property>
+ <chain id="chain193" out="00:03:39.150">
+  <property name="length">13150</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/coinflips/1080p60/CoinFlipExample.mp4</property>
   <property name="mlt_service">avformat</property>
@@ -12881,7 +12881,7 @@
   <property name="meta.media.0.codec.colorspace">709</property>
   <property name="meta.media.0.codec.name">h264</property>
   <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
-  <property name="meta.media.0.codec.bit_rate">354668</property>
+  <property name="meta.media.0.codec.bit_rate">315234</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
   <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 libx264</property>
@@ -12910,8 +12910,8 @@
   <property name="meta.media.progressive">1</property>
   <property name="kdenlive:id">136</property>
   <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">10112080</property>
-  <property name="kdenlive:file_hash">3bc530a351ea623b8b4efb5aed5886eb</property>
+  <property name="kdenlive:file_size">8790903</property>
+  <property name="kdenlive:file_hash">b54337f082c0180ce931e0cc2a2788f5</property>
   <property name="kdenlive:folderid">139</property>
  </chain>
  <playlist id="main_bin">
@@ -13132,7 +13132,7 @@
   <entry in="00:00:00.000" out="00:00:04.983" producer="producer40"/>
   <entry in="00:00:00.000" out="00:24:07.483" producer="tractor5"/>
   <entry in="00:00:00.000" out="00:00:29.983" producer="chain192"/>
-  <entry in="00:00:00.000" out="00:03:44.483" producer="chain193"/>
+  <entry in="00:00:00.000" out="00:03:39.150" producer="chain193"/>
  </playlist>
  <tractor id="tractor6" in="00:00:00.000" out="00:24:07.483">
   <property name="kdenlive:projectTractor">1</property>
