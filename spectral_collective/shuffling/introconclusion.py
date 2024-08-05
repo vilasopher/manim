@@ -142,7 +142,7 @@ class Conclusion(Scene):
         ).shift(1.5*DOWN).align_to(theirs, LEFT)
 
         ourproof = MyMathTex(
-            r'\text{\emph{Proof:} you just watched it, congratulations!}',
+            r'\text{\emph{Proof:} you just watched it. Congratulations!}',
             font_size=65
         ).next_to(ours, DOWN).shift(0.25*DOWN).align_to(theirs, LEFT)
 
