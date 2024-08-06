@@ -2829,161 +2829,6 @@
   <property name="kdenlive:file_hash">a8b1f2939768fda222992fe73596bcd7</property>
   <property name="kdenlive:monitorPosition">0</property>
  </chain>
- <chain id="chain226" out="00:00:04.983">
-  <property name="length">300</property>
-  <property name="eof">pause</property>
-  <property name="resource">media/videos/introconclusion/1080p60/Definition1Transparency.mov</property>
-  <property name="mlt_service">avformat-novalidate</property>
-  <property name="meta.media.nb_streams">1</property>
-  <property name="meta.media.0.stream.type">video</property>
-  <property name="meta.media.0.stream.frame_rate">60</property>
-  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
-  <property name="meta.media.0.codec.width">1920</property>
-  <property name="meta.media.0.codec.height">1080</property>
-  <property name="meta.media.0.codec.rotate">0</property>
-  <property name="meta.media.0.codec.pix_fmt">argb</property>
-  <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
-  <property name="meta.media.0.codec.colorspace">709</property>
-  <property name="meta.media.0.codec.name">qtrle</property>
-  <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
-  <property name="meta.media.0.codec.bit_rate">19228460</property>
-  <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
-  <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
-  <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
-  <property name="meta.attr.major_brand.markup">qt  </property>
-  <property name="meta.attr.minor_version.markup">512</property>
-  <property name="meta.attr.compatible_brands.markup">qt  </property>
-  <property name="meta.attr.encoder.markup">Lavf61.1.100</property>
-  <property name="meta.attr.comment.markup">Rendered with Manim Community v0.18.1</property>
-  <property name="seekable">1</property>
-  <property name="meta.media.sample_aspect_num">1</property>
-  <property name="meta.media.sample_aspect_den">1</property>
-  <property name="format">2</property>
-  <property name="audio_index">-1</property>
-  <property name="video_index">0</property>
-  <property name="vstream">0</property>
-  <property name="meta.media.frame_rate_num">60</property>
-  <property name="meta.media.frame_rate_den">1</property>
-  <property name="meta.media.colorspace">709</property>
-  <property name="meta.media.color_trc">2</property>
-  <property name="meta.media.has_b_frames">0</property>
-  <property name="meta.media.width">1920</property>
-  <property name="meta.media.height">1080</property>
-  <property name="meta.media.aspect_ratio">1</property>
-  <property name="meta.media.color_range">mpeg</property>
-  <property name="meta.media.top_field_first">0</property>
-  <property name="meta.media.progressive">1</property>
-  <property name="kdenlive:id">84</property>
-  <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">12020095</property>
-  <property name="kdenlive:file_hash">e7eb637675a802d562c348b9ca701127</property>
-  <property name="kdenlive:folderid">140</property>
-  <property name="kdenlive:monitorPosition">0</property>
-  <property name="mute_on_pause">0</property>
- </chain>
- <chain id="chain228" out="00:00:13.483">
-  <property name="length">810</property>
-  <property name="eof">pause</property>
-  <property name="resource">media/videos/introconclusion/1080p60/WhatIsShuffling.mov</property>
-  <property name="mlt_service">avformat-novalidate</property>
-  <property name="meta.media.nb_streams">1</property>
-  <property name="meta.media.0.stream.type">video</property>
-  <property name="meta.media.0.stream.frame_rate">60</property>
-  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
-  <property name="meta.media.0.codec.width">1920</property>
-  <property name="meta.media.0.codec.height">1080</property>
-  <property name="meta.media.0.codec.rotate">0</property>
-  <property name="meta.media.0.codec.pix_fmt">argb</property>
-  <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
-  <property name="meta.media.0.codec.colorspace">709</property>
-  <property name="meta.media.0.codec.name">qtrle</property>
-  <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
-  <property name="meta.media.0.codec.bit_rate">19758725</property>
-  <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
-  <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
-  <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
-  <property name="meta.attr.major_brand.markup">qt  </property>
-  <property name="meta.attr.minor_version.markup">512</property>
-  <property name="meta.attr.compatible_brands.markup">qt  </property>
-  <property name="meta.attr.encoder.markup">Lavf61.1.100</property>
-  <property name="meta.attr.comment.markup">Rendered with Manim Community v0.18.1</property>
-  <property name="seekable">1</property>
-  <property name="meta.media.sample_aspect_num">1</property>
-  <property name="meta.media.sample_aspect_den">1</property>
-  <property name="format">2</property>
-  <property name="audio_index">-1</property>
-  <property name="video_index">0</property>
-  <property name="vstream">0</property>
-  <property name="meta.media.frame_rate_num">60</property>
-  <property name="meta.media.frame_rate_den">1</property>
-  <property name="meta.media.colorspace">709</property>
-  <property name="meta.media.color_trc">2</property>
-  <property name="meta.media.has_b_frames">0</property>
-  <property name="meta.media.width">1920</property>
-  <property name="meta.media.height">1080</property>
-  <property name="meta.media.aspect_ratio">1</property>
-  <property name="meta.media.color_range">mpeg</property>
-  <property name="meta.media.top_field_first">0</property>
-  <property name="meta.media.progressive">1</property>
-  <property name="kdenlive:id">85</property>
-  <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">33347613</property>
-  <property name="kdenlive:file_hash">6769f11fd74136b1e47b3319c55acc2d</property>
-  <property name="kdenlive:folderid">140</property>
-  <property name="mute_on_pause">0</property>
- </chain>
- <chain id="chain227" out="00:00:23.983">
-  <property name="length">1440</property>
-  <property name="eof">pause</property>
-  <property name="resource">media/videos/introconclusion/1080p60/TopToRandom.mov</property>
-  <property name="mlt_service">avformat-novalidate</property>
-  <property name="meta.media.nb_streams">1</property>
-  <property name="meta.media.0.stream.type">video</property>
-  <property name="meta.media.0.stream.frame_rate">60</property>
-  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
-  <property name="meta.media.0.codec.width">1920</property>
-  <property name="meta.media.0.codec.height">1080</property>
-  <property name="meta.media.0.codec.rotate">0</property>
-  <property name="meta.media.0.codec.pix_fmt">argb</property>
-  <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
-  <property name="meta.media.0.codec.colorspace">709</property>
-  <property name="meta.media.0.codec.name">qtrle</property>
-  <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
-  <property name="meta.media.0.codec.bit_rate">8880391</property>
-  <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
-  <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
-  <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
-  <property name="meta.attr.major_brand.markup">qt  </property>
-  <property name="meta.attr.minor_version.markup">512</property>
-  <property name="meta.attr.compatible_brands.markup">qt  </property>
-  <property name="meta.attr.encoder.markup">Lavf61.1.100</property>
-  <property name="meta.attr.comment.markup">Rendered with Manim Community v0.18.1</property>
-  <property name="seekable">1</property>
-  <property name="meta.media.sample_aspect_num">1</property>
-  <property name="meta.media.sample_aspect_den">1</property>
-  <property name="format">2</property>
-  <property name="audio_index">-1</property>
-  <property name="video_index">0</property>
-  <property name="vstream">0</property>
-  <property name="meta.media.frame_rate_num">60</property>
-  <property name="meta.media.frame_rate_den">1</property>
-  <property name="meta.media.colorspace">709</property>
-  <property name="meta.media.color_trc">2</property>
-  <property name="meta.media.has_b_frames">0</property>
-  <property name="meta.media.width">1920</property>
-  <property name="meta.media.height">1080</property>
-  <property name="meta.media.aspect_ratio">1</property>
-  <property name="meta.media.color_range">mpeg</property>
-  <property name="meta.media.top_field_first">0</property>
-  <property name="meta.media.progressive">1</property>
-  <property name="kdenlive:id">86</property>
-  <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">26648548</property>
-  <property name="kdenlive:file_hash">c4d58a4ebfa3b0d7044b8a92fd1ad418</property>
-  <property name="kdenlive:folderid">140</property>
-  <property name="kdenlive:monitorPosition">0</property>
-  <property name="mute_on_pause">0</property>
- </chain>
  <chain id="chain229" out="00:01:11.017">
   <property name="length">4262</property>
   <property name="eof">pause</property>
@@ -3010,58 +2855,6 @@
   <property name="kdenlive:file_hash">dfc1cd405e73fa6dbc28fce7e69b7c4a</property>
   <property name="kdenlive:audio_max0">245</property>
   <property name="kdenlive:monitorPosition">99</property>
- </chain>
- <chain id="chain236" out="00:01:13.983">
-  <property name="length">4440</property>
-  <property name="eof">pause</property>
-  <property name="resource">media/videos/rifflemath/1080p60/ModelTransparencies.mov</property>
-  <property name="mlt_service">avformat-novalidate</property>
-  <property name="meta.media.nb_streams">1</property>
-  <property name="meta.media.0.stream.type">video</property>
-  <property name="meta.media.0.stream.frame_rate">60</property>
-  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
-  <property name="meta.media.0.codec.width">1920</property>
-  <property name="meta.media.0.codec.height">1080</property>
-  <property name="meta.media.0.codec.rotate">0</property>
-  <property name="meta.media.0.codec.pix_fmt">argb</property>
-  <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
-  <property name="meta.media.0.codec.colorspace">709</property>
-  <property name="meta.media.0.codec.name">qtrle</property>
-  <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
-  <property name="meta.media.0.codec.bit_rate">12860857</property>
-  <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
-  <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
-  <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
-  <property name="meta.attr.major_brand.markup">qt  </property>
-  <property name="meta.attr.minor_version.markup">512</property>
-  <property name="meta.attr.compatible_brands.markup">qt  </property>
-  <property name="meta.attr.encoder.markup">Lavf61.1.100</property>
-  <property name="meta.attr.comment.markup">Rendered with Manim Community v0.18.1</property>
-  <property name="seekable">1</property>
-  <property name="meta.media.sample_aspect_num">1</property>
-  <property name="meta.media.sample_aspect_den">1</property>
-  <property name="format">2</property>
-  <property name="audio_index">-1</property>
-  <property name="video_index">0</property>
-  <property name="vstream">0</property>
-  <property name="meta.media.frame_rate_num">60</property>
-  <property name="meta.media.frame_rate_den">1</property>
-  <property name="meta.media.colorspace">709</property>
-  <property name="meta.media.color_trc">2</property>
-  <property name="meta.media.has_b_frames">0</property>
-  <property name="meta.media.width">1920</property>
-  <property name="meta.media.height">1080</property>
-  <property name="meta.media.aspect_ratio">1</property>
-  <property name="meta.media.color_range">mpeg</property>
-  <property name="meta.media.top_field_first">0</property>
-  <property name="meta.media.progressive">1</property>
-  <property name="kdenlive:id">88</property>
-  <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">118984051</property>
-  <property name="kdenlive:file_hash">0e81c9520d55f290269d653a73c053fc</property>
-  <property name="kdenlive:folderid">154</property>
-  <property name="kdenlive:monitorPosition">0</property>
-  <property name="mute_on_pause">0</property>
  </chain>
  <chain id="chain237" out="00:00:31.650">
   <property name="length">1900</property>
@@ -11124,10 +10917,10 @@
   <entry in="00:00:00.883" out="00:00:08.533" producer="producer25">
    <property name="kdenlive:id">58</property>
   </entry>
-  <entry in="00:00:06.400" out="00:00:36.783" producer="producer27">
+  <entry in="00:00:06.400" out="00:00:36.317" producer="producer27">
    <property name="kdenlive:id">60</property>
   </entry>
-  <blank length="00:00:00.333"/>
+  <blank length="00:00:00.800"/>
   <entry in="00:00:21.967" out="00:00:26.400" producer="chain201">
    <property name="kdenlive:id">59</property>
   </entry>
@@ -11232,7 +11025,7 @@
   <property name="kdenlive:collapsed">0</property>
   <property name="kdenlive:thumbs_format"/>
   <property name="kdenlive:audio_rec"/>
-  <property name="kdenlive:locked_track">1</property>
+  <property name="kdenlive:locked_track"/>
   <track hide="audio" producer="playlist6"/>
   <track hide="audio" producer="playlist7"/>
  </tractor>
@@ -11290,7 +11083,7 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain220" out="00:00:13.483">
+ <chain id="chain47" out="00:00:13.483">
   <property name="length">810</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/introconclusion/1080p60/WhatIsShuffling.mov</property>
@@ -11302,8 +11095,8 @@
   <property name="vstream">0</property>
   <property name="kdenlive:id">85</property>
   <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">33347613</property>
-  <property name="kdenlive:file_hash">6769f11fd74136b1e47b3319c55acc2d</property>
+  <property name="kdenlive:file_size">33469563</property>
+  <property name="kdenlive:file_hash">17878a0822cfef65a6aa40a948ff1fe6</property>
   <property name="kdenlive:folderid">140</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">video</property>
@@ -11317,7 +11110,7 @@
   <property name="meta.media.0.codec.colorspace">709</property>
   <property name="meta.media.0.codec.name">qtrle</property>
   <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
-  <property name="meta.media.0.codec.bit_rate">19758725</property>
+  <property name="meta.media.0.codec.bit_rate">19830992</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
   <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
@@ -11344,7 +11137,7 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain221" out="00:00:23.983">
+ <chain id="chain48" out="00:00:23.983">
   <property name="length">1440</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/introconclusion/1080p60/TopToRandom.mov</property>
@@ -11356,10 +11149,9 @@
   <property name="vstream">0</property>
   <property name="kdenlive:id">86</property>
   <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">26648548</property>
-  <property name="kdenlive:file_hash">c4d58a4ebfa3b0d7044b8a92fd1ad418</property>
+  <property name="kdenlive:file_size">26701520</property>
+  <property name="kdenlive:file_hash">ffd0406392966c4c78fed0453178864d</property>
   <property name="kdenlive:folderid">140</property>
-  <property name="kdenlive:monitorPosition">0</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">video</property>
   <property name="meta.media.0.stream.frame_rate">60</property>
@@ -11372,7 +11164,7 @@
   <property name="meta.media.0.codec.colorspace">709</property>
   <property name="meta.media.0.codec.name">qtrle</property>
   <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
-  <property name="meta.media.0.codec.bit_rate">8880391</property>
+  <property name="meta.media.0.codec.bit_rate">8898044</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
   <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
@@ -11454,7 +11246,7 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain47" out="00:00:24.983">
+ <chain id="chain54" out="00:00:24.983">
   <property name="length">1500</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/ttrmath/1080p60/DemoTransparencies.mov</property>
@@ -11466,8 +11258,8 @@
   <property name="vstream">0</property>
   <property name="kdenlive:id">89</property>
   <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">21441137</property>
-  <property name="kdenlive:file_hash">cd20400371da799e86965c9ab107bf2a</property>
+  <property name="kdenlive:file_size">21450178</property>
+  <property name="kdenlive:file_hash">06038fd5295a47779187d971ee77b5fb</property>
   <property name="kdenlive:folderid">151</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">video</property>
@@ -11481,7 +11273,7 @@
   <property name="meta.media.0.codec.colorspace">709</property>
   <property name="meta.media.0.codec.name">qtrle</property>
   <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
-  <property name="meta.media.0.codec.bit_rate">6858721</property>
+  <property name="meta.media.0.codec.bit_rate">6861615</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
   <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
@@ -11508,7 +11300,7 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain48" out="00:00:34.983">
+ <chain id="chain57" out="00:00:34.983">
   <property name="length">2100</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/ttrmath/1080p60/CouplingTransparencies.mov</property>
@@ -11520,8 +11312,8 @@
   <property name="vstream">0</property>
   <property name="kdenlive:id">90</property>
   <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">37619183</property>
-  <property name="kdenlive:file_hash">0de48bd3d5eb1d892256648a17fbfa9c</property>
+  <property name="kdenlive:file_size">37590898</property>
+  <property name="kdenlive:file_hash">1eed793f8d5668bde88ff5340bbb0718</property>
   <property name="kdenlive:folderid">151</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">video</property>
@@ -11535,7 +11327,7 @@
   <property name="meta.media.0.codec.colorspace">709</property>
   <property name="meta.media.0.codec.name">qtrle</property>
   <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
-  <property name="meta.media.0.codec.bit_rate">8596275</property>
+  <property name="meta.media.0.codec.bit_rate">8589810</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
   <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
@@ -11562,7 +11354,7 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain54" out="00:00:25.983">
+ <chain id="chain59" out="00:00:25.983">
   <property name="length">1560</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/ttrmath/1080p60/CheckMarkTransparencies.mov</property>
@@ -11574,10 +11366,9 @@
   <property name="vstream">0</property>
   <property name="kdenlive:id">92</property>
   <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">21312738</property>
-  <property name="kdenlive:file_hash">f310f3b38d827bbf0ca4f41dbb9bb6bd</property>
+  <property name="kdenlive:file_size">21313900</property>
+  <property name="kdenlive:file_hash">b687da65ceb4c136480bfb228db35182</property>
   <property name="kdenlive:folderid">151</property>
-  <property name="kdenlive:monitorPosition">0</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">video</property>
   <property name="meta.media.0.stream.frame_rate">60</property>
@@ -11590,7 +11381,7 @@
   <property name="meta.media.0.codec.colorspace">709</property>
   <property name="meta.media.0.codec.name">qtrle</property>
   <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
-  <property name="meta.media.0.codec.bit_rate">6555346</property>
+  <property name="meta.media.0.codec.bit_rate">6555703</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
   <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
@@ -11671,22 +11462,38 @@
   <property name="meta.media.top_field_first">0</property>
   <property name="meta.media.progressive">1</property>
  </producer>
- <chain id="chain232" out="00:00:04.983">
-  <property name="length">300</property>
+ <producer id="producer56" in="00:00:00.000" out="00:00:04.983">
+  <property name="length">00:00:05.000</property>
   <property name="eof">pause</property>
-  <property name="resource">media/videos/introconclusion/1080p60/Definition1Transparency.mov</property>
+  <property name="resource">0x586e75ff</property>
+  <property name="aspect_ratio">1</property>
+  <property name="mlt_service">color</property>
+  <property name="kdenlive:clipname">gray</property>
+  <property name="kdenlive:duration">00:00:05:00</property>
+  <property name="xml">was here</property>
+  <property name="seekable">1</property>
+  <property name="kdenlive:folderid">134</property>
+  <property name="kdenlive:id">94</property>
+  <property name="mlt_image_format">rgb</property>
+  <property name="kdenlive:clip_type">2</property>
+  <property name="kdenlive:file_hash">e8e008d9e46ce93fb148f33359370c8d</property>
+  <property name="kdenlive:monitorPosition">0</property>
+ </producer>
+ <chain id="chain60" out="00:01:16.483">
+  <property name="length">4590</property>
+  <property name="eof">pause</property>
+  <property name="resource">media/videos/rifflemath/1080p60/ModelTransparencies.mov</property>
   <property name="mlt_service">avformat-novalidate</property>
   <property name="seekable">1</property>
   <property name="format">2</property>
   <property name="audio_index">-1</property>
   <property name="video_index">0</property>
   <property name="vstream">0</property>
-  <property name="kdenlive:id">84</property>
+  <property name="kdenlive:id">88</property>
   <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">12020095</property>
-  <property name="kdenlive:file_hash">e7eb637675a802d562c348b9ca701127</property>
-  <property name="kdenlive:folderid">140</property>
-  <property name="kdenlive:monitorPosition">0</property>
+  <property name="kdenlive:file_size">122951480</property>
+  <property name="kdenlive:file_hash">634c4871884f4acbbb6ba3fb94282dbb</property>
+  <property name="kdenlive:folderid">154</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">video</property>
   <property name="meta.media.0.stream.frame_rate">60</property>
@@ -11699,7 +11506,170 @@
   <property name="meta.media.0.codec.colorspace">709</property>
   <property name="meta.media.0.codec.name">qtrle</property>
   <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
-  <property name="meta.media.0.codec.bit_rate">19228460</property>
+  <property name="meta.media.0.codec.bit_rate">12855391</property>
+  <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
+  <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
+  <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
+  <property name="meta.attr.major_brand.markup">qt  </property>
+  <property name="meta.attr.minor_version.markup">512</property>
+  <property name="meta.attr.compatible_brands.markup">qt  </property>
+  <property name="meta.attr.encoder.markup">Lavf61.1.100</property>
+  <property name="meta.attr.comment.markup">Rendered with Manim Community v0.18.1</property>
+  <property name="meta.media.sample_aspect_num">1</property>
+  <property name="meta.media.sample_aspect_den">1</property>
+  <property name="meta.media.frame_rate_num">60</property>
+  <property name="meta.media.frame_rate_den">1</property>
+  <property name="meta.media.colorspace">709</property>
+  <property name="meta.media.color_trc">2</property>
+  <property name="meta.media.has_b_frames">0</property>
+  <property name="meta.media.width">1920</property>
+  <property name="meta.media.height">1080</property>
+  <property name="meta.media.aspect_ratio">1</property>
+  <property name="meta.media.color_range">mpeg</property>
+  <property name="xml">was here</property>
+  <property name="mute_on_pause">0</property>
+  <property name="meta.media.top_field_first">0</property>
+  <property name="meta.media.progressive">1</property>
+  <property name="set.test_audio">1</property>
+  <property name="set.test_image">0</property>
+ </chain>
+ <chain id="chain61" out="00:00:33.983">
+  <property name="length">2040</property>
+  <property name="eof">pause</property>
+  <property name="resource">media/videos/rifflemath/1080p60/CouplingTransparencies.mov</property>
+  <property name="mlt_service">avformat-novalidate</property>
+  <property name="seekable">1</property>
+  <property name="format">2</property>
+  <property name="audio_index">-1</property>
+  <property name="video_index">0</property>
+  <property name="vstream">0</property>
+  <property name="kdenlive:id">93</property>
+  <property name="kdenlive:clip_type">2</property>
+  <property name="kdenlive:file_size">37860787</property>
+  <property name="kdenlive:file_hash">e326ee3d8bd28c201d970234d3b96921</property>
+  <property name="kdenlive:folderid">154</property>
+  <property name="meta.media.nb_streams">1</property>
+  <property name="meta.media.0.stream.type">video</property>
+  <property name="meta.media.0.stream.frame_rate">60</property>
+  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.width">1920</property>
+  <property name="meta.media.0.codec.height">1080</property>
+  <property name="meta.media.0.codec.rotate">0</property>
+  <property name="meta.media.0.codec.pix_fmt">argb</property>
+  <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.colorspace">709</property>
+  <property name="meta.media.0.codec.name">qtrle</property>
+  <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
+  <property name="meta.media.0.codec.bit_rate">8906050</property>
+  <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
+  <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
+  <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
+  <property name="meta.attr.major_brand.markup">qt  </property>
+  <property name="meta.attr.minor_version.markup">512</property>
+  <property name="meta.attr.compatible_brands.markup">qt  </property>
+  <property name="meta.attr.encoder.markup">Lavf61.1.100</property>
+  <property name="meta.attr.comment.markup">Rendered with Manim Community v0.18.1</property>
+  <property name="meta.media.sample_aspect_num">1</property>
+  <property name="meta.media.sample_aspect_den">1</property>
+  <property name="meta.media.frame_rate_num">60</property>
+  <property name="meta.media.frame_rate_den">1</property>
+  <property name="meta.media.colorspace">709</property>
+  <property name="meta.media.color_trc">2</property>
+  <property name="meta.media.has_b_frames">0</property>
+  <property name="meta.media.width">1920</property>
+  <property name="meta.media.height">1080</property>
+  <property name="meta.media.aspect_ratio">1</property>
+  <property name="meta.media.color_range">mpeg</property>
+  <property name="xml">was here</property>
+  <property name="mute_on_pause">0</property>
+  <property name="meta.media.top_field_first">0</property>
+  <property name="meta.media.progressive">1</property>
+  <property name="set.test_audio">1</property>
+  <property name="set.test_image">0</property>
+ </chain>
+ <chain id="chain63" out="00:00:00.983">
+  <property name="length">60</property>
+  <property name="eof">pause</property>
+  <property name="resource">media/videos/rifflemath/1080p60/NumberTransparencies.mov</property>
+  <property name="mlt_service">avformat-novalidate</property>
+  <property name="seekable">1</property>
+  <property name="format">2</property>
+  <property name="audio_index">-1</property>
+  <property name="video_index">0</property>
+  <property name="vstream">0</property>
+  <property name="kdenlive:id">95</property>
+  <property name="kdenlive:clip_type">2</property>
+  <property name="kdenlive:file_size">832824</property>
+  <property name="kdenlive:file_hash">2bf40149aebf89b0b14da212ccf1e394</property>
+  <property name="kdenlive:folderid">154</property>
+  <property name="kdenlive:monitorPosition">27</property>
+  <property name="meta.media.nb_streams">1</property>
+  <property name="meta.media.0.stream.type">video</property>
+  <property name="meta.media.0.stream.frame_rate">60</property>
+  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.width">1920</property>
+  <property name="meta.media.0.codec.height">1080</property>
+  <property name="meta.media.0.codec.rotate">0</property>
+  <property name="meta.media.0.codec.pix_fmt">argb</property>
+  <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.colorspace">709</property>
+  <property name="meta.media.0.codec.name">qtrle</property>
+  <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
+  <property name="meta.media.0.codec.bit_rate">6653800</property>
+  <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
+  <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
+  <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
+  <property name="meta.attr.major_brand.markup">qt  </property>
+  <property name="meta.attr.minor_version.markup">512</property>
+  <property name="meta.attr.compatible_brands.markup">qt  </property>
+  <property name="meta.attr.encoder.markup">Lavf61.1.100</property>
+  <property name="meta.attr.comment.markup">Rendered with Manim Community v0.18.1</property>
+  <property name="meta.media.sample_aspect_num">1</property>
+  <property name="meta.media.sample_aspect_den">1</property>
+  <property name="meta.media.frame_rate_num">60</property>
+  <property name="meta.media.frame_rate_den">1</property>
+  <property name="meta.media.colorspace">709</property>
+  <property name="meta.media.color_trc">2</property>
+  <property name="meta.media.has_b_frames">0</property>
+  <property name="meta.media.width">1920</property>
+  <property name="meta.media.height">1080</property>
+  <property name="meta.media.aspect_ratio">1</property>
+  <property name="meta.media.color_range">mpeg</property>
+  <property name="xml">was here</property>
+  <property name="mute_on_pause">0</property>
+  <property name="meta.media.top_field_first">0</property>
+  <property name="meta.media.progressive">1</property>
+  <property name="set.test_audio">1</property>
+  <property name="set.test_image">0</property>
+ </chain>
+ <chain id="chain64" out="00:00:04.983">
+  <property name="length">300</property>
+  <property name="eof">pause</property>
+  <property name="resource">media/videos/introconclusion/1080p60/Definition1Transparency.mov</property>
+  <property name="mlt_service">avformat-novalidate</property>
+  <property name="seekable">1</property>
+  <property name="format">2</property>
+  <property name="audio_index">-1</property>
+  <property name="video_index">0</property>
+  <property name="vstream">0</property>
+  <property name="kdenlive:id">84</property>
+  <property name="kdenlive:clip_type">2</property>
+  <property name="kdenlive:file_size">12090701</property>
+  <property name="kdenlive:file_hash">0bf4fcd8f454b44b52188b2064c6a6e2</property>
+  <property name="kdenlive:folderid">140</property>
+  <property name="meta.media.nb_streams">1</property>
+  <property name="meta.media.0.stream.type">video</property>
+  <property name="meta.media.0.stream.frame_rate">60</property>
+  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.width">1920</property>
+  <property name="meta.media.0.codec.height">1080</property>
+  <property name="meta.media.0.codec.rotate">0</property>
+  <property name="meta.media.0.codec.pix_fmt">argb</property>
+  <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.colorspace">709</property>
+  <property name="meta.media.0.codec.name">qtrle</property>
+  <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
+  <property name="meta.media.0.codec.bit_rate">19341430</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
   <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
@@ -11736,14 +11706,14 @@
    <property name="kdenlive:id">66</property>
   </entry>
   <blank length="00:00:00.367"/>
-  <entry in="00:00:00.000" out="00:00:13.483" producer="chain220">
+  <entry in="00:00:00.000" out="00:00:13.483" producer="chain47">
    <property name="kdenlive:id">85</property>
   </entry>
   <entry in="00:00:00.000" out="00:00:00.850" producer="producer39">
    <property name="kdenlive:id">65</property>
   </entry>
   <blank length="00:00:03.633"/>
-  <entry in="00:00:00.000" out="00:00:23.983" producer="chain221">
+  <entry in="00:00:00.000" out="00:00:23.983" producer="chain48">
    <property name="kdenlive:id">86</property>
   </entry>
   <blank length="00:00:03.500"/>
@@ -11791,23 +11761,23 @@
    <property name="kdenlive:id">66</property>
   </entry>
   <blank length="00:00:01.433"/>
-  <entry in="00:00:00.000" out="00:00:20.950" producer="chain47">
+  <entry in="00:00:00.000" out="00:00:20.950" producer="chain54">
    <property name="kdenlive:id">89</property>
   </entry>
   <blank length="00:00:00.033"/>
-  <entry in="00:00:00.000" out="00:00:32.167" producer="chain48">
+  <entry in="00:00:00.000" out="00:00:32.167" producer="chain57">
    <property name="kdenlive:id">90</property>
   </entry>
-  <entry in="00:00:00.000" out="00:00:00.300" producer="chain54">
+  <entry in="00:00:00.000" out="00:00:00.300" producer="chain59">
    <property name="kdenlive:id">92</property>
   </entry>
-  <entry in="00:00:00.000" out="00:00:00.983" producer="chain54">
+  <entry in="00:00:00.000" out="00:00:00.983" producer="chain59">
    <property name="kdenlive:id">92</property>
   </entry>
-  <entry in="00:00:00.000" out="00:00:00.983" producer="chain54">
+  <entry in="00:00:00.000" out="00:00:00.983" producer="chain59">
    <property name="kdenlive:id">92</property>
   </entry>
-  <entry in="00:00:01.000" out="00:00:24.383" producer="chain54">
+  <entry in="00:00:01.000" out="00:00:24.383" producer="chain59">
    <property name="kdenlive:id">92</property>
   </entry>
   <blank length="00:00:46.600"/>
@@ -11831,22 +11801,30 @@
    <property name="kdenlive:id">65</property>
   </entry>
   <blank length="00:00:09.017"/>
-  <entry in="00:00:00.000" out="00:00:00.917" producer="producer39">
-   <property name="kdenlive:id">65</property>
+  <entry in="00:00:00.000" out="00:00:00.917" producer="producer56">
+   <property name="kdenlive:id">94</property>
   </entry>
-  <blank length="00:01:04.317"/>
-  <entry in="00:00:00.000" out="00:00:00.950" producer="producer39">
-   <property name="kdenlive:id">65</property>
+  <blank length="00:00:59.250"/>
+  <entry in="00:01:09.167" out="00:01:14.717" producer="chain60">
+   <property name="kdenlive:id">88</property>
   </entry>
-  <blank length="00:00:29.467"/>
-  <entry in="00:00:00.000" out="00:00:01.250" producer="producer39">
-   <property name="kdenlive:id">65</property>
+  <entry in="00:00:00.000" out="00:00:00.750" producer="chain61">
+   <property name="kdenlive:id">93</property>
   </entry>
-  <blank length="00:01:06.717"/>
-  <entry in="00:00:00.000" out="00:00:00.833" producer="producer40">
-   <property name="kdenlive:id">66</property>
+  <entry in="00:00:00.000" out="00:00:00.983" producer="chain61">
+   <property name="kdenlive:id">93</property>
   </entry>
-  <blank length="00:00:30.183"/>
+  <entry in="00:00:00.000" out="00:00:00.983" producer="chain61">
+   <property name="kdenlive:id">93</property>
+  </entry>
+  <entry in="00:00:01.000" out="00:00:28.150" producer="chain61">
+   <property name="kdenlive:id">93</property>
+  </entry>
+  <blank length="00:00:27.133"/>
+  <entry in="00:00:00.000" out="00:00:00.983" producer="chain63">
+   <property name="kdenlive:id">95</property>
+  </entry>
+  <blank length="00:01:10.883"/>
   <entry in="00:00:00.000" out="00:00:00.800" producer="producer40">
    <property name="kdenlive:id">66</property>
   </entry>
@@ -11855,7 +11833,7 @@
    <property name="kdenlive:id">66</property>
   </entry>
   <blank length="00:00:12.217"/>
-  <entry in="00:00:00.000" out="00:00:04.983" producer="chain232">
+  <entry in="00:00:00.000" out="00:00:04.983" producer="chain64">
    <property name="kdenlive:id">84</property>
   </entry>
   <blank length="00:00:17.450"/>
@@ -11874,8 +11852,8 @@
   <track hide="audio" producer="playlist8"/>
   <track hide="audio" producer="playlist9"/>
  </tractor>
- <chain id="chain233" out="00:01:13.983">
-  <property name="length">4440</property>
+ <chain id="chain66" out="00:01:16.483">
+  <property name="length">4590</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/rifflemath/1080p60/ModelTransparencies.mov</property>
   <property name="mlt_service">avformat-novalidate</property>
@@ -11886,10 +11864,9 @@
   <property name="vstream">0</property>
   <property name="kdenlive:id">88</property>
   <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">118984051</property>
-  <property name="kdenlive:file_hash">0e81c9520d55f290269d653a73c053fc</property>
+  <property name="kdenlive:file_size">122951480</property>
+  <property name="kdenlive:file_hash">634c4871884f4acbbb6ba3fb94282dbb</property>
   <property name="kdenlive:folderid">154</property>
-  <property name="kdenlive:monitorPosition">0</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">video</property>
   <property name="meta.media.0.stream.frame_rate">60</property>
@@ -11902,7 +11879,7 @@
   <property name="meta.media.0.codec.colorspace">709</property>
   <property name="meta.media.0.codec.name">qtrle</property>
   <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
-  <property name="meta.media.0.codec.bit_rate">12860857</property>
+  <property name="meta.media.0.codec.bit_rate">12855391</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
   <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
@@ -11983,16 +11960,63 @@
     <property name="level">1</property>
     <property name="mlt_service">brightness</property>
     <property name="kdenlive_id">fade_from_black</property>
-    <property name="alpha">0=0;-1=1</property>
+    <property name="alpha">00:00:00.000=0;00:00:00.833=1</property>
    </filter>
   </entry>
   <blank length="00:02:42.000"/>
-  <entry in="00:00:00.000" out="00:01:13.983" producer="chain233">
+  <entry in="00:00:00.000" out="00:01:09.150" producer="chain66">
    <property name="kdenlive:id">88</property>
+  </entry>
+  <blank length="00:00:05.067"/>
+  <entry in="00:00:00.000" out="00:00:00.950" producer="producer39">
+   <property name="kdenlive:id">65</property>
+   <filter id="filter158" out="00:00:00.417">
+    <property name="start">1</property>
+    <property name="level">1</property>
+    <property name="mlt_service">brightness</property>
+    <property name="kdenlive_id">fade_from_black</property>
+    <property name="alpha">00:00:00.000=0;00:00:00.417=1</property>
+   </filter>
+   <filter id="filter159" in="00:00:00.500" out="00:00:00.950">
+    <property name="start">1</property>
+    <property name="level">1</property>
+    <property name="mlt_service">brightness</property>
+    <property name="kdenlive_id">fade_to_black</property>
+    <property name="alpha">00:00:00.000=1;00:00:00.450=0</property>
+   </filter>
+  </entry>
+  <blank length="00:00:29.000"/>
+  <entry in="00:00:00.000" out="00:00:01.717" producer="producer39">
+   <property name="kdenlive:id">65</property>
+   <filter id="filter160" out="00:00:00.400">
+    <property name="start">1</property>
+    <property name="level">1</property>
+    <property name="mlt_service">brightness</property>
+    <property name="kdenlive_id">fade_from_black</property>
+    <property name="alpha">00:00:00.000=0;00:00:00.400=1</property>
+   </filter>
+   <filter id="filter161" in="00:00:01.333" out="00:00:01.717">
+    <property name="start">1</property>
+    <property name="level">1</property>
+    <property name="mlt_service">brightness</property>
+    <property name="kdenlive_id">fade_to_black</property>
+    <property name="alpha">00:00:00.000=1;00:00:00.383=0</property>
+   </filter>
+  </entry>
+  <blank length="00:01:06.717"/>
+  <entry in="00:00:00.000" out="00:00:00.833" producer="producer40">
+   <property name="kdenlive:id">66</property>
+   <filter id="filter162" out="00:00:00.683">
+    <property name="start">1</property>
+    <property name="level">1</property>
+    <property name="mlt_service">brightness</property>
+    <property name="kdenlive_id">fade_from_black</property>
+    <property name="alpha">0=0;-1=1</property>
+   </filter>
   </entry>
  </playlist>
  <playlist id="playlist11"/>
- <tractor id="tractor5" in="00:00:00.000" out="00:20:03.483">
+ <tractor id="tractor5" in="00:00:00.000" out="00:21:42.983">
   <property name="kdenlive:trackheight">41</property>
   <property name="kdenlive:timeline_active">1</property>
   <property name="kdenlive:collapsed">0</property>
@@ -12019,8 +12043,8 @@
   <property name="kdenlive:sequenceproperties.documentuuid">{6145f7b6-8bb3-4e2d-afc5-1905046347f9}</property>
   <property name="kdenlive:sequenceproperties.hasAudio">1</property>
   <property name="kdenlive:sequenceproperties.hasVideo">1</property>
-  <property name="kdenlive:sequenceproperties.position">57903</property>
-  <property name="kdenlive:sequenceproperties.scrollPos">35076</property>
+  <property name="kdenlive:sequenceproperties.position">77880</property>
+  <property name="kdenlive:sequenceproperties.scrollPos">96150</property>
   <property name="kdenlive:sequenceproperties.subtitlesList">[
     {
         "file": "/home/vilas/.local/share/kdenlive/.backup/Shuffling-1720486770903-2024-08-02-11-06.kdenlive.srt",
@@ -12035,7 +12059,7 @@
   <property name="kdenlive:sequenceproperties.videoTarget">2</property>
   <property name="kdenlive:sequenceproperties.zonein">0</property>
   <property name="kdenlive:sequenceproperties.zoneout">75</property>
-  <property name="kdenlive:sequenceproperties.zoom">8</property>
+  <property name="kdenlive:sequenceproperties.zoom">6</property>
   <property name="kdenlive:sequenceproperties.groups">[
     {
         "children": [
@@ -13466,6 +13490,86 @@
         "type": 2
     },
     {
+        "comment": "subset: A26",
+        "pos": 72420,
+        "type": 2
+    },
+    {
+        "comment": "subset: 23",
+        "pos": 72720,
+        "type": 2
+    },
+    {
+        "comment": "subset: A346",
+        "pos": 73020,
+        "type": 2
+    },
+    {
+        "comment": "subset: A56",
+        "pos": 73380,
+        "type": 2
+    },
+    {
+        "comment": "subset: A35",
+        "pos": 73770,
+        "type": 2
+    },
+    {
+        "comment": "yeah",
+        "pos": 74160,
+        "type": 2
+    },
+    {
+        "comment": "interpret the bits as numbers",
+        "pos": 75660,
+        "type": 2
+    },
+    {
+        "comment": "increasing order (2 seconds)",
+        "pos": 75840,
+        "type": 2
+    },
+    {
+        "comment": "greenify",
+        "pos": 76560,
+        "type": 2
+    },
+    {
+        "comment": "redify",
+        "pos": 76980,
+        "type": 2
+    },
+    {
+        "comment": "fadeout numbers",
+        "pos": 77400,
+        "type": 2
+    },
+    {
+        "comment": "write numbers2",
+        "pos": 77580,
+        "type": 2
+    },
+    {
+        "comment": "fade them out",
+        "pos": 77610,
+        "type": 2
+    },
+    {
+        "comment": "fade in numbers",
+        "pos": 77730,
+        "type": 2
+    },
+    {
+        "comment": "fade out numbers",
+        "pos": 77760,
+        "type": 2
+    },
+    {
+        "comment": "fade in final numbers",
+        "pos": 77880,
+        "type": 2
+    },
+    {
         "comment": "how many shuffles?",
         "pos": 78180,
         "type": 1
@@ -14859,6 +14963,86 @@
         "type": 2
     },
     {
+        "comment": "subset: A26",
+        "pos": 72420,
+        "type": 2
+    },
+    {
+        "comment": "subset: 23",
+        "pos": 72720,
+        "type": 2
+    },
+    {
+        "comment": "subset: A346",
+        "pos": 73020,
+        "type": 2
+    },
+    {
+        "comment": "subset: A56",
+        "pos": 73380,
+        "type": 2
+    },
+    {
+        "comment": "subset: A35",
+        "pos": 73770,
+        "type": 2
+    },
+    {
+        "comment": "yeah",
+        "pos": 74160,
+        "type": 2
+    },
+    {
+        "comment": "interpret the bits as numbers",
+        "pos": 75660,
+        "type": 2
+    },
+    {
+        "comment": "increasing order (2 seconds)",
+        "pos": 75840,
+        "type": 2
+    },
+    {
+        "comment": "greenify",
+        "pos": 76560,
+        "type": 2
+    },
+    {
+        "comment": "redify",
+        "pos": 76980,
+        "type": 2
+    },
+    {
+        "comment": "fadeout numbers",
+        "pos": 77400,
+        "type": 2
+    },
+    {
+        "comment": "write numbers2",
+        "pos": 77580,
+        "type": 2
+    },
+    {
+        "comment": "fade them out",
+        "pos": 77610,
+        "type": 2
+    },
+    {
+        "comment": "fade in numbers",
+        "pos": 77730,
+        "type": 2
+    },
+    {
+        "comment": "fade out numbers",
+        "pos": 77760,
+        "type": 2
+    },
+    {
+        "comment": "fade in final numbers",
+        "pos": 77880,
+        "type": 2
+    },
+    {
         "comment": "how many shuffles?",
         "pos": 78180,
         "type": 1
@@ -15012,7 +15196,37 @@
   <track producer="tractor3"/>
   <track producer="tractor4"/>
   <track producer="tractor5"/>
-  <transition id="transition0" in="00:00:59.500" out="00:00:59.983">
+  <transition id="transition0">
+   <property name="a_track">0</property>
+   <property name="b_track">1</property>
+   <property name="mlt_service">mix</property>
+   <property name="kdenlive_id">mix</property>
+   <property name="internal_added">237</property>
+   <property name="always_active">1</property>
+   <property name="accepts_blanks">1</property>
+   <property name="sum">1</property>
+  </transition>
+  <transition id="transition1">
+   <property name="a_track">0</property>
+   <property name="b_track">2</property>
+   <property name="mlt_service">mix</property>
+   <property name="kdenlive_id">mix</property>
+   <property name="internal_added">237</property>
+   <property name="always_active">1</property>
+   <property name="accepts_blanks">1</property>
+   <property name="sum">1</property>
+  </transition>
+  <transition id="transition2">
+   <property name="a_track">0</property>
+   <property name="b_track">3</property>
+   <property name="mlt_service">mix</property>
+   <property name="kdenlive_id">mix</property>
+   <property name="internal_added">237</property>
+   <property name="always_active">1</property>
+   <property name="accepts_blanks">1</property>
+   <property name="sum">1</property>
+  </transition>
+  <transition id="transition3" in="00:00:59.500" out="00:00:59.983">
    <property name="a_track">5</property>
    <property name="b_track">6</property>
    <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
@@ -15026,7 +15240,7 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition1" in="00:11:49.783" out="00:11:51.983">
+  <transition id="transition4" in="00:11:49.783" out="00:11:51.983">
    <property name="a_track">5</property>
    <property name="b_track">6</property>
    <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
@@ -15040,7 +15254,7 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition2" in="00:23:42.117" out="00:23:42.767">
+  <transition id="transition5" in="00:18:41.667" out="00:18:42.000">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
@@ -15054,7 +15268,21 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition3" in="00:20:04.233" out="00:20:04.683">
+  <transition id="transition6" in="00:08:20.500" out="00:08:21.150">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition7" in="00:23:42.117" out="00:23:42.767">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
@@ -15068,7 +15296,7 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition4" in="00:18:36.883" out="00:18:37.217">
+  <transition id="transition8" in="00:18:36.883" out="00:18:37.217">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
@@ -15082,7 +15310,7 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition5" in="00:07:04.600" out="00:07:07.317">
+  <transition id="transition9" in="00:07:04.600" out="00:07:07.317">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
@@ -15096,7 +15324,7 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition6" in="00:17:32.250" out="00:17:32.617">
+  <transition id="transition10" in="00:17:32.250" out="00:17:32.617">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
@@ -15110,7 +15338,7 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition7" in="00:18:48.867" out="00:18:49.450">
+  <transition id="transition11" in="00:18:48.867" out="00:18:49.450">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
@@ -15124,7 +15352,7 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition8" in="00:03:19.533" out="00:03:19.983">
+  <transition id="transition12" in="00:03:19.533" out="00:03:19.983">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
@@ -15138,7 +15366,7 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition9" in="00:06:36.600" out="00:06:37.150">
+  <transition id="transition13" in="00:06:36.600" out="00:06:37.150">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
@@ -15152,7 +15380,7 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition10" in="00:18:23.883" out="00:18:24.500">
+  <transition id="transition14" in="00:18:23.883" out="00:18:24.500">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
@@ -15166,7 +15394,7 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition11" in="00:14:46.150" out="00:14:46.333">
+  <transition id="transition15" in="00:14:46.150" out="00:14:46.333">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
@@ -15180,7 +15408,7 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition12" in="00:20:03.733" out="00:20:04.217">
+  <transition id="transition16" in="00:24:17.450" out="00:24:19.483">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
@@ -15194,7 +15422,7 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition13" in="00:20:34.967" out="00:20:35.417">
+  <transition id="transition17" in="00:14:46.350" out="00:14:46.550">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
@@ -15208,7 +15436,7 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition14" in="00:24:17.450" out="00:24:19.483">
+  <transition id="transition18" in="00:02:18.500" out="00:02:19.483">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
@@ -15222,7 +15450,63 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition15" in="00:14:46.350" out="00:14:46.550">
+  <transition id="transition19" in="00:03:37.717" out="00:03:38.983">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition20" in="00:23:41.483" out="00:23:42.100">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition21" in="00:17:28.233" out="00:17:28.483">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition22" in="00:01:46.500" out="00:01:46.933">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition23" in="00:01:46.950" out="00:01:47.350">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
@@ -15236,119 +15520,7 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition16" in="00:02:18.500" out="00:02:19.483">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition17" in="00:03:37.717" out="00:03:38.983">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition18" in="00:08:20.500" out="00:08:21.150">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition19" in="00:23:41.483" out="00:23:42.100">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition20" in="00:17:28.233" out="00:17:28.483">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition21" in="00:01:46.500" out="00:01:46.933">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition22" in="00:01:46.950" out="00:01:47.350">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition23" in="00:06:13.367" out="00:06:13.733">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition24" in="00:21:42.150" out="00:21:42.983">
+  <transition id="transition24" in="00:06:13.367" out="00:06:13.733">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
@@ -15404,10 +15576,10 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition28" in="00:18:41.667" out="00:18:42.000">
+  <transition id="transition28" in="00:04:17.500" out="00:04:18.467">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
+   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -15449,7 +15621,7 @@
   <transition id="transition31" in="00:18:58.950" out="00:18:59.400">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.450=0% 0% 100% 100% 0%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -15491,7 +15663,7 @@
   <transition id="transition34" in="00:18:58.483" out="00:18:58.933">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.450=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -15516,65 +15688,7 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition36" in="00:04:17.500" out="00:04:18.467">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition37" in="00:20:34.167" out="00:20:34.617">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition38">
-   <property name="a_track">0</property>
-   <property name="b_track">1</property>
-   <property name="mlt_service">mix</property>
-   <property name="kdenlive_id">mix</property>
-   <property name="internal_added">237</property>
-   <property name="always_active">1</property>
-   <property name="accepts_blanks">1</property>
-   <property name="sum">1</property>
-  </transition>
-  <transition id="transition39">
-   <property name="a_track">0</property>
-   <property name="b_track">2</property>
-   <property name="mlt_service">mix</property>
-   <property name="kdenlive_id">mix</property>
-   <property name="internal_added">237</property>
-   <property name="always_active">1</property>
-   <property name="accepts_blanks">1</property>
-   <property name="sum">1</property>
-  </transition>
-  <transition id="transition40">
-   <property name="a_track">0</property>
-   <property name="b_track">3</property>
-   <property name="mlt_service">mix</property>
-   <property name="kdenlive_id">mix</property>
-   <property name="internal_added">237</property>
-   <property name="always_active">1</property>
-   <property name="accepts_blanks">1</property>
-   <property name="sum">1</property>
-  </transition>
-  <transition id="transition41">
+  <transition id="transition36">
    <property name="a_track">0</property>
    <property name="b_track">4</property>
    <property name="version">0.1</property>
@@ -15583,7 +15697,7 @@
    <property name="internal_added">237</property>
    <property name="always_active">1</property>
   </transition>
-  <transition id="transition42">
+  <transition id="transition37">
    <property name="a_track">0</property>
    <property name="b_track">5</property>
    <property name="version">0.1</property>
@@ -15592,7 +15706,7 @@
    <property name="internal_added">237</property>
    <property name="always_active">1</property>
   </transition>
-  <transition id="transition43">
+  <transition id="transition38">
    <property name="a_track">0</property>
    <property name="b_track">6</property>
    <property name="version">0.1</property>
@@ -15601,7 +15715,7 @@
    <property name="internal_added">237</property>
    <property name="always_active">1</property>
   </transition>
-  <filter id="filter158">
+  <filter id="filter163">
    <property name="window">75</property>
    <property name="max_gain">20dB</property>
    <property name="level">0</property>
@@ -15609,7 +15723,7 @@
    <property name="internal_added">237</property>
    <property name="disable">0</property>
   </filter>
-  <filter id="filter159">
+  <filter id="filter164">
    <property name="channel">-1</property>
    <property name="mlt_service">panner</property>
    <property name="internal_added">237</property>
@@ -15617,10 +15731,10 @@
    <property name="disable">1</property>
   </filter>
  </tractor>
- <chain id="chain57" out="00:00:24.983">
-  <property name="length">1500</property>
+ <chain id="chain68" out="00:01:16.483">
+  <property name="length">4590</property>
   <property name="eof">pause</property>
-  <property name="resource">media/videos/ttrmath/1080p60/DemoTransparencies.mov</property>
+  <property name="resource">media/videos/rifflemath/1080p60/ModelTransparencies.mov</property>
   <property name="mlt_service">avformat</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">video</property>
@@ -15634,7 +15748,7 @@
   <property name="meta.media.0.codec.colorspace">709</property>
   <property name="meta.media.0.codec.name">qtrle</property>
   <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
-  <property name="meta.media.0.codec.bit_rate">6858721</property>
+  <property name="meta.media.0.codec.bit_rate">12855391</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
   <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
@@ -15661,16 +15775,16 @@
   <property name="meta.media.color_range">mpeg</property>
   <property name="meta.media.top_field_first">0</property>
   <property name="meta.media.progressive">1</property>
-  <property name="kdenlive:id">89</property>
+  <property name="kdenlive:id">88</property>
   <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">21441137</property>
-  <property name="kdenlive:file_hash">cd20400371da799e86965c9ab107bf2a</property>
-  <property name="kdenlive:folderid">151</property>
+  <property name="kdenlive:file_size">122951480</property>
+  <property name="kdenlive:file_hash">634c4871884f4acbbb6ba3fb94282dbb</property>
+  <property name="kdenlive:folderid">154</property>
  </chain>
- <chain id="chain59" out="00:00:34.983">
-  <property name="length">2100</property>
+ <chain id="chain69" out="00:00:04.983">
+  <property name="length">300</property>
   <property name="eof">pause</property>
-  <property name="resource">media/videos/ttrmath/1080p60/CouplingTransparencies.mov</property>
+  <property name="resource">media/videos/introconclusion/1080p60/Definition1Transparency.mov</property>
   <property name="mlt_service">avformat</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">video</property>
@@ -15684,7 +15798,7 @@
   <property name="meta.media.0.codec.colorspace">709</property>
   <property name="meta.media.0.codec.name">qtrle</property>
   <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
-  <property name="meta.media.0.codec.bit_rate">8596275</property>
+  <property name="meta.media.0.codec.bit_rate">19341430</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
   <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
@@ -15711,13 +15825,113 @@
   <property name="meta.media.color_range">mpeg</property>
   <property name="meta.media.top_field_first">0</property>
   <property name="meta.media.progressive">1</property>
-  <property name="kdenlive:id">90</property>
+  <property name="kdenlive:id">84</property>
   <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">37619183</property>
-  <property name="kdenlive:file_hash">0de48bd3d5eb1d892256648a17fbfa9c</property>
-  <property name="kdenlive:folderid">151</property>
+  <property name="kdenlive:file_size">12090701</property>
+  <property name="kdenlive:file_hash">0bf4fcd8f454b44b52188b2064c6a6e2</property>
+  <property name="kdenlive:folderid">140</property>
  </chain>
- <chain id="chain60" out="00:00:25.983">
+ <chain id="chain71" out="00:00:23.983">
+  <property name="length">1440</property>
+  <property name="eof">pause</property>
+  <property name="resource">media/videos/introconclusion/1080p60/TopToRandom.mov</property>
+  <property name="mlt_service">avformat</property>
+  <property name="meta.media.nb_streams">1</property>
+  <property name="meta.media.0.stream.type">video</property>
+  <property name="meta.media.0.stream.frame_rate">60</property>
+  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.width">1920</property>
+  <property name="meta.media.0.codec.height">1080</property>
+  <property name="meta.media.0.codec.rotate">0</property>
+  <property name="meta.media.0.codec.pix_fmt">argb</property>
+  <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.colorspace">709</property>
+  <property name="meta.media.0.codec.name">qtrle</property>
+  <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
+  <property name="meta.media.0.codec.bit_rate">8898044</property>
+  <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
+  <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
+  <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
+  <property name="meta.attr.major_brand.markup">qt  </property>
+  <property name="meta.attr.minor_version.markup">512</property>
+  <property name="meta.attr.compatible_brands.markup">qt  </property>
+  <property name="meta.attr.encoder.markup">Lavf61.1.100</property>
+  <property name="meta.attr.comment.markup">Rendered with Manim Community v0.18.1</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.sample_aspect_num">1</property>
+  <property name="meta.media.sample_aspect_den">1</property>
+  <property name="format">2</property>
+  <property name="audio_index">-1</property>
+  <property name="video_index">0</property>
+  <property name="vstream">0</property>
+  <property name="meta.media.frame_rate_num">60</property>
+  <property name="meta.media.frame_rate_den">1</property>
+  <property name="meta.media.colorspace">709</property>
+  <property name="meta.media.color_trc">2</property>
+  <property name="meta.media.has_b_frames">0</property>
+  <property name="meta.media.width">1920</property>
+  <property name="meta.media.height">1080</property>
+  <property name="meta.media.aspect_ratio">1</property>
+  <property name="meta.media.color_range">mpeg</property>
+  <property name="meta.media.top_field_first">0</property>
+  <property name="meta.media.progressive">1</property>
+  <property name="kdenlive:id">86</property>
+  <property name="kdenlive:clip_type">2</property>
+  <property name="kdenlive:file_size">26701520</property>
+  <property name="kdenlive:file_hash">ffd0406392966c4c78fed0453178864d</property>
+  <property name="kdenlive:folderid">140</property>
+ </chain>
+ <chain id="chain72" out="00:00:13.483">
+  <property name="length">810</property>
+  <property name="eof">pause</property>
+  <property name="resource">media/videos/introconclusion/1080p60/WhatIsShuffling.mov</property>
+  <property name="mlt_service">avformat</property>
+  <property name="meta.media.nb_streams">1</property>
+  <property name="meta.media.0.stream.type">video</property>
+  <property name="meta.media.0.stream.frame_rate">60</property>
+  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.width">1920</property>
+  <property name="meta.media.0.codec.height">1080</property>
+  <property name="meta.media.0.codec.rotate">0</property>
+  <property name="meta.media.0.codec.pix_fmt">argb</property>
+  <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.colorspace">709</property>
+  <property name="meta.media.0.codec.name">qtrle</property>
+  <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
+  <property name="meta.media.0.codec.bit_rate">19830992</property>
+  <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
+  <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
+  <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
+  <property name="meta.attr.major_brand.markup">qt  </property>
+  <property name="meta.attr.minor_version.markup">512</property>
+  <property name="meta.attr.compatible_brands.markup">qt  </property>
+  <property name="meta.attr.encoder.markup">Lavf61.1.100</property>
+  <property name="meta.attr.comment.markup">Rendered with Manim Community v0.18.1</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.sample_aspect_num">1</property>
+  <property name="meta.media.sample_aspect_den">1</property>
+  <property name="format">2</property>
+  <property name="audio_index">-1</property>
+  <property name="video_index">0</property>
+  <property name="vstream">0</property>
+  <property name="meta.media.frame_rate_num">60</property>
+  <property name="meta.media.frame_rate_den">1</property>
+  <property name="meta.media.colorspace">709</property>
+  <property name="meta.media.color_trc">2</property>
+  <property name="meta.media.has_b_frames">0</property>
+  <property name="meta.media.width">1920</property>
+  <property name="meta.media.height">1080</property>
+  <property name="meta.media.aspect_ratio">1</property>
+  <property name="meta.media.color_range">mpeg</property>
+  <property name="meta.media.top_field_first">0</property>
+  <property name="meta.media.progressive">1</property>
+  <property name="kdenlive:id">85</property>
+  <property name="kdenlive:clip_type">2</property>
+  <property name="kdenlive:file_size">33469563</property>
+  <property name="kdenlive:file_hash">17878a0822cfef65a6aa40a948ff1fe6</property>
+  <property name="kdenlive:folderid">140</property>
+ </chain>
+ <chain id="chain73" out="00:00:25.983">
   <property name="length">1560</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/ttrmath/1080p60/CheckMarkTransparencies.mov</property>
@@ -15734,7 +15948,7 @@
   <property name="meta.media.0.codec.colorspace">709</property>
   <property name="meta.media.0.codec.name">qtrle</property>
   <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
-  <property name="meta.media.0.codec.bit_rate">6555346</property>
+  <property name="meta.media.0.codec.bit_rate">6555703</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
   <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
@@ -15763,10 +15977,210 @@
   <property name="meta.media.progressive">1</property>
   <property name="kdenlive:id">92</property>
   <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">21312738</property>
-  <property name="kdenlive:file_hash">f310f3b38d827bbf0ca4f41dbb9bb6bd</property>
+  <property name="kdenlive:file_size">21313900</property>
+  <property name="kdenlive:file_hash">b687da65ceb4c136480bfb228db35182</property>
   <property name="kdenlive:folderid">151</property>
-  <property name="kdenlive:monitorPosition">0</property>
+ </chain>
+ <chain id="chain74" out="00:00:24.983">
+  <property name="length">1500</property>
+  <property name="eof">pause</property>
+  <property name="resource">media/videos/ttrmath/1080p60/DemoTransparencies.mov</property>
+  <property name="mlt_service">avformat</property>
+  <property name="meta.media.nb_streams">1</property>
+  <property name="meta.media.0.stream.type">video</property>
+  <property name="meta.media.0.stream.frame_rate">60</property>
+  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.width">1920</property>
+  <property name="meta.media.0.codec.height">1080</property>
+  <property name="meta.media.0.codec.rotate">0</property>
+  <property name="meta.media.0.codec.pix_fmt">argb</property>
+  <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.colorspace">709</property>
+  <property name="meta.media.0.codec.name">qtrle</property>
+  <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
+  <property name="meta.media.0.codec.bit_rate">6861615</property>
+  <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
+  <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
+  <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
+  <property name="meta.attr.major_brand.markup">qt  </property>
+  <property name="meta.attr.minor_version.markup">512</property>
+  <property name="meta.attr.compatible_brands.markup">qt  </property>
+  <property name="meta.attr.encoder.markup">Lavf61.1.100</property>
+  <property name="meta.attr.comment.markup">Rendered with Manim Community v0.18.1</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.sample_aspect_num">1</property>
+  <property name="meta.media.sample_aspect_den">1</property>
+  <property name="format">2</property>
+  <property name="audio_index">-1</property>
+  <property name="video_index">0</property>
+  <property name="vstream">0</property>
+  <property name="meta.media.frame_rate_num">60</property>
+  <property name="meta.media.frame_rate_den">1</property>
+  <property name="meta.media.colorspace">709</property>
+  <property name="meta.media.color_trc">2</property>
+  <property name="meta.media.has_b_frames">0</property>
+  <property name="meta.media.width">1920</property>
+  <property name="meta.media.height">1080</property>
+  <property name="meta.media.aspect_ratio">1</property>
+  <property name="meta.media.color_range">mpeg</property>
+  <property name="meta.media.top_field_first">0</property>
+  <property name="meta.media.progressive">1</property>
+  <property name="kdenlive:id">89</property>
+  <property name="kdenlive:clip_type">2</property>
+  <property name="kdenlive:file_size">21450178</property>
+  <property name="kdenlive:file_hash">06038fd5295a47779187d971ee77b5fb</property>
+  <property name="kdenlive:folderid">151</property>
+ </chain>
+ <chain id="chain75" out="00:00:33.983">
+  <property name="length">2040</property>
+  <property name="eof">pause</property>
+  <property name="resource">media/videos/rifflemath/1080p60/CouplingTransparencies.mov</property>
+  <property name="mlt_service">avformat</property>
+  <property name="meta.media.nb_streams">1</property>
+  <property name="meta.media.0.stream.type">video</property>
+  <property name="meta.media.0.stream.frame_rate">60</property>
+  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.width">1920</property>
+  <property name="meta.media.0.codec.height">1080</property>
+  <property name="meta.media.0.codec.rotate">0</property>
+  <property name="meta.media.0.codec.pix_fmt">argb</property>
+  <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.colorspace">709</property>
+  <property name="meta.media.0.codec.name">qtrle</property>
+  <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
+  <property name="meta.media.0.codec.bit_rate">8906050</property>
+  <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
+  <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
+  <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
+  <property name="meta.attr.major_brand.markup">qt  </property>
+  <property name="meta.attr.minor_version.markup">512</property>
+  <property name="meta.attr.compatible_brands.markup">qt  </property>
+  <property name="meta.attr.encoder.markup">Lavf61.1.100</property>
+  <property name="meta.attr.comment.markup">Rendered with Manim Community v0.18.1</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.sample_aspect_num">1</property>
+  <property name="meta.media.sample_aspect_den">1</property>
+  <property name="format">2</property>
+  <property name="audio_index">-1</property>
+  <property name="video_index">0</property>
+  <property name="vstream">0</property>
+  <property name="meta.media.frame_rate_num">60</property>
+  <property name="meta.media.frame_rate_den">1</property>
+  <property name="meta.media.colorspace">709</property>
+  <property name="meta.media.color_trc">2</property>
+  <property name="meta.media.has_b_frames">0</property>
+  <property name="meta.media.width">1920</property>
+  <property name="meta.media.height">1080</property>
+  <property name="meta.media.aspect_ratio">1</property>
+  <property name="meta.media.color_range">mpeg</property>
+  <property name="meta.media.top_field_first">0</property>
+  <property name="meta.media.progressive">1</property>
+  <property name="kdenlive:id">93</property>
+  <property name="kdenlive:clip_type">2</property>
+  <property name="kdenlive:file_size">37860787</property>
+  <property name="kdenlive:file_hash">e326ee3d8bd28c201d970234d3b96921</property>
+  <property name="kdenlive:folderid">154</property>
+ </chain>
+ <chain id="chain76" out="00:00:34.983">
+  <property name="length">2100</property>
+  <property name="eof">pause</property>
+  <property name="resource">media/videos/ttrmath/1080p60/CouplingTransparencies.mov</property>
+  <property name="mlt_service">avformat</property>
+  <property name="meta.media.nb_streams">1</property>
+  <property name="meta.media.0.stream.type">video</property>
+  <property name="meta.media.0.stream.frame_rate">60</property>
+  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.width">1920</property>
+  <property name="meta.media.0.codec.height">1080</property>
+  <property name="meta.media.0.codec.rotate">0</property>
+  <property name="meta.media.0.codec.pix_fmt">argb</property>
+  <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.colorspace">709</property>
+  <property name="meta.media.0.codec.name">qtrle</property>
+  <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
+  <property name="meta.media.0.codec.bit_rate">8589810</property>
+  <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
+  <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
+  <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
+  <property name="meta.attr.major_brand.markup">qt  </property>
+  <property name="meta.attr.minor_version.markup">512</property>
+  <property name="meta.attr.compatible_brands.markup">qt  </property>
+  <property name="meta.attr.encoder.markup">Lavf61.1.100</property>
+  <property name="meta.attr.comment.markup">Rendered with Manim Community v0.18.1</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.sample_aspect_num">1</property>
+  <property name="meta.media.sample_aspect_den">1</property>
+  <property name="format">2</property>
+  <property name="audio_index">-1</property>
+  <property name="video_index">0</property>
+  <property name="vstream">0</property>
+  <property name="meta.media.frame_rate_num">60</property>
+  <property name="meta.media.frame_rate_den">1</property>
+  <property name="meta.media.colorspace">709</property>
+  <property name="meta.media.color_trc">2</property>
+  <property name="meta.media.has_b_frames">0</property>
+  <property name="meta.media.width">1920</property>
+  <property name="meta.media.height">1080</property>
+  <property name="meta.media.aspect_ratio">1</property>
+  <property name="meta.media.color_range">mpeg</property>
+  <property name="meta.media.top_field_first">0</property>
+  <property name="meta.media.progressive">1</property>
+  <property name="kdenlive:id">90</property>
+  <property name="kdenlive:clip_type">2</property>
+  <property name="kdenlive:file_size">37590898</property>
+  <property name="kdenlive:file_hash">1eed793f8d5668bde88ff5340bbb0718</property>
+  <property name="kdenlive:folderid">151</property>
+ </chain>
+ <chain id="chain77" out="00:00:00.983">
+  <property name="length">60</property>
+  <property name="eof">pause</property>
+  <property name="resource">media/videos/rifflemath/1080p60/NumberTransparencies.mov</property>
+  <property name="mlt_service">avformat</property>
+  <property name="meta.media.nb_streams">1</property>
+  <property name="meta.media.0.stream.type">video</property>
+  <property name="meta.media.0.stream.frame_rate">60</property>
+  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.width">1920</property>
+  <property name="meta.media.0.codec.height">1080</property>
+  <property name="meta.media.0.codec.rotate">0</property>
+  <property name="meta.media.0.codec.pix_fmt">argb</property>
+  <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.colorspace">709</property>
+  <property name="meta.media.0.codec.name">qtrle</property>
+  <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
+  <property name="meta.media.0.codec.bit_rate">6653800</property>
+  <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
+  <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
+  <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
+  <property name="meta.attr.major_brand.markup">qt  </property>
+  <property name="meta.attr.minor_version.markup">512</property>
+  <property name="meta.attr.compatible_brands.markup">qt  </property>
+  <property name="meta.attr.encoder.markup">Lavf61.1.100</property>
+  <property name="meta.attr.comment.markup">Rendered with Manim Community v0.18.1</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.sample_aspect_num">1</property>
+  <property name="meta.media.sample_aspect_den">1</property>
+  <property name="format">2</property>
+  <property name="audio_index">-1</property>
+  <property name="video_index">0</property>
+  <property name="vstream">0</property>
+  <property name="meta.media.frame_rate_num">60</property>
+  <property name="meta.media.frame_rate_den">1</property>
+  <property name="meta.media.colorspace">709</property>
+  <property name="meta.media.color_trc">2</property>
+  <property name="meta.media.has_b_frames">0</property>
+  <property name="meta.media.width">1920</property>
+  <property name="meta.media.height">1080</property>
+  <property name="meta.media.aspect_ratio">1</property>
+  <property name="meta.media.color_range">mpeg</property>
+  <property name="meta.media.top_field_first">0</property>
+  <property name="meta.media.progressive">1</property>
+  <property name="kdenlive:id">95</property>
+  <property name="kdenlive:clip_type">2</property>
+  <property name="kdenlive:file_size">832824</property>
+  <property name="kdenlive:file_hash">2bf40149aebf89b0b14da212ccf1e394</property>
+  <property name="kdenlive:folderid">154</property>
+  <property name="kdenlive:monitorPosition">27</property>
  </chain>
  <playlist id="main_bin">
   <property name="kdenlive:folder.-1.2">Sequences</property>
@@ -15856,7 +16270,7 @@
   <property name="kdenlive:docproperties.storagefolder">1720486770903</property>
   <property name="kdenlive:docproperties.uuid">{6145f7b6-8bb3-4e2d-afc5-1905046347f9}</property>
   <property name="kdenlive:docproperties.version">1.1</property>
-  <property name="kdenlive:expandedFolders">138;151</property>
+  <property name="kdenlive:expandedFolders">138;154</property>
   <property name="kdenlive:binZoom">4</property>
   <property name="kdenlive:extraBins">project_bin:-1:0</property>
   <property name="kdenlive:documentnotes"/>
@@ -15940,16 +16354,19 @@
   <entry in="00:00:00.000" out="00:00:27.983" producer="chain219"/>
   <entry in="00:00:00.000" out="00:00:32.100" producer="chain224"/>
   <entry in="00:00:00.000" out="00:01:53.567" producer="chain225"/>
-  <entry in="00:00:00.000" out="00:00:04.983" producer="chain226"/>
-  <entry in="00:00:00.000" out="00:00:13.483" producer="chain228"/>
-  <entry in="00:00:00.000" out="00:00:23.983" producer="chain227"/>
   <entry in="00:00:00.000" out="00:01:11.017" producer="chain229"/>
-  <entry in="00:00:00.000" out="00:01:13.983" producer="chain236"/>
   <entry in="00:00:00.000" out="00:00:31.650" producer="chain237"/>
   <entry in="00:00:00.000" out="00:24:47.483" producer="tractor6"/>
-  <entry in="00:00:00.000" out="00:00:24.983" producer="chain57"/>
-  <entry in="00:00:00.000" out="00:00:34.983" producer="chain59"/>
-  <entry in="00:00:00.000" out="00:00:25.983" producer="chain60"/>
+  <entry in="00:00:00.000" out="00:00:04.983" producer="producer56"/>
+  <entry in="00:00:00.000" out="00:01:16.483" producer="chain68"/>
+  <entry in="00:00:00.000" out="00:00:04.983" producer="chain69"/>
+  <entry in="00:00:00.000" out="00:00:23.983" producer="chain71"/>
+  <entry in="00:00:00.000" out="00:00:13.483" producer="chain72"/>
+  <entry in="00:00:00.000" out="00:00:25.983" producer="chain73"/>
+  <entry in="00:00:00.000" out="00:00:24.983" producer="chain74"/>
+  <entry in="00:00:00.000" out="00:00:33.983" producer="chain75"/>
+  <entry in="00:00:00.000" out="00:00:34.983" producer="chain76"/>
+  <entry in="00:00:00.000" out="00:00:00.983" producer="chain77"/>
  </playlist>
  <tractor id="tractor7" in="00:00:00.000" out="00:24:47.483">
   <property name="kdenlive:projectTractor">1</property>

@@ -10,7 +10,7 @@ class DemoTransparencies(Scene):
         ).shift(RIGHT)
         perf1box = SurroundingRectangle(
             perf1, color=sol.BASE01, corner_radius=0.1
-        ).set_fill(sol.BASE2, opacity=1)
+        ).set_fill(sol.BASE2, opacity=0.75)
 
         perf2 = MyTex(
             r'still perfectly random',
@@ -18,21 +18,21 @@ class DemoTransparencies(Scene):
         ).shift(RIGHT + 0.25*DOWN)
         perf2box = SurroundingRectangle(
             perf2, color=sol.BASE01, corner_radius=0.1
-        ).set_fill(sol.BASE2, opacity=1)
+        ).set_fill(sol.BASE2, opacity=0.75)
 
         perf3 = MyTex(
             r'perfectly \\ random'
         ).shift(1.5*UP + 5*RIGHT)
         perf3box = SurroundingRectangle(
             perf3, color=sol.BASE01, corner_radius=0.1
-        ).set_fill(sol.BASE2, opacity=1)
+        ).set_fill(sol.BASE2, opacity=0.75)
 
         unshuffled = MyTex(
             r'unshuffled'
         ).shift(2.5*DOWN + 5*RIGHT)
         unshuffledbox = SurroundingRectangle(
             unshuffled, color=sol.BASE01, corner_radius=0.1
-        ).set_fill(sol.BASE2, opacity=1)
+        ).set_fill(sol.BASE2, opacity=0.75)
 
         #14:17:30
         self.play(FadeIn(perf1box, perf1, scale=0.75), run_time=0.5)
@@ -76,21 +76,21 @@ class CouplingTransparencies(Scene):
         ).shift(UP + 5.5*RIGHT)
         perfbox = SurroundingRectangle(
             perf, color=sol.BASE01, corner_radius=0.1
-        ).set_fill(sol.BASE2, opacity=1)
+        ).set_fill(sol.BASE2, opacity=0.75)
 
         unsh = MyTex(
             r'unshuffled'
         ).shift(0.75*DOWN).align_to(perf, LEFT)
         unshbox = SurroundingRectangle(
             unsh, color=sol.BASE01, corner_radius=0.1
-        ).set_fill(sol.BASE2, opacity=1)
+        ).set_fill(sol.BASE2, opacity=0.75)
 
         top = MyMathTex(
             r'\xleftarrow{\text{top}}'
         ).shift(5.5*LEFT + 0.25*UP)
         topbox = SurroundingRectangle(
             top, color=sol.BASE01, corner_radius=0.1
-        ).set_fill(sol.BASE2, opacity=1)
+        ).set_fill(sol.BASE2, opacity=0.75)
 
         tt.add_to_preamble(r'\DeclareSymbolFont{extraup}{U}{zavm}{m}{n}')
         tt.add_to_preamble(r'\DeclareMathSymbol{\varheart}{\mathalpha}{extraup}{86}')
@@ -101,12 +101,12 @@ class CouplingTransparencies(Scene):
                     x,
                     color=sol.BASE01,
                     corner_radius=0.1
-                ).set_fill(sol.BASE2, opacity=1),
+                ).set_fill(sol.BASE2, opacity=0.85),
                 x
             ) for x in [
                 MyMathTex(
-                    r'\text{Chosen card: } {{' + s + r'\varheart}}'
-                ).set_color_by_tex(r'\varheart', PURE_RED).shift(0.25*UP)
+                    r'\text{Chosen card: } {{\textbf{' + s + r'} \varheart}}'
+                ).set_color_by_tex(r'\varheart', sol.CRIMSON_RED).shift(0.25*UP)
                 for s in [
                     '4', '5', '2', '4', '2', '6', '4', 'A'
                 ]
@@ -200,14 +200,14 @@ class CheckMarkTransparencies(Scene):
             Group(
                 SurroundingRectangle(
                     x,
-                    color=sol.BASE01,
+                    color=sol.BASE02,
                     corner_radius=0.1
-                ).set_fill(sol.BASE2, opacity=1),
+                ).set_fill(GREEN, opacity=1),
                 x
             ) for x in [
                 MyMathTex(
                     r'\checkmark',
-                    color=sol.FOREST_GREEN
+                    color=sol.BASE03
                 ).shift(0.25*UP + i * RIGHT)
                 for i in [
                     -3.25, -1.9, -0.6, 0.6, 1.95, 3.25
@@ -220,21 +220,21 @@ class CheckMarkTransparencies(Scene):
         ).shift(UP + 5.5*RIGHT)
         perfbox = SurroundingRectangle(
             perf, color=sol.BASE01, corner_radius=0.1
-        ).set_fill(sol.BASE2, opacity=1)
+        ).set_fill(sol.BASE2, opacity=0.75)
 
         unsh = MyTex(
             r'unshuffled'
         ).shift(0.75*DOWN).align_to(perf, LEFT)
         unshbox = SurroundingRectangle(
             unsh, color=sol.BASE01, corner_radius=0.1
-        ).set_fill(sol.BASE2, opacity=1)
+        ).set_fill(sol.BASE2, opacity=0.75)
 
         top = MyMathTex(
             r'\xleftarrow{\text{top}}'
         ).shift(5.5*LEFT + 0.25*UP)
         topbox = SurroundingRectangle(
             top, color=sol.BASE01, corner_radius=0.1
-        ).set_fill(sol.BASE2, opacity=1)
+        ).set_fill(sol.BASE2, opacity=0.75)
 
         self.add(perfbox, perf, unshbox, unsh, topbox, top)
         self.wait(1)

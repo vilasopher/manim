@@ -7,7 +7,7 @@ class ModelTransparencies(Scene):
         #TODO
         box = RoundedRectangle(
             color=sol.BASE01, width=13, height=3, corner_radius=0.1
-        ).set_fill(sol.BASE2, opacity=1).shift(2*DOWN)
+        ).set_fill(sol.BASE2, opacity=0.75).shift(2*DOWN)
 
         cut = MyTex(
             r'\textbf{Cut the deck}',
@@ -84,7 +84,7 @@ class ModelTransparencies(Scene):
             FadeIn(reverse, scale=0.5, shift=3*LEFT)
         )
 
-        self.wait(7.5)
+        self.wait(10) #7.5
 
         #19:32:30
         self.play(
@@ -99,22 +99,295 @@ class CouplingTransparencies(Scene):
         ).shift(UP + 5.5*RIGHT)
         perfbox = SurroundingRectangle(
             perf, color=sol.BASE01, corner_radius=0.1
-        ).set_fill(sol.BASE2, opacity=1)
+        ).set_fill(sol.BASE2, opacity=0.75)
 
         unsh = MyTex(
             r'unshuffled'
         ).shift(0.75*DOWN).align_to(perf, LEFT)
         unshbox = SurroundingRectangle(
             unsh, color=sol.BASE01, corner_radius=0.1
-        ).set_fill(sol.BASE2, opacity=1)
+        ).set_fill(sol.BASE2, opacity=0.75)
 
         top = MyMathTex(
             r'\xleftarrow{\text{top}}'
-        ).shift(5.5*LEFT + 0.25*UP)
+        ).shift(5.5*LEFT)
         topbox = SurroundingRectangle(
             top, color=sol.BASE01, corner_radius=0.1
-        ).set_fill(sol.BASE2, opacity=1)
-        pass
+        ).set_fill(sol.BASE2, opacity=0.75)
+
+        tt.add_to_preamble(r'\DeclareSymbolFont{extraup}{U}{zavm}{m}{n}')
+        tt.add_to_preamble(r'\DeclareMathSymbol{\varheart}{\mathalpha}{extraup}{86}')
+        seeds = [
+            Group(
+                SurroundingRectangle(
+                    x,
+                    color=sol.BASE01,
+                    corner_radius=0.1
+                ).set_fill(sol.BASE2, opacity=0.85),
+                x
+            ) for x in [
+                MyMathTex(
+                    r'\text{Chosen subset: } {{\textbf{' + r'} \varheart}},{{\textbf{'.join(s) + r'} \varheart}}'
+                ).set_color_by_tex(r'\varheart', sol.CRIMSON_RED)
+                for s in [
+                    ['A','2','6'],
+                    ['2','3'],
+                    ['A','3','4','6'],
+                    ['A','5','6'],
+                    ['A','3','5']
+                ]
+            ]
+        ]
+
+        self.add(perfbox, perf, unshbox, unsh, topbox, top)
+
+        self.wait()
+
+        #20:07:00
+        self.play(FadeIn(seeds[0], scale=0.75), run_time=0.5)
+
+        self.wait(4.5)
+
+        #20:12:00
+        self.play(
+            FadeOut(seeds[0], shift=0.75*UP),
+            FadeIn(seeds[1], shift=0.75*UP),
+            run_time=0.5
+        )
+        
+        self.wait(4.5)
+
+        #20:17:00
+        self.play(
+            FadeOut(seeds[1], shift=0.75*UP),
+            FadeIn(seeds[2], shift=0.75*UP),
+            run_time=0.5
+        )
+
+        self.wait(5.5)
+
+        #20:23:00
+        self.play(
+            FadeOut(seeds[2], shift=0.75*UP),
+            FadeIn(seeds[3], shift=0.75*UP),
+            run_time=0.5
+        )
+
+        self.wait(6)
+
+        #20:29:30
+        self.play(
+            FadeOut(seeds[3], shift=0.75*UP),
+            FadeIn(seeds[4], shift=0.75*UP),
+            run_time=0.5
+        )
+
+        self.wait(10)
+
+class NumberTransparencies(Scene):
+    def construct(self):
+        perf = MyTex(
+            r'perfectly \\ random'
+        ).shift(UP + 5.5*RIGHT)
+        perfbox = SurroundingRectangle(
+            perf, color=sol.BASE01, corner_radius=0.1
+        ).set_fill(sol.BASE2, opacity=0.75)
+
+        unsh = MyTex(
+            r'unshuffled'
+        ).shift(DOWN).align_to(perf, LEFT)
+        unshbox = SurroundingRectangle(
+            unsh, color=sol.BASE01, corner_radius=0.1
+        ).set_fill(sol.BASE2, opacity=0.75)
+
+        top = MyMathTex(
+            r'\xleftarrow{\text{top}}'
+        ).shift(5.5*LEFT + 0.25*LEFT)
+        topbox = SurroundingRectangle(
+            top, color=sol.BASE01, corner_radius=0.1
+        ).set_fill(sol.BASE2, opacity=0.75)
+
+        numbers1 = [
+            Group(
+                SurroundingRectangle(
+                    x,
+                    color=sol.BASE02,
+                    corner_radius=0.1
+                ).set_fill(sol.BASE2, opacity=0.85),
+                x
+            ) for x in [
+                MyMathTex(
+                    num,
+                    font_size=60
+                ).shift(pos * RIGHT + 0.25*LEFT)
+                for (num,pos) in [
+                    (r'\texttt{0}', -3.2),
+                    (r'\texttt{1}', -1.9),
+                    (r'\texttt{2}', -0.5),
+                    (r'\texttt{2}', 0.9),
+                    (r'\texttt{3}', 2.3),
+                    (r'\texttt{3}', 3.7)
+                ]
+            ]
+        ]
+
+        numbers2 = [
+            Group(
+                SurroundingRectangle(
+                    x,
+                    color=sol.BASE02,
+                    corner_radius=0.1
+                ).set_fill(GREEN if b else RED, opacity=1),
+                x
+            ) for (x,b) in [
+                (MyMathTex(
+                    num,
+                    font_size=60
+                ).shift(pos * RIGHT + 0.25*LEFT), b)
+                for (num,pos, b) in [
+                    (r'\texttt{1}', -3.2, True),
+                    (r'\texttt{3}', -1.9, False),
+                    (r'\texttt{3}', -0.5, False),
+                    (r'\texttt{4}', 0.9, True),
+                    (r'\texttt{6}', 2.3, False),
+                    (r'\texttt{6}', 3.7, False)
+                ]
+            ]
+        ]
+
+        numbers3 = [
+            Group(
+                SurroundingRectangle(
+                    x,
+                    color=sol.BASE02,
+                    corner_radius=0.1
+                ).set_fill(GREEN if b else RED, opacity=1),
+                x
+            ) for (x,b) in [
+                (MyMathTex(
+                    num,
+                    font_size=60
+                ).shift(pos * RIGHT + 0.25*LEFT), b)
+                for (num,pos, b) in [
+                    (r'\texttt{1}', -3.2, True),
+                    (r'\texttt{3}', -1.9, False),
+                    (r'\texttt{3}', -0.5, False),
+                    (r'\texttt{6}', 0.9, True),
+                    (r'\texttt{12}', 2.3, True),
+                    (r'\texttt{14}', 3.7, True)
+                ]
+            ]
+        ]
+
+        numbers4 = [
+            Group(
+                SurroundingRectangle(
+                    x,
+                    color=sol.BASE02,
+                    corner_radius=0.1
+                ).set_fill(GREEN if b else RED, opacity=1),
+                x
+            ) for (x,b) in [
+                (MyMathTex(
+                    num,
+                    font_size=60
+                ).shift(pos * RIGHT + 0.25*LEFT), b)
+                for (num,pos, b) in [
+                    (r'\texttt{3}', -3.2, True),
+                    (r'\texttt{6}', -1.9, True),
+                    (r'\texttt{12}', -0.5, True),
+                    (r'\texttt{17}', 0.9, True),
+                    (r'\texttt{19}', 2.3, True),
+                    (r'\texttt{30}', 3.7, True)
+                ]
+            ]
+        ]
+        
+        self.add(perfbox, perf, unshbox, unsh, topbox, top)
+
+        self.wait(25)
+        
+        #21:01:00
+        self.play(
+            LaggedStart(
+                *(FadeIn(n, scale=0.75) for n in numbers1),
+                lag_ratio=1/3
+            ),
+            run_time=2
+        )
+
+        self.wait(1)
+
+        #21:04:00
+        self.play(
+            LaggedStart(
+                *(Wiggle(n) for n in numbers1),
+                lag_ratio=1/6
+            ),
+            run_time=3
+        )
+
+        self.wait(9)
+
+        #21:16:00
+        self.play(
+            *(numbers1[i][0].animate.set_fill(GREEN, opacity=1) for i in [0,1])
+        )
+
+        self.wait(6)
+
+        #21:23:00
+        self.play(
+            *(numbers1[i][0].animate.set_fill(RED, opacity=1) for i in [2,3,4,5])
+        )
+
+        self.wait(6)
+
+        #21:30:00
+        self.play(
+            *(FadeOut(n, scale=0.75) for n in numbers1),
+            run_time=0.5
+        )
+
+        self.wait(2.5)
+
+        #21:33:00
+        self.play(
+            *(FadeIn(n, scale=0.75) for n in numbers2),
+            run_time=0.25
+        )
+        self.wait(0.25)
+
+        #21:33:30
+        self.play(
+            *(FadeOut(n, scale=0.75) for n in numbers2),
+            run_time=0.25
+        )
+
+        self.wait(1.75)
+
+        #21:35:30
+        self.play(
+            *(FadeIn(n, scale=0.75) for n in numbers3),
+            run_time=0.25
+        )
+        self.wait(0.25)
+
+        #21:36:00
+        self.play(
+            *(FadeOut(n, scale=0.75) for n in numbers3),
+            run_time=0.25
+        )
+
+        self.wait(1.75)
+
+        #21:38:00
+        self.play(
+            *(FadeIn(n, scale=0.75) for n in numbers4),
+            run_time=0.5
+        )
+
+        self.wait(10)
 
 class BirthdayProblem(Scene):
     def construct(self):

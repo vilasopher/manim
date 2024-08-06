@@ -101,7 +101,7 @@ class WhatIsShuffling(Scene):
             height=2.5,
             color=sol.BASE01,
             corner_radius=0.1
-        ).set_fill(color=sol.BASE2, opacity=1).shift(2.5*DOWN)
+        ).set_fill(color=sol.BASE2, opacity=0.75).shift(2.5*DOWN)
 
         question = MyTex(
             r'\textbf{Question:} what is shuffling?',
@@ -139,10 +139,10 @@ class WhatIsShuffling(Scene):
 class TopToRandom(Scene):
     def construct(self):
         ttrtext = MyTex(r"``top-to-random'' shuffle", font_size=80).shift(2.5*DOWN)
-        ttrbox = SurroundingRectangle(ttrtext, buff=MED_SMALL_BUFF, color=sol.BASE01, corner_radius=0.1).set_fill(sol.BASE2, opacity=1)
+        ttrbox = SurroundingRectangle(ttrtext, buff=MED_SMALL_BUFF, color=sol.BASE01, corner_radius=0.1).set_fill(sol.BASE2, opacity=0.75)
 
         riffletext = MyTex(r'stay tuned for the \\ riffle shuffle...', font_size=60).shift(4*RIGHT + 2*UP)
-        rifflebox = SurroundingRectangle(riffletext, buff=MED_SMALL_BUFF, color=sol.BASE01, corner_radius=0.1).set_fill(sol.BASE2, opacity=1)
+        rifflebox = SurroundingRectangle(riffletext, buff=MED_SMALL_BUFF, color=sol.BASE01, corner_radius=0.1).set_fill(sol.BASE2, opacity=0.75)
 
         self.play(FadeIn(Group(ttrbox, ttrtext), scale=0.75))
         self.wait(11)
@@ -198,7 +198,7 @@ class Definition1Transparency(Scene):
         def1textbox = SurroundingRectangle(
             def1text, buff=MED_SMALL_BUFF, corner_radius=0.1,
             color=sol.BASE01
-        ).set_fill(sol.BASE2, opacity=1)
+        ).set_fill(sol.BASE2, opacity=0.75)
         def1 = Group(def1textbox, def1text)
 
         self.play(FadeIn(def1, scale=0.75))
