@@ -219,7 +219,7 @@ class NumberTransparencies(Scene):
                 MyMathTex(
                     num,
                     font_size=60
-                ).shift(pos * RIGHT + 0.25*LEFT)
+                ).shift(pos * RIGHT + 0.25*LEFT).set_z_index(5)
                 for (num,pos) in [
                     (r'\texttt{0}', -3.2),
                     (r'\texttt{1}', -1.9),
@@ -243,7 +243,7 @@ class NumberTransparencies(Scene):
                 (MyMathTex(
                     num,
                     font_size=60
-                ).shift(pos * RIGHT + 0.25*LEFT), b)
+                ).shift(pos * RIGHT + 0.75*LEFT + 0.25*DOWN), b)
                 for (num,pos, b) in [
                     (r'\texttt{1}', -3.2, True),
                     (r'\texttt{3}', -1.9, False),
@@ -267,7 +267,7 @@ class NumberTransparencies(Scene):
                 (MyMathTex(
                     num,
                     font_size=60
-                ).shift(pos * RIGHT + 0.25*LEFT), b)
+                ).shift(pos * RIGHT + 0.25*LEFT + 0.25*DOWN), b)
                 for (num,pos, b) in [
                     (r'\texttt{1}', -3.2, True),
                     (r'\texttt{3}', -1.9, False),
@@ -291,7 +291,7 @@ class NumberTransparencies(Scene):
                 (MyMathTex(
                     num,
                     font_size=60
-                ).shift(pos * RIGHT + 0.25*LEFT), b)
+                ).shift(pos * RIGHT + 0.25*LEFT + 0.25*DOWN), b)
                 for (num,pos, b) in [
                     (r'\texttt{3}', -3.2, True),
                     (r'\texttt{6}', -1.9, True),
@@ -331,17 +331,33 @@ class NumberTransparencies(Scene):
 
         #21:16:00
         self.play(
-            *(numbers1[i][0].animate.set_fill(GREEN, opacity=1) for i in [0,1])
+            LaggedStart(
+                numbers1[0][0].animate.set_fill(GREEN, opacity=1),
+                numbers1[1][0].animate.set_fill(GREEN, opacity=1),
+                lag_ratio=0.5
+            ),
+            run_time=1.5
         )
 
-        self.wait(6)
+        self.wait(5.5)
 
         #21:23:00
         self.play(
-            *(numbers1[i][0].animate.set_fill(RED, opacity=1) for i in [2,3,4,5])
+            LaggedStart(
+                AnimationGroup(
+                    numbers1[2][0].animate.set_fill(RED, opacity=1),
+                    numbers1[3][0].animate.set_fill(RED, opacity=1)
+                ),
+                AnimationGroup(
+                    numbers1[4][0].animate.set_fill(RED, opacity=1),
+                    numbers1[5][0].animate.set_fill(RED, opacity=1)
+                ),
+                lag_ratio=0.5
+            ),
+            run_time=1.5
         )
 
-        self.wait(6)
+        self.wait(5.5)
 
         #21:30:00
         self.play(
@@ -349,14 +365,14 @@ class NumberTransparencies(Scene):
             run_time=0.5
         )
 
-        self.wait(2.5)
+        self.wait(2.25)
 
-        #21:33:00
+        #21:32:45
         self.play(
             *(FadeIn(n, scale=0.75) for n in numbers2),
             run_time=0.25
         )
-        self.wait(0.25)
+        self.wait(0.5)
 
         #21:33:30
         self.play(

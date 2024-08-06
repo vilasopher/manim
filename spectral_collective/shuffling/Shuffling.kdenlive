@@ -5438,6 +5438,7 @@
   <blank length="00:00:01.067"/>
   <entry in="00:00:01.317" out="00:00:24.833" producer="chain42">
    <property name="kdenlive:id">55</property>
+   <property name="kdenlive:activeeffect">2</property>
    <filter id="filter95" in="00:00:01.317" out="00:00:01.467">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
@@ -5459,7 +5460,7 @@
    <filter id="filter97">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
-    <property name="level">00:00:01.317=-6</property>
+    <property name="level">00:00:01.317=-7</property>
     <property name="mlt_service">volume</property>
     <property name="kdenlive_id">volume</property>
     <property name="kdenlive:collapsed">0</property>
@@ -11587,8 +11588,8 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain63" out="00:00:00.983">
-  <property name="length">60</property>
+ <chain id="chain63" out="00:01:12.483">
+  <property name="length">4350</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/rifflemath/1080p60/NumberTransparencies.mov</property>
   <property name="mlt_service">avformat-novalidate</property>
@@ -11599,8 +11600,8 @@
   <property name="vstream">0</property>
   <property name="kdenlive:id">95</property>
   <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">832824</property>
-  <property name="kdenlive:file_hash">2bf40149aebf89b0b14da212ccf1e394</property>
+  <property name="kdenlive:file_size">64966174</property>
+  <property name="kdenlive:file_hash">8bec4ae02584a42f2f23c6ae206aaa63</property>
   <property name="kdenlive:folderid">154</property>
   <property name="kdenlive:monitorPosition">27</property>
   <property name="meta.media.nb_streams">1</property>
@@ -11615,7 +11616,7 @@
   <property name="meta.media.0.codec.colorspace">709</property>
   <property name="meta.media.0.codec.name">qtrle</property>
   <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
-  <property name="meta.media.0.codec.bit_rate">6653800</property>
+  <property name="meta.media.0.codec.bit_rate">7166440</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
   <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
@@ -11820,11 +11821,14 @@
   <entry in="00:00:01.000" out="00:00:28.150" producer="chain61">
    <property name="kdenlive:id">93</property>
   </entry>
-  <blank length="00:00:27.133"/>
-  <entry in="00:00:00.000" out="00:00:00.983" producer="chain63">
+  <blank length="00:00:00.800"/>
+  <entry in="00:00:00.000" out="00:00:04.817" producer="chain63">
    <property name="kdenlive:id">95</property>
   </entry>
-  <blank length="00:01:10.883"/>
+  <entry in="00:00:03.800" out="00:01:06.983" producer="chain63">
+   <property name="kdenlive:id">95</property>
+  </entry>
+  <blank length="00:00:30.183"/>
   <entry in="00:00:00.000" out="00:00:00.800" producer="producer40">
    <property name="kdenlive:id">66</property>
   </entry>
@@ -12011,7 +12015,7 @@
     <property name="level">1</property>
     <property name="mlt_service">brightness</property>
     <property name="kdenlive_id">fade_from_black</property>
-    <property name="alpha">0=0;-1=1</property>
+    <property name="alpha">00:00:00.000=0;00:00:00.683=1</property>
    </filter>
   </entry>
  </playlist>
@@ -12037,14 +12041,14 @@
   <property name="kdenlive:clip_type">0</property>
   <property name="kdenlive:file_hash">117485639c4f0ef28609a216dd2a1f51</property>
   <property name="kdenlive:folderid">2</property>
-  <property name="kdenlive:sequenceproperties.activeTrack">4</property>
+  <property name="kdenlive:sequenceproperties.activeTrack">1</property>
   <property name="kdenlive:sequenceproperties.audioTarget">1</property>
   <property name="kdenlive:sequenceproperties.disablepreview">0</property>
   <property name="kdenlive:sequenceproperties.documentuuid">{6145f7b6-8bb3-4e2d-afc5-1905046347f9}</property>
   <property name="kdenlive:sequenceproperties.hasAudio">1</property>
   <property name="kdenlive:sequenceproperties.hasVideo">1</property>
-  <property name="kdenlive:sequenceproperties.position">77880</property>
-  <property name="kdenlive:sequenceproperties.scrollPos">96150</property>
+  <property name="kdenlive:sequenceproperties.position">74154</property>
+  <property name="kdenlive:sequenceproperties.scrollPos">22528</property>
   <property name="kdenlive:sequenceproperties.subtitlesList">[
     {
         "file": "/home/vilas/.local/share/kdenlive/.backup/Shuffling-1720486770903-2024-08-02-11-06.kdenlive.srt",
@@ -12059,7 +12063,7 @@
   <property name="kdenlive:sequenceproperties.videoTarget">2</property>
   <property name="kdenlive:sequenceproperties.zonein">0</property>
   <property name="kdenlive:sequenceproperties.zoneout">75</property>
-  <property name="kdenlive:sequenceproperties.zoom">6</property>
+  <property name="kdenlive:sequenceproperties.zoom">10</property>
   <property name="kdenlive:sequenceproperties.groups">[
     {
         "children": [
@@ -13546,7 +13550,7 @@
     },
     {
         "comment": "write numbers2",
-        "pos": 77580,
+        "pos": 77565,
         "type": 2
     },
     {
@@ -15019,7 +15023,7 @@
     },
     {
         "comment": "write numbers2",
-        "pos": 77580,
+        "pos": 77565,
         "type": 2
     },
     {
@@ -16131,8 +16135,8 @@
   <property name="kdenlive:file_hash">1eed793f8d5668bde88ff5340bbb0718</property>
   <property name="kdenlive:folderid">151</property>
  </chain>
- <chain id="chain77" out="00:00:00.983">
-  <property name="length">60</property>
+ <chain id="chain77" out="00:01:12.483">
+  <property name="length">4350</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/rifflemath/1080p60/NumberTransparencies.mov</property>
   <property name="mlt_service">avformat</property>
@@ -16148,7 +16152,7 @@
   <property name="meta.media.0.codec.colorspace">709</property>
   <property name="meta.media.0.codec.name">qtrle</property>
   <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
-  <property name="meta.media.0.codec.bit_rate">6653800</property>
+  <property name="meta.media.0.codec.bit_rate">7166440</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
   <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
@@ -16177,8 +16181,8 @@
   <property name="meta.media.progressive">1</property>
   <property name="kdenlive:id">95</property>
   <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">832824</property>
-  <property name="kdenlive:file_hash">2bf40149aebf89b0b14da212ccf1e394</property>
+  <property name="kdenlive:file_size">64966174</property>
+  <property name="kdenlive:file_hash">8bec4ae02584a42f2f23c6ae206aaa63</property>
   <property name="kdenlive:folderid">154</property>
   <property name="kdenlive:monitorPosition">27</property>
  </chain>
@@ -16366,7 +16370,7 @@
   <entry in="00:00:00.000" out="00:00:24.983" producer="chain74"/>
   <entry in="00:00:00.000" out="00:00:33.983" producer="chain75"/>
   <entry in="00:00:00.000" out="00:00:34.983" producer="chain76"/>
-  <entry in="00:00:00.000" out="00:00:00.983" producer="chain77"/>
+  <entry in="00:00:00.000" out="00:01:12.483" producer="chain77"/>
  </playlist>
  <tractor id="tractor7" in="00:00:00.000" out="00:24:47.483">
   <property name="kdenlive:projectTractor">1</property>
