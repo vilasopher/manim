@@ -60,7 +60,7 @@ class DemoTransparencies(Scene):
             run_time=0.5
         )
 
-        self.wait(5.5)
+        self.wait(10) #5.5
 
         #14:37:30
         self.play(
@@ -92,17 +92,184 @@ class CouplingTransparencies(Scene):
             top, color=sol.BASE01, corner_radius=0.1
         ).set_fill(sol.BASE2, opacity=1)
 
-        #14:40:00
+        tt.add_to_preamble(r'\DeclareSymbolFont{extraup}{U}{zavm}{m}{n}')
+        tt.add_to_preamble(r'\DeclareMathSymbol{\varheart}{\mathalpha}{extraup}{86}')
+
+        seeds = [
+            Group(
+                SurroundingRectangle(
+                    x,
+                    color=sol.BASE01,
+                    corner_radius=0.1
+                ).set_fill(sol.BASE2, opacity=1),
+                x
+            ) for x in [
+                MyMathTex(
+                    r'\text{Chosen card: } {{' + s + r'\varheart}}'
+                ).set_color_by_tex(r'\varheart', PURE_RED).shift(0.25*UP)
+                for s in [
+                    '4', '5', '2', '4', '2', '6', '4', 'A'
+                ]
+            ]
+        ]
+
+        #15:09:00
+        self.add(perfbox, perf, unshbox, unsh)
+
+        self.wait(7.5)
+
+        #15:16:30
+        self.play(FadeIn(Group(topbox, top),scale=0.75))
+
+        self.wait(4)
+
+        #15:21:30
         self.play(
-            FadeIn(perfbox, perf, shift=LEFT),
-            FadeIn(unshbox, unsh, shift=LEFT)
+            FadeIn(seeds[0], scale=0.75),
+            run_time=0.5
+        )
+
+        self.wait(1.5)
+
+        #15:23:30
+        self.play(
+            FadeOut(seeds[0],shift=0.75*UP),
+            FadeIn(seeds[1],shift=0.75*UP),
+            run_time=0.5
+        )
+
+        self.wait(2.5)
+
+        #15:26:30
+        self.play(
+            FadeOut(seeds[1],shift=0.75*UP),
+            FadeIn(seeds[2],shift=0.75*UP),
+            run_time=0.5
+        )
+
+        self.wait(2)
+
+        #15:29:00
+        self.play(
+            FadeOut(seeds[2], shift=0.75*UP),
+            FadeIn(seeds[3], shift=0.75*UP),
+            run_time=0.5
+        )
+
+        self.wait(1.5)
+
+        #15:31:00
+        self.play(
+            FadeOut(seeds[3],shift=0.75*UP),
+            FadeIn(seeds[4],shift=0.75*UP),
+            run_time=0.5
+        )
+
+        self.wait(2)
+
+        #15:33:30
+        self.play(
+            FadeOut(seeds[4],shift=0.75*UP),
+            FadeIn(seeds[5],shift=0.75*UP),
+            run_time=0.5
+        )
+
+        self.wait(2.5)
+
+        #15:36:30
+        self.play(
+            FadeOut(seeds[5],shift=0.75*UP),
+            FadeIn(seeds[6],shift=0.75*UP),
+            run_time=0.5
+        )
+
+        self.wait(1.5)
+
+        #15:38:30
+        self.play(
+            FadeOut(seeds[6],shift=0.75*UP),
+            FadeIn(seeds[7],shift=0.75*UP),
+            run_time=0.5
         )
 
         self.wait(5)
 
-        #14:46:00
-        self.play(FadeIn(Group(topbox, top),scale=0.75))
-        self.wait(5)
+class CheckMarkTransparencies(Scene):
+    def construct(self):
+        checks = [
+            Group(
+                SurroundingRectangle(
+                    x,
+                    color=sol.BASE01,
+                    corner_radius=0.1
+                ).set_fill(sol.BASE2, opacity=1),
+                x
+            ) for x in [
+                MyMathTex(
+                    r'\checkmark',
+                    color=sol.FOREST_GREEN
+                ).shift(0.25*UP + i * RIGHT)
+                for i in [
+                    -3.25, -1.9, -0.6, 0.6, 1.95, 3.25
+                ]
+            ]
+        ]
+
+        perf = MyTex(
+            r'perfectly \\ random'
+        ).shift(UP + 5.5*RIGHT)
+        perfbox = SurroundingRectangle(
+            perf, color=sol.BASE01, corner_radius=0.1
+        ).set_fill(sol.BASE2, opacity=1)
+
+        unsh = MyTex(
+            r'unshuffled'
+        ).shift(0.75*DOWN).align_to(perf, LEFT)
+        unshbox = SurroundingRectangle(
+            unsh, color=sol.BASE01, corner_radius=0.1
+        ).set_fill(sol.BASE2, opacity=1)
+
+        top = MyMathTex(
+            r'\xleftarrow{\text{top}}'
+        ).shift(5.5*LEFT + 0.25*UP)
+        topbox = SurroundingRectangle(
+            top, color=sol.BASE01, corner_radius=0.1
+        ).set_fill(sol.BASE2, opacity=1)
+
+        self.add(perfbox, perf, unshbox, unsh, topbox, top)
+        self.wait(1)
+
+        #15:43:30
+        self.play(FadeIn(checks[0], scale=0.75), run_time=0.5)
+
+        self.wait(3.5)
+
+        #15:47:30
+        self.play(FadeIn(checks[1], scale=0.75), run_time=0.5)
+
+        self.wait(4)
+
+        #15:52:00
+        self.play(FadeIn(checks[2], scale=0.75), run_time=0.5)
+
+        self.wait(2)
+
+        #15:54:30
+        self.play(FadeIn(checks[3], scale=0.75), run_time=0.5)
+
+        self.wait(2.75)
+
+        #15:57:45
+        self.play(
+            LaggedStart(
+                FadeIn(checks[4], scale=0.75),
+                FadeIn(checks[5], scale=0.75),
+                lag_ratio=0.5
+            ),
+            run_time=0.75
+        )
+
+        self.wait(10)
 
 class Coupon(Scene):
     def construct(self):

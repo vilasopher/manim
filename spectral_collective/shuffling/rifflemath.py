@@ -94,7 +94,26 @@ class ModelTransparencies(Scene):
 
 class CouplingTransparencies(Scene):
     def construct(self):
-        #TODO
+        perf = MyTex(
+            r'perfectly \\ random'
+        ).shift(UP + 5.5*RIGHT)
+        perfbox = SurroundingRectangle(
+            perf, color=sol.BASE01, corner_radius=0.1
+        ).set_fill(sol.BASE2, opacity=1)
+
+        unsh = MyTex(
+            r'unshuffled'
+        ).shift(0.75*DOWN).align_to(perf, LEFT)
+        unshbox = SurroundingRectangle(
+            unsh, color=sol.BASE01, corner_radius=0.1
+        ).set_fill(sol.BASE2, opacity=1)
+
+        top = MyMathTex(
+            r'\xleftarrow{\text{top}}'
+        ).shift(5.5*LEFT + 0.25*UP)
+        topbox = SurroundingRectangle(
+            top, color=sol.BASE01, corner_radius=0.1
+        ).set_fill(sol.BASE2, opacity=1)
         pass
 
 class BirthdayProblem(Scene):
