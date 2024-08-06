@@ -4,12 +4,105 @@ from sharedclasses import *
 
 class DemoTransparencies(Scene):
     def construct(self):
-        pass
+        perf1 = MyTex(
+            r'perfectly random',
+            font_size=55
+        ).shift(RIGHT)
+        perf1box = SurroundingRectangle(
+            perf1, color=sol.BASE01, corner_radius=0.1
+        ).set_fill(sol.BASE2, opacity=1)
+
+        perf2 = MyTex(
+            r'still perfectly random',
+            font_size=55
+        ).shift(RIGHT + 0.25*DOWN)
+        perf2box = SurroundingRectangle(
+            perf2, color=sol.BASE01, corner_radius=0.1
+        ).set_fill(sol.BASE2, opacity=1)
+
+        perf3 = MyTex(
+            r'perfectly \\ random'
+        ).shift(1.5*UP + 5*RIGHT)
+        perf3box = SurroundingRectangle(
+            perf3, color=sol.BASE01, corner_radius=0.1
+        ).set_fill(sol.BASE2, opacity=1)
+
+        unshuffled = MyTex(
+            r'unshuffled'
+        ).shift(2.5*DOWN + 5*RIGHT)
+        unshuffledbox = SurroundingRectangle(
+            unshuffled, color=sol.BASE01, corner_radius=0.1
+        ).set_fill(sol.BASE2, opacity=1)
+
+        #14:17:30
+        self.play(FadeIn(perf1box, perf1, scale=0.75), run_time=0.5)
+        self.wait()
+        self.play(Group(perf1box, perf1).animate.shift(3*DOWN), run_time=0.5)
+        self.wait(2)
+        #14:22:30
+        self.play(
+            FadeTransform(perf1box, perf2box),
+            FadeTransform(perf1, perf2),
+            run_time=0.5
+        )
+        self.remove(perf1box, perf1)
+        self.add(perf2box, perf2)
+        self.wait(2.5)
+        #14:24:30
+        self.play(FadeOut(Group(perf2box, perf2), shift=2*DOWN), run_time=0.5)
+
+        self.wait(6.5)
+
+        #14:31:30
+        self.play(
+            FadeIn(perf3box, perf3, shift=LEFT),
+            FadeIn(unshuffledbox, unshuffled, shift=LEFT),
+            run_time=0.5
+        )
+
+        self.wait(5.5)
+
+        #14:37:30
+        self.play(
+            FadeOut(perf3box, perf3, shift=RIGHT),
+            FadeOut(unshuffledbox, unshuffled, shift=RIGHT),
+            run_time=0.5
+        )
     
 class CouplingTransparencies(Scene):
     def construct(self):
-        #TODO
-        pass
+        perf = MyTex(
+            r'perfectly \\ random'
+        ).shift(UP + 5.5*RIGHT)
+        perfbox = SurroundingRectangle(
+            perf, color=sol.BASE01, corner_radius=0.1
+        ).set_fill(sol.BASE2, opacity=1)
+
+        unsh = MyTex(
+            r'unshuffled'
+        ).shift(0.75*DOWN).align_to(perf, LEFT)
+        unshbox = SurroundingRectangle(
+            unsh, color=sol.BASE01, corner_radius=0.1
+        ).set_fill(sol.BASE2, opacity=1)
+
+        top = MyMathTex(
+            r'\xleftarrow{\text{top}}'
+        ).shift(5.5*LEFT + 0.25*UP)
+        topbox = SurroundingRectangle(
+            top, color=sol.BASE01, corner_radius=0.1
+        ).set_fill(sol.BASE2, opacity=1)
+
+        #14:40:00
+        self.play(
+            FadeIn(perfbox, perf, shift=LEFT),
+            FadeIn(unshbox, unsh, shift=LEFT)
+        )
+
+        self.wait(5)
+
+        #14:46:00
+        self.play(FadeIn(Group(topbox, top),scale=0.75))
+        self.wait(5)
 
 class Coupon(Scene):
     def construct(self):

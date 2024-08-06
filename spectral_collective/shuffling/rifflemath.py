@@ -37,19 +37,59 @@ class ModelTransparencies(Scene):
         ).next_to(cut, DOWN).align_to(riffle, RIGHT).shift(0.25*LEFT)
 
         reverse = MyTex(
-            r'\textbf{Reverse shuffle: } put a uniformly random subset on top.'
+            r'\textbf{Reverse shuffle:} put a uniformly random subset on top.'
         ).align_to(box, DOWN).shift(0.15*UP)
 
+        #18:19:00
         self.play(FadeIn(box, scale=0.75))
+
+        self.wait()
+        
+        #18:21:00
         self.play(FadeIn(cut, shift=0.5*(UP+LEFT)))
+        
+        self.wait(1.5)
+
+        #18:23:30
         self.play(FadeIn(riffle, shift=0.5*(UP+RIGHT)))
+
+        self.wait(6.5)
+
+        #18:31:00
         self.play(FadeIn(binomial, scale=0.75))
+
+        self.wait(11)
+
+        #18:43:00
         self.play(FadeIn(binomialexplanation, scale=0.75))
+
+        self.wait(18)
+
+        #19:02:00
         self.play(FadeIn(choice, scale=0.75))
+
+        self.wait(11.5)
+
+        #19:14:30
         self.play(FadeTransform(choice, uniform))
+
+        self.remove(choice)
+        self.add(uniform)
+
+        self.wait(8.5)
+
+        #19:24:00
         self.play(
             FadeOut(binomialexplanation, scale=0.25),
             FadeIn(reverse, scale=0.5, shift=3*LEFT)
+        )
+
+        self.wait(7.5)
+
+        #19:32:30
+        self.play(
+            FadeOut(box, cut, riffle, binomial, uniform, reverse, scale=0.75),
+            run_time=0.5
         )
 
 class CouplingTransparencies(Scene):
