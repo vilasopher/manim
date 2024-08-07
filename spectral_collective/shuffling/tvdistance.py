@@ -166,7 +166,12 @@ class Notations(Scene):
             FadeIn(ex1, shift=LEFT)
         )
 
-        self.wait(10)
+        self.wait(5)
+
+        #4:01:00
+        self.play(Indicate(ex1[0][32:40], color=sol.BASE01))
+
+        self.wait(4)
 
         #4:06:00
         self.play(FadeIn(ex2, shift=LEFT))

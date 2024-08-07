@@ -198,12 +198,12 @@ class Definition1Transparency(Scene):
         def1textbox = SurroundingRectangle(
             def1text, buff=MED_SMALL_BUFF, corner_radius=0.1,
             color=sol.BASE01
-        ).set_fill(sol.BASE2, opacity=0.75)
+        ).set_fill(sol.BASE2, opacity=0.95)
         def1 = Group(def1textbox, def1text)
 
-        self.play(FadeIn(def1, scale=0.75))
+        self.play(FadeIn(def1, shift=DOWN))
         self.wait(3)
-        self.play(FadeOut(def1, scale=0.75))
+        self.play(FadeOut(def1, shift=UP))
 
 
 #config.background_color = sol.BASE03

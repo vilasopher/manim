@@ -28,7 +28,7 @@ class ModelTransparencies(Scene):
         ).next_to(binomial, DOWN).align_to(cut, LEFT)
 
         choice = MyTex(
-            r'place a card down from a packet \\ with probability proporitional to the \\ number of cards left in that packet',
+            r'place a card down from a half \\ with probability proporitional to the \\ number of cards left in that half',
             font_size=43
         ).next_to(riffle, DOWN).align_to(riffle, RIGHT).shift(0.25*LEFT)
 

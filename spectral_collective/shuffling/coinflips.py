@@ -327,7 +327,7 @@ class CoinFlipExample(Scene):
         ).next_to(table, UP, buff=MED_LARGE_BUFF)
         tablesuboptimal = Tex(
             r'\textbf{\emph{not optimal!}}',
-            color=PURE_RED,
+            color=sol.CRIMSON_RED,
             font_size=65
         ).next_to(table, DOWN, buff=MED_LARGE_BUFF)
 
@@ -643,7 +643,7 @@ class CoinFlipExample(Scene):
 
             self.play(
                 randomnumber.animate.set_value(random()*0.95+0.025),
-                run_time=0.5
+                run_time=0.25
             )
 
         self.wait()
