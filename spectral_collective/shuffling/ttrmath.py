@@ -392,7 +392,7 @@ class Analysis(Scene):
         ).next_to(solving2, UP)
 
         solving3 = MyMathTex(
-            r'\textstyle {{\ct}} \leq {{\cn}} \log({{\cn}}) + {{\cn}} \log \big({1 \over {{\ceps}} } \big)',
+            r'\textstyle {{\ct}} \geq {{\cn}} \log({{\cn}}) + {{\cn}} \log \big({1 \over {{\ceps}} } \big)',
             font_size=45
         ).next_to(solving2, DOWN)
 
