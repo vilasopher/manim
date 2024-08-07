@@ -131,7 +131,7 @@ class WhatIsShuffling(Scene):
         #1:42:00
         self.play(FadeIn(answer2, shift=LEFT))
 
-        self.wait(2.5)
+        self.wait(10) #2.5
 
         #1:45:30
         self.play(FadeOut(Group(bg,question,answer1,answer2), scale=0.75))
@@ -204,6 +204,34 @@ class Definition1Transparency(Scene):
         self.play(FadeIn(def1, scale=0.75))
         self.wait(3)
         self.play(FadeOut(def1, scale=0.75))
+
+
+#config.background_color = sol.BASE03
+class PostGoFish(Scene):
+    def construct(self):
+
+        dont = MyTex(
+            r"don't think too hard about having fun",
+            font_size=70,
+            color=sol.BASE1
+        ).shift(0.5*UP)
+
+        unless = MyTex(
+            r"\emph{(unless you're doing math)}",
+            font_size=70,
+            color=sol.BASE1
+        ).shift(0.5*DOWN + 2.5*RIGHT)
+
+        self.wait(10)
+        #6:42:00
+        self.play(FadeIn(dont, shift=RIGHT))
+
+        self.wait(18.5)
+
+        #7:01:30
+        self.play(FadeIn(unless, shift=LEFT))
+
+        self.wait(10)
 
 class Conclusion(Scene):
     def construct(self):
