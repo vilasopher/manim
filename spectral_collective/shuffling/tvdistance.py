@@ -618,12 +618,12 @@ class Yapping(Scene):
         #11:33:30
         self.play(FadeIn(coupling, scale=0.75))
 
-        self.wait(9.5)
+        self.wait(4.5)
 
         #11:44:00
         self.play(FadeIn(number, scale=0.75))
 
-        self.wait(2)
+        self.wait(5)
 
         self.play(
             FadeIn(number2, shift=2*LEFT),
@@ -636,7 +636,7 @@ class Yapping(Scene):
             run_time=3.75
         )
 
-        self.wait(5)
+        self.wait(7)
 
         #11:56:00
         self.play(

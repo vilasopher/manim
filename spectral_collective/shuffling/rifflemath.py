@@ -416,11 +416,11 @@ class BirthdayProblem(Scene):
 
         stmt1 = MyMathTex(
             r'\bullet &\text{ after } {{\ct}} \text{ shuffles, each card has a uniformly} \\\
-                &\text{ random binary number with } {{\ct}} \text{ bits.}'
+                &\text{ random binary number with } {{\ct}} \text{ bits}'
         ).next_to(title, DOWN).align_to(title,LEFT).shift(0.5*DOWN+0.5*RIGHT)
 
         stmt2 = MyMathTex(
-            r'\bullet &\text{ there are } 2^{{\ct}} \text{ such binary nubers.}'
+            r'\bullet &\text{ there are } 2^{{\ct}} \text{ such binary numbers}'
         ).next_to(stmt1, DOWN).align_to(stmt1,LEFT)
 
         reform = MyMathTex(

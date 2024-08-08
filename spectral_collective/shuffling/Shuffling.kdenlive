@@ -1999,58 +1999,6 @@
   <property name="kdenlive:folderid">139</property>
   <property name="mute_on_pause">0</property>
  </chain>
- <chain id="chain192" out="00:00:29.983">
-  <property name="length">1800</property>
-  <property name="eof">pause</property>
-  <property name="resource">media/videos/coinflips/1080p60/CoinFlipTransparencies.mov</property>
-  <property name="mlt_service">avformat-novalidate</property>
-  <property name="meta.media.nb_streams">1</property>
-  <property name="meta.media.0.stream.type">video</property>
-  <property name="meta.media.0.stream.frame_rate">60</property>
-  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
-  <property name="meta.media.0.codec.width">1920</property>
-  <property name="meta.media.0.codec.height">1080</property>
-  <property name="meta.media.0.codec.rotate">0</property>
-  <property name="meta.media.0.codec.pix_fmt">argb</property>
-  <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
-  <property name="meta.media.0.codec.colorspace">709</property>
-  <property name="meta.media.0.codec.name">qtrle</property>
-  <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
-  <property name="meta.media.0.codec.bit_rate">12237190</property>
-  <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
-  <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
-  <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
-  <property name="meta.attr.major_brand.markup">qt  </property>
-  <property name="meta.attr.minor_version.markup">512</property>
-  <property name="meta.attr.compatible_brands.markup">qt  </property>
-  <property name="meta.attr.encoder.markup">Lavf61.1.100</property>
-  <property name="meta.attr.comment.markup">Rendered with Manim Community v0.18.1</property>
-  <property name="seekable">1</property>
-  <property name="meta.media.sample_aspect_num">1</property>
-  <property name="meta.media.sample_aspect_den">1</property>
-  <property name="format">2</property>
-  <property name="audio_index">-1</property>
-  <property name="video_index">0</property>
-  <property name="vstream">0</property>
-  <property name="meta.media.frame_rate_num">60</property>
-  <property name="meta.media.frame_rate_den">1</property>
-  <property name="meta.media.colorspace">709</property>
-  <property name="meta.media.color_trc">2</property>
-  <property name="meta.media.has_b_frames">0</property>
-  <property name="meta.media.width">1920</property>
-  <property name="meta.media.height">1080</property>
-  <property name="meta.media.aspect_ratio">1</property>
-  <property name="meta.media.color_range">mpeg</property>
-  <property name="meta.media.top_field_first">0</property>
-  <property name="meta.media.progressive">1</property>
-  <property name="kdenlive:folderid">139</property>
-  <property name="kdenlive:id">68</property>
-  <property name="mute_on_pause">0</property>
-  <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">45898398</property>
-  <property name="kdenlive:file_hash">7bb544399d0efc20d61df1bc181a8436</property>
-  <property name="kdenlive:monitorPosition">0</property>
- </chain>
  <chain id="chain206" out="00:00:49.483">
   <property name="length">2970</property>
   <property name="eof">pause</property>
@@ -2102,57 +2050,6 @@
   <property name="kdenlive:file_size">80833733</property>
   <property name="kdenlive:file_hash">8da81e293cbc6706a95ca40953403389</property>
   <property name="kdenlive:monitorPosition">0</property>
- </chain>
- <chain id="chain217" out="00:00:37.483">
-  <property name="length">2250</property>
-  <property name="eof">pause</property>
-  <property name="resource">media/videos/introconclusion/1080p60/Intro.mp4</property>
-  <property name="mlt_service">avformat-novalidate</property>
-  <property name="meta.media.nb_streams">1</property>
-  <property name="meta.media.0.stream.type">video</property>
-  <property name="meta.media.0.stream.frame_rate">60</property>
-  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
-  <property name="meta.media.0.codec.width">1920</property>
-  <property name="meta.media.0.codec.height">1080</property>
-  <property name="meta.media.0.codec.rotate">0</property>
-  <property name="meta.media.0.codec.pix_fmt">yuv420p</property>
-  <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
-  <property name="meta.media.0.codec.colorspace">709</property>
-  <property name="meta.media.0.codec.name">h264</property>
-  <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
-  <property name="meta.media.0.codec.bit_rate">275659</property>
-  <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
-  <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
-  <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 libx264</property>
-  <property name="meta.attr.major_brand.markup">isom</property>
-  <property name="meta.attr.minor_version.markup">512</property>
-  <property name="meta.attr.compatible_brands.markup">isomiso2avc1mp41</property>
-  <property name="meta.attr.encoder.markup">Lavf61.1.100</property>
-  <property name="meta.attr.comment.markup">Rendered with Manim Community v0.18.1</property>
-  <property name="seekable">1</property>
-  <property name="meta.media.sample_aspect_num">1</property>
-  <property name="meta.media.sample_aspect_den">1</property>
-  <property name="format">3</property>
-  <property name="audio_index">-1</property>
-  <property name="video_index">0</property>
-  <property name="vstream">0</property>
-  <property name="meta.media.frame_rate_num">60</property>
-  <property name="meta.media.frame_rate_den">1</property>
-  <property name="meta.media.colorspace">709</property>
-  <property name="meta.media.color_trc">2</property>
-  <property name="meta.media.has_b_frames">2</property>
-  <property name="meta.media.width">1920</property>
-  <property name="meta.media.height">1080</property>
-  <property name="meta.media.aspect_ratio">1</property>
-  <property name="meta.media.color_range">mpeg</property>
-  <property name="meta.media.top_field_first">0</property>
-  <property name="meta.media.progressive">1</property>
-  <property name="kdenlive:id">70</property>
-  <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">1319765</property>
-  <property name="kdenlive:file_hash">dea2ec211bccd39fd7c1126e09f8a839</property>
-  <property name="kdenlive:folderid">140</property>
-  <property name="mute_on_pause">0</property>
  </chain>
  <chain id="chain207" out="00:01:03.483">
   <property name="length">3810</property>
@@ -2413,108 +2310,6 @@
   <property name="kdenlive:monitorPosition">0</property>
   <property name="mute_on_pause">0</property>
  </chain>
- <chain id="chain230" out="00:01:35.483">
-  <property name="length">5730</property>
-  <property name="eof">pause</property>
-  <property name="resource">media/videos/tvdistance/1080p60/Yapping.mp4</property>
-  <property name="mlt_service">avformat-novalidate</property>
-  <property name="meta.media.nb_streams">1</property>
-  <property name="meta.media.0.stream.type">video</property>
-  <property name="meta.media.0.stream.frame_rate">60</property>
-  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
-  <property name="meta.media.0.codec.width">1920</property>
-  <property name="meta.media.0.codec.height">1080</property>
-  <property name="meta.media.0.codec.rotate">0</property>
-  <property name="meta.media.0.codec.pix_fmt">yuv420p</property>
-  <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
-  <property name="meta.media.0.codec.colorspace">709</property>
-  <property name="meta.media.0.codec.name">h264</property>
-  <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
-  <property name="meta.media.0.codec.bit_rate">443845</property>
-  <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
-  <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
-  <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 libx264</property>
-  <property name="meta.attr.major_brand.markup">isom</property>
-  <property name="meta.attr.minor_version.markup">512</property>
-  <property name="meta.attr.compatible_brands.markup">isomiso2avc1mp41</property>
-  <property name="meta.attr.encoder.markup">Lavf61.1.100</property>
-  <property name="meta.attr.comment.markup">Rendered with Manim Community v0.18.1</property>
-  <property name="seekable">1</property>
-  <property name="meta.media.sample_aspect_num">1</property>
-  <property name="meta.media.sample_aspect_den">1</property>
-  <property name="format">3</property>
-  <property name="audio_index">-1</property>
-  <property name="video_index">0</property>
-  <property name="vstream">0</property>
-  <property name="meta.media.frame_rate_num">60</property>
-  <property name="meta.media.frame_rate_den">1</property>
-  <property name="meta.media.colorspace">709</property>
-  <property name="meta.media.color_trc">2</property>
-  <property name="meta.media.has_b_frames">2</property>
-  <property name="meta.media.width">1920</property>
-  <property name="meta.media.height">1080</property>
-  <property name="meta.media.aspect_ratio">1</property>
-  <property name="meta.media.color_range">mpeg</property>
-  <property name="meta.media.top_field_first">0</property>
-  <property name="meta.media.progressive">1</property>
-  <property name="kdenlive:id">76</property>
-  <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">5366063</property>
-  <property name="kdenlive:file_hash">5c82850cac869e85bd73860d21e0315d</property>
-  <property name="kdenlive:folderid">146</property>
-  <property name="mute_on_pause">0</property>
- </chain>
- <chain id="chain214" out="00:00:47.983">
-  <property name="length">2880</property>
-  <property name="eof">pause</property>
-  <property name="resource">media/videos/ttrmath/1080p60/Coupon.mp4</property>
-  <property name="mlt_service">avformat-novalidate</property>
-  <property name="meta.media.nb_streams">1</property>
-  <property name="meta.media.0.stream.type">video</property>
-  <property name="meta.media.0.stream.frame_rate">60</property>
-  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
-  <property name="meta.media.0.codec.width">1920</property>
-  <property name="meta.media.0.codec.height">1080</property>
-  <property name="meta.media.0.codec.rotate">0</property>
-  <property name="meta.media.0.codec.pix_fmt">yuv420p</property>
-  <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
-  <property name="meta.media.0.codec.colorspace">709</property>
-  <property name="meta.media.0.codec.name">h264</property>
-  <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
-  <property name="meta.media.0.codec.bit_rate">261406</property>
-  <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
-  <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
-  <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 libx264</property>
-  <property name="meta.attr.major_brand.markup">isom</property>
-  <property name="meta.attr.minor_version.markup">512</property>
-  <property name="meta.attr.compatible_brands.markup">isomiso2avc1mp41</property>
-  <property name="meta.attr.encoder.markup">Lavf61.1.100</property>
-  <property name="meta.attr.comment.markup">Rendered with Manim Community v0.18.1</property>
-  <property name="seekable">1</property>
-  <property name="meta.media.sample_aspect_num">1</property>
-  <property name="meta.media.sample_aspect_den">1</property>
-  <property name="format">3</property>
-  <property name="audio_index">-1</property>
-  <property name="video_index">0</property>
-  <property name="vstream">0</property>
-  <property name="meta.media.frame_rate_num">60</property>
-  <property name="meta.media.frame_rate_den">1</property>
-  <property name="meta.media.colorspace">709</property>
-  <property name="meta.media.color_trc">2</property>
-  <property name="meta.media.has_b_frames">2</property>
-  <property name="meta.media.width">1920</property>
-  <property name="meta.media.height">1080</property>
-  <property name="meta.media.aspect_ratio">1</property>
-  <property name="meta.media.color_range">mpeg</property>
-  <property name="meta.media.top_field_first">0</property>
-  <property name="meta.media.progressive">1</property>
-  <property name="kdenlive:id">77</property>
-  <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">1603562</property>
-  <property name="kdenlive:file_hash">56f32f8cbbde489ced3145e19a07e6b4</property>
-  <property name="kdenlive:folderid">151</property>
-  <property name="mute_on_pause">0</property>
- </chain>
  <chain id="chain92" out="00:01:34.983">
   <property name="length">5700</property>
   <property name="eof">pause</property>
@@ -2617,58 +2412,6 @@
   <property name="kdenlive:folderid">154</property>
   <property name="kdenlive:monitorPosition">0</property>
   <property name="mute_on_pause">0</property>
- </chain>
- <chain id="chain216" out="00:00:33.983">
-  <property name="length">2040</property>
-  <property name="eof">pause</property>
-  <property name="resource">media/videos/rifflemath/1080p60/BirthdayProblem.mp4</property>
-  <property name="mlt_service">avformat-novalidate</property>
-  <property name="meta.media.nb_streams">1</property>
-  <property name="meta.media.0.stream.type">video</property>
-  <property name="meta.media.0.stream.frame_rate">60</property>
-  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
-  <property name="meta.media.0.codec.width">1920</property>
-  <property name="meta.media.0.codec.height">1080</property>
-  <property name="meta.media.0.codec.rotate">0</property>
-  <property name="meta.media.0.codec.pix_fmt">yuv420p</property>
-  <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
-  <property name="meta.media.0.codec.colorspace">709</property>
-  <property name="meta.media.0.codec.name">h264</property>
-  <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
-  <property name="meta.media.0.codec.bit_rate">361033</property>
-  <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
-  <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
-  <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 libx264</property>
-  <property name="meta.attr.major_brand.markup">isom</property>
-  <property name="meta.attr.minor_version.markup">512</property>
-  <property name="meta.attr.compatible_brands.markup">isomiso2avc1mp41</property>
-  <property name="meta.attr.encoder.markup">Lavf61.1.100</property>
-  <property name="meta.attr.comment.markup">Rendered with Manim Community v0.18.1</property>
-  <property name="seekable">1</property>
-  <property name="meta.media.sample_aspect_num">1</property>
-  <property name="meta.media.sample_aspect_den">1</property>
-  <property name="format">3</property>
-  <property name="audio_index">-1</property>
-  <property name="video_index">0</property>
-  <property name="vstream">0</property>
-  <property name="meta.media.frame_rate_num">60</property>
-  <property name="meta.media.frame_rate_den">1</property>
-  <property name="meta.media.colorspace">709</property>
-  <property name="meta.media.color_trc">2</property>
-  <property name="meta.media.has_b_frames">2</property>
-  <property name="meta.media.width">1920</property>
-  <property name="meta.media.height">1080</property>
-  <property name="meta.media.aspect_ratio">1</property>
-  <property name="meta.media.color_range">mpeg</property>
-  <property name="meta.media.top_field_first">0</property>
-  <property name="meta.media.progressive">1</property>
-  <property name="kdenlive:folderid">154</property>
-  <property name="kdenlive:id">80</property>
-  <property name="mute_on_pause">0</property>
-  <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">1559645</property>
-  <property name="kdenlive:file_hash">d05838d29775956bfd32800680527ceb</property>
-  <property name="kdenlive:monitorPosition">0</property>
  </chain>
  <chain id="chain219" out="00:00:27.983">
   <property name="length">1680</property>
@@ -3409,6 +3152,73 @@
   <property name="kdenlive:folderid">140</property>
   <property name="mute_on_pause">0</property>
  </chain>
+ <chain id="chain97" out="00:24:52.417">
+  <property name="length">89546</property>
+  <property name="eof">pause</property>
+  <property name="resource">background_music.m4a</property>
+  <property name="mlt_service">avformat-novalidate</property>
+  <property name="meta.media.nb_streams">2</property>
+  <property name="meta.media.0.stream.type">audio</property>
+  <property name="meta.media.0.codec.sample_fmt">fltp</property>
+  <property name="meta.media.0.codec.sample_rate">44100</property>
+  <property name="meta.media.0.codec.channels">2</property>
+  <property name="meta.media.0.codec.layout">stereo</property>
+  <property name="meta.media.0.codec.name">aac</property>
+  <property name="meta.media.0.codec.long_name">AAC (Advanced Audio Coding)</property>
+  <property name="meta.media.0.codec.bit_rate">252884</property>
+  <property name="meta.attr.0.stream.creation_time.markup">2024-08-07T20:46:08.000000Z</property>
+  <property name="meta.attr.0.stream.language.markup">eng</property>
+  <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
+  <property name="meta.media.1.stream.type">video</property>
+  <property name="meta.media.1.stream.frame_rate">90000</property>
+  <property name="meta.media.1.stream.sample_aspect_ratio">0</property>
+  <property name="meta.media.1.codec.width">1024</property>
+  <property name="meta.media.1.codec.height">1024</property>
+  <property name="meta.media.1.codec.rotate">0</property>
+  <property name="meta.media.1.codec.pix_fmt">yuvj420p</property>
+  <property name="meta.media.1.codec.sample_aspect_ratio">1</property>
+  <property name="meta.media.1.codec.colorspace">601</property>
+  <property name="meta.media.1.codec.name">mjpeg</property>
+  <property name="meta.media.1.codec.long_name">MJPEG (Motion JPEG)</property>
+  <property name="meta.media.1.codec.bit_rate">0</property>
+  <property name="meta.attr.major_brand.markup">M4A </property>
+  <property name="meta.attr.minor_version.markup">0</property>
+  <property name="meta.attr.compatible_brands.markup">M4A mp42isom</property>
+  <property name="meta.attr.creation_time.markup">2024-08-07T20:46:08.000000Z</property>
+  <property name="meta.attr.artist.markup">Vilas</property>
+  <property name="meta.attr.album.markup">Vilas's Album</property>
+  <property name="meta.attr.date.markup">2024</property>
+  <property name="meta.attr.composer.markup">Vilas</property>
+  <property name="meta.attr.title.markup">My Song 2</property>
+  <property name="meta.attr.encoder.markup">GarageBand for iOS 2.3.16</property>
+  <property name="meta.attr.iTunSMPB.markup"> 00000000 00000840 00000159 0000000003EC3E67 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.sample_aspect_num">72</property>
+  <property name="meta.media.sample_aspect_den">72</property>
+  <property name="format">3</property>
+  <property name="audio_index">0</property>
+  <property name="video_index">1</property>
+  <property name="vstream">0</property>
+  <property name="meta.media.frame_rate_num">90000</property>
+  <property name="meta.media.frame_rate_den">1</property>
+  <property name="meta.media.colorspace">601</property>
+  <property name="meta.media.color_trc">2</property>
+  <property name="meta.media.has_b_frames">0</property>
+  <property name="meta.media.width">1024</property>
+  <property name="meta.media.height">1024</property>
+  <property name="meta.media.aspect_ratio">1</property>
+  <property name="meta.media.color_range">full</property>
+  <property name="astream">0</property>
+  <property name="meta.media.top_field_first">0</property>
+  <property name="meta.media.progressive">1</property>
+  <property name="kdenlive:folderid">-1</property>
+  <property name="kdenlive:id">97</property>
+  <property name="mute_on_pause">0</property>
+  <property name="kdenlive:clip_type">0</property>
+  <property name="kdenlive:file_size">47580569</property>
+  <property name="kdenlive:file_hash">e7a658c0ac42170128ddd97069219dc9</property>
+  <property name="kdenlive:audio_max0">230</property>
+ </chain>
  <producer id="producer0" in="00:00:00.000" out="00:29:45.000">
   <property name="length">2147483647</property>
   <property name="eof">continue</property>
@@ -3431,7 +3241,7 @@
   <property name="vstream">0</property>
   <property name="astream">0</property>
   <property name="kdenlive:folderid">-1</property>
-  <property name="kdenlive:id">98</property>
+  <property name="kdenlive:id">97</property>
   <property name="mute_on_pause">0</property>
   <property name="kdenlive:clip_type">0</property>
   <property name="kdenlive:file_size">47580569</property>
@@ -3492,12 +3302,11 @@
  <playlist id="playlist0">
   <property name="kdenlive:audio_track">1</property>
   <entry in="00:00:00.000" out="00:24:44.983" producer="chain0">
-   <property name="kdenlive:id">98</property>
-   <property name="kdenlive:activeeffect">0</property>
+   <property name="kdenlive:id">97</property>
    <filter id="filter0">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
-    <property name="level">00:00:00.000=-40</property>
+    <property name="level">00:00:00.000=-38</property>
     <property name="mlt_service">volume</property>
     <property name="kdenlive_id">volume</property>
     <property name="kdenlive:collapsed">0</property>
@@ -3532,7 +3341,7 @@
   <property name="kdenlive:collapsed">0</property>
   <property name="kdenlive:thumbs_format"/>
   <property name="kdenlive:audio_rec"/>
-  <property name="kdenlive:locked_track"/>
+  <property name="kdenlive:locked_track">1</property>
   <track hide="video" producer="playlist0"/>
   <track hide="video" producer="playlist1"/>
   <filter id="filter3">
@@ -7200,6 +7009,7 @@
   <blank length="00:03:50.883"/>
   <entry in="00:00:03.033" out="00:00:26.433" producer="chain170">
    <property name="kdenlive:id">57</property>
+   <property name="kdenlive:activeeffect">1</property>
    <filter id="filter138" in="00:00:03.033" out="00:00:04.250">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
@@ -7212,7 +7022,7 @@
    <filter id="filter139">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
-    <property name="level">00:00:03.033=-10</property>
+    <property name="level">00:00:03.033=-5</property>
     <property name="mlt_service">volume</property>
     <property name="kdenlive_id">volume</property>
     <property name="kdenlive:collapsed">0</property>
@@ -7224,6 +7034,7 @@
     <property name="kdenlive_id">fadeout</property>
     <property name="gain">1</property>
     <property name="end">0</property>
+    <property name="kdenlive:collapsed">0</property>
    </filter>
   </entry>
   <blank length="00:11:46.717"/>
@@ -7232,7 +7043,7 @@
    <filter id="filter141">
     <property name="window">75</property>
     <property name="max_gain">20dB</property>
-    <property name="level">00:00:41.917=-10</property>
+    <property name="level">00:00:41.917=-5</property>
     <property name="mlt_service">volume</property>
     <property name="kdenlive_id">volume</property>
     <property name="kdenlive:collapsed">0</property>
@@ -7244,6 +7055,7 @@
     <property name="kdenlive_id">fadein</property>
     <property name="gain">0</property>
     <property name="end">1</property>
+    <property name="kdenlive:collapsed">0</property>
    </filter>
    <filter id="filter143" in="00:00:53.983" out="00:00:55.250">
     <property name="window">75</property>
@@ -7252,6 +7064,7 @@
     <property name="kdenlive_id">fadeout</property>
     <property name="gain">1</property>
     <property name="end">0</property>
+    <property name="kdenlive:collapsed">0</property>
    </filter>
   </entry>
   <blank length="00:00:04.433"/>
@@ -7462,7 +7275,7 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain184" out="00:00:37.483">
+ <chain id="chain48" out="00:00:37.483">
   <property name="length">2250</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/introconclusion/1080p60/Intro.mp4</property>
@@ -7474,10 +7287,9 @@
   <property name="vstream">0</property>
   <property name="kdenlive:id">70</property>
   <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">1319765</property>
-  <property name="kdenlive:file_hash">dea2ec211bccd39fd7c1126e09f8a839</property>
+  <property name="kdenlive:file_size">1343681</property>
+  <property name="kdenlive:file_hash">fdcc7b8a1aa31f07621fc1e853f64004</property>
   <property name="kdenlive:folderid">140</property>
-  <property name="mute_on_pause">0</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">video</property>
   <property name="meta.media.0.stream.frame_rate">60</property>
@@ -7490,7 +7302,7 @@
   <property name="meta.media.0.codec.colorspace">709</property>
   <property name="meta.media.0.codec.name">h264</property>
   <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
-  <property name="meta.media.0.codec.bit_rate">275659</property>
+  <property name="meta.media.0.codec.bit_rate">280756</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
   <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 libx264</property>
@@ -7511,6 +7323,7 @@
   <property name="meta.media.aspect_ratio">1</property>
   <property name="meta.media.color_range">mpeg</property>
   <property name="xml">was here</property>
+  <property name="mute_on_pause">0</property>
   <property name="meta.media.top_field_first">0</property>
   <property name="meta.media.progressive">1</property>
   <property name="set.test_audio">1</property>
@@ -7762,7 +7575,7 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain48" out="00:00:46.983">
+ <chain id="chain54" out="00:00:46.983">
   <property name="length">2820</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/tvdistance/1080p60/Notations.mp4</property>
@@ -7936,7 +7749,7 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain54" out="00:03:43.233">
+ <chain id="chain57" out="00:03:43.233">
   <property name="length">13395</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/coinflips/1080p60/CoinFlipExample.mp4</property>
@@ -7990,7 +7803,7 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain193" out="00:01:35.483">
+ <chain id="chain59" out="00:01:35.483">
   <property name="length">5730</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/tvdistance/1080p60/Yapping.mp4</property>
@@ -8002,8 +7815,8 @@
   <property name="vstream">0</property>
   <property name="kdenlive:id">76</property>
   <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">5366063</property>
-  <property name="kdenlive:file_hash">5c82850cac869e85bd73860d21e0315d</property>
+  <property name="kdenlive:file_size">5375486</property>
+  <property name="kdenlive:file_hash">eb83e6f3025b138f941ae6ff531b9411</property>
   <property name="kdenlive:folderid">146</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">video</property>
@@ -8017,7 +7830,7 @@
   <property name="meta.media.0.codec.colorspace">709</property>
   <property name="meta.media.0.codec.name">h264</property>
   <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
-  <property name="meta.media.0.codec.bit_rate">443845</property>
+  <property name="meta.media.0.codec.bit_rate">444634</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
   <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 libx264</property>
@@ -8898,7 +8711,7 @@
   <property name="meta.media.top_field_first">0</property>
   <property name="meta.media.progressive">1</property>
  </producer>
- <chain id="chain197" out="00:00:47.983">
+ <chain id="chain60" out="00:00:47.983">
   <property name="length">2880</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/ttrmath/1080p60/Coupon.mp4</property>
@@ -8910,8 +8723,8 @@
   <property name="vstream">0</property>
   <property name="kdenlive:id">77</property>
   <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">1603562</property>
-  <property name="kdenlive:file_hash">56f32f8cbbde489ced3145e19a07e6b4</property>
+  <property name="kdenlive:file_size">1601573</property>
+  <property name="kdenlive:file_hash">a21ab2f24f26c03dc9ff17be05ef3665</property>
   <property name="kdenlive:folderid">151</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">video</property>
@@ -8925,7 +8738,7 @@
   <property name="meta.media.0.codec.colorspace">709</property>
   <property name="meta.media.0.codec.name">h264</property>
   <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
-  <property name="meta.media.0.codec.bit_rate">261406</property>
+  <property name="meta.media.0.codec.bit_rate">261074</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
   <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 libx264</property>
@@ -8952,7 +8765,7 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain57" out="00:01:34.983">
+ <chain id="chain61" out="00:01:34.983">
   <property name="length">5700</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/ttrmath/1080p60/Analysis.mp4</property>
@@ -10511,7 +10324,7 @@
   <property name="meta.media.top_field_first">0</property>
   <property name="meta.media.progressive">1</property>
  </producer>
- <chain id="chain202" out="00:00:33.983">
+ <chain id="chain63" out="00:00:33.983">
   <property name="length">2040</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/rifflemath/1080p60/BirthdayProblem.mp4</property>
@@ -10521,12 +10334,11 @@
   <property name="audio_index">-1</property>
   <property name="video_index">0</property>
   <property name="vstream">0</property>
-  <property name="kdenlive:folderid">154</property>
   <property name="kdenlive:id">80</property>
-  <property name="mute_on_pause">0</property>
   <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">1559645</property>
-  <property name="kdenlive:file_hash">d05838d29775956bfd32800680527ceb</property>
+  <property name="kdenlive:file_size">1563546</property>
+  <property name="kdenlive:file_hash">ff11176678e51be3e832303aea29371a</property>
+  <property name="kdenlive:folderid">154</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">video</property>
   <property name="meta.media.0.stream.frame_rate">60</property>
@@ -10539,7 +10351,7 @@
   <property name="meta.media.0.codec.colorspace">709</property>
   <property name="meta.media.0.codec.name">h264</property>
   <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
-  <property name="meta.media.0.codec.bit_rate">361033</property>
+  <property name="meta.media.0.codec.bit_rate">361949</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
   <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 libx264</property>
@@ -10560,6 +10372,7 @@
   <property name="meta.media.aspect_ratio">1</property>
   <property name="meta.media.color_range">mpeg</property>
   <property name="xml">was here</property>
+  <property name="mute_on_pause">0</property>
   <property name="meta.media.top_field_first">0</property>
   <property name="meta.media.progressive">1</property>
   <property name="set.test_audio">1</property>
@@ -11435,7 +11248,7 @@
   <entry in="00:01:59.783" out="00:02:59.767" producer="chain174">
    <property name="kdenlive:id">63</property>
   </entry>
-  <entry in="00:00:00.000" out="00:00:31.767" producer="chain184">
+  <entry in="00:00:00.000" out="00:00:31.767" producer="chain48">
    <property name="kdenlive:id">70</property>
   </entry>
   <entry in="00:02:22.483" out="00:02:37.633" producer="chain174">
@@ -11455,7 +11268,7 @@
   <entry in="00:00:00.000" out="00:00:18.483" producer="chain187">
    <property name="kdenlive:id">73</property>
   </entry>
-  <entry in="00:00:00.000" out="00:00:39.467" producer="chain48">
+  <entry in="00:00:00.000" out="00:00:39.467" producer="chain54">
    <property name="kdenlive:id">74</property>
   </entry>
   <blank length="00:00:01.017"/>
@@ -11470,10 +11283,10 @@
    <property name="kdenlive:id">75</property>
   </entry>
   <blank length="00:00:01.333"/>
-  <entry in="00:00:00.000" out="00:03:29.483" producer="chain54">
+  <entry in="00:00:00.000" out="00:03:29.483" producer="chain57">
    <property name="kdenlive:id">67</property>
   </entry>
-  <entry in="00:00:00.000" out="00:01:33.483" producer="chain193">
+  <entry in="00:00:00.000" out="00:01:33.483" producer="chain59">
    <property name="kdenlive:id">76</property>
   </entry>
   <entry in="00:00:00.000" out="00:01:20.833" producer="chain194">
@@ -11516,11 +11329,11 @@
    <property name="kdenlive:id">61</property>
   </entry>
   <blank length="00:00:00.600"/>
-  <entry in="00:00:00.000" out="00:00:46.983" producer="chain197">
+  <entry in="00:00:00.000" out="00:00:46.983" producer="chain60">
    <property name="kdenlive:id">77</property>
   </entry>
   <blank length="00:00:01.033"/>
-  <entry in="00:00:00.000" out="00:01:28.333" producer="chain57">
+  <entry in="00:00:00.000" out="00:01:28.333" producer="chain61">
    <property name="kdenlive:id">78</property>
   </entry>
   <entry in="00:00:41.917" out="00:00:55.250" producer="chain199">
@@ -11594,7 +11407,7 @@
   <entry in="00:07:30.000" out="00:07:34.767" producer="producer41">
    <property name="kdenlive:id">59</property>
   </entry>
-  <entry in="00:00:00.000" out="00:00:30.983" producer="chain202">
+  <entry in="00:00:00.000" out="00:00:30.983" producer="chain63">
    <property name="kdenlive:id">80</property>
   </entry>
   <entry in="00:00:00.000" out="00:01:28.100" producer="chain203">
@@ -11717,7 +11530,7 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain59" out="00:00:20.983">
+ <chain id="chain64" out="00:00:20.983">
   <property name="length">1260</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/introconclusion/1080p60/WhatIsShuffling.mov</property>
@@ -11771,7 +11584,7 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain60" out="00:00:23.983">
+ <chain id="chain66" out="00:00:23.983">
   <property name="length">1440</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/introconclusion/1080p60/TopToRandom.mov</property>
@@ -11825,7 +11638,7 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain61" out="00:00:40.483">
+ <chain id="chain68" out="00:00:40.483">
   <property name="length">2430</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/introconclusion/1080p60/PostGoFish.mp4</property>
@@ -11879,7 +11692,7 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain222" out="00:00:29.983">
+ <chain id="chain69" out="00:00:29.983">
   <property name="length">1800</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/coinflips/1080p60/CoinFlipTransparencies.mov</property>
@@ -11889,13 +11702,11 @@
   <property name="audio_index">-1</property>
   <property name="video_index">0</property>
   <property name="vstream">0</property>
-  <property name="kdenlive:folderid">139</property>
   <property name="kdenlive:id">68</property>
-  <property name="mute_on_pause">0</property>
   <property name="kdenlive:clip_type">2</property>
-  <property name="kdenlive:file_size">45898398</property>
-  <property name="kdenlive:file_hash">7bb544399d0efc20d61df1bc181a8436</property>
-  <property name="kdenlive:monitorPosition">0</property>
+  <property name="kdenlive:file_size">46638853</property>
+  <property name="kdenlive:file_hash">9758f27691f5d5cd199fd2bb8a253ecd</property>
+  <property name="kdenlive:folderid">139</property>
   <property name="meta.media.nb_streams">1</property>
   <property name="meta.media.0.stream.type">video</property>
   <property name="meta.media.0.stream.frame_rate">60</property>
@@ -11908,7 +11719,7 @@
   <property name="meta.media.0.codec.colorspace">709</property>
   <property name="meta.media.0.codec.name">qtrle</property>
   <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
-  <property name="meta.media.0.codec.bit_rate">12237190</property>
+  <property name="meta.media.0.codec.bit_rate">12434637</property>
   <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
   <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
@@ -11929,12 +11740,13 @@
   <property name="meta.media.aspect_ratio">1</property>
   <property name="meta.media.color_range">mpeg</property>
   <property name="xml">was here</property>
+  <property name="mute_on_pause">0</property>
   <property name="meta.media.top_field_first">0</property>
   <property name="meta.media.progressive">1</property>
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain63" out="00:00:24.983">
+ <chain id="chain72" out="00:00:24.983">
   <property name="length">1500</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/ttrmath/1080p60/DemoTransparencies.mov</property>
@@ -11988,7 +11800,7 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain64" out="00:00:34.983">
+ <chain id="chain91" out="00:00:34.983">
   <property name="length">2100</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/ttrmath/1080p60/CouplingTransparencies.mov</property>
@@ -12042,7 +11854,7 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain66" out="00:00:25.983">
+ <chain id="chain96" out="00:00:25.983">
   <property name="length">1560</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/ttrmath/1080p60/CheckMarkTransparencies.mov</property>
@@ -12150,7 +11962,7 @@
   <property name="meta.media.top_field_first">0</property>
   <property name="meta.media.progressive">1</property>
  </producer>
- <chain id="chain68" out="00:01:16.483">
+ <chain id="chain98" out="00:01:16.483">
   <property name="length">4590</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/rifflemath/1080p60/ModelTransparencies.mov</property>
@@ -12204,7 +12016,7 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain69" out="00:00:33.983">
+ <chain id="chain101" out="00:00:33.983">
   <property name="length">2040</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/rifflemath/1080p60/CouplingTransparencies.mov</property>
@@ -12258,7 +12070,7 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain72" out="00:01:12.483">
+ <chain id="chain103" out="00:01:12.483">
   <property name="length">4350</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/rifflemath/1080p60/NumberTransparencies.mov</property>
@@ -12313,7 +12125,7 @@
   <property name="set.test_audio">1</property>
   <property name="set.test_image">0</property>
  </chain>
- <chain id="chain91" out="00:00:04.983">
+ <chain id="chain106" out="00:00:04.983">
   <property name="length">300</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/introconclusion/1080p60/Definition1Transparency.mov</property>
@@ -12377,11 +12189,11 @@
    <property name="kdenlive:id">66</property>
   </entry>
   <blank length="00:00:00.367"/>
-  <entry in="00:00:00.000" out="00:00:13.933" producer="chain59">
+  <entry in="00:00:00.000" out="00:00:13.933" producer="chain64">
    <property name="kdenlive:id">85</property>
   </entry>
   <blank length="00:00:04.050"/>
-  <entry in="00:00:00.000" out="00:00:23.983" producer="chain60">
+  <entry in="00:00:00.000" out="00:00:23.983" producer="chain66">
    <property name="kdenlive:id">86</property>
   </entry>
   <blank length="00:00:03.500"/>
@@ -12405,7 +12217,7 @@
    <property name="kdenlive:id">66</property>
   </entry>
   <blank length="00:00:22.500"/>
-  <entry in="00:00:04.600" out="00:00:35.317" producer="chain61">
+  <entry in="00:00:04.600" out="00:00:35.317" producer="chain68">
    <property name="kdenlive:id">96</property>
   </entry>
   <blank length="00:01:13.167"/>
@@ -12413,7 +12225,7 @@
    <property name="kdenlive:id">66</property>
   </entry>
   <blank length="00:03:04.500"/>
-  <entry in="00:00:00.000" out="00:00:24.983" producer="chain222">
+  <entry in="00:00:00.000" out="00:00:24.983" producer="chain69">
    <property name="kdenlive:id">68</property>
   </entry>
   <blank length="00:01:31.500"/>
@@ -12425,23 +12237,23 @@
    <property name="kdenlive:id">66</property>
   </entry>
   <blank length="00:00:01.433"/>
-  <entry in="00:00:00.000" out="00:00:20.950" producer="chain63">
+  <entry in="00:00:00.000" out="00:00:20.950" producer="chain72">
    <property name="kdenlive:id">89</property>
   </entry>
   <blank length="00:00:00.033"/>
-  <entry in="00:00:00.000" out="00:00:32.167" producer="chain64">
+  <entry in="00:00:00.000" out="00:00:32.167" producer="chain91">
    <property name="kdenlive:id">90</property>
   </entry>
-  <entry in="00:00:00.000" out="00:00:00.300" producer="chain66">
+  <entry in="00:00:00.000" out="00:00:00.300" producer="chain96">
    <property name="kdenlive:id">92</property>
   </entry>
-  <entry in="00:00:00.000" out="00:00:00.983" producer="chain66">
+  <entry in="00:00:00.000" out="00:00:00.983" producer="chain96">
    <property name="kdenlive:id">92</property>
   </entry>
-  <entry in="00:00:00.000" out="00:00:00.983" producer="chain66">
+  <entry in="00:00:00.000" out="00:00:00.983" producer="chain96">
    <property name="kdenlive:id">92</property>
   </entry>
-  <entry in="00:00:01.000" out="00:00:24.383" producer="chain66">
+  <entry in="00:00:01.000" out="00:00:24.383" producer="chain96">
    <property name="kdenlive:id">92</property>
   </entry>
   <blank length="00:00:46.600"/>
@@ -12469,26 +12281,26 @@
    <property name="kdenlive:id">94</property>
   </entry>
   <blank length="00:00:59.250"/>
-  <entry in="00:01:09.167" out="00:01:14.717" producer="chain68">
+  <entry in="00:01:09.167" out="00:01:14.717" producer="chain98">
    <property name="kdenlive:id">88</property>
   </entry>
-  <entry in="00:00:00.000" out="00:00:00.750" producer="chain69">
+  <entry in="00:00:00.000" out="00:00:00.750" producer="chain101">
    <property name="kdenlive:id">93</property>
   </entry>
-  <entry in="00:00:00.000" out="00:00:00.983" producer="chain69">
+  <entry in="00:00:00.000" out="00:00:00.983" producer="chain101">
    <property name="kdenlive:id">93</property>
   </entry>
-  <entry in="00:00:00.000" out="00:00:00.983" producer="chain69">
+  <entry in="00:00:00.000" out="00:00:00.983" producer="chain101">
    <property name="kdenlive:id">93</property>
   </entry>
-  <entry in="00:00:01.000" out="00:00:28.150" producer="chain69">
+  <entry in="00:00:01.000" out="00:00:28.150" producer="chain101">
    <property name="kdenlive:id">93</property>
   </entry>
   <blank length="00:00:00.800"/>
-  <entry in="00:00:00.000" out="00:00:04.817" producer="chain72">
+  <entry in="00:00:00.000" out="00:00:04.817" producer="chain103">
    <property name="kdenlive:id">95</property>
   </entry>
-  <entry in="00:00:03.800" out="00:01:06.983" producer="chain72">
+  <entry in="00:00:03.800" out="00:01:06.983" producer="chain103">
    <property name="kdenlive:id">95</property>
   </entry>
   <blank length="00:00:30.183"/>
@@ -12500,7 +12312,7 @@
    <property name="kdenlive:id">66</property>
   </entry>
   <blank length="00:00:12.217"/>
-  <entry in="00:00:00.000" out="00:00:04.983" producer="chain91">
+  <entry in="00:00:00.000" out="00:00:04.983" producer="chain106">
    <property name="kdenlive:id">84</property>
   </entry>
   <blank length="00:00:18.683"/>
@@ -12519,7 +12331,7 @@
   <track hide="audio" producer="playlist8"/>
   <track hide="audio" producer="playlist9"/>
  </tractor>
- <chain id="chain96" out="00:01:16.483">
+ <chain id="chain107" out="00:01:16.483">
   <property name="length">4590</property>
   <property name="eof">pause</property>
   <property name="resource">media/videos/rifflemath/1080p60/ModelTransparencies.mov</property>
@@ -12649,7 +12461,7 @@
    </filter>
   </entry>
   <blank length="00:02:42.000"/>
-  <entry in="00:00:00.000" out="00:01:09.150" producer="chain96">
+  <entry in="00:00:00.000" out="00:01:09.150" producer="chain107">
    <property name="kdenlive:id">88</property>
   </entry>
   <blank length="00:00:05.067"/>
@@ -12722,14 +12534,14 @@
   <property name="kdenlive:clip_type">0</property>
   <property name="kdenlive:file_hash">117485639c4f0ef28609a216dd2a1f51</property>
   <property name="kdenlive:folderid">2</property>
-  <property name="kdenlive:sequenceproperties.activeTrack">0</property>
+  <property name="kdenlive:sequenceproperties.activeTrack">2</property>
   <property name="kdenlive:sequenceproperties.audioTarget">1</property>
   <property name="kdenlive:sequenceproperties.disablepreview">0</property>
   <property name="kdenlive:sequenceproperties.documentuuid">{6145f7b6-8bb3-4e2d-afc5-1905046347f9}</property>
   <property name="kdenlive:sequenceproperties.hasAudio">1</property>
   <property name="kdenlive:sequenceproperties.hasVideo">1</property>
-  <property name="kdenlive:sequenceproperties.position">108</property>
-  <property name="kdenlive:sequenceproperties.scrollPos">0</property>
+  <property name="kdenlive:sequenceproperties.position">42738</property>
+  <property name="kdenlive:sequenceproperties.scrollPos">14878</property>
   <property name="kdenlive:sequenceproperties.subtitlesList">[
     {
         "file": "/home/vilas/.local/share/kdenlive/.backup/Shuffling-1720486770903-2024-08-02-11-06.kdenlive.srt",
@@ -12744,7 +12556,7 @@
   <property name="kdenlive:sequenceproperties.videoTarget">2</property>
   <property name="kdenlive:sequenceproperties.zonein">0</property>
   <property name="kdenlive:sequenceproperties.zoneout">75</property>
-  <property name="kdenlive:sequenceproperties.zoom">6</property>
+  <property name="kdenlive:sequenceproperties.zoom">10</property>
   <property name="kdenlive:sequenceproperties.groups">[
     {
         "children": [
@@ -13711,8 +13523,1506 @@
     },
     {
         "comment": "|omega| = 52! >> astronomical",
-        "pos": 44070,
+        "pos": 43770,
         "type": 1
+    },
+    {
+        "comment": "end scroll?",
+        "pos": 44220,
+        "type": 2
+    },
+    {
+        "comment": "In the rest of the video (fade in the whole thing at once)",
+        "pos": 44850,
+        "type": 1
+    },
+    {
+        "comment": "\"the total variation distance between...\"",
+        "pos": 45420,
+        "type": 2
+    },
+    {
+        "comment": "d(t)",
+        "pos": 45990,
+        "type": 2
+    },
+    {
+        "comment": "d^shuffle",
+        "pos": 46080,
+        "type": 2
+    },
+    {
+        "comment": "d^top-to-random",
+        "pos": 46320,
+        "type": 2
+    },
+    {
+        "comment": "n = number of cards in the deck",
+        "pos": 46680,
+        "type": 2
+    },
+    {
+        "comment": "d_n",
+        "pos": 46890,
+        "type": 2
+    },
+    {
+        "comment": "d(t) &lt; f_n(t)",
+        "pos": 47070,
+        "type": 2
+    },
+    {
+        "comment": "f_n^{-1}(epsilon)",
+        "pos": 47280,
+        "type": 2
+    },
+    {
+        "comment": "&lt;",
+        "pos": 47400,
+        "type": 2
+    },
+    {
+        "comment": "tau(epsilon) = number of times we need to shuffle before the distance is at most epsilon",
+        "pos": 47460,
+        "type": 2
+    },
+    {
+        "comment": "= mixing time",
+        "pos": 47790,
+        "type": 2
+    },
+    {
+        "comment": "fade to blank",
+        "pos": 48210,
+        "type": 0
+    },
+    {
+        "comment": "sneaky trick: reversing the shuffle",
+        "pos": 48330,
+        "type": 1
+    },
+    {
+        "comment": "fade out sneaky trick",
+        "pos": 48510,
+        "type": 1
+    },
+    {
+        "comment": "fade in network",
+        "pos": 48570,
+        "type": 1
+    },
+    {
+        "comment": "reverse all of the arrows",
+        "pos": 48930,
+        "type": 1
+    },
+    {
+        "comment": "\"random-to-top\" shuffle",
+        "pos": 49230,
+        "type": 1
+    },
+    {
+        "comment": "remove random to top",
+        "pos": 49470,
+        "type": 1
+    },
+    {
+        "comment": "slide over, show both networks at once (titled: original and reverse)",
+        "pos": 49530,
+        "type": 1
+    },
+    {
+        "comment": "turn all nodes into blank circles or boxes",
+        "pos": 50070,
+        "type": 1
+    },
+    {
+        "comment": "isomorphism",
+        "pos": 50400,
+        "type": 1
+    },
+    {
+        "comment": "show definition 1 and highlight the sum over all outcomes",
+        "pos": 50550,
+        "type": 1
+    },
+    {
+        "comment": "d^top-to-random = d^random-to-top",
+        "pos": 50850,
+        "type": 1
+    },
+    {
+        "comment": "group",
+        "pos": 51420,
+        "type": 1
+    },
+    {
+        "comment": "shift up, equality",
+        "pos": 52470,
+        "type": 1
+    },
+    {
+        "comment": "the rest of everything",
+        "pos": 52650,
+        "type": 1
+    },
+    {
+        "comment": "Fade to real life",
+        "pos": 53194,
+        "type": 0
+    },
+    {
+        "comment": "show deck, text saying it's uniformly random",
+        "pos": 53280,
+        "type": 8
+    },
+    {
+        "comment": "fade in perfectly random",
+        "pos": 53310,
+        "type": 2
+    },
+    {
+        "comment": "fade out down",
+        "pos": 53370,
+        "type": 2
+    },
+    {
+        "comment": "Do one shuffle",
+        "pos": 53434,
+        "type": 8
+    },
+    {
+        "comment": "Still uniformly random!",
+        "pos": 53520,
+        "type": 8
+    },
+    {
+        "comment": "do some more shuffles",
+        "pos": 53734,
+        "type": 8
+    },
+    {
+        "comment": "anisah's hand comes in with the unshuffled deck",
+        "pos": 54034,
+        "type": 8
+    },
+    {
+        "comment": "say this deck is unshuffled, that is uniformly random",
+        "pos": 54094,
+        "type": 8
+    },
+    {
+        "comment": "unshuffled &amp; perfectly random",
+        "pos": 54120,
+        "type": 2
+    },
+    {
+        "comment": "start shuffling simultaneously",
+        "pos": 54290,
+        "type": 8
+    },
+    {
+        "comment": "fade it all out",
+        "pos": 54480,
+        "type": 2
+    },
+    {
+        "comment": "switch to face up cards",
+        "pos": 54528,
+        "type": 8
+    },
+    {
+        "comment": "start with labels",
+        "pos": 54540,
+        "type": 2
+    },
+    {
+        "comment": "fade in labels",
+        "pos": 54630,
+        "type": 2
+    },
+    {
+        "comment": "put finger on random card",
+        "pos": 54878,
+        "type": 8
+    },
+    {
+        "comment": "fade in top",
+        "pos": 54990,
+        "type": 2
+    },
+    {
+        "comment": "do the same with the perfectly random deck, but choose the same card",
+        "pos": 55123,
+        "type": 8
+    },
+    {
+        "comment": "chosen: 4",
+        "pos": 55290,
+        "type": 2
+    },
+    {
+        "comment": "chosen: 5",
+        "pos": 55410,
+        "type": 2
+    },
+    {
+        "comment": "do this a few more times",
+        "pos": 55425,
+        "type": 8
+    },
+    {
+        "comment": "chosen: 2",
+        "pos": 55590,
+        "type": 2
+    },
+    {
+        "comment": "choice: 4",
+        "pos": 55740,
+        "type": 2
+    },
+    {
+        "comment": "choice: 2",
+        "pos": 55860,
+        "type": 2
+    },
+    {
+        "comment": "choice: 6",
+        "pos": 56010,
+        "type": 2
+    },
+    {
+        "comment": "show the choice of card, then show shuffle being done",
+        "pos": 56065,
+        "type": 8
+    },
+    {
+        "comment": "choice: 4",
+        "pos": 56190,
+        "type": 2
+    },
+    {
+        "comment": "choice: A",
+        "pos": 56310,
+        "type": 2
+    },
+    {
+        "comment": "replay the footage",
+        "pos": 56478,
+        "type": 8
+    },
+    {
+        "comment": "add check mark for top cards",
+        "pos": 56580,
+        "type": 8
+    },
+    {
+        "comment": "check mark 0",
+        "pos": 56610,
+        "type": 2
+    },
+    {
+        "comment": "do it again",
+        "pos": 56781,
+        "type": 8
+    },
+    {
+        "comment": "check mark 1",
+        "pos": 56850,
+        "type": 2
+    },
+    {
+        "comment": "check mark for two cards",
+        "pos": 56867,
+        "type": 8
+    },
+    {
+        "comment": "check mark 2",
+        "pos": 57120,
+        "type": 2
+    },
+    {
+        "comment": "keep shuffling and adding check marks until the deck is shuffled, keep shuffling",
+        "pos": 57136,
+        "type": 8
+    },
+    {
+        "comment": "check mark 3",
+        "pos": 57270,
+        "type": 2
+    },
+    {
+        "comment": "lagged start check marks 4 and 5",
+        "pos": 57465,
+        "type": 2
+    },
+    {
+        "comment": "fade to manim",
+        "pos": 57960,
+        "type": 0
+    },
+    {
+        "comment": "goal",
+        "pos": 58050,
+        "type": 1
+    },
+    {
+        "comment": "after a card is chosen,",
+        "pos": 58290,
+        "type": 1
+    },
+    {
+        "comment": "decks align after all cards chosen",
+        "pos": 58710,
+        "type": 1
+    },
+    {
+        "comment": "reframing",
+        "pos": 59520,
+        "type": 1
+    },
+    {
+        "comment": "coupon collector",
+        "pos": 60030,
+        "type": 1
+    },
+    {
+        "comment": "couponconclusions",
+        "pos": 60270,
+        "type": 1
+    },
+    {
+        "comment": "fade to other manim",
+        "pos": 60870,
+        "type": 0
+    },
+    {
+        "comment": "implication",
+        "pos": 60960,
+        "type": 2
+    },
+    {
+        "comment": "unionbound",
+        "pos": 61260,
+        "type": 2
+    },
+    {
+        "comment": "prob for each card",
+        "pos": 61980,
+        "type": 2
+    },
+    {
+        "comment": "simplification for sum",
+        "pos": 62460,
+        "type": 2
+    },
+    {
+        "comment": "fade to desmos screen recording",
+        "pos": 62910,
+        "type": 8
+    },
+    {
+        "comment": "dbound1",
+        "pos": 63180,
+        "type": 2
+    },
+    {
+        "comment": "solving 1",
+        "pos": 64110,
+        "type": 2
+    },
+    {
+        "comment": "solve for t",
+        "pos": 64350,
+        "type": 2
+    },
+    {
+        "comment": "change to top-to-random",
+        "pos": 64830,
+        "type": 2
+    },
+    {
+        "comment": "mixing time",
+        "pos": 65010,
+        "type": 2
+    },
+    {
+        "comment": "fiftytwo",
+        "pos": 65520,
+        "type": 2
+    },
+    {
+        "comment": "242",
+        "pos": 66000,
+        "type": 2
+    },
+    {
+        "comment": "242 skit",
+        "pos": 66271,
+        "type": 5
+    },
+    {
+        "comment": "fade in box",
+        "pos": 67770,
+        "type": 2
+    },
+    {
+        "comment": "cut the deck",
+        "pos": 67890,
+        "type": 2
+    },
+    {
+        "comment": "riffle the pieces",
+        "pos": 68040,
+        "type": 2
+    },
+    {
+        "comment": "binomial",
+        "pos": 68490,
+        "type": 2
+    },
+    {
+        "comment": "close to n/2",
+        "pos": 69210,
+        "type": 2
+    },
+    {
+        "comment": "interleaving",
+        "pos": 70350,
+        "type": 2
+    },
+    {
+        "comment": "uniform",
+        "pos": 71100,
+        "type": 2
+    },
+    {
+        "comment": "reverse",
+        "pos": 71670,
+        "type": 2
+    },
+    {
+        "comment": "fade it all out",
+        "pos": 72180,
+        "type": 2
+    },
+    {
+        "comment": "subset: A26",
+        "pos": 72420,
+        "type": 2
+    },
+    {
+        "comment": "subset: 23",
+        "pos": 72720,
+        "type": 2
+    },
+    {
+        "comment": "subset: A346",
+        "pos": 73020,
+        "type": 2
+    },
+    {
+        "comment": "subset: A56",
+        "pos": 73380,
+        "type": 2
+    },
+    {
+        "comment": "subset: A35",
+        "pos": 73770,
+        "type": 2
+    },
+    {
+        "comment": "yeah",
+        "pos": 74160,
+        "type": 2
+    },
+    {
+        "comment": "interpret the bits as numbers",
+        "pos": 75660,
+        "type": 2
+    },
+    {
+        "comment": "increasing order (2 seconds)",
+        "pos": 75840,
+        "type": 2
+    },
+    {
+        "comment": "greenify",
+        "pos": 76560,
+        "type": 2
+    },
+    {
+        "comment": "redify",
+        "pos": 76980,
+        "type": 2
+    },
+    {
+        "comment": "fadeout numbers",
+        "pos": 77400,
+        "type": 2
+    },
+    {
+        "comment": "write numbers2",
+        "pos": 77565,
+        "type": 2
+    },
+    {
+        "comment": "fade them out",
+        "pos": 77610,
+        "type": 2
+    },
+    {
+        "comment": "fade in numbers",
+        "pos": 77730,
+        "type": 2
+    },
+    {
+        "comment": "fade out numbers",
+        "pos": 77760,
+        "type": 2
+    },
+    {
+        "comment": "fade in final numbers",
+        "pos": 77880,
+        "type": 2
+    },
+    {
+        "comment": "how many shuffles?",
+        "pos": 78180,
+        "type": 1
+    },
+    {
+        "comment": "first bullet point",
+        "pos": 78330,
+        "type": 1
+    },
+    {
+        "comment": "second bullet point",
+        "pos": 78750,
+        "type": 1
+    },
+    {
+        "comment": "reformulation",
+        "pos": 79020,
+        "type": 1
+    },
+    {
+        "comment": "birthday problem",
+        "pos": 79560,
+        "type": 1
+    },
+    {
+        "comment": "implication",
+        "pos": 80040,
+        "type": 2
+    },
+    {
+        "comment": "union bound",
+        "pos": 80370,
+        "type": 2
+    },
+    {
+        "comment": "1/2^t",
+        "pos": 81330,
+        "type": 2
+    },
+    {
+        "comment": "n choose 2",
+        "pos": 81570,
+        "type": 2
+    },
+    {
+        "comment": "probability statement",
+        "pos": 81930,
+        "type": 2
+    },
+    {
+        "comment": "transform probability",
+        "pos": 82380,
+        "type": 2
+    },
+    {
+        "comment": "transform to distance",
+        "pos": 82800,
+        "type": 2
+    },
+    {
+        "comment": "equivalence",
+        "pos": 83190,
+        "type": 2
+    },
+    {
+        "comment": "shift everything up",
+        "pos": 83790,
+        "type": 2
+    },
+    {
+        "comment": "fiftytwo",
+        "pos": 83880,
+        "type": 2
+    },
+    {
+        "comment": "fiftytwo2",
+        "pos": 83970,
+        "type": 2
+    },
+    {
+        "comment": "fiftytwo3",
+        "pos": 84300,
+        "type": 2
+    },
+    {
+        "comment": "fiftytwo4",
+        "pos": 84420,
+        "type": 2
+    },
+    {
+        "comment": "diaconistable",
+        "pos": 84570,
+        "type": 2
+    },
+    {
+        "comment": "highlight 7 shuffles",
+        "pos": 84630,
+        "type": 2
+    },
+    {
+        "comment": "just an upper bound",
+        "pos": 84900,
+        "type": 2
+    },
+    {
+        "comment": "fade to paper",
+        "pos": 85349,
+        "type": 8
+    },
+    {
+        "comment": "fade in definition 1",
+        "pos": 86100,
+        "type": 2
+    },
+    {
+        "comment": "fade out definition 1",
+        "pos": 86340,
+        "type": 2
+    },
+    {
+        "comment": "conclusion manim",
+        "pos": 87570,
+        "type": 0
+    },
+    {
+        "comment": "theirs",
+        "pos": 87660,
+        "type": 1
+    },
+    {
+        "comment": "ours",
+        "pos": 87930,
+        "type": 1
+    },
+    {
+        "comment": "theirproof",
+        "pos": 88230,
+        "type": 1
+    },
+    {
+        "comment": "ourproof",
+        "pos": 88590,
+        "type": 1
+    }
+]
+</property>
+  <property name="kdenlive:markers">[
+    {
+        "comment": "Just shuffling",
+        "pos": 0,
+        "type": 0
+    },
+    {
+        "comment": "Fade in table",
+        "pos": 1080,
+        "type": 1
+    },
+    {
+        "comment": "highlight 7",
+        "pos": 1440,
+        "type": 1
+    },
+    {
+        "comment": "highlight 10",
+        "pos": 2190,
+        "type": 1
+    },
+    {
+        "comment": "highlight 3 and 4",
+        "pos": 2760,
+        "type": 1
+    },
+    {
+        "comment": "fade out overlay",
+        "pos": 3390,
+        "type": 1
+    },
+    {
+        "comment": "Stop shuffling, fade to manim",
+        "pos": 3570,
+        "type": 0
+    },
+    {
+        "comment": "Fade in \"Questions\"",
+        "pos": 3630,
+        "type": 1
+    },
+    {
+        "comment": "How to get this table?",
+        "pos": 3720,
+        "type": 1
+    },
+    {
+        "comment": "What is the distance to perfect randomness?",
+        "pos": 3900,
+        "type": 1
+    },
+    {
+        "comment": "Check marks",
+        "pos": 4230,
+        "type": 1
+    },
+    {
+        "comment": "Asterisk",
+        "pos": 4410,
+        "type": 1
+    },
+    {
+        "comment": "\"In this video\"",
+        "pos": 4710,
+        "type": 1
+    },
+    {
+        "comment": "Top-to-random and Riffle shuffle",
+        "pos": 4770,
+        "type": 1
+    },
+    {
+        "comment": "Total variation distance",
+        "pos": 4890,
+        "type": 1
+    },
+    {
+        "comment": "Coupling technique",
+        "pos": 5190,
+        "type": 1
+    },
+    {
+        "comment": "What is shuffling? manim",
+        "pos": 5580,
+        "type": 2
+    },
+    {
+        "comment": "answer 1",
+        "pos": 5760,
+        "type": 2
+    },
+    {
+        "comment": "answer 2",
+        "pos": 6120,
+        "type": 2
+    },
+    {
+        "comment": "fade out",
+        "pos": 6330,
+        "type": 2
+    },
+    {
+        "comment": "Fade to shuffling",
+        "pos": 6420,
+        "type": 0
+    },
+    {
+        "comment": "ttr shuffle",
+        "pos": 6660,
+        "type": 2
+    },
+    {
+        "comment": "Take a card off the top of the deck",
+        "pos": 6750,
+        "type": 8
+    },
+    {
+        "comment": "Riffle to a random spot",
+        "pos": 6870,
+        "type": 8
+    },
+    {
+        "comment": "Insert card",
+        "pos": 6960,
+        "type": 8
+    },
+    {
+        "comment": "fade out ttr",
+        "pos": 7380,
+        "type": 2
+    },
+    {
+        "comment": "speed up shuffling, have anisah come in and be bored",
+        "pos": 7506,
+        "type": 5
+    },
+    {
+        "comment": "Stay tuned for the riffle shuffle",
+        "pos": 7800,
+        "type": 2
+    },
+    {
+        "comment": "Fade to manim",
+        "pos": 8370,
+        "type": 0
+    },
+    {
+        "comment": "fade in 3 cards",
+        "pos": 8430,
+        "type": 1
+    },
+    {
+        "comment": "put cards together",
+        "pos": 8520,
+        "type": 1
+    },
+    {
+        "comment": "Six possible arrangements",
+        "pos": 8640,
+        "type": 1
+    },
+    {
+        "comment": "Start with 123",
+        "pos": 8940,
+        "type": 1
+    },
+    {
+        "comment": "One of these three",
+        "pos": 9330,
+        "type": 1
+    },
+    {
+        "comment": "fade all in",
+        "pos": 9570,
+        "type": 1
+    },
+    {
+        "comment": "move them to their positoins",
+        "pos": 9600,
+        "type": 1
+    },
+    {
+        "comment": "Draw some arrows",
+        "pos": 9630,
+        "type": 1
+    },
+    {
+        "comment": "Fade out everything except 123, add probs",
+        "pos": 10080,
+        "type": 1
+    },
+    {
+        "comment": "add probs",
+        "pos": 10170,
+        "type": 1
+    },
+    {
+        "comment": "Do one top-to-random shuffle",
+        "pos": 10320,
+        "type": 1
+    },
+    {
+        "comment": "Highlight the two arrows",
+        "pos": 10500,
+        "type": 1
+    },
+    {
+        "comment": "Highlight 123",
+        "pos": 10590,
+        "type": 1
+    },
+    {
+        "comment": "Do another shuffle",
+        "pos": 10980,
+        "type": 1
+    },
+    {
+        "comment": "Do another shuffle",
+        "pos": 11160,
+        "type": 1
+    },
+    {
+        "comment": "Do another shuffle",
+        "pos": 11340,
+        "type": 1
+    },
+    {
+        "comment": "Do another shuffle",
+        "pos": 11520,
+        "type": 1
+    },
+    {
+        "comment": "\"perfect randomness = uniform distribution\"",
+        "pos": 11610,
+        "type": 1
+    },
+    {
+        "comment": "Do another shuffle",
+        "pos": 11700,
+        "type": 1
+    },
+    {
+        "comment": "Do another shuffle",
+        "pos": 11880,
+        "type": 1
+    },
+    {
+        "comment": "fade to different manim",
+        "pos": 12000,
+        "type": 0
+    },
+    {
+        "comment": "how close?",
+        "pos": 12030,
+        "type": 2
+    },
+    {
+        "comment": "Fade in rehprased question",
+        "pos": 12540,
+        "type": 2
+    },
+    {
+        "comment": "Notation",
+        "pos": 13140,
+        "type": 2
+    },
+    {
+        "comment": "mu = probability distribution on outcome space omega",
+        "pos": 13260,
+        "type": 2
+    },
+    {
+        "comment": "Example omega (with arrow or something)",
+        "pos": 13560,
+        "type": 2
+    },
+    {
+        "comment": "\"tells you how likely each outcome is\"",
+        "pos": 13860,
+        "type": 2
+    },
+    {
+        "comment": "example",
+        "pos": 14040,
+        "type": 2
+    },
+    {
+        "comment": "Example 1: mu = uniform on six arrangements",
+        "pos": 14100,
+        "type": 2
+    },
+    {
+        "comment": "1/6",
+        "pos": 14460,
+        "type": 2
+    },
+    {
+        "comment": "mu = distribution after one \"top-to-random\" shuffle",
+        "pos": 14760,
+        "type": 2
+    },
+    {
+        "comment": "wave these",
+        "pos": 15150,
+        "type": 2
+    },
+    {
+        "comment": "mu(those) = 0",
+        "pos": 15270,
+        "type": 2
+    },
+    {
+        "comment": "Fade to new manim, definition of TV",
+        "pos": 15450,
+        "type": 0
+    },
+    {
+        "comment": "mu1, mu2 probability distributions on omega",
+        "pos": 15570,
+        "type": 1
+    },
+    {
+        "comment": "dtv(mu1,mu2)",
+        "pos": 15900,
+        "type": 2
+    },
+    {
+        "comment": "fade in formula 1",
+        "pos": 16110,
+        "type": 2
+    },
+    {
+        "comment": "wiggle x",
+        "pos": 16200,
+        "type": 2
+    },
+    {
+        "comment": "wiggle mu1(x)",
+        "pos": 16350,
+        "type": 2
+    },
+    {
+        "comment": "wiggle mu2(x)",
+        "pos": 16530,
+        "type": 2
+    },
+    {
+        "comment": "wiggle sum",
+        "pos": 16710,
+        "type": 2
+    },
+    {
+        "comment": "wiggle 1/2",
+        "pos": 16830,
+        "type": 2
+    },
+    {
+        "comment": "circumscribe dtv",
+        "pos": 16950,
+        "type": 2
+    },
+    {
+        "comment": "\"total variation distance\"",
+        "pos": 17250,
+        "type": 2
+    },
+    {
+        "comment": "wiggle TV",
+        "pos": 17430,
+        "type": 2
+    },
+    {
+        "comment": "Fade out \"total variation distance\"",
+        "pos": 18060,
+        "type": 2
+    },
+    {
+        "comment": "fade in formula 2",
+        "pos": 18120,
+        "type": 2
+    },
+    {
+        "comment": "event = subset",
+        "pos": 18450,
+        "type": 2
+    },
+    {
+        "comment": "probability = sum",
+        "pos": 18600,
+        "type": 2
+    },
+    {
+        "comment": "example event",
+        "pos": 18990,
+        "type": 2
+    },
+    {
+        "comment": "uniform distribution",
+        "pos": 19350,
+        "type": 2
+    },
+    {
+        "comment": "after one step of top-to-random",
+        "pos": 19830,
+        "type": 2
+    },
+    {
+        "comment": "implication for tv distance",
+        "pos": 20250,
+        "type": 2
+    },
+    {
+        "comment": "swipe in table",
+        "pos": 20670,
+        "type": 1
+    },
+    {
+        "comment": "6 overlay",
+        "pos": 20880,
+        "type": 1
+    },
+    {
+        "comment": "3 4 overlay",
+        "pos": 21360,
+        "type": 1
+    },
+    {
+        "comment": "remove overlay",
+        "pos": 21840,
+        "type": 1
+    },
+    {
+        "comment": "go fish skit",
+        "pos": 22425,
+        "type": 5
+    },
+    {
+        "comment": "TODO: add something here",
+        "pos": 23830,
+        "type": 7
+    },
+    {
+        "comment": "don't think",
+        "pos": 24120,
+        "type": 2
+    },
+    {
+        "comment": "unless",
+        "pos": 25290,
+        "type": 2
+    },
+    {
+        "comment": "fade back to manim",
+        "pos": 25710,
+        "type": 0
+    },
+    {
+        "comment": "Random variables",
+        "pos": 25860,
+        "type": 1
+    },
+    {
+        "comment": "random outcome, i.e. random element of omega",
+        "pos": 26070,
+        "type": 1
+    },
+    {
+        "comment": "X tilde mu",
+        "pos": 26310,
+        "type": 1
+    },
+    {
+        "comment": "\"a random variable is not the same as a distribution\"",
+        "pos": 26580,
+        "type": 1
+    },
+    {
+        "comment": "Example",
+        "pos": 26820,
+        "type": 1
+    },
+    {
+        "comment": "Fade back to dtv manim",
+        "pos": 27750,
+        "type": 0
+    },
+    {
+        "comment": "dtv(mu1,mu2)",
+        "pos": 27810,
+        "type": 2
+    },
+    {
+        "comment": "fade in definition 3",
+        "pos": 27900,
+        "type": 2
+    },
+    {
+        "comment": "highlight X1, X2",
+        "pos": 28050,
+        "type": 2
+    },
+    {
+        "comment": "have the distributions",
+        "pos": 28140,
+        "type": 2
+    },
+    {
+        "comment": "mu1 and mu2",
+        "pos": 28200,
+        "type": 2
+    },
+    {
+        "comment": "highlight probability",
+        "pos": 28380,
+        "type": 2
+    },
+    {
+        "comment": "sample from mu1 and mu2 simultaneously",
+        "pos": 28860,
+        "type": 2
+    },
+    {
+        "comment": "\"coupling\"",
+        "pos": 29250,
+        "type": 2
+    },
+    {
+        "comment": "fade to coin manim",
+        "pos": 30030,
+        "type": 0
+    },
+    {
+        "comment": "\"coin flips\"",
+        "pos": 30150,
+        "type": 1
+    },
+    {
+        "comment": "write goal text",
+        "pos": 30270,
+        "type": 1
+    },
+    {
+        "comment": "fade in coin 1",
+        "pos": 30870,
+        "type": 1
+    },
+    {
+        "comment": "fade in coin 2",
+        "pos": 31080,
+        "type": 1
+    },
+    {
+        "comment": "assumption: p >= q",
+        "pos": 31290,
+        "type": 1
+    },
+    {
+        "comment": "mu_p and mu_q",
+        "pos": 31560,
+        "type": 1
+    },
+    {
+        "comment": "slide to the left",
+        "pos": 31770,
+        "type": 1
+    },
+    {
+        "comment": "definition 1",
+        "pos": 31830,
+        "type": 1
+    },
+    {
+        "comment": "dtv(mup,muq)  = formula",
+        "pos": 31890,
+        "type": 1
+    },
+    {
+        "comment": "write what it is in this case",
+        "pos": 32070,
+        "type": 1
+    },
+    {
+        "comment": "remove absolute value",
+        "pos": 32220,
+        "type": 1
+    },
+    {
+        "comment": "simplified",
+        "pos": 32400,
+        "type": 1
+    },
+    {
+        "comment": "dtv(mup,muq) = max(..)",
+        "pos": 32640,
+        "type": 1
+    },
+    {
+        "comment": ">= thing for any particular event A",
+        "pos": 32730,
+        "type": 1
+    },
+    {
+        "comment": "let A = {H}",
+        "pos": 32970,
+        "type": 1
+    },
+    {
+        "comment": ">= p-q",
+        "pos": 33450,
+        "type": 1
+    },
+    {
+        "comment": "{H} is optimal",
+        "pos": 34020,
+        "type": 1
+    },
+    {
+        "comment": "dtv(mup,muq) = min(..)",
+        "pos": 34320,
+        "type": 1
+    },
+    {
+        "comment": "what is this? (arrow to coupling)",
+        "pos": 34440,
+        "type": 1
+    },
+    {
+        "comment": "a way to flip both coins at once",
+        "pos": 34740,
+        "type": 1
+    },
+    {
+        "comment": "could flip them independently",
+        "pos": 34980,
+        "type": 1
+    },
+    {
+        "comment": "table",
+        "pos": 35190,
+        "type": 1
+    },
+    {
+        "comment": "fade out whatisacoupling",
+        "pos": 35940,
+        "type": 1
+    },
+    {
+        "comment": "&lt;= Prob",
+        "pos": 36000,
+        "type": 1
+    },
+    {
+        "comment": "when Xp and Xq are independent",
+        "pos": 36060,
+        "type": 1
+    },
+    {
+        "comment": "These two entries of the table",
+        "pos": 36540,
+        "type": 1
+    },
+    {
+        "comment": "fade it in",
+        "pos": 36660,
+        "type": 1
+    },
+    {
+        "comment": "> p-q",
+        "pos": 37080,
+        "type": 1
+    },
+    {
+        "comment": "the independent coupling does not achieve the minimum",
+        "pos": 37380,
+        "type": 1
+    },
+    {
+        "comment": "transition to new thing",
+        "pos": 37650,
+        "type": 0
+    },
+    {
+        "comment": "random number text",
+        "pos": 37770,
+        "type": 1
+    },
+    {
+        "comment": "rerandomize a few times",
+        "pos": 37815,
+        "type": 2
+    },
+    {
+        "comment": "fade in first coin",
+        "pos": 38010,
+        "type": 1
+    },
+    {
+        "comment": "transition first coin",
+        "pos": 38070,
+        "type": 1
+    },
+    {
+        "comment": "fade in Xp stuff at heads",
+        "pos": 38130,
+        "type": 1
+    },
+    {
+        "comment": "make random number bigger to get T",
+        "pos": 38310,
+        "type": 1
+    },
+    {
+        "comment": "rerandomize a few times",
+        "pos": 38463,
+        "type": 2
+    },
+    {
+        "comment": "fade in coin 2",
+        "pos": 38820,
+        "type": 1
+    },
+    {
+        "comment": "fade in coupling block",
+        "pos": 38880,
+        "type": 1
+    },
+    {
+        "comment": "make sure the number is at HT",
+        "pos": 38940,
+        "type": 1
+    },
+    {
+        "comment": "do some more randomizations",
+        "pos": 39010,
+        "type": 2
+    },
+    {
+        "comment": "rerandomizations end up less than q",
+        "pos": 40350,
+        "type": 1
+    },
+    {
+        "comment": "rerandomizations bigger than p",
+        "pos": 40650,
+        "type": 1
+    },
+    {
+        "comment": "random number between p and q",
+        "pos": 40950,
+        "type": 1
+    },
+    {
+        "comment": "fade in disagreeprob",
+        "pos": 41220,
+        "type": 1
+    },
+    {
+        "comment": "rerandomize as usual",
+        "pos": 41310,
+        "type": 2
+    },
+    {
+        "comment": "fade in takeaway",
+        "pos": 42060,
+        "type": 1
+    },
+    {
+        "comment": "Fade back to all definitions of dtv",
+        "pos": 42720,
+        "type": 0
+    },
+    {
+        "comment": "any event gives a lower bound",
+        "pos": 43230,
+        "type": 1
+    },
+    {
+        "comment": "any coupling gives an upper bound",
+        "pos": 43440,
+        "type": 1
+    },
+    {
+        "comment": "|omega| = 52! >> astronomical",
+        "pos": 43770,
+        "type": 1
+    },
+    {
+        "comment": "end scroll?",
+        "pos": 44220,
+        "type": 2
     },
     {
         "comment": "In the rest of the video (fade in the whole thing at once)",
@@ -14423,10 +15733,10 @@
   <track producer="tractor3"/>
   <track producer="tractor4"/>
   <track producer="tractor5"/>
-  <transition id="transition0" in="00:00:59.500" out="00:00:59.983">
+  <transition id="transition0" in="00:11:50.983" out="00:11:51.983">
    <property name="a_track">5</property>
    <property name="b_track">6</property>
-   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.483=0% 0% 100% 100% 100%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:01.000=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -14437,10 +15747,10 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition1" in="00:11:50.983" out="00:11:51.983">
+  <transition id="transition1" in="00:00:59.500" out="00:00:59.983">
    <property name="a_track">5</property>
    <property name="b_track">6</property>
-   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:01.000=0% 0% 100% 100% 100%</property>
+   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -14482,7 +15792,7 @@
   <transition id="transition4" in="00:18:36.883" out="00:18:37.217">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.333=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -14496,7 +15806,7 @@
   <transition id="transition5" in="00:07:06.467" out="00:07:07.317">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.850=0% 0% 100% 100% 0%</property>
+   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -14566,7 +15876,7 @@
   <transition id="transition10" in="00:18:23.883" out="00:18:24.500">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.617=0% 0% 100% 100% 0%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -14580,7 +15890,7 @@
   <transition id="transition11" in="00:14:46.150" out="00:14:46.333">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.183=0% 0% 100% 100% 100%</property>
+   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -14608,7 +15918,7 @@
   <transition id="transition13" in="00:14:46.350" out="00:14:46.550">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.200=0% 0% 100% 100% 0%</property>
+   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -14622,7 +15932,7 @@
   <transition id="transition14" in="00:02:18.500" out="00:02:19.483">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.983=0% 0% 100% 100% 100%</property>
+   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -14664,7 +15974,7 @@
   <transition id="transition17" in="00:18:41.667" out="00:18:42.000">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.333=0% 0% 100% 100% 0%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -14675,49 +15985,7 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition18" in="00:08:20.500" out="00:08:21.150">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.650=0% 0% 100% 100% 100%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition19" in="00:06:13.367" out="00:06:13.733">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.367=0% 0% 100% 100% 100%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition20" in="00:01:31.817" out="00:01:32.617">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.800=0% 0% 100% 100% 0%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition21" in="00:18:48.467" out="00:18:48.850">
+  <transition id="transition18" in="00:17:28.233" out="00:17:28.483">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
@@ -14731,10 +15999,10 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition22" in="00:13:23.500" out="00:13:24.333">
+  <transition id="transition19" in="00:23:42.117" out="00:23:42.767">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.833=0% 0% 100% 100% 100%</property>
+   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -14745,10 +16013,52 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition23" in="00:04:17.500" out="00:04:18.467">
+  <transition id="transition20" in="00:01:30.967" out="00:01:31.767">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.967=0% 0% 100% 100% 100%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.800=0% 0% 100% 100% 100%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition21" in="00:06:13.750" out="00:06:14.083">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.333=0% 0% 100% 100% 0%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition22" in="00:18:58.950" out="00:18:59.400">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition23" in="00:18:23.200" out="00:18:23.867">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.667=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -14773,7 +16083,21 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition25" in="00:18:23.200" out="00:18:23.867">
+  <transition id="transition25" in="00:04:17.500" out="00:04:18.467">
+   <property name="a_track">4</property>
+   <property name="b_track">5</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.967=0% 0% 100% 100% 100%</property>
+   <property name="factory">loader</property>
+   <property name="aligned">0</property>
+   <property name="progressive">1</property>
+   <property name="mlt_service">composite</property>
+   <property name="kdenlive_id">wipe</property>
+   <property name="luma"/>
+   <property name="softness">0</property>
+   <property name="luma_invert">0</property>
+   <property name="fill">1</property>
+  </transition>
+  <transition id="transition26" in="00:13:23.500" out="00:13:24.333">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
@@ -14787,10 +16111,10 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition26" in="00:18:58.950" out="00:18:59.400">
+  <transition id="transition27" in="00:18:48.467" out="00:18:48.850">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
+   <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -14801,10 +16125,10 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition27" in="00:06:13.750" out="00:06:14.083">
+  <transition id="transition28" in="00:01:31.817" out="00:01:32.617">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.333=0% 0% 100% 100% 0%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 100%;00:00:00.800=0% 0% 100% 100% 0%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -14815,10 +16139,10 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition28" in="00:01:30.967" out="00:01:31.767">
+  <transition id="transition29" in="00:06:13.367" out="00:06:13.733">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
-   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.800=0% 0% 100% 100% 100%</property>
+   <property name="geometry">00:00:00.000=0% 0% 100% 100% 0%;00:00:00.367=0% 0% 100% 100% 100%</property>
    <property name="factory">loader</property>
    <property name="aligned">0</property>
    <property name="progressive">1</property>
@@ -14829,21 +16153,7 @@
    <property name="luma_invert">0</property>
    <property name="fill">1</property>
   </transition>
-  <transition id="transition29" in="00:23:42.117" out="00:23:42.767">
-   <property name="a_track">4</property>
-   <property name="b_track">5</property>
-   <property name="geometry">0=0% 0% 100% 100% 100%;-1=0% 0% 100% 100% 0%</property>
-   <property name="factory">loader</property>
-   <property name="aligned">0</property>
-   <property name="progressive">1</property>
-   <property name="mlt_service">composite</property>
-   <property name="kdenlive_id">wipe</property>
-   <property name="luma"/>
-   <property name="softness">0</property>
-   <property name="luma_invert">0</property>
-   <property name="fill">1</property>
-  </transition>
-  <transition id="transition30" in="00:17:28.233" out="00:17:28.483">
+  <transition id="transition30" in="00:08:20.500" out="00:08:21.150">
    <property name="a_track">4</property>
    <property name="b_track">5</property>
    <property name="geometry">0=0% 0% 100% 100% 0%;-1=0% 0% 100% 100% 100%</property>
@@ -14930,72 +16240,255 @@
    <property name="disable">1</property>
   </filter>
  </tractor>
- <chain id="chain97" out="00:24:52.417">
-  <property name="length">89546</property>
+ <chain id="chain108" out="00:00:37.483">
+  <property name="length">2250</property>
   <property name="eof">pause</property>
-  <property name="resource">background_music.m4a</property>
-  <property name="mlt_service">avformat-novalidate</property>
-  <property name="meta.media.nb_streams">2</property>
-  <property name="meta.media.0.stream.type">audio</property>
-  <property name="meta.media.0.codec.sample_fmt">fltp</property>
-  <property name="meta.media.0.codec.sample_rate">44100</property>
-  <property name="meta.media.0.codec.channels">2</property>
-  <property name="meta.media.0.codec.layout">stereo</property>
-  <property name="meta.media.0.codec.name">aac</property>
-  <property name="meta.media.0.codec.long_name">AAC (Advanced Audio Coding)</property>
-  <property name="meta.media.0.codec.bit_rate">252884</property>
-  <property name="meta.attr.0.stream.creation_time.markup">2024-08-07T20:46:08.000000Z</property>
-  <property name="meta.attr.0.stream.language.markup">eng</property>
+  <property name="resource">media/videos/introconclusion/1080p60/Intro.mp4</property>
+  <property name="mlt_service">avformat</property>
+  <property name="meta.media.nb_streams">1</property>
+  <property name="meta.media.0.stream.type">video</property>
+  <property name="meta.media.0.stream.frame_rate">60</property>
+  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.width">1920</property>
+  <property name="meta.media.0.codec.height">1080</property>
+  <property name="meta.media.0.codec.rotate">0</property>
+  <property name="meta.media.0.codec.pix_fmt">yuv420p</property>
+  <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.colorspace">709</property>
+  <property name="meta.media.0.codec.name">h264</property>
+  <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
+  <property name="meta.media.0.codec.bit_rate">280756</property>
+  <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
   <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
-  <property name="meta.media.1.stream.type">video</property>
-  <property name="meta.media.1.stream.frame_rate">90000</property>
-  <property name="meta.media.1.stream.sample_aspect_ratio">0</property>
-  <property name="meta.media.1.codec.width">1024</property>
-  <property name="meta.media.1.codec.height">1024</property>
-  <property name="meta.media.1.codec.rotate">0</property>
-  <property name="meta.media.1.codec.pix_fmt">yuvj420p</property>
-  <property name="meta.media.1.codec.sample_aspect_ratio">1</property>
-  <property name="meta.media.1.codec.colorspace">601</property>
-  <property name="meta.media.1.codec.name">mjpeg</property>
-  <property name="meta.media.1.codec.long_name">MJPEG (Motion JPEG)</property>
-  <property name="meta.media.1.codec.bit_rate">0</property>
-  <property name="meta.attr.major_brand.markup">M4A </property>
-  <property name="meta.attr.minor_version.markup">0</property>
-  <property name="meta.attr.compatible_brands.markup">M4A mp42isom</property>
-  <property name="meta.attr.creation_time.markup">2024-08-07T20:46:08.000000Z</property>
-  <property name="meta.attr.artist.markup">Vilas</property>
-  <property name="meta.attr.album.markup">Vilas's Album</property>
-  <property name="meta.attr.date.markup">2024</property>
-  <property name="meta.attr.composer.markup">Vilas</property>
-  <property name="meta.attr.title.markup">My Song 2</property>
-  <property name="meta.attr.encoder.markup">GarageBand for iOS 2.3.16</property>
-  <property name="meta.attr.iTunSMPB.markup"> 00000000 00000840 00000159 0000000003EC3E67 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000</property>
+  <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 libx264</property>
+  <property name="meta.attr.major_brand.markup">isom</property>
+  <property name="meta.attr.minor_version.markup">512</property>
+  <property name="meta.attr.compatible_brands.markup">isomiso2avc1mp41</property>
+  <property name="meta.attr.encoder.markup">Lavf61.1.100</property>
+  <property name="meta.attr.comment.markup">Rendered with Manim Community v0.18.1</property>
   <property name="seekable">1</property>
-  <property name="meta.media.sample_aspect_num">72</property>
-  <property name="meta.media.sample_aspect_den">72</property>
+  <property name="meta.media.sample_aspect_num">1</property>
+  <property name="meta.media.sample_aspect_den">1</property>
   <property name="format">3</property>
-  <property name="audio_index">0</property>
-  <property name="video_index">1</property>
+  <property name="audio_index">-1</property>
+  <property name="video_index">0</property>
   <property name="vstream">0</property>
-  <property name="meta.media.frame_rate_num">90000</property>
+  <property name="meta.media.frame_rate_num">60</property>
   <property name="meta.media.frame_rate_den">1</property>
-  <property name="meta.media.colorspace">601</property>
+  <property name="meta.media.colorspace">709</property>
   <property name="meta.media.color_trc">2</property>
-  <property name="meta.media.has_b_frames">0</property>
-  <property name="meta.media.width">1024</property>
-  <property name="meta.media.height">1024</property>
+  <property name="meta.media.has_b_frames">2</property>
+  <property name="meta.media.width">1920</property>
+  <property name="meta.media.height">1080</property>
   <property name="meta.media.aspect_ratio">1</property>
-  <property name="meta.media.color_range">full</property>
-  <property name="astream">0</property>
+  <property name="meta.media.color_range">mpeg</property>
   <property name="meta.media.top_field_first">0</property>
   <property name="meta.media.progressive">1</property>
-  <property name="kdenlive:folderid">-1</property>
-  <property name="kdenlive:id">98</property>
-  <property name="mute_on_pause">0</property>
-  <property name="kdenlive:clip_type">0</property>
-  <property name="kdenlive:file_size">47580569</property>
-  <property name="kdenlive:file_hash">e7a658c0ac42170128ddd97069219dc9</property>
-  <property name="kdenlive:audio_max0">230</property>
+  <property name="kdenlive:id">70</property>
+  <property name="kdenlive:clip_type">2</property>
+  <property name="kdenlive:file_size">1343681</property>
+  <property name="kdenlive:file_hash">fdcc7b8a1aa31f07621fc1e853f64004</property>
+  <property name="kdenlive:folderid">140</property>
+ </chain>
+ <chain id="chain110" out="00:00:33.983">
+  <property name="length">2040</property>
+  <property name="eof">pause</property>
+  <property name="resource">media/videos/rifflemath/1080p60/BirthdayProblem.mp4</property>
+  <property name="mlt_service">avformat</property>
+  <property name="meta.media.nb_streams">1</property>
+  <property name="meta.media.0.stream.type">video</property>
+  <property name="meta.media.0.stream.frame_rate">60</property>
+  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.width">1920</property>
+  <property name="meta.media.0.codec.height">1080</property>
+  <property name="meta.media.0.codec.rotate">0</property>
+  <property name="meta.media.0.codec.pix_fmt">yuv420p</property>
+  <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.colorspace">709</property>
+  <property name="meta.media.0.codec.name">h264</property>
+  <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
+  <property name="meta.media.0.codec.bit_rate">361949</property>
+  <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
+  <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
+  <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 libx264</property>
+  <property name="meta.attr.major_brand.markup">isom</property>
+  <property name="meta.attr.minor_version.markup">512</property>
+  <property name="meta.attr.compatible_brands.markup">isomiso2avc1mp41</property>
+  <property name="meta.attr.encoder.markup">Lavf61.1.100</property>
+  <property name="meta.attr.comment.markup">Rendered with Manim Community v0.18.1</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.sample_aspect_num">1</property>
+  <property name="meta.media.sample_aspect_den">1</property>
+  <property name="format">3</property>
+  <property name="audio_index">-1</property>
+  <property name="video_index">0</property>
+  <property name="vstream">0</property>
+  <property name="meta.media.frame_rate_num">60</property>
+  <property name="meta.media.frame_rate_den">1</property>
+  <property name="meta.media.colorspace">709</property>
+  <property name="meta.media.color_trc">2</property>
+  <property name="meta.media.has_b_frames">2</property>
+  <property name="meta.media.width">1920</property>
+  <property name="meta.media.height">1080</property>
+  <property name="meta.media.aspect_ratio">1</property>
+  <property name="meta.media.color_range">mpeg</property>
+  <property name="meta.media.top_field_first">0</property>
+  <property name="meta.media.progressive">1</property>
+  <property name="kdenlive:id">80</property>
+  <property name="kdenlive:clip_type">2</property>
+  <property name="kdenlive:file_size">1563546</property>
+  <property name="kdenlive:file_hash">ff11176678e51be3e832303aea29371a</property>
+  <property name="kdenlive:folderid">154</property>
+ </chain>
+ <chain id="chain114" out="00:00:47.983">
+  <property name="length">2880</property>
+  <property name="eof">pause</property>
+  <property name="resource">media/videos/ttrmath/1080p60/Coupon.mp4</property>
+  <property name="mlt_service">avformat</property>
+  <property name="meta.media.nb_streams">1</property>
+  <property name="meta.media.0.stream.type">video</property>
+  <property name="meta.media.0.stream.frame_rate">60</property>
+  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.width">1920</property>
+  <property name="meta.media.0.codec.height">1080</property>
+  <property name="meta.media.0.codec.rotate">0</property>
+  <property name="meta.media.0.codec.pix_fmt">yuv420p</property>
+  <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.colorspace">709</property>
+  <property name="meta.media.0.codec.name">h264</property>
+  <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
+  <property name="meta.media.0.codec.bit_rate">261074</property>
+  <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
+  <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
+  <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 libx264</property>
+  <property name="meta.attr.major_brand.markup">isom</property>
+  <property name="meta.attr.minor_version.markup">512</property>
+  <property name="meta.attr.compatible_brands.markup">isomiso2avc1mp41</property>
+  <property name="meta.attr.encoder.markup">Lavf61.1.100</property>
+  <property name="meta.attr.comment.markup">Rendered with Manim Community v0.18.1</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.sample_aspect_num">1</property>
+  <property name="meta.media.sample_aspect_den">1</property>
+  <property name="format">3</property>
+  <property name="audio_index">-1</property>
+  <property name="video_index">0</property>
+  <property name="vstream">0</property>
+  <property name="meta.media.frame_rate_num">60</property>
+  <property name="meta.media.frame_rate_den">1</property>
+  <property name="meta.media.colorspace">709</property>
+  <property name="meta.media.color_trc">2</property>
+  <property name="meta.media.has_b_frames">2</property>
+  <property name="meta.media.width">1920</property>
+  <property name="meta.media.height">1080</property>
+  <property name="meta.media.aspect_ratio">1</property>
+  <property name="meta.media.color_range">mpeg</property>
+  <property name="meta.media.top_field_first">0</property>
+  <property name="meta.media.progressive">1</property>
+  <property name="kdenlive:id">77</property>
+  <property name="kdenlive:clip_type">2</property>
+  <property name="kdenlive:file_size">1601573</property>
+  <property name="kdenlive:file_hash">a21ab2f24f26c03dc9ff17be05ef3665</property>
+  <property name="kdenlive:folderid">151</property>
+ </chain>
+ <chain id="chain115" out="00:01:35.483">
+  <property name="length">5730</property>
+  <property name="eof">pause</property>
+  <property name="resource">media/videos/tvdistance/1080p60/Yapping.mp4</property>
+  <property name="mlt_service">avformat</property>
+  <property name="meta.media.nb_streams">1</property>
+  <property name="meta.media.0.stream.type">video</property>
+  <property name="meta.media.0.stream.frame_rate">60</property>
+  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.width">1920</property>
+  <property name="meta.media.0.codec.height">1080</property>
+  <property name="meta.media.0.codec.rotate">0</property>
+  <property name="meta.media.0.codec.pix_fmt">yuv420p</property>
+  <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.colorspace">709</property>
+  <property name="meta.media.0.codec.name">h264</property>
+  <property name="meta.media.0.codec.long_name">H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</property>
+  <property name="meta.media.0.codec.bit_rate">444634</property>
+  <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
+  <property name="meta.attr.0.stream.vendor_id.markup">[0][0][0][0]</property>
+  <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 libx264</property>
+  <property name="meta.attr.major_brand.markup">isom</property>
+  <property name="meta.attr.minor_version.markup">512</property>
+  <property name="meta.attr.compatible_brands.markup">isomiso2avc1mp41</property>
+  <property name="meta.attr.encoder.markup">Lavf61.1.100</property>
+  <property name="meta.attr.comment.markup">Rendered with Manim Community v0.18.1</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.sample_aspect_num">1</property>
+  <property name="meta.media.sample_aspect_den">1</property>
+  <property name="format">3</property>
+  <property name="audio_index">-1</property>
+  <property name="video_index">0</property>
+  <property name="vstream">0</property>
+  <property name="meta.media.frame_rate_num">60</property>
+  <property name="meta.media.frame_rate_den">1</property>
+  <property name="meta.media.colorspace">709</property>
+  <property name="meta.media.color_trc">2</property>
+  <property name="meta.media.has_b_frames">2</property>
+  <property name="meta.media.width">1920</property>
+  <property name="meta.media.height">1080</property>
+  <property name="meta.media.aspect_ratio">1</property>
+  <property name="meta.media.color_range">mpeg</property>
+  <property name="meta.media.top_field_first">0</property>
+  <property name="meta.media.progressive">1</property>
+  <property name="kdenlive:id">76</property>
+  <property name="kdenlive:clip_type">2</property>
+  <property name="kdenlive:file_size">5375486</property>
+  <property name="kdenlive:file_hash">eb83e6f3025b138f941ae6ff531b9411</property>
+  <property name="kdenlive:folderid">146</property>
+ </chain>
+ <chain id="chain117" out="00:00:29.983">
+  <property name="length">1800</property>
+  <property name="eof">pause</property>
+  <property name="resource">media/videos/coinflips/1080p60/CoinFlipTransparencies.mov</property>
+  <property name="mlt_service">avformat</property>
+  <property name="meta.media.nb_streams">1</property>
+  <property name="meta.media.0.stream.type">video</property>
+  <property name="meta.media.0.stream.frame_rate">60</property>
+  <property name="meta.media.0.stream.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.width">1920</property>
+  <property name="meta.media.0.codec.height">1080</property>
+  <property name="meta.media.0.codec.rotate">0</property>
+  <property name="meta.media.0.codec.pix_fmt">argb</property>
+  <property name="meta.media.0.codec.sample_aspect_ratio">0</property>
+  <property name="meta.media.0.codec.colorspace">709</property>
+  <property name="meta.media.0.codec.name">qtrle</property>
+  <property name="meta.media.0.codec.long_name">QuickTime Animation (RLE) video</property>
+  <property name="meta.media.0.codec.bit_rate">12434637</property>
+  <property name="meta.attr.0.stream.handler_name.markup">VideoHandler</property>
+  <property name="meta.attr.0.stream.vendor_id.markup">FFMP</property>
+  <property name="meta.attr.0.stream.encoder.markup">Lavc61.3.100 qtrle</property>
+  <property name="meta.attr.major_brand.markup">qt  </property>
+  <property name="meta.attr.minor_version.markup">512</property>
+  <property name="meta.attr.compatible_brands.markup">qt  </property>
+  <property name="meta.attr.encoder.markup">Lavf61.1.100</property>
+  <property name="meta.attr.comment.markup">Rendered with Manim Community v0.18.1</property>
+  <property name="seekable">1</property>
+  <property name="meta.media.sample_aspect_num">1</property>
+  <property name="meta.media.sample_aspect_den">1</property>
+  <property name="format">2</property>
+  <property name="audio_index">-1</property>
+  <property name="video_index">0</property>
+  <property name="vstream">0</property>
+  <property name="meta.media.frame_rate_num">60</property>
+  <property name="meta.media.frame_rate_den">1</property>
+  <property name="meta.media.colorspace">709</property>
+  <property name="meta.media.color_trc">2</property>
+  <property name="meta.media.has_b_frames">0</property>
+  <property name="meta.media.width">1920</property>
+  <property name="meta.media.height">1080</property>
+  <property name="meta.media.aspect_ratio">1</property>
+  <property name="meta.media.color_range">mpeg</property>
+  <property name="meta.media.top_field_first">0</property>
+  <property name="meta.media.progressive">1</property>
+  <property name="kdenlive:id">68</property>
+  <property name="kdenlive:clip_type">2</property>
+  <property name="kdenlive:file_size">46638853</property>
+  <property name="kdenlive:file_hash">9758f27691f5d5cd199fd2bb8a253ecd</property>
+  <property name="kdenlive:folderid">139</property>
  </chain>
  <playlist id="main_bin">
   <property name="kdenlive:folder.-1.2">Sequences</property>
@@ -15098,7 +16591,7 @@
   <property name="kdenlive:docproperties.rendertcoverlay">0</property>
   <property name="kdenlive:docproperties.rendertctype">-1</property>
   <property name="kdenlive:docproperties.rendertwopass">0</property>
-  <property name="kdenlive:docproperties.renderurl">renders/Shuffling_HQ.mp4</property>
+  <property name="kdenlive:docproperties.renderurl">renders/shuffling_final.mp4</property>
   <property name="kdenlive:docproperties.seekOffset">8991</property>
   <property name="kdenlive:docproperties.storagefolder">1720486770903</property>
   <property name="kdenlive:docproperties.uuid">{6145f7b6-8bb3-4e2d-afc5-1905046347f9}</property>
@@ -15171,19 +16664,14 @@
   <entry in="00:00:00.000" out="00:00:06.500" producer="producer39"/>
   <entry in="00:00:00.000" out="00:00:04.983" producer="producer40"/>
   <entry in="00:00:00.000" out="00:03:43.233" producer="chain86"/>
-  <entry in="00:00:00.000" out="00:00:29.983" producer="chain192"/>
   <entry in="00:00:00.000" out="00:00:49.483" producer="chain206"/>
-  <entry in="00:00:00.000" out="00:00:37.483" producer="chain217"/>
   <entry in="00:00:00.000" out="00:01:03.483" producer="chain207"/>
   <entry in="00:00:00.000" out="00:01:23.983" producer="chain208"/>
   <entry in="00:00:00.000" out="00:00:20.483" producer="chain209"/>
   <entry in="00:00:00.000" out="00:00:46.983" producer="chain82"/>
   <entry in="00:00:00.000" out="00:03:38.983" producer="chain211"/>
-  <entry in="00:00:00.000" out="00:01:35.483" producer="chain230"/>
-  <entry in="00:00:00.000" out="00:00:47.983" producer="chain214"/>
   <entry in="00:00:00.000" out="00:01:34.983" producer="chain92"/>
   <entry in="00:00:00.000" out="00:01:31.983" producer="chain218"/>
-  <entry in="00:00:00.000" out="00:00:33.983" producer="chain216"/>
   <entry in="00:00:00.000" out="00:00:27.983" producer="chain219"/>
   <entry in="00:00:00.000" out="00:00:32.100" producer="chain224"/>
   <entry in="00:00:00.000" out="00:01:53.567" producer="chain225"/>
@@ -15200,8 +16688,13 @@
   <entry in="00:00:00.000" out="00:00:04.983" producer="producer56"/>
   <entry in="00:00:00.000" out="00:01:12.483" producer="chain77"/>
   <entry in="00:00:00.000" out="00:00:40.483" producer="chain79"/>
-  <entry in="00:00:00.000" out="00:24:42.983" producer="tractor6"/>
   <entry in="00:00:00.000" out="00:24:52.417" producer="chain97"/>
+  <entry in="00:00:00.000" out="00:24:44.983" producer="tractor6"/>
+  <entry in="00:00:00.000" out="00:00:37.483" producer="chain108"/>
+  <entry in="00:00:00.000" out="00:00:33.983" producer="chain110"/>
+  <entry in="00:00:00.000" out="00:00:47.983" producer="chain114"/>
+  <entry in="00:00:00.000" out="00:01:35.483" producer="chain115"/>
+  <entry in="00:00:00.000" out="00:00:29.983" producer="chain117"/>
  </playlist>
  <tractor id="tractor7" in="00:00:00.000" out="00:24:44.983">
   <property name="kdenlive:projectTractor">1</property>

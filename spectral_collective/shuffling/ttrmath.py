@@ -283,7 +283,7 @@ class Coupon(Scene):
         ).shift(1.5*UP)
 
         item2 = MyMathTex(
-            r'\bullet \text{ decks will align after every card is chosen at least once.}',
+            r'\bullet \text{ decks will align after every card is chosen at least once}',
             font_size=45
         ).shift(0.75*UP).align_to(item1, LEFT)
 

@@ -37,7 +37,7 @@ class Intro(Scene):
         ).align_to(questions, LEFT).shift(0.25*DOWN)
 
         twoshuffles = MyTex(
-            r'\textbullet{} analyze of the top-to-random and riffle shuffles'
+            r'\textbullet{} discuss two kinds of shuffles (top-to-random and riffle)'
         ).next_to(inthisvideo, DOWN).align_to(distance, LEFT).shift(0.25*DOWN)
 
         tvdistance = MyTex(

@@ -773,7 +773,7 @@ class CoinFlipTransparencies(Scene):
 
         takeawaytext = MyTex(
             r'\textbf{Takeaway:} good couplings generally arise \\\
-                when you can simulate two distributions \\\
+                when you can simulate two random variables \\\
                 using the same source of randomness.',
             font_size=62,
         ).set_z_index(10)
